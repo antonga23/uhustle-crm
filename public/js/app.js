@@ -37159,7 +37159,7 @@ var render = function() {
                     "data-aos": "fade-right",
                     "data-aos-easing": "ease-in-sine",
                     "data-aos-duration": "1050",
-                    "data-aos-offset": "450"
+                    "data-aos-offset": "650"
                   }
                 },
                 [_vm._v("SUPPORT")]
@@ -37216,7 +37216,16 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(6)
+    _c("section", { staticClass: "row", attrs: { id: "take" } }, [
+      _vm._m(6),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "take-right" } }, [
+        _c("img", {
+          staticClass: "take-right-img",
+          attrs: { src: "/images/Asset 34.png" }
+        })
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37276,11 +37285,22 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offer-details-box-inner" }, [
-      _c("p", [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
-        )
-      ]),
+      _c(
+        "p",
+        {
+          attrs: {
+            "data-aos": "fade-right",
+            "data-aos-easing": "ease-in-sine",
+            "data-aos-duration": "1050",
+            "data-aos-offset": "500"
+          }
+        },
+        [
+          _vm._v(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("ul", { attrs: { id: "offer-details-box-inner-ul1" } }, [
         _c(
@@ -37290,7 +37310,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "550"
             }
           },
           [
@@ -37307,7 +37327,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "600"
             }
           },
           [
@@ -37324,7 +37344,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "650"
             }
           },
           [
@@ -37348,7 +37368,7 @@ var staticRenderFns = [
             "data-aos": "fade-right",
             "data-aos-easing": "ease-in-sine",
             "data-aos-duration": "1050",
-            "data-aos-offset": "450"
+            "data-aos-offset": "500"
           }
         },
         [
@@ -37366,7 +37386,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "550"
             }
           },
           [
@@ -37383,7 +37403,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "600"
             }
           },
           [
@@ -37400,7 +37420,7 @@ var staticRenderFns = [
               "data-aos": "fade-right",
               "data-aos-easing": "ease-in-sine",
               "data-aos-duration": "1050",
-              "data-aos-offset": "450"
+              "data-aos-offset": "650"
             }
           },
           [
@@ -37417,30 +37437,74 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offer-details-box-inner" }, [
-      _c("p", [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
-        )
-      ]),
+      _c(
+        "p",
+        {
+          attrs: {
+            "data-aos": "fade-right",
+            "data-aos-easing": "ease-in-sine",
+            "data-aos-duration": "1050",
+            "data-aos-offset": "500"
+          }
+        },
+        [
+          _vm._v(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("ul", { attrs: { id: "offer-details-box-inner-ul3" } }, [
-        _c("li", [
-          _vm._v(
-            "\n                                    Bringing clients to you\n                                "
-          )
-        ]),
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-aos": "fade-right",
+              "data-aos-easing": "ease-in-sine",
+              "data-aos-duration": "1050",
+              "data-aos-offset": "550"
+            }
+          },
+          [
+            _vm._v(
+              "\n                                    Bringing clients to you\n                                "
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n                                    Bringing clients to you\n                                "
-          )
-        ]),
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-aos": "fade-right",
+              "data-aos-easing": "ease-in-sine",
+              "data-aos-duration": "1050",
+              "data-aos-offset": "600"
+            }
+          },
+          [
+            _vm._v(
+              "\n                                    Bringing clients to you\n                                "
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n                                    Bringing clients to you\n                                "
-          )
-        ])
+        _c(
+          "li",
+          {
+            attrs: {
+              "data-aos": "fade-right",
+              "data-aos-easing": "ease-in-sine",
+              "data-aos-duration": "1050",
+              "data-aos-offset": "650"
+            }
+          },
+          [
+            _vm._v(
+              "\n                                    Bringing clients to you\n                                "
+            )
+          ]
+        )
       ])
     ])
   },
@@ -37448,27 +37512,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "last-footer" } }, [
-      _c("div", { attrs: { id: "offer-take-control" } }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("h2", [_vm._v("TAKE CONTROL")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-100" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "value" }, [_vm._v("321978")])
+    return _c("div", { staticClass: "col", attrs: { id: "take-left" } }, [
+      _c("h2", [_vm._v("TAKE CONTROL")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript"
+        )
       ])
     ])
   }
@@ -49782,8 +49832,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\uhustle_app\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\uhustle_app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\uhustle-app\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\uhustle-app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

@@ -14,7 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+/**
+     * Main
+     */
+    // Route::get('/', 'PagesController@dashboard');
+    Route::get('dashboard', 'PagesController@index')->name('dashboard');

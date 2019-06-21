@@ -6,6 +6,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+//custom
+@import 'components/base';
+@import 'components/sidebar';
+@import 'components/dashboard';
 #app{
     background-color: #ffffff;
     font-family: Lato;
@@ -70,7 +74,13 @@
     box-shadow: 0px 0px 20px -20px rgba(0,0,0,0.2);
     transform: translate(0px, -10px) scale(1.2);
   }
-
+  #top-landing-2 ul li a{
+      color:#ffffff;
+  }
+  #top-landing-2 ul li a:hover{
+    color:#ffffff;
+    transform: translate(0px, -10px) scale(1.2);
+}
 #top-landing-2{
     padding: 0;
     float:left;
@@ -246,13 +256,31 @@ font-size: 16px;
     margin: 2% 2% 3% -16%;
     padding: 2%;
 }
-#last-footer{
-    // background-image: url(/images/Landing_page.png?28113db…);
-    background-size: 98%;
+#take{
+    //background-image: url('../img/Asset 33.png');
+    background-size: 40%;
     background-repeat: no-repeat;
     /* width: 100%; */
-    background-position-y: -1961%;
+    // background-position-y: -1961%;
     width: 100%;
+}
+#take-left{
+    max-width: 39%;
+    float: left;
+    padding: 10%;
+}
+#take-right{
+    //background-image: url('../img/Asset 35.png');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    /* width: 100%; */
+    // background-position-y: -1961%;
+    width: 54%;
+    float: right;
+}
+#take-right-img{
+    width: 168%;
+    float: right;
 }
 
 #value{

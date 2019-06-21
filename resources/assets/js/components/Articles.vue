@@ -69,17 +69,17 @@
             <div class="container">
                 <div class="offer-details-box" id="box-sup">
                     <img :src="'/images/Asset 27.png'" class="offer-details-box-img">
-                    <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">SUPPORT</h3>
+                    <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="650">SUPPORT</h3>
                     <div class="offer-details-box-inner">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
+                                <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
                                 <ul id="offer-details-box-inner-ul1">
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="550">
                                         24h help line
                                     </li>
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="600">
                                         Technical assistance
                                     </li>
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="650">
                                         Advice on installation
                                     </li>
                                 </ul>
@@ -89,15 +89,15 @@
                     <img :src="'/images/Asset 28.png'" class="offer-details-box-img">
                     <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">GUIDANCE</h3>
                     <div class="offer-details-box-inner">
-                        <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
+                        <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
                         <ul id="offer-details-box-inner-ul2">
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="550">
                                 Guidance through sales
                             </li>
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="600">
                                 What to say
                             </li>
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">
+                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="650">
                                 When to say it
                             </li>
                         </ul>
@@ -107,15 +107,15 @@
                     <img :src="'/images/Asset 29.png'" class="offer-details-box-img">
                     <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="450">NETWORK</h3>
                         <div class="offer-details-box-inner">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
+                            <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
                             <ul id="offer-details-box-inner-ul3">
-                                <li>
+                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="550">
                                     Bringing clients to you
                                 </li>
-                                <li>
+                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="600">
                                     Bringing clients to you
                                 </li>
-                                <li>
+                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="650">
                                     Bringing clients to you
                                 </li>
                             </ul>
@@ -124,20 +124,13 @@
             </div>
         </div>
     </section>
-    <section id="last-footer">
-        <div id="offer-take-control">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h2>TAKE CONTROL</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-                    </div>
-                <div class="w-100"></div>
-                    <div class="col">
-                        <img :src="'/images/Landing_page.png'" class="offer-control-img">
-                    </div>
-                </div>
-            </div>
+    <section class="row" id="take">
+        <div  class="col" id="take-left">
+            <h2>TAKE CONTROL</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
+        </div>
+        <div id="take-right">
+          <img :src="'/images/Asset 34.png'" class="take-right-img">
         </div>
     </section>
   </div>
