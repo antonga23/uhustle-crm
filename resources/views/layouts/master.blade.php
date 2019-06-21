@@ -47,7 +47,7 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div class="container-fluid">
+        <div id ="app" class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>@yield('heading')</h1>
