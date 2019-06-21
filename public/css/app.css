@@ -10977,6 +10977,11 @@ a.list-group-item:hover {
   left: 75px;
 }
 
+#menu-txt img {
+  width: 71px;
+  margin: 0 0 0 -30px;
+}
+
 .menu-txt-toggle .icon-bar {
   background: #fff;
 }
