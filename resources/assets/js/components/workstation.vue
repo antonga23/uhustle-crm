@@ -1,5 +1,27 @@
 <template>
     <div class="">
+        <div class="table-responsive">
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <!-- <th>Status</th>
+                    <th>Title</th>
+                    <th>Summary</th> -->
+                    <!-- and so on -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <!--<td>{{ lead.status }}></td>
+                    <td>{{ lead.title }}></td>
+                    <td>{{ lead.summary }}></td> -->
+                    <!-- and so on -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card">
@@ -42,28 +64,19 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.');
-            this.getLead(84);
-        },
-        props: ['api_auth_string'],
-        data: function(){
-            return {
-                lead: {},
-            }
-        },
-        methods: {
-            getLead(id = ''){
-                var url = 'http://34.241.86.1/api/leads/get/' + id + '?session_user_id=22&session_user_name=sone thasi';
-                axios.get(url, {headers: {
-                        "Accept" : 'application/json',
-                        "Authorization" : this.api_auth_string,
-                    }
-                } ).then((response) =>{
-                    console.log(response);
-                });
-            }
-        }
-    }
+    // export default {
+    //     mounted() {
+    //         console.log('Component mounted.');
+    //         this.lead;
+    //     },
+    //     props: ['lead'],
+    //     data: function(){
+    //         return {
+    //             lead: {},
+    //         }
+    //     },
+    //     methods: {
+
+    //     }
+    // }
 </script>

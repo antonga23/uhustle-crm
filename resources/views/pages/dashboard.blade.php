@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<workstation-index api_auth_string={{ config('api.auth_string') }}></workstation-index>
+{{-- <workstation-index lead={{ $lead }}></workstation-index> --}}
+<workstation-index></workstation-index>
 @endsection
