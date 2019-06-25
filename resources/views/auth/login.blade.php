@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+        <div class="row">
+                <div class="col-6 loging-bg">
+                        <img src="/images/Sign_In/Assests/Uhustle@4x.png" id="logging-bg-img">
+                </div>
+                <div class="col-6">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +74,6 @@
             </div>
         </div>
     </div>
+</div></div>
 </div>
 @endsection

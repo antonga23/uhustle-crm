@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>uhustle</title>
-    <link href="{{ URL::asset('css/jasny-bootstrap.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ URL::asset('css/jquery.atwho.min.css') }}" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
@@ -47,7 +41,7 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div class="container-fluid">
+        <div id ="app" class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>@yield('heading')</h1>
@@ -72,13 +66,7 @@
     </div>
     <!-- /#page-content-wrapper -->
 </div>
-    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/dropzone.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jasny-bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jquery.caret.min.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('js/jquery.atwho.min.js') }}"></script>
-@stack('scripts')
-</body>
 
+</body>
+<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 </html>
