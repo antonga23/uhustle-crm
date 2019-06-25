@@ -6,11 +6,11 @@
                 <li>
                     <h1>Work Station</h1>
                 </li>
-                <li>
-                    <a href="/login" id="workstation-gen-left-general">General</a>
+                <li class="workstation-gen-left-li">
+                    <a href="/login" id="workstation-gen-left-general" class="work-active">General</a>
                 </li>
-                <li>
-                    <a href="/login" id="workstation-gen-left-scripts">scripts</a>
+                <li class="workstation-gen-left-li">
+                    <a href="/login" id="workstation-gen-left-scripts">Scripts</a>
                 </li>
                 </ul>
             </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="table-responsive">
-        <table class="table-hover">
+        <table class="table-hover work-station-table">
             <thead>
                 <tr>
                     <th>Lead Source</th>
@@ -48,76 +48,71 @@
             </tbody>
         </table>
     </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center workstation-lead">
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Client.svg'" id="Clients-img"> Clients</div>
+                <div class="card workstation-lead-name">
+                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Client.svg'" id="Clients-img"> Clients</div>
 
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h1>Piet Andrews</h1>
+                                <h1 class="workstation-lead-h1">Piet Andrews</h1>
                             </div>
                             <div class="w-100"></div>
-                            <div class="col">
-                                <p>Australian</p>
-                            </div>
-                            <div class="col">
-                                <p>Male</p>
-                            </div>
-                            <div class="col">
-                                <p>34</p>
-                            </div>
+                                <div class="col">
+                                    <p>Australian</p>
+                                </div>
+                                <div class="col">
+                                    <p>Male</p>
+                                </div>
+                                <div class="col">
+                                    <p>34</p>
+                                </div>
                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img"> Stock</div>
+                <div class="card workstation-lead-stock">
+                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img"> Stock</div>
 
                     <div class="card-body">
-                       <div class="card-body">
-                           <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <h1>AdsBanc</h1>
+                                <h1 class="workstation-lead-h1">AdsBanc</h1>
                             </div>
                             <div class="w-100"></div>
                             <div class="col">
                                 <p>Advertising</p>
-                            </div>
                        </div>
                     </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Activity.svg'" id="Activity-img"> Activity</div>
+                <div class="card  workstation-lead-activity">
+                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Activity.svg'" id="Activity-img"> Activity</div>
 
                     <div class="card-body">
-                       <div class="card-body">
-                            <div class="row">
+                       <div class="row">
                                     <div class="col">
-                                        <h1>Off-line</h1>
+                                        <h1 class="workstation-lead-h1">Off-line</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col">
                                         <p>Online 2 days ago</p>
                                     </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Clock.svg'" id="Time-img"> Time</div>
+                <div class="card workstation-lead-time">
+                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Clock.svg'" id="Time-img"> Time</div>
                     <div class="card-body">
-                       <div class="card-body">
                         <div class="row">
                                 <div class="col">
-                                    <h1>11:20 Am</h1>
+                                    <h1 class="workstation-lead-h1">11:20 Am</h1>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col">
@@ -128,16 +123,51 @@
                                 </div>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row work-station-lead-interation">
+                <div class="col-6">
+                   <div class="card">
+                            <div class="card-header">
+                                <img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img">
+                                    <p>Agent Notes</p>
+                                    <p>23 comments</p>
+                             </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="workstation-lead-h1">AdsBanc</h1>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <p>Advertising</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
              <div class="col-6">
-                  <h1>Off-line</h1>
-             </div>
-             <div class="col-6">
-                          <p>Online 2 days ago</p>
+                        <div class="card">
+                            <div class="card-header">
+                                <img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img">
+                                <p>Feedback Summary</p>
+                                <p>220 reviews<p/>
+                            </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="workstation-lead-h1">Feedback Summary</h1>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <p>Advertising</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
              </div>
         </div>
     </div>
