@@ -1692,9 +1692,11 @@ module.exports = {
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/workstation.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -1760,20 +1762,100 @@ module.exports = {
 //
 //
 //
-// export default {
-//     mounted() {
-//         console.log('Component mounted.');
-//         this.lead;
-//     },
-//     props: ['lead'],
-//     data: function(){
-//         return {
-//             lead: {},
-//         }
-//     },
-//     methods: {
-//     }
-// }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+    this.this_lead = JSON.parse(this.lead);
+    console.log(this.this_lead);
+  },
+  props: ['lead'],
+  data: function data() {
+    return {
+      this_lead: {}
+    };
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -37943,70 +38025,273 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c("div", { staticClass: "row workstation-gen" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4 workstation-gen-right" }, [
+        _c(
+          "a",
+          { attrs: { href: "/login", id: "workstation-gen-right-search" } },
+          [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/search.svg",
+                id: "workstation-gen-right-search-img"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { attrs: { href: "/login", id: "workstation-gen-right-online" } },
+          [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/online.svg",
+                id: "workstation-gen-right-online-img"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { attrs: { href: "/login", id: "workstation-gen-right-phone" } },
+          [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/end call button.svg",
+                id: "workstation-gen-right-phone-img"
+              }
+            })
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/Client.svg",
+                id: "Clients-img"
+              }
+            }),
+            _vm._v(" Clients")
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/Stock.svg",
+                id: "Stock-img"
+              }
+            }),
+            _vm._v(" Stock")
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/Activity.svg",
+                id: "Activity-img"
+              }
+            }),
+            _vm._v(" Activity")
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("img", {
+              attrs: {
+                src: "/images/SVG_Images/menu/SVG/Clock.svg",
+                id: "Time-img"
+              }
+            }),
+            _vm._v(" Time")
+          ]),
+          _vm._v(" "),
+          _vm._m(5)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(6)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("div", { staticClass: "table-responsive" }, [
-        _c("table", { staticClass: "table-hover" }, [
-          _c("thead", [_c("tr", [_c("th", [_vm._v("Id")])])]),
+    return _c("div", { staticClass: "col-8 workstation-gen-left" }, [
+      _c("ul", [
+        _c("li", [_c("h1", [_vm._v("Work Station")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            { attrs: { href: "/login", id: "workstation-gen-left-general" } },
+            [_vm._v("General")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            { attrs: { href: "/login", id: "workstation-gen-left-scripts" } },
+            [_vm._v("scripts")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table-hover" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [_vm._v("Lead Source")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Online")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Online Funds")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Invested")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Called")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Answers")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Sales")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [_vm._v("Digital PayDay")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("2 days ago")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("$ 23.00")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("$ 10.00")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("22")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("3")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("0")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [_c("h1", [_vm._v("Piet Andrews")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-100" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("p", [_vm._v("Australian")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("p", [_vm._v("Male")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("p", [_vm._v("34")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_c("h1", [_vm._v("AdsBanc")])]),
           _vm._v(" "),
-          _c("tbody", [_c("tr", [_c("td")])])
+          _c("div", { staticClass: "w-100" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_c("p", [_vm._v("Advertising")])])
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_c("h1", [_vm._v("Off-line")])]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-100" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("p", [_vm._v("Online 2 days ago")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_c("h1", [_vm._v("11:20 Am")])]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-100" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_c("p", [_vm._v("Perth")])]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_c("p", [_vm._v("Australia")])])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-6" }, [_c("h1", [_vm._v("Off-line")])]),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Example 1")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                   11 I'm an example component1.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Example 1")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                   11 I'm an example component1.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Example 1")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                   11 I'm an example component1.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Example 1")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                   11 I'm an example component1.\n                "
-              )
-            ])
-          ])
-        ])
+      _c("div", { staticClass: "col-6" }, [
+        _c("p", [_vm._v("Online 2 days ago")])
       ])
     ])
   }
@@ -50351,9 +50636,7 @@ component.options.__file = "resources/assets/js/components/workstation.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./workstation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/workstation.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_workstation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

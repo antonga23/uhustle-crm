@@ -1,22 +1,48 @@
 <template>
     <div class="">
+        <div class="row workstation-gen">
+            <div class="col-8 workstation-gen-left">
+                <ul>
+                <li>
+                    <h1>Work Station</h1>
+                </li>
+                <li>
+                    <a href="/login" id="workstation-gen-left-general">General</a>
+                </li>
+                <li>
+                    <a href="/login" id="workstation-gen-left-scripts">scripts</a>
+                </li>
+                </ul>
+            </div>
+            <div class="col-4 workstation-gen-right">
+                 <a  href="/login" id="workstation-gen-right-search"><img :src="'/images/SVG_Images/menu/SVG/search.svg'" id="workstation-gen-right-search-img"></a>
+                 <a  href="/login" id="workstation-gen-right-online"><img :src="'/images/SVG_Images/menu/SVG/online.svg'" id="workstation-gen-right-online-img"></a>
+                 <a  href="/login" id="workstation-gen-right-phone"><img :src="'/images/SVG_Images/menu/SVG/end call button.svg'" id="workstation-gen-right-phone-img"></a>
+            </div>
+        </div>
         <div class="table-responsive">
         <table class="table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <!-- <th>Status</th>
-                    <th>Title</th>
-                    <th>Summary</th> -->
+                    <th>Lead Source</th>
+                    <th>Online</th>
+                    <th>Online Funds</th>
+                    <th>Invested</th>
+                    <th>Called</th>
+                    <th>Answers</th>
+                    <th>Sales</th>
                     <!-- and so on -->
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
-                    <!--<td>{{ lead.status }}></td>
-                    <td>{{ lead.title }}></td>
-                    <td>{{ lead.summary }}></td> -->
+                    <td>Digital PayDay</td>
+                    <td>2 days ago</td>
+                    <td>$ 23.00</td>
+                    <td>$ 10.00</td>
+                    <td>22</td>
+                    <td>3</td>
+                    <td>0</td>
                     <!-- and so on -->
                 </tr>
             </tbody>
@@ -25,58 +51,113 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">Example 1</div>
+                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Client.svg'" id="Clients-img"> Clients</div>
 
                     <div class="card-body">
-                       11 I'm an example component1.
+                        <div class="row">
+                            <div class="col">
+                                <h1>Piet Andrews</h1>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <p>Australian</p>
+                            </div>
+                            <div class="col">
+                                <p>Male</p>
+                            </div>
+                            <div class="col">
+                                <p>34</p>
+                            </div>
+                       </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">Example 1</div>
+                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img"> Stock</div>
 
                     <div class="card-body">
-                       11 I'm an example component1.
+                       <div class="card-body">
+                           <div class="row">
+                            <div class="col">
+                                <h1>AdsBanc</h1>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <p>Advertising</p>
+                            </div>
+                       </div>
+                    </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">Example 1</div>
+                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Activity.svg'" id="Activity-img"> Activity</div>
 
                     <div class="card-body">
-                       11 I'm an example component1.
+                       <div class="card-body">
+                            <div class="row">
+                                    <div class="col">
+                                        <h1>Off-line</h1>
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col">
+                                        <p>Online 2 days ago</p>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">Example 1</div>
-
+                    <div class="card-header"><img :src="'/images/SVG_Images/menu/SVG/Clock.svg'" id="Time-img"> Time</div>
                     <div class="card-body">
-                       11 I'm an example component1.
+                       <div class="card-body">
+                        <div class="row">
+                                <div class="col">
+                                    <h1>11:20 Am</h1>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col">
+                                    <p>Perth</p>
+                                </div>
+                                <div class="col">
+                                    <p>Australia</p>
+                                </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+             <div class="col-6">
+                  <h1>Off-line</h1>
+             </div>
+             <div class="col-6">
+                          <p>Online 2 days ago</p>
+             </div>
         </div>
     </div>
 </template>
 
 <script>
-    // export default {
-    //     mounted() {
-    //         console.log('Component mounted.');
-    //         this.lead;
-    //     },
-    //     props: ['lead'],
-    //     data: function(){
-    //         return {
-    //             lead: {},
-    //         }
-    //     },
-    //     methods: {
+    export default {
+        mounted() {
+            console.log('Component mounted.');
+            this.this_lead = JSON.parse(this.lead);
+            console.log(this.this_lead);
+        },
+        props: ['lead'],
+        data: function(){
+            return {
+                this_lead : {}
+            }
+        },
+        methods: {
 
-    //     }
-    // }
+        }
+    }
 </script>
