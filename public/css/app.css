@@ -9814,7 +9814,7 @@ h1, h2, p {
 #top-landing-2 {
   padding: 0;
   float: left;
-  background-image: url(/images/Asset_14.png?535caca5ea3a8faaea768a77cccb4cf5);
+  background-image: url("../img/Asset_14.png");
   background-repeat: no-repeat;
   background-size: 100% 92%;
 }
@@ -9854,7 +9854,7 @@ h1, h2, p {
 
 #boxes {
   margin-top: 10%;
-  background-image: url("/images/Asset 22.png?3269a4a122773df3cfaec825f759fcb9");
+  background-image: url("../img/Asset 22.png");
   padding-bottom: 6%;
   background-size: 33%;
   background-repeat: no-repeat;
@@ -9907,7 +9907,7 @@ h1, h2, p {
 }
 
 #guide {
-  background-image: url("/images/Asset 24.png?5265512f2f0192127b4ef0742f93cc2f");
+  background-image: url("../img/Asset 24.png");
   background-size: 44%;
   background-repeat: no-repeat;
   margin-left: 9%;
@@ -9916,7 +9916,7 @@ h1, h2, p {
 }
 
 #guide-left {
-  background-image: url("/images/Asset 22.png?3269a4a122773df3cfaec825f759fcb9");
+  background-image: url("../img/Asset 22.png");
   background-size: 65%;
   background-repeat: no-repeat;
   margin-left: 0%;
@@ -9936,14 +9936,14 @@ h1, h2, p {
 
 #offer {
   width: 100%;
-  background-image: url("/images/Asset 25.png?9c445b3e2a3a4c2696740f98785e2e59");
+  background-image: url("../img/Asset 25.png");
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 #offer-heading {
   width: 100%;
-  background-image: url("/images/Asset 22.png?3269a4a122773df3cfaec825f759fcb9");
+  background-image: url("../img/Asset 22.png");
   background-size: 30%;
   background-repeat: no-repeat;
   /* margin-left: 10%; */
@@ -10022,7 +10022,7 @@ h1, h2, p {
 }
 
 #take-left {
-  background-image: url("/images/Asset 33.png?c91833d480176932fcd3d4517deb3724");
+  background-image: url("../img/Asset 33.png");
   background-size: 30%;
   background-repeat: no-repeat;
   margin-left: 2%;
@@ -10033,7 +10033,7 @@ h1, h2, p {
 }
 
 #take-right {
-  background-image: url("/images/Asset 35.png?0bbdcf044a6167a5b852679ec561e1ff");
+  background-image: url("../img/Asset 35.png");
   background-size: 61%;
   background-repeat: no-repeat;
   background-position-y: -23%;
@@ -10049,7 +10049,7 @@ h1, h2, p {
 }
 
 #how-it-works {
-  background-image: url("/images/Asset 35.png?0bbdcf044a6167a5b852679ec561e1ff");
+  background-image: url("../img/Asset 35.png");
   background-size: 34%;
   background-repeat: no-repeat;
   background-position-y: -81%;
@@ -10058,7 +10058,7 @@ h1, h2, p {
 }
 
 #how-it-works-left {
-  background-image: url(/images/howitworks.png?a800c76b18a67bcc127341dbd60ece5e);
+  background-image: url("../img/howitworks.png");
   background-size: 80%;
   background-repeat: no-repeat;
   margin-left: 2%;
@@ -10069,7 +10069,7 @@ h1, h2, p {
 }
 
 #how-it-works-right {
-  background-image: url("/images/Asset 35.png?0bbdcf044a6167a5b852679ec561e1ff");
+  background-image: url("../img/Asset 35.png");
   background-size: 60%;
   background-repeat: no-repeat;
   background-position-y: 1%;
@@ -10114,7 +10114,7 @@ h1, h2, p {
 }
 
 .offer-details-box-inner-video {
-  background-image: url(/images/dots.png?7c7f1aeaed65fb94139449bebd7286c8);
+  background-image: url("../img/dots.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position-y: 135%;
@@ -10131,7 +10131,7 @@ h1, h2, p {
 }
 
 #subscribers {
-  background-image: url(/images/world.png?9710bc9d317a525d00030ee2e9d3dbc9);
+  background-image: url("../img/world.png");
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -10139,7 +10139,7 @@ h1, h2, p {
 
 #subscribers-left {
   padding-top: 19%;
-  background-image: url(/images/dots.png?7c7f1aeaed65fb94139449bebd7286c8);
+  background-image: url("../img/dots.png");
   background-size: 52%;
   background-repeat: no-repeat;
   background-position-x: 38%;
@@ -10201,7 +10201,7 @@ h1, h2, p {
 }
 
 #second-last {
-  background-image: url("/images/Asset 46.png?a777cde62a19147964df5ab19ba18906");
+  background-image: url("../img/Asset 46.png");
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;

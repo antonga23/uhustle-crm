@@ -56,7 +56,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h1 class="workstation-lead-h1">Piet Andrews</h1>
+                                <h1 class="workstation-lead-h1">{{ lead.name }}</h1>
                             </div>
                             <div class="w-100"></div>
                                 <div class="col">
@@ -177,17 +177,44 @@
     export default {
         mounted() {
             console.log('Component mounted.');
-            this.this_lead = JSON.parse(this.lead);
-            console.log(this.this_lead);
+            this.enqueueLead();
+
+            this.Toast = this.$swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
         },
-        props: ['lead'],
+        props: [],
         data: function(){
             return {
-                this_lead : {}
+                lead : {},
+                Toast: null
             }
         },
         methods: {
+            enqueueLead(){
+                var vm = this;
 
+                var payload = {
+                    method : 'GET',
+                    end_point : 'leads/get/85'
+                }
+
+                vm.$Progress.start();
+                axios.post('/api-request', payload).then(function (response) {
+                    console.log(response.data);
+                    if(response.data.success == true){
+                        vm.lead = response.data.lead;
+                        vm.$Progress.finish();
+                        
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+            }
         }
     }
 </script>
