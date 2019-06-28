@@ -45,7 +45,7 @@ Vue.config.productionTip = false;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('landing-page', require('./components/Landing/Landing.vue').default);
-Vue.component('workstation-index', require('./components/wWrkstation/Workstation.vue').default);
+Vue.component('workstation-index', require('./components/Workstation/Workstation.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
