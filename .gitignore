@@ -1,11 +1,12 @@
 /public/hot
 /vendor
 /node_modules
-.env
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-*.log
+access.log
+error.log
+.env
 
