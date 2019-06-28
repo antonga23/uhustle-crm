@@ -17,7 +17,12 @@
             <div class="col-4 workstation-gen-right">
                  <a  href="/login" id="workstation-gen-right-search"><img :src="'/images/SVG_Images/menu/SVG/search.svg'" id="workstation-gen-right-search-img"></a>
                  <a  href="/login" id="workstation-gen-right-online"><img :src="'/images/SVG_Images/menu/SVG/online.svg'" id="workstation-gen-right-online-img"></a>
-                 <a  href="/login" id="workstation-gen-right-phone"><img :src="'/images/SVG_Images/menu/SVG/end call button.svg'" id="workstation-gen-right-phone-img"></a>
+                 <a  href="/login" id="workstation-gen-right-phone" @click="showCallModal()">
+                    <img :src="'/images/SVG_Images/menu/SVG/start call button.svg'" id="workstation-gen-right-phone-img">
+                </a>
+                 <a  href="/login" id="workstation-gen-right-phone" @click="showCallModal()">
+                    <img :src="'/images/SVG_Images/menu/SVG/end call button.svg'" id="workstation-gen-right-phone-img">
+                </a>
             </div>
         </div>
         <div class="table-responsive">
@@ -126,48 +131,29 @@
                 </div>
             </div>
         </div>
+
         <div class="row work-station-lead-interation">
-                <div class="col-6">
-                   <div class="card">
-                            <div class="card-header">
-                                <img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img">
-                                    <p>Agent Notes</p>
-                                    <p>23 comments</p>
-                             </div>
+            <div class="col-6">
+               <div class="card">
+                    <div class="card-header">
+                        <p class="card-heading pull-left">Agent Notes</p>
+                        <p class="card-heading pull-right">23 Comments</p>
+                     </div>
 
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h1 class="workstation-lead-h1">AdsBanc</h1>
-                                        </div>
-                                        <div class="w-100"></div>
-                                        <div class="col">
-                                            <p>Advertising</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-body">
                     </div>
+                </div>
+            </div>
              <div class="col-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img">
-                                <p>Feedback Summary</p>
-                                <p>220 reviews<p/>
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-heading pull-left">Feedback Summary</p>
+                        <p class="card-heading pull-right">23 Comments</p>
+                     </div>
 
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h1 class="workstation-lead-h1">Feedback Summary</h1>
-                                        </div>
-                                        <div class="w-100"></div>
-                                        <div class="col">
-                                            <p>Advertising</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                    </div>
+                </div>
              </div>
         </div>
     </div>
@@ -177,7 +163,10 @@
     export default {
         mounted() {
             console.log('Component mounted.');
+
             this.enqueueLead();
+
+            
 
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -190,6 +179,7 @@
         data: function(){
             return {
                 lead : {},
+                notes_data: {},
                 Toast: null
             }
         },
@@ -203,18 +193,45 @@
                 }
 
                 vm.$Progress.start();
+
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.lead = response.data.lead;
+                        vm.getNotesStats(vm.lead.id);
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+            },
+            getNotesStats(lead_id){
+                var vm = this;
+
+                var payload = {
+                    method : 'GET',
+                    end_point : 'comments/get/lead/' + lead_id
+                }
+
+                vm.$Progress.start();
                 axios.post('/api-request', payload).then(function (response) {
                     console.log(response.data);
                     if(response.data.success == true){
-                        vm.lead = response.data.lead;
+                        vm.notes_data = response.data;
+
+                        console.log(vm.notes_data);
+
                         vm.$Progress.finish();
-                        
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
                 });
             }
+        },
+        showCallModal(){
+
         }
     }
 </script>
