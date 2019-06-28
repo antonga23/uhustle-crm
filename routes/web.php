@@ -14,12 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/api-request', 'GuzzleController@index')->name('api-request');
+
 Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-/**
-     * Main
-     */
-    // Route::get('/', 'PagesController@dashboard');
-    Route::get('dashboard', 'PagesController@index')->name('dashboard');
+Route::get('dashboard', 'PagesController@index')->name('dashboard');
