@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return redirect('/dashboard');
+});
+
 Route::post('/api-request', 'GuzzleController@index')->name('api-request');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
-Route::get('dashboard', 'PagesController@index')->name('dashboard');
+Route::get('/dashboard', 'PagesController@index')->name('dashboard');

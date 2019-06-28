@@ -11,36 +11,20 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
         <!-- Styles -->
+        <link href="{{asset('css/custom.css')}}" rel="stylesheet">
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+        <link href="{{asset('assets/aos/aos.css')}}" rel="stylesheet">
     </head>
     <body>
-            <div id="app">
-                <div class="container">
-                    <landing-page></landing-page>
-                </div>
+        <div id="app">
+            <div class="">
+                <landing-page></landing-page>
             </div>
-            <script src="{{asset('js/app.js')}}"></script>
+        </div>
+        <script src="{{ asset('js/app.js') }} "></script>
+        <script src="{{ asset('assets/aos/aos.js') }}"></script>
+        <script>
+            AOS.init();
+        </Script>
     </body>
-    <script>
-          AOS.init();
-        //     function animateValue(id, start, end, duration) {
-        //         var range = end - start;
-        //         var current = start;
-        //         var increment = end > start? 1 : -1;
-        //         var stepTime = Math.abs(Math.floor(duration / range));
-        //         var obj = document.getElementById(id);
-        //         var timer = setInterval(function() {
-        //             current += increment;
-        //             obj.innerHTML = current;
-        //             if (current == end) {
-        //                 clearInterval(timer);
-        //             }
-        //         }, stepTime);
-        //     }
-        //     animateValue("value", 290000, 321978, 50000);
-    </Script>
 </html>

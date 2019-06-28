@@ -204,7 +204,7 @@
 
             <div class="col footer-btn">
                 <a data-aos="flip-left" href="/login" id="footer-btn">GET STARTED</a>
-                </div>
+            </div>
         </div>
         <div class="row footer-menu">
             <div class="col-6 footer-menu-left">

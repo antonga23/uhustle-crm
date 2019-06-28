@@ -23,15 +23,11 @@ Vue.use(VueSweetalert2);
 let Fire = new Vue();
 window.Fire = Fire;
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
- 
-library.add(faUserSecret)
- 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
- 
-Vue.config.productionTip = false;
+//BootstrapVue
+import BootstrapVue from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /**
  * The following block of code may be used to automatically register your

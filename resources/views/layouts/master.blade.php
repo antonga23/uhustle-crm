@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <style>
+        .container {
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
 
