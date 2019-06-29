@@ -2653,7 +2653,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -69310,7 +69309,7 @@ var render = function() {
                       expression: "comment.comment_type"
                     }
                   },
-                  [_vm._v("No Answere")]
+                  [_vm._v("No Answer")]
                 ),
                 _vm._v(" "),
                 _c(

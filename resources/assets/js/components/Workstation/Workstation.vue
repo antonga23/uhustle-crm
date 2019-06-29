@@ -269,14 +269,13 @@
             <b-modal id="modal-1" title="Please Choose Comment Type">
                 <b-form-group label="Comment Types">
                 <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answere</b-form-radio>
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>
                 <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>
                 <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voice Mail</b-form-radio>
                 <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
                 </b-form-group>
             </b-modal>
         </div>
-
     </div>
 </template>
 
