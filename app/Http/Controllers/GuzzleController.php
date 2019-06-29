@@ -26,7 +26,7 @@ class GuzzleController extends Controller
     */
    public function index(Request $request)
    {
-
+      
       $this->validate($request, [
           'method' => 'required',
           'end_point' => 'required'
@@ -48,7 +48,8 @@ class GuzzleController extends Controller
           'headers' => [
             'Accept' => 'application/json',
             'Authorization' => config('api.auth_string')
-          ]
+          ],
+          'form_params' => $request->form_data
       	]
       );
       

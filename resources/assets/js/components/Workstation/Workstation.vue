@@ -102,7 +102,7 @@
     .comment-desc{
         display: block;
         height: 50px;
-        width: 77%;
+        width: 75%;
         padding: 11px;
         margin: 10px 10px 10px 0;
         background: #f6f8f9;
@@ -114,6 +114,16 @@
     #send-btn{
         height: 50px;
         margin: 10px 0px 10px 0;
+    }
+    .btn-secondary {
+        color: #fff;
+        background-color: #f6f8f9;
+        border-color: #f6f8f9;
+    }
+    .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+        color: #fff;
+        background-color: #f6f8f9;
+        border-color: #f6f8f9;
     }
 </style>
 <template>
@@ -227,12 +237,12 @@
                         </div>
 
                         <div class="notes-capture">
-                            <a role="button" class="choose-comment-type">
+                            <b-button v-b-modal.modal-1 class="choose-comment-type">
                                 <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
-                            </a>
-                            <input class="comment-desc" type="text" v-model="comment_description" placeholder="Write comment here" />
+                            </b-button>
+                            <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" />
 
-                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;">
+                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
                                 Send
                             </button>
                         </div>
@@ -255,6 +265,18 @@
                 </div>
             </div>
         </div>
+        <div>
+            <b-modal id="modal-1" title="Please Choose Comment Type">
+                <b-form-group label="Comment Types">
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answere</b-form-radio>
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voice Mail</b-form-radio>
+                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
+                </b-form-group>
+            </b-modal>
+        </div>
+
     </div>
 </template>
 
@@ -263,8 +285,9 @@
         mounted() {
             console.log('Component mounted.');
 
+            this.$Progress.start();
             this.enqueueLead();
-
+            
             this.Toast = this.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -277,6 +300,10 @@
             return {
                 lead : {},
                 notes_data: {},
+                comment:{
+                    comment_description :'',
+                    comment_type :''
+                },
                 Toast: null
             }
         },
@@ -313,12 +340,35 @@
 
                 vm.$Progress.start();
                 axios.post('/api-request', payload).then(function (response) {
-                    console.log(response.data);
+                    
                     if(response.data.success == true){
                         vm.notes_data = response.data;
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+            },
+            addComment(){
+                var vm = this;
 
-                        console.log(vm.notes_data);
-
+                var payload = {
+                    method : 'POST',
+                    end_point : 'comments/add',
+                    form_data : {
+                        id : this.lead.id,
+                        type: 'lead',
+                        comment_type: this.comment.comment_type,
+                        description: this.comment.comment_description
+                    }
+                }
+                vm.$Progress.start();
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.enqueueLead();
+                        vm.$swal('Success', response.data.message,'success');
                         vm.$Progress.finish();
                     }else{
                         vm.$Progress.fail();
@@ -326,9 +376,6 @@
                     }
                 });
             }
-        },
-        showCallModal(){
-
         }
     }
 </script>
