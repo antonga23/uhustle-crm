@@ -1,160 +1,259 @@
+<style scoped>
+    .row{
+       margin-bottom: 5%; 
+    }
+    .top-section{
+        list-style-type: none;
+        padding-left: 15px;
+    }
+    .top-section li{    
+        float: left;
+        margin-right: 52px;
+        padding: 0 5px;
+        border-left: 1px solid #e3e3e3;
+    }
+    li p.bottom{
+        margin-bottom: 0;
+        font-size: 19px;
+        font-weight: 900;
+    }
+    .card{
+        border-radius: 27px;
+        border: none;
+    }
+    .card-title {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #fff;
+    }
+    .client{
+        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;
+    }
+    .product{
+        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;
+    }
+    .time{
+        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;
+    }
+    .activity{
+        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;
+    }
+    h5{
+        color: #fff;
+    }
+    h5 .icon{
+        width: 15px;
+        margin: -5px 15px 0 0;
+    }
+    p.card-text{
+        font-size: 30px;
+        color: #fff;
+        font-weight: bolder;
+    }
+    p.card-link{
+        font-size: 22px;
+        color: #fff;
+    }
+    .stats .card{
+        border-radius: 20px;
+    }
+
+    .stats .card h5{
+        color: #818284;
+    }
+    .stats .card h5 .icon{
+        width: 25px;
+        margin: -5px 15px 0 0;
+    }
+    .stats .card .card-title {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #bfccd2;
+    }
+    span.right{
+        float: right;
+    }
+    .truncate {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+ 
+    .list-group-item p{
+        margin: 0;
+    }
+    .list-group-item p strong{
+        font-size: 25px;
+        margin-right: 30px;
+    }
+    .choose-comment-type{
+        float: left;
+        display: block;
+        height: 50px;
+        width: 50px;
+        padding: 11px;
+        margin: 10px 10px 10px 0;
+        background: #f6f8f9;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+
+    .comment-desc{
+        display: block;
+        height: 50px;
+        width: 77%;
+        padding: 11px;
+        margin: 10px 10px 10px 0;
+        background: #f6f8f9;
+        border-radius: 9px;
+        border: none;
+        cursor: pointer;
+        float: left;
+    }
+    #send-btn{
+        height: 50px;
+        margin: 10px 0px 10px 0;
+    }
+</style>
 <template>
     <div class="">
-        <div class="row workstation-gen">
-            <div class="col-8 workstation-gen-left">
-                <ul>
+        <div class="row" style="margin-top:5%;">
+            <ul class="top-section">
                 <li>
-                    <h1>Work Station</h1>
+                    <p class="top">Lead Source</p>
+                    <p class="bottom">Digital Payday</p>
                 </li>
-                <li class="workstation-gen-left-li">
-                    <a href="/login" id="workstation-gen-left-general" class="work-active">General</a>
+                <li>
+                    <p class="top">Called</p>
+                    <p class="bottom">22</p>
                 </li>
-                <li class="workstation-gen-left-li">
-                    <a href="/login" id="workstation-gen-left-scripts">Scripts</a>
+                <li>
+                    <p class="top">Called</p>
+                    <p class="bottom">7</p>
                 </li>
-                </ul>
-            </div>
-            <div class="col-4 workstation-gen-right">
-                 <a  href="/login" id="workstation-gen-right-search"><img :src="'/images/SVG_Images/menu/SVG/search.svg'" id="workstation-gen-right-search-img"></a>
-                 <a  href="/login" id="workstation-gen-right-online"><img :src="'/images/SVG_Images/menu/SVG/online.svg'" id="workstation-gen-right-online-img"></a>
-                 <a  href="/login" id="workstation-gen-right-phone" @click="showCallModal()">
-                    <img :src="'/images/SVG_Images/menu/SVG/start call button.svg'" id="workstation-gen-right-phone-img">
-                </a>
-                 <a  href="/login" id="workstation-gen-right-phone" @click="showCallModal()">
-                    <img :src="'/images/SVG_Images/menu/SVG/end call button.svg'" id="workstation-gen-right-phone-img">
-                </a>
-            </div>
+                <li>
+                    <p class="top">Answers</p>
+                    <p class="bottom">4</p>
+                </li>
+                <li>
+                    <p class="top">Sales</p>
+                    <p class="bottom">0</p>
+                </li>
+            </ul>
         </div>
-        <div class="table-responsive">
-        <table class="table-hover work-station-table">
-            <thead>
-                <tr>
-                    <th>Lead Source</th>
-                    <th>Online</th>
-                    <th>Online Funds</th>
-                    <th>Invested</th>
-                    <th>Called</th>
-                    <th>Answers</th>
-                    <th>Sales</th>
-                    <!-- and so on -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Digital PayDay</td>
-                    <td>2 days ago</td>
-                    <td>$ 23.00</td>
-                    <td>$ 10.00</td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>0</td>
-                    <!-- and so on -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
-        <div class="row justify-content-center workstation-lead">
-            <div class="col-md-3">
-                <div class="card workstation-lead-name">
-                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Client.svg'" id="Clients-img"> Clients</div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card client">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
+                    Client
+                </h5>
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="workstation-lead-h1">{{ lead.name }}</h1>
-                            </div>
-                            <div class="w-100"></div>
-                                <div class="col">
-                                    <p>Australian</p>
-                                </div>
-                                <div class="col">
-                                    <p>Male</p>
-                                </div>
-                                <div class="col">
-                                    <p>34</p>
-                                </div>
-                       </div>
-                    </div>
-                </div>
+                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
+                  {{ lead.name + ' ' + lead.surname }}
+                </p>
+
+                <p class="card-link">{{ lead.country }} | {{ lead.gender }} | {{ lead.age }}</p> 
+              </div>
             </div>
-            <div class="col-md-3">
-                <div class="card workstation-lead-stock">
-                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Stock.svg'" id="Stock-img"> Stock</div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card product">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
+                    Product
+                </h5>
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="workstation-lead-h1">AdsBanc</h1>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col">
-                                <p>Advertising</p>
-                       </div>
-                    </div>
-                    </div>
-                </div>
+                <p class="card-text">
+                  AdsBanc
+                </p>
+
+                <p class="card-link">Advertising</p> 
+              </div>
             </div>
-            <div class="col-md-3">
-                <div class="card  workstation-lead-activity">
-                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Activity.svg'" id="Activity-img"> Activity</div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card time">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
+                    Time
+                </h5>
 
+                <p class="card-text">
+                  11:20 AM
+                </p>
+
+                <p class="card-link">{{ lead.city }} | {{ lead.country }}</p> 
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3" >
+            <div class="card activity">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <img src="/images/workstation/Active_button@4x.png" alt="Icon" class="icon" />
+                    Time
+                </h5>
+
+                <p class="card-text">
+                  Off-line
+                </p>
+
+                <p class="card-link">Online 2 Days ago</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row stats">
+            <div class="col-lg-6" >
+                <div class="card left">
                     <div class="card-body">
-                       <div class="row">
-                                    <div class="col">
-                                        <h1 class="workstation-lead-h1">Off-line</h1>
-                                    </div>
-                                    <div class="w-100"></div>
-                                    <div class="col">
-                                        <p>Online 2 days ago</p>
-                                    </div>
+                        <h5 class="card-title">
+                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
+                            <span class="left">Agent Notes</span>
+                            <span class="right">23 Comments</span>
+                        </h5>
+
+                        <div class="notes-roll">
+                            <ul class="list-group" style="height:250px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                <li v-for="comment in notes_data.comments" class="list-group-item">
+                                    <p><strong>{{ comment.comment_type }}</strong> {{ comment.description }} <span style="float:right;margin-top: 11px;">{{ comment.created_at }}</span></p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="notes-capture">
+                            <a role="button" class="choose-comment-type">
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
+                            </a>
+                            <input class="comment-desc" type="text" v-model="comment_description" placeholder="Write comment here" />
+
+                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;">
+                                Send
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card workstation-lead-time">
-                    <div class="card-header workstation-lead-card-header"><img :src="'/images/SVG_Images/menu/SVG/Clock.svg'" id="Time-img"> Time</div>
+            <div class="col-lg-6" >
+                <div class="card right">
                     <div class="card-body">
-                        <div class="row">
-                                <div class="col">
-                                    <h1 class="workstation-lead-h1">11:20 Am</h1>
-                                </div>
-                                <div class="w-100"></div>
-                                <div class="col">
-                                    <p>Perth</p>
-                                </div>
-                                <div class="col">
-                                    <p>Australia</p>
-                                </div>
+                        <h5 class="card-title">
+                            <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
+                            <span class="left">Feedback Summary</span>
+                            <span class="right">23 Comments</span>
+                        </h5>
+
+                        <div class="notes-graph">
+                            Graph
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row work-station-lead-interation">
-            <div class="col-6">
-               <div class="card">
-                    <div class="card-header">
-                        <p class="card-heading pull-left">Agent Notes</p>
-                        <p class="card-heading pull-right">23 Comments</p>
-                     </div>
-
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-             <div class="col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <p class="card-heading pull-left">Feedback Summary</p>
-                        <p class="card-heading pull-right">23 Comments</p>
-                     </div>
-
-                    <div class="card-body">
-                    </div>
-                </div>
-             </div>
         </div>
     </div>
 </template>
@@ -165,8 +264,6 @@
             console.log('Component mounted.');
 
             this.enqueueLead();
-
-            
 
             this.Toast = this.$swal.mixin({
                 toast: true,

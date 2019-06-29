@@ -25,4 +25,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
-Route::get('/dashboard', 'PagesController@index')->name('dashboard');
+Route::get('/workstation', 'PagesController@index')->name('dashboard');
