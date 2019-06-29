@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return redirect('/dashboard');
+    return redirect('/workstation');
 });
 
 Route::post('/api-request', 'GuzzleController@index')->name('api-request');
@@ -25,4 +25,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
-Route::get('/workstation', 'PagesController@index')->name('dashboard');
+Route::get('/workstation', 'PagesController@index')->name('workstation');
