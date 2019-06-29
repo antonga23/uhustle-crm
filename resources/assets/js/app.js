@@ -29,6 +29,11 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+
+import VCalendar from 'v-calendar';
+Vue.use(VCalendar, {
+  componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -42,6 +47,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.component('landing-page', require('./components/Landing/Landing.vue').default);
 Vue.component('workstation-index', require('./components/Workstation/Workstation.vue').default);
+Vue.component('left-nav', require('./components/Navigation/LeftNav.vue').default);
+Vue.component('right-sidebar', require('./components/Navigation/RightSidebar.vue').default);
+Vue.component('top-navigation', require('./components/Navigation/TopNavigation.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

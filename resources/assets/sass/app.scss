@@ -10,13 +10,10 @@
 @import '~admin-lte/dist/css/adminlte.css';
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
 //custom
 @import 'components/landing_page.scss';
-@import 'components/base';
-@import 'components/sidebar';
-@import 'components/dashboard';
+
 .loging-bg img{
     width: 100%;
     padding: 30% 32% 20% 31%;
