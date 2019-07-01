@@ -3,14 +3,13 @@
        margin-bottom: 3%; 
     }
     .top-section{
-        list-style-type: none;
-        padding-left: 15px;
+        list-style: none;
     }
     .top-section li{    
         float: left;
         margin-right: 52px;
-        padding: 0 5px;
-        border-left: 1px solid #e3e3e3;
+        padding: 6px 83px 3px 15px;
+        border-right: 1px solid #e3e3e3;
     }
     li p.bottom{
         margin-bottom: 0;
@@ -21,22 +20,21 @@
         border-radius: 27px;
         border: none;
     }
+    .card-body{
+        text-align: center;
+    }
     .card-title {
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
         border-bottom: 1px solid #fff;
     }
     .client{
-        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;
     }
     .product{
-        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;
     }
     .time{
-        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;
     }
     .activity{
-        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;
     }
     h5{
         color: #fff;
@@ -46,13 +44,19 @@
         margin: -5px 15px 0 0;
     }
     p.card-text{
-        font-size: 30px;
-        color: #fff;
+        font-size: 49px;
+        color: #333333;
+        font-weight: bolder;
+        margin: 0;
+    }
+    p.card-text span{
+        font-size: 19px;
+        color: #333333;
         font-weight: bolder;
     }
     p.card-link{
         font-size: 22px;
-        color: #fff;
+        color: #333333;
     }
     .stats .card{
         border-radius: 20px;
@@ -128,154 +132,201 @@
     #chartjs-size-monitor #bar-chart{
         height: 318px !important;
     }
+
+    #top-section{
+        background: #7fd0ac;    
+        margin-left: -53px;
+        margin-right: -66px;
+        padding: 63px 68px;
+    }
+    .green{
+        color:#00a25a !important;
+    }
+    .red{
+        color:red !important;
+    }.card-text-small{
+        margin-top: -7px;
+        color: #3b3b3b;
+    }
+    .badge{
+        width: 12%;
+    }
+    .badge img{
+        width: 100%;
+    }
 </style>
 <template>
     <div class="">
-        <div class="row" style="margin-top:3%;">
-            <ul class="top-section">
-                <li>
-                    <p class="top">Lead Source</p>
-                    <p class="bottom">{{ lead_info.source }}</p>
-                </li>
-                <li>
-                    <p class="top">Called</p>
-                    <p class="bottom">{{ call_counts.call_count }}</p>
-                </li>
-                <li>
-                    <p class="top">Answers</p>
-                    <p class="bottom">{{ call_counts.call_count }}</p>
-                </li>
-                <li>
-                    <p class="top">Sales</p>
-                    <p class="bottom">{{ call_counts.call_count_sales }}</p>
-                </li>
-            </ul>
-        </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div id="top-section" class="row">
+          <div class="col-lg-2">
             <div class="card client">
               <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
-                    Client
-                </h5>
 
-                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                  {{ this.lead_info.name + ' ' + lead_info.surname }}
+                <p class="card-text">
+                  11 
                 </p>
 
-                <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="card product">
-              <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
-                    Product
-                </h5>
-
-                <p class="card-text" :title="product.description + '. ' + product.price ">
-                  {{ product.name }}
+                <p class="card-text-small">
+                      Calls made
                 </p>
 
-                <p class="card-link truncate" :title="product.description + '. ' + product.price ">
-                    {{ product.description }}
+                <p class="card-link green">
+                    <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+                    14%
                 </p> 
               </div>
             </div>
           </div>
-          <div class="col-lg-3">
-            <div class="card time">
+          <div class="col-lg-2">
+            <div class="card client">
               <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
-                    Time
-                </h5>
 
                 <p class="card-text">
-                  11:20 AM
+                  5 
                 </p>
 
-                <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                <p class="card-text-small">
+                      Sales Quantity
+                </p>
+
+                <p class="card-link green">
+                    <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+                    3%
+                </p> 
               </div>
             </div>
           </div>
-          <div class="col-lg-3" >
-            <div class="card activity">
+          <div class="col-lg-2">
+            <div class="card client">
               <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" />
-                    Activity
-                </h5>
 
                 <p class="card-text">
-                  Off-line
+                  $365 
                 </p>
 
-                <p class="card-link">Online 2 Days ago</p> 
+                <p class="card-text-small">
+                      Sales amount
+                </p>
+
+                <p class="card-link green">
+                    <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+                    11%
+                </p> 
               </div>
             </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card client">
+              <div class="card-body">
+
+                <p class="card-text">
+                  45% 
+                </p>
+
+                <p class="card-text-small">
+                      Conversition Ratio
+                </p>
+
+                <p class="card-link down">
+                    <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+                    33%
+                </p> 
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4"  style="text-align: center;padding-top: 26px;">
+            <h1 class="card-text" style="color: #fff;font-size: 80px;">
+                  11 / 10
+            </h1>
+
+            <p class="card-text-small" style="color: #fff;font-size: 22px;">
+                  Missed Target
+            </p>
+
           </div>
         </div>
         <div class="row stats">
             <div class="col-lg-6" >
-                <div class="card left" style="">
+                <div class="card left" style="text-align: left;">
                     <div class="card-body">
-                        <h5 class="card-title">
-                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
-                            <span class="left">Agent Notes</span>
-                            <span class="right">{{ comments.total_comments }} Comment(s)</span>
+                        <h5 class="card-title" style="text-align: left;">
+                            <img src="/images/icons/Feedback summary icon@4x.png" alt="Icon" class="icon" />
+                            <span class="left">Feedback Summary</span>
+                            <span class="right">23 Review(s)</span>
                         </h5>
 
-                        <div class="notes-roll">
-                            <ul class="list-group" style="height:345px; width:100%;overflow:hidden; overflow-y:scroll;">
-                                <li v-for="comment in comments.comments" class="list-group-item">
-                                    <p>
-                                        <strong>{{ comment.comment_type }}</strong> 
-                                        {{ comment.description }} 
-                                        <span style="float:right;margin-top: 11px;">
-                                            {{ getDaysAgo(comment.created_at) }} <br/>
-                                            <small>Yongama Sobambela</small>
-                                        </span>
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="notes-capture">
-                            <b-button v-b-modal.modal-1 class="choose-comment-type">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
-                            </b-button>
-                            <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" />
-
-                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
-                                Send
-                            </button>
+                        <div class="notes-roll" style="height:345px;">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6" >
-                <div class="card right" style="height: 502px;">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
-                            <span class="left">Feedback Summary</span>
-                            <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                        </h5>
+                <div class="row" style="margin-bottom: 5%;">
+                    <div class="col-lg-12">
+                        <div class="card right">
+                            <div class="card-body">
+                                <ul class="top-section">
+                                    <li>
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Active</p>
+                                        <p class="bottom">22 hours</p>
+                                    </li>
+                                    <li>
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Idle</p>
+                                        <p class="bottom">2 Hours</p>
+                                    </li>
+                                    <li style="border-right:none;padding-right: 0;">
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Offline</p>
+                                        <p class="bottom">1 Hour</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 5%;">
+                    <div class="col-lg-12">
+                        <div class="card right">
+                            <div class="card-body">
+                                <ul class="top-section">
+                                    <li>
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Leads</p>
+                                        <p class="bottom">123</p>
+                                    </li>
+                                    <li>
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Dialed</p>
+                                        <p class="bottom">70</p>
+                                    </li>
+                                    <li style="border-right:none;padding-right: 0;">
+                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Answered</p>
+                                        <p class="bottom">67</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 5%;">
+                    <div class="col-lg-12">
+                        <div class="card right">
+                            <div class="card-body">
 
-                        <div id="chartjs-size-monitor" class="notes-graph" style="display: block; heigh: 150px;">
-                             <bars
-                                :data="notes_data"
-                                :gradient="['#6fa8dc', '#42b983']"
-                                :barWidth="50"
-                                :growDuration="1"
-                                :rounding="0"
-                                :height="415"
-                                >
-                              </bars>
+                                <div class="badge badge-1">
+                                    <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                </div>
+
+                                <div class="badge badge-2">
+                                    <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                </div>
+
+                                <div class="badge badge-2">
+                                    <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                </div>
+
+                                <div class="badge badge-2">
+                                    <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -298,12 +349,10 @@
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
-    import NotesStats from './NotesStats.vue';
     export default {
         extends: Bar,
         components: { 
             BarChart,
-            'notes-stats' : NotesStats 
         },
         mounted() {
             console.log('Component mounted');
@@ -404,36 +453,11 @@
                 axios.post('/api-request', payload).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.getComments();
+                        vm.enqueueLead();
                         vm.$swal('Success', response.data.message,'success');
                         vm.$Progress.finish();
                     }else{
                         vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
-            },
-            getComments(){
-                var vm = this;
-
-                if(vm.comment.comment_type == ''){
-                    vm.$swal('Please note','Please choose your comment type to process','warning');
-                    return false;
-                }
-
-                var payload = {
-                    method : 'GET',
-                    end_point : 'comments/get/lead/' + this.lead_info.id,
-                }
-                
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.comments.comments = response.data.comments
-                        vm.comments.comments_graph = response.data.comments_graph;
-                        vm.comment.comment_description = '';
-                        vm.comment.comment_type = '';
-                    }else{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
                 });

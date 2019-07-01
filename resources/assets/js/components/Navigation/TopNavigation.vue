@@ -35,21 +35,37 @@
     	background-repeat: no-repeat;
 	}
 
-	.pull-right li a.status{
+	.pull-right li .status{
     	background-image: url('/images/icons/online button@4x.png') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
-	.pull-right li a.call{
+	.pull-right li .call{
     	background-image: url('/images/icons/end call button@4x.png') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
+	.pull-right button{
+	    background-color: transparent;border: none;padding: 29px;margin-top: -10px;
+	}
+
 	.border-bottom {
 	    border-bottom: none !important;
         padding: 40px 40px 0;
+	}
+	.modal-content{
+		background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
+	}
+	select{
+	    border-radius: 26px;
+	    margin: 5px 8px 8px 55px !important;
+	    height: 29px !important;
+	    background: #F98B39 !important;
+	    border-color: #F98B39 !important;
+	    color: #fff !important;
+        padding: 2px 17px 6px !important;
 	}
 	/*End Right Component*/
 </style>
@@ -61,17 +77,34 @@
 				<div class="col-lg-6">
 					<ul class="navbar-nav left">
 						<li class="nav-item d-none d-sm-inline-block title">
-							<a href="index3.html" class="nav-link"><strong>Workstation</strong></a>
+							<a v-if="active == 'workstation'" href="index3.html" class="nav-link"><strong>Workstation</strong></a>
+							<a v-if="active == 'dashboard'" href="index3.html" class="nav-link"><strong>Dashboard</strong></a>
 						</li> 
-						<li class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block" style="margin-left: 55px;">
 							<a href="index3.html" class="nav-link">General</a>
 						</li>
-						<li class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'workstation'"class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link">Scripts</a>
+						</li>
+						<li v-if="active == 'dashboard'"class="nav-item d-none d-sm-inline-block">
+							<select class="form-control month-selector" v-model="month">
+								<option value="1">January {{ getFullYear() }}</option>
+								<option value="2">February {{ getFullYear() }}</option>
+								<option value="3">March {{ getFullYear() }}</option>
+								<option value="4">April {{ getFullYear() }}</option>
+								<option value="5">May {{ getFullYear() }}</option>
+								<option value="6">June {{ getFullYear() }}</option>
+								<option value="7">July {{ getFullYear() }}</option>
+								<option value="8">August {{ getFullYear() }}</option>
+								<option value="9">September {{ getFullYear() }}</option>
+								<option value="10">October {{ getFullYear() }}</option>
+								<option value="11">November {{ getFullYear() }}</option>
+								<option value="13">December {{ getFullYear() }}</option>
+							</select>
 						</li>
 					</ul>
 				</div>
-				<div class="col-lg-6" style="padding-right: 0">
+				<div class="col-lg-6" style="padding-right: 0"  v-if="active == 'workstation'">
 					<ul class="navbar-nav pull-right">
 						<li class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link search">
@@ -79,19 +112,31 @@
 							</a>
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
-							<a href="#" class="nav-link status">
-								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" /> -->
-							</a>
+
+		    				<button id="toggle-btn"  v-b-modal.modal-sm class="nav-link status" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+							<!-- <a href="#" class="nav-link status">
+								<img src="/images/icons/search button@4x.png" alt="Call Buttons" />
+							</a> -->
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
-							<a href="#" class="nav-link call">
-								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" /> -->
-							</a>
+
+		    				<button id="show-btn"  v-b-modal.modal-sm class="nav-link call" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+							<!-- <a href="#" id="show-btn"  role="button" class="nav-link call" @click="showModal">
+								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" />
+							</a> -->
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+        <div>
+		    <b-modal id="modal-sm" size="sm" ref="my-modal" hide-footer title="Call">
+		      <div class="d-block text-center">
+		        <h3>Call status: {{ call_status }}</h3>
+		      </div>
+		      <b-button class="mt-3" variant="outline-danger" block @click="hideModal">End Call</b-button>
+		    </b-modal>
+        </div>
 	</div>
 </template>
 
@@ -99,7 +144,13 @@
 	import { setupCalendar, Calendar} from 'v-calendar'
 	export default {
 		mounted() {
-			console.log('Component mounted. 22');
+			Fire.$on('AfterLeadEnqueue', function(data){
+                this.lead_id = data.lead_id;
+                this.phone_number = data.contact_number;
+			});
+
+			var d = new Date();
+			this.month = d.getMonth();
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -108,13 +159,66 @@
 				timer: 3000
 			});
 		},
+		props: ['active'],
 		components: {
 			
 		},
 		data: function(){
 			return {
-				status : 'active'
+				status : 'active',
+				call_status : 'active',
+				month : '',
 			}
-		}
+		},
+	    methods: {
+	      	showModal() {
+                var payload = {
+                    method : 'POST',
+                    end_point : 'calls/call'
+                }
+                
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.status == 'queued'){
+                        setInterval(vm.getStatus(esponse.data.call_sid), 1000);
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+
+		        this.$refs['my-modal'].hide()
+	      	},
+	      	hideModal() {
+		        this.$refs['my-modal'].hide()
+	      	},
+			toggleModal() {
+				// We pass the ID of the button that we want to return focus to
+				// when the modal has hidden
+				this.$refs['my-modal'].toggle('#toggle-btn')
+			},
+			getStatus(call_sid){
+
+                var payload = {
+                    method : 'POST',
+                    end_point : 'calls/get-call-status'
+                }
+
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.call_status = response.data.call_status;
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+			},
+			getFullYear(){
+				var d = new Date();
+				var n = d.getFullYear();
+				return n;
+			}
+	    }
 	}
 </script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Session;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +36,19 @@ class GuzzleController extends Controller
       $client = new \GuzzleHttp\Client();
 
       $user_id = Auth::user()->id;
+      
       $user_fullname = Auth::user()->name;
 
       $session_details_string = "?session_user_id=$user_id&session_user_name=$user_fullname";
 
       $end_point = config('api.api_url') . $request->end_point . $session_details_string;
+
+      if($request->end_point == 'calls/call/'){
+        $request->form_data = [
+          'lead_id' => Session::get('lead_id'),
+          'phone_number' => Session::get('phone_number')
+        ];
+      }
 
       $response = $client->request( 
     		strtoupper($request->method) , 
@@ -55,6 +64,11 @@ class GuzzleController extends Controller
       
       $body = json_decode($response->getBody(), true);
       
+      if(isset($body['lead'])){
+        Session::put('lead_id', $body['lead']['id']);
+        Session::put('phone_number',$body['lead']['phone_number']);
+      }
+
     	return $body;
    }
 }

@@ -17,7 +17,6 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
     color: #ffffff;
-    background-color: #ff8e38;
     background-image: url('/images/icons/work station icon active@4x.png') !important;
     background-size: 80px;
     background-repeat: no-repeat;
@@ -44,7 +43,6 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
     color: #ffffff;
-    background-color: #ff8e38;
     background-image: url('/images/icons/dashboard icon active@4x.png') !important;
     background-size: 80px;
     background-repeat: no-repeat;
@@ -71,7 +69,6 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
     color: #ffffff;
-    background-color: #ff8e38;
     background-image: url('/images/icons/social board icon active@4x.png') !important;
     background-size: 80px;
     background-repeat: no-repeat;
@@ -98,7 +95,6 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
     color: #ffffff;
-    background-color: #ff8e38;
     background-image: url('/images/icons/call history icon active@4x.png') !important;
     background-size: 80px;
     background-repeat: no-repeat;
@@ -125,7 +121,6 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
     color: #ffffff;
-    background-color: #ff8e38;
     background-image: url('/images/icons/education icon actove@4x.png') !important;
     background-size: 80px;
     background-repeat: no-repeat;
@@ -160,7 +155,6 @@ a.workstation{
 }
 .nav-sidebar > .nav-item {
     width: 53px;
-    border-bottom: 1px solid #fff;
 }
 /*Nav Ends*/
 </style>
@@ -169,7 +163,7 @@ a.workstation{
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="/workstation" class="brand-link">
         <img class="logo" src="/images/SVG_Images/Logo.svg">
       </a>
 
@@ -182,19 +176,19 @@ a.workstation{
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/workstation" :class="{ 'nav-link workstation' : true, 'active' : (current_page == 'workstation')? true : false }"> </a>
+              <a href="/workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (current_page == 'dashboard')? true : false }"> </a>
+              <a href="/dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'dashboard')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/social-board" :class="{ 'nav-link social-board' : true, 'active' : (current_page == 'social-board')? true : false }"> </a>
+              <a href="call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="call-history" :class="{ 'nav-link call-history' : true, 'active' : (current_page == 'call-history')? true : false }"> </a>
+              <a href="/social-board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="education" :class="{ 'nav-link education' : true, 'active' : (current_page == 'education')? true : false }"> </a>
+              <a href="education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }"> </a>
             </li>
           </ul>
         </nav>
@@ -217,6 +211,7 @@ a.workstation{
           timer: 3000
         });
       },
+      props: ['active'],
       data: function(){
         return {
           current_page : 'workstation'

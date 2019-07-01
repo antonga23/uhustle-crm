@@ -35,10 +35,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper" id ="app">
 
   <!-- Navbar -->
-  <top-navigation></top-navigation>
+  <top-navigation active="{{ $active }}"></top-navigation>
   <!-- /.navbar -->
 
-  <left-nav></left-nav>
+  <left-nav active="{{ $active }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding: 0 40px 15px 30px;">

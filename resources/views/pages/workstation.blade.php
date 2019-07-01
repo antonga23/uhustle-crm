@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-	<workstation-index></workstation-index>
+	<workstation-index active="workstation"></workstation-index>
 @endsection

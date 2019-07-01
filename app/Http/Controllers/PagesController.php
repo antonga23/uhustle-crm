@@ -26,6 +26,11 @@ class PagesController extends Controller
     */
    public function index()
    {
-      return view('pages.workstation');
+      return view('pages.workstation')->with(['active'=> 'workstation']);
+   }
+
+   public function dashboard()
+   {
+      return view('pages.dashboard')->with(['active'=> 'dashboard']);
    }
 }
