@@ -128,10 +128,74 @@
     #chartjs-size-monitor #bar-chart{
         height: 318px !important;
     }
+    .call-progress-div{
+        margin-top: 0;
+        margin-left: -54px;
+        margin-right: -65px;
+        padding: 6%;
+    	background-image: url('/images/call/Call_Background.svg') !important;
+    	background-size: 100%;
+    	background-repeat: no-repeat;
+    }
+    .call-progress-div .top-animation{
+        padding: 10px;
+    	background-image: url('/images/call/Call_Logo.svg') !important;
+    	background-size: 100%;
+    	background-repeat: no-repeat;
+        height: 370px;
+    }
+    .tip{
+        margin-bottom: 40px;
+        background-size: 20%;
+        background-repeat: no-repeat;
+        background-position: center 1px;
+        margin-bottom: 40px;
+        padding-top: 30px;
+    }
+    .tip p.step{
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;    
+        color: #fff;
+        margin: 0;
+        letter-spacing: 3px;
+    }
+    .tip p.tip-text{
+        margin-bottom: 20px;    
+    }
+    .tip h1{
+        color: #fff;
+        letter-spacing: 6px;
+        margin-top: 19px;
+    }
+    .tip p.tip-text{
+        margin-bottom: 10px;    
+        color: #fff;
+        margin: 0;
+        letter-spacing: 3px;
+    }
+    .tip-a{
+    	background-image: url('/images/call/1@4x.png') !important;
+        background-size: 12% !important;
+    }
+    .tip-b{
+    	background-image: url('/images/call/2@4x.png') !important;
+    }
+    .tip-c{
+    	background-image: url('/images/call/3@4x.png') !important;
+    }
+    .tip-d{
+    	background-image: url('/images/call/4@4x.png') !important;
+    }
+    .tip-e{
+    	background-image: url('/images/call/5@4x.png') !important;
+    }
+    .tip-f{
+    	background-image: url('/images/call/6@4x.png') !important;
+    }
 </style>
 <template>
     <div class="">
-        <div class="row" style="margin-top:3%;" v-if="call_active == true">
+        <div class="row" style="margin-top:3%;" v-if="call_active == false">
             <ul class="top-section">
                 <li>
                     <p class="top">Lead Source</p>
@@ -281,8 +345,41 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top:3%;" v-if="call_active == true">
-            Calling
+        <div class="row call-progress-div" v-if="this.call_active == true">
+            <div class="col-lg-12 top-animation">
+
+            </div>
+
+            <div class="col-lg-4 tip tip-a">
+                <p class="step">Step 1</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-lg-4 tip tip-b">
+                <p class="step">Step 2</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-lg-4 tip tip-c">
+                <p class="step">Step 3</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-lg-4 tip tip-d">
+                <p class="step">Step 4</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-lg-4 tip tip-e">
+                <p class="step">Step 5</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-lg-4 tip tip-f">
+                <p class="step">Step 6</p>
+                <h1>Don't stutter</h1>
+                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
         </div>
     </div>
 </template>
@@ -300,19 +397,11 @@
         mounted() {
             console.log('Component mounted');
             this.enqueueLead();
-            
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-        created: function () {
+
             Fire.$on('CallActive', function(){
                 var vm = this;
                 this.call_active = true;
-                console.log(vm.lead_info);
+
                 var payload = {
                     method : 'POST',
                     end_point : 'calls/call',
@@ -325,20 +414,40 @@
                 axios.post('/api-request', payload).then(function (response) {
                     
                     if(response.data.status == 'queued'){
-                        vm.call_sid = esponse.data.call_sid;
-                        setInterval(vm.getStatus(vm.call_sid), 1000);
+                        vm.call_sid = response.data.call_sid;
+                        vm.handle = setInterval(function(){
+
+                            var inner_payload = {
+                                method : 'POST',
+                                end_point : 'calls/get-call-status'
+                            }
+
+                            axios.post('/api-request', payload).then(function (response) {
+                                
+                                    
+                                if(response.data.status == 'queued'){
+
+                                    vm.call_status = response.data.status;
+
+                                }else{
+
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving calling status, please try again','warning');
+                                }
+                            });
+
+                        }, 1000);
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
 
                 });
+
             });
 
-            Fire.$on('CallEnded', function(){
-                console.log('CallEnded');
+            Fire.$on('CallEnded', function(state){
+               
                 var vm = this;
-                this.call_active = true;
 
                 var payload = {
                     method : 'POST',
@@ -351,16 +460,26 @@
                 axios.post('/api-request', payload).then(function (response) {
                     
                     if(response.data.success == true){
-                        
-                        vm.call_active = true;
-
+                        clearInterval(vm.handle);
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
 
                 });
+
+                vm.call_active = false;
+                console.log(vm.call_active);
             });
+
+            this.Toast = this.$swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        },
+        created: function () {
         },
         props: [],
         data: function(){
@@ -374,6 +493,7 @@
                 notes_data: [],
                 call_active: false,
                 call_status: '',
+                handle: '',
                 chart_options: {
                     scales: {
                         yAxes: [{
@@ -413,7 +533,7 @@
                         
                         if(vm.comments_graph.length > 0){ 
                             for (var i = 0; i < vm.comments_graph.type.length; i++) {
-                                console.log(vm.comments_graph.type[i]);
+                                
                                 vm.notes_data.push({ 'title' : vm.comments_graph.type[i], 'value': 84 });
                             }
                         }

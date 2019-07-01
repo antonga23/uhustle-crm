@@ -33,4 +33,14 @@ class PagesController extends Controller
    {
       return view('pages.dashboard')->with(['active'=> 'dashboard']);
    }
+
+   public function callHistory()
+   {
+      return view('pages.call-history')->with(['active'=> 'call-history']);
+   }
+
+   public function socialBoard()
+   {
+      return view('pages.social-board')->with(['active'=> 'social-board']);
+   }
 }

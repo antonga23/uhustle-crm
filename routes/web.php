@@ -27,3 +27,5 @@ Auth::routes();
 
 Route::get('/workstation', 'PagesController@index')->name('workstation');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
+Route::get('/call-history', 'PagesController@callHistory')->name('call-history');
+Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');

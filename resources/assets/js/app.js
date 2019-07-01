@@ -61,6 +61,8 @@ Vue.component('left-nav', require('./components/Navigation/LeftNav.vue').default
 Vue.component('right-sidebar', require('./components/Navigation/RightSidebar.vue').default);
 Vue.component('top-navigation', require('./components/Navigation/TopNavigation.vue').default);
 Vue.component('dashboard', require('./components/Dashboard/Dashboard.vue').default);
+Vue.component('call-history', require('./components/CallHistory/CallHistory.vue').default);
+Vue.component('social-board', require('./components/SocialBoard/SocialBoard.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

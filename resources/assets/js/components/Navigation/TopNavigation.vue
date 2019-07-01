@@ -77,8 +77,10 @@
 				<div class="col-lg-6">
 					<ul class="navbar-nav left">
 						<li class="nav-item d-none d-sm-inline-block title">
-							<a v-if="active == 'workstation'" href="index3.html" class="nav-link"><strong>Workstation</strong></a>
-							<a v-if="active == 'dashboard'" href="index3.html" class="nav-link"><strong>Dashboard</strong></a>
+							<a v-if="active == 'workstation'" href="#" class="nav-link"><strong>Workstation</strong></a>
+							<a v-if="active == 'dashboard'" href="#" class="nav-link"><strong>Dashboard</strong></a>
+							<a v-if="active == 'call-history'" href="#" class="nav-link"><strong>Call History</strong></a>
+							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block" style="margin-left: 55px;">
 							<a href="index3.html" class="nav-link">General</a>
@@ -86,7 +88,7 @@
 						<li v-if="active == 'workstation'"class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link">Scripts</a>
 						</li>
-						<li v-if="active == 'dashboard'"class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
