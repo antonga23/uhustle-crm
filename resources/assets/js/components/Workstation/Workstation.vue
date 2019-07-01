@@ -469,7 +469,11 @@
                 });
 
                 vm.call_active = false;
-                console.log(vm.call_active);
+            });
+
+            Fire.$on('AfterCallBackSet', function(){
+                console.log('AfterCallBackSet');
+                this.getComments();
             });
 
             this.Toast = this.$swal.mixin({

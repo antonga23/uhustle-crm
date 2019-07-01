@@ -29,6 +29,8 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 
 import VCalendar from 'v-calendar';
 Vue.use(VCalendar, {
