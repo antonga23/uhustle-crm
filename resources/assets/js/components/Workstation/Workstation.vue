@@ -131,7 +131,7 @@
 </style>
 <template>
     <div class="">
-        <div class="row" style="margin-top:3%;">
+        <div class="row" style="margin-top:3%;" v-if="call_active == true">
             <ul class="top-section">
                 <li>
                     <p class="top">Lead Source</p>
@@ -151,7 +151,7 @@
                 </li>
             </ul>
         </div>
-        <div class="row">
+        <div class="row" v-if="call_active == false">
           <div class="col-lg-3">
             <div class="card client">
               <div class="card-body">
@@ -281,7 +281,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="row" style="margin-top:3%;" v-if="call_active == false">
             <b-modal id="modal-1" title="Please Choose Comment Type">
                 <b-form-group label="Comment Types">
                 <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
@@ -328,6 +328,7 @@
                 comments : {},
                 comments_graph : {},
                 notes_data: [],
+                call_active: true,
                 chart_options: {
                     scales: {
                         yAxes: [{

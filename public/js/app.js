@@ -3331,6 +3331,7 @@ __webpack_require__.r(__webpack_exports__);
       comments: {},
       comments_graph: {},
       notes_data: [],
+      call_active: true,
       chart_options: {
         scales: {
           yAxes: [{
@@ -103246,140 +103247,146 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c("div", { staticClass: "row", staticStyle: { "margin-top": "3%" } }, [
-      _c("ul", { staticClass: "top-section" }, [
-        _c("li", [
-          _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bottom" }, [
-            _vm._v(_vm._s(_vm.lead_info.source))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("p", { staticClass: "top" }, [_vm._v("Called")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bottom" }, [
-            _vm._v(_vm._s(_vm.call_counts.call_count))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bottom" }, [
-            _vm._v(_vm._s(_vm.call_counts.call_count))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bottom" }, [
-            _vm._v(_vm._s(_vm.call_counts.call_count_sales))
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-3" }, [
-        _c("div", { staticClass: "card client" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass: "card-text truncate",
-                attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
-              },
-              [
-                _vm._v(
-                  "\n              " +
-                    _vm._s(this.lead_info.name + " " + _vm.lead_info.surname) +
-                    "\n            "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-link truncate" }, [
-              _vm._v(
-                _vm._s(_vm.lead_info.country) +
-                  " | " +
-                  _vm._s(_vm.lead_info.gender) +
-                  " | " +
-                  _vm._s(_vm.lead_info.age)
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-3" }, [
-        _c("div", { staticClass: "card product" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass: "card-text",
-                attrs: {
-                  title: _vm.product.description + ". " + _vm.product.price
-                }
-              },
-              [
-                _vm._v(
-                  "\n              " +
-                    _vm._s(_vm.product.name) +
-                    "\n            "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass: "card-link truncate",
-                attrs: {
-                  title: _vm.product.description + ". " + _vm.product.price
-                }
-              },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.product.description) +
-                    "\n            "
-                )
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-3" }, [
-        _c("div", { staticClass: "card time" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("\n              11:20 AM\n            ")
+    _vm.call_active == true
+      ? _c("div", { staticClass: "row", staticStyle: { "margin-top": "3%" } }, [
+          _c("ul", { staticClass: "top-section" }, [
+            _c("li", [
+              _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "bottom" }, [
+                _vm._v(_vm._s(_vm.lead_info.source))
+              ])
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "card-link truncate" }, [
-              _vm._v(
-                _vm._s(_vm.lead_info.city) +
-                  " | " +
-                  _vm._s(_vm.lead_info.country)
-              )
+            _c("li", [
+              _c("p", { staticClass: "top" }, [_vm._v("Called")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "bottom" }, [
+                _vm._v(_vm._s(_vm.call_counts.call_count))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "bottom" }, [
+                _vm._v(_vm._s(_vm.call_counts.call_count))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "bottom" }, [
+                _vm._v(_vm._s(_vm.call_counts.call_count_sales))
+              ])
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(3)
-    ]),
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.call_active == false
+      ? _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("div", { staticClass: "card client" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text truncate",
+                    attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                  },
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(
+                          this.lead_info.name + " " + _vm.lead_info.surname
+                        ) +
+                        "\n            "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-link truncate" }, [
+                  _vm._v(
+                    _vm._s(_vm.lead_info.country) +
+                      " | " +
+                      _vm._s(_vm.lead_info.gender) +
+                      " | " +
+                      _vm._s(_vm.lead_info.age)
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("div", { staticClass: "card product" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text",
+                    attrs: {
+                      title: _vm.product.description + ". " + _vm.product.price
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.product.name) +
+                        "\n            "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-link truncate",
+                    attrs: {
+                      title: _vm.product.description + ". " + _vm.product.price
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.product.description) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3" }, [
+            _c("div", { staticClass: "card time" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v("\n              11:20 AM\n            ")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-link truncate" }, [
+                  _vm._v(
+                    _vm._s(_vm.lead_info.city) +
+                      " | " +
+                      _vm._s(_vm.lead_info.country)
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "row stats" }, [
       _c("div", { staticClass: "col-lg-6" }, [
@@ -103575,90 +103582,95 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c(
-          "b-modal",
-          { attrs: { id: "modal-1", title: "Please Choose Comment Type" } },
+    _vm.call_active == false
+      ? _c(
+          "div",
+          { staticClass: "row", staticStyle: { "margin-top": "3%" } },
           [
             _c(
-              "b-form-group",
-              { attrs: { label: "Comment Types" } },
+              "b-modal",
+              { attrs: { id: "modal-1", title: "Please Choose Comment Type" } },
               [
                 _c(
-                  "b-form-radio",
-                  {
-                    attrs: { name: "some-radios", value: "A" },
-                    model: {
-                      value: _vm.comment.comment_type,
-                      callback: function($$v) {
-                        _vm.$set(_vm.comment, "comment_type", $$v)
+                  "b-form-group",
+                  { attrs: { label: "Comment Types" } },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "A" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
                       },
-                      expression: "comment.comment_type"
-                    }
-                  },
-                  [_vm._v("Answered")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-radio",
-                  {
-                    attrs: { name: "some-radios", value: "NA" },
-                    model: {
-                      value: _vm.comment.comment_type,
-                      callback: function($$v) {
-                        _vm.$set(_vm.comment, "comment_type", $$v)
+                      [_vm._v("Answered")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NA" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
                       },
-                      expression: "comment.comment_type"
-                    }
-                  },
-                  [_vm._v("No Answer")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-radio",
-                  {
-                    attrs: { name: "some-radios", value: "LB" },
-                    model: {
-                      value: _vm.comment.comment_type,
-                      callback: function($$v) {
-                        _vm.$set(_vm.comment, "comment_type", $$v)
+                      [_vm._v("No Answer")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "LB" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
                       },
-                      expression: "comment.comment_type"
-                    }
-                  },
-                  [_vm._v("Language Barrier")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-radio",
-                  {
-                    attrs: { name: "some-radios", value: "VM" },
-                    model: {
-                      value: _vm.comment.comment_type,
-                      callback: function($$v) {
-                        _vm.$set(_vm.comment, "comment_type", $$v)
+                      [_vm._v("Language Barrier")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "VM" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
                       },
-                      expression: "comment.comment_type"
-                    }
-                  },
-                  [_vm._v("Voice Mail")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-form-radio",
-                  {
-                    attrs: { name: "some-radios", value: "NI" },
-                    model: {
-                      value: _vm.comment.comment_type,
-                      callback: function($$v) {
-                        _vm.$set(_vm.comment, "comment_type", $$v)
+                      [_vm._v("Voice Mail")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NI" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
                       },
-                      expression: "comment.comment_type"
-                    }
-                  },
-                  [_vm._v("Not Interested")]
+                      [_vm._v("Not Interested")]
+                    )
+                  ],
+                  1
                 )
               ],
               1
@@ -103666,9 +103678,7 @@ var render = function() {
           ],
           1
         )
-      ],
-      1
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
