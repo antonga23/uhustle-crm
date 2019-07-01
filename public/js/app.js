@@ -2907,20 +2907,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    showModal: function showModal() {
-      var payload = {
-        method: 'POST',
-        end_point: 'calls/call'
-      };
-      axios.post('/api-request', payload).then(function (response) {
-        if (response.data.status == 'queued') {
-          setInterval(vm.getStatus(esponse.data.call_sid), 1000);
-        } else {
-          vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-        }
-      });
-      this.$refs['my-modal'].hide();
+    startCall: function startCall() {
+      Fire.$emit('CallActive');
+    },
+    endCall: function endCall() {
+      Fire.$emit('CallEnded');
     },
     hideModal: function hideModal() {
       this.$refs['my-modal'].hide();
@@ -2929,20 +2920,6 @@ __webpack_require__.r(__webpack_exports__);
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
       this.$refs['my-modal'].toggle('#toggle-btn');
-    },
-    getStatus: function getStatus(call_sid) {
-      var payload = {
-        method: 'POST',
-        end_point: 'calls/get-call-status'
-      };
-      axios.post('/api-request', payload).then(function (response) {
-        if (response.data.success == true) {
-          vm.call_status = response.data.call_status;
-        } else {
-          vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-        }
-      });
     },
     getFullYear: function getFullYear() {
       var d = new Date();
@@ -3293,14 +3270,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3320,7 +3289,50 @@ __webpack_require__.r(__webpack_exports__);
       timer: 3000
     });
   },
-  created: function created() {},
+  created: function created() {
+    Fire.$on('CallActive', function () {
+      var vm = this;
+      this.call_active = true;
+      console.log(vm.lead_info);
+      var payload = {
+        method: 'POST',
+        end_point: 'calls/call',
+        form_data: {
+          lead_id: '',
+          phone_number: ''
+        }
+      };
+      axios.post('/api-request', payload).then(function (response) {
+        if (response.data.status == 'queued') {
+          vm.call_sid = esponse.data.call_sid;
+          setInterval(vm.getStatus(vm.call_sid), 1000);
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    });
+    Fire.$on('CallEnded', function () {
+      console.log('CallEnded');
+      var vm = this;
+      this.call_active = true;
+      var payload = {
+        method: 'POST',
+        end_point: 'calls/end',
+        form_data: {
+          call_sid: this.call_sid
+        }
+      };
+      axios.post('/api-request', payload).then(function (response) {
+        if (response.data.success == true) {
+          vm.call_active = true;
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    });
+  },
   props: [],
   data: function data() {
     return {
@@ -3331,7 +3343,8 @@ __webpack_require__.r(__webpack_exports__);
       comments: {},
       comments_graph: {},
       notes_data: [],
-      call_active: true,
+      call_active: false,
+      call_status: '',
       chart_options: {
         scales: {
           yAxes: [{
@@ -3384,6 +3397,20 @@ __webpack_require__.r(__webpack_exports__);
           });
         } else {
           vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    },
+    getStatus: function getStatus(call_sid) {
+      var vm = this;
+      var payload = {
+        method: 'POST',
+        end_point: 'calls/get-call-status'
+      };
+      axios.post('/api-request', payload).then(function (response) {
+        if (response.data.success == true) {
+          vm.call_status = response.data.call_status;
+        } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
         }
       });
@@ -103127,13 +103154,6 @@ var render = function() {
                       { staticClass: "nav-item d-none d-sm-inline-block" },
                       [
                         _c("button", {
-                          directives: [
-                            {
-                              name: "b-modal",
-                              rawName: "v-b-modal.modal-sm",
-                              modifiers: { "modal-sm": true }
-                            }
-                          ],
                           staticClass: "nav-link status",
                           staticStyle: {
                             "background-color": "transparent",
@@ -103142,7 +103162,11 @@ var render = function() {
                             "margin-top": "-10px"
                           },
                           attrs: { id: "toggle-btn" },
-                          on: { click: _vm.showModal }
+                          on: {
+                            click: function($event) {
+                              return _vm.startCall()
+                            }
+                          }
                         })
                       ]
                     ),
@@ -103152,13 +103176,6 @@ var render = function() {
                       { staticClass: "nav-item d-none d-sm-inline-block" },
                       [
                         _c("button", {
-                          directives: [
-                            {
-                              name: "b-modal",
-                              rawName: "v-b-modal.modal-sm",
-                              modifiers: { "modal-sm": true }
-                            }
-                          ],
                           staticClass: "nav-link call",
                           staticStyle: {
                             "background-color": "transparent",
@@ -103167,7 +103184,11 @@ var render = function() {
                             "margin-top": "-10px"
                           },
                           attrs: { id: "show-btn" },
-                          on: { click: _vm.showModal }
+                          on: {
+                            click: function($event) {
+                              return _vm.endCall()
+                            }
+                          }
                         })
                       ]
                     )
@@ -103388,296 +103409,214 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "row stats" }, [
-      _c("div", { staticClass: "col-lg-6" }, [
-        _c("div", { staticClass: "card left" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _c("img", {
-                staticClass: "icon",
-                attrs: {
-                  src: "/images/workstation/Agent_Notes_Icon@4x.png",
-                  alt: "Icon"
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "left" }, [_vm._v("Agent Notes")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "right" }, [
-                _vm._v(_vm._s(_vm.comments.total_comments) + " Comment(s)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "notes-roll" }, [
-              _c(
-                "ul",
-                {
-                  staticClass: "list-group",
-                  staticStyle: {
-                    height: "345px",
-                    width: "100%",
-                    overflow: "hidden",
-                    "overflow-y": "scroll"
-                  }
-                },
-                _vm._l(_vm.comments.comments, function(comment) {
-                  return _c("li", { staticClass: "list-group-item" }, [
-                    _c("p", [
-                      _c("strong", [_vm._v(_vm._s(comment.comment_type))]),
-                      _vm._v(
-                        " \n                                    " +
-                          _vm._s(comment.description) +
-                          " \n                                    "
-                      ),
-                      _c(
-                        "span",
-                        {
-                          staticStyle: { float: "right", "margin-top": "11px" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.getDaysAgo(comment.created_at)) +
-                              " "
-                          ),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("small", [_vm._v("Yongama Sobambela")])
-                        ]
-                      )
-                    ])
+    _vm.call_active == false
+      ? _c("div", { staticClass: "row stats" }, [
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c("div", { staticClass: "card left" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/workstation/Agent_Notes_Icon@4x.png",
+                      alt: "Icon"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left" }, [_vm._v("Agent Notes")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "right" }, [
+                    _vm._v(_vm._s(_vm.comments.total_comments) + " Comment(s)")
                   ])
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "notes-capture" },
-              [
-                _c(
-                  "b-button",
-                  {
-                    directives: [
-                      {
-                        name: "b-modal",
-                        rawName: "v-b-modal.modal-1",
-                        modifiers: { "modal-1": true }
-                      }
-                    ],
-                    staticClass: "choose-comment-type"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "icon",
-                      staticStyle: { width: "27px" },
-                      attrs: {
-                        src: "/images/workstation/Asset 28@4x.png",
-                        alt: "Icon"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.comment.comment_description,
-                      expression: "comment.comment_description"
-                    }
-                  ],
-                  staticClass: "comment-desc",
-                  attrs: { type: "text", placeholder: "Write comment here" },
-                  domProps: { value: _vm.comment.comment_description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.comment,
-                        "comment_description",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    staticStyle: { width: "75px" },
-                    attrs: { id: "send-btn", type: "submit" },
-                    on: {
-                      click: function($event) {
-                        return _vm.addComment()
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                            Send\n                        "
-                    )
-                  ]
-                )
-              ],
-              1
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-6" }, [
-        _c(
-          "div",
-          { staticClass: "card right", staticStyle: { height: "502px" } },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [
-                _c("img", {
-                  staticClass: "icon",
-                  attrs: {
-                    src: "/images/workstation/Feedback_Icon@4x.png",
-                    alt: "Icon"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "left" }, [
-                  _vm._v("Feedback Summary")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "right" }, [
-                  _vm._v(_vm._s(_vm.comments.total_comments) + " Comment(s)")
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "notes-graph",
-                  staticStyle: { display: "block", heigh: "150px" },
-                  attrs: { id: "chartjs-size-monitor" }
-                },
-                [
-                  _c("bars", {
-                    attrs: {
-                      data: _vm.notes_data,
-                      gradient: ["#6fa8dc", "#42b983"],
-                      barWidth: 50,
-                      growDuration: 1,
-                      rounding: 0,
-                      height: 415
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.call_active == false
-      ? _c(
-          "div",
-          { staticClass: "row", staticStyle: { "margin-top": "3%" } },
-          [
-            _c(
-              "b-modal",
-              { attrs: { id: "modal-1", title: "Please Choose Comment Type" } },
-              [
+                _c("div", { staticClass: "notes-roll" }, [
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "list-group",
+                      staticStyle: {
+                        height: "345px",
+                        width: "100%",
+                        overflow: "hidden",
+                        "overflow-y": "scroll"
+                      }
+                    },
+                    _vm._l(_vm.comments.comments, function(comment) {
+                      return _c("li", { staticClass: "list-group-item" }, [
+                        _c("p", [
+                          _c("strong", [_vm._v(_vm._s(comment.comment_type))]),
+                          _vm._v(
+                            " \n                                    " +
+                              _vm._s(comment.description) +
+                              " \n                                    "
+                          ),
+                          _c(
+                            "span",
+                            {
+                              staticStyle: {
+                                float: "right",
+                                "margin-top": "11px"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(_vm.getDaysAgo(comment.created_at)) +
+                                  " "
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("small", [_vm._v("Yongama Sobambela")])
+                            ]
+                          )
+                        ])
+                      ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
-                  "b-form-group",
-                  { attrs: { label: "Comment Types" } },
+                  "div",
+                  { staticClass: "notes-capture" },
                   [
                     _c(
-                      "b-form-radio",
+                      "b-button",
                       {
-                        attrs: { name: "some-radios", value: "A" },
-                        model: {
-                          value: _vm.comment.comment_type,
-                          callback: function($$v) {
-                            _vm.$set(_vm.comment, "comment_type", $$v)
-                          },
-                          expression: "comment.comment_type"
-                        }
+                        directives: [
+                          {
+                            name: "b-modal",
+                            rawName: "v-b-modal.modal-1",
+                            modifiers: { "modal-1": true }
+                          }
+                        ],
+                        staticClass: "choose-comment-type"
                       },
-                      [_vm._v("Answered")]
+                      [
+                        _c("img", {
+                          staticClass: "icon",
+                          staticStyle: { width: "27px" },
+                          attrs: {
+                            src: "/images/workstation/Asset 28@4x.png",
+                            alt: "Icon"
+                          }
+                        })
+                      ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "b-form-radio",
-                      {
-                        attrs: { name: "some-radios", value: "NA" },
-                        model: {
-                          value: _vm.comment.comment_type,
-                          callback: function($$v) {
-                            _vm.$set(_vm.comment, "comment_type", $$v)
-                          },
-                          expression: "comment.comment_type"
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.comment.comment_description,
+                          expression: "comment.comment_description"
                         }
+                      ],
+                      staticClass: "comment-desc",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Write comment here"
                       },
-                      [_vm._v("No Answer")]
-                    ),
+                      domProps: { value: _vm.comment.comment_description },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.comment,
+                            "comment_description",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
                     _vm._v(" "),
                     _c(
-                      "b-form-radio",
+                      "button",
                       {
-                        attrs: { name: "some-radios", value: "LB" },
-                        model: {
-                          value: _vm.comment.comment_type,
-                          callback: function($$v) {
-                            _vm.$set(_vm.comment, "comment_type", $$v)
-                          },
-                          expression: "comment.comment_type"
+                        staticClass: "btn btn-primary",
+                        staticStyle: { width: "75px" },
+                        attrs: { id: "send-btn", type: "submit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.addComment()
+                          }
                         }
                       },
-                      [_vm._v("Language Barrier")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-radio",
-                      {
-                        attrs: { name: "some-radios", value: "VM" },
-                        model: {
-                          value: _vm.comment.comment_type,
-                          callback: function($$v) {
-                            _vm.$set(_vm.comment, "comment_type", $$v)
-                          },
-                          expression: "comment.comment_type"
-                        }
-                      },
-                      [_vm._v("Voice Mail")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-radio",
-                      {
-                        attrs: { name: "some-radios", value: "NI" },
-                        model: {
-                          value: _vm.comment.comment_type,
-                          callback: function($$v) {
-                            _vm.$set(_vm.comment, "comment_type", $$v)
-                          },
-                          expression: "comment.comment_type"
-                        }
-                      },
-                      [_vm._v("Not Interested")]
+                      [
+                        _vm._v(
+                          "\n                            Send\n                        "
+                        )
+                      ]
                     )
                   ],
                   1
                 )
-              ],
-              1
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6" }, [
+            _c(
+              "div",
+              { staticClass: "card right", staticStyle: { height: "502px" } },
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: {
+                        src: "/images/workstation/Feedback_Icon@4x.png",
+                        alt: "Icon"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "left" }, [
+                      _vm._v("Feedback Summary")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "right" }, [
+                      _vm._v(
+                        _vm._s(_vm.comments.total_comments) + " Comment(s)"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "notes-graph",
+                      staticStyle: { display: "block", heigh: "150px" },
+                      attrs: { id: "chartjs-size-monitor" }
+                    },
+                    [
+                      _c("bars", {
+                        attrs: {
+                          data: _vm.notes_data,
+                          gradient: ["#6fa8dc", "#42b983"],
+                          barWidth: 50,
+                          growDuration: 1,
+                          rounding: 0,
+                          height: 415
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]
             )
-          ],
-          1
-        )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.call_active == true
+      ? _c("div", { staticClass: "row", staticStyle: { "margin-top": "3%" } }, [
+          _vm._v("\n        Calling\n    ")
+        ])
       : _vm._e()
   ])
 }

@@ -43,7 +43,7 @@ class GuzzleController extends Controller
 
       $end_point = config('api.api_url') . $request->end_point . $session_details_string;
 
-      if($request->end_point == 'calls/call/'){
+      if($request->end_point == 'calls/call'){
         $request->form_data = [
           'lead_id' => Session::get('lead_id'),
           'phone_number' => Session::get('phone_number')

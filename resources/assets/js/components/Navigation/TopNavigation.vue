@@ -113,14 +113,14 @@
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 
-		    				<button id="toggle-btn"  v-b-modal.modal-sm class="nav-link status" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 							<!-- <a href="#" class="nav-link status">
 								<img src="/images/icons/search button@4x.png" alt="Call Buttons" />
 							</a> -->
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 
-		    				<button id="show-btn"  v-b-modal.modal-sm class="nav-link call" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 							<!-- <a href="#" id="show-btn"  role="button" class="nav-link call" @click="showModal">
 								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" />
 							</a> -->
@@ -171,48 +171,19 @@
 			}
 		},
 	    methods: {
-	      	showModal() {
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/call'
-                }
-                
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.status == 'queued'){
-                        setInterval(vm.getStatus(esponse.data.call_sid), 1000);
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
-
-		        this.$refs['my-modal'].hide()
+	      	startCall() {
+				 Fire.$emit('CallActive');
+	      	},
+	      	endCall() {
+				 Fire.$emit('CallEnded');
 	      	},
 	      	hideModal() {
-		        this.$refs['my-modal'].hide()
+		        this.$refs['my-modal'].hide();
 	      	},
 			toggleModal() {
 				// We pass the ID of the button that we want to return focus to
 				// when the modal has hidden
 				this.$refs['my-modal'].toggle('#toggle-btn')
-			},
-			getStatus(call_sid){
-
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/get-call-status'
-                }
-
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.call_status = response.data.call_status;
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
 			},
 			getFullYear(){
 				var d = new Date();

@@ -219,7 +219,7 @@
             </div>
           </div>
         </div>
-        <div class="row stats">
+        <div class="row stats"  v-if="call_active == false">
             <div class="col-lg-6" >
                 <div class="card left" style="">
                     <div class="card-body">
@@ -281,16 +281,8 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top:3%;" v-if="call_active == false">
-            <b-modal id="modal-1" title="Please Choose Comment Type">
-                <b-form-group label="Comment Types">
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voice Mail</b-form-radio>
-                <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
-                </b-form-group>
-            </b-modal>
+        <div class="row" style="margin-top:3%;" v-if="call_active == true">
+            Calling
         </div>
     </div>
 </template>
@@ -317,6 +309,58 @@
             });
         },
         created: function () {
+            Fire.$on('CallActive', function(){
+                var vm = this;
+                this.call_active = true;
+                console.log(vm.lead_info);
+                var payload = {
+                    method : 'POST',
+                    end_point : 'calls/call',
+                    form_data : {
+                        lead_id : '',
+                        phone_number : '',
+                    }
+                }
+                
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.status == 'queued'){
+                        vm.call_sid = esponse.data.call_sid;
+                        setInterval(vm.getStatus(vm.call_sid), 1000);
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+
+                });
+            });
+
+            Fire.$on('CallEnded', function(){
+                console.log('CallEnded');
+                var vm = this;
+                this.call_active = true;
+
+                var payload = {
+                    method : 'POST',
+                    end_point : 'calls/end',
+                    form_data : {
+                        call_sid : this.call_sid,
+                    }
+                }
+                
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        
+                        vm.call_active = true;
+
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+
+                });
+            });
         },
         props: [],
         data: function(){
@@ -328,7 +372,8 @@
                 comments : {},
                 comments_graph : {},
                 notes_data: [],
-                call_active: true,
+                call_active: false,
+                call_status: '',
                 chart_options: {
                     scales: {
                         yAxes: [{
@@ -383,6 +428,22 @@
                     }
                 });
             },
+			getStatus(call_sid){
+                var vm = this;
+                var payload = {
+                    method : 'POST',
+                    end_point : 'calls/get-call-status'
+                }
+
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.call_status = response.data.call_status;
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+			},
             addComment(){
                 var vm = this;
 
