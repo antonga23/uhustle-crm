@@ -30,22 +30,47 @@
 	}
 
 	.pull-right li a.search{
-    	background-image: url('/images/icons/search button@4x.png') !important;
+    	background-image: url('/images/icons/Asset 60.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
-	.pull-right li .status{
-    	background-image: url('/images/icons/online button@4x.png') !important;
+	.pull-right li a.search:hover{
+    	background-image: url('/images/icons/Asset 61.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+	.pull-right li.active .status{
+    	background-image: url('/images/icons/Asset 55.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
+
+	.pull-right li.on-call .status{
+    	background-image: url('/images/icons/Asset 56.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
+	.pull-right li.in-active .status{
+    	background-image: url('/images/icons/Asset 57.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
 	.pull-right li .call{
-    	background-image: url('/images/icons/end call button@4x.png') !important;
+    	background-image: url('/images/icons/Asset 57.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
+
+	.pull-right li .call:hover{
+    	background-image: url('/images/icons/Asset 58.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
 
 	.pull-right li .add-call-back-btn{
     	background-image: url('/images/workstation/Asset 28@4x.png') !important;
@@ -127,7 +152,7 @@
 								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" /> -->
 							</a>
 						</li>
-						<li class="nav-item d-none d-sm-inline-block">
+						<li class="nav-item d-none d-sm-inline-block active">
 
 		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 

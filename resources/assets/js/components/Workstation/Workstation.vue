@@ -192,6 +192,11 @@
     .tip-f{
     	background-image: url('/images/call/6@4x.png') !important;
     }
+    .chart-wrapper {
+      width: 100%;
+      height: 700px;
+    }
+
 </style>
 <template>
     <div class="">
@@ -331,15 +336,7 @@
                         </h5>
 
                         <div id="chartjs-size-monitor" class="notes-graph" style="display: block; heigh: 150px;">
-                             <bars
-                                :data="notes_data"
-                                :gradient="['#6fa8dc', '#42b983']"
-                                :barWidth="50"
-                                :growDuration="1"
-                                :rounding="0"
-                                :height="415"
-                                >
-                              </bars>
+                             <chart :options="chartOptionsBar"></chart>
                         </div>
                     </div>
                 </div>
@@ -498,14 +495,20 @@
                 call_active: false,
                 call_status: '',
                 handle: '',
-                chart_options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
+                chartOptionsBar: {
+                    xAxis: {
+                        data: ['Q1', 'Q2', 'Q3', 'Q4']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                          type: 'bar',
+                          data: [63, 75, 24, 92]
+                        }
+                    ],
+                    color: ['#89cff0']
                 },
                 comment:{
                     comment_description :'',
