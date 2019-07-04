@@ -79,7 +79,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
- 
+  
+    .list-group-item{
+        margin: 0;
+        padding: 0 1.25rem !important;
+    }
     .list-group-item p{
         margin: 0;
     }
@@ -192,11 +196,52 @@
     .tip-f{
     	background-image: url('/images/call/6@4x.png') !important;
     }
-    .chart-wrapper {
-      width: 100%;
-      height: 700px;
-    }
 
+.verticalChart {
+  width: 100%;
+  background-image: url('/images/graph_grid.png') !important;
+  background-repeat: repeat-x;
+    padding-top: 36px;
+
+}
+.verticalChart .singleBar {
+    width: 14%;
+    float: left;
+    margin-left: 6.5%;
+    margin-right: 1.5%;
+
+}
+.verticalChart .singleBar .bar {
+  position: relative;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.verticalChart .singleBar .bar .value {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #89cff0;
+  color: #003449;
+}
+.verticalChart .singleBar .bar .value span {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: #003449;
+  display: none;
+  text-align: center;
+}
+.verticalChart .singleBar .title {
+  margin-top: 5px;
+  text-align: center;
+  color: #003449;
+
+    font-size: 22px;
+    font-weight: 900;
+}
 </style>
 <template>
     <div class="">
@@ -299,7 +344,7 @@
                         </h5>
 
                         <div class="notes-roll">
-                            <ul class="list-group" style="height:345px; width:100%;overflow:hidden; overflow-y:scroll;">
+                            <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
                                 <li v-for="comment in comments.comments" class="list-group-item">
                                     <p>
                                         <strong>{{ comment.comment_type }}</strong> 
@@ -327,7 +372,7 @@
                 </div>
             </div>
             <div class="col-lg-6" >
-                <div class="card right" style="height: 502px;">
+                <div class="card right" style="height: 405px;">
                     <div class="card-body">
                         <h5 class="card-title">
                             <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
@@ -335,8 +380,25 @@
                             <span class="right">{{ comments.total_comments }} Comment(s)</span>
                         </h5>
 
-                        <div id="chartjs-size-monitor" class="notes-graph" style="display: block; heigh: 150px;">
-                             <chart :options="chartOptionsBar"></chart>
+                        <div class="">
+                            <div class="verticalChart">
+
+                              <div class="singleBar" v-for="bar in comments_graph">
+
+                                <div class="bar">
+
+                                  <div class="value" :style="'height: ' + bar.percentage + '%;'">
+                                    <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
+                                  </div>
+
+                                </div>
+
+                                <div class="title">{{ bar.type }}</div>
+
+                              </div>
+                                <div class="clearfix"></div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,6 +439,30 @@
                 <h1>Don't stutter</h1>
                 <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
+        </div>
+
+        <div>
+            <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
+                <div class="d-block">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
+                        </div>
+                    </div>
+                </div>
+            </b-modal>
         </div>
     </div>
 </template>
@@ -518,6 +604,15 @@
             }
         },
         methods: {
+            toggleModal() {
+                // We pass the ID of the button that we want to return focus to
+                // when the modal has hidden
+                this.$refs['my-modal'].toggle('#toggle-btn')
+            },
+            resetModal() {
+                this.comment.comment_description = '';
+                this.comment.comment_type = '';
+            },
             enqueueLead(){
                 var vm = this;
 

@@ -162,16 +162,16 @@
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 
 						</li>
-						<li class="nav-item d-none d-sm-inline-block">
+		<!-- 				<li class="nav-item d-none d-sm-inline-block">
 
 		    				<button id="show-btn" v-b-modal.modal-1 class="nav-link add-call-back-btn" style="background-color: transparent;border: none;"></button>
 
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
 		</nav>
-        <div>
+<!--         <div>
 		    <b-modal id="modal-1" size="sm" ref="my-modal" title="Capture Callback" @show="resetModal" @hidden="resetModal" @ok="handleOk">
 				<div class="d-block text-center">
 					<b-row class="my-1">
@@ -196,7 +196,7 @@
 					</b-row>
 				</div>
 		    </b-modal>
-        </div>
+        </div> -->
 	</div>
 </template>
 

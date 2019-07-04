@@ -4842,6 +4842,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4952,6 +5038,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    toggleModal: function toggleModal() {
+      // We pass the ID of the button that we want to return focus to
+      // when the modal has hidden
+      this.$refs['my-modal'].toggle('#toggle-btn');
+    },
+    resetModal: function resetModal() {
+      this.comment.comment_description = '';
+      this.comment.comment_type = '';
+    },
     enqueueLead: function enqueueLead() {
       var vm = this;
       var payload = {
@@ -52566,7 +52661,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{\n   margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n    list-style-type: none;\n    padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n    float: left;\n    margin-right: 52px;\n    padding: 0 5px;\n    border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-f3210f20]{\n    border-radius: 27px;\n    border: none;\n}\n.card-title[data-v-f3210f20] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n    color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n    font-size: 30px;\n    color: #fff;\n    font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n    font-size: 22px;\n    color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n    border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n    float: right;\n}\n.truncate[data-v-f3210f20] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-f3210f20]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-f3210f20]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n    height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n    margin-top: 0;\n    margin-left: -54px;\n    margin-right: -65px;\n    padding: 6%;\n\tbackground-image: url('/images/call/Call_Background.svg') !important;\n\tbackground-size: 100%;\n\tbackground-repeat: no-repeat;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n    padding: 10px;\n\tbackground-image: url('/images/call/Call_Logo.svg') !important;\n\tbackground-size: 100%;\n\tbackground-repeat: no-repeat;\n    height: 370px;\n}\n.tip[data-v-f3210f20]{\n    margin-bottom: 40px;\n    background-size: 20%;\n    background-repeat: no-repeat;\n    background-position: center 1px;\n    margin-bottom: 40px;\n    padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n    border-bottom: 1px solid #fff;\n    margin-bottom: 10px;    \n    color: #fff;\n    margin: 0;\n    letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n    margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n    color: #fff;\n    letter-spacing: 6px;\n    margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n    margin-bottom: 10px;    \n    color: #fff;\n    margin: 0;\n    letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n\tbackground-image: url('/images/call/1@4x.png') !important;\n    background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n\tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n\tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n\tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n\tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n\tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.chart-wrapper[data-v-f3210f20] {\n  width: 100%;\n  height: 700px;\n}\n\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 30px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 22px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-top: 0;\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 6%;\n    \tbackground-image: url('/images/call/Call_Background.svg') !important;\n    \tbackground-size: 100%;\n    \tbackground-repeat: no-repeat;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 10px;\n    \tbackground-image: url('/images/call/Call_Logo.svg') !important;\n    \tbackground-size: 100%;\n    \tbackground-repeat: no-repeat;\n        height: 370px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\n", ""]);
 
 // exports
 
@@ -143457,28 +143552,6 @@ var render = function() {
                           }
                         })
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      { staticClass: "nav-item d-none d-sm-inline-block" },
-                      [
-                        _c("button", {
-                          directives: [
-                            {
-                              name: "b-modal",
-                              rawName: "v-b-modal.modal-1",
-                              modifiers: { "modal-1": true }
-                            }
-                          ],
-                          staticClass: "nav-link add-call-back-btn",
-                          staticStyle: {
-                            "background-color": "transparent",
-                            border: "none"
-                          },
-                          attrs: { id: "show-btn" }
-                        })
-                      ]
                     )
                   ])
                 ]
@@ -143486,151 +143559,6 @@ var render = function() {
             : _vm._e()
         ])
       ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c(
-          "b-modal",
-          {
-            ref: "my-modal",
-            attrs: { id: "modal-1", size: "sm", title: "Capture Callback" },
-            on: {
-              show: _vm.resetModal,
-              hidden: _vm.resetModal,
-              ok: _vm.handleOk
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "d-block text-center" },
-              [
-                _c(
-                  "b-row",
-                  { staticClass: "my-1" },
-                  [
-                    _c("b-col", { attrs: { sm: "12" } }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "call_back_date" } },
-                        [
-                          _vm._v("Callback Date\n\t\t\t\t\t\t\t\t"),
-                          _c("b-form-input", {
-                            directives: [
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
-                              }
-                            ],
-                            attrs: {
-                              id: "call_back_date",
-                              type: "date",
-                              name: "Date"
-                            },
-                            model: {
-                              value: _vm.call_back_date,
-                              callback: function($$v) {
-                                _vm.call_back_date = $$v
-                              },
-                              expression: "call_back_date"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.first("Date")))
-                          ])
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("b-col", { attrs: { sm: "12" } }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "call_back_time" } },
-                        [
-                          _vm._v("Callback Time\n\t\t\t\t\t\t\t\t"),
-                          _c("b-form-input", {
-                            directives: [
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
-                              }
-                            ],
-                            attrs: {
-                              id: "call_back_time",
-                              type: "time",
-                              name: "Time"
-                            },
-                            model: {
-                              value: _vm.call_back_time,
-                              callback: function($$v) {
-                                _vm.call_back_time = $$v
-                              },
-                              expression: "call_back_time"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.first("Time")))
-                          ])
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("b-col", { attrs: { sm: "12" } }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "call_back_notes" } },
-                        [
-                          _vm._v("Callback Notes\n\t\t\t\t\t\t\t\t"),
-                          _c("b-form-input", {
-                            directives: [
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "max:164",
-                                expression: "'max:164'"
-                              }
-                            ],
-                            attrs: {
-                              id: "call_back_notes",
-                              type: "text",
-                              name: "Note"
-                            },
-                            model: {
-                              value: _vm.call_back_notes,
-                              callback: function($$v) {
-                                _vm.call_back_notes = $$v
-                              },
-                              expression: "call_back_notes"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.first("Note")))
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ]
-        )
-      ],
-      1
     )
   ])
 }
@@ -144482,7 +144410,7 @@ var render = function() {
                     {
                       staticClass: "list-group",
                       staticStyle: {
-                        height: "345px",
+                        height: "245px",
                         width: "100%",
                         overflow: "hidden",
                         "overflow-y": "scroll"
@@ -144608,7 +144536,7 @@ var render = function() {
           _c("div", { staticClass: "col-lg-6" }, [
             _c(
               "div",
-              { staticClass: "card right", staticStyle: { height: "502px" } },
+              { staticClass: "card right", staticStyle: { height: "405px" } },
               [
                 _c("div", { staticClass: "card-body" }, [
                   _c("h5", { staticClass: "card-title" }, [
@@ -144631,16 +144559,46 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "notes-graph",
-                      staticStyle: { display: "block", heigh: "150px" },
-                      attrs: { id: "chartjs-size-monitor" }
-                    },
-                    [_c("chart", { attrs: { options: _vm.chartOptionsBar } })],
-                    1
-                  )
+                  _c("div", {}, [
+                    _c(
+                      "div",
+                      { staticClass: "verticalChart" },
+                      [
+                        _vm._l(_vm.comments_graph, function(bar) {
+                          return _c("div", { staticClass: "singleBar" }, [
+                            _c("div", { staticClass: "bar" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "value",
+                                  style: "height: " + bar.percentage + "%;"
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: {
+                                        color: "rgb(45, 137, 239)",
+                                        display: "inline"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(bar.percentage + "%"))]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "title" }, [
+                              _vm._v(_vm._s(bar.type))
+                            ])
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "clearfix" })
+                      ],
+                      2
+                    )
+                  ])
                 ])
               ]
             )
@@ -144664,7 +144622,137 @@ var render = function() {
           _vm._v(" "),
           _vm._m(9)
         ])
-      : _vm._e()
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c(
+          "b-modal",
+          {
+            ref: "my-modal",
+            attrs: { id: "modal-1", size: "md", title: "Capture Callback" },
+            on: { ok: _vm.toggleModal }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "A" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Answered")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NA" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("No Answer")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "VM" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Voicemail")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "LB" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Language Barrier")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NI" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Not Interested")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [

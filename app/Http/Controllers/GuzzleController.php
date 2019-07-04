@@ -48,7 +48,7 @@ class GuzzleController extends Controller
           'lead_id' => Session::get('lead_id'),
           'phone_number' => Session::get('phone_number')
         ];
-      }else if('leads/setcallback'){
+      }else if($request->end_point == 'leads/setcallback'){
         $request->form_data = [
           'id' => Session::get('lead_id'),
           'user_id' => $user_id,

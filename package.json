@@ -35,6 +35,7 @@
         "admin-lte": "^3.0.0-alpha.2",
         "bootstrap-vue": "^2.0.0-rc.24",
         "chart.js": "^2.8.0",
+        "compass": "^0.1.1",
         "echarts": "^4.2.1",
         "v-calendar": "^1.0.0-beta.14",
         "vee-validate": "^2.2.11",
