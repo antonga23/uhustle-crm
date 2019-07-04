@@ -17,7 +17,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
     color: #ffffff;
-    background-image: url('/images/icons/work station icon active@4x.png') !important;
+    background-image: url('/images/icons/work station icon active.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -30,7 +30,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
     color: #ffffff;
     background-color: #fff;
-    background-image: url('/images/icons/work station icon@4x.png') !important;
+    background-image: url('/images/icons/work station icon.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -43,7 +43,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
     color: #ffffff;
-    background-image: url('/images/icons/dashboard icon active@4x.png') !important;
+    background-image: url('/images/icons/dashboard icon active.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -56,7 +56,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
     color: #ffffff;
     background-color: #fff;
-    background-image: url('/images/icons/dashboard icon @4x.png') !important;
+    background-image: url('/images/icons/dashboard icon .svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -69,7 +69,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
     color: #ffffff;
-    background-image: url('/images/icons/social board icon active@4x.png') !important;
+    background-image: url('/images/icons/social board icon active.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -82,7 +82,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
     color: #ffffff;
     background-color: #fff;
-    background-image: url('/images/icons/social board icon@4x.png') !important;
+    background-image: url('/images/icons/social board icon.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -95,7 +95,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
     color: #ffffff;
-    background-image: url('/images/icons/call history icon active@4x.png') !important;
+    background-image: url('/images/icons/call history icon active.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -108,7 +108,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
     color: #ffffff;
     background-color: #fff;
-    background-image: url('/images/icons/call history icon@4x.png') !important;
+    background-image: url('/images/icons/call history icon.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -121,7 +121,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
     color: #ffffff;
-    background-image: url('/images/icons/education icon actove@4x.png') !important;
+    background-image: url('/images/icons/education icon actove.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
@@ -134,7 +134,7 @@ a.workstation{
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
     color: #ffffff;
     background-color: #fff;
-    background-image: url('/images/icons/education icon@4x.png') !important;
+    background-image: url('/images/icons/education icon.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;
