@@ -520,7 +520,8 @@
 
                 var payload = {
                     method : 'GET',
-                    end_point : 'leads/enqueue'
+                    // end_point : 'leads/enqueue'
+                    end_point : 'leads/get/100'
                 }
 
                 vm.$Progress.start();
