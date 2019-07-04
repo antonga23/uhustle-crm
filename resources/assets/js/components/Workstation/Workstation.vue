@@ -613,13 +613,18 @@
                 this.comment.comment_description = '';
                 this.comment.comment_type = '';
             },
-            enqueueLead(){
+            enqueueLead(lead_id = ''){
                 var vm = this;
-
+                var end_point_choice = '';
+                if(lead_id != ''){
+                    end_point_choice = 'leads/get/' + lead_id;
+                }else{
+                    end_point_choice = 'leads/enqueue';
+                }
                 var payload = {
                     method : 'GET',
                     // end_point : 'leads/enqueue'
-                    end_point : 'leads/get/100'
+                    end_point : end_point_choice
                 }
 
                 vm.$Progress.start();
@@ -689,7 +694,7 @@
                 axios.post('/api-request', payload).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.enqueueLead();
+                        vm.enqueueLead(vm.lead_info.id);
                         vm.$swal('Success', response.data.message,'success');
                         vm.$Progress.finish();
                     }else{
