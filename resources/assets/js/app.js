@@ -29,6 +29,8 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 
 import VCalendar from 'v-calendar';
 Vue.use(VCalendar, {
@@ -61,6 +63,8 @@ Vue.component('left-nav', require('./components/Navigation/LeftNav.vue').default
 Vue.component('right-sidebar', require('./components/Navigation/RightSidebar.vue').default);
 Vue.component('top-navigation', require('./components/Navigation/TopNavigation.vue').default);
 Vue.component('dashboard', require('./components/Dashboard/Dashboard.vue').default);
+Vue.component('call-history', require('./components/CallHistory/CallHistory.vue').default);
+Vue.component('social-board', require('./components/SocialBoard/SocialBoard.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

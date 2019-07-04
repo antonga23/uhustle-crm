@@ -47,6 +47,17 @@
     	background-repeat: no-repeat;
 	}
 
+	.pull-right li .add-call-back-btn{
+    	background-image: url('/images/workstation/Asset 28@4x.png') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+		background-color: transparent;
+		border: none;
+		padding: 14px;
+		margin-top: 5px;
+		margin-left: 20px;
+	}
+
 	.pull-right button{
 	    background-color: transparent;border: none;padding: 29px;margin-top: -10px;
 	}
@@ -67,6 +78,9 @@
 	    color: #fff !important;
         padding: 2px 17px 6px !important;
 	}
+	.error{
+		color:#F98B39;
+	}
 	/*End Right Component*/
 </style>
 <template>
@@ -77,8 +91,10 @@
 				<div class="col-lg-6">
 					<ul class="navbar-nav left">
 						<li class="nav-item d-none d-sm-inline-block title">
-							<a v-if="active == 'workstation'" href="index3.html" class="nav-link"><strong>Workstation</strong></a>
-							<a v-if="active == 'dashboard'" href="index3.html" class="nav-link"><strong>Dashboard</strong></a>
+							<a v-if="active == 'workstation'" href="#" class="nav-link"><strong>Workstation</strong></a>
+							<a v-if="active == 'dashboard'" href="#" class="nav-link"><strong>Dashboard</strong></a>
+							<a v-if="active == 'call-history'" href="#" class="nav-link"><strong>Call History</strong></a>
+							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block" style="margin-left: 55px;">
 							<a href="index3.html" class="nav-link">General</a>
@@ -86,7 +102,7 @@
 						<li v-if="active == 'workstation'"class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link">Scripts</a>
 						</li>
-						<li v-if="active == 'dashboard'"class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
@@ -113,28 +129,47 @@
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 
-		    				<button id="toggle-btn"  v-b-modal.modal-sm class="nav-link status" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
-							<!-- <a href="#" class="nav-link status">
-								<img src="/images/icons/search button@4x.png" alt="Call Buttons" />
-							</a> -->
+		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 
-		    				<button id="show-btn"  v-b-modal.modal-sm class="nav-link call" @click="showModal" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
-							<!-- <a href="#" id="show-btn"  role="button" class="nav-link call" @click="showModal">
-								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" />
-							</a> -->
+		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+
+						</li>
+						<li class="nav-item d-none d-sm-inline-block">
+
+		    				<button id="show-btn" v-b-modal.modal-1 class="nav-link add-call-back-btn" style="background-color: transparent;border: none;"></button>
+
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
         <div>
-		    <b-modal id="modal-sm" size="sm" ref="my-modal" hide-footer title="Call">
-		      <div class="d-block text-center">
-		        <h3>Call status: {{ call_status }}</h3>
-		      </div>
-		      <b-button class="mt-3" variant="outline-danger" block @click="hideModal">End Call</b-button>
+		    <b-modal id="modal-1" size="sm" ref="my-modal" title="Capture Callback" @show="resetModal" @hidden="resetModal" @ok="handleOk">
+				<div class="d-block text-center">
+					<b-row class="my-1">
+						<b-col sm="12">
+							<label for="call_back_date">Callback Date
+								<b-form-input  v-model="call_back_date" id="call_back_date"  :type="'date'" v-validate="'required'" name="Date"></b-form-input>
+								<span class="error">{{ errors.first('Date') }}</span>
+							</label>
+						</b-col>
+						<b-col sm="12">
+							<label for="call_back_time">Callback Time
+								<b-form-input  v-model="call_back_time" id="call_back_time" :type="'time'" v-validate="'required'" name="Time"></b-form-input>
+								<span class="error">{{ errors.first('Time') }}</span>
+							</label>
+						</b-col>
+						<b-col sm="12">
+							<label for="call_back_notes">Callback Notes
+								<b-form-input  v-model="call_back_notes" id="call_back_notes" :type="'text'" v-validate="'max:164'" name="Note"></b-form-input>
+								<span class="error">{{ errors.first('Note') }}</span>
+							</label>
+						</b-col>
+					</b-row>
+				</div>
 		    </b-modal>
         </div>
 	</div>
@@ -168,51 +203,72 @@
 				status : 'active',
 				call_status : 'active',
 				month : '',
+				call_back_date : '',
+				call_back_time : '',
+				call_back_notes : '',
+				types: [
+					'date',
+					'text'
+				]
 			}
 		},
 	    methods: {
-	      	showModal() {
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/call'
-                }
-                
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.status == 'queued'){
-                        setInterval(vm.getStatus(esponse.data.call_sid), 1000);
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
-
-		        this.$refs['my-modal'].hide()
+	      	startCall() {
+				 Fire.$emit('CallActive');
+	      	},
+	      	endCall() {
+				 Fire.$emit('CallEnded');
 	      	},
 	      	hideModal() {
-		        this.$refs['my-modal'].hide()
+		        this.$refs['my-modal'].hide();
 	      	},
 			toggleModal() {
 				// We pass the ID of the button that we want to return focus to
 				// when the modal has hidden
 				this.$refs['my-modal'].toggle('#toggle-btn')
 			},
-			getStatus(call_sid){
-
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/get-call-status'
-                }
-
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.call_status = response.data.call_status;
+			resetModal() {
+				this.call_back_date = '';
+				this.call_back_time = '';
+				this.call_back_notes = '';
+			},
+			handleOk(bvModalEvt){
+				// Prevent modal from closing
+				bvModalEvt.preventDefault();
+				// Trigger submit handler
+				this.handleSubmit();
+			},
+			handleSubmit(){
+                var vm = this;
+                this.$validator.validateAll().then((result) => {
+                    if(!result){
                     }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+						var payload = {
+							method : 'POST',
+							end_point : 'leads/setcallback',
+							form_data : {
+								lead_id: ' ',
+								user_id: ' ',
+								call_back_time: this.call_back_date + ' ' + this.call_back_time,
+								notes: this.call_back_notes,
+								status: 1
+							}
+						}
+						
+						axios.post('/api-request', payload).then(function (response) {
+							
+							if(response.data.success == true){
+								Fire.$emit('AfterCallBackSet');
+								vm.$swal('Success', 'Callback captured successfully','success');
+							}else{
+								vm.$Progress.fail();
+								vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+							}
+
+						});
                     }
                 });
+
 			},
 			getFullYear(){
 				var d = new Date();

@@ -234,7 +234,7 @@ p.heading{
 					</div>
 				</div>
 				<div class="row" style="padding:25px  0;">
-					<vc-calendar is-expanded />
+					<vc-calendar :attributes='attributes' title-position="right" is-expanded :popover="true" />
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
@@ -277,8 +277,67 @@ p.heading{
 			
 		},
 		data: function(){
+
+			const todos = [
+				{
+					description: 'Call back Pete Andrews.',
+					isComplete: false,
+					dates: new Date('2019-07-09'), // Every Friday
+					color: 'red',
+				},
+				{
+					description: 'Call back Pete Andrews.',
+					isComplete: false,
+					dates: new Date('2019-07-09'), // Every Friday
+					color: 'red',
+				},
+				{
+					description: 'Call back Yongama Sobambela.',
+					isComplete: false,
+					dates: new Date('2019-07-19'), // Every Friday
+					color: 'red',
+				}
+			];
+	
 			return {
-				status : 'active'
+				status : 'active',
+				incId: todos.length,
+				todos,
+				attrs : [
+					{
+						key: 'today',
+						highlight: true,
+						class: 'today_date',
+						dates: new Date(),
+					},
+					{
+						key: 'call_back',
+						highlight: 'red',
+						class: 'call_back_date',
+						dates: new Date('2019-07-19'),
+					},
+				],
+			}
+		},
+		computed: {
+			attributes() {
+				return [
+					// Attributes for todos
+					...this.todos.map(todo => ({
+						dates: todo.dates,
+						highlight: {
+							color: todo.color,
+							class: todo.isComplete ? 'opacity-75' : '',
+						},
+						popover: {
+							label: todo.description,
+						},
+						customData: todo,
+					})),
+				];
+			},
+			addCallBack(day){
+				conosle.log(day);
 			}
 		}
 	}
