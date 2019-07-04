@@ -5121,7 +5121,7 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       axios.post('/api-request', payload).then(function (response) {
         if (response.data.success == true) {
-          vm.getComments();
+          vm.enqueueLead();
           vm.$swal('Success', response.data.message, 'success');
           vm.$Progress.finish();
         } else {
