@@ -31,12 +31,16 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.19",
         "@fortawesome/free-solid-svg-icons": "^5.9.0",
         "@fortawesome/vue-fontawesome": "^0.1.6",
+        "@vue/cli": "^3.9.1",
         "admin-lte": "^3.0.0-alpha.2",
         "bootstrap-vue": "^2.0.0-rc.24",
         "chart.js": "^2.8.0",
+        "compass": "^0.1.1",
+        "echarts": "^4.2.1",
         "v-calendar": "^1.0.0-beta.14",
         "vee-validate": "^2.2.11",
         "vue-chartjs": "^3.4.2",
+        "vue-echarts": "^4.0.3",
         "vue-morris": "^1.0.1",
         "vuebars": "^0.1.3"
     }

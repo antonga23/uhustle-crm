@@ -3,6 +3,7 @@
 	li.title a strong{
 		color: #003449;
 		font-size: 25px;
+	    letter-spacing: 4.2px;
 	}
 
 	.navbar-nav li.title{
@@ -30,22 +31,47 @@
 	}
 
 	.pull-right li a.search{
-    	background-image: url('/images/icons/search button@4x.png') !important;
+    	background-image: url('/images/icons/Asset 60.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
-	.pull-right li .status{
-    	background-image: url('/images/icons/online button@4x.png') !important;
+	.pull-right li a.search:hover{
+    	background-image: url('/images/icons/Asset 61.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+	.pull-right li.active .status{
+    	background-image: url('/images/icons/Asset 55.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
+
+	.pull-right li.on-call .status{
+    	background-image: url('/images/icons/Asset 56.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
+	.pull-right li.in-active .status{
+    	background-image: url('/images/icons/Asset 57.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
 
 	.pull-right li .call{
-    	background-image: url('/images/icons/end call button@4x.png') !important;
+    	background-image: url('/images/icons/Asset 59.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
+
+	.pull-right li .call:hover{
+    	background-image: url('/images/icons/Asset 58.svg') !important;
+    	background-size: contain;
+    	background-repeat: no-repeat;
+	}
+
 
 	.pull-right li .add-call-back-btn{
     	background-image: url('/images/workstation/Asset 28@4x.png') !important;
@@ -64,7 +90,7 @@
 
 	.border-bottom {
 	    border-bottom: none !important;
-        padding: 40px 40px 0;
+        padding: 23px 40px 0;
 	}
 	.modal-content{
 		background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
@@ -81,6 +107,22 @@
 	.error{
 		color:#F98B39;
 	}
+
+	a.top-link{    
+		border-radius: 26px;
+	    margin: 5px 8px 8px 55px !important;
+	    height: 29px !important;
+	    padding: 2px 17px 6px !important;
+	}
+	a.active{    
+		border-radius: 26px;
+	    margin: 5px 8px 8px 55px !important;
+	    height: 29px !important;
+	    background: #F98B39 !important;
+	    border-color: #F98B39 !important;
+	    color: #fff !important;
+	    padding: 2px 17px 6px !important;
+	}
 	/*End Right Component*/
 </style>
 <template>
@@ -96,11 +138,8 @@
 							<a v-if="active == 'call-history'" href="#" class="nav-link"><strong>Call History</strong></a>
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block" style="margin-left: 55px;">
-							<a href="index3.html" class="nav-link">General</a>
-						</li>
 						<li v-if="active == 'workstation'"class="nav-item d-none d-sm-inline-block">
-							<a href="#" class="nav-link">Scripts</a>
+							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
 						</li>
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month">
@@ -127,7 +166,7 @@
 								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" /> -->
 							</a>
 						</li>
-						<li class="nav-item d-none d-sm-inline-block">
+						<li class="nav-item d-none d-sm-inline-block active">
 
 		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 
@@ -137,41 +176,10 @@
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 
 						</li>
-						<li class="nav-item d-none d-sm-inline-block">
-
-		    				<button id="show-btn" v-b-modal.modal-1 class="nav-link add-call-back-btn" style="background-color: transparent;border: none;"></button>
-
-						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-        <div>
-		    <b-modal id="modal-1" size="sm" ref="my-modal" title="Capture Callback" @show="resetModal" @hidden="resetModal" @ok="handleOk">
-				<div class="d-block text-center">
-					<b-row class="my-1">
-						<b-col sm="12">
-							<label for="call_back_date">Callback Date
-								<b-form-input  v-model="call_back_date" id="call_back_date"  :type="'date'" v-validate="'required'" name="Date"></b-form-input>
-								<span class="error">{{ errors.first('Date') }}</span>
-							</label>
-						</b-col>
-						<b-col sm="12">
-							<label for="call_back_time">Callback Time
-								<b-form-input  v-model="call_back_time" id="call_back_time" :type="'time'" v-validate="'required'" name="Time"></b-form-input>
-								<span class="error">{{ errors.first('Time') }}</span>
-							</label>
-						</b-col>
-						<b-col sm="12">
-							<label for="call_back_notes">Callback Notes
-								<b-form-input  v-model="call_back_notes" id="call_back_notes" :type="'text'" v-validate="'max:164'" name="Note"></b-form-input>
-								<span class="error">{{ errors.first('Note') }}</span>
-							</label>
-						</b-col>
-					</b-row>
-				</div>
-		    </b-modal>
-        </div>
 	</div>
 </template>
 
@@ -206,6 +214,8 @@
 				call_back_date : '',
 				call_back_time : '',
 				call_back_notes : '',
+				general_active : false,
+				scripts_active : false,
 				types: [
 					'date',
 					'text'
@@ -213,9 +223,6 @@
 			}
 		},
 	    methods: {
-	      	startCall() {
-				 Fire.$emit('CallActive');
-	      	},
 	      	endCall() {
 				 Fire.$emit('CallEnded');
 	      	},
@@ -269,6 +276,14 @@
                     }
                 });
 
+			},
+			showGeneral(){
+				this.general_active = true;
+				this.scripts_active = false;
+			},
+			showScripts(){
+				this.scripts_active = !this.scripts_active;
+				Fire.$emit('ShowScripts');
 			},
 			getFullYear(){
 				var d = new Date();

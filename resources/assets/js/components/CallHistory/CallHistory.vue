@@ -204,7 +204,7 @@
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row">
+        <div id="top-section" class="row" style="margin-top:3%;">
           <div class="col-lg-2">
             <div class="card calls">
               <div class="card-body">

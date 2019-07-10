@@ -46,6 +46,11 @@ Vue.use(Bars)
 import Raphael from 'raphael/raphael'
 global.Raphael = Raphael
 
+import Echarts from 'vue-echarts';
+import 'echarts/lib/chart/bar';
+
+Vue.component('chart', Echarts);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

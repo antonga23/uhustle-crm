@@ -79,7 +79,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
- 
+  
+    .list-group-item{
+        margin: 0;
+        padding: 0 1.25rem !important;
+    }
     .list-group-item p{
         margin: 0;
     }
@@ -132,17 +136,18 @@
         margin-top: 0;
         margin-left: -54px;
         margin-right: -65px;
-        padding: 6%;
+        padding: 3% 6%;
     	background-image: url('/images/call/Call_Background.svg') !important;
     	background-size: 100%;
     	background-repeat: no-repeat;
     }
     .call-progress-div .top-animation{
-        padding: 10px;
-    	background-image: url('/images/call/Call_Logo.svg') !important;
-    	background-size: 100%;
-    	background-repeat: no-repeat;
-        height: 370px;
+        padding: 7px;
+        background-image: url(/images/call/Call_Logo.svg) !important;
+        background-size: 75%;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 186px;
     }
     .tip{
         margin-bottom: 40px;
@@ -164,6 +169,7 @@
     }
     .tip h1{
         color: #fff;
+        font-size: 1.6rem;
         letter-spacing: 6px;
         margin-top: 19px;
     }
@@ -192,194 +198,402 @@
     .tip-f{
     	background-image: url('/images/call/6@4x.png') !important;
     }
+
+.verticalChart {
+  width: 100%;
+  background-image: url('/images/graph_grid.png') !important;
+  background-repeat: repeat-x;
+    padding-top: 36px;
+
+}
+.verticalChart .singleBar {
+    width: 14%;
+    float: left;
+    margin-left: 6.5%;
+    margin-right: 1.5%;
+
+}
+.verticalChart .singleBar .bar {
+  position: relative;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.verticalChart .singleBar .bar .value {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #89cff0;
+  color: #003449;
+}
+.verticalChart .singleBar .bar .value span {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: #003449;
+  display: none;
+  text-align: center;
+}
+.verticalChart .singleBar .title {
+  margin-top: 5px;
+  text-align: center;
+  color: #003449;
+
+    font-size: 22px;
+    font-weight: 900;
+}
+div.call-progress-div{
+  max-height:880.84px;
+  transition:all 500ms ease;
+}
+div.scripts-div{
+  max-height:880.84px;
+  transition:all 500ms ease;
+}
+div.collapsed {
+  max-height:35px;
+  overflow:hidden;
+  padding:0px;
+  background-color:transparent;
+}
+p.minimize{    
+    position: relative;
+    text-align: right;
+    width: 100%;
+    top: -38px;
+    right: -62px;
+    color: #fff;
+
+}
+div.collapsed p.minimize{
+    position: relative;
+    text-align: right;
+    width: 100%;
+    top: -1px;
+    right: 14px;
+    color: #fff;
+}
+p.minimize a,
+p.maximize a{
+   color: #fff; 
+   font-weight: 900;
+}
+.scripts p.heading{
+    font-size: 17px;
+    border-bottom: 1px solid #003449;
+    margin-bottom: 18px;
+    color: #003449;
+    letter-spacing: 1.42px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 9px;
+}
+.scripts .row{
+    margin-right: 0;
+    margin-left: 0;
+}
+.scripts .col-lg-12{
+    padding-right: 0;
+    padding-left: 0;
+}
+.scripts .card {
+    margin-right: 23px;
+}
+.scripts .card-body {
+    flex: 1 1 auto;
+    padding: 3.25rem;
+    text-align: center;
+}
+.scripts .card-body p {
+    color: #fff;
+    font-weight: bolder;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    font-size: 32px;
+    letter-spacing: 4.42px;
+}
 </style>
 <template>
     <div class="">
-        <div class="row" style="margin-top:3%;" v-if="call_active == false">
-            <ul class="top-section">
-                <li>
-                    <p class="top">Lead Source</p>
-                    <p class="bottom">{{ lead_info.source }}</p>
-                </li>
-                <li>
-                    <p class="top">Called</p>
-                    <p class="bottom">{{ call_counts.call_count }}</p>
-                </li>
-                <li>
-                    <p class="top">Answers</p>
-                    <p class="bottom">{{ call_counts.call_count }}</p>
-                </li>
-                <li>
-                    <p class="top">Sales</p>
-                    <p class="bottom">{{ call_counts.call_count_sales }}</p>
-                </li>
-            </ul>
-        </div>
-        <div class="row" v-if="call_active == false">
-          <div class="col-lg-3">
-            <div class="card client">
-              <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
-                    Client
-                </h5>
 
-                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                  {{ this.lead_info.name + ' ' + lead_info.surname }}
-                </p>
+        <div class="scripts" v-if="scripts == true">
+            <div :class="{ 'row' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
 
-                <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
+                <div class="col-lg-12">
+                    <p class="heading">Calls</p>
+                </div>
+              <div>
+                <div class="card client">
+                  <div class="card-body">
+
+                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                      Cashed Out
+                    </p>
+ 
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card product">
+                  <div class="card-body">
+
+                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                      Upsell
+                    </p>
+ 
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card time">
+                  <div class="card-body">
+
+                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                      Not Interested
+                    </p>
+ 
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="card activity">
+                  <div class="card-body">
+
+                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                      More Info
+                    </p>
+ 
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="card product">
-              <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
-                    Product
-                </h5>
+        </div>  
 
-                <p class="card-text" :title="product.description + '. ' + product.price ">
-                  {{ product.name }}
-                </p>
+        <div class="" v-if="scripts == false">
+            <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" v-if="this.call_active == true || minimized == true" style="margin-top: 1%">
+                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
+                <div class="col-lg-12 top-animation">
+                </div>
+                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
+                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
+                </div>
+                <div class="col-lg-4 tip tip-a">
+                    <p class="step">Step 1</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-b">
+                    <p class="step">Step 2</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-c">
+                    <p class="step">Step 3</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-d">
+                    <p class="step">Step 4</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-e">
+                    <p class="step">Step 5</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-f">
+                    <p class="step">Step 6</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top:1%;">
+                <ul class="top-section">
+                    <li>
+                        <p class="top">Lead Source</p>
+                        <p class="bottom">{{ lead_info.source }}</p>
+                    </li>
+                    <li>
+                        <p class="top">Called</p>
+                        <p class="bottom">{{ call_counts.call_count }}</p>
+                    </li>
+                    <li>
+                        <p class="top">Answers</p>
+                        <p class="bottom">{{ call_counts.call_count }}</p>
+                    </li>
+                    <li>
+                        <p class="top">Sales</p>
+                        <p class="bottom">{{ call_counts.call_count_sales }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="card client">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
+                        Client
+                    </h5>
 
-                <p class="card-link truncate" :title="product.description + '. ' + product.price ">
-                    {{ product.description }}
-                </p> 
+                    <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
+                      {{ this.lead_info.name + ' ' + lead_info.surname }}
+                    </p>
+
+                    <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card product">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
+                        Product
+                    </h5>
+
+                    <p class="card-text" :title="product.description + '. ' + product.price ">
+                      {{ product.name }}
+                    </p>
+
+                    <p class="card-link truncate" :title="product.description + '. ' + product.price ">
+                        {{ product.description }}
+                    </p> 
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card time">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
+                        Time
+                    </h5>
+
+                    <p class="card-text">
+                      11:20 AM
+                    </p>
+
+                    <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3" >
+                <div class="card activity">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" />
+                        Activity
+                    </h5>
+
+                    <p class="card-text">
+                      Off-line
+                    </p>
+
+                    <p class="card-link">Online 2 Days ago</p> 
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="card time">
-              <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
-                    Time
-                </h5>
+            <div class="row stats">
+                <div class="col-lg-6" >
+                    <div class="card left" style="">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
+                                <span class="left">Agent Notes</span>
+                                <span class="right">{{ comments.total_comments }} Comment(s)</span>
+                            </h5>
 
-                <p class="card-text">
-                  11:20 AM
-                </p>
+                            <div class="notes-roll">
+                                <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                    <li v-for="comment in comments.comments" class="list-group-item">
+                                        <p>
+                                            <strong>{{ comment.comment_type }}</strong> 
+                                            {{ comment.description }} 
+                                            <span style="float:right;margin-top: 11px;">
+                                                {{ getDaysAgo(comment.created_at) }} <br/>
+                                                <small>Yongama Sobambela</small>
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
 
-                <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3" >
-            <div class="card activity">
-              <div class="card-body">
-                <h5 class="card-title">
-                    <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" />
-                    Activity
-                </h5>
+                            <div class="notes-capture">
+                                <b-button v-b-modal.modal-1 class="choose-comment-type">
+                                    <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
+                                </b-button>
+                                <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" />
 
-                <p class="card-text">
-                  Off-line
-                </p>
-
-                <p class="card-link">Online 2 Days ago</p> 
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row stats"  v-if="call_active == false">
-            <div class="col-lg-6" >
-                <div class="card left" style="">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
-                            <span class="left">Agent Notes</span>
-                            <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                        </h5>
-
-                        <div class="notes-roll">
-                            <ul class="list-group" style="height:345px; width:100%;overflow:hidden; overflow-y:scroll;">
-                                <li v-for="comment in comments.comments" class="list-group-item">
-                                    <p>
-                                        <strong>{{ comment.comment_type }}</strong> 
-                                        {{ comment.description }} 
-                                        <span style="float:right;margin-top: 11px;">
-                                            {{ getDaysAgo(comment.created_at) }} <br/>
-                                            <small>Yongama Sobambela</small>
-                                        </span>
-                                    </p>
-                                </li>
-                            </ul>
+                                <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                    Send
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" >
+                    <div class="card right" style="height: 405px;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
+                                <span class="left">Feedback Summary</span>
+                                <span class="right">{{ comments.total_comments }} Comment(s)</span>
+                            </h5>
 
-                        <div class="notes-capture">
-                            <b-button v-b-modal.modal-1 class="choose-comment-type">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
-                            </b-button>
-                            <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" />
+                            <div class="">
+                                <div class="verticalChart">
 
-                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
-                                Send
-                            </button>
+                                  <div class="singleBar" v-for="bar in comments_graph">
+
+                                    <div class="bar">
+
+                                      <div class="value" :style="'height: ' + bar.percentage + '%;'">
+                                        <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
+                                      </div>
+
+                                    </div>
+
+                                    <div class="title">{{ bar.type }}</div>
+
+                                  </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" >
-                <div class="card right" style="height: 502px;">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
-                            <span class="left">Feedback Summary</span>
-                            <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                        </h5>
+        </div>
 
-                        <div id="chartjs-size-monitor" class="notes-graph" style="display: block; heigh: 150px;">
-                             <bars
-                                :data="notes_data"
-                                :gradient="['#6fa8dc', '#42b983']"
-                                :barWidth="50"
-                                :growDuration="1"
-                                :rounding="0"
-                                :height="415"
-                                >
-                              </bars>
+        <div>
+            <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
+                <div class="d-block">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>
+                        </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row call-progress-div" v-if="this.call_active == true">
-            <div class="col-lg-12 top-animation">
-
-            </div>
-
-            <div class="col-lg-4 tip tip-a">
-                <p class="step">Step 1</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-lg-4 tip tip-b">
-                <p class="step">Step 2</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-lg-4 tip tip-c">
-                <p class="step">Step 3</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-lg-4 tip tip-d">
-                <p class="step">Step 4</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-lg-4 tip tip-e">
-                <p class="step">Step 5</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="col-lg-4 tip tip-f">
-                <p class="step">Step 6</p>
-                <h1>Don't stutter</h1>
-                <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+            </b-modal>
         </div>
     </div>
 </template>
@@ -396,15 +610,111 @@
         },
         mounted() {
             console.log('Component mounted');
-            this.enqueueLead();
 
-            Fire.$on('CallActive', function(){
+            var vm = this;
+
+            this.enqueueLead('');
+
+            Fire.$on( 'CallEnded', function(){
+                vm.endCall();
+            });
+
+            Fire.$on( 'ShowScripts', function(){
+                console.log('ShowScripts');
+                vm.scripts = !vm.scripts;
+            });
+
+            this.Toast = this.$swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        },
+        created: function () {
+        },
+        props: [],
+        data: function(){
+            return {
+                lead : {},
+                lead_info : {},
+                call_counts : {},
+                product : {},
+                comments : {},
+                comments_graph : {},
+                notes_data: [],
+                call_active: false,
+                minimized: false,
+                scripts: false,
+                call_status: '',
+                call_sid: '',
+                handle: '',
+                comment:{
+                    comment_description :'',
+                    comment_type :''
+                },
+                Toast: null
+            }
+        },
+        methods: {
+            toggleModal() {
+                // We pass the ID of the button that we want to return focus to
+                // when the modal has hidden
+                this.$refs['my-modal'].toggle('#toggle-btn')
+            },
+            resetModal() {
+                this.comment.comment_description = '';
+                this.comment.comment_type = '';
+            },
+            enqueueLead(lead_id = ''){
+                var vm = this;
+                var end_point_choice = '';
+                if(lead_id != ''){
+                    end_point_choice = 'leads/get/' + lead_id;
+                }else{
+                    end_point_choice = 'leads/enqueue';
+                }
+                var payload = {
+                    method : 'GET',
+                    // end_point : 'leads/enqueue'
+                    end_point : end_point_choice
+                }
+
+                vm.$Progress.start();
+
+                axios.post('/api-request', payload).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.lead = response.data;
+                        vm.lead_info = response.data.lead;
+                        vm.call_counts = response.data.call_counts;
+                        vm.product = response.data.product;
+                        vm.comments = response.data.comments;
+                        vm.comments_graph = response.data.comments.comments_graph;
+                        
+                        vm.comment.comment_description = '';
+                        vm.comment.comment_type = '';
+
+                        vm.$Progress.finish();
+
+                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
+                        
+                        setTimeout( function(){
+                            vm.startCall();
+                        }, 5000 );
+
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+            },
+            startCall() {
                 var vm = this;
                 this.call_active = true;
-
                 var payload = {
                     method : 'POST',
-                    end_point : 'calls/call',
+                    end_point : '       calls/call',
                     form_data : {
                         lead_id : '',
                         phone_number : '',
@@ -442,11 +752,9 @@
                     }
 
                 });
-
-            });
-
-            Fire.$on('CallEnded', function(state){
-               
+            },
+            endCall() {
+                
                 var vm = this;
 
                 var payload = {
@@ -469,88 +777,7 @@
                 });
 
                 vm.call_active = false;
-            });
-
-            Fire.$on('AfterCallBackSet', function(){
-                console.log('AfterCallBackSet');
-                this.getComments();
-            });
-
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-        created: function () {
-        },
-        props: [],
-        data: function(){
-            return {
-                lead : {},
-                lead_info : {},
-                call_counts : {},
-                product : {},
-                comments : {},
-                comments_graph : {},
-                notes_data: [],
-                call_active: false,
-                call_status: '',
-                handle: '',
-                chart_options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                },
-                comment:{
-                    comment_description :'',
-                    comment_type :''
-                },
-                Toast: null
-            }
-        },
-        methods: {
-            enqueueLead(){
-                var vm = this;
-
-                var payload = {
-                    method : 'GET',
-                    end_point : 'leads/enqueue'
-                }
-
-                vm.$Progress.start();
-
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.lead = response.data;
-                        vm.lead_info = response.data.lead;
-                        vm.call_counts = response.data.call_counts;
-                        vm.product = response.data.product;
-                        vm.comments = response.data.comments;
-                        vm.comments_graph = response.data.comments.comments_graph;
-                        
-                        if(vm.comments_graph.length > 0){ 
-                            for (var i = 0; i < vm.comments_graph.type.length; i++) {
-                                
-                                vm.notes_data.push({ 'title' : vm.comments_graph.type[i], 'value': 84 });
-                            }
-                        }
-
-                        vm.comment.comment_description = '';
-                        vm.comment.comment_type = '';
-                        vm.$Progress.finish();
-                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
+                vm.minimized = false;
             },
 			getStatus(call_sid){
                 var vm = this;
@@ -590,7 +817,7 @@
                 axios.post('/api-request', payload).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.getComments();
+                        vm.enqueueLead(vm.lead_info.id);
                         vm.$swal('Success', response.data.message,'success');
                         vm.$Progress.finish();
                     }else{
@@ -623,6 +850,10 @@
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
                 });
+            },
+            minizeCallProgress(){
+                this.minimized = true;
+                $('.call-progress-div').toggleClass('collapsed');
             },
             getDaysAgo(second_date){
                 var date_string = '';

@@ -42,11 +42,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="padding: 0 40px 15px 30px;">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">

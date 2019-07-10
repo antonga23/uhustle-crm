@@ -234,7 +234,7 @@
 </style>
 <template>
     <div class="">
-        <div class="row" >
+        <div class="row" style="margin-top:3%;">
             <div class="col-lg-12" >
                 <ul class="headings">
                     <li style="padding:0 46px 0 0">RANK</li>
