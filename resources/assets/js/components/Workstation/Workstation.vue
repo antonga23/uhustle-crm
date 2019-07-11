@@ -132,29 +132,12 @@
     #chartjs-size-monitor #bar-chart{
         height: 318px !important;
     }
-    .idle-div{
-        margin-top: 0;
-        margin-left: -54px;
-        margin-right: -65px;
-        padding: 3% 6%;
-    	/* background-image: url('/images/call/Call_Background.svg') !important; */
-    	background-size: 100%;
-    	background-repeat: no-repeat;
-    }
-    .idle-div .top-animation{    
-        padding: 7px;
-        background-image: url(/images/call/Call_Logo.svg) !important;
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 700px;
-    }
     .call-progress-div{
         margin-left: -54px;
         margin-right: -65px;
-        padding: 3% 6% 0;
+        padding: 3% 34px 0;
         background-image: url(/images/call/Call_Background.svg) !important;
-        background-size: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
         margin-bottom: 0;
         max-height:120vh;
@@ -328,6 +311,66 @@ p.maximize a{
     padding-bottom: 5px;
     font-size: 32px;
     letter-spacing: 4.42px;
+}
+
+.idle-div{
+    margin-top: 0;
+    margin-left: -54px;
+    margin-right: -65px;
+    padding: 3% 6%;
+    /* background-image: url('/images/call/Call_Background.svg') !important; */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition:all 500ms ease;
+}
+.idle-div .top-animation{    
+    padding: 7px;
+    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+.top-animation-minimized{
+    padding: 7px;
+    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;
+    background-size: 47%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 133px;
+}
+.idle-footer{
+    margin: 0 auto;
+    text-align: center;
+}
+.idle-footer p{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    color: #9fb3bb;
+}
+a.down-scroll{
+    display: block;
+    transition: all 200ms ease; 
+}
+a.down-scroll:hover{
+    margin-top: 5px; 
+}
+.idle-education .col-lg-10{
+    max-width: 80.333333%;
+}
+.idle-education .col-lg-4 p{
+    color: #1c2331; 
+}
+.idle-education .col-lg-4{
+    float: left;
+    display: block;
+    border-radius: 25px;
+    box-shadow: 0px 1px 6px 0px #4a4a4a;
+    margin: 0 10px 19px 10px;
+    max-width: 30.333333%;
+    padding: 25px;
+    text-align: center;
 }
 </style>
 <template>
@@ -550,17 +593,71 @@ p.maximize a{
         </div>
         <div class="" v-if="idle == true">
             <div :class="{ 'row idle-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
-                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
-                <div class="col-lg-12 top-animation">
+                <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"> </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks">
+                    <p>Show Education</p>
+                    <a href="#" class="down-scroll" @click="show_edication_blocks = true;">
+                        <img src="/images/Idle_Pages_Assest/Asset 120.png" alt="Scroll Down" />
+                    </a>
                 </div>
-                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
-                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
+                <div class="col-lg-3 col-md-3 idle-footer"  v-if="show_edication_blocks">
+                    <p>Hide Education</p>
+                    <a href="#" class="down-scroll" @click="show_edication_blocks = false;">
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" alt="Scroll Down" />
+                    </a>
+                </div>
+            </div>
+            <div class="row idle-education justify-content-center" v-if="show_edication_blocks">
+                <div class="col-lg-10">
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" />
+                        <p>Education</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" />
+                        <p>Clients</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" />
+                        <p>Commission</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" />
+                        <p>Upselling</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" />
+                        <p>Breaking the Ice</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" />
+                        <p>Callbacks</p>
+                        <a href="#" class="down-scroll">
+                            <img src="/images/Idle_Pages_Assest/Asset 119.png" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="" v-if="calling == true">
             <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
-                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
                 <div class="col-lg-12 top-animation">
                 </div>
                 <div class="col-lg-12 tip call-status" style="padding-top:10px;">
@@ -650,6 +747,7 @@ p.maximize a{
                 vm.scripts = true;
                 vm.general = false;
                 vm.calling = false;
+                vm.idle = false;
             });
 
             Fire.$on( 'ShowGeneral', function(){
@@ -657,6 +755,11 @@ p.maximize a{
                 vm.general = true;
                 vm.scripts = false;
                 vm.calling = false;
+                vm.idle = false;
+            });
+
+            Fire.$on('CallStarted', function(){
+                vm.general = true;
             });
 
             this.Toast = this.$swal.mixin({
@@ -683,6 +786,7 @@ p.maximize a{
                 scripts: false,
                 general: false,
                 calling: false,
+                show_edication_blocks: false,
                 idle: true,
                 call_status: '',
                 call_sid: '',
@@ -750,6 +854,7 @@ p.maximize a{
                 this.call_active = true;
                 this.calling = true;
                 this.idle = false;
+
                 var payload = {
                     method : 'POST',
                     end_point : '       calls/call',
@@ -763,27 +868,33 @@ p.maximize a{
                     
                     if(response.data.status == 'queued'){
                         vm.call_sid = response.data.call_sid;
-                        vm.handle = setInterval(function(){
 
+                        vm.handle = setInterval(function(){
+                            
                             var inner_payload = {
                                 method : 'POST',
-                                end_point : 'calls/get-call-status'
+                                end_point : 'calls/get-call-status',
+                                form_data : {
+                                    call_sid : vm.call_sid,
+                                }
                             }
 
-                            axios.post('/api-request', payload).then(function (response) {
+                            axios.post('/api-request', inner_payload).then(function (response) {
                                 
-                                    
-                                if(response.data.status == 'queued'){
-
-                                    vm.call_status = response.data.status;
-
-                                }else{
-
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving calling status, please try again','warning');
+                                if(response.data.call_status == 'queued' || response.data.call_status == 'ringing'){
+                                    vm.call_status = response.data.call_status;
+                                }else if(response.data.call_status == 'in-progress'){
+                                    vm.call_status = response.data.call_status;
+                                    Fire.$emit('CallStarted');
+                                }else if(response.data.call_status == 'completed'){
+                                    vm.call_status = response.data.call_status;
+                                    vm.endCall();
+                                    clearInterval(vm.handle);
                                 }
                             });
 
                         }, 1000);
+
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
@@ -813,9 +924,9 @@ p.maximize a{
 
                 });
 
-                vm.call_active = false;
-                vm.idle = true;
-                vm.calling = false;
+                vm.call_active = true;
+                vm.calling = true;
+                vm.general = false;
                 vm.minimized = false;
             },
 			getStatus(call_sid){

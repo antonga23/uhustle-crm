@@ -41,7 +41,7 @@
     	background-size: contain;
     	background-repeat: no-repeat;
 	}
-	.pull-right li.active .status{
+	.pull-right li.idle .status{
     	background-image: url('/images/icons/Asset 55.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
@@ -54,7 +54,7 @@
     	background-repeat: no-repeat;
 	}
 
-	.pull-right li.in-active .status{
+	.pull-right li.offline .status{
     	background-image: url('/images/icons/Asset 57.svg') !important;
     	background-size: contain;
     	background-repeat: no-repeat;
@@ -139,7 +139,7 @@
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
-							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
+							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link" v-if="general_show">General</a>
 						</li>
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
@@ -169,8 +169,8 @@
 								
 							</a>
 						</li>
-						<li class="nav-item d-none d-sm-inline-block on-call">
-		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+						<li :class="{ 'nav-item d-none d-sm-inline-block' : true, 'idle' : !general_show, 'on-call' : general_show, 'offline' : false }">
+		    				<button id="toggle-btn" class="nav-link status" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
@@ -186,10 +186,6 @@
 	import { setupCalendar, Calendar} from 'v-calendar'
 	export default {
 		mounted() {
-			Fire.$on('AfterLeadEnqueue', function(data){
-                this.lead_id = data.lead_id;
-                this.phone_number = data.contact_number;
-			});
 
 			var d = new Date();
 			this.month = d.getMonth();
@@ -215,11 +211,29 @@
 				call_back_notes : '',
 				general_active : false,
 				scripts_active : false,
+				general_show : false,
 				types: [
 					'date',
 					'text'
 				]
 			}
+		},
+		created(){
+			var vm = this;
+			Fire.$on('AfterLeadEnqueue', function(data){
+                vm.lead_id = data.lead_id;
+                vm.phone_number = data.contact_number;
+			});
+
+			Fire.$on('CallStarted', function(){
+                vm.general_show = true;
+                console.log('CallStarted');
+			});
+
+			Fire.$on('CallEnded', function(){
+                // vm.general_show = false;
+                console.log('CallEnded');
+			});
 		},
 	    methods: {
 	      	endCall() {

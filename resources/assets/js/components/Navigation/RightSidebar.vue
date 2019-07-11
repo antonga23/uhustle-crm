@@ -75,8 +75,8 @@ p{
 }
 .notification-count{
     position: relative;
-    top: -7px;
-    right: 13px;
+    top: -32px;
+    right: -15px;
     font-size: 9px;
     color: #003449;
 }
@@ -201,7 +201,7 @@ p.heading{
 								<p><span class="value">$1523</span></p>
 							</div>
 							<div class="col-lg-6 aligh-right">
-								<p class="description">Con. Ratio</p>
+								<p class="description">Conv. Ratio</p>
 								<p><span class="value">40%</span></p>
 							</div>
 						</div>

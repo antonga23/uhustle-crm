@@ -3651,10 +3651,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    Fire.$on('AfterLeadEnqueue', function (data) {
-      this.lead_id = data.lead_id;
-      this.phone_number = data.contact_number;
-    });
     var d = new Date();
     this.month = d.getMonth();
     this.Toast = this.$swal.mixin({
@@ -3676,8 +3672,24 @@ __webpack_require__.r(__webpack_exports__);
       call_back_notes: '',
       general_active: false,
       scripts_active: false,
+      general_show: false,
       types: ['date', 'text']
     };
+  },
+  created: function created() {
+    var vm = this;
+    Fire.$on('AfterLeadEnqueue', function (data) {
+      vm.lead_id = data.lead_id;
+      vm.phone_number = data.contact_number;
+    });
+    Fire.$on('CallStarted', function () {
+      vm.general_show = true;
+      console.log('CallStarted');
+    });
+    Fire.$on('CallEnded', function () {
+      // vm.general_show = false;
+      console.log('CallEnded');
+    });
   },
   methods: {
     endCall: function endCall() {
@@ -5078,6 +5090,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5099,12 +5208,17 @@ __webpack_require__.r(__webpack_exports__);
       vm.scripts = true;
       vm.general = false;
       vm.calling = false;
+      vm.idle = false;
     });
     Fire.$on('ShowGeneral', function () {
       console.log('ShowGeneral');
       vm.general = true;
       vm.scripts = false;
       vm.calling = false;
+      vm.idle = false;
+    });
+    Fire.$on('CallStarted', function () {
+      vm.general = true;
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -5129,6 +5243,7 @@ __webpack_require__.r(__webpack_exports__);
       scripts: false,
       general: false,
       calling: false,
+      show_edication_blocks: false,
       idle: true,
       call_status: '',
       call_sid: '',
@@ -5210,13 +5325,21 @@ __webpack_require__.r(__webpack_exports__);
           vm.handle = setInterval(function () {
             var inner_payload = {
               method: 'POST',
-              end_point: 'calls/get-call-status'
+              end_point: 'calls/get-call-status',
+              form_data: {
+                call_sid: vm.call_sid
+              }
             };
-            axios.post('/api-request', payload).then(function (response) {
-              if (response.data.status == 'queued') {
-                vm.call_status = response.data.status;
-              } else {
-                vm.$swal('Failed', 'Opps, something went wrong while retrieving calling status, please try again', 'warning');
+            axios.post('/api-request', inner_payload).then(function (response) {
+              if (response.data.call_status == 'queued' || response.data.call_status == 'ringing') {
+                vm.call_status = response.data.call_status;
+              } else if (response.data.call_status == 'in-progress') {
+                vm.call_status = response.data.call_status;
+                Fire.$emit('CallStarted');
+              } else if (response.data.call_status == 'completed') {
+                vm.call_status = response.data.call_status;
+                vm.endCall();
+                clearInterval(vm.handle);
               }
             });
           }, 1000);
@@ -5242,9 +5365,9 @@ __webpack_require__.r(__webpack_exports__);
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
         }
       });
-      vm.call_active = false;
-      vm.idle = true;
-      vm.calling = false;
+      vm.call_active = true;
+      vm.calling = true;
+      vm.general = false;
       vm.minimized = false;
     },
     getStatus: function getStatus(call_sid) {
@@ -52770,7 +52893,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Right Component*/\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 13px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    padding-bottom: 10px;\n    margin-bottom: 30px;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n/*Right Component*/\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -32px;\n    right: -15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    padding-bottom: 10px;\n    margin-bottom: 30px;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -52789,7 +52912,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.active .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.in-active .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 40px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 2px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 40px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 2px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -52827,7 +52950,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.idle-div[data-v-f3210f20]{\n        margin-top: 0;\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 6%;\n    \t/* background-image: url('/images/call/Call_Background.svg') !important; */\n    \tbackground-size: 100%;\n    \tbackground-repeat: no-repeat;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 100%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 700px;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 6% 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: 100%;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 34px 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: cover;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{\n    margin-top: 0;\n    margin-left: -54px;\n    margin-right: -65px;\n    padding: 3% 6%;\n    /* background-image: url('/images/call/Call_Background.svg') !important; */\n    background-size: 100%;\n    background-repeat: no-repeat;\n    transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 100%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{\n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 47%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 133px;\n}\n.idle-footer[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n    font-size: 12px;\n    color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{\n    display: block;\n    transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{\n    margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{\n    max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{\n    color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{\n    float: left;\n    display: block;\n    border-radius: 25px;\n    box-shadow: 0px 1px 6px 0px #4a4a4a;\n    margin: 0 10px 19px 10px;\n    max-width: 30.333333%;\n    padding: 25px;\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -142968,7 +143091,7 @@ var staticRenderFns = [
           [
             _c("h3", [_vm._v("32")]),
             _vm._v(" "),
-            _c("p", [_vm._v("nationaloties")])
+            _c("p", [_vm._v("nationalities")])
           ]
         ),
         _vm._v(" "),
@@ -143392,7 +143515,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-lg-6 aligh-right" }, [
-          _c("p", { staticClass: "description" }, [_vm._v("Con. Ratio")]),
+          _c("p", { staticClass: "description" }, [_vm._v("Conv. Ratio")]),
           _vm._v(" "),
           _c("p", [_c("span", { staticClass: "value" }, [_vm._v("40%")])])
         ])
@@ -143559,23 +143682,25 @@ var render = function() {
                     "li",
                     { staticClass: "nav-item d-none d-sm-inline-block" },
                     [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          class: {
-                            "nav-link top-link": true,
-                            active: _vm.general_active
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showGeneral()
-                            }
-                          }
-                        },
-                        [_vm._v("General")]
-                      )
+                      _vm.general_show
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              class: {
+                                "nav-link top-link": true,
+                                active: _vm.general_active
+                              },
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.showGeneral()
+                                }
+                              }
+                            },
+                            [_vm._v("General")]
+                          )
+                        : _vm._e()
                     ]
                   )
                 : _vm._e(),
@@ -143711,7 +143836,12 @@ var render = function() {
                     _c(
                       "li",
                       {
-                        staticClass: "nav-item d-none d-sm-inline-block on-call"
+                        class: {
+                          "nav-item d-none d-sm-inline-block": true,
+                          idle: !_vm.general_show,
+                          "on-call": _vm.general_show,
+                          offline: false
+                        }
                       },
                       [
                         _c("button", {
@@ -143722,12 +143852,7 @@ var render = function() {
                             padding: "29px",
                             "margin-top": "-10px"
                           },
-                          attrs: { id: "toggle-btn" },
-                          on: {
-                            click: function($event) {
-                              return _vm.startCall()
-                            }
-                          }
+                          attrs: { id: "toggle-btn" }
                         })
                       ]
                     ),
@@ -144922,44 +145047,79 @@ var render = function() {
               }
             },
             [
-              _c(
-                "p",
-                { class: { minimize: true, maximize: !_vm.call_active } },
-                [
+              _c("div", {
+                class: {
+                  "col-lg-12": true,
+                  "top-animation": !_vm.show_edication_blocks,
+                  "top-animation-minimized": _vm.show_edication_blocks
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            !_vm.show_edication_blocks
+              ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
+                  _c("p", [_vm._v("Show Education")]),
+                  _vm._v(" "),
                   _c(
                     "a",
                     {
+                      staticClass: "down-scroll",
                       attrs: { href: "#" },
-                      on: { click: _vm.minizeCallProgress }
-                    },
-                    [_vm._v(" _ ")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-12 top-animation" }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-12 tip call-status",
-                  staticStyle: { "padding-top": "10px" }
-                },
-                [
-                  _c(
-                    "h1",
-                    {
-                      staticStyle: {
-                        "text-align": "center",
-                        "font-size": "19px"
+                      on: {
+                        click: function($event) {
+                          _vm.show_edication_blocks = true
+                        }
                       }
                     },
-                    [_vm._v(_vm._s(_vm.call_status) + "...")]
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/Idle_Pages_Assest/Asset 120.png",
+                          alt: "Scroll Down"
+                        }
+                      })
+                    ]
                   )
-                ]
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.show_edication_blocks
+              ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
+                  _c("p", [_vm._v("Hide Education")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "down-scroll",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          _vm.show_edication_blocks = false
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/Idle_Pages_Assest/Asset 119.png",
+                          alt: "Scroll Down"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm.show_edication_blocks
+            ? _c(
+                "div",
+                { staticClass: "row idle-education justify-content-center" },
+                [_vm._m(5)]
               )
-            ]
-          )
+            : _vm._e()
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -144977,21 +145137,6 @@ var render = function() {
               }
             },
             [
-              _c(
-                "p",
-                { class: { minimize: true, maximize: !_vm.call_active } },
-                [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "#" },
-                      on: { click: _vm.minizeCallProgress }
-                    },
-                    [_vm._v(" _ ")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
               _c("div", { staticClass: "col-lg-12 top-animation" }),
               _vm._v(" "),
               _c(
@@ -145014,8 +145159,6 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
               _vm._m(6),
               _vm._v(" "),
               _vm._m(7),
@@ -145024,7 +145167,9 @@ var render = function() {
               _vm._v(" "),
               _vm._m(9),
               _vm._v(" "),
-              _vm._m(10)
+              _vm._m(10),
+              _vm._v(" "),
+              _vm._m(11)
             ]
           )
         ])
@@ -145226,6 +145371,120 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-link" }, [_vm._v("Online 2 Days ago")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-10" }, [
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 106.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Education")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 107.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Clients")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 108.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Commission")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 108.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Upselling")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 107.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Breaking the Ice")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/Idle_Pages_Assest/Asset 106.svg",
+            width: "71",
+            height: "60"
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Callbacks")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "down-scroll", attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "/images/Idle_Pages_Assest/Asset 119.png" }
+          })
         ])
       ])
     ])
@@ -174953,7 +175212,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_0___default.a, {
   color: 'rgb(143, 255, 199)',
   failedColor: 'red',
-  height: '5px'
+  height: '10px'
 }); //Sweet alert
 
 

@@ -176,7 +176,7 @@
                                 </div>
                                 <div  class="col subscribers-ball" data-aos="fade-up" data-aos-easing="ease-in-sine" >
                                     <h3>32</h3>
-                                     <p>nationaloties</p>
+                                     <p>nationalities</p>
                                 </div>
                                 <div class="col subscribers-ball" data-aos="fade-up" data-aos-easing="ease-in-sine" >
                                     <h3>16</h3>

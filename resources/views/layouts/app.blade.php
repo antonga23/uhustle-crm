@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -28,6 +28,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           margin-left: 54px !important;
           z-index: 3000;
           margin-right: 352px;
+      }
+      #app {
+          background-color: #ffffff;
+          font-family: Montserrat !important;
       }
     </style>
 </head>
@@ -41,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <left-nav active="{{ $active }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding: 0 40px 0 30px;min-height: 100vh;">
+  <div class="content-wrapper" style="padding: 0 40px 0 30px;">
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
