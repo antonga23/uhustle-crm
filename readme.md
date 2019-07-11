@@ -1,25 +1,16 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Passwords
 
-## About Laravel
+Twilio
+    username: jarrodjones@adsbanc.com
+    password: T1Gr4CPT78601!
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Uhustle APP Dev
+    username: admin@uhustle.com
+    password: admin123
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+API URL: "http://34.241.86.1/api/"
+API AUTH STRING: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUyODgyYWU3MTZmNmMxZjg5YjY5NjIxYzM0MzgwMGU0ZTc1Zjc4M2ZhOGE2ZjBkODYwNGRhNzU1YmM3MWRmM2Q3OTJkMjY1N2YyMjAyOWRkIn0.eyJhdWQiOiIyIiwianRpIjoiNTI4ODJhZTcxNmY2YzFmODliNjk2MjFjMzQzODAwZTRlNzVmNzgzZmE4YTZmMGQ4NjA0ZGE3NTViYzcxZGYzZDc5MmQyNjU3ZjIyMDI5ZGQiLCJpYXQiOjE1NjE5Njg2ODIsIm5iZiI6MTU2MTk2ODY4MiwiZXhwIjoxNTkzNTkxMDgyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.bscFTQz_GV_j984rK2E5ZYWZe4U4maBTHWKEJxOuWusSfuWSD5xSq1au0Fh6PNQ_fca3jc3MJaq1-SESKsm3pZmips9zpxYWZG0ypZ21Huj_gR6dnuiIQVJt-6b1poSM1pHH7yXaq1DTVoEW2jtd8EPOmkYkdYiE54YERhVJU_uyEGgv2tOAeEcf1BzpGD3CRnYgalmtdDMckG9yX8i908K5FVlv2uSfySkF54qX_pAUSBDxRNqEmC7ZjSyJkUHEwprwJlrxBlKExJOydLB6PvX5RZ1Sr_Yu4H8RdCe9nbK0Sbj_6odupmFVVxifyjkVagNRg0b50oMlS8gCI5tWhM_axshX6QjFfqjuSmgVxy2bj4vM998UjV5fzCtcfjlAV3d4pHPq7tv0KvXlfRQmz3idC8bbCB2kCp-d0JgooL1h9HjTnD7w_mE_HdieqwI3QsuETUBKe6x61nWyKOjdfSva-ut_K16wvMf_0CwCOnws5bLdlfaXa4mOEQQutg-p4JXJ3HxqEzZTwqzRw0l09NuKyDQxfLMsgf5yVMO-8DJGzoCtG7_FBJl7Hswf6FgIYKNvOynEUPZmpr4C8btKzpJnHqnP15JfG8swzlVZCPvflSZ4HY7oLgAn0sFDLaHJb94xVc1Fh7xsv4rSGiloXOEDY0GgJGoDOBuUbfP4g9k"
 
 ## Learning Laravel
 

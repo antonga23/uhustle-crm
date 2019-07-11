@@ -138,7 +138,10 @@
 							<a v-if="active == 'call-history'" href="#" class="nav-link"><strong>Call History</strong></a>
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
-						<li v-if="active == 'workstation'"class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
+							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
+						</li>
+						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
 						</li>
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
@@ -163,18 +166,14 @@
 					<ul class="navbar-nav pull-right">
 						<li class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link search">
-								<!-- <img src="/images/icons/search button@4x.png" alt="Call Buttons" /> -->
+								
 							</a>
 						</li>
-						<li class="nav-item d-none d-sm-inline-block active">
-
+						<li class="nav-item d-none d-sm-inline-block on-call">
 		    				<button id="toggle-btn" class="nav-link status" @click="startCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
-
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
-
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
-
 						</li>
 					</ul>
 				</div>
@@ -280,9 +279,11 @@
 			showGeneral(){
 				this.general_active = true;
 				this.scripts_active = false;
+				Fire.$emit('ShowGeneral');
 			},
 			showScripts(){
-				this.scripts_active = !this.scripts_active;
+				this.scripts_active = true;
+				this.general_active = false;
 				Fire.$emit('ShowScripts');
 			},
 			getFullYear(){

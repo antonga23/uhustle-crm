@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id ="app">
-
+  <vue-progress-bar></vue-progress-bar>
   <!-- Navbar -->
   <top-navigation active="{{ $active }}"></top-navigation>
   <!-- /.navbar -->
@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <left-nav active="{{ $active }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding: 0 40px 15px 30px;">
+  <div class="content-wrapper" style="padding: 0 40px 0 30px;min-height: 100vh;">
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer"></footer>
+  <!-- <footer class="main-footer"></footer> -->
 </div>
 <!-- ./wrapper -->
 

@@ -44,7 +44,7 @@
         margin: -5px 15px 0 0;
     }
     p.card-text{
-        font-size: 49px;
+        font-size: 40px;
         color: #333333;
         font-weight: bolder;
         margin: 0;
@@ -144,9 +144,11 @@
     }
     .red{
         color:red !important;
-    }.card-text-small{
+    }
+    .card-text-small{
         margin-top: -7px;
         color: #3b3b3b;
+        font-size: 13px;
     }
     .badge{
         width: 12%;
@@ -224,7 +226,7 @@
                 </p>
 
                 <p class="card-text-small">
-                      Conversition Ratio
+                      Conversion Ratio
                 </p>
 
                 <p class="card-link down">

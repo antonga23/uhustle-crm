@@ -2728,6 +2728,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3646,7 +3648,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -3733,9 +3734,11 @@ __webpack_require__.r(__webpack_exports__);
     showGeneral: function showGeneral() {
       this.general_active = true;
       this.scripts_active = false;
+      Fire.$emit('ShowGeneral');
     },
     showScripts: function showScripts() {
-      this.scripts_active = !this.scripts_active;
+      this.scripts_active = true;
+      this.general_active = false;
       Fire.$emit('ShowScripts');
     },
     getFullYear: function getFullYear() {
@@ -5049,6 +5052,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5067,7 +5096,15 @@ __webpack_require__.r(__webpack_exports__);
     });
     Fire.$on('ShowScripts', function () {
       console.log('ShowScripts');
-      vm.scripts = !vm.scripts;
+      vm.scripts = true;
+      vm.general = false;
+      vm.calling = false;
+    });
+    Fire.$on('ShowGeneral', function () {
+      console.log('ShowGeneral');
+      vm.general = true;
+      vm.scripts = false;
+      vm.calling = false;
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -5090,6 +5127,9 @@ __webpack_require__.r(__webpack_exports__);
       call_active: false,
       minimized: false,
       scripts: false,
+      general: false,
+      calling: false,
+      idle: true,
       call_status: '',
       call_sid: '',
       handle: '',
@@ -5137,12 +5177,12 @@ __webpack_require__.r(__webpack_exports__);
           vm.comments_graph = response.data.comments.comments_graph;
           vm.comment.comment_description = '';
           vm.comment.comment_type = '';
-          vm.$Progress.finish();
           Fire.$emit('AfterLeadEnqueue', {
             'lead_id': vm.lead_info.id,
             'contact_number': vm.lead_info.phone_number
           });
           setTimeout(function () {
+            vm.$Progress.finish();
             vm.startCall();
           }, 5000);
         } else {
@@ -5154,6 +5194,8 @@ __webpack_require__.r(__webpack_exports__);
     startCall: function startCall() {
       var vm = this;
       this.call_active = true;
+      this.calling = true;
+      this.idle = false;
       var payload = {
         method: 'POST',
         end_point: '       calls/call',
@@ -5197,11 +5239,12 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.success == true) {
           clearInterval(vm.handle);
         } else {
-          vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
         }
       });
       vm.call_active = false;
+      vm.idle = true;
+      vm.calling = false;
       vm.minimized = false;
     },
     getStatus: function getStatus(call_sid) {
@@ -5282,10 +5325,11 @@ __webpack_require__.r(__webpack_exports__);
       var firstDate = new Date();
       var secondDate = new Date(second_date);
       var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+      console.log(diffDays);
 
       if (diffDays <= 1) {
         date_string = 'Today';
-      } else if (diffDays < 7) {
+      } else if (diffDays > 1 && diffDays <= 7) {
         date_string = diffDays + ' Days ago';
       } else if (diffDays == 7) {
         date_string = '1 Week ago';
@@ -52688,7 +52732,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-2c246ed2]{\n   margin-bottom: 3%;\n}\n.top-section[data-v-2c246ed2]{\n    list-style: none;\n}\n.top-section li[data-v-2c246ed2]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-2c246ed2]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-2c246ed2]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-2c246ed2]{\n    text-align: center;\n}\n.card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.client[data-v-2c246ed2]{\n}\n.product[data-v-2c246ed2]{\n}\n.time[data-v-2c246ed2]{\n}\n.activity[data-v-2c246ed2]{\n}\nh5[data-v-2c246ed2]{\n    color: #fff;\n}\nh5 .icon[data-v-2c246ed2]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-2c246ed2]{\n    font-size: 49px;\n    color: #333333;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-2c246ed2]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-2c246ed2]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-2c246ed2]{\n    border-radius: 20px;\n}\n.stats .card h5[data-v-2c246ed2]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-2c246ed2]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-2c246ed2]{\n    float: right;\n}\n.truncate[data-v-2c246ed2] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-2c246ed2]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-2c246ed2]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-2c246ed2]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-2c246ed2]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-2c246ed2]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-2c246ed2]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-2c246ed2], .show > .btn-secondary.dropdown-toggle[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-2c246ed2]{\n    height: 318px !important;\n}\n#top-section[data-v-2c246ed2]{\n    background: #7fd0ac;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 63px 68px;\n}\n.green[data-v-2c246ed2]{\n    color:#00a25a !important;\n}\n.red[data-v-2c246ed2]{\n    color:red !important;\n}.card-text-small[data-v-2c246ed2]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-2c246ed2]{\n    width: 12%;\n}\n.badge img[data-v-2c246ed2]{\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-2c246ed2]{\n   margin-bottom: 3%;\n}\n.top-section[data-v-2c246ed2]{\n    list-style: none;\n}\n.top-section li[data-v-2c246ed2]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-2c246ed2]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-2c246ed2]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-2c246ed2]{\n    text-align: center;\n}\n.card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.client[data-v-2c246ed2]{\n}\n.product[data-v-2c246ed2]{\n}\n.time[data-v-2c246ed2]{\n}\n.activity[data-v-2c246ed2]{\n}\nh5[data-v-2c246ed2]{\n    color: #fff;\n}\nh5 .icon[data-v-2c246ed2]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-2c246ed2]{\n    font-size: 40px;\n    color: #333333;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-2c246ed2]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-2c246ed2]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-2c246ed2]{\n    border-radius: 20px;\n}\n.stats .card h5[data-v-2c246ed2]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-2c246ed2]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-2c246ed2]{\n    float: right;\n}\n.truncate[data-v-2c246ed2] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-2c246ed2]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-2c246ed2]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-2c246ed2]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-2c246ed2]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-2c246ed2]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-2c246ed2]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-2c246ed2], .show > .btn-secondary.dropdown-toggle[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-2c246ed2]{\n    height: 318px !important;\n}\n#top-section[data-v-2c246ed2]{\n    background: #7fd0ac;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 63px 68px;\n}\n.green[data-v-2c246ed2]{\n    color:#00a25a !important;\n}\n.red[data-v-2c246ed2]{\n    color:red !important;\n}\n.card-text-small[data-v-2c246ed2]{\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-size: 13px;\n}\n.badge[data-v-2c246ed2]{\n    width: 12%;\n}\n.badge img[data-v-2c246ed2]{\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -52783,7 +52827,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 30px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 22px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-top: 0;\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 6%;\n    \tbackground-image: url('/images/call/Call_Background.svg') !important;\n    \tbackground-size: 100%;\n    \tbackground-repeat: no-repeat;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.call-progress-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.idle-div[data-v-f3210f20]{\n        margin-top: 0;\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 6%;\n    \t/* background-image: url('/images/call/Call_Background.svg') !important; */\n    \tbackground-size: 100%;\n    \tbackground-repeat: no-repeat;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 100%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 700px;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 6% 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: 100%;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n", ""]);
 
 // exports
 
@@ -141899,7 +141943,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                  Conversition Ratio\n            ")
+                _vm._v("\n                  Conversion Ratio\n            ")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link down" }, [
@@ -143521,6 +143565,32 @@ var render = function() {
                           staticClass: "nav-link",
                           class: {
                             "nav-link top-link": true,
+                            active: _vm.general_active
+                          },
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showGeneral()
+                            }
+                          }
+                        },
+                        [_vm._v("General")]
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.active == "workstation"
+                ? _c(
+                    "li",
+                    { staticClass: "nav-item d-none d-sm-inline-block" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          class: {
+                            "nav-link top-link": true,
                             active: _vm.scripts_active
                           },
                           attrs: { href: "#" },
@@ -143641,7 +143711,7 @@ var render = function() {
                     _c(
                       "li",
                       {
-                        staticClass: "nav-item d-none d-sm-inline-block active"
+                        staticClass: "nav-item d-none d-sm-inline-block on-call"
                       },
                       [
                         _c("button", {
@@ -144464,73 +144534,8 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.scripts == false
+    _vm.general == true
       ? _c("div", {}, [
-          this.call_active == true || _vm.minimized == true
-            ? _c(
-                "div",
-                {
-                  class: { "row call-progress-div": true },
-                  staticStyle: { "margin-top": "1%" },
-                  attrs: {
-                    "data-aos": "fade-up",
-                    "data-aos-duration": "700",
-                    "data-aos-offset": "700"
-                  }
-                },
-                [
-                  _c(
-                    "p",
-                    { class: { minimize: true, maximize: !_vm.call_active } },
-                    [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: { click: _vm.minizeCallProgress }
-                        },
-                        [_vm._v(" _ ")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12 top-animation" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12 tip call-status",
-                      staticStyle: { "padding-top": "10px" }
-                    },
-                    [
-                      _c(
-                        "h1",
-                        {
-                          staticStyle: {
-                            "text-align": "center",
-                            "font-size": "19px"
-                          }
-                        },
-                        [_vm._v(_vm._s(_vm.call_status) + "...")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _vm._m(6)
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
           _c(
             "div",
             { staticClass: "row", staticStyle: { "margin-top": "1%" } },
@@ -144572,10 +144577,10 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-3" }, [
+            _c("div", { staticClass: "col-lg-3 col-md-4 col-sm-4" }, [
               _c("div", { staticClass: "card client" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._m(7),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
                     "p",
@@ -144610,7 +144615,7 @@ var render = function() {
             _c("div", { staticClass: "col-lg-3" }, [
               _c("div", { staticClass: "card product" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._m(8),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "p",
@@ -144654,7 +144659,7 @@ var render = function() {
             _c("div", { staticClass: "col-lg-3" }, [
               _c("div", { staticClass: "card time" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._m(9),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c("p", { staticClass: "card-text" }, [
                     _vm._v("\n                  11:20 AM\n                ")
@@ -144671,7 +144676,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(10)
+            _vm._m(4)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row stats" }, [
@@ -144903,6 +144908,128 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
+    _vm.idle == true
+      ? _c("div", {}, [
+          _c(
+            "div",
+            {
+              class: { "row idle-div": true },
+              staticStyle: { "margin-top": "1%" },
+              attrs: {
+                "data-aos": "fade-up",
+                "data-aos-duration": "700",
+                "data-aos-offset": "700"
+              }
+            },
+            [
+              _c(
+                "p",
+                { class: { minimize: true, maximize: !_vm.call_active } },
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: { click: _vm.minizeCallProgress }
+                    },
+                    [_vm._v(" _ ")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12 top-animation" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-lg-12 tip call-status",
+                  staticStyle: { "padding-top": "10px" }
+                },
+                [
+                  _c(
+                    "h1",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "font-size": "19px"
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.call_status) + "...")]
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.calling == true
+      ? _c("div", {}, [
+          _c(
+            "div",
+            {
+              class: { "row call-progress-div": true },
+              staticStyle: { "margin-top": "1%" },
+              attrs: {
+                "data-aos": "fade-up",
+                "data-aos-duration": "700",
+                "data-aos-offset": "700"
+              }
+            },
+            [
+              _c(
+                "p",
+                { class: { minimize: true, maximize: !_vm.call_active } },
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: { click: _vm.minizeCallProgress }
+                    },
+                    [_vm._v(" _ ")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12 top-animation" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-lg-12 tip call-status",
+                  staticStyle: { "padding-top": "10px" }
+                },
+                [
+                  _c(
+                    "h1",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "font-size": "19px"
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.call_status) + "...")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._m(7),
+              _vm._v(" "),
+              _vm._m(8),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _vm._m(10)
+            ]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "div",
       [
@@ -145047,6 +145174,66 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
+        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
+      }),
+      _vm._v("\n                    Client\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
+        attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
+      }),
+      _vm._v("\n                    Product\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
+        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
+      }),
+      _vm._v("\n                    Time\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-3" }, [
+      _c("div", { staticClass: "card activity" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [
+            _c("img", {
+              staticClass: "icon",
+              attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
+            }),
+            _vm._v("\n                    Activity\n                ")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("\n                  Off-line\n                ")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-link" }, [_vm._v("Online 2 Days ago")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-4 tip tip-a" }, [
       _c("p", { staticClass: "step" }, [_vm._v("Step 1")]),
       _vm._v(" "),
@@ -145136,66 +145323,6 @@ var staticRenderFns = [
         _vm._v(
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _c("img", {
-        staticClass: "icon",
-        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
-      }),
-      _vm._v("\n                    Client\n                ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _c("img", {
-        staticClass: "icon",
-        attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
-      }),
-      _vm._v("\n                    Product\n                ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _c("img", {
-        staticClass: "icon",
-        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
-      }),
-      _vm._v("\n                    Time\n                ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3" }, [
-      _c("div", { staticClass: "card activity" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _c("img", {
-              staticClass: "icon",
-              attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
-            }),
-            _vm._v("\n                    Activity\n                ")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n                  Off-line\n                ")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-link" }, [_vm._v("Online 2 Days ago")])
-        ])
       ])
     ])
   }

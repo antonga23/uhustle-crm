@@ -46,12 +46,12 @@
         margin: -5px 15px 0 0;
     }
     p.card-text{
-        font-size: 30px;
+        font-size: 23px;
         color: #fff;
         font-weight: bolder;
     }
     p.card-link{
-        font-size: 22px;
+        font-size: 16px;
         color: #fff;
     }
     .stats .card{
@@ -132,14 +132,33 @@
     #chartjs-size-monitor #bar-chart{
         height: 318px !important;
     }
-    .call-progress-div{
+    .idle-div{
         margin-top: 0;
         margin-left: -54px;
         margin-right: -65px;
         padding: 3% 6%;
-    	background-image: url('/images/call/Call_Background.svg') !important;
+    	/* background-image: url('/images/call/Call_Background.svg') !important; */
     	background-size: 100%;
     	background-repeat: no-repeat;
+    }
+    .idle-div .top-animation{    
+        padding: 7px;
+        background-image: url(/images/call/Call_Logo.svg) !important;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 700px;
+    }
+    .call-progress-div{
+        margin-left: -54px;
+        margin-right: -65px;
+        padding: 3% 6% 0;
+        background-image: url(/images/call/Call_Background.svg) !important;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin-bottom: 0;
+        max-height:120vh;
+        transition:all 500ms ease;
     }
     .call-progress-div .top-animation{
         padding: 7px;
@@ -243,10 +262,6 @@
 
     font-size: 22px;
     font-weight: 900;
-}
-div.call-progress-div{
-  max-height:880.84px;
-  transition:all 500ms ease;
 }
 div.scripts-div{
   max-height:880.84px;
@@ -372,45 +387,7 @@ p.maximize a{
             </div>
         </div>  
 
-        <div class="" v-if="scripts == false">
-            <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" v-if="this.call_active == true || minimized == true" style="margin-top: 1%">
-                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
-                <div class="col-lg-12 top-animation">
-                </div>
-                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
-                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
-                </div>
-                <div class="col-lg-4 tip tip-a">
-                    <p class="step">Step 1</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-b">
-                    <p class="step">Step 2</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-c">
-                    <p class="step">Step 3</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-d">
-                    <p class="step">Step 4</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-e">
-                    <p class="step">Step 5</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-f">
-                    <p class="step">Step 6</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
+        <div class="" v-if="general == true">
             <div class="row" style="margin-top:1%;">
                 <ul class="top-section">
                     <li>
@@ -432,7 +409,7 @@ p.maximize a{
                 </ul>
             </div>
             <div class="row">
-              <div class="col-lg-3">
+              <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="card client">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -571,7 +548,56 @@ p.maximize a{
                 </div>
             </div>
         </div>
-
+        <div class="" v-if="idle == true">
+            <div :class="{ 'row idle-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
+                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
+                <div class="col-lg-12 top-animation">
+                </div>
+                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
+                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
+                </div>
+            </div>
+        </div>
+        <div class="" v-if="calling == true">
+            <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
+                <p :class="{ 'minimize' : true, 'maximize' : !call_active }"><a href="#" @click="minizeCallProgress" > _ </a></p>
+                <div class="col-lg-12 top-animation">
+                </div>
+                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
+                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
+                </div>
+                <div class="col-lg-4 tip tip-a">
+                    <p class="step">Step 1</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-b">
+                    <p class="step">Step 2</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-c">
+                    <p class="step">Step 3</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-d">
+                    <p class="step">Step 4</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-e">
+                    <p class="step">Step 5</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-lg-4 tip tip-f">
+                    <p class="step">Step 6</p>
+                    <h1>Don't stutter</h1>
+                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
         <div>
             <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
                 <div class="d-block">
@@ -621,7 +647,16 @@ p.maximize a{
 
             Fire.$on( 'ShowScripts', function(){
                 console.log('ShowScripts');
-                vm.scripts = !vm.scripts;
+                vm.scripts = true;
+                vm.general = false;
+                vm.calling = false;
+            });
+
+            Fire.$on( 'ShowGeneral', function(){
+                console.log('ShowGeneral');
+                vm.general = true;
+                vm.scripts = false;
+                vm.calling = false;
             });
 
             this.Toast = this.$swal.mixin({
@@ -646,6 +681,9 @@ p.maximize a{
                 call_active: false,
                 minimized: false,
                 scripts: false,
+                general: false,
+                calling: false,
+                idle: true,
                 call_status: '',
                 call_sid: '',
                 handle: '',
@@ -691,15 +729,13 @@ p.maximize a{
                         vm.product = response.data.product;
                         vm.comments = response.data.comments;
                         vm.comments_graph = response.data.comments.comments_graph;
-                        
                         vm.comment.comment_description = '';
                         vm.comment.comment_type = '';
-
-                        vm.$Progress.finish();
 
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
                         
                         setTimeout( function(){
+                            vm.$Progress.finish();
                             vm.startCall();
                         }, 5000 );
 
@@ -712,6 +748,8 @@ p.maximize a{
             startCall() {
                 var vm = this;
                 this.call_active = true;
+                this.calling = true;
+                this.idle = false;
                 var payload = {
                     method : 'POST',
                     end_point : '       calls/call',
@@ -770,13 +808,14 @@ p.maximize a{
                     if(response.data.success == true){
                         clearInterval(vm.handle);
                     }else{
-                        vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
 
                 });
 
                 vm.call_active = false;
+                vm.idle = true;
+                vm.calling = false;
                 vm.minimized = false;
             },
 			getStatus(call_sid){
@@ -862,10 +901,10 @@ p.maximize a{
                 var secondDate = new Date(second_date);
 
                 var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-
+                console.log(diffDays);
                 if(diffDays <= 1){
                     date_string = 'Today';
-                }else if(diffDays < 7){
+                }else if(diffDays > 1 && diffDays <= 7){
                     date_string = diffDays + ' Days ago';
                 }else if(diffDays == 7){
                     date_string = '1 Week ago';
