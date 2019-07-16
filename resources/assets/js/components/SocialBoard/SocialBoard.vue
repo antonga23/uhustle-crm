@@ -200,7 +200,7 @@
         float:left;
         font-weight: 700;
         color:#003449;
-        padding: 22px 129px 0 20px;
+        padding: 22px 109px 0 20px;
     }
     ul.items li.rank{
         padding: 31px 31px 19px 31px;
@@ -237,12 +237,12 @@
         <div class="row" style="margin-top:3%;">
             <div class="col-lg-12" >
                 <ul class="headings">
-                    <li style="padding:0 46px 0 0">RANK</li>
-                    <li style="padding:0 194px 0 0">NAME</li>
-                    <li style="padding:0 130px 0 0">CALLS</li>
+                    <li style="padding:0 100px 0 0">RANK</li>
+                    <li style="padding:0 120px 0 0">NAME</li>
+                    <li style="padding:0 90px 0 0">CALLS</li>
                     <li style="padding:0 97px 0 0">AMOUNT</li>
                     <li style="padding:0 116px 0 0">QUANTITY</li>
-                    <li style="padding:0 117px 0 0">RATIO</li>
+                    <li style="padding:0 79px 0 0">RATIO</li>
                     <li style="padding-right:0;">BADGES</li>
                 </ul>
             </div>
@@ -256,7 +256,7 @@
                             <li class="rank">
                                 <p>12</p>
                             </li>
-                            <li><strong>Piet Andrews</strong></li>
+                            <li class="truncate" ><strong>Piet AndrewsPiet AndrewsPiet Andrews</strong></li>
                             <li>342</li>
                             <li>57</li>
                             <li>$ 2222</li>
