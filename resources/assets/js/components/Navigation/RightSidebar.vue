@@ -175,7 +175,8 @@ p.heading{
 .navbar ul.pull-right li.name-li{
 	width: 79%;
 }
-.settings .row{
+.settings .row,
+.notifications .row{
 	margin-right: 0;
     margin-left: 0;
     border-bottom: 1px solid #f3f3f3;
@@ -203,17 +204,82 @@ label.custom-control-label{
     float: left;
 }
 .btn-default{
-    border: none !important;
     padding: 6px 25px 6px 18px;
     font-size: 9px;
+    border: none !important;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
-.btn-default:hover,
-.btn-default.active {
+.btn-default:hover{
+	background: #00344a;
+	color: #ffffff;    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-active {
+	background: #00344a;
+	color: #ffffff;
+    border: none !important;
     border: none !important;
     padding: 6px 25px 6px 18px;
     font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.logout-wrapper{
+	border-bottom: none;
+	margin-top:50%;
+}
+#logout{
+    background-image: url('/images/icons/Asset 67.svg') !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-position: center;
+    margin-bottom: 11%;
+}
+#logout:hover{
+    background-image: url('/images/icons/Asset 66.svg') !important;
+}
+.notifications .btn-default{
+    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.notifications .top-section {
+    list-style: none;
 }
 
+.notifications .card{
+    width: 100%;
+}
+
+.notifications .card h3{
+    color: #00344a;
+    font-size: 16px;
+    letter-spacing: 2.2px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+}
+
+.notifications .card p.call_back_time{
+    color: #00344a;
+    font-size: 14px;
+    letter-spacing: 2.2px;
+    display: block;
+    width: 100%;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -230,7 +296,7 @@ label.custom-control-label{
 		                            <ul class="navbar-nav pull-left">
 		                                <li class="nav-item">
 		                                    <a class="nav-link icon" href="#" @click="showNotifications()" style="padding: 0;">
-		                                    	<img src="/images/icons/notification icon clean@4x.png" alt="Notification Bell" width="25">
+		                                    	<img src="/images/icons/Asset 64.svg" alt="Notification Bell" width="25">
 		                                    	<span class="notification-count">2</span>
 		                                    </a>
 		                                </li>
@@ -378,7 +444,7 @@ label.custom-control-label{
 						</h3>
 						<div style="margin-top: 20px;width: 100%;" >
 							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-default active" style="width: 100%; margin: 0px;">
+								<button type="submit" class="btn btn-active" style="width: 100%; margin: 0px;">
 	                                Orange
 	                            </button>
 							</label>
@@ -400,7 +466,7 @@ label.custom-control-label{
 						</h3>
 						<div style="margin-top: 20px;width: 100%;" >
 							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-default active" style="width: 100%; margin: 0px;">
+								<button type="submit" class="btn btn-active" style="width: 100%; margin: 0px;">
 	                                English
 	                            </button>
 							</label>
@@ -410,6 +476,93 @@ label.custom-control-label{
 	                            </button>
 							</label>
 						</div>
+					</div>
+					<div class="row logout-wrapper"  v-if="profile_on == false">
+						<a href="/logout" id="logout">
+							
+						</a>
+						<h3 style="width: 100%; text-align:center;">
+							Logout 
+						</h3>
+					</div>
+				</div>
+				<div v-if="notifications_on == true" class="notifications">
+					<div class="row">
+						<h2 style="width: 100%;">
+							Notifications 
+						</h2>
+						<div style="margin-top: 20px;width: 100%;" >
+							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on }" style="width: 100%; margin: 0px;">
+	                                Callbacks
+	                            </button>
+							</label>
+							<label @click="showMessages" class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default' : !messages_on }" style="width: 100%; margin: 0px;">
+	                                Messages
+	                            </button>
+							</label>
+						</div>
+					</div>
+					<div v-if="callbacks_on == true && messages_on == false" class="row">
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+					</div>
+					<div v-if="callbacks_on == false && messages_on == true" class="row">
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+								<h3>
+									Steve Hughes 
+								</h3>
+								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                            </div>
+                        </div>
 					</div>
 				</div>
 				<div v-if="notifications_on == false && settings_on == false">
@@ -537,6 +690,8 @@ label.custom-control-label{
 				settings_on: false,
 				profile_on: false,
 				account_on: false,
+				callbacks_on: true,
+				messages_on: false,
 				expanded: false,
 				incId: todos.length,
 				todos,
@@ -559,10 +714,22 @@ label.custom-control-label{
 		methods: {
 			showNotifications(){
 				this.notifications_on = !this.notifications_on;
+				this.settings_on = false;
+				this.profile_on = false;
 			},
 			showSettings(){
 				this.settings_on = !this.settings_on;
+				this.notifications_on = false;
+				this.profile_on = false;
 			},
+			showCallbacks(){
+				this.callbacks_on = true;
+				this.messages_on = false;
+			},
+			showMessages(){
+				this.callbacks_on = false;
+				this.messages_on = true;
+			}
 
 		},
 		computed: {

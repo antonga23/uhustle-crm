@@ -159,7 +159,7 @@
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row"  style="margin-top:10%;">
+        <div id="top-section" class="row"  style="margin-top:2%;">
           <div class="col-lg-2">
             <div class="card client">
               <div class="card-body">

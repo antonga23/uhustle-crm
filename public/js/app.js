@@ -3611,6 +3611,159 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3654,6 +3807,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       settings_on: false,
       profile_on: false,
       account_on: false,
+      callbacks_on: true,
+      messages_on: false,
       expanded: false,
       incId: todos.length,
       todos: todos,
@@ -3673,9 +3828,21 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   methods: {
     showNotifications: function showNotifications() {
       this.notifications_on = !this.notifications_on;
+      this.settings_on = false;
+      this.profile_on = false;
     },
     showSettings: function showSettings() {
       this.settings_on = !this.settings_on;
+      this.notifications_on = false;
+      this.profile_on = false;
+    },
+    showCallbacks: function showCallbacks() {
+      this.callbacks_on = true;
+      this.messages_on = false;
+    },
+    showMessages: function showMessages() {
+      this.callbacks_on = false;
+      this.messages_on = true;
     }
   },
   computed: {
@@ -53224,7 +53391,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    padding-bottom: 10px;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n    text-align: right;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n#settings-li a[data-v-48ad9a74] {\n    padding: 0px;\n    margin-top: -12px;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n}\n.btn-default[data-v-48ad9a74]:hover,\n.btn-default.active[data-v-48ad9a74] {\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n}\n\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    padding-bottom: 10px;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n    text-align: right;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n#settings-li a[data-v-48ad9a74] {\n    padding: 0px;\n    margin-top: -12px;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:50%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -141639,7 +141806,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass: "row",
-          staticStyle: { "margin-top": "10%" },
+          staticStyle: { "margin-top": "2%" },
           attrs: { id: "top-section" }
         },
         [
@@ -142380,7 +142547,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "row",
-        staticStyle: { "margin-top": "10%" },
+        staticStyle: { "margin-top": "2%" },
         attrs: { id: "top-section" }
       },
       [
@@ -143774,8 +143941,7 @@ var render = function() {
                                 [
                                   _c("img", {
                                     attrs: {
-                                      src:
-                                        "/images/icons/notification icon clean@4x.png",
+                                      src: "/images/icons/Asset 64.svg",
                                       alt: "Notification Bell",
                                       width: "25"
                                     }
@@ -143876,7 +144042,7 @@ var render = function() {
                   { staticClass: "row" },
                   [
                     _c("h3", [
-                      _vm._v("\n\t\t\t\t\t\tProfile \n\t\t\t\t\t\t"),
+                      _vm._v("\n\t\t\t\t\t\t\tProfile \n\t\t\t\t\t\t\t"),
                       _vm.profile_on == false
                         ? _c("img", {
                             attrs: {
@@ -143935,7 +144101,7 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("Name\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v("Name\n\t\t\t\t\t\t\t\t\t\t"),
                                     _c("input", {
                                       directives: [
                                         {
@@ -144007,7 +144173,7 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("Surname\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v("Surname\n\t\t\t\t\t\t\t\t\t\t"),
                                     _c("input", {
                                       directives: [
                                         {
@@ -144084,7 +144250,7 @@ var render = function() {
                                   { staticClass: "col-lg-12 control-label" },
                                   [
                                     _vm._v(
-                                      "Prefered Nickname\n\t\t\t\t\t\t\t\t\t"
+                                      "Prefered Nickname\n\t\t\t\t\t\t\t\t\t\t"
                                     ),
                                     _c("input", {
                                       directives: [
@@ -144161,7 +144327,7 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("Email\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v("Email\n\t\t\t\t\t\t\t\t\t\t"),
                                     _c("input", {
                                       directives: [
                                         {
@@ -144238,7 +144404,7 @@ var render = function() {
                                   { staticClass: "col-lg-12 control-label" },
                                   [
                                     _vm._v(
-                                      "Work Telephone\n\t\t\t\t\t\t\t\t\t"
+                                      "Work Telephone\n\t\t\t\t\t\t\t\t\t\t"
                                     ),
                                     _c("input", {
                                       directives: [
@@ -144320,7 +144486,7 @@ var render = function() {
                                   { staticClass: "col-lg-12 control-label" },
                                   [
                                     _vm._v(
-                                      "Cellphone number\n\t\t\t\t\t\t\t\t\t"
+                                      "Cellphone number\n\t\t\t\t\t\t\t\t\t\t"
                                     ),
                                     _c("input", {
                                       directives: [
@@ -144405,7 +144571,7 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("Address\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v("Address\n\t\t\t\t\t\t\t\t\t\t"),
                                     _c("textarea", {
                                       directives: [
                                         {
@@ -144511,7 +144677,7 @@ var render = function() {
                                   { staticClass: "col-lg-6 control-label" },
                                   [
                                     _vm._v(
-                                      "Upload New\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t"
+                                      "Upload New\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
                                     )
                                   ]
                                 )
@@ -144534,7 +144700,7 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                    Update\n                                "
+                                      "\n\t                                    Update\n\t                                "
                                     )
                                   ]
                                 )
@@ -144552,7 +144718,7 @@ var render = function() {
                   { staticClass: "row" },
                   [
                     _c("h3", [
-                      _vm._v("\n\t\t\t\t\t\tAccount \n\t\t\t\t\t\t"),
+                      _vm._v("\n\t\t\t\t\t\t\tAccount \n\t\t\t\t\t\t\t"),
                       _vm.account_on == false
                         ? _c("img", {
                             attrs: {
@@ -144612,7 +144778,7 @@ var render = function() {
                                         value: "user.notifications"
                                       }
                                     }),
-                                    _vm._v(" Notifications\n\t\t\t\t\t\t\t\t")
+                                    _vm._v(" Notifications\n\t\t\t\t\t\t\t\t\t")
                                   ]
                                 )
                               ]
@@ -144632,7 +144798,9 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("Old Password\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v(
+                                      "Old Password\n\t\t\t\t\t\t\t\t\t\t"
+                                    ),
                                     _c("input", {
                                       directives: [
                                         {
@@ -144715,7 +144883,9 @@ var render = function() {
                                   "label",
                                   { staticClass: "col-lg-12 control-label" },
                                   [
-                                    _vm._v("New Password\n\t\t\t\t\t\t\t\t\t"),
+                                    _vm._v(
+                                      "New Password\n\t\t\t\t\t\t\t\t\t\t"
+                                    ),
                                     _c("input", {
                                       directives: [
                                         {
@@ -144799,7 +144969,7 @@ var render = function() {
                                   { staticClass: "col-lg-12 control-label" },
                                   [
                                     _vm._v(
-                                      "Confirm New Password\n\t\t\t\t\t\t\t\t\t"
+                                      "Confirm New Password\n\t\t\t\t\t\t\t\t\t\t"
                                     ),
                                     _c("input", {
                                       directives: [
@@ -144885,7 +145055,7 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                    Update\n                                "
+                                      "\n\t                                    Update\n\t                                "
                                     )
                                   ]
                                 )
@@ -144901,7 +145071,7 @@ var render = function() {
                 _vm.profile_on == false
                   ? _c("div", { staticClass: "row" }, [
                       _c("h3", { staticStyle: { width: "100%" } }, [
-                        _vm._v("\n\t\t\t\t\t\tThemes \n\t\t\t\t\t")
+                        _vm._v("\n\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t")
                       ]),
                       _vm._v(" "),
                       _vm._m(2)
@@ -144911,10 +145081,118 @@ var render = function() {
                 _vm.profile_on == false
                   ? _c("div", { staticClass: "row" }, [
                       _c("h3", { staticStyle: { width: "100%" } }, [
-                        _vm._v("\n\t\t\t\t\t\tLanguage \n\t\t\t\t\t")
+                        _vm._v("\n\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t")
                       ]),
                       _vm._v(" "),
                       _vm._m(3)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.profile_on == false
+                  ? _c("div", { staticClass: "row logout-wrapper" }, [
+                      _c("a", { attrs: { href: "/logout", id: "logout" } }),
+                      _vm._v(" "),
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: { width: "100%", "text-align": "center" }
+                        },
+                        [_vm._v("\n\t\t\t\t\t\t\tLogout \n\t\t\t\t\t\t")]
+                      )
+                    ])
+                  : _vm._e()
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.notifications_on == true
+            ? _c("div", { staticClass: "notifications" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("h2", { staticStyle: { width: "100%" } }, [
+                    _vm._v("\n\t\t\t\t\t\t\tNotifications \n\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticStyle: { "margin-top": "20px", width: "100%" } },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-3 control-label",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class: {
+                                btn: true,
+                                "btn-active": _vm.callbacks_on,
+                                "btn-default": !_vm.callbacks_on
+                              },
+                              staticStyle: { width: "100%", margin: "0px" },
+                              attrs: { type: "submit" },
+                              on: { click: _vm.showCallbacks }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t                                Callbacks\n\t                            "
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-3 control-label",
+                          staticStyle: { "margin-right": "8px", float: "left" },
+                          on: { click: _vm.showMessages }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class: {
+                                btn: true,
+                                "btn-active": _vm.messages_on,
+                                "btn-default": !_vm.messages_on
+                              },
+                              staticStyle: { width: "100%", margin: "0px" },
+                              attrs: { type: "submit" }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t                                Messages\n\t                            "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.callbacks_on == true && _vm.messages_on == false
+                  ? _c("div", { staticClass: "row" }, [
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.callbacks_on == false && _vm.messages_on == true
+                  ? _c("div", { staticClass: "row" }, [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _vm._m(10)
                     ])
                   : _vm._e()
               ])
@@ -144935,7 +145213,7 @@ var render = function() {
                         { staticClass: "row", staticStyle: { padding: "0" } },
                         [
                           _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(4),
+                            _vm._m(11),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress-bar" }, [
                               _c("span", {
@@ -144947,11 +145225,11 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(12),
                       _vm._v(" "),
-                      _vm._m(6),
+                      _vm._m(13),
                       _vm._v(" "),
-                      _vm._m(7)
+                      _vm._m(14)
                     ])
                   ]
                 ),
@@ -144972,7 +145250,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(8)
+                _vm._m(15)
               ])
             : _vm._e()
         ])
@@ -145015,13 +145293,13 @@ var staticRenderFns = [
           _c(
             "button",
             {
-              staticClass: "btn btn-default active",
+              staticClass: "btn btn-active",
               staticStyle: { width: "100%", margin: "0px" },
               attrs: { type: "submit" }
             },
             [
               _vm._v(
-                "\n                                Orange\n                            "
+                "\n\t                                Orange\n\t                            "
               )
             ]
           )
@@ -145044,7 +145322,7 @@ var staticRenderFns = [
             },
             [
               _vm._v(
-                "\n                                Blue\n                            "
+                "\n\t                                Blue\n\t                            "
               )
             ]
           )
@@ -145061,7 +145339,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Red\n                            "
+              "\n\t                                Red\n\t                            "
             )
           ]
         )
@@ -145083,13 +145361,13 @@ var staticRenderFns = [
           _c(
             "button",
             {
-              staticClass: "btn btn-default active",
+              staticClass: "btn btn-active",
               staticStyle: { width: "100%", margin: "0px" },
               attrs: { type: "submit" }
             },
             [
               _vm._v(
-                "\n                                English\n                            "
+                "\n\t                                English\n\t                            "
               )
             ]
           )
@@ -145112,12 +145390,159 @@ var staticRenderFns = [
             },
             [
               _vm._v(
-                "\n                                Spanish\n                            "
+                "\n\t                                Spanish\n\t                            "
               )
             ]
           )
         ]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h3", [
+          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "call_back_time",
+            attrs: { title: "Personal Information" }
+          },
+          [_vm._v("Mon 22 March @ 12:22pm")]
+        )
+      ])
     ])
   },
   function() {
