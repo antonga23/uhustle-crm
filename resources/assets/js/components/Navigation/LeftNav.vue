@@ -155,6 +155,7 @@ a.workstation{
 }
 .nav-sidebar > .nav-item {
     width: 53px;
+    margin-bottom: 50%;
 }
 /*Nav Ends*/
 </style>

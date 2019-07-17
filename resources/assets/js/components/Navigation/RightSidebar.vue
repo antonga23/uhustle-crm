@@ -1,8 +1,26 @@
 <style scoped>
-/*Right Component*/
 p{
 	color: #9fb3bb;
 	margin: 0	;
+}
+h2{
+    color: #003449;
+    font-size: 29px;
+    letter-spacing: 4.2px;
+    font-weight: 600;
+}
+h3{
+    color: #1a1c43;
+    font-size: 16px;
+    letter-spacing: 2.2px;
+    font-weight: 600;
+    display: block;
+    width: 52%;
+}
+h3 img{
+	float:right;
+	cursor: pointer;
+	margin-top: -7px;
 }
 .control-sidebar {
     position: absolute;
@@ -75,15 +93,15 @@ p{
 }
 .notification-count{
     position: relative;
-    top: -32px;
-    right: -15px;
+    top: -7px;
+    right: 15px;
     font-size: 9px;
     color: #003449;
 }
 .collapse{
     border-bottom: 1px solid #e3e3e3;
     padding-bottom: 10px;
-    margin-bottom: 30px;
+    width: 100%;
 }
 .p-3{
     padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;
@@ -147,111 +165,322 @@ p.heading{
 .aligh-right{
 	text-align: right;
 }
+.navbar ul.pull-left{
+	width: 35%;
+}
+.navbar ul.pull-right{
+    width: 68%;
+    text-align: right;
+}
+.navbar ul.pull-right li.name-li{
+	width: 79%;
+}
+.settings .row{
+	margin-right: 0;
+    margin-left: 0;
+    border-bottom: 1px solid #f3f3f3;
+    padding: 21px 0px 16px 0;
+}
+.settings .row p.description{
+	font-size: 9px;
+	display: block;
+	width: 100%;
+}
+label.control-label,
+label.custom-control-label{
+	font-weight: 100;
+    color: #1a1c43 !important;
+    font-size: 12px;
+    padding: 0;
+    width: 100%;
+}
+#settings-li a {
+    padding: 0px;
+    margin-top: -12px;
+}
+.control-label{
+    margin-right: 8px;
+    float: left;
+}
+.btn-default{
+    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 9px;
+}
+.btn-default:hover,
+.btn-default.active {
+    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 9px;
+}
+
 /*End Right Component*/
 </style>
 <template>
 	<div>
-		<aside class="control-sidebar control-sidebar-dark">
+		<aside class="control-sidebar control-sidebar-dark" style="height: auto;">
 			<!-- Control sidebar content goes here -->
 			<div class="p-3">
-				<div class="row">
-	                <nav class="navbar navbar-expand-md navbar-light bg-white">
-	                    <div style="padding-left: 12px">
-	                        <div class="collapse navbar-collapse" id="">
-	                            <!-- Right Side Of Navbar -->
-	                            <ul class="navbar-nav">
-	                                <li class="nav-item">
-	                                    <a class="nav-link icon" href="#" style="padding: 0;">
-	                                    	<img src="/images/icons/notification icon clean@4x.png" alt="Notification Bell" width="25">
-	                                    	<span class="notification-count">2</span>
-	                                    </a>
-	                                </li>
-	                                <li class="nav-item" style="margin-right: 70px;">
-	                                    <a class="nav-link icon" href="#" style="padding-right: 0;">
-	                                    	<img src="/images/icons/settings icon@4x.png" alt="Notification Bell" width="25">
-	                                    </a>
-	                                </li>
-	                                <li class="nav-item">
-	                                    <a class="nav-link name" href="#" style="font-size: 12px;">Yongama Sobambela</a>
-	                                </li>
-	                                <li class="nav-item">
-	                                    <a class="nav-link icon" href="#">
-	                                    	<img src="https://via.placeholder.com/25" style="border-radius:50%">
-	                                    </a>
-	                                </li>
-	                            </ul>
-	                        </div>
-	                    </div>
-	                </nav>
+				<div>
+					<div class="row">
+		                <nav class="navbar navbar-expand-md navbar-light bg-white">
+		                    <div style="padding-left: 12px;padding-right: 18px;width: 100%;">
+		                        <div class="collapse navbar-collapse" id="">
+		                            <!-- Right Side Of Navbar -->
+		                            <ul class="navbar-nav pull-left">
+		                                <li class="nav-item">
+		                                    <a class="nav-link icon" href="#" @click="showNotifications()" style="padding: 0;">
+		                                    	<img src="/images/icons/notification icon clean@4x.png" alt="Notification Bell" width="25">
+		                                    	<span class="notification-count">2</span>
+		                                    </a>
+		                                </li>
+		                                <li class="nav-item" id="settings-li">
+		                                    <a class="nav-link icon" href="#" @click="showSettings()" style="padding-right: 0;">
+		                                    	<img v-if="settings_on == false" src="/images/icons/Asset 62.svg" alt="Settings Cog" width="50">
+		                                    	<img v-else src="/images/icons/Asset 63.svg" alt="Settings Cog" width="50">
+		                                    </a>
+		                                </li>
+		                            </ul>
+		                            <ul class="navbar-nav pull-right">
+		                                <li class="nav-item name-li" v-if="user.nickname != null && user.nickname != ''">
+		                                    <a class="nav-link name" href="#" style="font-size: 12px;">{{ user.nickname }}</a>
+		                                </li>
+		                                <li class="nav-item name-li" v-else>
+		                                    <a class="nav-link name" href="#" style="font-size: 12px;">{{ user.name }}</a>
+		                                </li>
+		                                <li class="nav-item">
+		                                    <a class="nav-link icon" href="#">
+		                                    	<img src="https://via.placeholder.com/25" style="border-radius:50%">
+		                                    </a>
+		                                </li>
+		                            </ul>
+		                        </div>
+		                    </div>
+		                </nav>
+					</div>
 				</div>
-			
-				<div class="row" style="padding: 0;">
-					<div class="col-lg-12">
-						<div class="row" style="padding: 0;">
-							<div class="col-lg-12">
-								<p>Monthly Target <span class="monthly-target">74%</span></p>
-								<div class="progress-bar">
-									<span class="tank" :style="'width:' + 65 + '%'"></span>
+
+				<div v-if="settings_on == true" class="settings">
+					<div class="row">
+						<h2>Settings</h2>
+					</div>
+					<div class="row">
+						<h3>
+							Profile 
+							<img @click="expanded = true;profile_on = true;account_on = false" v-if="profile_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Profile Edit Off" width="30">
+							<img @click="expanded = false;profile_on = false;account_on = false" v-else src="/images/icons/settings edit button hover@4x.png" alt="Profile Edit Off" width="30">
+						</h3>
+						<p class="description" title="Personal Information">Personal Information</p>
+					    <transition-expand>
+							<div v-if="expanded == true && profile_on == true" style="margin-top: 20px;" >
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+									<label class="col-lg-12 control-label">Name
+										<input type="text" id="email"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
+										<span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Surname') }">
+									<label class="col-lg-12 control-label">Surname
+										<input type="text" id="email"  name="Surname" v-model="user.lastname" v-validate="'required'" class="form-control">
+										<span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Surname') }">
+									<label class="col-lg-12 control-label">Prefered Nickname
+										<input type="text" id="nickname"  name="Nickname" v-model="user.nickname" v-validate="'required'" class="form-control">
+										<span id="error" v-show="errors.has('Nickname')" class="help-block">{{ errors.first('Nickname') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Email') }">
+									<label class="col-lg-12 control-label">Email
+										<input type="text" id="email"  name="Email" v-model="user.email" v-validate="'required|email'" class="form-control">
+										<span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Work Tel') }">
+									<label class="col-lg-12 control-label">Work Telephone
+										<input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" v-validate="'required|numeric|min:10'" class="form-control">
+										<span id="error" v-show="errors.has('Work Telephone')" class="help-block">{{ errors.first('Work Tel') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Cell Number') }">
+									<label class="col-lg-12 control-label">Cellphone number
+										<input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" v-validate="'required|numeric|min:10'" class="form-control">
+										<span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
+									<label class="col-lg-12 control-label">Address
+										<textarea id="address"  name="Address" v-model="user.address" v-validate="'required'" class="form-control"></textarea>
+										<span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
+									<label class="col-lg-6 control-label" style="float:left;">
+										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%">
+										<img v-else src="https://via.placeholder.com/100" style="border-radius:50%">
+									</label>
+									<label class="col-lg-6 control-label">Upload New
+										
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true }">
+									<button type="submit" class="btn btn-primary" style="width: 100%; margin: 0px 0px 5px 0px;">
+	                                    Update
+	                                </button>
 								</div>
 							</div>
+					    </transition-expand>
+					</div>
+					<div class="row">
+						<h3>
+							Account 
+							<img @click="expanded = true;account_on = true;profile_on = false" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
+							<img @click="expanded = false;account_on = false;profile_on = false" v-else src="/images/icons/settings edit button hover@4x.png" alt="Account Edit Off" width="30">
+						</h3>
+						<p class="description" title="Personal Information">Account Information</p>
+					    <transition-expand>
+							<div v-if="expanded == true && account_on == true" style="margin-top: 20px;" >
+								<div :class="{'input': true, 'form-group' :true }">
+									<label class="col-lg-12 control-label">
+										<input type="checkbox" name="notifications" value="user.notifications"> Notifications
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Old Password') }">
+									<label class="col-lg-12 control-label">Old Password
+										<input type="password" id="email"  name="Old Password" v-model="user.old_password" v-validate="'required'" class="form-control">
+										<span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('New Password') }">
+									<label class="col-lg-12 control-label">New Password
+										<input type="password" id="password"  name="New Password" v-model="user.password" v-validate="'required'" class="form-control">
+										<span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Password Confirm') }">
+									<label class="col-lg-12 control-label">Confirm New Password
+										<input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirm" v-validate="'required|email'" class="form-control">
+										<span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
+									</label>
+								</div>
+								<div :class="{'input': true, 'form-group' :true }">
+									<button type="submit" class="btn btn-primary" style="width: 100%; margin: 0px;">
+	                                    Update
+	                                </button>
+								</div>
+							</div>
+					    </transition-expand>
+					</div>
+					<div class="row" v-if="profile_on == false">
+						<h3 style="width: 100%;">
+							Themes 
+						</h3>
+						<div style="margin-top: 20px;width: 100%;" >
+							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button type="submit" class="btn btn-default active" style="width: 100%; margin: 0px;">
+	                                Orange
+	                            </button>
+							</label>
+							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+	                                Blue
+	                            </button>
+							</label>
+							<label class="col-lg-3 control-label">
+								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+	                                Red
+	                            </button>
+							</label>
 						</div>
-						<div class="row" style="padding:25px  0;">
-							<div class="col-lg-6">
-								<p class="description">Commision</p>
-								<p><span class="value">$1523</span></p>
-							</div>
-							<div class="col-lg-6 aligh-right">
-								<p class="description">Conv. Ratio</p>
-								<p><span class="value">40%</span></p>
-							</div>
-						</div>
-						<div class="row" style="padding:5px  0;">
-							<div class="col-lg-12">
-								<p class="heading">Calls</p>
-							</div>
-							<div class="col-lg-6">
-								<p class="description">Leads</p>
-								<p><span class="value">125</span></p>
-							</div>
-							<div class="col-lg-6 aligh-right">
-								<p class="description">Called</p>
-								<p><span class="value">25</span></p>
-							</div>
-						</div>
-						<div class="row" style="padding:5px  0;">
-							<div class="col-lg-12">
-								<p class="heading">Sales</p>
-							</div>
-							<div class="col-lg-6">
-								<p class="description">Quantity</p>
-								<p><span class="value">54</span></p>
-							</div>
-							<div class="col-lg-6 aligh-right">
-								<p class="description">Value</p>
-								<p><span class="value">$2725</span></p>
-							</div>
+					</div>
+					<div class="row" v-if="profile_on == false">
+						<h3 style="width: 100%;">
+							Language 
+						</h3>
+						<div style="margin-top: 20px;width: 100%;" >
+							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button type="submit" class="btn btn-default active" style="width: 100%; margin: 0px;">
+	                                English
+	                            </button>
+							</label>
+							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+	                                Spanish
+	                            </button>
+							</label>
 						</div>
 					</div>
 				</div>
-				<div class="row" style="padding:25px  0;">
-					<vc-calendar :attributes='attributes' title-position="right" is-expanded :popover="true" />
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="position" style="display:none;">
-							<span>12<sup>th</sup></span>
+				<div v-if="notifications_on == false && settings_on == false">
+					<div class="row" style="padding: 0;margin-top: 35px;">
+						<div class="col-lg-12">
+							<div class="row" style="padding: 0;">
+								<div class="col-lg-12">
+									<p>Monthly Target <span class="monthly-target">74%</span></p>
+									<div class="progress-bar">
+										<span class="tank" :style="'width:' + 65 + '%'"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row" style="padding:25px  0;">
+								<div class="col-lg-6">
+									<p class="description">Commision</p>
+									<p><span class="value">$1523</span></p>
+								</div>
+								<div class="col-lg-6 aligh-right">
+									<p class="description">Conv. Ratio</p>
+									<p><span class="value">40%</span></p>
+								</div>
+							</div>
+							<div class="row" style="padding:5px  0;">
+								<div class="col-lg-12">
+									<p class="heading">Calls</p>
+								</div>
+								<div class="col-lg-6">
+									<p class="description">Leads</p>
+									<p><span class="value">125</span></p>
+								</div>
+								<div class="col-lg-6 aligh-right">
+									<p class="description">Called</p>
+									<p><span class="value">25</span></p>
+								</div>
+							</div>
+							<div class="row" style="padding:5px  0;">
+								<div class="col-lg-12">
+									<p class="heading">Sales</p>
+								</div>
+								<div class="col-lg-6">
+									<p class="description">Quantity</p>
+									<p><span class="value">54</span></p>
+								</div>
+								<div class="col-lg-6 aligh-right">
+									<p class="description">Value</p>
+									<p><span class="value">$2725</span></p>
+								</div>
+							</div>
 						</div>
+					</div>
+					<div class="row" style="padding:25px  0;">
+						<vc-calendar :attributes='attributes' title-position="right" is-expanded :popover="true" />
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="position" style="display:none;">
+								<span>12<sup>th</sup></span>
+							</div>
 
-						<div class="badge badge-1">
-							<img src="/images/icons/Colonel@4x.png" alt="Badge">
-						</div>
+							<div class="badge badge-1">
+								<img src="/images/icons/Colonel@4x.png" alt="Badge">
+							</div>
 
-						<div class="badge badge-2">
-							<img src="/images/icons/Corporal@4x.png" alt="Badge">
-						</div>
+							<div class="badge badge-2">
+								<img src="/images/icons/Corporal@4x.png" alt="Badge">
+							</div>
 
-						<div class="badge badge-2">
-							<img src="/images/icons/Captain@4x.png" alt="Badge">
+							<div class="badge badge-2">
+								<img src="/images/icons/Captain@4x.png" alt="Badge">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -262,10 +491,12 @@ p.heading{
 
 <script>
 	import { setupCalendar, Calendar} from 'v-calendar'
+	import TransitionHeight from '../Plugins/TransitionExpand.vue';
 	export default {
+		props: ['auth_user'],
 		mounted() {
-			console.log('Component mounted.');
-
+			
+			this.user = JSON.parse(this.auth_user);
 			this.Toast = this.$swal.mixin({
 				toast: true,
 				position: 'top-end',
@@ -274,7 +505,7 @@ p.heading{
 			});
 		},
 		components: {
-			
+			'transition-expand' : TransitionHeight,
 		},
 		data: function(){
 
@@ -300,7 +531,13 @@ p.heading{
 			];
 	
 			return {
+				user : [],
 				status : 'active',
+				notifications_on: false,
+				settings_on: false,
+				profile_on: false,
+				account_on: false,
+				expanded: false,
 				incId: todos.length,
 				todos,
 				attrs : [
@@ -318,6 +555,15 @@ p.heading{
 					},
 				],
 			}
+		},
+		methods: {
+			showNotifications(){
+				this.notifications_on = !this.notifications_on;
+			},
+			showSettings(){
+				this.settings_on = !this.settings_on;
+			},
+
 		},
 		computed: {
 			attributes() {

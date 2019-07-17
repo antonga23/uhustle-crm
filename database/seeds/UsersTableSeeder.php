@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 4,
                     'name' => 'Yongama',
                     'lastname' => 'Sobambela',
+                    'nickname' => 'Sobambela',
                     'email' => 'sobambela@gmail.com',
                     'password' => bcrypt('admin123'),
                     'address' => '',
