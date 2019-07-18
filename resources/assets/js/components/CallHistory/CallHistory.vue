@@ -182,7 +182,7 @@
         float:left;
         font-weight: 700;
         color:#9fb3bb;
-        padding: 0 141px 0 0;
+        padding: 0 125px 0 0;
     }
     ul.items{
         list-style: none;
@@ -192,7 +192,7 @@
         float:left;
         font-weight: 700;
         color:#003449;
-        padding: 0 127px 0 0;
+        padding: 0 114px 0 0;
     }
     ul.items li a:hover{
         text-decoration: none;
@@ -204,7 +204,7 @@
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row" style="margin-top:3%;">
+        <div id="top-section" class="row" style="margin-top:2%;">
           <div class="col-lg-2">
             <div class="card calls">
               <div class="card-body">

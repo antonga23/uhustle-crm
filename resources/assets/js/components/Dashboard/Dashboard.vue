@@ -8,7 +8,7 @@
     .top-section li{    
         float: left;
         margin-right: 52px;
-        padding: 6px 83px 3px 15px;
+        padding: 6px 72px 3px 15px;
         border-right: 1px solid #e3e3e3;
     }
     li p.bottom{
@@ -159,7 +159,7 @@
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row"  style="margin-top:3%;">
+        <div id="top-section" class="row"  style="margin-top:2%;">
           <div class="col-lg-2">
             <div class="card client">
               <div class="card-body">
