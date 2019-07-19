@@ -100,11 +100,10 @@ h3 img{
 }
 .collapse{
     border-bottom: 1px solid #e3e3e3;
-    padding-bottom: 10px;
     width: 100%;
 }
 .p-3{
-    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;
+    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;
 }
 .progress-bar{
 	background: #e3e3e3;
@@ -167,10 +166,12 @@ p.heading{
 }
 .navbar ul.pull-left{
 	width: 35%;
+	
 }
 .navbar ul.pull-right{
     width: 68%;
-    text-align: right;
+	text-align: right;
+	margin-bottom: 10px;
 }
 .navbar ul.pull-right li.name-li{
 	width: 79%;
@@ -194,10 +195,6 @@ label.custom-control-label{
     font-size: 12px;
     padding: 0;
     width: 100%;
-}
-#settings-li a {
-    padding: 0px;
-    margin-top: -12px;
 }
 .control-label{
     margin-right: 8px;
@@ -230,6 +227,18 @@ label.custom-control-label{
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-has-new{
+    background-image: url('/images/icons/Dot.png') !important;
+    background-size: 12px 12px;
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+.btn-has-new:hover{
+    background-image: url('/images/icons/Dot.png') !important;
+    background-size: 12px 12px;
+	background-repeat: no-repeat;
+	background-position: right top;
 }
 .logout-wrapper{
 	border-bottom: none;
@@ -284,7 +293,7 @@ label.custom-control-label{
 </style>
 <template>
 	<div>
-		<aside class="control-sidebar control-sidebar-dark" style="height: auto;">
+		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->
 			<div class="p-3">
 				<div>
@@ -296,11 +305,12 @@ label.custom-control-label{
 		                            <ul class="navbar-nav pull-left">
 		                                <li class="nav-item">
 		                                    <a class="nav-link icon" href="#" @click="showNotifications()" style="padding: 0;">
-		                                    	<img src="/images/icons/Asset 64.svg" alt="Notification Bell" width="25">
-		                                    	<span class="notification-count">2</span>
+		                                    	<img v-if="notifications_on == true" src="/images/icons/Notification_active.svg" alt="Notification Bell" width="50">
+		                                    	<img v-else-if="notifications_on == false && unread_messages == 0 && call_backs == 0" src="/images/icons/Notification.svg" alt="Notification Bell" width="50">
+		                                    	<img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs >= 1" src="/images/icons/Notification_new.svg" alt="Notification Bell" width="50">
 		                                    </a>
 		                                </li>
-		                                <li class="nav-item" id="settings-li">
+		                                <li class="nav-item">
 		                                    <a class="nav-link icon" href="#" @click="showSettings()" style="padding-right: 0;">
 		                                    	<img v-if="settings_on == false" src="/images/icons/Asset 62.svg" alt="Settings Cog" width="50">
 		                                    	<img v-else src="/images/icons/Asset 63.svg" alt="Settings Cog" width="50">
@@ -493,12 +503,12 @@ label.custom-control-label{
 						</h2>
 						<div style="margin-top: 20px;width: 100%;" >
 							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on }" style="width: 100%; margin: 0px;">
+								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on, 'btn-has-new' : call_backs >= 1 }" style="width: 100%; margin: 0px;">
 	                                Callbacks
 	                            </button>
 							</label>
 							<label @click="showMessages" class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default' : !messages_on }" style="width: 100%; margin: 0px;">
+								<button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" style="width: 100%; margin: 0px;">
 	                                Messages
 	                            </button>
 							</label>
@@ -692,6 +702,9 @@ label.custom-control-label{
 				account_on: false,
 				callbacks_on: true,
 				messages_on: false,
+				call_backs: 1,
+				messages: [],
+				unread_messages: 1,
 				expanded: false,
 				incId: todos.length,
 				todos,
@@ -729,6 +742,9 @@ label.custom-control-label{
 			showMessages(){
 				this.callbacks_on = false;
 				this.messages_on = true;
+				// call to make all messages unread
+				// return message and set unread_messages = 0
+				this.unread_messages = 0;
 			}
 
 		},

@@ -23,6 +23,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+    #content-wrapper{
+      style="padding: 0px 40px 0px 30px; 
+      min-height: auto !important"
+    }
       .content-wrapper, .main-footer, .main-header {
           transition: margin-left 0.3s ease-in-out;
           margin-left: 54px !important;
@@ -35,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
     </style>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="    overflow-y: hidden;">
 <div class="wrapper" id ="app">
   <vue-progress-bar></vue-progress-bar>
   <!-- Navbar -->
@@ -45,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <left-nav active="{{ $active }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="padding: 0 40px 0 30px;">
+  <div class="content-wrapper" id="content-wrapper">
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">

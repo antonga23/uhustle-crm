@@ -169,7 +169,7 @@ a.workstation{
       </a>
 
       <!-- Sidebar -->
-      <div class="sidebar" id="sidebar">
+      <div class="" id="sidebar">
         <!-- Sidebar user panel (optional) -->
         <!-- Sidebar Menu -->
         <nav class="mt-2">

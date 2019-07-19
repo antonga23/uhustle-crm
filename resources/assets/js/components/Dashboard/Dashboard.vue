@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div class="col-lg-6" >
-                <div class="row" style="margin-bottom: 5%;">
+                <div class="row" style="margin-bottom: 4%;">
                     <div class="col-lg-12">
                         <div class="card right">
                             <div class="card-body">
@@ -286,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-bottom: 5%;">
+                <div class="row" style="margin-bottom: 4%;">
                     <div class="col-lg-12">
                         <div class="card right">
                             <div class="card-body">

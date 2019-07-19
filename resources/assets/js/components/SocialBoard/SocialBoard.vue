@@ -231,6 +231,11 @@
         color:#9fb3bb;
         padding: 0 141px 0 0;
     }
+    #scroll-hidden{
+        overflow-y: scroll;
+        height: 87vh;
+        padding-top: 20px;
+    }
 </style>
 <template>
     <div class="">
@@ -248,7 +253,7 @@
             </div>
         </div>
 
-        <div class="row stats" >
+        <div class="row stats " id="scroll-hidden">
             <div class="col-lg-12" style="" >
                 <div class="card left" style="text-align: left;">
                     <div class="card-body" style="padding-bottom: 18px;">
@@ -257,6 +262,426 @@
                                 <p>12</p>
                             </li>
                             <li class="truncate" ><strong>Piet AndrewsPiet AndrewsPiet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
+                            <li>342</li>
+                            <li>57</li>
+                            <li>$ 2222</li>
+                            <li>1.4</li>
+                            <li style="padding-right:0;text-align: left;padding-top: 12px;">
+                                <div class="" style="width: 265px;">
+                                    <div class="badge badge-1">
+                                        <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+
+                                    <div class="badge badge-2">
+                                        <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="">
+                <div class="card left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="items">
+                            <li class="rank">
+                                <p>12</p>
+                            </li>
+                            <li><strong>Piet Andrews</strong></li>
                             <li>342</li>
                             <li>57</li>
                             <li>$ 2222</li>

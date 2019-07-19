@@ -98,8 +98,826 @@
  * Copyright 2014-2018 Abdullah Almsaeed <abdullah@almsaeedstudio.com>
  * Licensed under MIT (https://github.com/almasaeed2010/AdminLTE/blob/master/LICENSE)
  */
-!function(e,t){ true?t(exports):undefined}(this,function(e){"use strict";var i,t,o,n,r,a,s,c,f,l,u,d,h,p,_,g,y,m,v,C,D,E,A,O,w,b,L,S,j,T,I,Q,R,P,x,B,M,k,H,N,Y,U,V,G,W,X,z,F,q,J,K,Z,$,ee,te,ne="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ie=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},oe=(i=jQuery,t="ControlSidebar",o="lte.control.sidebar",n=i.fn[t],r=".control-sidebar",a='[data-widget="control-sidebar"]',s=".main-header",c="control-sidebar-open",f="control-sidebar-slide-open",l={slide:!0},u=function(){function n(e,t){ie(this,n),this._element=e,this._config=this._getConfig(t)}return n.prototype.show=function(){this._config.slide?i("body").removeClass(f):i("body").removeClass(c)},n.prototype.collapse=function(){this._config.slide?i("body").addClass(f):i("body").addClass(c)},n.prototype.toggle=function(){this._setMargin(),i("body").hasClass(c)||i("body").hasClass(f)?this.show():this.collapse()},n.prototype._getConfig=function(e){return i.extend({},l,e)},n.prototype._setMargin=function(){i(r).css({top:i(s).outerHeight()})},n._jQueryInterface=function(t){return this.each(function(){var e=i(this).data(o);if(e||(e=new n(this,i(this).data()),i(this).data(o,e)),"undefined"===e[t])throw new Error(t+" is not a function");e[t]()})},n}(),i(document).on("click",a,function(e){e.preventDefault(),u._jQueryInterface.call(i(this),"toggle")}),i.fn[t]=u._jQueryInterface,i.fn[t].Constructor=u,i.fn[t].noConflict=function(){return i.fn[t]=n,u._jQueryInterface},u),re=(d=jQuery,h="Layout",p="lte.layout",_=d.fn[h],g=".main-sidebar",y=".main-header",m=".content-wrapper",v=".main-footer",C="hold-transition",D=function(){function n(e){ie(this,n),this._element=e,this._init()}return n.prototype.fixLayoutHeight=function(){var e={window:d(window).height(),header:d(y).outerHeight(),footer:d(v).outerHeight(),sidebar:d(g).height()},t=this._max(e);d(m).css("min-height",t-e.header),d(g).css("min-height",t-e.header)},n.prototype._init=function(){var e=this;d("body").removeClass(C),this.fixLayoutHeight(),d(g).on("collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu",function(){e.fixLayoutHeight()}),d(window).resize(function(){e.fixLayoutHeight()}),d("body, html").css("height","auto")},n.prototype._max=function(t){var n=0;return Object.keys(t).forEach(function(e){t[e]>n&&(n=t[e])}),n},n._jQueryInterface=function(t){return this.each(function(){var e=d(this).data(p);e||(e=new n(this),d(this).data(p,e)),t&&e[t]()})},n}(),d(window).on("load",function(){D._jQueryInterface.call(d("body"))}),d.fn[h]=D._jQueryInterface,d.fn[h].Constructor=D,d.fn[h].noConflict=function(){return d.fn[h]=_,D._jQueryInterface},D),ae=(E=jQuery,A="PushMenu",w="."+(O="lte.pushmenu"),b=E.fn[A],L={COLLAPSED:"collapsed"+w,SHOWN:"shown"+w},S={screenCollapseSize:768},j={TOGGLE_BUTTON:'[data-widget="pushmenu"]',SIDEBAR_MINI:".sidebar-mini",SIDEBAR_COLLAPSED:".sidebar-collapse",BODY:"body",OVERLAY:"#sidebar-overlay",WRAPPER:".wrapper"},T="sidebar-collapse",I="sidebar-open",Q=function(){function n(e,t){ie(this,n),this._element=e,this._options=E.extend({},S,t),E(j.OVERLAY).length||this._addOverlay()}return n.prototype.show=function(){E(j.BODY).addClass(I).removeClass(T);var e=E.Event(L.SHOWN);E(this._element).trigger(e)},n.prototype.collapse=function(){E(j.BODY).removeClass(I).addClass(T);var e=E.Event(L.COLLAPSED);E(this._element).trigger(e)},n.prototype.toggle=function(){(E(window).width()>=this._options.screenCollapseSize?!E(j.BODY).hasClass(T):E(j.BODY).hasClass(I))?this.collapse():this.show()},n.prototype._addOverlay=function(){var e=this,t=E("<div />",{id:"sidebar-overlay"});t.on("click",function(){e.collapse()}),E(j.WRAPPER).append(t)},n._jQueryInterface=function(t){return this.each(function(){var e=E(this).data(O);e||(e=new n(this),E(this).data(O,e)),t&&e[t]()})},n}(),E(document).on("click",j.TOGGLE_BUTTON,function(e){e.preventDefault();var t=e.currentTarget;"pushmenu"!==E(t).data("widget")&&(t=E(t).closest(j.TOGGLE_BUTTON)),Q._jQueryInterface.call(E(t),"toggle")}),E.fn[A]=Q._jQueryInterface,E.fn[A].Constructor=Q,E.fn[A].noConflict=function(){return E.fn[A]=b,Q._jQueryInterface},Q),se=(R=jQuery,P="Treeview",B="."+(x="lte.treeview"),M=R.fn[P],k={SELECTED:"selected"+B,EXPANDED:"expanded"+B,COLLAPSED:"collapsed"+B,LOAD_DATA_API:"load"+B},H=".nav-item",N=".nav-treeview",Y=".menu-open",V="menu-open",G={trigger:(U='[data-widget="treeview"]')+" "+".nav-link",animationSpeed:300,accordion:!0},W=function(){function i(e,t){ie(this,i),this._config=t,this._element=e}return i.prototype.init=function(){this._setupListeners()},i.prototype.expand=function(e,t){var n=this,i=R.Event(k.EXPANDED);if(this._config.accordion){var o=t.siblings(Y).first(),r=o.find(N).first();this.collapse(r,o)}e.slideDown(this._config.animationSpeed,function(){t.addClass(V),R(n._element).trigger(i)})},i.prototype.collapse=function(e,t){var n=this,i=R.Event(k.COLLAPSED);e.slideUp(this._config.animationSpeed,function(){t.removeClass(V),R(n._element).trigger(i),e.find(Y+" > "+N).slideUp(),e.find(Y).removeClass(V)})},i.prototype.toggle=function(e){var t=R(e.currentTarget),n=t.next();if(n.is(N)){e.preventDefault();var i=t.parents(H).first();i.hasClass(V)?this.collapse(R(n),i):this.expand(R(n),i)}},i.prototype._setupListeners=function(){var t=this;R(document).on("click",this._config.trigger,function(e){t.toggle(e)})},i._jQueryInterface=function(n){return this.each(function(){var e=R(this).data(x),t=R.extend({},G,R(this).data());e||(e=new i(R(this),t),R(this).data(x,e)),"init"===n&&e[n]()})},i}(),R(window).on(k.LOAD_DATA_API,function(){R(U).each(function(){W._jQueryInterface.call(R(this),"init")})}),R.fn[P]=W._jQueryInterface,R.fn[P].Constructor=W,R.fn[P].noConflict=function(){return R.fn[P]=M,W._jQueryInterface},W),ce=(X=jQuery,z="Widget",q="."+(F="lte.widget"),J=X.fn[z],K={EXPANDED:"expanded"+q,COLLAPSED:"collapsed"+q,REMOVED:"removed"+q},$="collapsed-card",ee={animationSpeed:"normal",collapseTrigger:(Z={DATA_REMOVE:'[data-widget="remove"]',DATA_COLLAPSE:'[data-widget="collapse"]',CARD:".card",CARD_HEADER:".card-header",CARD_BODY:".card-body",CARD_FOOTER:".card-footer",COLLAPSED:".collapsed-card"}).DATA_COLLAPSE,removeTrigger:Z.DATA_REMOVE},te=function(){function n(e,t){ie(this,n),this._element=e,this._parent=e.parents(Z.CARD).first(),this._settings=X.extend({},ee,t)}return n.prototype.collapse=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideUp(this._settings.animationSpeed,function(){e._parent.addClass($)});var t=X.Event(K.COLLAPSED);this._element.trigger(t,this._parent)},n.prototype.expand=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideDown(this._settings.animationSpeed,function(){e._parent.removeClass($)});var t=X.Event(K.EXPANDED);this._element.trigger(t,this._parent)},n.prototype.remove=function(){this._parent.slideUp();var e=X.Event(K.REMOVED);this._element.trigger(e,this._parent)},n.prototype.toggle=function(){this._parent.hasClass($)?this.expand():this.collapse()},n.prototype._init=function(e){var t=this;this._parent=e,X(this).find(this._settings.collapseTrigger).click(function(){t.toggle()}),X(this).find(this._settings.removeTrigger).click(function(){t.remove()})},n._jQueryInterface=function(t){return this.each(function(){var e=X(this).data(F);e||(e=new n(X(this),e),X(this).data(F,"string"==typeof t?e:t)),"string"==typeof t&&t.match(/remove|toggle/)?e[t]():"object"===("undefined"==typeof t?"undefined":ne(t))&&e._init(X(this))})},n}(),X(document).on("click",Z.DATA_COLLAPSE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"toggle")}),X(document).on("click",Z.DATA_REMOVE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"remove")}),X.fn[z]=te._jQueryInterface,X.fn[z].Constructor=te,X.fn[z].noConflict=function(){return X.fn[z]=J,te._jQueryInterface},te);e.ControlSidebar=oe,e.Layout=re,e.PushMenu=ae,e.Treeview=se,e.Widget=ce,Object.defineProperty(e,"__esModule",{value:!0})});
-//# sourceMappingURL=adminlte.min.js.map
+(function (global, factory) {
+	 true ? factory(exports) :
+	undefined;
+}(this, (function (exports) { 'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+
+
+
+
+
+
+
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/**
+ * --------------------------------------------
+ * AdminLTE ControlSidebar.js
+ * License MIT
+ * --------------------------------------------
+ */
+
+var ControlSidebar = function ($) {
+  /**
+   * Constants
+   * ====================================================
+   */
+
+  var NAME = 'ControlSidebar';
+  var DATA_KEY = 'lte.control.sidebar';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var Selector = {
+    CONTROL_SIDEBAR: '.control-sidebar',
+    DATA_TOGGLE: '[data-widget="control-sidebar"]',
+    MAIN_HEADER: '.main-header'
+  };
+
+  var ClassName = {
+    CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
+    CONTROL_SIDEBAR_SLIDE: 'control-sidebar-slide-open'
+  };
+
+  var Default = {
+    slide: true
+
+    /**
+     * Class Definition
+     * ====================================================
+     */
+
+  };
+  var ControlSidebar = function () {
+    function ControlSidebar(element, config) {
+      classCallCheck(this, ControlSidebar);
+
+      this._element = element;
+      this._config = this._getConfig(config);
+    }
+
+    // Public
+
+    ControlSidebar.prototype.show = function show() {
+      // Show the control sidebar
+      if (this._config.slide) {
+        $('body').removeClass(ClassName.CONTROL_SIDEBAR_SLIDE);
+      } else {
+        $('body').removeClass(ClassName.CONTROL_SIDEBAR_OPEN);
+      }
+    };
+
+    ControlSidebar.prototype.collapse = function collapse() {
+      // Collapse the control sidebar
+      if (this._config.slide) {
+        $('body').addClass(ClassName.CONTROL_SIDEBAR_SLIDE);
+      } else {
+        $('body').addClass(ClassName.CONTROL_SIDEBAR_OPEN);
+      }
+    };
+
+    ControlSidebar.prototype.toggle = function toggle() {
+      this._setMargin();
+
+      var shouldOpen = $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE);
+      if (shouldOpen) {
+        // Open the control sidebar
+        this.show();
+      } else {
+        // Close the control sidebar
+        this.collapse();
+      }
+    };
+
+    // Private
+
+    ControlSidebar.prototype._getConfig = function _getConfig(config) {
+      return $.extend({}, Default, config);
+    };
+
+    ControlSidebar.prototype._setMargin = function _setMargin() {
+      $(Selector.CONTROL_SIDEBAR).css({
+        top: $(Selector.MAIN_HEADER).outerHeight()
+      });
+    };
+
+    // Static
+
+    ControlSidebar._jQueryInterface = function _jQueryInterface(operation) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+
+        if (!data) {
+          data = new ControlSidebar(this, $(this).data());
+          $(this).data(DATA_KEY, data);
+        }
+
+        if (data[operation] === 'undefined') {
+          throw new Error(operation + ' is not a function');
+        }
+
+        data[operation]();
+      });
+    };
+
+    return ControlSidebar;
+  }();
+
+  /**
+   *
+   * Data Api implementation
+   * ====================================================
+   */
+
+
+  $(document).on('click', Selector.DATA_TOGGLE, function (event) {
+    event.preventDefault();
+
+    ControlSidebar._jQueryInterface.call($(this), 'toggle');
+  });
+
+  /**
+   * jQuery API
+   * ====================================================
+   */
+
+  $.fn[NAME] = ControlSidebar._jQueryInterface;
+  $.fn[NAME].Constructor = ControlSidebar;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return ControlSidebar._jQueryInterface;
+  };
+
+  return ControlSidebar;
+}(jQuery);
+
+/**
+ * --------------------------------------------
+ * AdminLTE Layout.js
+ * License MIT
+ * --------------------------------------------
+ */
+
+var Layout = function ($) {
+  /**
+   * Constants
+   * ====================================================
+   */
+
+  var NAME = 'Layout';
+  var DATA_KEY = 'lte.layout';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+
+  var Selector = {
+    SIDEBAR: '.main-sidebar',
+    HEADER: '.main-header',
+    CONTENT: '.content-wrapper',
+    CONTENT_HEADER: '.content-header',
+    WRAPPER: '.wrapper',
+    CONTROL_SIDEBAR: '.control-sidebar',
+    LAYOUT_FIXED: '.layout-fixed',
+    FOOTER: '.main-footer'
+  };
+
+  var ClassName = {
+    HOLD: 'hold-transition',
+    SIDEBAR: 'main-sidebar',
+    CONTROL_SIDEBAR: '.control-sidebar',
+    LAYOUT_FIXED: 'layout-fixed'
+
+    /**
+     * Class Definition
+     * ====================================================
+     */
+
+  };
+  var Layout = function () {
+    function Layout(element) {
+      classCallCheck(this, Layout);
+
+      this._element = element;
+
+      this._init();
+    }
+
+    // Public
+
+    Layout.prototype.fixLayoutHeight = function fixLayoutHeight() {
+      var heights = {
+        window: $(window).height(),
+        header: $(Selector.HEADER).outerHeight(),
+        footer: $(Selector.FOOTER).outerHeight(),
+        sidebar: $(Selector.SIDEBAR).height()
+      };
+      var max = this._max(heights);
+
+      // $(Selector.CONTENT).css('min-height', max - heights.header);
+      $(Selector.SIDEBAR).css('min-height', max - heights.header);
+      $(Selector.CONTROL_SIDEBAR).css('min-height', max + heights.header);
+    };
+
+    // Private
+
+    Layout.prototype._init = function _init() {
+      var _this = this;
+
+      // Enable transitions
+      $('body').removeClass(ClassName.HOLD);
+
+      // Activate layout height watcher
+      this.fixLayoutHeight();
+      $(Selector.SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu', function () {
+        _this.fixLayoutHeight();
+      });
+
+      $(window).resize(function () {
+        _this.fixLayoutHeight();
+      });
+
+      $('body, html').css('height', 'auto');
+    };
+
+    Layout.prototype._max = function _max(numbers) {
+      // Calculate the maximum number in a list
+      var max = 0;
+
+      Object.keys(numbers).forEach(function (key) {
+        if (numbers[key] > max) {
+          max = numbers[key];
+        }
+      });
+
+      return max;
+    };
+
+    // Static
+
+    Layout._jQueryInterface = function _jQueryInterface(operation) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+
+        if (!data) {
+          data = new Layout(this);
+          $(this).data(DATA_KEY, data);
+        }
+
+        if (operation) {
+          data[operation]();
+        }
+      });
+    };
+
+    return Layout;
+  }();
+
+  /**
+   * Data API
+   * ====================================================
+   */
+
+
+  $(window).on('load', function () {
+    Layout._jQueryInterface.call($('body'));
+  });
+
+  /**
+   * jQuery API
+   * ====================================================
+   */
+
+  $.fn[NAME] = Layout._jQueryInterface;
+  $.fn[NAME].Constructor = Layout;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Layout._jQueryInterface;
+  };
+
+  return Layout;
+}(jQuery);
+
+/**
+ * --------------------------------------------
+ * AdminLTE PushMenu.js
+ * License MIT
+ * --------------------------------------------
+ */
+
+var PushMenu = function ($) {
+  /**
+   * Constants
+   * ====================================================
+   */
+
+  var NAME = 'PushMenu';
+  var DATA_KEY = 'lte.pushmenu';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+
+  var Event = {
+    COLLAPSED: 'collapsed' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY
+  };
+
+  var Default = {
+    screenCollapseSize: 768
+  };
+
+  var Selector = {
+    TOGGLE_BUTTON: '[data-widget="pushmenu"]',
+    SIDEBAR_MINI: '.sidebar-mini',
+    SIDEBAR_COLLAPSED: '.sidebar-collapse',
+    BODY: 'body',
+    OVERLAY: '#sidebar-overlay',
+    WRAPPER: '.wrapper'
+  };
+
+  var ClassName = {
+    SIDEBAR_OPEN: 'sidebar-open',
+    COLLAPSED: 'sidebar-collapse',
+    OPEN: 'sidebar-open',
+    SIDEBAR_MINI: 'sidebar-mini'
+
+    /**
+     * Class Definition
+     * ====================================================
+     */
+
+  };
+  var PushMenu = function () {
+    function PushMenu(element, options) {
+      classCallCheck(this, PushMenu);
+
+      this._element = element;
+      this._options = $.extend({}, Default, options);
+
+      if (!$(Selector.OVERLAY).length) {
+        this._addOverlay();
+      }
+    }
+
+    // Public
+
+    PushMenu.prototype.show = function show() {
+      $(Selector.BODY).addClass(ClassName.OPEN).removeClass(ClassName.COLLAPSED);
+
+      var shownEvent = $.Event(Event.SHOWN);
+      $(this._element).trigger(shownEvent);
+    };
+
+    PushMenu.prototype.collapse = function collapse() {
+      $(Selector.BODY).removeClass(ClassName.OPEN).addClass(ClassName.COLLAPSED);
+
+      var collapsedEvent = $.Event(Event.COLLAPSED);
+      $(this._element).trigger(collapsedEvent);
+    };
+
+    PushMenu.prototype.toggle = function toggle() {
+      var isShown = void 0;
+      if ($(window).width() >= this._options.screenCollapseSize) {
+        isShown = !$(Selector.BODY).hasClass(ClassName.COLLAPSED);
+      } else {
+        isShown = $(Selector.BODY).hasClass(ClassName.OPEN);
+      }
+
+      if (isShown) {
+        this.collapse();
+      } else {
+        this.show();
+      }
+    };
+
+    // Private
+
+
+    PushMenu.prototype._addOverlay = function _addOverlay() {
+      var _this = this;
+
+      var overlay = $('<div />', {
+        id: 'sidebar-overlay'
+      });
+
+      overlay.on('click', function () {
+        _this.collapse();
+      });
+
+      $(Selector.WRAPPER).append(overlay);
+    };
+
+    // Static
+
+    PushMenu._jQueryInterface = function _jQueryInterface(operation) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+
+        if (!data) {
+          data = new PushMenu(this);
+          $(this).data(DATA_KEY, data);
+        }
+
+        if (operation) {
+          data[operation]();
+        }
+      });
+    };
+
+    return PushMenu;
+  }();
+
+  /**
+   * Data API
+   * ====================================================
+   */
+
+  $(document).on('click', Selector.TOGGLE_BUTTON, function (event) {
+    event.preventDefault();
+
+    var button = event.currentTarget;
+
+    if ($(button).data('widget') !== 'pushmenu') {
+      button = $(button).closest(Selector.TOGGLE_BUTTON);
+    }
+
+    PushMenu._jQueryInterface.call($(button), 'toggle');
+  });
+
+  /**
+   * jQuery API
+   * ====================================================
+   */
+
+  $.fn[NAME] = PushMenu._jQueryInterface;
+  $.fn[NAME].Constructor = PushMenu;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return PushMenu._jQueryInterface;
+  };
+
+  return PushMenu;
+}(jQuery);
+
+/**
+ * --------------------------------------------
+ * AdminLTE Treeview.js
+ * License MIT
+ * --------------------------------------------
+ */
+
+var Treeview = function ($) {
+  /**
+   * Constants
+   * ====================================================
+   */
+
+  var NAME = 'Treeview';
+  var DATA_KEY = 'lte.treeview';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+
+  var Event = {
+    SELECTED: 'selected' + EVENT_KEY,
+    EXPANDED: 'expanded' + EVENT_KEY,
+    COLLAPSED: 'collapsed' + EVENT_KEY,
+    LOAD_DATA_API: 'load' + EVENT_KEY
+  };
+
+  var Selector = {
+    LI: '.nav-item',
+    LINK: '.nav-link',
+    TREEVIEW_MENU: '.nav-treeview',
+    OPEN: '.menu-open',
+    DATA_WIDGET: '[data-widget="treeview"]'
+  };
+
+  var ClassName = {
+    LI: 'nav-item',
+    LINK: 'nav-link',
+    TREEVIEW_MENU: 'nav-treeview',
+    OPEN: 'menu-open'
+  };
+
+  var Default = {
+    trigger: Selector.DATA_WIDGET + ' ' + Selector.LINK,
+    animationSpeed: 300,
+    accordion: true
+
+    /**
+     * Class Definition
+     * ====================================================
+     */
+  };
+  var Treeview = function () {
+    function Treeview(element, config) {
+      classCallCheck(this, Treeview);
+
+      this._config = config;
+      this._element = element;
+    }
+
+    // Public
+
+    Treeview.prototype.init = function init() {
+      this._setupListeners();
+    };
+
+    Treeview.prototype.expand = function expand(treeviewMenu, parentLi) {
+      var _this = this;
+
+      var expandedEvent = $.Event(Event.EXPANDED);
+
+      if (this._config.accordion) {
+        var openMenuLi = parentLi.siblings(Selector.OPEN).first();
+        var openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
+        this.collapse(openTreeview, openMenuLi);
+      }
+
+      treeviewMenu.slideDown(this._config.animationSpeed, function () {
+        parentLi.addClass(ClassName.OPEN);
+        $(_this._element).trigger(expandedEvent);
+      });
+    };
+
+    Treeview.prototype.collapse = function collapse(treeviewMenu, parentLi) {
+      var _this2 = this;
+
+      var collapsedEvent = $.Event(Event.COLLAPSED);
+
+      treeviewMenu.slideUp(this._config.animationSpeed, function () {
+        parentLi.removeClass(ClassName.OPEN);
+        $(_this2._element).trigger(collapsedEvent);
+        treeviewMenu.find(Selector.OPEN + ' > ' + Selector.TREEVIEW_MENU).slideUp();
+        treeviewMenu.find(Selector.OPEN).removeClass(ClassName.OPEN);
+      });
+    };
+
+    Treeview.prototype.toggle = function toggle(event) {
+      var $relativeTarget = $(event.currentTarget);
+      var treeviewMenu = $relativeTarget.next();
+
+      if (!treeviewMenu.is(Selector.TREEVIEW_MENU)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      var parentLi = $relativeTarget.parents(Selector.LI).first();
+      var isOpen = parentLi.hasClass(ClassName.OPEN);
+
+      if (isOpen) {
+        this.collapse($(treeviewMenu), parentLi);
+      } else {
+        this.expand($(treeviewMenu), parentLi);
+      }
+    };
+
+    // Private
+
+    Treeview.prototype._setupListeners = function _setupListeners() {
+      var _this3 = this;
+
+      $(document).on('click', this._config.trigger, function (event) {
+        _this3.toggle(event);
+      });
+    };
+
+    // Static
+
+    Treeview._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+        var _config = $.extend({}, Default, $(this).data());
+
+        if (!data) {
+          data = new Treeview($(this), _config);
+          $(this).data(DATA_KEY, data);
+        }
+
+        if (config === 'init') {
+          data[config]();
+        }
+      });
+    };
+
+    return Treeview;
+  }();
+
+  /**
+   * Data API
+   * ====================================================
+   */
+
+  $(window).on(Event.LOAD_DATA_API, function () {
+    $(Selector.DATA_WIDGET).each(function () {
+      Treeview._jQueryInterface.call($(this), 'init');
+    });
+  });
+
+  /**
+   * jQuery API
+   * ====================================================
+   */
+
+  $.fn[NAME] = Treeview._jQueryInterface;
+  $.fn[NAME].Constructor = Treeview;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Treeview._jQueryInterface;
+  };
+
+  return Treeview;
+}(jQuery);
+
+/**
+ * --------------------------------------------
+ * AdminLTE Widget.js
+ * License MIT
+ * --------------------------------------------
+ */
+
+var Widget = function ($) {
+  /**
+   * Constants
+   * ====================================================
+   */
+
+  var NAME = 'Widget';
+  var DATA_KEY = 'lte.widget';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+
+  var Event = {
+    EXPANDED: 'expanded' + EVENT_KEY,
+    COLLAPSED: 'collapsed' + EVENT_KEY,
+    REMOVED: 'removed' + EVENT_KEY
+  };
+
+  var Selector = {
+    DATA_REMOVE: '[data-widget="remove"]',
+    DATA_COLLAPSE: '[data-widget="collapse"]',
+    CARD: '.card',
+    CARD_HEADER: '.card-header',
+    CARD_BODY: '.card-body',
+    CARD_FOOTER: '.card-footer',
+    COLLAPSED: '.collapsed-card'
+  };
+
+  var ClassName = {
+    COLLAPSED: 'collapsed-card'
+  };
+
+  var Default = {
+    animationSpeed: 'normal',
+    collapseTrigger: Selector.DATA_COLLAPSE,
+    removeTrigger: Selector.DATA_REMOVE
+  };
+
+  var Widget = function () {
+    function Widget(element, settings) {
+      classCallCheck(this, Widget);
+
+      this._element = element;
+      this._parent = element.parents(Selector.CARD).first();
+      this._settings = $.extend({}, Default, settings);
+    }
+
+    Widget.prototype.collapse = function collapse() {
+      var _this = this;
+
+      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
+        _this._parent.addClass(ClassName.COLLAPSED);
+      });
+
+      var collapsed = $.Event(Event.COLLAPSED);
+
+      this._element.trigger(collapsed, this._parent);
+    };
+
+    Widget.prototype.expand = function expand() {
+      var _this2 = this;
+
+      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
+        _this2._parent.removeClass(ClassName.COLLAPSED);
+      });
+
+      var expanded = $.Event(Event.EXPANDED);
+
+      this._element.trigger(expanded, this._parent);
+    };
+
+    Widget.prototype.remove = function remove() {
+      this._parent.slideUp();
+
+      var removed = $.Event(Event.REMOVED);
+
+      this._element.trigger(removed, this._parent);
+    };
+
+    Widget.prototype.toggle = function toggle() {
+      if (this._parent.hasClass(ClassName.COLLAPSED)) {
+        this.expand();
+        return;
+      }
+
+      this.collapse();
+    };
+
+    // Private
+
+    Widget.prototype._init = function _init(card) {
+      var _this3 = this;
+
+      this._parent = card;
+
+      $(this).find(this._settings.collapseTrigger).click(function () {
+        _this3.toggle();
+      });
+
+      $(this).find(this._settings.removeTrigger).click(function () {
+        _this3.remove();
+      });
+    };
+
+    // Static
+
+    Widget._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+
+        if (!data) {
+          data = new Widget($(this), data);
+          $(this).data(DATA_KEY, typeof config === 'string' ? data : config);
+        }
+
+        if (typeof config === 'string' && config.match(/remove|toggle/)) {
+          data[config]();
+        } else if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object') {
+          data._init($(this));
+        }
+      });
+    };
+
+    return Widget;
+  }();
+
+  /**
+   * Data API
+   * ====================================================
+   */
+
+  $(document).on('click', Selector.DATA_COLLAPSE, function (event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    Widget._jQueryInterface.call($(this), 'toggle');
+  });
+
+  $(document).on('click', Selector.DATA_REMOVE, function (event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    Widget._jQueryInterface.call($(this), 'remove');
+  });
+
+  /**
+   * jQuery API
+   * ====================================================
+   */
+
+  $.fn[NAME] = Widget._jQueryInterface;
+  $.fn[NAME].Constructor = Widget;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Widget._jQueryInterface;
+  };
+
+  return Widget;
+}(jQuery);
+
+exports.ControlSidebar = ControlSidebar;
+exports.Layout = Layout;
+exports.PushMenu = PushMenu;
+exports.Treeview = Treeview;
+exports.Widget = Widget;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+//# sourceMappingURL=adminlte.js.map
+
 
 /***/ }),
 
@@ -2229,6 +3047,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3764,6 +4589,16 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3809,6 +4644,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       account_on: false,
       callbacks_on: true,
       messages_on: false,
+      call_backs: 1,
+      messages: [],
+      unread_messages: 1,
       expanded: false,
       incId: todos.length,
       todos: todos,
@@ -3842,7 +4680,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     showMessages: function showMessages() {
       this.callbacks_on = false;
-      this.messages_on = true;
+      this.messages_on = true; // call to make all messages unread
+      // return message and set unread_messages = 0
+
+      this.unread_messages = 0;
     }
   },
   computed: {
@@ -4273,6 +5114,431 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53334,7 +54600,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-507c5f96]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\n    list-style: none;\n}\n.top-section li[data-v-507c5f96]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-507c5f96]{\n    text-align: center;\n}\n.card-body p[data-v-507c5f96]{\n    color: #fff;\n}\n.card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-507c5f96]{\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-507c5f96]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-507c5f96]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\n    height: 318px !important;\n}\n#top-section[data-v-507c5f96]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-507c5f96]{\n    color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\n    color:red !important;\n}.card-text-small[data-v-507c5f96]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\n    width: 12%;\n}\n.badge img[data-v-507c5f96]{\n    width: 100%;\n}\nul.headings[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 125px 0 0;\n}\nul.items[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#003449;\n    padding: 0 114px 0 0;\n}\nul.items li a[data-v-507c5f96]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\n    width: 30px;\n    margin-top: -8px;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-507c5f96]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\n    list-style: none;\n}\n.top-section li[data-v-507c5f96]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-507c5f96]{\n    text-align: center;\n}\n.card-body p[data-v-507c5f96]{\n    color: #fff;\n}\n.card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-507c5f96]{\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-507c5f96]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-507c5f96]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\n    height: 318px !important;\n}\n#top-section[data-v-507c5f96]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-507c5f96]{\n    color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\n    color:red !important;\n}.card-text-small[data-v-507c5f96]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\n    width: 12%;\n}\n.badge img[data-v-507c5f96]{\n    width: 100%;\n}\nul.headings[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 125px 0 0;\n}\nul.items[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#003449;\n    padding: 0 114px 0 0;\n}\nul.items li a[data-v-507c5f96]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\n    width: 30px;\n    margin-top: -8px;\n}\n#scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\n", ""]);
 
 // exports
 
@@ -53391,7 +54657,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    padding-bottom: 10px;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 1.4rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n    text-align: right;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n#settings-li a[data-v-48ad9a74] {\n    padding: 0px;\n    margin-top: -12px;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:50%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n\ttext-align: right;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:50%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -53448,7 +54714,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-028bfe5c]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-028bfe5c]{\n    list-style: none;\n}\n.top-section li[data-v-028bfe5c]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-028bfe5c]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-028bfe5c]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-028bfe5c]{\n    text-align: center;\n}\n.card-body p[data-v-028bfe5c]{\n    color: #fff;\n}\n.card-title[data-v-028bfe5c] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-028bfe5c]{\n    color: #fff;\n}\nh5 .icon[data-v-028bfe5c]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-028bfe5c]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-028bfe5c]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-028bfe5c]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats[data-v-028bfe5c]{\n    margin-right: -64px;\n    margin-left: -67px;\n    padding: 22px 41px;\n    /* height: 100vh; */\n    background: #f1f3f4;\n}\n.stats .card[data-v-028bfe5c]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-028bfe5c]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-028bfe5c]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-028bfe5c] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-028bfe5c]{\n    float: right;\n}\n.truncate[data-v-028bfe5c] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-028bfe5c]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-028bfe5c]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-028bfe5c]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-028bfe5c]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-028bfe5c]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-028bfe5c] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-028bfe5c]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-028bfe5c], .show > .btn-secondary.dropdown-toggle[data-v-028bfe5c] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-028bfe5c]{\n    height: 318px !important;\n}\n#top-section[data-v-028bfe5c]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-028bfe5c]{\n    color:#00a25a !important;\n}\n.red[data-v-028bfe5c]{\n    color:red !important;\n}.card-text-small[data-v-028bfe5c]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-028bfe5c]{\n    width: 20%;\n}\n.badge img[data-v-028bfe5c]{\n    width: 100%;\n}\nul.headings[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 141px 0 0;\n}\nul.items[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#003449;\n    padding: 22px 109px 0 20px;\n}\nul.items li.rank[data-v-028bfe5c]{\n    padding: 31px 31px 19px 31px;\n\tbackground-image: url('/images/workstation/Rand_Block@4x.png') !important;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n}\nul.items li.rank p[data-v-028bfe5c]{\n    color: #875f20;\n    margin: -5px 0 0 0\n}\nul.items li a[data-v-028bfe5c]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-028bfe5c]{\n    width: 30px;\n    margin-top: -8px;\n}\ntable.headings[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 70px;\n}\ntable.headings th[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 141px 0 0;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-028bfe5c]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-028bfe5c]{\n    list-style: none;\n}\n.top-section li[data-v-028bfe5c]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-028bfe5c]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-028bfe5c]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-028bfe5c]{\n    text-align: center;\n}\n.card-body p[data-v-028bfe5c]{\n    color: #fff;\n}\n.card-title[data-v-028bfe5c] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-028bfe5c]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-028bfe5c]{\n    color: #fff;\n}\nh5 .icon[data-v-028bfe5c]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-028bfe5c]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-028bfe5c]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-028bfe5c]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats[data-v-028bfe5c]{\n    margin-right: -64px;\n    margin-left: -67px;\n    padding: 22px 41px;\n    /* height: 100vh; */\n    background: #f1f3f4;\n}\n.stats .card[data-v-028bfe5c]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-028bfe5c]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-028bfe5c]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-028bfe5c] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-028bfe5c]{\n    float: right;\n}\n.truncate[data-v-028bfe5c] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-028bfe5c]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-028bfe5c]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-028bfe5c]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-028bfe5c]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-028bfe5c]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-028bfe5c] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-028bfe5c]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-028bfe5c], .show > .btn-secondary.dropdown-toggle[data-v-028bfe5c] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-028bfe5c]{\n    height: 318px !important;\n}\n#top-section[data-v-028bfe5c]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-028bfe5c]{\n    color:#00a25a !important;\n}\n.red[data-v-028bfe5c]{\n    color:red !important;\n}.card-text-small[data-v-028bfe5c]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-028bfe5c]{\n    width: 20%;\n}\n.badge img[data-v-028bfe5c]{\n    width: 100%;\n}\nul.headings[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 141px 0 0;\n}\nul.items[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#003449;\n    padding: 22px 109px 0 20px;\n}\nul.items li.rank[data-v-028bfe5c]{\n    padding: 31px 31px 19px 31px;\n\tbackground-image: url('/images/workstation/Rand_Block@4x.png') !important;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n}\nul.items li.rank p[data-v-028bfe5c]{\n    color: #875f20;\n    margin: -5px 0 0 0\n}\nul.items li a[data-v-028bfe5c]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-028bfe5c]{\n    width: 30px;\n    margin-top: -8px;\n}\ntable.headings[data-v-028bfe5c]{\n    list-style: none;\n    padding-left: 70px;\n}\ntable.headings th[data-v-028bfe5c] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 141px 0 0;\n}\n#scroll-hidden[data-v-028bfe5c]{\n    overflow-y: scroll;\n    height: 87vh;\n    padding-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -141950,7 +143216,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row stats" }, [
+      _c("div", { staticClass: "row stats", attrs: { id: "scroll-hidden" } }, [
         _c("div", { staticClass: "col-lg-12" }, [
           _c(
             "div",
@@ -142698,7 +143964,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-lg-6" }, [
         _c(
           "div",
-          { staticClass: "row", staticStyle: { "margin-bottom": "5%" } },
+          { staticClass: "row", staticStyle: { "margin-bottom": "4%" } },
           [
             _c("div", { staticClass: "col-lg-12" }, [
               _c("div", { staticClass: "card right" }, [
@@ -142763,7 +144029,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "row", staticStyle: { "margin-bottom": "5%" } },
+          { staticClass: "row", staticStyle: { "margin-bottom": "4%" } },
           [
             _c("div", { staticClass: "col-lg-12" }, [
               _c("div", { staticClass: "card right" }, [
@@ -143782,7 +145048,7 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "sidebar", attrs: { id: "sidebar" } }, [
+        _c("div", { attrs: { id: "sidebar" } }, [
           _c("nav", { staticClass: "mt-2" }, [
             _c(
               "ul",
@@ -143891,1371 +145157,1341 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "aside",
-      {
-        staticClass: "control-sidebar control-sidebar-dark",
-        staticStyle: { height: "auto" }
-      },
-      [
-        _c("div", { staticClass: "p-3" }, [
-          _c("div", [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "nav",
-                {
-                  staticClass: "navbar navbar-expand-md navbar-light bg-white"
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticStyle: {
-                        "padding-left": "12px",
-                        "padding-right": "18px",
-                        width: "100%"
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "collapse navbar-collapse",
-                          attrs: { id: "" }
-                        },
-                        [
-                          _c("ul", { staticClass: "navbar-nav pull-left" }, [
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link icon",
-                                  staticStyle: { padding: "0" },
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.showNotifications()
-                                    }
+    _c("aside", { staticClass: "control-sidebar control-sidebar-dark" }, [
+      _c("div", { staticClass: "p-3" }, [
+        _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "nav",
+              { staticClass: "navbar navbar-expand-md navbar-light bg-white" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticStyle: {
+                      "padding-left": "12px",
+                      "padding-right": "18px",
+                      width: "100%"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse navbar-collapse",
+                        attrs: { id: "" }
+                      },
+                      [
+                        _c("ul", { staticClass: "navbar-nav pull-left" }, [
+                          _c("li", { staticClass: "nav-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "nav-link icon",
+                                staticStyle: { padding: "0" },
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showNotifications()
                                   }
-                                },
+                                }
+                              },
+                              [
+                                _vm.notifications_on == true
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          "/images/icons/Notification_active.svg",
+                                        alt: "Notification Bell",
+                                        width: "50"
+                                      }
+                                    })
+                                  : _vm.notifications_on == false &&
+                                    _vm.unread_messages == 0 &&
+                                    _vm.call_backs == 0
+                                  ? _c("img", {
+                                      attrs: {
+                                        src: "/images/icons/Notification.svg",
+                                        alt: "Notification Bell",
+                                        width: "50"
+                                      }
+                                    })
+                                  : (_vm.notifications_on == false &&
+                                      _vm.unread_messages >= 1) ||
+                                    _vm.call_backs >= 1
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          "/images/icons/Notification_new.svg",
+                                        alt: "Notification Bell",
+                                        width: "50"
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "nav-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "nav-link icon",
+                                staticStyle: { "padding-right": "0" },
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showSettings()
+                                  }
+                                }
+                              },
+                              [
+                                _vm.settings_on == false
+                                  ? _c("img", {
+                                      attrs: {
+                                        src: "/images/icons/Asset 62.svg",
+                                        alt: "Settings Cog",
+                                        width: "50"
+                                      }
+                                    })
+                                  : _c("img", {
+                                      attrs: {
+                                        src: "/images/icons/Asset 63.svg",
+                                        alt: "Settings Cog",
+                                        width: "50"
+                                      }
+                                    })
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", { staticClass: "navbar-nav pull-right" }, [
+                          _vm.user.nickname != null && _vm.user.nickname != ""
+                            ? _c("li", { staticClass: "nav-item name-li" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link name",
+                                    staticStyle: { "font-size": "12px" },
+                                    attrs: { href: "#" }
+                                  },
+                                  [_vm._v(_vm._s(_vm.user.nickname))]
+                                )
+                              ])
+                            : _c("li", { staticClass: "nav-item name-li" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link name",
+                                    staticStyle: { "font-size": "12px" },
+                                    attrs: { href: "#" }
+                                  },
+                                  [_vm._v(_vm._s(_vm.user.name))]
+                                )
+                              ]),
+                          _vm._v(" "),
+                          _vm._m(0)
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.settings_on == true
+          ? _c("div", { staticClass: "settings" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                [
+                  _c("h3", [
+                    _vm._v("\n\t\t\t\t\t\t\tProfile \n\t\t\t\t\t\t\t"),
+                    _vm.profile_on == false
+                      ? _c("img", {
+                          attrs: {
+                            src: "/images/icons/settings edit buttin@4x.png",
+                            alt: "Profile Edit Off",
+                            width: "30"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.expanded = true
+                              _vm.profile_on = true
+                              _vm.account_on = false
+                            }
+                          }
+                        })
+                      : _c("img", {
+                          attrs: {
+                            src:
+                              "/images/icons/settings edit button hover@4x.png",
+                            alt: "Profile Edit Off",
+                            width: "30"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.expanded = false
+                              _vm.profile_on = false
+                              _vm.account_on = false
+                            }
+                          }
+                        })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "description",
+                      attrs: { title: "Personal Information" }
+                    },
+                    [_vm._v("Personal Information")]
+                  ),
+                  _vm._v(" "),
+                  _c("transition-expand", [
+                    _vm.expanded == true && _vm.profile_on == true
+                      ? _c("div", { staticStyle: { "margin-top": "20px" } }, [
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Name")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
                                 [
-                                  _c("img", {
+                                  _vm._v("Name\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.name,
+                                        expression: "user.name"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
                                     attrs: {
-                                      src: "/images/icons/Asset 64.svg",
-                                      alt: "Notification Bell",
-                                      width: "25"
+                                      type: "text",
+                                      id: "email",
+                                      name: "Name"
+                                    },
+                                    domProps: { value: _vm.user.name },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "name",
+                                          $event.target.value
+                                        )
+                                      }
                                     }
                                   }),
                                   _vm._v(" "),
                                   _c(
                                     "span",
-                                    { staticClass: "notification-count" },
-                                    [_vm._v("2")]
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Name"),
+                                          expression: "errors.has('Name')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [_vm._v(_vm._s(_vm.errors.first("Name")))]
                                   )
                                 ]
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "nav-item",
-                                attrs: { id: "settings-li" }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "nav-link icon",
-                                    staticStyle: { "padding-right": "0" },
-                                    attrs: { href: "#" },
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Surname")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v("Surname\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.lastname,
+                                        expression: "user.lastname"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "email",
+                                      name: "Surname"
+                                    },
+                                    domProps: { value: _vm.user.lastname },
                                     on: {
-                                      click: function($event) {
-                                        return _vm.showSettings()
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "lastname",
+                                          $event.target.value
+                                        )
                                       }
                                     }
-                                  },
-                                  [
-                                    _vm.settings_on == false
-                                      ? _c("img", {
-                                          attrs: {
-                                            src: "/images/icons/Asset 62.svg",
-                                            alt: "Settings Cog",
-                                            width: "50"
-                                          }
-                                        })
-                                      : _c("img", {
-                                          attrs: {
-                                            src: "/images/icons/Asset 63.svg",
-                                            alt: "Settings Cog",
-                                            width: "50"
-                                          }
-                                        })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]),
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Surname"),
+                                          expression: "errors.has('Surname')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Surname"))
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
-                          _c("ul", { staticClass: "navbar-nav pull-right" }, [
-                            _vm.user.nickname != null && _vm.user.nickname != ""
-                              ? _c("li", { staticClass: "nav-item name-li" }, [
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Surname")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v(
+                                    "Prefered Nickname\n\t\t\t\t\t\t\t\t\t\t"
+                                  ),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.nickname,
+                                        expression: "user.nickname"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "nickname",
+                                      name: "Nickname"
+                                    },
+                                    domProps: { value: _vm.user.nickname },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "nickname",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
                                   _c(
-                                    "a",
+                                    "span",
                                     {
-                                      staticClass: "nav-link name",
-                                      staticStyle: { "font-size": "12px" },
-                                      attrs: { href: "#" }
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Nickname"),
+                                          expression: "errors.has('Nickname')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
                                     },
-                                    [_vm._v(_vm._s(_vm.user.nickname))]
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Nickname"))
+                                      )
+                                    ]
                                   )
-                                ])
-                              : _c("li", { staticClass: "nav-item name-li" }, [
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Email")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v("Email\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.email,
+                                        expression: "user.email"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required|email",
+                                        expression: "'required|email'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "email",
+                                      name: "Email"
+                                    },
+                                    domProps: { value: _vm.user.email },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "email",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
                                   _c(
-                                    "a",
+                                    "span",
                                     {
-                                      staticClass: "nav-link name",
-                                      staticStyle: { "font-size": "12px" },
-                                      attrs: { href: "#" }
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Email"),
+                                          expression: "errors.has('Email')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
                                     },
-                                    [_vm._v(_vm._s(_vm.user.name))]
+                                    [_vm._v(_vm._s(_vm.errors.first("Email")))]
                                   )
-                                ]),
-                            _vm._v(" "),
-                            _vm._m(0)
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.settings_on == true
-            ? _c("div", { staticClass: "settings" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  [
-                    _c("h3", [
-                      _vm._v("\n\t\t\t\t\t\t\tProfile \n\t\t\t\t\t\t\t"),
-                      _vm.profile_on == false
-                        ? _c("img", {
-                            attrs: {
-                              src: "/images/icons/settings edit buttin@4x.png",
-                              alt: "Profile Edit Off",
-                              width: "30"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.expanded = true
-                                _vm.profile_on = true
-                                _vm.account_on = false
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Work Tel")
                               }
-                            }
-                          })
-                        : _c("img", {
-                            attrs: {
-                              src:
-                                "/images/icons/settings edit button hover@4x.png",
-                              alt: "Profile Edit Off",
-                              width: "30"
                             },
-                            on: {
-                              click: function($event) {
-                                _vm.expanded = false
-                                _vm.profile_on = false
-                                _vm.account_on = false
-                              }
-                            }
-                          })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "description",
-                        attrs: { title: "Personal Information" }
-                      },
-                      [_vm._v("Personal Information")]
-                    ),
-                    _vm._v(" "),
-                    _c("transition-expand", [
-                      _vm.expanded == true && _vm.profile_on == true
-                        ? _c("div", { staticStyle: { "margin-top": "20px" } }, [
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Name")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v("Name\n\t\t\t\t\t\t\t\t\t\t"),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.name,
-                                          expression: "user.name"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "email",
-                                        name: "Name"
-                                      },
-                                      domProps: { value: _vm.user.name },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "name",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v(
+                                    "Work Telephone\n\t\t\t\t\t\t\t\t\t\t"
+                                  ),
+                                  _c("input", {
+                                    directives: [
                                       {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has("Name"),
-                                            expression: "errors.has('Name')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.work_number,
+                                        expression: "user.work_number"
                                       },
-                                      [_vm._v(_vm._s(_vm.errors.first("Name")))]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Surname")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v("Surname\n\t\t\t\t\t\t\t\t\t\t"),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.lastname,
-                                          expression: "user.lastname"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "email",
-                                        name: "Surname"
-                                      },
-                                      domProps: { value: _vm.user.lastname },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "lastname",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
                                       {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has("Surname"),
-                                            expression: "errors.has('Surname')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.first("Surname"))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Surname")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Prefered Nickname\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.nickname,
-                                          expression: "user.nickname"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "nickname",
-                                        name: "Nickname"
-                                      },
-                                      domProps: { value: _vm.user.nickname },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "nickname",
-                                            $event.target.value
-                                          )
-                                        }
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required|numeric|min:10",
+                                        expression: "'required|numeric|min:10'"
                                       }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has("Nickname"),
-                                            expression: "errors.has('Nickname')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.first("Nickname"))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Email")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v("Email\n\t\t\t\t\t\t\t\t\t\t"),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.email,
-                                          expression: "user.email"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required|email",
-                                          expression: "'required|email'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "email",
-                                        name: "Email"
-                                      },
-                                      domProps: { value: _vm.user.email },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "email",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has("Email"),
-                                            expression: "errors.has('Email')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.first("Email"))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Work Tel")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Work Telephone\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.work_number,
-                                          expression: "user.work_number"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required|numeric|min:10",
-                                          expression:
-                                            "'required|numeric|min:10'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "work_number",
-                                        name: "Work Tel"
-                                      },
-                                      domProps: { value: _vm.user.work_number },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "work_number",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "Work Telephone"
-                                            ),
-                                            expression:
-                                              "errors.has('Work Telephone')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.first("Work Tel"))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Cell Number")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Cellphone number\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.personal_number,
-                                          expression: "user.personal_number"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required|numeric|min:10",
-                                          expression:
-                                            "'required|numeric|min:10'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "personal_number",
-                                        name: "Cell Number"
-                                      },
-                                      domProps: {
-                                        value: _vm.user.personal_number
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "personal_number",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "Cell Number"
-                                            ),
-                                            expression:
-                                              "errors.has('Cell Number')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.errors.first("Cell Number")
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Address")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v("Address\n\t\t\t\t\t\t\t\t\t\t"),
-                                    _c("textarea", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.address,
-                                          expression: "user.address"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: { id: "address", name: "Address" },
-                                      domProps: { value: _vm.user.address },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "address",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has("Address"),
-                                            expression: "errors.has('Address')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.first("Address"))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Address")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-lg-6 control-label",
-                                    staticStyle: { float: "left" }
-                                  },
-                                  [
-                                    _vm.user.avatar != "" &&
-                                    _vm.user.avatar != null
-                                      ? _c("img", {
-                                          staticStyle: {
-                                            "border-radius": "50%"
-                                          },
-                                          attrs: {
-                                            src:
-                                              _vm.avatarUrl +
-                                              _vm.user.id +
-                                              "/" +
-                                              _vm.user.avatar
-                                          }
-                                        })
-                                      : _c("img", {
-                                          staticStyle: {
-                                            "border-radius": "50%"
-                                          },
-                                          attrs: {
-                                            src:
-                                              "https://via.placeholder.com/100"
-                                          }
-                                        })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-6 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Upload New\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { class: { input: true, "form-group": true } },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-primary",
-                                    staticStyle: {
-                                      width: "100%",
-                                      margin: "0px 0px 5px 0px"
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "work_number",
+                                      name: "Work Tel"
                                     },
-                                    attrs: { type: "submit" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n\t                                    Update\n\t                                "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
-                        : _vm._e()
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  [
-                    _c("h3", [
-                      _vm._v("\n\t\t\t\t\t\t\tAccount \n\t\t\t\t\t\t\t"),
-                      _vm.account_on == false
-                        ? _c("img", {
-                            attrs: {
-                              src: "/images/icons/settings edit buttin@4x.png",
-                              alt: "Account Edit Off",
-                              width: "30"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.expanded = true
-                                _vm.account_on = true
-                                _vm.profile_on = false
-                              }
-                            }
-                          })
-                        : _c("img", {
-                            attrs: {
-                              src:
-                                "/images/icons/settings edit button hover@4x.png",
-                              alt: "Account Edit Off",
-                              width: "30"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.expanded = false
-                                _vm.account_on = false
-                                _vm.profile_on = false
-                              }
-                            }
-                          })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "description",
-                        attrs: { title: "Personal Information" }
-                      },
-                      [_vm._v("Account Information")]
-                    ),
-                    _vm._v(" "),
-                    _c("transition-expand", [
-                      _vm.expanded == true && _vm.account_on == true
-                        ? _c("div", { staticStyle: { "margin-top": "20px" } }, [
-                            _c(
-                              "div",
-                              { class: { input: true, "form-group": true } },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _c("input", {
-                                      attrs: {
-                                        type: "checkbox",
-                                        name: "notifications",
-                                        value: "user.notifications"
+                                    domProps: { value: _vm.user.work_number },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "work_number",
+                                          $event.target.value
+                                        )
                                       }
-                                    }),
-                                    _vm._v(" Notifications\n\t\t\t\t\t\t\t\t\t")
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("Old Password")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Old Password\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
                                       directives: [
                                         {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.old_password,
-                                          expression: "user.old_password"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has(
+                                            "Work Telephone"
+                                          ),
+                                          expression:
+                                            "errors.has('Work Telephone')"
                                         }
                                       ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "password",
-                                        id: "email",
-                                        name: "Old Password"
-                                      },
-                                      domProps: {
-                                        value: _vm.user.old_password
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "old_password",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "Old Password"
-                                            ),
-                                            expression:
-                                              "errors.has('Old Password')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.errors.first("Old Password")
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has("New Password")
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "New Password\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.password,
-                                          expression: "user.password"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "password",
-                                        id: "password",
-                                        name: "New Password"
-                                      },
-                                      domProps: { value: _vm.user.password },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "password",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "New Password"
-                                            ),
-                                            expression:
-                                              "errors.has('New Password')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.errors.first("New Password")
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                class: {
-                                  input: true,
-                                  "form-group": true,
-                                  "has-error": _vm.errors.has(
-                                    "Password Confirm"
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Work Tel"))
+                                      )
+                                    ]
                                   )
-                                }
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  { staticClass: "col-lg-12 control-label" },
-                                  [
-                                    _vm._v(
-                                      "Confirm New Password\n\t\t\t\t\t\t\t\t\t\t"
-                                    ),
-                                    _c("input", {
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Cell Number")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v(
+                                    "Cellphone number\n\t\t\t\t\t\t\t\t\t\t"
+                                  ),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.personal_number,
+                                        expression: "user.personal_number"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required|numeric|min:10",
+                                        expression: "'required|numeric|min:10'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      id: "personal_number",
+                                      name: "Cell Number"
+                                    },
+                                    domProps: {
+                                      value: _vm.user.personal_number
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "personal_number",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
                                       directives: [
                                         {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.user.password_confirm,
-                                          expression: "user.password_confirm"
-                                        },
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required|email",
-                                          expression: "'required|email'"
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Cell Number"),
+                                          expression:
+                                            "errors.has('Cell Number')"
                                         }
                                       ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "password",
-                                        id: "password_confirm",
-                                        name: "Password Confirm"
-                                      },
-                                      domProps: {
-                                        value: _vm.user.password_confirm
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.user,
-                                            "password_confirm",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "Password Confirm"
-                                            ),
-                                            expression:
-                                              "errors.has('Password Confirm')"
-                                          }
-                                        ],
-                                        staticClass: "help-block",
-                                        attrs: { id: "error" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.errors.first("Password Confirm")
-                                          )
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { class: { input: true, "form-group": true } },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-primary",
-                                    staticStyle: {
-                                      width: "100%",
-                                      margin: "0px"
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
                                     },
-                                    attrs: { type: "submit" }
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Cell Number"))
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Address")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v("Address\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("textarea", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.address,
+                                        expression: "user.address"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: { id: "address", name: "Address" },
+                                    domProps: { value: _vm.user.address },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "address",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Address"),
+                                          expression: "errors.has('Address')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Address"))
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Address")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "col-lg-6 control-label",
+                                  staticStyle: { float: "left" }
+                                },
+                                [
+                                  _vm.user.avatar != "" &&
+                                  _vm.user.avatar != null
+                                    ? _c("img", {
+                                        staticStyle: { "border-radius": "50%" },
+                                        attrs: {
+                                          src:
+                                            _vm.avatarUrl +
+                                            _vm.user.id +
+                                            "/" +
+                                            _vm.user.avatar
+                                        }
+                                      })
+                                    : _c("img", {
+                                        staticStyle: { "border-radius": "50%" },
+                                        attrs: {
+                                          src: "https://via.placeholder.com/100"
+                                        }
+                                      })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-6 control-label" },
+                                [
+                                  _vm._v(
+                                    "Upload New\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { class: { input: true, "form-group": true } },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  staticStyle: {
+                                    width: "100%",
+                                    margin: "0px 0px 5px 0px"
                                   },
-                                  [
-                                    _vm._v(
-                                      "\n\t                                    Update\n\t                                "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
-                        : _vm._e()
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.profile_on == false
-                  ? _c("div", { staticClass: "row" }, [
-                      _c("h3", { staticStyle: { width: "100%" } }, [
-                        _vm._v("\n\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t")
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(2)
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.profile_on == false
-                  ? _c("div", { staticClass: "row" }, [
-                      _c("h3", { staticStyle: { width: "100%" } }, [
-                        _vm._v("\n\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t")
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(3)
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.profile_on == false
-                  ? _c("div", { staticClass: "row logout-wrapper" }, [
-                      _c("a", { attrs: { href: "/logout", id: "logout" } }),
-                      _vm._v(" "),
-                      _c(
-                        "h3",
-                        {
-                          staticStyle: { width: "100%", "text-align": "center" }
-                        },
-                        [_vm._v("\n\t\t\t\t\t\t\tLogout \n\t\t\t\t\t\t")]
-                      )
-                    ])
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.notifications_on == true
-            ? _c("div", { staticClass: "notifications" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("h2", { staticStyle: { width: "100%" } }, [
-                    _vm._v("\n\t\t\t\t\t\t\tNotifications \n\t\t\t\t\t\t")
+                                  attrs: { type: "submit" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n\t                                    Update\n\t                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                [
+                  _c("h3", [
+                    _vm._v("\n\t\t\t\t\t\t\tAccount \n\t\t\t\t\t\t\t"),
+                    _vm.account_on == false
+                      ? _c("img", {
+                          attrs: {
+                            src: "/images/icons/settings edit buttin@4x.png",
+                            alt: "Account Edit Off",
+                            width: "30"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.expanded = true
+                              _vm.account_on = true
+                              _vm.profile_on = false
+                            }
+                          }
+                        })
+                      : _c("img", {
+                          attrs: {
+                            src:
+                              "/images/icons/settings edit button hover@4x.png",
+                            alt: "Account Edit Off",
+                            width: "30"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.expanded = false
+                              _vm.account_on = false
+                              _vm.profile_on = false
+                            }
+                          }
+                        })
                   ]),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticStyle: { "margin-top": "20px", width: "100%" } },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-lg-3 control-label",
-                          staticStyle: { "margin-right": "8px", float: "left" }
-                        },
-                        [
+                    "p",
+                    {
+                      staticClass: "description",
+                      attrs: { title: "Personal Information" }
+                    },
+                    [_vm._v("Account Information")]
+                  ),
+                  _vm._v(" "),
+                  _c("transition-expand", [
+                    _vm.expanded == true && _vm.account_on == true
+                      ? _c("div", { staticStyle: { "margin-top": "20px" } }, [
                           _c(
-                            "button",
+                            "div",
+                            { class: { input: true, "form-group": true } },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "checkbox",
+                                      name: "notifications",
+                                      value: "user.notifications"
+                                    }
+                                  }),
+                                  _vm._v(" Notifications\n\t\t\t\t\t\t\t\t\t")
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
                             {
                               class: {
-                                btn: true,
-                                "btn-active": _vm.callbacks_on,
-                                "btn-default": !_vm.callbacks_on
-                              },
-                              staticStyle: { width: "100%", margin: "0px" },
-                              attrs: { type: "submit" },
-                              on: { click: _vm.showCallbacks }
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Old Password")
+                              }
                             },
                             [
-                              _vm._v(
-                                "\n\t                                Callbacks\n\t                            "
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v("Old Password\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.old_password,
+                                        expression: "user.old_password"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "password",
+                                      id: "email",
+                                      name: "Old Password"
+                                    },
+                                    domProps: { value: _vm.user.old_password },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "old_password",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Old Password"),
+                                          expression:
+                                            "errors.has('Old Password')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Old Password"))
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("New Password")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v("New Password\n\t\t\t\t\t\t\t\t\t\t"),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.password,
+                                        expression: "user.password"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "password",
+                                      id: "password",
+                                      name: "New Password"
+                                    },
+                                    domProps: { value: _vm.user.password },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "password",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("New Password"),
+                                          expression:
+                                            "errors.has('New Password')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("New Password"))
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: {
+                                input: true,
+                                "form-group": true,
+                                "has-error": _vm.errors.has("Password Confirm")
+                              }
+                            },
+                            [
+                              _c(
+                                "label",
+                                { staticClass: "col-lg-12 control-label" },
+                                [
+                                  _vm._v(
+                                    "Confirm New Password\n\t\t\t\t\t\t\t\t\t\t"
+                                  ),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.password_confirm,
+                                        expression: "user.password_confirm"
+                                      },
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required|email",
+                                        expression: "'required|email'"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "password",
+                                      id: "password_confirm",
+                                      name: "Password Confirm"
+                                    },
+                                    domProps: {
+                                      value: _vm.user.password_confirm
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.user,
+                                          "password_confirm",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has(
+                                            "Password Confirm"
+                                          ),
+                                          expression:
+                                            "errors.has('Password Confirm')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors.first("Password Confirm")
+                                        )
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { class: { input: true, "form-group": true } },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  staticStyle: { width: "100%", margin: "0px" },
+                                  attrs: { type: "submit" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n\t                                    Update\n\t                                "
+                                  )
+                                ]
                               )
                             ]
                           )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-lg-3 control-label",
-                          staticStyle: { "margin-right": "8px", float: "left" },
-                          on: { click: _vm.showMessages }
-                        },
-                        [
-                          _c(
-                            "button",
-                            {
-                              class: {
-                                btn: true,
-                                "btn-active": _vm.messages_on,
-                                "btn-default": !_vm.messages_on
-                              },
-                              staticStyle: { width: "100%", margin: "0px" },
-                              attrs: { type: "submit" }
-                            },
-                            [
-                              _vm._v(
-                                "\n\t                                Messages\n\t                            "
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
+                        ])
+                      : _vm._e()
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.profile_on == false
+                ? _c("div", { staticClass: "row" }, [
+                    _c("h3", { staticStyle: { width: "100%" } }, [
+                      _vm._v("\n\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.profile_on == false
+                ? _c("div", { staticClass: "row" }, [
+                    _c("h3", { staticStyle: { width: "100%" } }, [
+                      _vm._v("\n\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.profile_on == false
+                ? _c("div", { staticClass: "row logout-wrapper" }, [
+                    _c("a", { attrs: { href: "/logout", id: "logout" } }),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      {
+                        staticStyle: { width: "100%", "text-align": "center" }
+                      },
+                      [_vm._v("\n\t\t\t\t\t\t\tLogout \n\t\t\t\t\t\t")]
+                    )
+                  ])
+                : _vm._e()
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.notifications_on == true
+          ? _c("div", { staticClass: "notifications" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("h2", { staticStyle: { width: "100%" } }, [
+                  _vm._v("\n\t\t\t\t\t\t\tNotifications \n\t\t\t\t\t\t")
                 ]),
                 _vm._v(" "),
-                _vm.callbacks_on == true && _vm.messages_on == false
-                  ? _c("div", { staticClass: "row" }, [
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _vm._m(6)
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.callbacks_on == false && _vm.messages_on == true
-                  ? _c("div", { staticClass: "row" }, [
-                      _vm._m(7),
-                      _vm._v(" "),
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _vm._m(10)
-                    ])
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.notifications_on == false && _vm.settings_on == false
-            ? _c("div", [
                 _c(
                   "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: { padding: "0", "margin-top": "35px" }
-                  },
+                  { staticStyle: { "margin-top": "20px", width: "100%" } },
                   [
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c(
-                        "div",
-                        { staticClass: "row", staticStyle: { padding: "0" } },
-                        [
-                          _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(11),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "progress-bar" }, [
-                              _c("span", {
-                                staticClass: "tank",
-                                style: "width:" + 65 + "%"
-                              })
-                            ])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(12),
-                      _vm._v(" "),
-                      _vm._m(13),
-                      _vm._v(" "),
-                      _vm._m(14)
-                    ])
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-lg-3 control-label",
+                        staticStyle: { "margin-right": "8px", float: "left" }
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            class: {
+                              btn: true,
+                              "btn-active": _vm.callbacks_on,
+                              "btn-default": !_vm.callbacks_on,
+                              "btn-has-new": _vm.call_backs >= 1
+                            },
+                            staticStyle: { width: "100%", margin: "0px" },
+                            attrs: { type: "submit" },
+                            on: { click: _vm.showCallbacks }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                                Callbacks\n\t                            "
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-lg-3 control-label",
+                        staticStyle: { "margin-right": "8px", float: "left" },
+                        on: { click: _vm.showMessages }
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            class: {
+                              btn: true,
+                              "btn-active": _vm.messages_on,
+                              "btn-default": !_vm.messages_on,
+                              "btn-has-new": _vm.unread_messages >= 1
+                            },
+                            staticStyle: { width: "100%", margin: "0px" },
+                            attrs: { type: "submit" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                                Messages\n\t                            "
+                            )
+                          ]
+                        )
+                      ]
+                    )
                   ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row", staticStyle: { padding: "25px  0" } },
-                  [
-                    _c("vc-calendar", {
-                      attrs: {
-                        attributes: _vm.attributes,
-                        "title-position": "right",
-                        "is-expanded": "",
-                        popover: true
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(15)
-              ])
-            : _vm._e()
-        ])
-      ]
-    )
+                )
+              ]),
+              _vm._v(" "),
+              _vm.callbacks_on == true && _vm.messages_on == false
+                ? _c("div", { staticClass: "row" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.callbacks_on == false && _vm.messages_on == true
+                ? _c("div", { staticClass: "row" }, [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _vm._m(10)
+                  ])
+                : _vm._e()
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.notifications_on == false && _vm.settings_on == false
+          ? _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass: "row",
+                  staticStyle: { padding: "0", "margin-top": "35px" }
+                },
+                [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "row", staticStyle: { padding: "0" } },
+                      [
+                        _c("div", { staticClass: "col-lg-12" }, [
+                          _vm._m(11),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "progress-bar" }, [
+                            _c("span", {
+                              staticClass: "tank",
+                              style: "width:" + 65 + "%"
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(12),
+                    _vm._v(" "),
+                    _vm._m(13),
+                    _vm._v(" "),
+                    _vm._m(14)
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { padding: "25px  0" } },
+                [
+                  _c("vc-calendar", {
+                    attrs: {
+                      attributes: _vm.attributes,
+                      "title-position": "right",
+                      "is-expanded": "",
+                      popover: true
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(15)
+            ])
+          : _vm._e()
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -146046,7 +147282,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row stats" }, [
+      _c("div", { staticClass: "row stats ", attrs: { id: "scroll-hidden" } }, [
         _c("div", { staticClass: "col-lg-12" }, [
           _c(
             "div",
@@ -146069,6 +147305,1002 @@ var staticRenderFns = [
                         _vm._v("Piet AndrewsPiet AndrewsPiet Andrews")
                       ])
                     ]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("342")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("$ 2222")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("1.4")]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticStyle: {
+                          "padding-right": "0",
+                          "text-align": "left",
+                          "padding-top": "12px"
+                        }
+                      },
+                      [
+                        _c("div", { staticStyle: { width: "265px" } }, [
+                          _c("div", { staticClass: "badge badge-1" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Colonel@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Corporal@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "badge badge-2" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/images/icons/Captain@4x.png",
+                                alt: "Badge"
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "div",
+            { staticClass: "card left", staticStyle: { "text-align": "left" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body",
+                  staticStyle: { "padding-bottom": "18px" }
+                },
+                [
+                  _c("ul", { staticClass: "items" }, [
+                    _c("li", { staticClass: "rank" }, [
+                      _c("p", [_vm._v("12")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_c("strong", [_vm._v("Piet Andrews")])]),
                     _vm._v(" "),
                     _c("li", [_vm._v("342")]),
                     _vm._v(" "),

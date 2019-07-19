@@ -201,6 +201,13 @@
         width: 30px;
         margin-top: -8px;
     }
+    #scroll-hidden{
+        overflow-y: scroll;
+        height: 70vh;
+        padding-top: 6px;
+        padding-right: 6px;
+        width: 104%;
+    }
 </style>
 <template>
     <div class="">
@@ -318,7 +325,7 @@
             </div>
         </div>
 
-        <div class="row stats" >
+        <div class="row stats" id="scroll-hidden">
             <div class="col-lg-12" >
                 <div class="card left" style="text-align: left;">
                     <div class="card-body" style="padding-bottom: 18px;">
