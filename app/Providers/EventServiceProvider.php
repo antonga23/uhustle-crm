@@ -18,6 +18,21 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\ClientAction' => [
+            'App\Listeners\ClientActionNotify',
+            'App\Listeners\ClientActionLog',
+        ],
+         'App\Events\TaskAction' => [
+            'App\Listeners\TaskActionNotify',
+            'App\Listeners\TaskActionLog',
+         ],
+        'App\Events\LeadAction' => [
+            'App\Listeners\LeadActionNotify',
+            'App\Listeners\LeadActionLog',
+        ],
+        'App\Events\NewComment' => [
+            'App\Listeners\NotiftyMentionedUsers'
+        ]
     ];
 
     /**

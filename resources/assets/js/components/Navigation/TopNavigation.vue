@@ -176,6 +176,20 @@
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 						</li>
 					</ul>
+
+					<div id="controls">
+						<div id="info">
+						<p class="instructions">Twilio Client</p>
+						<div id="client-name"></div>
+						</div>
+						<div id="call-controls">
+						<p class="instructions">Make a Call:</p>
+						<input id="phone-number" type="text" placeholder="Enter a phone # or client name" />
+						<button id="button-call">Call</button>
+						<button id="button-hangup">Hangup</button>
+						</div>
+						<div id="log"></div>
+					</div>
 				</div>
 			</div>
 		</nav>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -10,39 +11,27 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
-        \DB::table('users')->insert(array (
-            0 => array (
-                    'role_id' => 4,
-                    'name' => 'Yongama',
-                    'lastname' => 'Sobambela',
-                    'email' => 'sobambela@gmail.com',
-                    'password' => bcrypt('admin123'),
-                    'address' => '',
-                    'work_number' => '0210000000000',
-                    'personal_number' => '0670000000000',
-                    'avatar' => '',
-                    'activated' => 1,
-                    'email_verified_at' => now(),
-                    'remember_token' => Str::random(10)
-                ),
-        ));
-    
-        \DB::table('users')->insert(array (
-            0 => array (
-                    'role_id' => 1,
-                    'name' => 'Super',
-                    'lastname' => 'Admin',
-                    'email' => 'admin@uhustle.com',
-                    'password' => bcrypt('admin123'),
-                    'address' => '',
-                    'work_number' => '0210000000000',
-                    'personal_number' => '0670000000000',
-                    'avatar' => '',
-                    'activated' => 1,
-                    'email_verified_at' => now(),
-                    'remember_token' => Str::random(10)
-                ),
-        ));
+    {
+        $this->call(RolesTablesSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(LeadsTableSeeder::class);
+        
+        $product = new Product;
+        $product->name = 'AdsBanc';
+        $product->type = 'Advertising';
+        $product->description = 'Lorem ipsum dolor imet';
+        $product->price = '320';
+        $product->currency = '$';
+        $product->status = 1;
+        $product->save();
+
+        $product = new Product;
+        $product->name = 'Winsta';
+        $product->type = 'Online Marketting';
+        $product->description = 'Lorem ipsum dolor imet';
+        $product->price = '230';
+        $product->currency = '$';
+        $product->status = 1;
+        $product->save();
     }
 }

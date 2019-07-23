@@ -736,7 +736,7 @@ a.down-scroll:hover{
 
             var vm = this;
 
-            this.enqueueLead('');
+            //this.enqueueLead('');
 
             Fire.$on( 'CallEnded', function(){
                 vm.endCall();
@@ -760,6 +760,7 @@ a.down-scroll:hover{
 
             Fire.$on('CallStarted', function(){
                 vm.general = true;
+                vm.calling = false;
             });
 
             this.Toast = this.$swal.mixin({
@@ -812,19 +813,14 @@ a.down-scroll:hover{
                 var vm = this;
                 var end_point_choice = '';
                 if(lead_id != ''){
-                    end_point_choice = 'leads/get/' + lead_id;
+                    end_point_choice = '/leads/get/' + lead_id;
                 }else{
-                    end_point_choice = 'leads/enqueue';
+                    end_point_choice = '/leads/enqueue';
                 }
-                var payload = {
-                    method : 'GET',
-                    // end_point : 'leads/enqueue'
-                    end_point : end_point_choice
-                }
-
+              
                 vm.$Progress.start();
 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.get(end_point_choice).then(function (response) {
                     
                     if(response.data.success == true){
                         vm.lead = response.data;
@@ -841,7 +837,7 @@ a.down-scroll:hover{
                         setTimeout( function(){
                             vm.$Progress.finish();
                             vm.startCall();
-                        }, 5000 );
+                        }, 2000 );
 
                     }else{
                         vm.$Progress.fail();
@@ -855,31 +851,23 @@ a.down-scroll:hover{
                 this.calling = true;
                 this.idle = false;
 
-                var payload = {
-                    method : 'POST',
-                    end_point : '       calls/call',
-                    form_data : {
-                        lead_id : '',
-                        phone_number : '',
+                var form_data = {
+                        lead_id : this.lead_info.id,
+                        phone_number : this.lead_info.phone_number,
                     }
-                }
                 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.post('/calls/call', form_data).then(function (response) {
                     
                     if(response.data.status == 'queued'){
                         vm.call_sid = response.data.call_sid;
 
                         vm.handle = setInterval(function(){
                             
-                            var inner_payload = {
-                                method : 'POST',
-                                end_point : 'calls/get-call-status',
-                                form_data : {
+                            var form_data = {
                                     call_sid : vm.call_sid,
                                 }
-                            }
 
-                            axios.post('/api-request', inner_payload).then(function (response) {
+                            axios.post('/calls/get-call-status', form_data).then(function (response) {
                                 
                                 if(response.data.call_status == 'queued' || response.data.call_status == 'ringing'){
                                     vm.call_status = response.data.call_status;
@@ -906,15 +894,11 @@ a.down-scroll:hover{
                 
                 var vm = this;
 
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/end',
-                    form_data : {
+                var form_data = {
                         call_sid : this.call_sid,
                     }
-                }
                 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.post('/calls/end', form_data).then(function (response) {
                     
                     if(response.data.success == true){
                         clearInterval(vm.handle);
@@ -931,12 +915,8 @@ a.down-scroll:hover{
             },
 			getStatus(call_sid){
                 var vm = this;
-                var payload = {
-                    method : 'POST',
-                    end_point : 'calls/get-call-status'
-                }
 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.post('/calls/get-call-status').then(function (response) {
                     
                     if(response.data.success == true){
                         vm.call_status = response.data.call_status;
@@ -953,18 +933,16 @@ a.down-scroll:hover{
                     return false;
                 }
 
-                var payload = {
-                    method : 'POST',
-                    end_point : 'comments/add',
-                    form_data : {
+                var form_data = {
                         id : this.lead_info.id,
                         type: 'lead',
                         comment_type: this.comment.comment_type,
                         description: this.comment.comment_description
                     }
-                }
+
                 vm.$Progress.start();
-                axios.post('/api-request', payload).then(function (response) {
+
+                axios.post('/comments/add', form_data).then(function (response) {
                     
                     if(response.data.success == true){
                         vm.enqueueLead(vm.lead_info.id);
@@ -984,12 +962,7 @@ a.down-scroll:hover{
                     return false;
                 }
 
-                var payload = {
-                    method : 'GET',
-                    end_point : 'comments/get/lead/' + this.lead_info.id,
-                }
-                
-                axios.post('/api-request', payload).then(function (response) {
+                axios.post('/comments/get/lead/' + this.lead_info.id).then(function (response) {
                     
                     if(response.data.success == true){
                         vm.comments.comments = response.data.comments

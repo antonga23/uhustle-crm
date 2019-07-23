@@ -1,0 +1,82 @@
+<?php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Carbon;
+
+class Lead extends Model
+{
+    protected $fillable = [
+        'source',
+        'title',
+        'name',
+        'surname',
+        'phone_number',
+        'age',
+        'gender',
+        'city',
+        'country',
+        'description',
+        'status',
+        'user_assigned_id',
+        'user_created_id',
+        'client_id',
+        'contact_date'
+    ];
+
+    protected $dates = ['contact_date'];
+
+    protected $hidden = ['remember_token'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_assigned_id');
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_created_id');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+    
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'source');
+    }
+
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'source');
+    }
+
+    public function call_backs()
+    {
+        return $this->hasMany(LeadsCallbacks::class, 'lead_id');
+    }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'product_id');
+    }
+
+    public function getDaysUntilContactAttribute()
+    {
+        return Carbon\Carbon::now()->startOfDay()->diffInDays($this->contact_date, false);
+    }
+
+    /**
+     * Add a reply to the thread.
+     *
+     * @param  array $reply
+     * @return Model
+     */
+    public function addComment($reply)
+    {
+        $reply = $this->comments()->create($reply);
+        return $reply;
+    }
+}

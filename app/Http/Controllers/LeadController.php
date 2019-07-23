@@ -1,0 +1,445 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use DB;
+use Session;
+use App\Task;
+use App\Activity;
+use App\Invoice;
+use App\InvoiceLine;
+use App\Lead;
+use App\Comment;
+use App\LeadsCallbacks;
+use App\Product;
+use App\Twillio;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+
+class LeadController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+         $leads = Lead::with('call_backs')->with('comments')->orderBy('created_at', 'DESC')->get();
+
+         return array('success' => true,'count' => $leads->count(), 'leads' => $leads);
+    }
+
+    public function getActive()
+    {
+         $leads = Lead::with('call_backs')->with('comments')
+                        ->where(['status' => 0])
+                        ->orderBy('created_at', 'DESC')
+                        ->get();
+
+         return array('success' => true,'count' => $leads->count(), 'leads' => $leads);
+    }
+
+    public function getById($id){
+
+         $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+
+         $lead_info = $this->getLeadInfo($id);
+
+         return array(
+                    'success' => true, 
+                    'lead' => $lead,  
+                    'activity_log' => $lead_info['activity_log'],
+                    'comments' => $lead_info['comments'],
+                    'product' => $lead_info['product'],
+                    'call_counts' => $lead_info['call_counts']
+                );
+    }
+
+    public function enQueue($value='')
+    {
+        $id = rand(1,100);
+
+         $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+
+         $lead_info = $this->getLeadInfo($id);
+         
+         return array(
+                    'success' => true, 
+                    'lead' => $lead,  
+                    'activity_log' => $lead_info['activity_log'],
+                    'comments' => $lead_info['comments'],
+                    'product' => $lead_info['product'],
+                    'call_counts' => $lead_info['call_counts']
+                );
+    }
+
+    public function getLeadInfo($id = null){
+
+        $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+
+        $activity_log = Activity::where(['source_id' => $id])
+                            ->where(['source_type' => 'App\Lead'])
+                            ->select('created_at', 'text')
+                            ->orderBy('created_at', 'DESC')
+                            ->get();
+
+        $product = Product::where(['id' => $lead->product_id])->first();
+
+        $call_count = Twillio::where(['lead_id' => $lead->id])->count();
+
+        $call_count_answered = Twillio::where(['lead_id' => $lead->id])
+                                        ->where(['answered' => 1])
+                                        ->count();
+
+
+        $call_count_sales = Twillio::where(['lead_id' => $lead->id])
+                                        ->where(['answered' => 1])
+                                        ->where(['sale' => 1])
+                                        ->count();
+
+        $comments = $this->getCommentsByLeadId('lead', $id);
+
+        return array(
+            'activity_log' => $activity_log,
+            'comments' => $comments,
+            'product' => $product,
+            'call_counts' => [
+                'call_count' => $call_count, 
+                'call_count_answered' => $call_count_answered,
+                'call_count_sales' => $call_count_sales,
+            ],
+        );
+    }
+
+    public function getCommentsByLeadId($type = 'lead', $id = null){
+
+        $source_type = 'App\Lead'; 
+
+        $total_comments = Comment::where(['source_type' => $source_type])->where(['source_id' => $id])->count();
+
+        $comments = Comment::where(['source_type' => $source_type])
+                                ->where(['source_id' => $id])
+                                ->orderBy('created_at', 'DESC')->get();
+
+        $comments_count_type = DB::table('comments')
+                                 ->where(['source_id' => $id])
+                                 ->select('comment_type', DB::raw('count(comment_type) as total'))
+                                 ->groupBy('comment_type')
+                                 ->get();
+
+        $data = [];
+        $comments_graph = [];
+        foreach ($comments_count_type as $key => $value) {
+
+            $data['type'] = $value->comment_type;
+
+            if($total_comments > 0){
+
+                $data['percentage'] = round( ( $value->total / $total_comments ) * 100 );
+            }else{
+
+                $data['percentage'] = 0;
+            }
+            
+            array_push($comments_graph, $data);
+        }
+        
+        return array(
+            'success' => true, 
+            'total_comments' => $total_comments, 
+            'comments' => $comments, 
+            'comments_graph' => $comments_graph
+        );
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $data = $request->all();
+		$title = $data['title'];
+		$name = $data['name'];
+		$surname = $data['surname'];
+		$phone_number = $data['phone_number'];
+		$age = $data['age'];
+		$gender = $data['gender'];
+		$city = $data['city'];
+		$country = $data['country'];
+		$description = $data['description'];
+		$status = $data['status'];
+		$user_assigned_id = $data['user_assigned_id'];
+		$user_created_id = $data['user_created_id'];
+		$client_id = $data['client_id'];
+		$contact_date = $data['contact_date'];
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        try{
+            DB::beginTransaction();
+
+            $lead = Lead::create([
+				'title' => $title,
+				'name' => $name,
+				'surname' => $surname,
+				'phone_number' => $phone_number,
+				'age' => $age,
+				'gender' => $gender,
+				'city' => $city,
+				'country' => $country,
+				'description' => $description,
+				'status' => $status,
+				'user_assigned_id' => $user_assigned_id,
+				'user_created_id' => $user_created_id,
+				'client_id' => $client_id,
+                'contact_date' => Carbon::createFromFormat('d/m/Y', $contact_date)->format('Y-m-d')
+            ]);
+
+            event(new \App\Events\LeadAction($lead, $request_user,'created'));
+
+            DB::commit();
+            return array('success' => true, 'lead' => $lead);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Task  $lead
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $data = $request->all();
+		$id = $data['id'];
+        $title = $data['title'];
+		$name = $data['name'];
+		$surname = $data['surname'];
+		$phone_number = $data['phone_number'];
+		$age = $data['age'];
+		$gender = $data['gender'];
+		$city = $data['city'];
+		$country = $data['country'];
+		$description = $data['description'];
+		$status = $data['status'];
+		$user_assigned_id = $data['user_assigned_id'];
+		$user_created_id = $data['user_created_id'];
+		$client_id = $data['client_id'];
+		$contact_date = $data['contact_date'];
+
+        try{
+            DB::beginTransaction();
+
+            $lead = Lead::where(['id' => $id])->update([
+				'title' => $title,
+				'name' => $name,
+				'surname' => $surname,
+				'phone_number' => $phone_number,
+				'age' => $age,
+				'gender' => $gender,
+				'city' => $city,
+				'country' => $country,
+				'description' => $description,
+				'status' => $status,
+				'user_assigned_id' => $user_assigned_id,
+				'user_created_id' => $user_created_id,
+				'client_id' => $client_id,
+                'contact_date' => Carbon::createFromFormat('d/m/Y', $contact_date)->format('Y-m-d')
+            ]);
+
+            $lead = Lead::find($id);
+
+            event(new \App\Events\LeadAction($lead, $request_user,'updated'));
+
+            DB::commit();
+            return array('success' => true, 'lead' => Lead::find($id));
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Task  $lead
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+         $client = Lead::where(['id' => $id])->delete();
+         return array('success' => true, 'client' => $client);
+    }
+
+        /**
+     * Sees if the Settings from backend allows all to complete taks
+     * or only assigned user. if only assigned user:
+     * @param $id
+     * @param Request $request
+     * @return
+     * @internal param $ [Auth]  $id Checks Logged in users id
+     * @internal param $ [Model] $lead->user_assigned_id Checks the id of the user assigned to the task
+     * If Auth and user_id allow complete else redirect back if all allowed excute
+     * else stmt
+     */
+    public function updateStatus($id, Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $status = ( $request->status == 1 )? 'Complete' : 'Re-opened'; 
+
+        Lead::where(['id' => $id])->update([
+            'status' => $request->status
+        ]);
+
+        $lead = Lead::where(['id' => $id ])->first();
+
+        event(new \App\Events\LeadAction($lead, $request_user,'updated_status'));
+
+        return array('success' => true, 'status' => $lead->status, 'message' => "Lead $status" );
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function updateAssign($id, Request $request)
+    {
+        $data = $request->all();
+        
+        $request_user = ['user_id' => $data['session_user_id'], 'name' => $data['session_user_name']];
+
+        Lead::where(['id' => $id ])->update([
+            'user_assigned_id' => $data['user_assigned_id']
+        ]);
+
+        $lead = Lead::where(['id' => $id ])->first();
+        
+        event(new \App\Events\LeadAction($lead, $request_user,'updated_assign'));
+
+        return array('success' => true, 'message' => 'New user assigned.');
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function updateTime($id, Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $lead = Lead::findOrFail($id);
+
+        $invoice = $lead->invoice;
+
+        if(!$invoice) {
+            $invoice = Invoice::create([
+                'status' => 'draft',
+                'client_id' => $lead->client->id
+            ]);
+            $lead->invoice_id = $invoice->id;
+            $lead->save();
+        } 
+
+        InvoiceLine::create([
+            'title' => $request->title,
+            'comment' => $request->comment,
+            'quantity' => $request->quantity,
+            'type' => $request->type,
+            'price' => $request->price,
+            'invoice_id' => $invoice->id
+        ]);
+
+        event(new \App\Events\LeadAction($lead, $request_user,'updated_time'));
+
+        return array('success' => true, 'message' =>  'Time has been updated');
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function setCallback(Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $lead_id = $request->id;
+        $call_back_time = $request->call_back_time;
+        $notes = $request->notes;
+        $status = $request->status;
+        $lead = Lead::findOrFail($lead_id);
+        
+        $call_back_count = LeadsCallbacks::where(['lead_id' => $lead_id])->count();
+
+        try{
+            DB::beginTransaction();
+
+            if($call_back_count > 0){
+
+                LeadsCallbacks::where(['lead_id' => $lead_id])->update([
+                    'user_id' => $request_user['user_id'],
+                    'call_back_time' => Carbon::createFromFormat('Y-m-d H:i', $call_back_time)->format('Y-m-d H:i'),
+                    'notes' => $notes,
+                    'status' => $status
+                ]);
+
+                event(new \App\Events\LeadAction($lead, $request_user,'updated_callback'));
+
+            }else{
+
+                $lead_callback = LeadsCallbacks::create([
+                            'lead_id' => $lead_id,
+                            'user_id' => $request_user['user_id'],
+                            'call_back_time' => Carbon::createFromFormat('Y-m-d H:i', $call_back_time)->format('Y-m-d H:i'),
+                            'notes' => $notes,
+                            'status' => $status
+                        ]);
+
+                event(new \App\Events\LeadAction($lead, $request_user,'created_callback'));
+            }
+
+            $comment = Comment::create([
+                'description' => $notes,
+                'comment_type' => 'CB',
+                'source_type' => 'App\Lead' , 
+                'source_id' => $lead_id , 
+                'user_id' => $request_user['user_id'],
+                'user_name' => $request_user['name'] 
+            ]);
+
+            DB::commit();
+
+            return array('success' => true, 'lead' => $lead);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+
+    }
+
+}
