@@ -72,8 +72,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="https://media.twiliocdn.com/sdk/js/client/releases/1.4.35/twilio.min.js"></script>
-    <script src="{{ asset('js/quickstart.js') }}"></script>
+    <!-- <script type="text/javascript" src="https://media.twiliocdn.com/sdk/js/client/releases/1.4.35/twilio.min.js"></script> -->
+    <!-- <script src="{{ asset('js/quickstart.js') }}"></script> -->
     <script>
     window.onload = function() {
       var context = new AudioContext();

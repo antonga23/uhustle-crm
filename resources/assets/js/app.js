@@ -7,7 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-const Device = require('twilio-client').Device;
+
+// const Device = require('twilio-client').Device;
+
 //Progress Bar
 import VueProgressBar from 'vue-progressbar'
 Vue.use(VueProgressBar, {

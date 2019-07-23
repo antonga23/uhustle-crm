@@ -184,7 +184,7 @@
 						</div>
 						<div id="call-controls">
 						<p class="instructions">Make a Call:</p>
-						<input id="phone-number" type="text" placeholder="Enter a phone # or client name" />
+						<input id="phone-number" type="text" value="+27671112588" placeholder="Enter a phone # or client name" />
 						<button id="button-call">Call</button>
 						<button id="button-hangup">Hangup</button>
 						</div>

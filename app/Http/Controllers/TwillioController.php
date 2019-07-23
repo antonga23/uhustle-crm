@@ -118,11 +118,8 @@ class TwillioController extends Controller
 
         $token = $capability->generateToken();
         // return serialized token and the user's randomly generated ID
-        header('Content-Type: application/json');
-        echo json_encode(array(
-            'identity' => $identity,
-            'token' => $token,
-        ));
+        
+        return array( 'identity' => $identity,'token' => $token,);
     }
 
     public function voice(Request $request){
@@ -145,7 +142,8 @@ class TwillioController extends Controller
         // );
 
         // Where to make a voice call (your cell phone?)
-        $to_number = $request->To;
+        $lead_id = $request->lead_id;
+        $to_number = $request->phone_number;
         
         $response = new Twiml;
 
