@@ -8,7 +8,7 @@ sudo chmod -R 0777 /var/www/html/bootstrap/cache
 cd /var/www/html
 #
 # Run composer
-sudo composer install --no-ansi --no-dev --no-suggest --no-interaction --no-progress --prefer-dist --no-scripts -d /var/www/html
+sudo composer update --no-ansi --no-dev --no-suggest --no-interaction --no-progress --prefer-dist --no-scripts -d /var/www/html
 # #
 # # Run artisan commands
 php /var/www/html/artisan migrate:refresh --seed
