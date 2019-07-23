@@ -149,16 +149,25 @@ class TwillioController extends Controller
         
         $response = new Twiml;
 
-        $dial = $response->dial(array('callerId' => $twilio_number));
+        if (isset($to_number) && strlen($to_number) > 0) {
+            error_log('Number in');
+            $dial = $response->dial(array('callerId' => $twilio_number));
 
-        if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
-            $dial->number($to_number);
-        } else {
-            $dial->client($to_number);
+            if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
+                $dial->number($to_number);
+                error_log('Number dialed');
+            } else {
+                error_log('Client dialed');
+                $dial->client($to_number);
+            }
+        }else{
+            $response->say("Thanks for calling!");
+            error_log('Thanks for calling dialed');
         }
+
         header('Content-Type: text/xml');
-        echo $response;
-        die();
+        return $response;
+
         $call_exist = Twillio::where(['call_sid' => $call->sid])->first();
 
         try{

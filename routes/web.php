@@ -37,6 +37,7 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::get('/get-call-history/{agent_id}/{month}', 'TwillioController@getCallHistoryByAgentID');
 	Route::get('/token', 'TwillioController@newToken');
 	Route::post('/voice', 'TwillioController@voice');
+	Route::get('/voice', 'TwillioController@voice');
 });
 
 Route::group(['prefix' => 'clients'], function () {
