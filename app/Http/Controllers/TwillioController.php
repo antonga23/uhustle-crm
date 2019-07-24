@@ -124,22 +124,8 @@ class TwillioController extends Controller
 
     public function voice(Request $request){
         
-
         // A Twilio number you own with Voice capabilities
         $twilio_number = config('twillio.twillio_number');
-
-        // $messages = [
-        //     'required' => 'The :attribute is mandatory',
-        //     'phone_number.regex' => 'The phone number must be in E.164 format e.g. +27671234567'
-        // ];
-
-        // $this->validate(
-        //     $request, [
-        //         // E.164 format
-        //         'phone_number' => 'required|regex:/^\+[1-9]\d{1,14}$/',
-        //         'lead_id' => 'required',
-        //     ], $messages
-        // );
 
         // Where to make a voice call (your cell phone?)
         $lead_id = $request->lead_id;
@@ -149,7 +135,7 @@ class TwillioController extends Controller
 
         if (isset($to_number) && strlen($to_number) > 0) {
             error_log('Number in');
-            $dial = $response->dial(array('callerId' => $twilio_number));
+            $dial = $response->dial(array('callerId' => $twilio_number,'record' => true));
 
             if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
                 $dial->number($to_number);

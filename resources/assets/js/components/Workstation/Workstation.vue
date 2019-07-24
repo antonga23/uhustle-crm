@@ -718,6 +718,7 @@ a.down-scroll:hover{
                 </div>
             </b-modal>
         </div>
+        <input type="hidden"  @click="startCall()" ref="callBtn" />
     </div>
 </template>
 
@@ -741,8 +742,8 @@ a.down-scroll:hover{
 
 
             Fire.$on('CallStarted', function(){
-                vm.general = true;
-                vm.calling = false;
+                vm.general = false;
+                vm.calling = true;
                 vm.idle = false;
                 vm.scripts = false;
                 vm.startCall();
@@ -860,6 +861,7 @@ a.down-scroll:hover{
                                 Device.on('ready',function (device) {
                                     console.log('Twilio.Device Ready!');
                                     vm.call_status = 'Device Ready';
+                                    vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
@@ -869,17 +871,18 @@ a.down-scroll:hover{
 
                                 Device.on('connect',function (conn) {
                                     console.log('Successfully established call!');
-                                    console.log(conn.parameters);
-                                    vm.call_status = 'Successfully established call!';
+                                    console.log(conn.parameters.CallSid);
+                                    vm.call_status = 'Successfully established call';
                                 });
 
                                 Device.on('disconnect',function (conn) {
                                     console.log('Call Disconnected.');
-                                    vm.call_status = 'Call Disconnected.';
+                                    console.log(conn.parameters);
+                                    vm.call_status = 'Call Disconnected';
                                 });
 
                                 vm.$Progress.finish();
-                                Fire.$emit('CallStarted');
+                                
                             }).catch(function (error) {                    
                                 console.log('Could not get a token from server!');
                                 console.log(error);
@@ -894,11 +897,12 @@ a.down-scroll:hover{
             },
             startCall() {
                 var vm = this;
-                this.call_active = false;
-                this.calling = false;
+                this.call_active = true;
+                this.calling = true;
+                this.general = false;
                 this.idle = false;
                 var audioCtx = new AudioContext();
-                // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                
                 audioCtx.resume();
                 console.log(audioCtx.state)
 
@@ -907,7 +911,7 @@ a.down-scroll:hover{
                     phone_number : vm.lead_info.phone_number,
                 }
             
-                console.log('Calling ' + form_data.phone_number + '...');
+                console.log('Calling...');
                 Device.connect(form_data);
 
             },

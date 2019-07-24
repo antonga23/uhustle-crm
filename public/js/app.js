@@ -5523,18 +5523,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -5570,10 +5558,9 @@ __webpack_require__.r(__webpack_exports__);
       vm.lead_id = data.lead_id;
       vm.phone_number = data.contact_number;
     });
-    Fire.$on('CallStarted', function () {
-      vm.general_show = true;
-      vm.general_active = true;
-      console.log('CallStarted Top Nav');
+    Fire.$on('InitiateCall', function () {
+      vm.dialer_active = true;
+      console.log('Call Initiated');
     });
     Fire.$on('CallEnded', function () {
       // vm.general_show = false;
@@ -5583,6 +5570,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     endCall: function endCall() {
       Fire.$emit('CallEnded');
+    },
+    startCall: function startCall() {
+      Fire.$emit('CallStarted');
     },
     hideModal: function hideModal() {
       this.$refs['my-modal'].hide();
@@ -7591,6 +7581,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -7608,8 +7599,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     var vm = this;
     this.enqueueLead('');
     Fire.$on('CallStarted', function () {
-      vm.general = true;
-      vm.calling = false;
+      vm.general = false;
+      vm.calling = true;
       vm.idle = false;
       vm.scripts = false;
       vm.startCall();
@@ -7719,6 +7710,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               Device.on('ready', function (device) {
                 console.log('Twilio.Device Ready!');
                 vm.call_status = 'Device Ready';
+                vm.$refs.callBtn.click();
               });
               Device.on('error', function (error) {
                 console.log('Twilio.Device Error: ' + error.message);
@@ -7726,15 +7718,15 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               });
               Device.on('connect', function (conn) {
                 console.log('Successfully established call!');
-                console.log(conn.parameters);
-                vm.call_status = 'Successfully established call!';
+                console.log(conn.parameters.CallSid);
+                vm.call_status = 'Successfully established call';
               });
               Device.on('disconnect', function (conn) {
                 console.log('Call Disconnected.');
-                vm.call_status = 'Call Disconnected.';
+                console.log(conn.parameters);
+                vm.call_status = 'Call Disconnected';
               });
               vm.$Progress.finish();
-              Fire.$emit('CallStarted');
             })["catch"](function (error) {
               console.log('Could not get a token from server!');
               console.log(error);
@@ -7748,18 +7740,18 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     },
     startCall: function startCall() {
       var vm = this;
-      this.call_active = false;
-      this.calling = false;
+      this.call_active = true;
+      this.calling = true;
+      this.general = false;
       this.idle = false;
-      var audioCtx = new AudioContext(); // window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
+      var audioCtx = new AudioContext();
       audioCtx.resume();
       console.log(audioCtx.state);
       var form_data = {
         lead_id: vm.lead_info.id,
         phone_number: vm.lead_info.phone_number
       };
-      console.log('Calling ' + form_data.phone_number + '...');
+      console.log('Calling...');
       Device.connect(form_data);
     },
     endCall: function endCall() {
@@ -160080,44 +160072,6 @@ var render = function() {
                         })
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { attrs: { id: "controls" } }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("div", { attrs: { id: "call-controls" } }, [
-                      _c("p", { staticClass: "instructions" }, [
-                        _vm._v("Make a Call:")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        attrs: {
-                          id: "phone-number",
-                          type: "text",
-                          value: "+27671112588",
-                          placeholder: "Enter a phone # or client name"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          attrs: { id: "button-call" },
-                          on: {
-                            click: function($event) {
-                              return _vm.endCall()
-                            }
-                          }
-                        },
-                        [_vm._v("Call")]
-                      ),
-                      _vm._v(" "),
-                      _c("button", { attrs: { id: "button-hangup" } }, [
-                        _vm._v("Hangup")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { attrs: { id: "log" } })
                   ])
                 ]
               )
@@ -160134,16 +160088,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
       _c("a", { staticClass: "nav-link search", attrs: { href: "#" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "info" } }, [
-      _c("p", { staticClass: "instructions" }, [_vm._v("Twilio Client")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "client-name" } })
     ])
   }
 ]
@@ -162585,7 +162529,17 @@ var render = function() {
         )
       ],
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("input", {
+      ref: "callBtn",
+      attrs: { type: "hidden" },
+      on: {
+        click: function($event) {
+          return _vm.startCall()
+        }
+      }
+    })
   ])
 }
 var staticRenderFns = [

@@ -180,19 +180,7 @@
 						</li>
 					</ul>
 
-					<div id="controls">
-						<div id="info">
-						<p class="instructions">Twilio Client</p>
-						<div id="client-name"></div>
-						</div>
-						<div id="call-controls">
-						<p class="instructions">Make a Call:</p>
-						<input id="phone-number" type="text" value="+27671112588" placeholder="Enter a phone # or client name" />
-						<button id="button-call" @click="endCall()">Call</button>
-						<button id="button-hangup">Hangup</button>
-						</div>
-						<div id="log"></div>
-					</div>
+					
 				</div>
 			</div>
 		</nav>
@@ -243,10 +231,10 @@
                 vm.phone_number = data.contact_number;
 			});
 
-			Fire.$on('CallStarted', function(){
-                vm.general_show = true;
-                vm.general_active = true;
-                console.log('CallStarted Top Nav');
+			Fire.$on('InitiateCall', function(){
+				
+				vm.dialer_active = true;
+                console.log('Call Initiated');
 			});
 
 			Fire.$on('CallEnded', function(){
@@ -257,6 +245,9 @@
 	    methods: {
 	      	endCall() {
 				 Fire.$emit('CallEnded');
+	      	},
+	      	startCall() {
+				 Fire.$emit('CallStarted');
 	      	},
 	      	hideModal() {
 		        this.$refs['my-modal'].hide();
