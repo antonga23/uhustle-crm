@@ -132,6 +132,7 @@ class TwillioController extends Controller
         $to_number = $request->phone_number;
         
         $response = new Twiml;
+        $response->record();
 
         if (isset($to_number) && strlen($to_number) > 0) {
             error_log('Number in');
@@ -148,8 +149,7 @@ class TwillioController extends Controller
             error_log('Thanks for calling dialed');
         }
 
-        header('Content-Type: text/xml');
-        return $response;
+        echo $response;
     }
 
     public function statusUpdate(Request $request){
@@ -186,16 +186,14 @@ class TwillioController extends Controller
 
             $response->say("Call Status updated!");
 
-            header('Content-Type: text/xml');
-            return $response;
+            echo $response;
 
         }catch(\QueryException $e){
             DB::rollback();
 
             $response->say("Failed to update!");
             
-            header('Content-Type: text/xml');
-            return $response;
+            echo $response;
         } 
 
 
