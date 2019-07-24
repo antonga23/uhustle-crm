@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use App\Task;
 use App\Lead;
 use App\Comment;
@@ -17,7 +18,7 @@ class CommentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth');
     }
     
     /**
@@ -28,12 +29,10 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {   
-    	$request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+    	$request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $this->validate($request, [
             'id' => 'required',
-            'session_user_id' => 'required',
-            'session_user_name' => 'required',
             'type' => 'required'
         ]);
 

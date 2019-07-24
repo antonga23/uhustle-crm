@@ -8216,6 +8216,157 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -57291,7 +57442,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 34px 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: cover;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{\n    margin-top: 0;\n    margin-left: -54px;\n    margin-right: -65px;\n    padding: 3% 6%;\n    /* background-image: url('/images/call/Call_Background.svg') !important; */\n    background-size: 100%;\n    background-repeat: no-repeat;\n    transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 100%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{\n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 33%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 133px;\n}\n.idle-footer[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n    font-size: 12px;\n    color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{\n    display: block;\n    transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{\n    margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{\n    max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{\n    color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{\n    float: left;\n    display: block;\n    border-radius: 25px;\n    box-shadow: 0px 1px 6px 0px #4a4a4a;\n    margin: 0 10px 19px 10px;\n    max-width: 30.333333%;\n    padding: 25px;\n    text-align: center;\n}\n.btn-active[data-v-f3210f20]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] {\n\tbackground: #ffffff;\n\tcolor: #00344a;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.final-modal[data-v-f3210f20]{\n    padding: 0 1rem 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n    width: 100%;\n    border-bottom: 1px solid #e3e3e3;\n    margin-left: 0;\n}\n.final-modal label button img[data-v-f3210f20]{\n    width: 20px;\n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{\n    font-size: 55px;\n    color: #FF933A;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3%;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 19px;\n        font-weight: 900;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 25px;\n        margin-right: 30px;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 34px 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: cover;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n  margin-top: 5px;\n  text-align: center;\n  color: #003449;\n\n    font-size: 22px;\n    font-weight: 900;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{\n    margin-top: 0;\n    margin-left: -54px;\n    margin-right: -65px;\n    padding: 3% 6%;\n    /* background-image: url('/images/call/Call_Background.svg') !important; */\n    background-size: 100%;\n    background-repeat: no-repeat;\n    transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 100%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{\n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 33%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 133px;\n}\n.idle-footer[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n    font-size: 12px;\n    color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{\n    display: block;\n    transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{\n    margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{\n    max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{\n    color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{\n    float: left;\n    display: block;\n    border-radius: 25px;\n    box-shadow: 0px 1px 6px 0px #4a4a4a;\n    margin: 0 10px 19px 10px;\n    max-width: 30.333333%;\n    padding: 25px;\n    text-align: center;\n}\n.btn-active[data-v-f3210f20]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] {\n\tbackground: #ffffff;\n\tcolor: #00344a;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.final-modal[data-v-f3210f20]{\n    padding: 0 1rem 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n    width: 100%;\n    border-bottom: 1px solid #e3e3e3;\n    margin-left: 0;\n}\n.final-modal label button img[data-v-f3210f20]{\n    width: 20px;\n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{\n    font-size: 55px;\n    color: #FF933A;\n}\n.final-modal .card-header-tabs[data-v-f3210f20]{\n    border-bottom: 1px solid #dee2e6;\n}\n.final-modal .card-header[data-v-f3210f20]{    \n    border-top-left-radius: 19px;\n    border-top-right-radius: 19px;\n    padding: 0 11px 11px;\n    border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{\n    border-bottom: none;\n    background: #fff;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{\n    border-top-left-radius: 19px;\n    width: 50%;\n    border-right: 1px solid #e3e3e3;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 19px;\n    border-top-right-radius: 0px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 20px;\n    border-top-right-radius: 0px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{\n    border-top-right-radius: 19px;\n    border-top-left-radius: 0px;\n    width: 50%;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n", ""]);
 
 // exports
 
@@ -163483,235 +163634,477 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row stats" }, [
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "card left" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "icon",
-                        attrs: {
-                          src: "/images/workstation/Agent_Notes_Icon@4x.png",
-                          alt: "Icon"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "left" }, [
-                        _vm._v("Agent Notes")
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "right" }, [
-                        _vm._v(
-                          _vm._s(_vm.comments.total_comments) + " Comment(s)"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "notes-roll" }, [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "list-group",
-                          staticStyle: {
-                            height: "245px",
-                            width: "100%",
-                            overflow: "hidden",
-                            "overflow-y": "scroll"
-                          }
-                        },
-                        _vm._l(_vm.comments.comments, function(comment) {
-                          return _c("li", { staticClass: "list-group-item" }, [
-                            _c("p", [
-                              _c("strong", [
-                                _vm._v(_vm._s(comment.comment_type))
-                              ]),
-                              _vm._v(
-                                " \n                                                " +
-                                  _vm._s(comment.description) +
-                                  " \n                                                "
-                              ),
-                              _c(
-                                "span",
-                                {
-                                  staticStyle: {
-                                    float: "right",
-                                    "margin-top": "11px"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                    " +
-                                      _vm._s(
-                                        _vm.getDaysAgo(comment.created_at)
-                                      ) +
-                                      " "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c("small", [_vm._v("Yongama Sobambela")])
-                                ]
-                              )
-                            ])
-                          ])
-                        }),
-                        0
-                      )
-                    ]),
-                    _vm._v(" "),
+              _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                  _c("div", { staticClass: "card-header tab-card-header" }, [
                     _c(
-                      "div",
-                      { staticClass: "notes-capture" },
+                      "ul",
+                      {
+                        staticClass: "nav nav-tabs card-header-tabs",
+                        attrs: { id: "myTab", role: "tablist" }
+                      },
                       [
-                        _c(
-                          "b-button",
-                          {
-                            directives: [
-                              {
-                                name: "b-modal",
-                                rawName: "v-b-modal.modal-1",
-                                modifiers: { "modal-1": true }
-                              }
-                            ],
-                            staticClass: "choose-comment-type"
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "icon",
-                              staticStyle: { width: "27px" },
-                              attrs: {
-                                src: "/images/workstation/Asset 28@4x.png",
-                                alt: "Icon"
-                              }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
+                        _c("li", { staticClass: "nav-item left" }, [
+                          _c(
+                            "a",
                             {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.comment.comment_description,
-                              expression: "comment.comment_description"
-                            }
-                          ],
-                          staticClass: "comment-desc",
-                          staticStyle: { width: "69%" },
-                          attrs: {
-                            type: "text",
-                            placeholder: "Write comment here"
-                          },
-                          domProps: { value: _vm.comment.comment_description },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "one-tab",
+                                "data-toggle": "tab",
+                                href: "#one",
+                                role: "tab",
+                                "aria-controls": "One",
+                                "aria-selected": "true"
                               }
-                              _vm.$set(
-                                _vm.comment,
-                                "comment_description",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            staticStyle: { width: "75px" },
-                            attrs: { id: "send-btn", type: "submit" },
-                            on: {
-                              click: function($event) {
-                                return _vm.addComment()
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                        Send\n                                    "
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card right",
-                    staticStyle: { height: "405px" }
-                  },
-                  [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/workstation/Feedback_Icon@4x.png",
-                            alt: "Icon"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "left" }, [
-                          _vm._v("Feedback Summary")
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Agent_Notes_Icon@4x.png",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Agent Notes")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "right" }, [
+                                _vm._v(_vm._s(_vm.comments.total_comments))
+                              ])
+                            ]
+                          )
                         ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "right" }, [
-                          _vm._v(
-                            _vm._s(_vm.comments.total_comments) + " Comment(s)"
+                        _c("li", { staticClass: "nav-item right" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "two-tab",
+                                "data-toggle": "tab",
+                                href: "#two",
+                                role: "tab",
+                                "aria-controls": "Two",
+                                "aria-selected": "false"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Agent_Notes_Icon@4x.png",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Schedule Callback")
+                              ])
+                            ]
                           )
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c(
-                          "div",
-                          { staticClass: "verticalChart" },
-                          [
-                            _vm._l(_vm.comments_graph, function(bar) {
-                              return _c("div", { staticClass: "singleBar" }, [
-                                _c("div", { staticClass: "bar" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "value",
-                                      style: "height: " + bar.percentage + "%;"
-                                    },
-                                    [
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active p-3",
+                          attrs: {
+                            id: "one",
+                            role: "tabpanel",
+                            "aria-labelledby": "one-tab"
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "notes-roll" }, [
+                            _c(
+                              "ul",
+                              {
+                                staticClass: "list-group",
+                                staticStyle: {
+                                  height: "245px",
+                                  width: "100%",
+                                  overflow: "hidden",
+                                  "overflow-y": "scroll"
+                                }
+                              },
+                              _vm._l(_vm.comments.comments, function(comment) {
+                                return _c(
+                                  "li",
+                                  { staticClass: "list-group-item" },
+                                  [
+                                    _c("p", [
+                                      _c("strong", [
+                                        _vm._v(_vm._s(comment.comment_type))
+                                      ]),
+                                      _vm._v(
+                                        " \n                                                    " +
+                                          _vm._s(comment.description) +
+                                          " \n                                                    "
+                                      ),
                                       _c(
                                         "span",
                                         {
                                           staticStyle: {
-                                            color: "rgb(45, 137, 239)",
-                                            display: "inline"
+                                            float: "right",
+                                            "margin-top": "11px"
                                           }
                                         },
-                                        [_vm._v(_vm._s(bar.percentage + "%"))]
+                                        [
+                                          _vm._v(
+                                            "\n                                                        " +
+                                              _vm._s(
+                                                _vm.getDaysAgo(
+                                                  comment.created_at
+                                                )
+                                              ) +
+                                              " "
+                                          ),
+                                          _c("br"),
+                                          _vm._v(" "),
+                                          _c("small", [
+                                            _vm._v("Yongama Sobambela")
+                                          ])
+                                        ]
                                       )
+                                    ])
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "notes-capture" },
+                            [
+                              _c(
+                                "b-button",
+                                {
+                                  directives: [
+                                    {
+                                      name: "b-modal",
+                                      rawName: "v-b-modal.modal-1",
+                                      modifiers: { "modal-1": true }
+                                    }
+                                  ],
+                                  staticClass: "choose-comment-type"
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    staticStyle: { width: "27px" },
+                                    attrs: {
+                                      src:
+                                        "/images/workstation/Asset 28@4x.png",
+                                      alt: "Icon"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.comment.comment_description,
+                                    expression: "comment.comment_description"
+                                  }
+                                ],
+                                staticClass: "comment-desc",
+                                staticStyle: { width: "69%" },
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Write comment here"
+                                },
+                                domProps: {
+                                  value: _vm.comment.comment_description
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.comment,
+                                      "comment_description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  staticStyle: { width: "75px" },
+                                  attrs: { id: "send-btn", type: "submit" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.addComment()
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                            Send\n                                        "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade p-3",
+                          attrs: {
+                            id: "two",
+                            role: "tabpanel",
+                            "aria-labelledby": "two-tab"
+                          }
+                        },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v("TODO")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticStyle: {
+                                height: "245px",
+                                width: "100%",
+                                overflow: "hidden"
+                              }
+                            },
+                            [
+                              _c("p", { staticClass: "card-text" }, [
+                                _vm._v(
+                                  "\n                                            Schedule callback form\n                                        "
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                  _c("div", { staticClass: "card-header tab-card-header" }, [
+                    _c(
+                      "ul",
+                      {
+                        staticClass: "nav nav-tabs card-header-tabs",
+                        attrs: { id: "myTab", role: "tablist" }
+                      },
+                      [
+                        _c("li", { staticClass: "nav-item left" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "one-tab",
+                                "data-toggle": "tab",
+                                href: "#three",
+                                role: "tab",
+                                "aria-controls": "One",
+                                "aria-selected": "true"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Agent_Notes_Icon@4x.png",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Feedback Summary")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "right" }, [
+                                _vm._v(_vm._s(_vm.comments.total_comments))
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "nav-item right" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "two-tab",
+                                "data-toggle": "tab",
+                                href: "#four",
+                                role: "tab",
+                                "aria-controls": "Two",
+                                "aria-selected": "false"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Agent_Notes_Icon@4x.png",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Email Client")
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active p-3",
+                          attrs: {
+                            id: "three",
+                            role: "tabpanel",
+                            "aria-labelledby": "three-tab"
+                          }
+                        },
+                        [
+                          _c("div", {}, [
+                            _c(
+                              "div",
+                              { staticClass: "verticalChart" },
+                              [
+                                _vm._l(_vm.comments_graph, function(bar) {
+                                  return _c(
+                                    "div",
+                                    { staticClass: "singleBar" },
+                                    [
+                                      _c("div", { staticClass: "bar" }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "value",
+                                            style:
+                                              "height: " + bar.percentage + "%;"
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticStyle: {
+                                                  color: "rgb(45, 137, 239)",
+                                                  display: "inline"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(bar.percentage + "%")
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "title" }, [
+                                        _vm._v(_vm._s(bar.type))
+                                      ])
                                     ]
                                   )
-                                ]),
+                                }),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "title" }, [
-                                  _vm._v(_vm._s(bar.type))
-                                ])
+                                _c("div", { staticClass: "clearfix" })
+                              ],
+                              2
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade p-3",
+                          attrs: {
+                            id: "four",
+                            role: "tabpanel",
+                            "aria-labelledby": "four-tab"
+                          }
+                        },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v("TODO")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticStyle: {
+                                height: "245px",
+                                width: "100%",
+                                overflow: "hidden",
+                                color: "#818284"
+                              }
+                            },
+                            [
+                              _c("p", { staticClass: "card-text" }, [
+                                _vm._v(
+                                  "\n                                            Email client form\n                                        "
+                                )
                               ])
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "clearfix" })
-                          ],
-                          2
-                        )
-                      ])
-                    ])
-                  ]
-                )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
               ])
             ])
           ])
