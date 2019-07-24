@@ -178,9 +178,7 @@
 						<li class="nav-item d-none d-sm-inline-block">
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 						</li>
-					</ul>
-
-					
+					</ul>				
 				</div>
 			</div>
 		</nav>
@@ -232,15 +230,10 @@
 			});
 
 			Fire.$on('InitiateCall', function(){
-				
 				vm.dialer_active = true;
                 console.log('Call Initiated');
 			});
 
-			Fire.$on('CallEnded', function(){
-                // vm.general_show = false;
-                console.log('CallEnded');
-			});
 		},
 	    methods: {
 	      	endCall() {

@@ -23,15 +23,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    #content-wrapper{
-      style="padding: 0px 40px 0px 30px; 
-      min-height: auto !important"
-    }
+      #content-wrapper{
+        style="padding: 0px 40px 0px 30px; 
+        min-height: auto !important"
+      }
       .content-wrapper, .main-footer, .main-header {
           transition: margin-left 0.3s ease-in-out;
           margin-left: 54px !important;
-          z-index: 3000;
+          z-index: 1000  !important;
           margin-right: 352px;
+      }
+      .main-sidebar {
+        z-index: 1000;
       }
       #app {
           background-color: #ffffff;

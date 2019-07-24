@@ -334,7 +334,7 @@ p.maximize a{
 .top-animation-minimized{
     padding: 7px;
     background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;
-    background-size: 47%;
+    background-size: 33%;
     background-position: center;
     background-repeat: no-repeat;
     height: 133px;
@@ -371,6 +371,45 @@ a.down-scroll:hover{
     max-width: 30.333333%;
     padding: 25px;
     text-align: center;
+}
+
+.btn-active:hover{
+	background: #00344a;
+	color: #ffffff;    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-active {
+	background: #ffffff;
+	color: #00344a;
+    border: none !important;
+    border: none !important;
+    padding: 6px 25px 6px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.final-modal{
+    padding: 0 1rem 1rem;
+}
+.final-modal .row-a{
+    width: 100%;
+    border-bottom: 1px solid #e3e3e3;
+    margin-left: 0;
+}
+.final-modal label button img{
+    width: 20px;
+    margin-right: 15px;
+}
+.final-modal .navbar-nav .nav-item{
+    font-size: 55px;
+    color: #FF933A;
 }
 </style>
 <template>
@@ -596,12 +635,18 @@ a.down-scroll:hover{
                 <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"> </div>
             </div>
             <div class="row">
+
+                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
+                    <h1 style="text-align: center;font-size: 19px;color: #1c2331;">{{ call_status }}...</h1>
+                </div>
+
                 <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks">
                     <p>Show Education</p>
                     <a href="#" class="down-scroll" @click="show_edication_blocks = true;">
                         <img src="/images/Idle_Pages_Assest/Asset 120.png" alt="Scroll Down" />
                     </a>
                 </div>
+
                 <div class="col-lg-3 col-md-3 idle-footer"  v-if="show_edication_blocks">
                     <p>Hide Education</p>
                     <a href="#" class="down-scroll" @click="show_edication_blocks = false;">
@@ -656,7 +701,7 @@ a.down-scroll:hover{
                 </div>
             </div>
         </div>
-        <div class="" v-if="calling == true">
+        <!-- <div class="" v-if="calling == true">
             <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
                 <div class="col-lg-12 top-animation">
                 </div>
@@ -694,7 +739,7 @@ a.down-scroll:hover{
                     <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div>
             <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
                 <div class="d-block">
@@ -718,7 +763,178 @@ a.down-scroll:hover{
                 </div>
             </b-modal>
         </div>
-        <input type="hidden"  @click="startCall()" ref="callBtn" />
+            <b-modal
+                id="modal-prevent-closing"
+                size="xl"
+                ref="final-call-step"
+                title="Submit Your Name"
+                @show="preventClosing"
+                @hide="preventClosing()"
+                @hidden="preventClosing"
+                @ok="preventClosing"
+                style="z-index: 999999;padding: 1rem 3rem;"
+                hide-header
+                hide-footer
+                >
+                <div class="final-modal">
+                    <div class="row row-a">
+                        <div class="col-lg-6" style="padding-left: 6%;">
+                            <ul class="navbar-nav left">
+                                <li class="nav-item d-none d-sm-inline-block title">
+                                    <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort">
+                                        <template slot-scope="props" style="font-size: 55px;">{{ props.minutes }}:{{ props.seconds }}</template>
+                                    </countdown>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-lg-6" style="padding-right: 0;padding-top:2%;">
+                            <div style="width: 100%;" >
+                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;">
+                                    <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;" disabled>
+                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
+                                    </button>
+                                    <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;">
+                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
+                                    </button>
+                                </label>
+                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
+                                    <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active' : true }" style="width: 100%; margin: 0px;">
+                                        <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete
+                                    </button>
+                                </label>
+                                <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
+                                    <img src="/images/icons/Asset 56.svg" alt="Icon" class="icon" style="width: 60px;margin-top: -13px;"/>
+                                </label>
+                            </div>				
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="card client">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
+                                    Client
+                                </h5>
+
+                                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
+                                {{ this.lead_info.name + ' ' + lead_info.surname }}
+                                </p>
+
+                                <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="card product">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
+                                    Product
+                                </h5>
+
+                                <p class="card-text" :title="product.description + '. ' + product.price ">
+                                {{ product.name }}
+                                </p>
+
+                                <p class="card-link truncate" :title="product.description + '. ' + product.price ">
+                                    {{ product.description }}
+                                </p> 
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="card time">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
+                                    Time
+                                </h5>
+
+                                <p class="card-text">
+                                11:20 AM
+                                </p>
+
+                                <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row stats">
+                        <div class="col-lg-6" >
+                            <div class="card left" style="">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
+                                        <span class="left">Agent Notes</span>
+                                        <span class="right">{{ comments.total_comments }} Comment(s)</span>
+                                    </h5>
+
+                                    <div class="notes-roll">
+                                        <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                            <li v-for="comment in comments.comments" class="list-group-item">
+                                                <p>
+                                                    <strong>{{ comment.comment_type }}</strong> 
+                                                    {{ comment.description }} 
+                                                    <span style="float:right;margin-top: 11px;">
+                                                        {{ getDaysAgo(comment.created_at) }} <br/>
+                                                        <small>Yongama Sobambela</small>
+                                                    </span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="notes-capture">
+                                        <b-button v-b-modal.modal-1 class="choose-comment-type">
+                                            <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
+                                        </b-button>
+                                        <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
+
+                                        <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" >
+                            <div class="card right" style="height: 405px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
+                                        <span class="left">Feedback Summary</span>
+                                        <span class="right">{{ comments.total_comments }} Comment(s)</span>
+                                    </h5>
+
+                                    <div class="">
+                                        <div class="verticalChart">
+
+                                        <div class="singleBar" v-for="bar in comments_graph">
+
+                                            <div class="bar">
+
+                                            <div class="value" :style="'height: ' + bar.percentage + '%;'">
+                                                <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
+                                            </div>
+
+                                            </div>
+
+                                            <div class="title">{{ bar.type }}</div>
+
+                                        </div>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b-modal>
+        
+         <input type="hidden"  @click="startCall()" ref="callBtn" />
     </div>
 </template>
 
@@ -726,55 +942,48 @@ a.down-scroll:hover{
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
     import NotesStats from './NotesStats.vue';
+    import FlipCountdown from 'vue2-flip-countdown';
     const Device = require('twilio-client').Device;
     export default {
         extends: Bar,
         components: { 
             BarChart,
+            FlipCountdown,
             'notes-stats' : NotesStats 
         },
         mounted() {
-            console.log('Component mounted');
 
             var vm = this;
 
             this.enqueueLead('');
 
-
             Fire.$on('CallStarted', function(){
                 vm.general = false;
-                vm.calling = true;
-                vm.idle = false;
+                vm.idle = true;
                 vm.scripts = false;
                 vm.startCall();
             });
 
-            Fire.$on( 'CallEnded', function(){
+            Fire.$on('CallEnded', function(){
                 vm.endCall();
             });
 
             Fire.$on( 'ShowScripts', function(){
-                console.log('ShowScripts');
                 vm.scripts = true;
                 vm.general = false;
-                vm.calling = false;
                 vm.idle = false;
             });
 
             Fire.$on( 'ShowGeneral', function(){
-                console.log('ShowGeneral');
                 vm.general = true;
                 vm.scripts = false;
-                vm.calling = false;
                 vm.idle = false;
             });
 
             Fire.$on( 'ShowDialer', function(){
-                console.log('ShowDialer');
-                vm.calling = true;
                 vm.general = false;
                 vm.scripts = false;
-                vm.idle = false;
+                vm.idle = true;
             });
 
             this.Toast = this.$swal.mixin({
@@ -796,16 +1005,17 @@ a.down-scroll:hover{
                 comments : {},
                 comments_graph : {},
                 notes_data: [],
-                call_active: false,
                 minimized: false,
                 scripts: false,
                 general: false,
                 calling: false,
                 show_edication_blocks: false,
                 idle: true,
+                added_time: false,
                 call_status: '',
                 call_sid: '',
                 handle: '',
+                set_time: 2  * 60 * 1000,
                 comment:{
                     comment_description :'',
                     comment_type :''
@@ -814,6 +1024,9 @@ a.down-scroll:hover{
             }
         },
         methods: {
+            preventClosing(){
+                this.$refs['final-call-step'].show();
+            },
             toggleModal() {
                 // We pass the ID of the button that we want to return focus to
                 // when the modal has hidden
@@ -822,6 +1035,18 @@ a.down-scroll:hover{
             resetModal() {
                 this.comment.comment_description = '';
                 this.comment.comment_type = '';
+            },
+            completeCall(){
+
+            },
+            handleCountdownProgress(data) {
+                this.set_time = data.totalMilliseconds;
+            },
+            handleAbort(data) {
+            },
+            addTime(){
+                this.set_time = 2  * 60 * 1000;
+                this.added_time = true;
             },
             enqueueLead(lead_id = ''){
                 var vm = this;
@@ -845,52 +1070,42 @@ a.down-scroll:hover{
                         vm.comments_graph = response.data.comments.comments_graph;
                         vm.comment.comment_description = '';
                         vm.comment.comment_type = '';
+                        vm.added_time = false;
 
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
                         
                         setTimeout( function(){
-                            console.log('Requesting Capability Token...');
                             axios.get('/calls/token').then(function (response) {
-                                
-                                console.log('Got a token.');
-                                console.log('Token: ' + response.data.token);
 
                                 // Setup Twilio.Device
                                 Device.setup(response.data.token);
             
                                 Device.on('ready',function (device) {
-                                    console.log('Twilio.Device Ready!');
                                     vm.call_status = 'Device Ready';
                                     vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
-                                    console.log('Twilio.Device Error: ' + error.message);
                                     vm.call_status = 'Device Error: ' + error.message;
                                 });
 
                                 Device.on('connect',function (conn) {
-                                    console.log('Successfully established call!');
-                                    console.log(conn.parameters.CallSid);
                                     vm.call_status = 'Successfully established call';
                                 });
 
                                 Device.on('disconnect',function (conn) {
-                                    console.log('Call Disconnected.');
-                                    console.log(conn.parameters);
                                     vm.call_status = 'Call Disconnected';
                                     axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                        console.log('create-call-record : ' + response.data.success);
+                                        
                                     }).catch(function (error) {                    
-                                        console.log('Could not create-call-record!');
                                         console.log(error);
                                     });
+                                    vm.$refs['final-call-step'].show();
                                 });
 
                                 vm.$Progress.finish();
                                 
                             }).catch(function (error) {                    
-                                console.log('Could not get a token from server!');
                                 console.log(error);
                             });
                         }, 1000 );
@@ -903,43 +1118,39 @@ a.down-scroll:hover{
             },
             startCall() {
                 var vm = this;
-                this.call_active = true;
-                this.calling = true;
+                this.idle = true;
+                this.show_edication_blocks = true;
                 this.general = false;
-                this.idle = false;
                 var audioCtx = new AudioContext();
                 
                 audioCtx.resume();
-                console.log(audioCtx.state)
+
+                Fire.$emit('InitiateCall');
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
                     phone_number : vm.lead_info.phone_number,
                 }
             
-                console.log('Calling...');
                 Device.connect(form_data);
-
             },
             endCall() {
                 var vm = this;
 
                 Device.disconnectAll(function (conn) {
                     vm.call_status = 'Call ended!';
-                    console.log(conn.parameters);
 
                     axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                         console.log('create-call-record : ' + response.data.success);
+                         
                     }).catch(function (error) {                    
-                        console.log('Could not create-call-record!');
                         console.log(error);
                     });
                 });
-
-                vm.call_active = true;
-                vm.calling = true;
+                vm.idle = true;
+                vm.show_edication_blocks = true;
                 vm.general = false;
                 vm.minimized = false;
+                this.$refs['final-call-step'].show();
             },
 			getStatus(call_sid){
                 var vm = this;
@@ -1013,7 +1224,7 @@ a.down-scroll:hover{
                 var secondDate = new Date(second_date);
 
                 var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-                console.log(diffDays);
+                
                 if(diffDays <= 1){
                     date_string = 'Today';
                 }else if(diffDays > 1 && diffDays <= 7){

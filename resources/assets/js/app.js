@@ -53,6 +53,9 @@ import 'echarts/lib/chart/bar';
 
 Vue.component('chart', Echarts);
 
+import VueCountdown from '@chenfengyuan/vue-countdown';
+Vue.component(VueCountdown.name, VueCountdown);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
