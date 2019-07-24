@@ -5571,7 +5571,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     Fire.$on('CallStarted', function () {
       vm.general_show = true;
-      console.log('CallStarted');
+      console.log('CallStarted Top Nav');
     });
     Fire.$on('CallEnded', function () {
       // vm.general_show = false;
@@ -7597,7 +7597,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     console.log('Component mounted');
     var vm = this;
     this.enqueueLead('');
-    Fire.$on('CallStarted', function () {
+    Fire.$on('CallStarted Workstation', function () {
       vm.general = true;
       vm.calling = false;
       vm.startCall();

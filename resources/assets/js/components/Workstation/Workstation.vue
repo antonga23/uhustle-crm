@@ -740,7 +740,7 @@ a.down-scroll:hover{
             this.enqueueLead('');
 
 
-            Fire.$on('CallStarted', function(){
+            Fire.$on('CallStarted Workstation', function(){
                 vm.general = true;
                 vm.calling = false;
                 vm.startCall();

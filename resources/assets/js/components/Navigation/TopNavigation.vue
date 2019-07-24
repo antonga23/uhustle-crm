@@ -244,7 +244,7 @@
 
 			Fire.$on('CallStarted', function(){
                 vm.general_show = true;
-                console.log('CallStarted');
+                console.log('CallStarted Top Nav');
 			});
 
 			Fire.$on('CallEnded', function(){
