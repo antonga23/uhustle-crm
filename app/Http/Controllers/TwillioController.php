@@ -186,7 +186,7 @@ class TwillioController extends Controller
             DB::commit();
 
             header('Content-Type: application/json');
-            return json_encode(['status' => $status, 'call_sid' => $call_sid]);
+            return json_encode(['status' => $call_status, 'call_sid' => $call_sid]);
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -227,9 +227,8 @@ class TwillioController extends Controller
 
             DB::commit();
 
-
             header('Content-Type: application/json');
-            return json_encode(['status' => $status, 'call_sid' => $call_sid]);
+            return json_encode(['call_sid' => $call_sid]);
 
         }catch(\QueryException $e){
             DB::rollback();

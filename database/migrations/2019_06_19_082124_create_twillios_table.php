@@ -18,8 +18,8 @@ class CreateTwilliosTable extends Migration
             $table->string('agent_name');
             $table->unsignedInteger('agent_id');
             $table->unsignedInteger('lead_id');
-            $table->string('call_sid');
-            $table->string('call_status');
+            $table->string('call_sid')->nullable();
+            $table->string('call_status')->nullable();
             $table->tinyInteger('answered')->nullable()->default(0);
             $table->tinyInteger('sale')->nullable()->default(0);
             $table->timestamps();
