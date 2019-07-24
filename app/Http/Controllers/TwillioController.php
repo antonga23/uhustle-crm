@@ -135,16 +135,19 @@ class TwillioController extends Controller
 
         if (isset($to_number) && strlen($to_number) > 0) {
             error_log('Number in');
-            $dial = $response->dial(array('callerId' => $twilio_number));
+            $dial = $response->dial(array('callerId' => $twilio_number, 'record' =>true));
 
-            if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
-                $dial->number($to_number);
-                $dial->record();
-            } else {
-                error_log('Client dialed');
-                $dial->client($to_number);
-                $dial->record();
-            }
+            $dial->client($to_number);
+            $dial->record(true);
+
+            // if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
+            //     $dial->number($to_number);
+            //     $dial->record(true);
+            // } else {
+            //     error_log('Client dialed');
+            //     $dial->client($to_number);
+            //     $dial->record(true);
+            // }
         }else{
             $response->say("Thanks for calling!");
             error_log('Thanks for calling dialed');
@@ -158,9 +161,10 @@ class TwillioController extends Controller
 
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
-        $call_status = $request->status;
-        $call_sid = $request->sid;
+        $call_status = $request->CallStatus;
+        $call_sid = $request->CallSid;
 
+        $response = new Twiml;
         $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
         try{
@@ -185,14 +189,18 @@ class TwillioController extends Controller
 
             DB::commit();
 
-            header('Content-Type: application/json');
-            return json_encode(['status' => $call_status, 'call_sid' => $call_sid]);
+            $response->say("Call Status updated!");
+
+            header('Content-Type: text/xml');
+            return $response;
 
         }catch(\QueryException $e){
             DB::rollback();
 
-            header('Content-Type: application/json');
-            return json_encode(['status' => $call_status, 'call_sid' => $call_sid]);
+            $response->say("Failed to update!");
+            
+            header('Content-Type: text/xml');
+            return $response;
         } 
 
 
