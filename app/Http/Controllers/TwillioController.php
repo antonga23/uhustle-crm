@@ -139,11 +139,12 @@ class TwillioController extends Controller
 
             if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
                 $dial->number($to_number);
-                $dial->record();
+                $dial->record(true);
                 error_log('Number dialed');
             } else {
                 error_log('Client dialed');
                 $dial->client($to_number);
+                $dial->record(true);
             }
         }else{
             $response->say("Thanks for calling!");
