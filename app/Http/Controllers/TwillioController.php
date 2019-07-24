@@ -191,7 +191,7 @@ class TwillioController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $status = $request->status;
-        $call_sid = $request->call_sid;
+        $call_sid = $request->sid;
 
         return ['status' => $status, 'call_sid' => $call_sid];
 
