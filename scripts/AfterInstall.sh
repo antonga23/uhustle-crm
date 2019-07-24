@@ -11,5 +11,5 @@ cd /var/www/html
 sudo composer update --no-ansi --no-dev --no-suggest --no-interaction --no-progress --prefer-dist --no-scripts -d /var/www/html
 # #
 # # Run artisan commands
-php /var/www/html/artisan migrate:refresh --seed
+php /var/www/html/artisan migrate
 

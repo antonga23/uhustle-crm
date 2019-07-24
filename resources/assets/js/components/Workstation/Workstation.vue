@@ -762,6 +762,7 @@ a.down-scroll:hover{
             Fire.$on('CallStarted', function(){
                 vm.general = true;
                 vm.calling = false;
+                vm.startCall();
             });
 
             this.Toast = this.$swal.mixin({
@@ -836,9 +837,43 @@ a.down-scroll:hover{
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
                         
                         setTimeout( function(){
-                            vm.$Progress.finish();
-                            vm.startCall();
-                        }, 2000 );
+                            console.log('Requesting Capability Token...');
+                            axios.get('/calls/token').then(function (response) {
+                                
+                                console.log('Got a token.');
+                                console.log('Token: ' + response.data.token);
+            
+                                // Setup Twilio.Device
+                                Device.setup(response.data.token);
+            
+                                Device.on('ready',function (device) {
+                                    console.log('Twilio.Device Ready!');
+                                    vm.call_status = 'Device Ready';
+                                });
+
+                                Device.on('error',function (error) {
+                                    console.log('Twilio.Device Error: ' + error.message);
+                                    vm.call_status = 'Device Error: ' + error.message;
+                                });
+
+                                Device.on('connect',function (conn) {
+                                    console.log('Successfully established call!');
+                                    console.log(conn.parameters);
+                                    vm.call_status = 'Successfully established call!';
+                                });
+
+                                Device.on('disconnect',function (conn) {
+                                    console.log('Call Disconnected.');
+                                    vm.call_status = 'Call Disconnected.';
+                                });
+
+                                vm.$Progress.finish();
+                                Fire.$emit('CallStarted');
+                            }).catch(function (error) {                    
+                                console.log('Could not get a token from server!');
+                                console.log(error);
+                            });
+                        }, 1000 );
 
                     }else{
                         vm.$Progress.fail();
@@ -852,100 +887,21 @@ a.down-scroll:hover{
                 this.calling = true;
                 this.idle = false;
 
-                axios.get('/calls/token').then(function (response) {
-                    
-                    console.log('Got a token.');
-                    console.log('Token: ' + response.data.token);
-  
-                    // Setup Twilio.Device
-                    Device.setup(response.data.token);
-  
-                    Device.on('ready',function (device) {
-                        console.log('Twilio.Device Ready!');
-                        vm.call_status = 'Device Ready';
-                    });
+                var form_data = {
+                    lead_id : vm.lead_info.id,
+                    phone_number : vm.lead_info.phone_number,
+                }
+            
+                console.log('Calling ' + form_data.phone_number + '...');
+                Device.connect(form_data);
 
-                    Device.on('error',function (error) {
-                        console.log('Twilio.Device Error: ' + error.message);
-                        vm.call_status = 'Device Error: ' + error.message;
-                    });
-
-                    var form_data = {
-                        lead_id : vm.lead_info.id,
-                        phone_number : vm.lead_info.phone_number,
-                    }
-                
-                    console.log('Calling ' + form_data.phone_number + '...');
-                    Device.connect(form_data);
-
-                    Device.on('connect',function (conn) {
-                        console.log('Successfully established call!');
-                        console.log(conn.parameters);
-                        vm.call_status = 'Successfully established call!';
-                    });
-
-                      
-                    Device.on('disconnect', function (conn) {
-                        console.log('Call ended.');
-                        vm.call_status = 'Call ended.';
-                    });
-
-                      
-                    Device.on('incoming',function (conn) {
-                        console.log('Incoming connection from ' + conn.parameters.From);
-                        var archEnemyPhoneNumber = '+12099517118';
-
-                        if (conn.parameters.From === archEnemyPhoneNumber) {
-                            conn.reject();
-                            console.log('It\'s your nemesis. Rejected call.');
-                        } else {
-                            // accept the incoming connection and start two-way audio
-                            conn.accept();
-                        }
-                    });
-  
-                    
-                    // if(response.data.status == 'queued'){
-                    //     vm.call_sid = response.data.call_sid;
-
-                    //     vm.handle = setInterval(function(){
-                            
-                    //         var form_data = {
-                    //                 call_sid : vm.call_sid,
-                    //             }
-
-                    //         axios.post('/calls/get-call-status', form_data).then(function (response) {
-                                
-                    //             if(response.data.call_status == 'queued' || response.data.call_status == 'ringing'){
-                    //                 vm.call_status = response.data.call_status;
-                    //             }else if(response.data.call_status == 'in-progress'){
-                    //                 vm.call_status = response.data.call_status;
-                    //                 Fire.$emit('CallStarted');
-                    //             }else if(response.data.call_status == 'completed'){
-                    //                 vm.call_status = response.data.call_status;
-                    //                 vm.endCall();
-                    //                 clearInterval(vm.handle);
-                    //             }
-                    //         });
-
-                    //     }, 1000);
-
-                    // }else{
-                    //     vm.$Progress.fail();
-                    //     vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    // }
-
-                }).catch(function (error) {                    
-                    console.log('Could not get a token from server!');
-                    console.log(error);
-                });
             },
             endCall() {
                 var vm = this;
 
-                Twilio.Device.disconnectAll(function (conn) {
+                Device.disconnectAll(function (conn) {
+                    vm.call_status = 'Call ended!';
                     console.log(conn.parameters);
-                    var archEnemyPhoneNumber = '+12099517118';
                 });
 
                 vm.call_active = true;
