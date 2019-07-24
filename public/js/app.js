@@ -7727,7 +7727,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
                 vm.call_status = 'Call Disconnected';
                 axios.post('/calls/create-call-record', {
                   'call_sid': conn.parameters.CallSid
-                }).then(function (response) {})["catch"](function (error) {
+                }).then(function (response) {
+                  console.log('create-call-record : ' + response.data.success);
+                })["catch"](function (error) {
                   console.log('Could not create-call-record!');
                   console.log(error);
                 });
@@ -7767,7 +7769,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         console.log(conn.parameters);
         axios.post('/calls/create-call-record', {
           'call_sid': conn.parameters.CallSid
-        }).then(function (response) {})["catch"](function (error) {
+        }).then(function (response) {
+          console.log('create-call-record : ' + response.data.success);
+        })["catch"](function (error) {
           console.log('Could not create-call-record!');
           console.log(error);
         });

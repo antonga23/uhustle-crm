@@ -152,8 +152,16 @@ class TwillioController extends Controller
 
         header('Content-Type: text/xml');
         return $response;
+    }
 
-        $call_exist = Twillio::where(['call_sid' => $call->sid])->first();
+    public function statusUpdate(Request $request){
+
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        $call_status = $request->status;
+        $call_sid = $request->sid;
+
+        $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
         try{
             DB::beginTransaction();
@@ -169,32 +177,22 @@ class TwillioController extends Controller
                 Twillio::create([
                     'agent_name' => $request_user['name'],
                     'agent_id' => $request_user['user_id'],
-                    'lead_id' => $request->lead_id,
-                    'call_sid' => $call->sid,
-                    'call_status' => $call->status
+                    'call_sid' => $call_sid,
+                    'call_status' => $call_status
                 ]);
 
             }
 
             DB::commit();
 
-            return ['status' => $call->status,'call_sid' => $call->sid, 'to_number' => $to_number];
+            header('Content-Type: application/json');
+            return json_encode(['status' => $status, 'call_sid' => $call_sid]);
 
         }catch(\QueryException $e){
             DB::rollback();
             return array('success' =>false, 'message' => $e->getMessage());
         } 
-    }
 
-    public function statusUpdate(Request $request){
-
-        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
-
-        $status = $request->status;
-        $call_sid = $request->sid;
-
-        header('Content-Type: application/json');
-        return json_encode(['status' => $status, 'call_sid' => $call_sid]);
 
     }
 
@@ -205,6 +203,38 @@ class TwillioController extends Controller
         $lead_id = $request->lead_id;
         $call_sid = $request->call_sid;
 
+        $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
+
+        try{
+            DB::beginTransaction();
+
+            if($call_exist){
+
+                Twillio::where(['call_sid' => $call_sid])->update([ 
+                    'lead_id' => $request->lead_id,
+                ]);
+
+            }else{
+
+                Twillio::create([
+                    'agent_name' => $request_user['name'],
+                    'agent_id' => $request_user['user_id'],
+                    'lead_id' => $lead_id,
+                    'call_sid' => $call_sid
+                ]);
+
+            }
+
+            DB::commit();
+
+
+            header('Content-Type: application/json');
+            return json_encode(['status' => $status, 'call_sid' => $call_sid]);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        } 
     }
 
     public function getCallHistoryByAgentID(Request $request,$id = null, $month = null){

@@ -880,7 +880,7 @@ a.down-scroll:hover{
                                     console.log(conn.parameters);
                                     vm.call_status = 'Call Disconnected';
                                     axios.post('/calls/create-call-record', {'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                        
+                                        console.log('create-call-record : ' + response.data.success);
                                     }).catch(function (error) {                    
                                         console.log('Could not create-call-record!');
                                         console.log(error);
@@ -929,7 +929,7 @@ a.down-scroll:hover{
                     console.log(conn.parameters);
 
                     axios.post('/calls/create-call-record', {'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                        
+                         console.log('create-call-record : ' + response.data.success);
                     }).catch(function (error) {                    
                         console.log('Could not create-call-record!');
                         console.log(error);
