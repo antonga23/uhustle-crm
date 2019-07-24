@@ -7597,6 +7597,11 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     console.log('Component mounted');
     var vm = this;
     this.enqueueLead('');
+    Fire.$on('CallStarted', function () {
+      vm.general = true;
+      vm.calling = false;
+      vm.startCall();
+    });
     Fire.$on('CallEnded', function () {
       vm.endCall();
     });
@@ -7614,10 +7619,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.calling = false;
       vm.idle = false;
     });
-    Fire.$on('CallStarted', function () {
-      vm.general = true;
-      vm.calling = false;
-      vm.startCall();
+    Fire.$on('ShowDialer', function () {
+      console.log('ShowDialer');
+      vm.calling = true;
+      vm.general = false;
+      vm.scripts = false;
+      vm.idle = false;
     });
     this.Toast = this.$swal.mixin({
       toast: true,
