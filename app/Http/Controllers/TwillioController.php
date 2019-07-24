@@ -191,7 +191,9 @@ class TwillioController extends Controller
 
         }catch(\QueryException $e){
             DB::rollback();
-            return array('success' =>false, 'message' => $e->getMessage());
+
+            header('Content-Type: application/json');
+            return json_encode(['status' => $call_status, 'call_sid' => $call_sid]);
         } 
 
 
