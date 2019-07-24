@@ -7726,6 +7726,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
                 console.log(conn.parameters);
                 vm.call_status = 'Call Disconnected';
                 axios.post('/calls/create-call-record', {
+                  'lead_id': vm.lead_info.id,
                   'call_sid': conn.parameters.CallSid
                 }).then(function (response) {
                   console.log('create-call-record : ' + response.data.success);
@@ -7768,6 +7769,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         vm.call_status = 'Call ended!';
         console.log(conn.parameters);
         axios.post('/calls/create-call-record', {
+          'lead_id': vm.lead_info.id,
           'call_sid': conn.parameters.CallSid
         }).then(function (response) {
           console.log('create-call-record : ' + response.data.success);

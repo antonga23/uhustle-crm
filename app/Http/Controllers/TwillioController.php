@@ -211,7 +211,7 @@ class TwillioController extends Controller
             if($call_exist){
 
                 Twillio::where(['call_sid' => $call_sid])->update([ 
-                    'lead_id' => $request->lead_id,
+                    'lead_id' => $lead_id,
                 ]);
 
             }else{
