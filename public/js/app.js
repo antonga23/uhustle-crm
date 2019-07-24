@@ -5532,6 +5532,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -159883,6 +159886,32 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
+              _vm.active == "workstation"
+                ? _c(
+                    "li",
+                    { staticClass: "nav-item d-none d-sm-inline-block" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          class: {
+                            "nav-link top-link": true,
+                            active: _vm.dialer_active
+                          },
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showDialer()
+                            }
+                          }
+                        },
+                        [_vm._v("Dialer")]
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _vm.active == "dashboard" ||
               _vm.active == "call-history" ||
               _vm.active == "social-board"
@@ -160032,7 +160061,43 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _c("div", { attrs: { id: "controls" } }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { attrs: { id: "call-controls" } }, [
+                      _c("p", { staticClass: "instructions" }, [
+                        _vm._v("Make a Call:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          id: "phone-number",
+                          type: "text",
+                          value: "+27671112588",
+                          placeholder: "Enter a phone # or client name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          attrs: { id: "button-call" },
+                          on: {
+                            click: function($event) {
+                              return _vm.endCall()
+                            }
+                          }
+                        },
+                        [_vm._v("Call")]
+                      ),
+                      _vm._v(" "),
+                      _c("button", { attrs: { id: "button-hangup" } }, [
+                        _vm._v("Hangup")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { attrs: { id: "log" } })
+                  ])
                 ]
               )
             : _vm._e()
@@ -160054,31 +160119,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "controls" } }, [
-      _c("div", { attrs: { id: "info" } }, [
-        _c("p", { staticClass: "instructions" }, [_vm._v("Twilio Client")]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "client-name" } })
-      ]),
+    return _c("div", { attrs: { id: "info" } }, [
+      _c("p", { staticClass: "instructions" }, [_vm._v("Twilio Client")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "call-controls" } }, [
-        _c("p", { staticClass: "instructions" }, [_vm._v("Make a Call:")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            id: "phone-number",
-            type: "text",
-            value: "+27671112588",
-            placeholder: "Enter a phone # or client name"
-          }
-        }),
-        _vm._v(" "),
-        _c("button", { attrs: { id: "button-call" } }, [_vm._v("Call")]),
-        _vm._v(" "),
-        _c("button", { attrs: { id: "button-hangup" } }, [_vm._v("Hangup")])
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "log" } })
+      _c("div", { attrs: { id: "client-name" } })
     ])
   }
 ]

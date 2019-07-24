@@ -144,6 +144,9 @@
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
 						</li>
+						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
+							<a href="#" @click="showDialer();" :class="{ 'nav-link top-link' : true, 'active' : dialer_active }" class="nav-link">Dialer</a>
+						</li>
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month">
 								<option value="1">January {{ getFullYear() }}</option>
@@ -185,7 +188,7 @@
 						<div id="call-controls">
 						<p class="instructions">Make a Call:</p>
 						<input id="phone-number" type="text" value="+27671112588" placeholder="Enter a phone # or client name" />
-						<button id="button-call">Call</button>
+						<button id="button-call" @click="endCall()">Call</button>
 						<button id="button-hangup">Hangup</button>
 						</div>
 						<div id="log"></div>
