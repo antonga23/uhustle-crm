@@ -879,6 +879,12 @@ a.down-scroll:hover{
                                     console.log('Call Disconnected.');
                                     console.log(conn.parameters);
                                     vm.call_status = 'Call Disconnected';
+                                    axios.post('/calls/create-call-record', {'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                                        
+                                    }).catch(function (error) {                    
+                                        console.log('Could not create-call-record!');
+                                        console.log(error);
+                                    });
                                 });
 
                                 vm.$Progress.finish();
@@ -921,6 +927,13 @@ a.down-scroll:hover{
                 Device.disconnectAll(function (conn) {
                     vm.call_status = 'Call ended!';
                     console.log(conn.parameters);
+
+                    axios.post('/calls/create-call-record', {'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                        
+                    }).catch(function (error) {                    
+                        console.log('Could not create-call-record!');
+                        console.log(error);
+                    });
                 });
 
                 vm.call_active = true;

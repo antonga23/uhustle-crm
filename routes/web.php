@@ -31,12 +31,11 @@ Route::get('/call-history', 'PagesController@callHistory')->name('call-history')
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
 
 Route::group(['prefix' => 'calls'], function () {
-	Route::post('/call', 'TwillioController@makeCall');
-	Route::post('/end', 'TwillioController@endCall');
-	Route::post('/get-call-status', 'TwillioController@getCallStatus');
-	Route::get('/get-call-history/{agent_id}/{month}', 'TwillioController@getCallHistoryByAgentID');
 	Route::get('/token', 'TwillioController@newToken');
 	Route::post('/voice', 'TwillioController@voice');
+	Route::post('/status-update', 'TwillioController@statusUpdate');
+	Route::post('/create-call-record', 'TwillioController@createCallRecord');
+	Route::get('/get-call-history/{agent_id}/{month}', 'TwillioController@getCallHistoryByAgentID');
 });
 
 Route::group(['prefix' => 'clients'], function () {
