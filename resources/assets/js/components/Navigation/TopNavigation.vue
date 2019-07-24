@@ -139,7 +139,7 @@
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
-							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link" v-if="general_show">General</a>
+							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
 						</li>
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
@@ -147,7 +147,7 @@
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showDialer();" :class="{ 'nav-link top-link' : true, 'active' : dialer_active }" class="nav-link">Dialer</a>
 						</li>
-						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
@@ -229,6 +229,7 @@
 				general_active : false,
 				scripts_active : false,
 				general_show : false,
+				dialer_active : false,
 				types: [
 					'date',
 					'text'
@@ -244,6 +245,7 @@
 
 			Fire.$on('CallStarted', function(){
                 vm.general_show = true;
+                vm.general_active = true;
                 console.log('CallStarted Top Nav');
 			});
 
@@ -310,12 +312,20 @@
 			showGeneral(){
 				this.general_active = true;
 				this.scripts_active = false;
+				this.dialer_active = false;
 				Fire.$emit('ShowGeneral');
 			},
 			showScripts(){
 				this.scripts_active = true;
 				this.general_active = false;
+				this.dialer_active = false;
 				Fire.$emit('ShowScripts');
+			},
+			showDialer(){
+				this.dialer_active = true;
+				this.general_active = false;
+				this.scripts_active = false;
+				Fire.$emit('ShowDialer');
 			},
 			getFullYear(){
 				var d = new Date();

@@ -740,9 +740,11 @@ a.down-scroll:hover{
             this.enqueueLead('');
 
 
-            Fire.$on('CallStarted Workstation', function(){
+            Fire.$on('CallStarted', function(){
                 vm.general = true;
                 vm.calling = false;
+                vm.idle = false;
+                vm.scripts = false;
                 vm.startCall();
             });
 
@@ -851,7 +853,7 @@ a.down-scroll:hover{
                                 
                                 console.log('Got a token.');
                                 console.log('Token: ' + response.data.token);
-            
+
                                 // Setup Twilio.Device
                                 Device.setup(response.data.token);
             
@@ -892,9 +894,13 @@ a.down-scroll:hover{
             },
             startCall() {
                 var vm = this;
-                this.call_active = true;
-                this.calling = true;
+                this.call_active = false;
+                this.calling = false;
                 this.idle = false;
+                var audioCtx = new AudioContext();
+                // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx.resume();
+                console.log(audioCtx.state)
 
                 var form_data = {
                     lead_id : vm.lead_info.id,

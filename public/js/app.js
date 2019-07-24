@@ -5560,6 +5560,7 @@ __webpack_require__.r(__webpack_exports__);
       general_active: false,
       scripts_active: false,
       general_show: false,
+      dialer_active: false,
       types: ['date', 'text']
     };
   },
@@ -5571,6 +5572,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     Fire.$on('CallStarted', function () {
       vm.general_show = true;
+      vm.general_active = true;
       console.log('CallStarted Top Nav');
     });
     Fire.$on('CallEnded', function () {
@@ -5633,12 +5635,20 @@ __webpack_require__.r(__webpack_exports__);
     showGeneral: function showGeneral() {
       this.general_active = true;
       this.scripts_active = false;
+      this.dialer_active = false;
       Fire.$emit('ShowGeneral');
     },
     showScripts: function showScripts() {
       this.scripts_active = true;
       this.general_active = false;
+      this.dialer_active = false;
       Fire.$emit('ShowScripts');
+    },
+    showDialer: function showDialer() {
+      this.dialer_active = true;
+      this.general_active = false;
+      this.scripts_active = false;
+      Fire.$emit('ShowDialer');
     },
     getFullYear: function getFullYear() {
       var d = new Date();
@@ -7597,9 +7607,11 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     console.log('Component mounted');
     var vm = this;
     this.enqueueLead('');
-    Fire.$on('CallStarted Workstation', function () {
+    Fire.$on('CallStarted', function () {
       vm.general = true;
       vm.calling = false;
+      vm.idle = false;
+      vm.scripts = false;
       vm.startCall();
     });
     Fire.$on('CallEnded', function () {
@@ -7736,9 +7748,13 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     },
     startCall: function startCall() {
       var vm = this;
-      this.call_active = true;
-      this.calling = true;
+      this.call_active = false;
+      this.calling = false;
       this.idle = false;
+      var audioCtx = new AudioContext(); // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+      audioCtx.resume();
+      console.log(audioCtx.state);
       var form_data = {
         lead_id: vm.lead_info.id,
         phone_number: vm.lead_info.phone_number
@@ -159844,25 +159860,23 @@ var render = function() {
                     "li",
                     { staticClass: "nav-item d-none d-sm-inline-block" },
                     [
-                      _vm.general_show
-                        ? _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              class: {
-                                "nav-link top-link": true,
-                                active: _vm.general_active
-                              },
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.showGeneral()
-                                }
-                              }
-                            },
-                            [_vm._v("General")]
-                          )
-                        : _vm._e()
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          class: {
+                            "nav-link top-link": true,
+                            active: _vm.general_active
+                          },
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showGeneral()
+                            }
+                          }
+                        },
+                        [_vm._v("General")]
+                      )
                     ]
                   )
                 : _vm._e(),
