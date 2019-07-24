@@ -135,19 +135,14 @@ class TwillioController extends Controller
 
         if (isset($to_number) && strlen($to_number) > 0) {
             error_log('Number in');
-            $dial = $response->dial(array('callerId' => $twilio_number, 'record' =>true));
+            $dial = $response->dial(array('callerId' => $twilio_number));
 
-            $dial->client($to_number);
-            $dial->record(true);
-
-            // if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
-            //     $dial->number($to_number);
-            //     $dial->record(true);
-            // } else {
-            //     error_log('Client dialed');
-            //     $dial->client($to_number);
-            //     $dial->record(true);
-            // }
+            if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
+                $dial->number($to_number);
+            } else {
+                error_log('Client dialed');
+                $dial->client($to_number);
+            }
         }else{
             $response->say("Thanks for calling!");
             error_log('Thanks for calling dialed');
