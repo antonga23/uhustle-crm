@@ -193,7 +193,8 @@ class TwillioController extends Controller
         $status = $request->status;
         $call_sid = $request->sid;
 
-        return ['status' => $status, 'call_sid' => $call_sid];
+        header('Content-Type: application/json');
+        return json_encode(['status' => $status, 'call_sid' => $call_sid]);
 
     }
 
