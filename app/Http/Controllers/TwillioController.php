@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Auth;
+use Response;
 use App\Twillio;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
@@ -168,6 +169,9 @@ class TwillioController extends Controller
         $token = $capability->generateToken();
         // return serialized token and the user's randomly generated ID
         
+        Log::info("Token");
+        Log::info($token);
+
         return array( 'identity' => $identity,'token' => $token,);
     }
 
