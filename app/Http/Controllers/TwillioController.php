@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Twillio;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use Twilio\Jwt\ClientToken;
@@ -193,6 +194,8 @@ class TwillioController extends Controller
         
         $response = Response::make($twiml, 200);
         $response->header('Content-Type', 'text/xml');
+        Log::info("Voice");
+        Log::info($response);
         return $response;
     }
 
@@ -231,6 +234,8 @@ class TwillioController extends Controller
 
             $response = Response::make($twiml, 200);
             $response->header('Content-Type', 'text/xml');
+            Log::info("Status Update");
+            Log::info($response);
             return $response;
 
         }catch(\QueryException $e){
@@ -238,6 +243,8 @@ class TwillioController extends Controller
 
             $response = Response::make($twiml, 400);
             $response->header('Content-Type', 'text/xml');
+            Log::info("Status Update");
+            Log::info($response);
             return $response;
         } 
 
