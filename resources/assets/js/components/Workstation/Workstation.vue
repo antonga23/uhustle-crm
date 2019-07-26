@@ -1247,7 +1247,6 @@ a.down-scroll:hover{
                                     }).catch(function (error) {                    
                                         console.log(error);
                                     });
-                                    vm.$refs['final-call-step'].show();
                                 });
 
                                 Device.on('incoming', function (conn) {
@@ -1265,6 +1264,7 @@ a.down-scroll:hover{
 
                                 Device.on('disconnect',function (conn) {
                                     vm.call_status = 'Call Disconnected';
+                                    vm.$refs['final-call-step'].show();
                                 });
 
                                 vm.$Progress.finish();

@@ -8513,7 +8513,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
                 }).then(function (response) {})["catch"](function (error) {
                   console.log(error);
                 });
-                vm.$refs['final-call-step'].show();
               });
               Device.on('incoming', function (conn) {
                 console.log('Incoming connection from ' + conn.parameters.From);
@@ -8529,6 +8528,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               });
               Device.on('disconnect', function (conn) {
                 vm.call_status = 'Call Disconnected';
+                vm.$refs['final-call-step'].show();
               });
               vm.$Progress.finish();
             })["catch"](function (error) {
