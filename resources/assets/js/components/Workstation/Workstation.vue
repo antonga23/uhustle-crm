@@ -1227,7 +1227,7 @@ a.down-scroll:hover{
                         
                         setTimeout( function(){
                             axios.get('/calls/token').then(function (response) {
-
+                                console.log('Token: ' + response.data.token);
                                 // Setup Twilio.Device
                                 Device.setup(response.data.token);
             
@@ -1242,6 +1242,19 @@ a.down-scroll:hover{
 
                                 Device.on('connect',function (conn) {
                                     vm.call_status = 'Successfully established call';
+                                });
+
+                                Device.on('incoming', function (conn) {
+                                    console.log('Incoming connection from ' + conn.parameters.From);
+                                    var archEnemyPhoneNumber = '+12099517118';
+                            
+                                    if (conn.parameters.From === archEnemyPhoneNumber) {
+                                        conn.reject();
+                                        console.log('It\'s your nemesis. Rejected call.');
+                                    } else {
+                                        // accept the incoming connection and start two-way audio
+                                        conn.accept();
+                                    }
                                 });
 
                                 Device.on('disconnect',function (conn) {
