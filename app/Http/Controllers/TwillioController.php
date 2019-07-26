@@ -129,7 +129,7 @@ class TwillioController extends Controller
 
         // Where to make a voice call (your cell phone?)
         $lead_id = $request->lead_id;
-        $to_number = $request->phone_number;
+        $to_number = '+27619932376';
         
         $response = new Twiml;
         $response->record();
