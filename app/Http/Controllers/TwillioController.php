@@ -115,7 +115,7 @@ class TwillioController extends Controller
 
         $capability->allowClientOutgoing($twiml_app_sid);
 
-        $capability->allowClientIncoming($identity);
+        //$capability->allowClientIncoming($identity);
 
         $token = $capability->generateToken();
         // return serialized token and the user's randomly generated ID
