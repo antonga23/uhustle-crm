@@ -8,6 +8,7 @@ use App\Twillio;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use Twilio\Jwt\ClientToken;
+use Twilio\TwiML\VoiceResponse;
 use Twilio\Twiml;
 
 class TwillioController extends Controller
@@ -142,13 +143,14 @@ class TwillioController extends Controller
             if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
                 $dial->number($to_number);
             } else {
-                $dial->client($to_number);
+                $dial->number($to_number);
             }
+
         }else{
             $response->say("Thanks for calling!");
             
         }
-        header('Content-Type: text/xml');
+        
         echo $response;
     }
 
@@ -160,6 +162,7 @@ class TwillioController extends Controller
         $call_sid = $request->CallSid;
 
         $response = new Twiml;
+
         $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
         try{
@@ -186,16 +189,14 @@ class TwillioController extends Controller
 
             $response->say("Call Status updated!");
 
-            header('Content-Type: text/xml');
-            return '<Response/>';
+            echo $response;
 
         }catch(\QueryException $e){
             DB::rollback();
 
             $response->say("Failed to update!");
 
-            header('Content-Type: text/xml');
-            return '<Response/>';
+            echo $response;
         } 
 
 
