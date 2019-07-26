@@ -134,17 +134,12 @@ class TwillioController extends Controller
         $to_number = $request->phone_number;
         
         $response = new Twiml;
-        $response->record();
-
+        
         if (isset($to_number) && strlen($to_number) > 0) {
             
             $dial = $response->dial(array('callerId' => $twilio_number));
 
-            if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
-                $dial->number($to_number);
-            } else {
-                $dial->number($to_number);
-            }
+            $dial->number($to_number);
 
         }else{
             $response->say("Thanks for calling!");
