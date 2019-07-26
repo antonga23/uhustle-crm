@@ -205,8 +205,6 @@ class TwillioController extends Controller
 
     public function statusUpdate(Request $request){
 
-        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
-
         $call_status = $request->CallStatus;
         $call_sid = $request->CallSid;
 
@@ -214,6 +212,11 @@ class TwillioController extends Controller
 
         $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
+        Log::info("call_sid");
+        Log::info($call_sid);
+
+        Log::info("Status");
+        Log::info($call_status);
         try{
             DB::beginTransaction();
 
@@ -226,8 +229,8 @@ class TwillioController extends Controller
             }else{
 
                 Twillio::create([
-                    'agent_name' => $request_user['name'],
-                    'agent_id' => $request_user['user_id'],
+                    'agent_name' => ' ',
+                    'agent_id' => ' ',
                     'call_sid' => $call_sid,
                     'call_status' => $call_status
                 ]);
