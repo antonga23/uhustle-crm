@@ -142,7 +142,6 @@ class TwillioController extends Controller
             if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
                 $dial->number($to_number);
             } else {
-                
                 $dial->client($to_number);
             }
         }else{
@@ -188,15 +187,15 @@ class TwillioController extends Controller
             $response->say("Call Status updated!");
 
             header('Content-Type: text/xml');
-            echo $response;
+            return '<Response/>';
 
         }catch(\QueryException $e){
             DB::rollback();
 
             $response->say("Failed to update!");
-            
+
             header('Content-Type: text/xml');
-            echo $response;
+            return '<Response/>';
         } 
 
 
