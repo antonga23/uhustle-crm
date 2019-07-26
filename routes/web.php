@@ -91,6 +91,7 @@ Route::group(['prefix' => 'products'], function () {
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('/add', 'CommentController@store');
+    Route::post('/update', 'CommentController@update');
     Route::get('/get/{type}/{id}', 'CommentController@getStatsTypeById');
 });
 

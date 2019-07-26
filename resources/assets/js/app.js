@@ -35,6 +35,7 @@ import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
 
 import VCalendar from 'v-calendar';
+
 Vue.use(VCalendar, {
   componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
 });
@@ -55,6 +56,12 @@ Vue.component('chart', Echarts);
 
 import VueCountdown from '@chenfengyuan/vue-countdown';
 Vue.component(VueCountdown.name, VueCountdown);
+
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css';
+Vue.config.productionTip = false;
+Vue.use(Antd);
+window.moment = require('moment');
 
 /**
  * The following block of code may be used to automatically register your

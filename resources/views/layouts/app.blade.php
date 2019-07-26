@@ -17,14 +17,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
       #content-wrapper{
-        style="padding: 0px 40px 0px 30px; 
+        padding: 0 3%;
         min-height: auto !important"
       }
       .content-wrapper, .main-footer, .main-header {
@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <left-nav active="{{ $active }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" id="content-wrapper">
+  <div class="content-wrapper" id="content-wrapper" >
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">

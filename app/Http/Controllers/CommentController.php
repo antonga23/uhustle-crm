@@ -40,6 +40,16 @@ class CommentController extends Controller
 
         $source_type = $request->type == "task" ? 'App\Task' : 'App\Lead'; 
 
+        $exists = Comment::where([
+            'source_type' => 'App\Lead' , 
+            'source_id' => $request->id , 
+            'user_id' => $request_user['user_id'],
+        ])->count();
+
+        if($exists > 0){
+            return array('success' =>false, 'message' => 'Please edit existing comment.');
+        }
+
         try{
             DB::beginTransaction();
             $comment = Comment::create([
@@ -52,6 +62,27 @@ class CommentController extends Controller
             ]);
             DB::commit();
             return array('success' => true, 'message' =>  'Comment has been added');
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+
+    }
+
+    public function update(Request $request)
+    {   
+    	$request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        try{
+            DB::beginTransaction();
+            $comment = Comment::where(['id' => $request->comment_id])->update([
+                'description' => $request->description,
+                'comment_type' => $request->comment_type
+            ]);
+
+            DB::commit();
+            return array('success' => true, 'message' =>  'Comment has been updated');
 
         }catch(\QueryException $e){
             DB::rollback();

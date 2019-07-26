@@ -1,6 +1,6 @@
 <style scoped>
     .row{
-       margin-bottom: 3%; 
+       margin-bottom: 3.5vh; 
     }
     .top-section{
         list-style-type: none;
@@ -14,8 +14,13 @@
     }
     li p.bottom{
         margin-bottom: 0;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 900;
+        color: #003449;
+    }
+    li p.top{
+        font-size: 14px;
+        color: #003449;
     }
     .card{
         border-radius: 27px;
@@ -57,6 +62,9 @@
     .stats .card{
         border-radius: 20px;
     }
+    .stats .col-lg-6{
+        padding: 0;
+    }
 
     .stats .card h5{
         color: #818284;
@@ -83,13 +91,47 @@
     .list-group-item{
         margin: 0;
         padding: 0 1.25rem !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.125);
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+        border-bottom:none;
     }
+  
+    .list-group-item:last-child{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
     .list-group-item p{
         margin: 0;
     }
     .list-group-item p strong{
-        font-size: 25px;
+        font-size: 18px;
         margin-right: 30px;
+        display: block;
+        float: left;
+        width: 12%;
+        margin-top: 11px;
+        color: #003449;    
+        letter-spacing: 2.2px;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .comment-notes{    
+        display: block;
+        float: left;
+        margin-top: 11px;
+        width: 57%;
+        font-size: 14px;
+        color: #7f99a4;
+    }
+    .author{    
+        float: right;
+        margin-top: 11px;
+        font-size: 12px;
+        text-align: left;
+        width: 22%;
+        display: block;
+        color: #7f99a4;
     }
     .choose-comment-type{
         float: left;
@@ -239,12 +281,13 @@
   text-align: center;
 }
 .verticalChart .singleBar .title {
-  margin-top: 5px;
-  text-align: center;
-  color: #003449;
-
-    font-size: 22px;
+    margin-top: 5px;
+    text-align: center;
+    color: #003449;
+    font-size: 18px;
     font-weight: 900;
+    letter-spacing: 2.2px;
+    font-family: 'Montserrat', sans-serif;
 }
 div.scripts-div{
   max-height:880.84px;
@@ -395,6 +438,50 @@ a.down-scroll:hover{
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
+
+.pulse-round {
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+.pulse-round:hover {
+    animation: none;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+.pulse:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+.tab-content{
+    padding: 1rem;
+}
 .final-modal{
     padding: 0 1rem 1rem;
 }
@@ -466,12 +553,40 @@ a.down-scroll:hover{
     padding: 16px;
     font-size: 16px;
 }
+.tab-pane{
+     height: 348px;
+}
+.nav-tabs .nav-link span{
+    font-size: 14px;
+    padding-left: 10px;
+}
+#two .row{
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+#two label{
+    color: rgb(129, 130, 132);
+    font-size: 13px;
+    padding: 0;
+    font-weight: 200;
+}
+.vc-reset, .vc-reset * {
+    border-style: none !important;
+    border-color: transparent !important;
+}
+.vc-h-full .vc-rounded-full {
+    border-radius: 5px !important;
+}
+.ant-time-picker{
+    width: 100% !important;
+}
 </style>
 <template>
     <div class="">
 
         <div class="scripts" v-if="scripts == true">
-            <div :class="{ 'row' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
+            <div :class="{ 'row' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%">
 
                 <div class="col-lg-12">
                     <p class="heading">Calls</p>
@@ -525,7 +640,7 @@ a.down-scroll:hover{
         </div>  
 
         <div class="" v-if="general == true">
-            <div class="row" style="margin-top:1%;">
+            <div class="row" style="margin-top:5%;">
                 <ul class="top-section">
                     <li>
                         <p class="top">Lead Source</p>
@@ -546,7 +661,7 @@ a.down-scroll:hover{
                 </ul>
             </div>
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-4">
+              <div class="col-lg-3 col-md-4 col-sm-4" style="padding-right: 35px;">
                 <div class="card client">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -562,7 +677,7 @@ a.down-scroll:hover{
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
                 <div class="card product">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -580,7 +695,7 @@ a.down-scroll:hover{
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
                 <div class="card time">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -596,7 +711,7 @@ a.down-scroll:hover{
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3" >
+              <div class="col-lg-3"  style="padding-left: 35px;">
                 <div class="card activity">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -612,72 +727,153 @@ a.down-scroll:hover{
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row stats">
-                <div class="col-lg-6" >
-                    <div class="card left" style="">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
-                                <span class="left">Agent Notes</span>
-                                <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                            </h5>
+            </div>                    
+            <div class="row stats final-modal">
+                <div class="col-lg-6" style="padding-right: 3%;">
+                    <div class="card left mt-3 tab-card">
+                        <div class="card-header tab-card-header">
+                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                <li class="nav-item left">
+                                    <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">
+                                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                        <span class="left">Agent Notes</span>
+                                        <span class="right">{{ comments.total_comments }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item right">
+                                    <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">
+                                        <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/>
+                                        <span class="left">Schedule Callback</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div class="notes-roll">
-                                <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
-                                    <li v-for="comment in comments.comments" class="list-group-item">
-                                        <p>
-                                            <strong>{{ comment.comment_type }}</strong> 
-                                            {{ comment.description }} 
-                                            <span style="float:right;margin-top: 11px;">
-                                                {{ getDaysAgo(comment.created_at) }} <br/>
-                                                <small>Yongama Sobambela</small>
-                                            </span>
-                                        </p>
-                                    </li>
-                                </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                <div class="notes-roll">
+                                    <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                        <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
+                                            <p>
+                                                <strong>{{ comment.comment_type }}</strong> 
+                                                <span class="comment-notes">
+                                                    {{ comment.description }} 
+                                                    <a href="#" role="button" @click="editComment(comment)" :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'">
+                                                        <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>
+                                                    </a>
+                                                </span>
+                                                <span class="author">
+                                                    {{ getDaysAgo(comment.created_at) }} <br/>
+                                                    <small>{{ comment.user_name }}</small>
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="notes-capture">
+                                    <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type': true, 'pulse' : choose_comment_type }">
+                                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
+                                    </b-button>
+                                    <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
+
+                                    <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                        Send
+                                    </button>
+                                </div>            
                             </div>
+                            <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab" style="padding-top: 0 !important;"> 
+                                <div class="row" style="margin-bottom: 0;">
+                                    <div class="col-lg-4" style="padding-right: 0;">
+                                        <div class="row">
+                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                <label class="col-lg-12 control-label">Date of Callback
+                                                    <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                <label class="col-lg-12 control-label">Time of Callback
+                                                    <a-time-picker v-model='selected_time' :allowEmpty="false" format="hh:mm a"/>
+                                                </label>
+                                            </div>  
+                                        </div>                                       
+                                        <div class="row">
+                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
+                                    </div>
+                                </div>
+                                <div class="row"  style="margin-bottom: 0;">
+                                    <div class="col-lg-12" style="padding-right: 0;">
+                                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 77.5%;" />
 
-                            <div class="notes-capture">
-                                <b-button v-b-modal.modal-1 class="choose-comment-type">
-                                    <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
-                                </b-button>
-                                <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" />
-
-                                <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
-                                    Send
-                                </button>
+                                        <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()">
+                                            Schedule
+                                        </button>
+                                    </div>  
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" >
-                    <div class="card right" style="height: 405px;">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
-                                <span class="left">Feedback Summary</span>
-                                <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                            </h5>
 
-                            <div class="">
-                                <div class="verticalChart">
+                <div class="col-lg-6" style="padding-left: 3%;">
+                    <div class="card left mt-3 tab-card">
+                        <div class="card-header tab-card-header">
+                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                <li class="nav-item left">
+                                    <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
+                                        <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/>
+                                        <span class="left">Feedback Summary</span>
+                                        <span class="right">{{ comments.total_comments }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item right">
+                                    <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
+                                        <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
+                                        <span class="left">Email Client</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                                  <div class="singleBar" v-for="bar in comments_graph">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;">
+                                
+                                <div class="">
+                                    <div class="verticalChart">
 
-                                    <div class="bar">
+                                        <div class="singleBar" v-for="bar in comments_graph">
 
-                                      <div class="value" :style="'height: ' + bar.percentage + '%;'">
-                                        <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
-                                      </div>
+                                            <div class="bar">
+
+                                            <div class="value" :style="'height: ' + bar.percentage + '%;'">
+                                                <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
+                                            </div>
+
+                                            </div>
+
+                                            <div class="title">{{ bar.type }}</div>
+
+                                        </div>
+                                        <div class="clearfix"></div>
 
                                     </div>
-
-                                    <div class="title">{{ bar.type }}</div>
-
-                                  </div>
-                                    <div class="clearfix"></div>
-
+                                </div>           
+                            </div>
+                            <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+                                <h5 class="card-title">TODO</h5>
+                                <div style="height:245px; width:100%;overflow:hidden; color: #818284;">
+                                    <p class="card-text">
+                                        Email client form
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -756,45 +952,6 @@ a.down-scroll:hover{
                 </div>
             </div>
         </div>
-        <!-- <div class="" v-if="calling == true">
-            <div :class="{ 'row call-progress-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
-                <div class="col-lg-12 top-animation">
-                </div>
-                <div class="col-lg-12 tip call-status" style="padding-top:10px;">
-                    <h1 style="text-align: center;font-size: 19px;">{{ call_status }}...</h1>
-                </div>
-                <div class="col-lg-4 tip tip-a">
-                    <p class="step">Step 1</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-b">
-                    <p class="step">Step 2</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-c">
-                    <p class="step">Step 3</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-d">
-                    <p class="step">Step 4</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-e">
-                    <p class="step">Step 5</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col-lg-4 tip tip-f">
-                    <p class="step">Step 6</p>
-                    <h1>Don't stutter</h1>
-                    <p class="tip-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-        </div> -->
         <div>
             <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
                 <div class="d-block">
@@ -814,249 +971,194 @@ a.down-scroll:hover{
                         <div class="col-lg-6">
                             <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>
                         </div>
+                        <div class="col-lg-6">
+                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="PTP">Promise To Pay</b-form-radio>
+                        </div>
                     </div>
                 </div>
             </b-modal>
         </div>
-            <b-modal
-                id="modal-prevent-closing"
-                size="xl"
-                ref="final-call-step"
-                title="Submit Your Name"
-                @show="preventClosing"
-                @hide="preventClosing()"
-                @hidden="preventClosing"
-                @ok="preventClosing"
-                style="z-index: 999999;padding: 1rem 3rem;"
-                hide-header
-                hide-footer
-                >
-                <div class="final-modal">
-                    <div class="row row-a">
-                        <div class="col-lg-6" style="padding-left: 6%;">
-                            <ul class="navbar-nav left">
-                                <li class="nav-item d-none d-sm-inline-block title">
-                                    <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort">
-                                        <template slot-scope="props" style="font-size: 55px;">{{ props.minutes }}:{{ props.seconds }}</template>
-                                    </countdown>
-                                </li> 
-                            </ul>
+        <b-modal
+            id="modal-prevent-closing"
+            size="xl"
+            ref="final-call-step"
+            title="Submit Your Name"
+            @show="preventClosing"
+            @hide="preventClosing()"
+            @hidden="preventClosing"
+            @ok="preventClosing"
+            style="z-index: 999999;padding: 1rem 3rem;"
+            hide-header
+            hide-footer
+            >
+            <div class="final-modal">
+                <div class="row row-a">
+                    <div class="col-lg-6" style="padding-left: 6%;">
+                        <ul class="navbar-nav left">
+                            <li class="nav-item d-none d-sm-inline-block title">
+                                <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort">
+                                    <template slot-scope="props" style="font-size: 55px;">{{ props.minutes }}:{{ props.seconds }}</template>
+                                </countdown>
+                            </li> 
+                        </ul>
+                    </div>
+                    <div class="col-lg-6" style="padding-right: 0;padding-top:2%;">
+                        <div style="width: 100%;" >
+                            <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;">
+                                <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;" disabled>
+                                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
+                                </button>
+                                <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;">
+                                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
+                                </button>
+                            </label>
+                            <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
+                                <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active' : true }" style="width: 100%; margin: 0px;">
+                                    <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete
+                                </button>
+                            </label>
+                            <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
+                                <img src="/images/icons/Asset 56.svg" alt="Icon" class="icon" style="width: 60px;margin-top: -13px;"/>
+                            </label>
+                        </div>				
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card client">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
+                                Client
+                            </h5>
+
+                            <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
+                            {{ this.lead_info.name + ' ' + lead_info.surname }}
+                            </p>
+
+                            <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
                         </div>
-                        <div class="col-lg-6" style="padding-right: 0;padding-top:2%;">
-                            <div style="width: 100%;" >
-                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;">
-                                    <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;" disabled>
-                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
-                                    </button>
-                                    <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;">
-                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
-                                    </button>
-                                </label>
-                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
-                                    <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active' : true }" style="width: 100%; margin: 0px;">
-                                        <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete
-                                    </button>
-                                </label>
-                                <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
-                                    <img src="/images/icons/Asset 56.svg" alt="Icon" class="icon" style="width: 60px;margin-top: -13px;"/>
-                                </label>
-                            </div>				
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="card client">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
-                                    Client
-                                </h5>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card product">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
+                                Product
+                            </h5>
 
-                                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                                {{ this.lead_info.name + ' ' + lead_info.surname }}
-                                </p>
+                            <p class="card-text" :title="product.description + '. ' + product.price ">
+                            {{ product.name }}
+                            </p>
 
-                                <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
-                            </div>
-                            </div>
+                            <p class="card-link truncate" :title="product.description + '. ' + product.price ">
+                                {{ product.description }}
+                            </p> 
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="card product">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
-                                    Product
-                                </h5>
-
-                                <p class="card-text" :title="product.description + '. ' + product.price ">
-                                {{ product.name }}
-                                </p>
-
-                                <p class="card-link truncate" :title="product.description + '. ' + product.price ">
-                                    {{ product.description }}
-                                </p> 
-                            </div>
-                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="card time">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
-                                    Time
-                                </h5>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card time">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
+                                Time
+                            </h5>
 
-                                <p class="card-text">
-                                11:20 AM
-                                </p>
+                            <p class="card-text">
+                            11:20 AM
+                            </p>
 
-                                <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                            <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row stats">
+                    <div class="col-lg-6">
+                        <div class="card left mt-3 tab-card">
+                            <div class="card-header tab-card-header">
+                                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item left">
+                                        <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">
+                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                            <span class="left">Agent Notes</span>
+                                            <span class="right">{{ comments.total_comments }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item right">
+                                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">
+                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                            <span class="left">Schedule Callback</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                    <div class="notes-roll">
+                                        <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                            <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
+                                                <p>
+                                                    <strong>{{ comment.comment_type }}</strong> 
+                                                    {{ comment.description }} 
+                                                    <span style="float:right;margin-top: 11px;">
+                                                        {{ getDaysAgo(comment.created_at) }} <br/>
+                                                        <small>{{ comment.user_name }}</small>
+                                                    </span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="notes-capture">
+                                        <b-button v-b-modal.modal-1  :class="{ 'choose-comment-type': true, 'pulse' : choose_comment_type }">
+                                            <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
+                                        </b-button>
+                                        <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
+
+                                        <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                            Send
+                                        </button>
+                                    </div>            
+                                </div>
+                                <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                                    <h5 class="card-title">TODO</h5>
+                                    <div style="height:245px; width:100%;overflow:hidden;">
+                                        <p class="card-text">
+                                            Schedule callback form
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row stats">
-                        <div class="col-6">
-                            <div class="card left mt-3 tab-card">
-                                <div class="card-header tab-card-header">
-                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item left">
-                                            <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">
-                                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
-                                                <span class="left">Agent Notes</span>
-                                                <span class="right">{{ comments.total_comments }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item right">
-                                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">
-                                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
-                                                <span class="left">Schedule Callback</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
 
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
-                                        <div class="notes-roll">
-                                            <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
-                                                <li v-for="comment in comments.comments" class="list-group-item">
-                                                    <p>
-                                                        <strong>{{ comment.comment_type }}</strong> 
-                                                        {{ comment.description }} 
-                                                        <span style="float:right;margin-top: 11px;">
-                                                            {{ getDaysAgo(comment.created_at) }} <br/>
-                                                            <small>Yongama Sobambela</small>
-                                                        </span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="notes-capture">
-                                            <b-button v-b-modal.modal-1 class="choose-comment-type">
-                                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
-                                            </b-button>
-                                            <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
-
-                                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
-                                                Send
-                                            </button>
-                                        </div>            
-                                    </div>
-                                    <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-                                        <h5 class="card-title">TODO</h5>
-                                        <div style="height:245px; width:100%;overflow:hidden;">
-                                            <p class="card-text">
-                                                Schedule callback form
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-lg-6">
+                        <div class="card left mt-3 tab-card">
+                            <div class="card-header tab-card-header">
+                                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item left">
+                                        <a class="nav-link" id="one-tab" data-toggle="tab" href="#three" role="tab" aria-controls="One" aria-selected="true">
+                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                            <span class="left">Feedback Summary</span>
+                                            <span class="right">{{ comments.total_comments }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item right">
+                                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Two" aria-selected="false">
+                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                            <span class="left">Email Client</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                        
 
-
-                        <div class="col-6">
-                            <div class="card left mt-3 tab-card">
-                                <div class="card-header tab-card-header">
-                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item left">
-                                            <a class="nav-link" id="one-tab" data-toggle="tab" href="#three" role="tab" aria-controls="One" aria-selected="true">
-                                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
-                                                <span class="left">Feedback Summary</span>
-                                                <span class="right">{{ comments.total_comments }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item right">
-                                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Two" aria-selected="false">
-                                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
-                                                <span class="left">Email Client</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
-                                        
-                                        <div class="">
-                                            <div class="verticalChart">
-
-                                                <div class="singleBar" v-for="bar in comments_graph">
-
-                                                    <div class="bar">
-
-                                                    <div class="value" :style="'height: ' + bar.percentage + '%;'">
-                                                        <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
-                                                    </div>
-
-                                                    </div>
-
-                                                    <div class="title">{{ bar.type }}</div>
-
-                                                </div>
-                                                <div class="clearfix"></div>
-
-                                            </div>
-                                        </div>           
-                                    </div>
-                                    <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-                                        <h5 class="card-title">TODO</h5>
-                                        <div style="height:245px; width:100%;overflow:hidden; color: #818284;">
-                                            <p class="card-text">
-                                                Email client form
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <!-- <div class="col-lg-6" >
-                            <div class="card left" style="">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" />
-                                        <span class="left">Agent Notes</span>
-                                        <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                                    </h5>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6" >
-                            <div class="card right" style="height: 405px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <img src="/images/workstation/Feedback_Icon@4x.png" alt="Icon" class="icon" />
-                                        <span class="left">Feedback Summary</span>
-                                        <span class="right">{{ comments.total_comments }} Comment(s)</span>
-                                    </h5>
-
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+                                    
                                     <div class="">
                                         <div class="verticalChart">
 
@@ -1076,20 +1178,30 @@ a.down-scroll:hover{
                                             <div class="clearfix"></div>
 
                                         </div>
+                                    </div>           
+                                </div>
+                                <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+                                    <h5 class="card-title">TODO</h5>
+                                    <div style="height:245px; width:100%;overflow:hidden; color: #818284;">
+                                        <p class="card-text">
+                                            Email client form
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-
+                        </div>
                     </div>
                 </div>
-            </b-modal>
+            </div>
+        </b-modal>
         
          <input type="hidden"  @click="startCall()" ref="callBtn" />
     </div>
 </template>
 
 <script>
+    import { setupCalendar, Calendar} from 'v-calendar'
+    import { DatePicker,TimePicker  } from 'ant-design-vue';
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
     import NotesStats from './NotesStats.vue';
@@ -1106,7 +1218,9 @@ a.down-scroll:hover{
 
             var vm = this;
 
-            this.enqueueLead('');
+            this.enqueueLead(33);
+
+            this.prepDates();
 
             Fire.$on('CallStarted', function(){
                 vm.general = false;
@@ -1146,7 +1260,7 @@ a.down-scroll:hover{
         },
         created: function () {
         },
-        props: [],
+        props: ['user_name','user_id'],
         data: function(){
             return {
                 lead : {},
@@ -1163,18 +1277,69 @@ a.down-scroll:hover{
                 show_edication_blocks: false,
                 idle: true,
                 added_time: false,
+                choose_comment_type: false,
+                edit_comment: false,
                 call_status: '',
                 call_sid: '',
                 handle: '',
                 set_time: 2  * 60 * 1000,
                 comment:{
+                    id: '',
                     comment_description :'',
                     comment_type :''
                 },
+                call_back:{
+                    id: '',
+                    note :'',
+                    date :'',
+                    time :'',
+                    user_id: this.user_id,
+                    lead_id: '',
+                },
+                date_span: '',
+                max_date: '',
+                selected_date: moment(),
+                selected_time:  moment(),
+                dates: [],
                 Toast: null
             }
         },
         methods: {
+            checkCBDate(){
+                var now = moment(new Date()); //todays date
+                
+                var end = this.selected_date; // another date
+
+                var duration = moment.duration(end.diff(now));
+
+                var days = Math.round( duration.asDays() );
+
+                if(days < 1 || days >= this.date_span){
+                    this.$swal('Oops', 'Please select a date between the highlighted range.','warning');
+                }else{
+                    return true;
+                }
+            },
+            addCallback(){
+                
+                if(!this.checkCBDate() || this.call_back.note == ''){
+                    this.$swal('Oops', 'Please make sure to fill in the Date, Time and Note of the Callback properly.','warning');
+                }else{
+                    this.call_back.date = this.selected_date.format('YYYY-MM-DD');
+                    this.call_back.time = this.selected_time.format('hh:mm');
+                    this.call_back.user_id = this.user_id;
+                    this.call_back.lead_id = this.lead_info.id;
+                }
+                console.log(this.call_back);
+            },
+            prepDates(){
+                this.date_span = 7;
+                this.dates = [
+                    { start: new Date(), span: this.date_span}
+                ];
+                var date = new Date();
+                this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
+            },
             preventClosing(){
                 this.$refs['final-call-step'].show();
             },
@@ -1233,7 +1398,7 @@ a.down-scroll:hover{
             
                                 Device.on('ready',function (device) {
                                     vm.call_status = 'Device Ready';
-                                    vm.$refs.callBtn.click();
+                                    // vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
@@ -1293,7 +1458,7 @@ a.down-scroll:hover{
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
-                    phone_number : '+27715078484',
+                    phone_number : '+27676607233',
                 }
                 console.log('Calling: ' + form_data.phone_number);
                 Device.connect(form_data);
@@ -1332,30 +1497,48 @@ a.down-scroll:hover{
                 var vm = this;
 
                 if(vm.comment.comment_type == ''){
-                    vm.$swal('Please note','Please choose your comment type to process','warning');
+                    vm.$swal('Please note','Please choose your comment type to proceed','warning');
+                    vm.choose_comment_type = true;
                     return false;
                 }
 
                 var form_data = {
                         id : this.lead_info.id,
                         type: 'lead',
+                        comment_id: this.comment.id,
                         comment_type: this.comment.comment_type,
                         description: this.comment.comment_description
                     }
 
+                if(vm.edit_comment == true){
+                    var endpoint = '/comments/update';
+                }else{
+                    var endpoint = '/comments/add';
+                }
+
                 vm.$Progress.start();
 
-                axios.post('/comments/add', form_data).then(function (response) {
+                axios.post(endpoint, form_data).then(function (response) {
                     
                     if(response.data.success == true){
                         vm.enqueueLead(vm.lead_info.id);
-                        vm.$swal('Success', response.data.message,'success');
+                        vm.Toast.fire({ type: 'success', title: response.data.message });
+                        vm.edit_comment = false;
                         vm.$Progress.finish();
                     }else{
                         vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                        if(response.data.message == 'Please edit existing comment.'){
+                            vm.edit_comment = true;
+                        }
+                        vm.$swal('Failed', response.data.message,'warning');
                     }
                 });
+            },
+            editComment(in_comment){
+                this.edit_comment = true;
+                this.comment.id = in_comment.id;
+                this.comment.comment_description = in_comment.description;
+                this.comment.comment_type = in_comment.comment_type;
             },
             getComments(){
                 var vm = this;

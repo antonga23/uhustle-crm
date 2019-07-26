@@ -90,7 +90,7 @@
 
 	.border-bottom {
 	    border-bottom: none !important;
-        padding: 23px 40px 0;
+        padding: 23px 68px 0;
 	}
 	.modal-content{
 		background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
@@ -255,7 +255,7 @@
 				this.call_back_time = '';
 				this.call_back_notes = '';
 			},
-			handleOk(bvModalEvt){
+			handdleOk(bvModalEvt){
 				// Prevent modal from closing
 				bvModalEvt.preventDefault();
 				// Trigger submit handler

@@ -195,6 +195,7 @@ class TwillioController extends Controller
             $twiml->say("Thanks for calling!");
             
         }
+        $twiml->record();
         
         $response = Response::make($twiml, 200);
         $response->header('Content-Type', 'text/xml');
