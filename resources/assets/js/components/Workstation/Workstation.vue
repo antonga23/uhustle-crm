@@ -1242,6 +1242,12 @@ a.down-scroll:hover{
 
                                 Device.on('connect',function (conn) {
                                     vm.call_status = 'Successfully established call';
+                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                                        
+                                    }).catch(function (error) {                    
+                                        console.log(error);
+                                    });
+                                    vm.$refs['final-call-step'].show();
                                 });
 
                                 Device.on('incoming', function (conn) {
@@ -1259,12 +1265,6 @@ a.down-scroll:hover{
 
                                 Device.on('disconnect',function (conn) {
                                     vm.call_status = 'Call Disconnected';
-                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                        
-                                    }).catch(function (error) {                    
-                                        console.log(error);
-                                    });
-                                    vm.$refs['final-call-step'].show();
                                 });
 
                                 vm.$Progress.finish();
@@ -1293,7 +1293,7 @@ a.down-scroll:hover{
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
-                    phone_number : '+27676607233',
+                    phone_number : '+27715078484',
                 }
                 console.log('Calling: ' + form_data.phone_number);
                 Device.connect(form_data);

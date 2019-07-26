@@ -8507,6 +8507,13 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               });
               Device.on('connect', function (conn) {
                 vm.call_status = 'Successfully established call';
+                axios.post('/calls/create-call-record', {
+                  'lead_id': vm.lead_info.id,
+                  'call_sid': conn.parameters.CallSid
+                }).then(function (response) {})["catch"](function (error) {
+                  console.log(error);
+                });
+                vm.$refs['final-call-step'].show();
               });
               Device.on('incoming', function (conn) {
                 console.log('Incoming connection from ' + conn.parameters.From);
@@ -8522,13 +8529,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               });
               Device.on('disconnect', function (conn) {
                 vm.call_status = 'Call Disconnected';
-                axios.post('/calls/create-call-record', {
-                  'lead_id': vm.lead_info.id,
-                  'call_sid': conn.parameters.CallSid
-                }).then(function (response) {})["catch"](function (error) {
-                  console.log(error);
-                });
-                vm.$refs['final-call-step'].show();
               });
               vm.$Progress.finish();
             })["catch"](function (error) {
@@ -8551,7 +8551,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       Fire.$emit('InitiateCall');
       var form_data = {
         lead_id: vm.lead_info.id,
-        phone_number: '+27676607233'
+        phone_number: '+27715078484'
       };
       console.log('Calling: ' + form_data.phone_number);
       Device.connect(form_data);
