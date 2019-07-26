@@ -96,7 +96,54 @@ class TwillioController extends Controller
      */
     public function destroy(Twillio $twillio)
     {
-        //
+        $twilio_number = config('twillio.twillio_number');
+        
+        // Your Account SID and Auth Token from twilio.com/console
+        $account_sid = config('twillio.twillio_account_sid');
+        $auth_token = config('twillio.twillio_auth_token');
+        $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
+
+        $twilio = new Client($account_sid, $auth_token);
+        
+        // Call
+        $lead_id = $request->lead_id;
+        // $to_number = '+27619932376';
+        $to_number = $request->phone_number;
+
+        $call = $twilio->calls
+                       ->create(
+                            $to_number, // to
+                            $twilio_number, // from
+                            array("url" => "http://demo.twilio.com/docs/voice.xml")
+                       );
+        
+        print($call->sid);
+    }
+
+    public function call(Request $request){
+        
+        // A Twilio number you own with Voice capabilities
+        $twilio_number = config('twillio.twillio_number');
+
+        // Call
+        $lead_id = $request->lead_id;
+        // $to_number = '+27619932376';
+        $to_number = $request->phone_number;
+        
+        $response = new Twiml;
+        
+        if (isset($to_number) && strlen($to_number) > 0) {
+            
+            $dial = $response->dial(array('callerId' => $twilio_number));
+
+            $dial->number($to_number);
+
+        }else{
+            $response->say("Thanks for calling!");
+            
+        }
+        
+        echo $response;
     }
 
     public function newToken(Request $request)
@@ -133,20 +180,20 @@ class TwillioController extends Controller
         // $to_number = '+27619932376';
         $to_number = $request->phone_number;
         
-        $response = new Twiml;
+        $twiml = new Twiml;
         
         if (isset($to_number) && strlen($to_number) > 0) {
             
-            $dial = $response->dial(array('callerId' => $twilio_number));
-
-            $dial->number($to_number);
+            $twiml->dial($to_number,array('callerId' => $twilio_number));
 
         }else{
-            $response->say("Thanks for calling!");
+            $twiml->say("Thanks for calling!");
             
         }
         
-        echo $response;
+        $response = Response::make($twiml, 200);
+        $response->header('Content-Type', 'text/xml');
+        return $response;
     }
 
     public function statusUpdate(Request $request){
@@ -156,7 +203,7 @@ class TwillioController extends Controller
         $call_status = $request->CallStatus;
         $call_sid = $request->CallSid;
 
-        $response = new Twiml;
+        $twiml = new Twiml;
 
         $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
@@ -182,16 +229,16 @@ class TwillioController extends Controller
 
             DB::commit();
 
-            $response->say("Call Status updated!");
-
-            echo $response;
+            $response = Response::make($twiml, 200);
+            $response->header('Content-Type', 'text/xml');
+            return $response;
 
         }catch(\QueryException $e){
             DB::rollback();
 
-            $response->say("Failed to update!");
-
-            echo $response;
+            $response = Response::make($twiml, 400);
+            $response->header('Content-Type', 'text/xml');
+            return $response;
         } 
 
 
