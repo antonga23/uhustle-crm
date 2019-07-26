@@ -1282,7 +1282,7 @@ a.down-scroll:hover{
                     lead_id : vm.lead_info.id,
                     phone_number : vm.lead_info.phone_number,
                 }
-            
+                console.log('Calling: ' + form_data.phone_number);
                 Device.connect(form_data);
             },
             endCall() {

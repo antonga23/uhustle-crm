@@ -129,26 +129,27 @@ class TwillioController extends Controller
 
         // Where to make a voice call (your cell phone?)
         $lead_id = $request->lead_id;
-        $to_number = '+27676607233';
+        // $to_number = '+27619932376';
+        $to_number = $request->phone_number;
         
         $response = new Twiml;
         $response->record();
 
         if (isset($to_number) && strlen($to_number) > 0) {
-            error_log('Number in');
+            
             $dial = $response->dial(array('callerId' => $twilio_number));
 
             if (preg_match("/^[\d\+\-\(\) ]+$/", $to_number)) {
                 $dial->number($to_number);
             } else {
-                error_log('Client dialed');
+                
                 $dial->client($to_number);
             }
         }else{
             $response->say("Thanks for calling!");
-            error_log('Thanks for calling dialed');
+            
         }
-
+        header('Content-Type: text/xml');
         echo $response;
     }
 
@@ -186,6 +187,7 @@ class TwillioController extends Controller
 
             $response->say("Call Status updated!");
 
+            header('Content-Type: text/xml');
             echo $response;
 
         }catch(\QueryException $e){
@@ -193,6 +195,7 @@ class TwillioController extends Controller
 
             $response->say("Failed to update!");
             
+            header('Content-Type: text/xml');
             echo $response;
         } 
 
