@@ -796,7 +796,7 @@ a.down-scroll:hover{
                                         <div class="row">
                                             <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
                                                 <label class="col-lg-12 control-label">Time of Callback
-                                                    <a-time-picker v-model='selected_time' :allowEmpty="false" format="hh:mm a"/>
+                                                    <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>
                                                 </label>
                                             </div>  
                                         </div>                                       
@@ -1321,16 +1321,36 @@ a.down-scroll:hover{
                 }
             },
             addCallback(){
-                
+                var vm = this;
+
                 if(!this.checkCBDate() || this.call_back.note == ''){
                     this.$swal('Oops', 'Please make sure to fill in the Date, Time and Note of the Callback properly.','warning');
                 }else{
-                    this.call_back.date = this.selected_date.format('YYYY-MM-DD');
-                    this.call_back.time = this.selected_time.format('hh:mm');
-                    this.call_back.user_id = this.user_id;
-                    this.call_back.lead_id = this.lead_info.id;
+                    vm.call_back.date = vm.selected_date.format('YYYY-MM-DD');
+                    vm.call_back.time = vm.selected_time.format('hh:mm');
+                    vm.call_back.user_id = vm.user_id;
+                    vm.call_back.lead_id = vm.lead_info.id;
+
+                    this.$validator.validateAll().then((result) => {
+                        if(!result){
+                        }else{
+                            
+                            axios.post('/leads/setcallback', vm.call_back).then(function (response) {
+                                
+                                if(response.data.success == true){
+                                    Fire.$emit('AfterCallBackSet');
+                                    vm.enqueueLead(response.data.lead.id);
+                                    vm.$swal('Success', 'Callback captured successfully','success');
+                                }else{
+                                    vm.$Progress.fail();
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                                }
+
+                            });
+                        }
+                    });
                 }
-                console.log(this.call_back);
+                
             },
             prepDates(){
                 this.date_span = 7;
@@ -1392,7 +1412,7 @@ a.down-scroll:hover{
                         
                         setTimeout( function(){
                             axios.get('/calls/token').then(function (response) {
-                                console.log('Token: ' + response.data.token);
+                                
                                 // Setup Twilio.Device
                                 Device.setup(response.data.token);
             
@@ -1460,7 +1480,7 @@ a.down-scroll:hover{
                     lead_id : vm.lead_info.id,
                     phone_number : '+27676607233',
                 }
-                console.log('Calling: ' + form_data.phone_number);
+                
                 Device.connect(form_data);
             },
             endCall() {

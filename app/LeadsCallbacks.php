@@ -9,7 +9,8 @@ class LeadsCallbacks extends Model
     protected $fillable = [
         'user_id',
         'lead_id',
-        'call_back_time',
+        'call_date',
+        'call_time',
         'notes',
         'status'
     ];

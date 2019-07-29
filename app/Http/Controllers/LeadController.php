@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use Session;
 use App\Task;
 use App\Activity;
@@ -169,7 +170,7 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
 		$title = $data['title'];
@@ -228,7 +229,7 @@ class LeadController extends Controller
      */
     public function update(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
 		$id = $data['id'];
@@ -305,7 +306,7 @@ class LeadController extends Controller
      */
     public function updateStatus($id, Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $status = ( $request->status == 1 )? 'Complete' : 'Re-opened'; 
 
@@ -329,7 +330,7 @@ class LeadController extends Controller
     {
         $data = $request->all();
         
-        $request_user = ['user_id' => $data['session_user_id'], 'name' => $data['session_user_name']];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         Lead::where(['id' => $id ])->update([
             'user_assigned_id' => $data['user_assigned_id']
@@ -349,7 +350,7 @@ class LeadController extends Controller
      */
     public function updateTime($id, Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $lead = Lead::findOrFail($id);
 
@@ -385,12 +386,14 @@ class LeadController extends Controller
      */
     public function setCallback(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
-        $lead_id = $request->id;
-        $call_back_time = $request->call_back_time;
-        $notes = $request->notes;
-        $status = $request->status;
+        $lead_id = $request->lead_id;
+        $call_date = $request->date;
+        $call_time = $request->time;
+        $notes = $request->note;
+        $status = 0;
+        
         $lead = Lead::findOrFail($lead_id);
         
         $call_back_count = LeadsCallbacks::where(['lead_id' => $lead_id])->count();
@@ -402,7 +405,8 @@ class LeadController extends Controller
 
                 LeadsCallbacks::where(['lead_id' => $lead_id])->update([
                     'user_id' => $request_user['user_id'],
-                    'call_back_time' => Carbon::createFromFormat('Y-m-d H:i', $call_back_time)->format('Y-m-d H:i'),
+                    'call_date' => $call_date,
+                    'call_time' => $call_time,
                     'notes' => $notes,
                     'status' => $status
                 ]);
@@ -414,22 +418,42 @@ class LeadController extends Controller
                 $lead_callback = LeadsCallbacks::create([
                             'lead_id' => $lead_id,
                             'user_id' => $request_user['user_id'],
-                            'call_back_time' => Carbon::createFromFormat('Y-m-d H:i', $call_back_time)->format('Y-m-d H:i'),
+                            'call_date' => $call_date,
+                            'call_time' => $call_time,
                             'notes' => $notes,
                             'status' => $status
                         ]);
-
+                
                 event(new \App\Events\LeadAction($lead, $request_user,'created_callback'));
             }
 
-            $comment = Comment::create([
-                'description' => $notes,
+            $comment_check = Comment::where([
                 'comment_type' => 'CB',
                 'source_type' => 'App\Lead' , 
                 'source_id' => $lead_id , 
                 'user_id' => $request_user['user_id'],
-                'user_name' => $request_user['name'] 
-            ]);
+            ])->count();
+            
+            if($comment_check > 0){
+                Comment::where([
+                    'comment_type' => 'CB',
+                    'source_type' => 'App\Lead' , 
+                    'source_id' => $lead_id , 
+                    'user_id' => $request_user['user_id'],
+                ])->update([
+                    'description' => $notes
+                ]);
+
+            }else{
+                $comment = Comment::create([
+                    'description' => $notes,
+                    'comment_type' => 'CB',
+                    'source_type' => 'App\Lead' , 
+                    'source_id' => $lead_id , 
+                    'user_id' => $request_user['user_id'],
+                    'user_name' => $request_user['name'] 
+                ]);
+            }
 
             DB::commit();
 
@@ -440,6 +464,13 @@ class LeadController extends Controller
             return array('success' =>false, 'message' => $e->getMessage());
         }
 
+    }
+
+    public function getUserCallBacks(){
+
+        $call_backs = LeadsCallbacks::with('lead')->where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
+
+        return array('success' => true, 'call_backs' => $call_backs);
     }
 
 }

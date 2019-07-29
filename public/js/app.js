@@ -71449,30 +71449,17 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['auth_user'],
   mounted: function mounted() {
+    var vm = this;
     this.user = JSON.parse(this.auth_user);
-    this.Toast = this.$swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
+    vm.getUserCallBacks();
+    Fire.$on('AfterCallBackSet', function () {
+      vm.getUserCallBacks();
     });
-  },
-  components: {
-    'transition-expand': _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  data: function data() {
     var todos = [{
       description: 'Call back Pete Andrews.',
       isComplete: false,
@@ -71492,6 +71479,17 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       // Every Friday
       color: 'red'
     }];
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  components: {
+    'transition-expand': _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
     return {
       user: [],
       status: 'active',
@@ -71501,7 +71499,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       account_on: false,
       callbacks_on: true,
       messages_on: false,
-      call_backs: 1,
+      call_backs: [],
       messages: [],
       unread_messages: 1,
       expanded: false,
@@ -71537,10 +71535,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     showMessages: function showMessages() {
       this.callbacks_on = false;
-      this.messages_on = true; // call to make all messages unread
-      // return message and set unread_messages = 0
-
+      this.messages_on = true;
       this.unread_messages = 0;
+    },
+    getUserCallBacks: function getUserCallBacks() {
+      var vm = this;
+      axios.get('/leads/get-user-callbacks').then(function (response) {
+        vm.call_backs = response.data.call_backs;
+      });
     }
   },
   computed: {
@@ -71831,35 +71833,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.handleSubmit();
     },
-    handleSubmit: function handleSubmit() {
-      var _this = this;
-
-      var vm = this;
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {} else {
-          var payload = {
-            method: 'POST',
-            end_point: 'leads/setcallback',
-            form_data: {
-              lead_id: ' ',
-              user_id: ' ',
-              call_back_time: _this.call_back_date + ' ' + _this.call_back_time,
-              notes: _this.call_back_notes,
-              status: 1
-            }
-          };
-          axios.post('/api-request', payload).then(function (response) {
-            if (response.data.success == true) {
-              Fire.$emit('AfterCallBackSet');
-              vm.$swal('Success', 'Callback captured successfully', 'success');
-            } else {
-              vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-            }
-          });
-        }
-      });
-    },
+    handleSubmit: function handleSubmit() {},
     showGeneral: function showGeneral() {
       this.general_active = true;
       this.scripts_active = false;
@@ -74414,16 +74388,30 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       }
     },
     addCallback: function addCallback() {
+      var vm = this;
+
       if (!this.checkCBDate() || this.call_back.note == '') {
         this.$swal('Oops', 'Please make sure to fill in the Date, Time and Note of the Callback properly.', 'warning');
       } else {
-        this.call_back.date = this.selected_date.format('YYYY-MM-DD');
-        this.call_back.time = this.selected_time.format('hh:mm');
-        this.call_back.user_id = this.user_id;
-        this.call_back.lead_id = this.lead_info.id;
+        vm.call_back.date = vm.selected_date.format('YYYY-MM-DD');
+        vm.call_back.time = vm.selected_time.format('hh:mm');
+        vm.call_back.user_id = vm.user_id;
+        vm.call_back.lead_id = vm.lead_info.id;
+        this.$validator.validateAll().then(function (result) {
+          if (!result) {} else {
+            axios.post('/leads/setcallback', vm.call_back).then(function (response) {
+              if (response.data.success == true) {
+                Fire.$emit('AfterCallBackSet');
+                vm.enqueueLead(response.data.lead.id);
+                vm.$swal('Success', 'Callback captured successfully', 'success');
+              } else {
+                vm.$Progress.fail();
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              }
+            });
+          }
+        });
       }
-
-      console.log(this.call_back);
     },
     prepDates: function prepDates() {
       this.date_span = 7;
@@ -74484,8 +74472,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           });
           setTimeout(function () {
             axios.get('/calls/token').then(function (response) {
-              console.log('Token: ' + response.data.token); // Setup Twilio.Device
-
+              // Setup Twilio.Device
               Device.setup(response.data.token);
               Device.on('ready', function (device) {
                 vm.call_status = 'Device Ready'; // vm.$refs.callBtn.click();
@@ -74541,7 +74528,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         lead_id: vm.lead_info.id,
         phone_number: '+27676607233'
       };
-      console.log('Calling: ' + form_data.phone_number);
       Device.connect(form_data);
     },
     endCall: function endCall() {
@@ -238796,7 +238782,7 @@ var render = function() {
                                     })
                                   : _vm.notifications_on == false &&
                                     _vm.unread_messages == 0 &&
-                                    _vm.call_backs == 0
+                                    _vm.call_backs.length == 0
                                   ? _c("img", {
                                       attrs: {
                                         src: "/images/icons/Notification.svg",
@@ -238806,7 +238792,7 @@ var render = function() {
                                     })
                                   : (_vm.notifications_on == false &&
                                       _vm.unread_messages >= 1) ||
-                                    _vm.call_backs >= 1
+                                    _vm.call_backs.length > 0
                                   ? _c("img", {
                                       attrs: {
                                         src:
@@ -239952,7 +239938,7 @@ var render = function() {
                               btn: true,
                               "btn-active": _vm.callbacks_on,
                               "btn-default": !_vm.callbacks_on,
-                              "btn-has-new": _vm.call_backs >= 1
+                              "btn-has-new": _vm.call_backs.length > 0
                             },
                             staticStyle: { width: "100%", margin: "0px" },
                             attrs: { type: "submit" },
@@ -240001,23 +239987,60 @@ var render = function() {
               _vm._v(" "),
               _vm.callbacks_on == true && _vm.messages_on == false
                 ? _c("div", { staticClass: "row" }, [
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _vm._m(6)
+                    _vm.call_backs.length > 0
+                      ? _c(
+                          "div",
+                          _vm._l(_vm.call_backs, function(call_back) {
+                            return _c(
+                              "div",
+                              { key: call_back.id, staticClass: "card" },
+                              [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h3", [
+                                    _vm._v(
+                                      "\n\t\t\t\t\t\t\t\t\t\t" +
+                                        _vm._s(
+                                          call_back.lead.name +
+                                            " " +
+                                            call_back.lead.surname
+                                        ) +
+                                        "\n\t\t\t\t\t\t\t\t\t"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "call_back_time",
+                                      attrs: { title: "Personal Information" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(call_back.call_date) +
+                                          " @ " +
+                                          _vm._s(call_back.call_time)
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      : _c("div", [_vm._m(4)])
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.callbacks_on == false && _vm.messages_on == true
                 ? _c("div", { staticClass: "row" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._m(6),
+                    _vm._v(" "),
                     _vm._m(7),
                     _vm._v(" "),
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _vm._m(9),
-                    _vm._v(" "),
-                    _vm._m(10)
+                    _vm._m(8)
                   ])
                 : _vm._e()
             ])
@@ -240038,7 +240061,7 @@ var render = function() {
                       { staticClass: "row", staticStyle: { padding: "0" } },
                       [
                         _c("div", { staticClass: "col-lg-12" }, [
-                          _vm._m(11),
+                          _vm._m(9),
                           _vm._v(" "),
                           _c("div", { staticClass: "progress-bar" }, [
                             _c("span", {
@@ -240050,11 +240073,11 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(12),
+                    _vm._m(10),
                     _vm._v(" "),
-                    _vm._m(13),
+                    _vm._m(11),
                     _vm._v(" "),
-                    _vm._m(14)
+                    _vm._m(12)
                   ])
                 ]
               ),
@@ -240075,7 +240098,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(15)
+              _vm._m(13)
             ])
           : _vm._e()
       ])
@@ -240228,59 +240251,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h3", [
-          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
-        ]),
-        _vm._v(" "),
         _c(
           "p",
           {
             staticClass: "call_back_time",
             attrs: { title: "Personal Information" }
           },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", [
-          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", [
-          _vm._v("\n\t\t\t\t\t\t\t\t\tSteve Hughes \n\t\t\t\t\t\t\t\t")
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
+          [_vm._v("0 Callbacks at present")]
         )
       ])
     ])
@@ -243140,6 +243117,7 @@ var render = function() {
                                               _c("a-time-picker", {
                                                 attrs: {
                                                   allowEmpty: false,
+                                                  use24Hours: "",
                                                   format: "hh:mm a"
                                                 },
                                                 model: {

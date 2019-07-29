@@ -17,9 +17,10 @@ class CreateLeadsCallbacksTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('lead_id')->unsigned();
-            $table->timestamp('call_back_time');
+            $table->date('call_date');
+            $table->time('call_time');
             $table->string('notes');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

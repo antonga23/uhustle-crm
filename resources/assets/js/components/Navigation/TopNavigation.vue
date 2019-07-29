@@ -262,35 +262,6 @@
 				this.handleSubmit();
 			},
 			handleSubmit(){
-                var vm = this;
-                this.$validator.validateAll().then((result) => {
-                    if(!result){
-                    }else{
-						var payload = {
-							method : 'POST',
-							end_point : 'leads/setcallback',
-							form_data : {
-								lead_id: ' ',
-								user_id: ' ',
-								call_back_time: this.call_back_date + ' ' + this.call_back_time,
-								notes: this.call_back_notes,
-								status: 1
-							}
-						}
-						
-						axios.post('/api-request', payload).then(function (response) {
-							
-							if(response.data.success == true){
-								Fire.$emit('AfterCallBackSet');
-								vm.$swal('Success', 'Callback captured successfully','success');
-							}else{
-								vm.$Progress.fail();
-								vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-							}
-
-						});
-                    }
-                });
 
 			},
 			showGeneral(){

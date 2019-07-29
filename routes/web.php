@@ -70,6 +70,7 @@ Route::group(['prefix' => 'leads'], function () {
     Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
     Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
     Route::post('/setcallback', 'LeadController@setCallback');
+    Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
 });
 
 Route::group(['prefix' => 'roles'], function () {

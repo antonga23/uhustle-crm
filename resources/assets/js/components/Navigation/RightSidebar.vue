@@ -306,8 +306,8 @@ label.custom-control-label{
 		                                <li class="nav-item">
 		                                    <a class="nav-link icon" href="#" @click="showNotifications()" style="padding: 0;">
 		                                    	<img v-if="notifications_on == true" src="/images/icons/Notification_active.svg" alt="Notification Bell" width="50">
-		                                    	<img v-else-if="notifications_on == false && unread_messages == 0 && call_backs == 0" src="/images/icons/Notification.svg" alt="Notification Bell" width="50">
-		                                    	<img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs >= 1" src="/images/icons/Notification_new.svg" alt="Notification Bell" width="50">
+		                                    	<img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/Notification.svg" alt="Notification Bell" width="50">
+		                                    	<img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/Notification_new.svg" alt="Notification Bell" width="50">
 		                                    </a>
 		                                </li>
 		                                <li class="nav-item">
@@ -503,7 +503,7 @@ label.custom-control-label{
 						</h2>
 						<div style="margin-top: 20px;width: 100%;" >
 							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on, 'btn-has-new' : call_backs >= 1 }" style="width: 100%; margin: 0px;">
+								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" style="width: 100%; margin: 0px;">
 	                                Callbacks
 	                            </button>
 							</label>
@@ -515,29 +515,22 @@ label.custom-control-label{
 						</div>
 					</div>
 					<div v-if="callbacks_on == true && messages_on == false" class="row">
-                        <div class="card">
-                            <div class="card-body">
-								<h3>
-									Steve Hughes 
-								</h3>
-								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-								<h3>
-									Steve Hughes 
-								</h3>
-								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-								<h3>
-									Steve Hughes 
-								</h3>
-								<p class="call_back_time" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                            </div>
+						<div v-if="call_backs.length > 0">
+							<div class="card" v-for="call_back in call_backs" :key="call_back.id">
+								<div class="card-body">
+									<h3>
+										{{ call_back.lead.name + ' ' +call_back.lead.surname }}
+									</h3>
+									<p class="call_back_time" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
+								</div>
+							</div>
+						</div>
+						<div v-else>
+							<div class="card">
+								<div class="card-body">
+									<p class="call_back_time" title="Personal Information">0 Callbacks at present</p>
+								</div>
+							</div>
                         </div>
 					</div>
 					<div v-if="callbacks_on == false && messages_on == true" class="row">
@@ -658,20 +651,16 @@ label.custom-control-label{
 	export default {
 		props: ['auth_user'],
 		mounted() {
-			
-			this.user = JSON.parse(this.auth_user);
-			this.Toast = this.$swal.mixin({
-				toast: true,
-				position: 'top-end',
-				showConfirmButton: false,
-				timer: 3000
-			});
-		},
-		components: {
-			'transition-expand' : TransitionHeight,
-		},
-		data: function(){
+			var vm = this;
 
+			this.user = JSON.parse(this.auth_user);
+
+			vm.getUserCallBacks();
+
+			Fire.$on('AfterCallBackSet', function(){
+                vm.getUserCallBacks();
+			});
+			
 			const todos = [
 				{
 					description: 'Call back Pete Andrews.',
@@ -692,6 +681,18 @@ label.custom-control-label{
 					color: 'red',
 				}
 			];
+
+			this.Toast = this.$swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000
+			});
+		},
+		components: {
+			'transition-expand' : TransitionHeight,
+		},
+		data: function(){
 	
 			return {
 				user : [],
@@ -702,7 +703,7 @@ label.custom-control-label{
 				account_on: false,
 				callbacks_on: true,
 				messages_on: false,
-				call_backs: 1,
+				call_backs: [],
 				messages: [],
 				unread_messages: 1,
 				expanded: false,
@@ -742,11 +743,14 @@ label.custom-control-label{
 			showMessages(){
 				this.callbacks_on = false;
 				this.messages_on = true;
-				// call to make all messages unread
-				// return message and set unread_messages = 0
 				this.unread_messages = 0;
+			},
+			getUserCallBacks(){
+				var vm = this;                          
+				axios.get('/leads/get-user-callbacks').then(function (response) {
+					vm.call_backs = response.data.call_backs;			
+				});
 			}
-
 		},
 		computed: {
 			attributes() {
@@ -767,7 +771,8 @@ label.custom-control-label{
 			},
 			addCallBack(day){
 				conosle.log(day);
-			}
+			},
+			
 		}
 	}
 </script>
