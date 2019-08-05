@@ -71880,6 +71880,9 @@ __webpack_require__.r(__webpack_exports__);
       scripts_active: false,
       general_show: false,
       dialer_active: false,
+      is_idle: true,
+      is_oncall: false,
+      is_offline: false,
       types: ['date', 'text']
     };
   },
@@ -71919,6 +71922,24 @@ __webpack_require__.r(__webpack_exports__);
       bvModalEvt.preventDefault(); // Trigger submit handler
 
       this.handleSubmit();
+    },
+    switchState: function switchState() {
+      if (this.is_idle == true) {
+        this.is_idle = false;
+        this.is_oncall = true;
+        this.is_offline = false;
+        console.log('Switch');
+      } else if (this.is_oncall == true) {
+        this.is_idle = false;
+        this.is_oncall = false;
+        this.is_offline = true;
+        console.log('Switch 1');
+      } else if (this.is_offline == true) {
+        this.is_idle = true;
+        this.is_oncall = false;
+        this.is_offline = false;
+        console.log('Switch 2');
+      }
     },
     handleSubmit: function handleSubmit() {},
     showGeneral: function showGeneral() {
@@ -74473,7 +74494,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -74492,7 +74512,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
   },
   mounted: function mounted() {
     var vm = this;
-    this.enqueueLead(35);
+    this.enqueueLead();
     this.prepDates();
     Fire.$on('CallStarted', function () {
       vm.general = false;
@@ -74545,6 +74565,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       added_time: false,
       choose_comment_type: false,
       edit_comment: false,
+      continues: false,
       call_status: '',
       call_sid: '',
       handle: '',
@@ -74602,6 +74623,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
                 Fire.$emit('AfterCallBackSet');
                 vm.enqueueLead(response.data.lead.id);
                 vm.$swal('Success', 'Callback captured successfully', 'success');
+                vm.continues = true;
               } else {
                 vm.$Progress.fail();
                 vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -74621,7 +74643,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
     },
     preventClosing: function preventClosing() {
-      this.$refs['final-call-step'].show();
+      if (this.continues == false) {
+        this.$refs['final-call-step'].show();
+      }
     },
     toggleModal: function toggleModal() {
       // We pass the ID of the button that we want to return focus to
@@ -74632,7 +74656,23 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       this.comment.comment_description = '';
       this.comment.comment_type = '';
     },
-    completeCall: function completeCall() {},
+    completeCall: function completeCall() {
+      var vm = this;
+      axios.post('/comments/check-exist', {
+        'lead_id': vm.lead_info.id,
+        'source_type': "App\\Lead"
+      }).then(function (response) {
+        if (response.data.success) {
+          vm.continues = true;
+          vm.$refs['final-call-step'].hide();
+          location.reload();
+        } else {
+          vm.$swal('Warning', 'Please updated Notes or Callback information before continuing', 'warning');
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     handleCountdownProgress: function handleCountdownProgress(data) {
       this.set_time = data.totalMilliseconds;
     },
@@ -74664,6 +74704,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.comment.comment_description = '';
           vm.comment.comment_type = '';
           vm.added_time = false;
+          vm.continues = false;
           Fire.$emit('AfterLeadEnqueue', {
             'lead_id': vm.lead_info.id,
             'contact_number': vm.lead_info.phone_number
@@ -74673,8 +74714,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               // Setup Twilio.Device
               Device.setup(response.data.token);
               Device.on('ready', function (device) {
-                vm.call_status = 'Device Ready';
-                vm.$refs.callBtn.click();
+                vm.call_status = 'Device Ready'; // vm.$refs.callBtn.click();
               });
               Device.on('error', function (error) {
                 vm.call_status = 'Device Error: ' + error.message;
@@ -74788,6 +74828,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             title: response.data.message
           });
           vm.edit_comment = false;
+          vm.continues = true;
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
@@ -124990,7 +125031,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 68px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 2px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 68px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -242987,9 +243028,9 @@ var render = function() {
                       {
                         class: {
                           "nav-item d-none d-sm-inline-block": true,
-                          idle: !_vm.general_show,
-                          "on-call": _vm.general_show,
-                          offline: false
+                          idle: _vm.is_idle,
+                          "on-call": _vm.is_oncall,
+                          offline: _vm.is_offline
                         }
                       },
                       [
@@ -243001,7 +243042,12 @@ var render = function() {
                             padding: "29px",
                             "margin-top": "-10px"
                           },
-                          attrs: { id: "toggle-btn" }
+                          attrs: { id: "toggle-btn" },
+                          on: {
+                            click: function($event) {
+                              return _vm.switchState()
+                            }
+                          }
                         })
                       ]
                     ),
@@ -246032,7 +246078,6 @@ var render = function() {
             hide: function($event) {
               return _vm.preventClosing()
             },
-            hidden: _vm.preventClosing,
             ok: _vm.preventClosing
           }
         },
@@ -246474,7 +246519,10 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "span",
-                                          { staticClass: "comment-notes" },
+                                          {
+                                            staticClass: "comment-notes",
+                                            staticStyle: { width: "54%" }
+                                          },
                                           [
                                             _vm._v(
                                               "\n                                                    " +
@@ -246521,22 +246569,29 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _c("span", { staticClass: "author" }, [
-                                          _vm._v(
-                                            "\n                                                    " +
-                                              _vm._s(
-                                                _vm.getDaysAgo(
-                                                  comment.created_at
-                                                )
-                                              ) +
-                                              " "
-                                          ),
-                                          _c("br"),
-                                          _vm._v(" "),
-                                          _c("small", [
-                                            _vm._v(_vm._s(comment.user_name))
-                                          ])
-                                        ])
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass: "author",
+                                            staticStyle: { width: "25%" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(
+                                                  _vm.getDaysAgo(
+                                                    comment.created_at
+                                                  )
+                                                ) +
+                                                " "
+                                            ),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("small", [
+                                              _vm._v(_vm._s(comment.user_name))
+                                            ])
+                                          ]
+                                        )
                                       ])
                                     ]
                                   )

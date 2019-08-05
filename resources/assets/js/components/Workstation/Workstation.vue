@@ -985,7 +985,6 @@ a.down-scroll:hover{
             title="Submit Your Name"
             @show="preventClosing"
             @hide="preventClosing()"
-            @hidden="preventClosing"
             @ok="preventClosing"
             style="z-index: 999999;padding: 1rem 3rem;"
             hide-header
@@ -1103,13 +1102,13 @@ a.down-scroll:hover{
                                             <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
                                                 <p>
                                                     <strong>{{ comment.comment_type }}</strong> 
-                                                    <span class="comment-notes">
+                                                    <span class="comment-notes" style="width: 54%;">
                                                         {{ comment.description }} 
                                                         <a href="#" role="button" @click="editComment(comment)" :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'">
                                                             <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>
                                                         </a>
                                                     </span>
-                                                    <span class="author">
+                                                    <span class="author" style="width: 25%;">
                                                         {{ getDaysAgo(comment.created_at) }} <br/>
                                                         <small>{{ comment.user_name }}</small>
                                                     </span>
@@ -1253,7 +1252,7 @@ a.down-scroll:hover{
 
             var vm = this;
 
-            this.enqueueLead(35);
+            this.enqueueLead();
 
             this.prepDates();
 
@@ -1314,6 +1313,7 @@ a.down-scroll:hover{
                 added_time: false,
                 choose_comment_type: false,
                 edit_comment: false,
+                continues: false,
                 call_status: '',
                 call_sid: '',
                 handle: '',
@@ -1376,6 +1376,8 @@ a.down-scroll:hover{
                                     Fire.$emit('AfterCallBackSet');
                                     vm.enqueueLead(response.data.lead.id);
                                     vm.$swal('Success', 'Callback captured successfully','success');
+                                    vm.continues = true;
+
                                 }else{
                                     vm.$Progress.fail();
                                     vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
@@ -1396,7 +1398,9 @@ a.down-scroll:hover{
                 this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
             },
             preventClosing(){
-                this.$refs['final-call-step'].show();
+                if(this.continues == false){
+                    this.$refs['final-call-step'].show();
+                }
             },
             toggleModal() {
                 // We pass the ID of the button that we want to return focus to
@@ -1408,7 +1412,19 @@ a.down-scroll:hover{
                 this.comment.comment_type = '';
             },
             completeCall(){
-
+                var vm = this;
+                axios.post('/comments/check-exist', { 'lead_id' : vm.lead_info.id, 'source_type' : "App\\Lead" }).then(function (response) {
+                    if(response.data.success){
+                        vm.continues = true;
+                        vm.$refs['final-call-step'].hide();
+                        location.reload();
+                    }else{
+                        vm.$swal('Warning','Please updated Notes or Callback information before continuing','warning');
+                    }
+                }).catch(function (error) {                    
+                    console.log(error);
+                });
+                
             },
             handleCountdownProgress(data) {
                 this.set_time = data.totalMilliseconds;
@@ -1442,6 +1458,7 @@ a.down-scroll:hover{
                         vm.comment.comment_description = '';
                         vm.comment.comment_type = '';
                         vm.added_time = false;
+                        vm.continues = false;
 
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
                         
@@ -1453,7 +1470,7 @@ a.down-scroll:hover{
             
                                 Device.on('ready',function (device) {
                                     vm.call_status = 'Device Ready';
-                                    vm.$refs.callBtn.click();
+                                    // vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
@@ -1579,6 +1596,7 @@ a.down-scroll:hover{
                         vm.enqueueLead(vm.lead_info.id);
                         vm.Toast.fire({ type: 'success', title: response.data.message });
                         vm.edit_comment = false;
+                        vm.continues = true;
                         vm.$Progress.finish();
                     }else{
                         vm.$Progress.fail();

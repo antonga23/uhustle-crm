@@ -26,6 +26,7 @@ class User extends Authenticatable
         'work_number',
         'personal_number',
         'avatar',
+        'rating',
         'notifications',
         'password',
         'activated',

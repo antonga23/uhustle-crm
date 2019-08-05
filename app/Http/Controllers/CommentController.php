@@ -7,6 +7,7 @@ use Auth;
 use App\Task;
 use App\Lead;
 use App\Comment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -44,7 +45,7 @@ class CommentController extends Controller
             'source_type' => 'App\Lead' , 
             'source_id' => $request->id , 
             'user_id' => $request_user['user_id'],
-        ])->count();
+        ])->whereDate('created_at', Carbon::today())->count();
 
         if($exists > 0){
             return array('success' =>false, 'message' => 'Please edit existing comment.');
@@ -130,5 +131,31 @@ class CommentController extends Controller
             'comments' => $comments, 
             'comments_graph' => $comments_graph
         );
+    }
+
+    public function checkExist(Request $request){
+        $source_type = $request->source_type;
+        $id = $request->lead_id;
+
+        $comment = Comment::where(['source_type' => $source_type])
+                            ->where(['user_id' => Auth::user()->id])
+                            ->where(['source_id' => $id])
+                            ->whereDate('created_at', Carbon::today())
+                            ->count();
+        if($comment > 0){
+            return array(
+                'success' => true, 
+                'id' => $id,
+                'comment' => $comment,
+                'source_type' => $source_type
+            );
+        }else{
+            return array(
+                'success' => false, 
+                'id' => $id,
+                'comment' => $comment,
+                'source_type' => $source_type
+            );
+        }
     }
 }

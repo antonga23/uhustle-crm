@@ -121,7 +121,7 @@
 	    background: #F98B39 !important;
 	    border-color: #F98B39 !important;
 	    color: #fff !important;
-	    padding: 2px 17px 6px !important;
+	    padding: 4px 17px 6px !important;
 	}
 	/*End Right Component*/
 </style>
@@ -172,8 +172,8 @@
 								
 							</a>
 						</li>
-						<li :class="{ 'nav-item d-none d-sm-inline-block' : true, 'idle' : !general_show, 'on-call' : general_show, 'offline' : false }">
-		    				<button id="toggle-btn" class="nav-link status" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
+						<li :class="{ 'nav-item d-none d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
+		    				<button id="toggle-btn" class="nav-link status"  @click="switchState()"  style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
 						</li>
 						<li class="nav-item d-none d-sm-inline-block">
 		    				<button id="show-btn" class="nav-link call" @click="endCall()" style="background-color: transparent;border: none;padding: 29px;margin-top: -10px;"></button>
@@ -216,6 +216,9 @@
 				scripts_active : false,
 				general_show : false,
 				dialer_active : false,
+				is_idle: true,
+				is_oncall: false,
+				is_offline: false,
 				types: [
 					'date',
 					'text'
@@ -260,6 +263,24 @@
 				bvModalEvt.preventDefault();
 				// Trigger submit handler
 				this.handleSubmit();
+			},
+			switchState(){
+				if(this.is_idle == true){
+					this.is_idle = false;
+					this.is_oncall = true;
+					this.is_offline = false;
+					console.log('Switch');
+				}else if(this.is_oncall == true){
+					this.is_idle = false;
+					this.is_oncall = false;
+					this.is_offline = true;
+					console.log('Switch 1');
+				}else if(this.is_offline == true){
+					this.is_idle = true;
+					this.is_oncall = false;
+					this.is_offline = false;
+					console.log('Switch 2');
+				}
 			},
 			handleSubmit(){
 
