@@ -1122,7 +1122,7 @@ a.down-scroll:hover{
                                         <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type': true, 'pulse' : choose_comment_type }">
                                             <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
                                         </b-button>
-                                        <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
+                                        <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 66%" />
 
                                         <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
                                             Send
@@ -1159,7 +1159,7 @@ a.down-scroll:hover{
                                     </div>
                                     <div class="row"  style="margin-bottom: 0;">
                                         <div class="col-lg-12" style="padding-right: 0;">
-                                            <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 77.5%;" />
+                                            <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
 
                                             <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()">
                                                 Schedule

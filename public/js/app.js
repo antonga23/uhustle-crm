@@ -246587,7 +246587,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "comment-desc",
-                                  staticStyle: { width: "69%" },
+                                  staticStyle: { width: "66%" },
                                   attrs: {
                                     type: "text",
                                     placeholder: "Write comment here"
@@ -246837,7 +246837,7 @@ var render = function() {
                                         }
                                       ],
                                       staticClass: "comment-desc",
-                                      staticStyle: { width: "77.5%" },
+                                      staticStyle: { width: "72.5%" },
                                       attrs: {
                                         type: "text",
                                         placeholder: "Write notes here"
