@@ -1074,9 +1074,9 @@ a.down-scroll:hover{
                         </div>
                         </div>
                     </div>
-                </div>
-                <div class="row stats">
-                    <div class="col-lg-6">
+                </div>                   
+                <div class="row stats final-modal">
+                    <div class="col-lg-6" style="padding-right: 3%;">
                         <div class="card left mt-3 tab-card">
                             <div class="card-header tab-card-header">
                                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -1089,7 +1089,7 @@ a.down-scroll:hover{
                                     </li>
                                     <li class="nav-item right">
                                         <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">
-                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                            <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/>
                                             <span class="left">Schedule Callback</span>
                                         </a>
                                     </li>
@@ -1103,8 +1103,13 @@ a.down-scroll:hover{
                                             <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
                                                 <p>
                                                     <strong>{{ comment.comment_type }}</strong> 
-                                                    {{ comment.description }} 
-                                                    <span style="float:right;margin-top: 11px;">
+                                                    <span class="comment-notes">
+                                                        {{ comment.description }} 
+                                                        <a href="#" role="button" @click="editComment(comment)" :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'">
+                                                            <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>
+                                                        </a>
+                                                    </span>
+                                                    <span class="author">
                                                         {{ getDaysAgo(comment.created_at) }} <br/>
                                                         <small>{{ comment.user_name }}</small>
                                                     </span>
@@ -1114,7 +1119,7 @@ a.down-scroll:hover{
                                     </div>
 
                                     <div class="notes-capture">
-                                        <b-button v-b-modal.modal-1  :class="{ 'choose-comment-type': true, 'pulse' : choose_comment_type }">
+                                        <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type': true, 'pulse' : choose_comment_type }">
                                             <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/>
                                         </b-button>
                                         <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
@@ -1124,32 +1129,62 @@ a.down-scroll:hover{
                                         </button>
                                     </div>            
                                 </div>
-                                <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-                                    <h5 class="card-title">TODO</h5>
-                                    <div style="height:245px; width:100%;overflow:hidden;">
-                                        <p class="card-text">
-                                            Schedule callback form
-                                        </p>
+                                <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab" style="padding-top: 0 !important;"> 
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="col-lg-4" style="padding-right: 0;">
+                                            <div class="row">
+                                                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                    <label class="col-lg-12 control-label">Date of Callback
+                                                        <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                    <label class="col-lg-12 control-label">Time of Callback
+                                                        <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>
+                                                    </label>
+                                                </div>  
+                                            </div>                                       
+                                            <div class="row">
+                                                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                                                    <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
+                                        </div>
+                                    </div>
+                                    <div class="row"  style="margin-bottom: 0;">
+                                        <div class="col-lg-12" style="padding-right: 0;">
+                                            <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 77.5%;" />
+
+                                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()">
+                                                Schedule
+                                            </button>
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="padding-left: 3%;">
                         <div class="card left mt-3 tab-card">
                             <div class="card-header tab-card-header">
                                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                     <li class="nav-item left">
-                                        <a class="nav-link" id="one-tab" data-toggle="tab" href="#three" role="tab" aria-controls="One" aria-selected="true">
-                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                        <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
+                                            <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/>
                                             <span class="left">Feedback Summary</span>
                                             <span class="right">{{ comments.total_comments }}</span>
                                         </a>
                                     </li>
                                     <li class="nav-item right">
-                                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Two" aria-selected="false">
-                                            <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/>
+                                        <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
+                                            <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
                                             <span class="left">Email Client</span>
                                         </a>
                                     </li>
@@ -1157,7 +1192,7 @@ a.down-scroll:hover{
                             </div>
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+                                <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;">
                                     
                                     <div class="">
                                         <div class="verticalChart">
@@ -1418,7 +1453,7 @@ a.down-scroll:hover{
             
                                 Device.on('ready',function (device) {
                                     vm.call_status = 'Device Ready';
-                                    // vm.$refs.callBtn.click();
+                                    vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
