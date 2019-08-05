@@ -16,7 +16,7 @@
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.15",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
@@ -45,7 +45,9 @@
         "v-calendar": "^1.0.0-beta.14",
         "vee-validate": "^2.2.11",
         "vue-chartjs": "^3.4.2",
+        "vue-core-image-upload": "^2.4.11",
         "vue-echarts": "^4.0.3",
+        "vue-image-crop-upload": "^2.5.0",
         "vue-morris": "^1.0.1",
         "vue2-flip-countdown": "^0.9.1",
         "vuebars": "^0.1.3"

@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Validator::extendImplicit('current_password', function($attribute, $value, $parameters, $validator){
+            return \Hash::check($value, auth()->user()->password);
+        });
     }
 }

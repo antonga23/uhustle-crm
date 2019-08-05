@@ -29,6 +29,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'personal_number' => $faker->phoneNumber,
         'avatar' => '',
         'activated' => 1,
+        'notifications' => 1,
         'remember_token' => Str::random(10),
     ];
 });

@@ -25,11 +25,19 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
+// User Routes
+Route::post('/upload-avatar','UserController@uploadAvatar');
+Route::post('/update-user','UserController@update');
+Route::post('/update-account','UserController@updateAccount');
+Route::get('/get-current-user','UserController@getCurrentUser');
+
+// App Pages Routes
 Route::get('/workstation', 'PagesController@index')->name('workstation');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::get('/call-history', 'PagesController@callHistory')->name('call-history');
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
 
+// Calls Routes
 Route::group(['prefix' => 'calls'], function () {
 	Route::get('/token', 'TwillioController@newToken');
 	Route::post('/voice', 'TwillioController@voice');
@@ -38,6 +46,7 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::get('/get-call-history/{agent_id}/{month}', 'TwillioController@getCallHistoryByAgentID');
 });
 
+// Clients Routes
 Route::group(['prefix' => 'clients'], function () {
 	Route::get('/get/{client_id}', 'ClientsController@getById');
 	Route::get('/get-all', 'ClientsController@index');
@@ -46,6 +55,7 @@ Route::group(['prefix' => 'clients'], function () {
 	Route::get('/delete/{client_id}', 'ClientsController@destroy');
 });
 
+// Tasks Routes
 Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get/{task_id}', 'TaskController@getById');
 	Route::get('/get-all', 'TaskController@index');
@@ -58,6 +68,7 @@ Route::group(['prefix' => 'tasks'], function () {
     Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
 });
 
+// Leads Routes
 Route::group(['prefix' => 'leads'], function () {
 	Route::get('/enqueue', 'LeadController@enQueue');
 	Route::get('/get/{lead_id}', 'LeadController@getById');
@@ -73,6 +84,7 @@ Route::group(['prefix' => 'leads'], function () {
     Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
 });
 
+// Roles Routes
 Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get/{role_id}', 'RoleController@getById');
 	Route::get('/get-all', 'RoleController@index');
@@ -81,7 +93,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::post('/update', 'RoleController@update');
 });
 
-
+// Products Routes
 Route::group(['prefix' => 'products'], function () {
 	Route::get('/get/{role_id}', 'ProductController@getById');
 	Route::get('/get-all', 'ProductController@index');
@@ -90,6 +102,7 @@ Route::group(['prefix' => 'products'], function () {
 	Route::post('/update', 'ProductController@update');
 });
 
+// Comments Routes
 Route::group(['prefix' => 'comments'], function () {
     Route::post('/add', 'CommentController@store');
     Route::post('/update', 'CommentController@update');

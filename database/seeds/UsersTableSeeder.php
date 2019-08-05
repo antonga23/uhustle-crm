@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
                     'personal_number' => '0670000000000',
                     'avatar' => '',
                     'activated' => 1,
+                    'notifications' => 1,
                     'email_verified_at' => now(),
                     'remember_token' => Str::random(10)
                 ),

@@ -41,6 +41,11 @@ h3 img{
 .status{
 	display: none;
 }
+.control-sidebar-dark label.custom-control-label{
+	color: inherit;
+    font-weight: 200;
+    padding-top: 3px;
+}
 .status.active{
     width: 76px;
     text-align: center;
@@ -242,7 +247,7 @@ label.custom-control-label{
 }
 .logout-wrapper{
 	border-bottom: none;
-	margin-top:50%;
+	margin-top:14%;
 }
 #logout{
     background-image: url('/images/icons/Asset 67.svg') !important;
@@ -281,13 +286,20 @@ label.custom-control-label{
     display: block;
     width: 100%;
 }
-
 .notifications .card p.call_back_time{
     color: #00344a;
     font-size: 14px;
     letter-spacing: 2.2px;
     display: block;
     width: 100%;
+}
+.small-avatar img{
+	width: 28px;
+    margin-top: 2px;
+	border-radius:50%;
+}
+.update-user{
+	width: 100%; margin: 0px 0px 5px 0px;
 }
 /*End Right Component*/
 </style>
@@ -325,8 +337,9 @@ label.custom-control-label{
 		                                    <a class="nav-link name" href="#" style="font-size: 12px;">{{ user.name }}</a>
 		                                </li>
 		                                <li class="nav-item">
-		                                    <a class="nav-link icon" href="#">
-		                                    	<img src="https://via.placeholder.com/25" style="border-radius:50%">
+		                                    <a class="nav-link icon small-avatar" href="#">
+												<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
+												<img v-else src="https://via.placeholder.com/25" >
 		                                    </a>
 		                                </li>
 		                            </ul>
@@ -348,7 +361,16 @@ label.custom-control-label{
 						</h3>
 						<p class="description" title="Personal Information">Personal Information</p>
 					    <transition-expand>
-							<div v-if="expanded == true && profile_on == true" style="margin-top: 20px;" >
+							<div v-if="expanded == true && profile_on == true" style="margin-top: 20px;width: 100% !important;" >
+								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
+									<label class="col-lg-12 control-label" style="float:left;text-align: center;">
+										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%;width: 27%;">
+										<img v-else src="https://via.placeholder.com/100" style="border-radius:50%;width: 27%;">
+										<div>
+											<button style="    margin: 18px 0 15px 0;font-size: 9px;" class="btn btn-info" type="button" @click="showUploader">Choose Image</button>
+										</div>
+									</label>
+								</div>
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
 									<label class="col-lg-12 control-label">Name
 										<input type="text" id="email"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
@@ -391,17 +413,8 @@ label.custom-control-label{
 										<span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
 									</label>
 								</div>
-								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-									<label class="col-lg-6 control-label" style="float:left;">
-										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%">
-										<img v-else src="https://via.placeholder.com/100" style="border-radius:50%">
-									</label>
-									<label class="col-lg-6 control-label">Upload New
-										
-									</label>
-								</div>
 								<div :class="{'input': true, 'form-group' :true }">
-									<button type="submit" class="btn btn-primary" style="width: 100%; margin: 0px 0px 5px 0px;">
+									<button type="submit" class="btn btn-primary update-user" @click="updateUser('profile')">
 	                                    Update
 	                                </button>
 								</div>
@@ -416,32 +429,42 @@ label.custom-control-label{
 						</h3>
 						<p class="description" title="Personal Information">Account Information</p>
 					    <transition-expand>
-							<div v-if="expanded == true && account_on == true" style="margin-top: 20px;" >
+							<div v-if="expanded == true && account_on == true" style="margin-top: 20px;width: 100%;" >
 								<div :class="{'input': true, 'form-group' :true }">
 									<label class="col-lg-12 control-label">
-										<input type="checkbox" name="notifications" value="user.notifications"> Notifications
+										Notifications
+										<b-form-checkbox
+										id="checkbox-1"
+										v-model="user.notifications"
+										name="checkbox-1"
+										value="1"
+										unchecked-value="0"
+										@change="updateNotifications"
+										>
+										Notifications
+										</b-form-checkbox> 
 									</label>
 								</div>
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Old Password') }">
 									<label class="col-lg-12 control-label">Old Password
-										<input type="password" id="email"  name="Old Password" v-model="user.old_password" v-validate="'required'" class="form-control">
+										<input type="password" id="email"  name="Old Password" v-model="user.old_password" v-validate="'required|min:6'" class="form-control">
 										<span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
 									</label>
 								</div>
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('New Password') }">
 									<label class="col-lg-12 control-label">New Password
-										<input type="password" id="password"  name="New Password" v-model="user.password" v-validate="'required'" class="form-control">
+										<input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'required|min:6'" class="form-control">
 										<span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
 									</label>
 								</div>
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Password Confirm') }">
 									<label class="col-lg-12 control-label">Confirm New Password
-										<input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirm" v-validate="'required|email'" class="form-control">
+										<input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'required|min:6|confirmed:password'" class="form-control">
 										<span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
 									</label>
 								</div>
 								<div :class="{'input': true, 'form-group' :true }">
-									<button type="submit" class="btn btn-primary" style="width: 100%; margin: 0px;">
+									<button type="submit" class="btn btn-primary update-user" @click="updateUser('account')">
 	                                    Update
 	                                </button>
 								</div>
@@ -618,7 +641,7 @@ label.custom-control-label{
 						</div>
 					</div>
 					<div class="row" style="padding:25px  0;">
-						<vc-calendar :attributes='attributes' title-position="right" is-expanded :popover="true" />
+						<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
@@ -660,27 +683,12 @@ label.custom-control-label{
 			Fire.$on('AfterCallBackSet', function(){
                 vm.getUserCallBacks();
 			});
-			
-			const todos = [
-				{
-					description: 'Call back Pete Andrews.',
-					isComplete: false,
-					dates: new Date('2019-07-09'), // Every Friday
-					color: 'red',
-				},
-				{
-					description: 'Call back Pete Andrews.',
-					isComplete: false,
-					dates: new Date('2019-07-09'), // Every Friday
-					color: 'red',
-				},
-				{
-					description: 'Call back Yongama Sobambela.',
-					isComplete: false,
-					dates: new Date('2019-07-19'), // Every Friday
-					color: 'red',
-				}
-			];
+
+			Fire.$on('AvatarUploadComplete', function(){
+				axios.get('/get-current-user').then(function (response) {
+					vm.user = response.data.user;	
+				});
+			});
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -690,12 +698,33 @@ label.custom-control-label{
 			});
 		},
 		components: {
-			'transition-expand' : TransitionHeight,
+			'transition-expand' : TransitionHeight
 		},
 		data: function(){
-	
+			const todos = [
+				{
+					description: 'Call back Pete Andrews.',
+					isComplete: false,
+					dates: new Date('2019-09-09'), // Every Friday
+					color: 'red',
+				},
+				{
+					description: 'Call back Pete Andrews.',
+					isComplete: false,
+					dates: new Date('2019-09-10'), // Every Friday
+					color: 'red',
+				},
+				{
+					description: 'Call back Yongama Sobambela.',
+					isComplete: false,
+					dates: new Date('2019-08-19'), // Every Friday
+					color: 'red',
+				}
+			];
 			return {
-				user : [],
+				user : {
+					notifications: 1,
+				},
 				status : 'active',
 				notifications_on: false,
 				settings_on: false,
@@ -707,22 +736,14 @@ label.custom-control-label{
 				messages: [],
 				unread_messages: 1,
 				expanded: false,
-				incId: todos.length,
-				todos,
-				attrs : [
-					{
-						key: 'today',
-						highlight: true,
-						class: 'today_date',
-						dates: new Date(),
-					},
-					{
-						key: 'call_back',
-						highlight: 'red',
-						class: 'call_back_date',
-						dates: new Date('2019-07-19'),
-					},
-				],
+				show:false,
+				attrs: [{
+					key: 'today',
+					highlight: true,
+					class: 'today_date',
+					dates: new Date(),
+				}],
+				avatarUrl: 'storage/images/avatars/'
 			}
 		},
 		methods: {
@@ -746,32 +767,105 @@ label.custom-control-label{
 				this.unread_messages = 0;
 			},
 			getUserCallBacks(){
-				var vm = this;                          
+
+				var vm = this;  
+
 				axios.get('/leads/get-user-callbacks').then(function (response) {
-					vm.call_backs = response.data.call_backs;			
+					vm.call_backs = response.data.call_backs;		
+					
+					vm.attrs = [ 
+						{
+							key: 'today',
+							highlight: true,
+							class: 'today_date',
+							dates: new Date(),
+						}
+					];
+
+					vm.call_backs.forEach(function(call_back){
+
+						vm.attrs.push(
+							{
+								key: 'call_back',
+								highlight: 'red',
+								class: 'call_back_date',
+								dates: new Date(call_back.call_date),
+								popover: {
+									label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time,
+								},
+							}
+						);
+					});	
 				});
+			},
+			updateNotifications(){
+				var vm = this;
+				axios.post('/update-user',this.user).then(function (response) {
+						
+					if(response.data.success == true){
+						vm.Toast.fire({ type: 'success', title: response.data.message });
+						vm.user = response.data.user;
+						vm.$Progress.finish();
+					}else if(response.data.errors.email[0] != ''){
+						vm.$Progress.fail();
+						vm.$swal('Failed', response.data.errors.email[0] ,'warning');
+					}else{
+						vm.$Progress.fail();
+						vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+					}
+				});
+			},
+			updateUser(type){
+				var vm = this;  
+				vm.$Progress.start();
+				this.$validator.validateAll().then((result) => {
+                        if(!result){
+                        }else{
+                            
+							if(type == 'profile'){ 
+								axios.post('/update-user',this.user).then(function (response) {
+										
+									if(response.data.success == true){
+										vm.Toast.fire({ type: 'success', title: response.data.message });
+										vm.user = response.data.user;
+										vm.$Progress.finish();
+									}else if(response.data.errors.email[0] != ''){
+										vm.$Progress.fail();
+										vm.$swal('Failed', response.data.errors.email[0] ,'warning');
+									}else{
+										vm.$Progress.fail();
+										vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+									}
+								});
+							}else{
+								axios.post('/update-account',this.user).then(function (response) {
+									
+									if(response.data.success === true){
+										vm.Toast.fire({ type: 'success', title: response.data.message });
+										vm.user = response.data.user;
+										vm.$Progress.finish();
+									}else if(typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0){
+										vm.$swal('Failed', 'You old password is incorrect','warning');
+									}else if(typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0){
+										var this_error = '';
+										response.data.errors.password.forEach(function(error){
+											this_error = this_error + error + '\n';
+										});
+										vm.$swal('Failed', this_error,'warning');
+									}else{
+										vm.$Progress.fail();
+										vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+									}
+								});
+							}
+						}
+				});
+			},
+			showUploader(){
+				Fire.$emit('ShowAvatarUploader');
 			}
 		},
 		computed: {
-			attributes() {
-				return [
-					// Attributes for todos
-					...this.todos.map(todo => ({
-						dates: todo.dates,
-						highlight: {
-							color: todo.color,
-							class: todo.isComplete ? 'opacity-75' : '',
-						},
-						popover: {
-							label: todo.description,
-						},
-						customData: todo,
-					})),
-				];
-			},
-			addCallBack(day){
-				conosle.log(day);
-			},
 			
 		}
 	}

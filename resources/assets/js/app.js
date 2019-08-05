@@ -82,6 +82,7 @@ Vue.component('top-navigation', require('./components/Navigation/TopNavigation.v
 Vue.component('dashboard', require('./components/Dashboard/Dashboard.vue').default);
 Vue.component('call-history', require('./components/CallHistory/CallHistory.vue').default);
 Vue.component('social-board', require('./components/SocialBoard/SocialBoard.vue').default);
+Vue.component('avatar-upload', require('./components/Plugins/AvatarUpload.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('work_number')->nullable();
             $table->string('personal_number')->nullable();
             $table->string('avatar')->nullable();
-            $table->tinyInteger('notifications')->nullable();
+            $table->boolean('notifications')->default(true);
             $table->string('password', 60);
             $table->unsignedInteger('activated')->default(0);
             $table->timestamp('email_verified_at');
