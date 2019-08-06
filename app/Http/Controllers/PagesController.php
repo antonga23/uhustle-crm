@@ -24,9 +24,13 @@ class PagesController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-   public function index()
+   public function index($lead_id = null)
    {
-      return view('pages.workstation')->with(['active'=> 'workstation']);
+      if(is_null($lead_id)){
+         return view('pages.workstation')->with(['active'=> 'workstation'])->with(['lead_id'=> '']);
+      }else{
+         return view('pages.workstation')->with(['active'=> 'workstation'])->with(['lead_id'=> $lead_id]);
+      }
    }
 
    public function dashboard()

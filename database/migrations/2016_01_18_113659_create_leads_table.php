@@ -24,6 +24,7 @@ class CreateLeadsTable extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('description')->nullable();
+            $table->string('rating')->nullable();
             $table->integer('status')->nullable();
             $table->integer('deposit')->nullable();
             $table->integer('user_assigned_id')->unsigned();

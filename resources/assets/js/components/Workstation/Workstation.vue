@@ -1252,7 +1252,7 @@ a.down-scroll:hover{
 
             var vm = this;
 
-            this.enqueueLead();
+            this.enqueueLead(vm.lead_id);
 
             this.prepDates();
 
@@ -1294,7 +1294,7 @@ a.down-scroll:hover{
         },
         created: function () {
         },
-        props: ['user_name','user_id'],
+        props: ['user_name','user_id','lead_id'],
         data: function(){
             return {
                 lead : {},
@@ -1330,6 +1330,7 @@ a.down-scroll:hover{
                     time :'',
                     user_id: this.user_id,
                     lead_id: '',
+                    call_sid: this.call_sid
                 },
                 date_span: '',
                 max_date: '',
@@ -1470,7 +1471,7 @@ a.down-scroll:hover{
             
                                 Device.on('ready',function (device) {
                                     vm.call_status = 'Device Ready';
-                                    // vm.$refs.callBtn.click();
+                                    vm.$refs.callBtn.click();
                                 });
 
                                 Device.on('error',function (error) {
@@ -1479,6 +1480,7 @@ a.down-scroll:hover{
 
                                 Device.on('connect',function (conn) {
                                     vm.call_status = 'Successfully established call';
+                                    vm.call_back.call_sid = conn.parameters.CallSid;
                                     axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
                                         
                                     }).catch(function (error) {                    

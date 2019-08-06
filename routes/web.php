@@ -33,6 +33,7 @@ Route::get('/get-current-user','UserController@getCurrentUser');
 
 // App Pages Routes
 Route::get('/workstation', 'PagesController@index')->name('workstation');
+Route::get('/workstation/{lead_id}', 'PagesController@index')->name('workstation-lead-idea');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::get('/call-history', 'PagesController@callHistory')->name('call-history');
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
@@ -43,7 +44,8 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::post('/voice', 'TwillioController@voice');
 	Route::post('/status-update', 'TwillioController@statusUpdate');
 	Route::post('/create-call-record', 'TwillioController@createCallRecord');
-	Route::get('/get-call-history/{agent_id}/{month}', 'TwillioController@getCallHistoryByAgentID');
+	Route::get('/get-call-history', 'TwillioController@getCallHistory');
+	Route::get('/get-call-history/{month}', 'TwillioController@getCallHistory');
 });
 
 // Clients Routes

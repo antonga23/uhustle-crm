@@ -12,7 +12,8 @@ class LeadsCallbacks extends Model
         'call_date',
         'call_time',
         'notes',
-        'status'
+        'status',
+        'call_sid'
     ];
 
     public function user()

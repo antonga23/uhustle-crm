@@ -16,6 +16,7 @@ $factory->define(App\Lead::class, function (Faker $faker) {
 		'city' => $faker->city, 
 		'country' => $faker->country,
 		'description' => $faker->title,
+		'rating' => $faker->numberBetween(1, 100),
 		'status' => $faker->numberBetween(0, 1),
 		'user_assigned_id' => $faker->numberBetween(2, 20),
 		'user_created_id' => 1,

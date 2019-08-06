@@ -179,10 +179,12 @@
         padding-left: 70px;
     }
     ul.headings li {
-        float:left;
+        float: left;
         font-weight: 700;
-        color:#9fb3bb;
-        padding: 0 125px 0 0;
+        color: #9fb3bb;
+        /* padding: 0 104px 0 0; */
+        width: 14%;
+        text-align: left;
     }
     ul.items{
         list-style: none;
@@ -191,8 +193,10 @@
     ul.items li {
         float:left;
         font-weight: 700;
-        color:#003449;
-        padding: 0 114px 0 0;
+        color:#003449;    
+        width: 14%;
+        text-align: left;
+
     }
     ul.items li a:hover{
         text-decoration: none;
@@ -208,6 +212,16 @@
         padding-right: 6px;
         width: 104%;
     }
+    table.listing{
+        width: 100%;
+    }
+    table.listing tr  th{ 
+        float: left;
+        font-weight: 700;
+        color: #9fb3bb;
+        padding: 0 69px 20px 70px;
+    }
+    
 </style>
 <template>
     <div class="">
@@ -222,7 +236,7 @@
                 </p>
 
                 <p class="card-text">
-                  210 
+                  {{ call_log.total_calls }} 
                 </p>
 
               </div>
@@ -238,7 +252,7 @@
                 </p>
 
                 <p class="card-text">
-                  11 
+                  {{ call_log.total_sales }} 
                 </p>
 
               </div>
@@ -254,7 +268,7 @@
                 </p>
 
                 <p class="card-text">
-                  $110
+                  ${{ call_log.sum_sales }} 
                 </p>
 
               </div>
@@ -270,7 +284,7 @@
                 </p>
 
                 <p class="card-text">
-                  3
+                  {{ call_log.sum_call_back }}
                 </p>
 
               </div>
@@ -280,13 +294,12 @@
             <div class="card ave-time">
               <div class="card-body">
 
-
                 <p class="card-text-small" style="text-align:left">
                       Ave. Time
                 </p>
 
                 <p class="card-text">
-                  22m 
+                  {{ secondsToMinues(call_log.avg_time) }} 
                 </p>
 
               </div>
@@ -296,221 +309,62 @@
             <div class="card con-ratio">
               <div class="card-body">
 
-
                 <p class="card-text-small" style="text-align:left">
                       Conversion Ratio
                 </p>
 
                 <p class="card-text">
-                  5
+                  {{ call_log.con_ratio }} 
                 </p>
 
               </div>
             </div>
           </div>
         </div>
-        <hr style="margin-bottom: 3%;">
-
-        <div class="row stats" >
-            <div class="col-lg-12" >
-                <ul class="headings">
-                    <li>NAME</li>
-                    <li>COUNTRY</li>
-                    <li>SOURCE</li>
-                    <li>CALLED</li>
-                    <li>TALKED</li>
-                    <li>DATE</li>
-                    <li style="padding-right:0;">CALL BACK</li>
-                </ul>
+        <hr style="margin-bottom: 2%;">
+        <div class="row stats">
+            <div class="col-lg-12">
+                <div class="left" style="text-align: left;">
+                    <div class="card-body" style="padding-bottom: 18px;">
+                        <ul class="headings">
+                            <li>NAME</li>
+                            <li>COUNTRY</li>
+                            <li>SOURCE</li>
+                            <li>CALLED</li>
+                            <li>TALKED</li>
+                            <li>DATE</li>
+                            <li>CALL BACK</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="row stats" id="scroll-hidden">
-            <div class="col-lg-12" >
+        <div class="row stats" id="scroll-hidden" v-if="call_log.call_history.length > 0">
+            <div class="col-lg-12" v-for="(item,index) in call_log.call_history" :key="index">
                 <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
+                    <div class="card-body" style="padding-bottom: 12px;">
                         <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" checked disabled> 
+                            <li><a href="#">{{ item.lead_name }}</a></li>
+                            <li class="truncate" v-b-tooltip.hover :title="item.lead_country">{{ item.lead_country }}</li>
+                            <li style="padding-left: 17px;" >{{ item.lead.source }}</li>
+                            <li style="padding-left: 30px;" >1</li>
+                            <li style="padding-left: 32px;" >{{ secondsToMinues(item.call_duration) }}</li>
+                            <li style="padding-left: 11px;" >{{ item.call_date_created }}</li>
+                            <li style="padding-left: 22px;">
+                                <input v-if="item.has_call_back == 1" type="checkbox" class="form-control" checked disabled> 
+                                <input v-else type="checkbox" class="form-control" disabled> 
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" checked disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" checked disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
-                        <ul class="items">
-                            <li><a href=""> Piet Andrews</a></li>
-                            <li>South Africa</li>
-                            <li>Digital Payday</li>
-                            <li>12</li>
-                            <li>32m22s</li>
-                            <li>2019-06-25</li>
-                            <li style="padding-right:0;">
-                                <input type="checkbox" class="form-control" disabled> 
-                            </li>
-                        </ul>
-                    </div>
+        </div>
+        <div class="row stats"  v-else>
+            <div class="card left" style="width: 100%;">
+                <div class="card-body" style="padding-bottom: 12px;">
+                    <ul class="items">
+                        <li colspan="7" style="text-align:center;width: 100%;">Your call history is empty</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -528,6 +382,11 @@
         mounted() {
             console.log('Component mounted');
             this.getCallLog();
+            var vm = this;
+			Fire.$on('TopMonthFilterChange', function(data){
+                console.log(data.month);
+                vm.getCallLog(data.month);
+            });
             
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -541,7 +400,13 @@
         props: [],
         data: function(){
             return {
-                call_log : {},
+                call_log : {
+                    total_calls: '',
+                    total_sales: '',
+                    con_ratio: '',
+                    sum_sales: '',
+                    call_history: '',
+                },
                 lead_info : {},
                 call_counts : {},
                 product : {},
@@ -565,40 +430,41 @@
             }
         },
         methods: {
-            getCallLog(){
+            secondsToMinues(time){
+                var minutes = Math.floor(time / 60);
+                var seconds = time - minutes * 60;
+                var finalTime = this.str_pad_left(minutes,'0',2) + ':' + this.str_pad_left(seconds,'0',2);
+                return finalTime;
+            },
+            str_pad_left(string,pad,length) {
+                    return (new Array(length+1).join(pad)+string).slice(-length);
+            },
+            getCallLog(month = ''){
                 var vm = this;
 
-                var payload = {
-                    method : 'GET',
-                    end_point : '/get-call-history/{agent_id}/{month}'
+                if(month == ''){
+                    var endpoint = '/calls/get-call-history';
+                }else{
+                    var endpoint = '/calls/get-call-history/' + month;
                 }
 
                 vm.$Progress.start();
 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.get(endpoint).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.lead = response.data;
-                        vm.lead_info = response.data.lead;
-                        vm.call_counts = response.data.call_counts;
-                        vm.product = response.data.product;
-                        vm.comments = response.data.comments;
-                        vm.comments_graph = response.data.comments.comments_graph;
+                        vm.call_log.total_calls = response.data.total_calls;
+                        vm.call_log.total_sales = response.data.total_sales;
+                        vm.call_log.con_ratio = response.data.con_ratio;
+                        vm.call_log.sum_sales = response.data.sum_sales;
+                        vm.call_log.call_history = response.data.call_history;
+                        vm.call_log.sum_call_back = response.data.sum_call_back;
+                        vm.call_log.avg_time = response.data.avg_time;
                         
-                        if(vm.comments_graph.length > 0){ 
-                            for (var i = 0; i < vm.comments_graph.type.length; i++) {
-                                console.log(vm.comments_graph.type[i]);
-                                vm.notes_data.push({ 'title' : vm.comments_graph.type[i], 'value': 84 });
-                            }
-                        }
-
-                        vm.comment.comment_description = '';
-                        vm.comment.comment_type = '';
                         vm.$Progress.finish();
-                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
                     }else{
                         vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });
             },

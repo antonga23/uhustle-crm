@@ -10,10 +10,20 @@ class Twillio extends Model
         'agent_name',
         'agent_id',
         'lead_id',
+        'lead_name',
+        'lead_country',
+        'call_date_created',
+        'call_duration',
+        'call_from',
+        'call_to',
+        'call_price',
+        'has_call_back',
         'call_sid',
         'call_status',
         'answered',
-        'sale'
+        'recording',
+        'sale',
+        'twilio_imported'
     ];
 
     public function user()

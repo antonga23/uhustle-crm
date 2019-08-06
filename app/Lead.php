@@ -17,6 +17,7 @@ class Lead extends Model
         'city',
         'country',
         'description',
+        'rating',
         'status',
         'user_assigned_id',
         'user_created_id',
@@ -60,7 +61,7 @@ class Lead extends Model
 
     public function product()
     {
-        return $this->hasMany(Product::class, 'product_id');
+        return $this->hasMany(Product::class, 'id');
     }
 
     public function getDaysUntilContactAttribute()

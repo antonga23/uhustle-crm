@@ -69765,152 +69765,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -69921,6 +69775,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Component mounted');
     this.getCallLog();
+    var vm = this;
+    Fire.$on('TopMonthFilterChange', function (data) {
+      console.log(data.month);
+      vm.getCallLog(data.month);
+    });
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -69932,7 +69791,13 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   data: function data() {
     return {
-      call_log: {},
+      call_log: {
+        total_calls: '',
+        total_sales: '',
+        con_ratio: '',
+        sum_sales: '',
+        call_history: ''
+      },
       lead_info: {},
       call_counts: {},
       product: {},
@@ -69956,42 +69821,39 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    secondsToMinues: function secondsToMinues(time) {
+      var minutes = Math.floor(time / 60);
+      var seconds = time - minutes * 60;
+      var finalTime = this.str_pad_left(minutes, '0', 2) + ':' + this.str_pad_left(seconds, '0', 2);
+      return finalTime;
+    },
+    str_pad_left: function str_pad_left(string, pad, length) {
+      return (new Array(length + 1).join(pad) + string).slice(-length);
+    },
     getCallLog: function getCallLog() {
+      var month = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var vm = this;
-      var payload = {
-        method: 'GET',
-        end_point: '/get-call-history/{agent_id}/{month}'
-      };
+
+      if (month == '') {
+        var endpoint = '/calls/get-call-history';
+      } else {
+        var endpoint = '/calls/get-call-history/' + month;
+      }
+
       vm.$Progress.start();
-      axios.post('/api-request', payload).then(function (response) {
+      axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
-          vm.lead = response.data;
-          vm.lead_info = response.data.lead;
-          vm.call_counts = response.data.call_counts;
-          vm.product = response.data.product;
-          vm.comments = response.data.comments;
-          vm.comments_graph = response.data.comments.comments_graph;
-
-          if (vm.comments_graph.length > 0) {
-            for (var i = 0; i < vm.comments_graph.type.length; i++) {
-              console.log(vm.comments_graph.type[i]);
-              vm.notes_data.push({
-                'title': vm.comments_graph.type[i],
-                'value': 84
-              });
-            }
-          }
-
-          vm.comment.comment_description = '';
-          vm.comment.comment_type = '';
+          vm.call_log.total_calls = response.data.total_calls;
+          vm.call_log.total_sales = response.data.total_sales;
+          vm.call_log.con_ratio = response.data.con_ratio;
+          vm.call_log.sum_sales = response.data.sum_sales;
+          vm.call_log.call_history = response.data.call_history;
+          vm.call_log.sum_call_back = response.data.sum_call_back;
+          vm.call_log.avg_time = response.data.avg_time;
           vm.$Progress.finish();
-          Fire.$emit('AfterLeadEnqueue', {
-            'lead_id': vm.lead_info.id,
-            'contact_number': vm.lead_info.phone_number
-          });
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
       });
     },
@@ -71464,6 +71326,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71567,7 +71430,7 @@ __webpack_require__.r(__webpack_exports__);
         }];
         vm.call_backs.forEach(function (call_back) {
           vm.attrs.push({
-            key: 'call_back',
+            key: 'call_back' + call_back.id,
             highlight: 'red',
             "class": 'call_back_date',
             dates: new Date(call_back.call_date),
@@ -71923,25 +71786,35 @@ __webpack_require__.r(__webpack_exports__);
 
       this.handleSubmit();
     },
+    topMonthFilterChange: function topMonthFilterChange() {
+      Fire.$emit('TopMonthFilterChange', {
+        'month': this.month
+      });
+    },
     switchState: function switchState() {
       if (this.is_idle == true) {
         this.is_idle = false;
         this.is_oncall = true;
-        this.is_offline = false;
-        console.log('Switch');
+        this.is_offline = false; // User is idle , getting no leads
+
+        this.updateTimeLog('idle');
       } else if (this.is_oncall == true) {
         this.is_idle = false;
         this.is_oncall = false;
-        this.is_offline = true;
-        console.log('Switch 1');
+        this.is_offline = true; // User is offline , getting no leads
+
+        this.updateTimeLog('offline');
       } else if (this.is_offline == true) {
         this.is_idle = true;
         this.is_oncall = false;
-        this.is_offline = false;
-        console.log('Switch 2');
+        this.is_offline = false; // User is on call , enque leads
+
+        this.updateTimeLog('active');
       }
     },
-    handleSubmit: function handleSubmit() {},
+    updateTimeLog: function updateTimeLog() {
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    },
     showGeneral: function showGeneral() {
       this.general_active = true;
       this.scripts_active = false;
@@ -74512,7 +74385,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
   },
   mounted: function mounted() {
     var vm = this;
-    this.enqueueLead();
+    this.enqueueLead(vm.lead_id);
     this.prepDates();
     Fire.$on('CallStarted', function () {
       vm.general = false;
@@ -74546,7 +74419,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     });
   },
   created: function created() {},
-  props: ['user_name', 'user_id'],
+  props: ['user_name', 'user_id', 'lead_id'],
   data: function data() {
     return {
       lead: {},
@@ -74581,7 +74454,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         date: '',
         time: '',
         user_id: this.user_id,
-        lead_id: ''
+        lead_id: '',
+        call_sid: this.call_sid
       },
       date_span: '',
       max_date: '',
@@ -74714,13 +74588,15 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
               // Setup Twilio.Device
               Device.setup(response.data.token);
               Device.on('ready', function (device) {
-                vm.call_status = 'Device Ready'; // vm.$refs.callBtn.click();
+                vm.call_status = 'Device Ready';
+                vm.$refs.callBtn.click();
               });
               Device.on('error', function (error) {
                 vm.call_status = 'Device Error: ' + error.message;
               });
               Device.on('connect', function (conn) {
                 vm.call_status = 'Successfully established call';
+                vm.call_back.call_sid = conn.parameters.CallSid;
                 axios.post('/calls/create-call-record', {
                   'lead_id': vm.lead_info.id,
                   'call_sid': conn.parameters.CallSid
@@ -124955,7 +124831,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-507c5f96]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\n    list-style: none;\n}\n.top-section li[data-v-507c5f96]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-507c5f96]{\n    text-align: center;\n}\n.card-body p[data-v-507c5f96]{\n    color: #fff;\n}\n.card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-507c5f96]{\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-507c5f96]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-507c5f96]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\n    height: 318px !important;\n}\n#top-section[data-v-507c5f96]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-507c5f96]{\n    color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\n    color:red !important;\n}.card-text-small[data-v-507c5f96]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\n    width: 12%;\n}\n.badge img[data-v-507c5f96]{\n    width: 100%;\n}\nul.headings[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#9fb3bb;\n    padding: 0 125px 0 0;\n}\nul.items[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#003449;\n    padding: 0 114px 0 0;\n}\nul.items li a[data-v-507c5f96]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\n    width: 30px;\n    margin-top: -8px;\n}\n#scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-507c5f96]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\n    list-style: none;\n}\n.top-section li[data-v-507c5f96]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-507c5f96]{\n    text-align: center;\n}\n.card-body p[data-v-507c5f96]{\n    color: #fff;\n}\n.card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-507c5f96]{\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-507c5f96]{\n    font-size: 49px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n}\np.card-text span[data-v-507c5f96]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\n    height: 318px !important;\n}\n#top-section[data-v-507c5f96]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-507c5f96]{\n    color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\n    color:red !important;\n}.card-text-small[data-v-507c5f96]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\n    width: 12%;\n}\n.badge img[data-v-507c5f96]{\n    width: 100%;\n}\nul.headings[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    /* padding: 0 104px 0 0; */\n    width: 14%;\n    text-align: left;\n}\nul.items[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\n    width: 30px;\n    margin-top: -8px;\n}\n#scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-507c5f96]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-507c5f96]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n\n", ""]);
 
 // exports
 
@@ -125012,7 +124888,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.control-sidebar-dark label.custom-control-label[data-v-48ad9a74]{\n\tcolor: inherit;\n    font-weight: 200;\n    padding-top: 3px;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n\ttext-align: right;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n    margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\twidth: 100%; margin: 0px 0px 5px 0px;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.control-sidebar-dark label.custom-control-label[data-v-48ad9a74]{\n\tcolor: inherit;\n    font-weight: 200;\n    padding-top: 3px;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n\ttext-align: right;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n    margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\twidth: 100%; margin: 0px 0px 5px 0px;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -238843,626 +238719,316 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: { "margin-top": "2%" },
+        attrs: { id: "top-section" }
+      },
+      [
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card calls" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Calls\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.call_log.total_calls) +
+                    " \n            "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card sales" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Sales\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.call_log.total_sales) +
+                    " \n            "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card sales-amount" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Sales Amount\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              $" +
+                    _vm._s(_vm.call_log.sum_sales) +
+                    " \n            "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card call-backs" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Callbacks\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.call_log.sum_call_back) +
+                    "\n            "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card ave-time" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Ave. Time\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.secondsToMinues(_vm.call_log.avg_time)) +
+                    " \n            "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2" }, [
+          _c("div", { staticClass: "card con-ratio" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-text-small",
+                  staticStyle: { "text-align": "left" }
+                },
+                [_vm._v("\n                  Conversion Ratio\n            ")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.call_log.con_ratio) +
+                    " \n            "
+                )
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticStyle: { "margin-bottom": "2%" } }),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm.call_log.call_history.length > 0
+      ? _c(
+          "div",
+          { staticClass: "row stats", attrs: { id: "scroll-hidden" } },
+          _vm._l(_vm.call_log.call_history, function(item, index) {
+            return _c("div", { key: index, staticClass: "col-lg-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card left",
+                  staticStyle: { "text-align": "left" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { "padding-bottom": "12px" }
+                    },
+                    [
+                      _c("ul", { staticClass: "items" }, [
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v(_vm._s(item.lead_name))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            directives: [
+                              {
+                                name: "b-tooltip",
+                                rawName: "v-b-tooltip.hover",
+                                modifiers: { hover: true }
+                              }
+                            ],
+                            staticClass: "truncate",
+                            attrs: { title: item.lead_country }
+                          },
+                          [_vm._v(_vm._s(item.lead_country))]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticStyle: { "padding-left": "17px" } }, [
+                          _vm._v(_vm._s(item.lead.source))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticStyle: { "padding-left": "30px" } }, [
+                          _vm._v("1")
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticStyle: { "padding-left": "32px" } }, [
+                          _vm._v(
+                            _vm._s(_vm.secondsToMinues(item.call_duration))
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticStyle: { "padding-left": "11px" } }, [
+                          _vm._v(_vm._s(item.call_date_created))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticStyle: { "padding-left": "22px" } }, [
+                          item.has_call_back == 1
+                            ? _c("input", {
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "checkbox",
+                                  checked: "",
+                                  disabled: ""
+                                }
+                              })
+                            : _c("input", {
+                                staticClass: "form-control",
+                                attrs: { type: "checkbox", disabled: "" }
+                              })
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          }),
+          0
+        )
+      : _c("div", { staticClass: "row stats" }, [_vm._m(1)])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c(
-        "div",
-        {
-          staticClass: "row",
-          staticStyle: { "margin-top": "2%" },
-          attrs: { id: "top-section" }
-        },
-        [
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card calls" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Calls\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              210 \n            ")
+    return _c("div", { staticClass: "row stats" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c(
+          "div",
+          { staticClass: "left", staticStyle: { "text-align": "left" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "card-body",
+                staticStyle: { "padding-bottom": "18px" }
+              },
+              [
+                _c("ul", { staticClass: "headings" }, [
+                  _c("li", [_vm._v("NAME")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("COUNTRY")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("SOURCE")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("CALLED")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("TALKED")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("DATE")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("CALL BACK")])
                 ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card sales" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Sales\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              11 \n            ")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card sales-amount" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Sales Amount\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              $110\n            ")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card call-backs" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Callbacks\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              3\n            ")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card ave-time" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Ave. Time\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              22m \n            ")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-2" }, [
-            _c("div", { staticClass: "card con-ratio" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  Conversion Ratio\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n              5\n            ")
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("hr", { staticStyle: { "margin-bottom": "3%" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row stats" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c("ul", { staticClass: "headings" }, [
-            _c("li", [_vm._v("NAME")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("COUNTRY")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("SOURCE")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("CALLED")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("TALKED")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("DATE")]),
-            _vm._v(" "),
-            _c("li", { staticStyle: { "padding-right": "0" } }, [
-              _vm._v("CALL BACK")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row stats", attrs: { id: "scroll-hidden" } }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", checked: "", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", checked: "", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", checked: "", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "div",
-            { staticClass: "card left", staticStyle: { "text-align": "left" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card-body",
-                  staticStyle: { "padding-bottom": "18px" }
-                },
-                [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(" Piet Andrews")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("South Africa")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Digital Payday")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("32m22s")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("2019-06-25")]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-right": "0" } }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "checkbox", disabled: "" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ])
+              ]
+            )
+          ]
+        )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card left", staticStyle: { width: "100%" } },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "card-body",
+            staticStyle: { "padding-bottom": "12px" }
+          },
+          [
+            _c("ul", { staticClass: "items" }, [
+              _c(
+                "li",
+                {
+                  staticStyle: { "text-align": "center", width: "100%" },
+                  attrs: { colspan: "7" }
+                },
+                [_vm._v("Your call history is empty")]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -240870,7 +240436,7 @@ var render = function() {
                       "nav-link call-history": true,
                       active: _vm.active == "call-history" ? true : false
                     },
-                    attrs: { href: "call-history" }
+                    attrs: { href: "/call-history" }
                   })
                 ]),
                 _vm._v(" "),
@@ -240890,7 +240456,7 @@ var render = function() {
                       "nav-link education": true,
                       active: _vm.active == "education" ? true : false
                     },
-                    attrs: { href: "education" }
+                    attrs: { href: "/education" }
                   })
                 ])
               ]
@@ -242321,14 +241887,23 @@ var render = function() {
                               [
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("h3", [
-                                    _vm._v(
-                                      "\n\t\t\t\t\t\t\t\t\t\t" +
-                                        _vm._s(
-                                          call_back.lead.name +
-                                            " " +
-                                            call_back.lead.surname
-                                        ) +
-                                        "\n\t\t\t\t\t\t\t\t\t"
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href:
+                                            "/workstation/" + call_back.lead.id
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(
+                                            call_back.lead.name +
+                                              " " +
+                                              call_back.lead.surname
+                                          )
+                                        )
+                                      ]
                                     )
                                   ]),
                                   _vm._v(" "),
@@ -242941,19 +242516,22 @@ var render = function() {
                           ],
                           staticClass: "form-control month-selector",
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.month = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.month = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              },
+                              _vm.topMonthFilterChange
+                            ]
                           }
                         },
                         [

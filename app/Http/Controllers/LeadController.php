@@ -392,6 +392,7 @@ class LeadController extends Controller
         $call_date = $request->date;
         $call_time = $request->time;
         $notes = $request->note;
+        $call_sid = $request->call_sid;
         $status = 0;
         
         $lead = Lead::findOrFail($lead_id);
@@ -408,7 +409,8 @@ class LeadController extends Controller
                     'call_date' => $call_date,
                     'call_time' => $call_time,
                     'notes' => $notes,
-                    'status' => $status
+                    'status' => $status,
+                    'call_sid' => $call_sid
                 ]);
 
                 event(new \App\Events\LeadAction($lead, $request_user,'updated_callback'));
@@ -421,7 +423,8 @@ class LeadController extends Controller
                             'call_date' => $call_date,
                             'call_time' => $call_time,
                             'notes' => $notes,
-                            'status' => $status
+                            'status' => $status,
+                            'call_sid' => $call_sid
                         ]);
                 
                 event(new \App\Events\LeadAction($lead, $request_user,'created_callback'));

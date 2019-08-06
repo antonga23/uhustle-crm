@@ -278,7 +278,8 @@ label.custom-control-label{
     width: 100%;
 }
 
-.notifications .card h3{
+.notifications .card h3,
+.notifications .card h3 a{
     color: #00344a;
     font-size: 16px;
     letter-spacing: 2.2px;
@@ -542,7 +543,7 @@ label.custom-control-label{
 							<div class="card" v-for="call_back in call_backs" :key="call_back.id">
 								<div class="card-body">
 									<h3>
-										{{ call_back.lead.name + ' ' +call_back.lead.surname }}
+										<a :href="'/workstation/' + call_back.lead.id">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
 									</h3>
 									<p class="call_back_time" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
 								</div>
@@ -786,7 +787,7 @@ label.custom-control-label{
 
 						vm.attrs.push(
 							{
-								key: 'call_back',
+								key: 'call_back'+call_back.id,
 								highlight: 'red',
 								class: 'call_back_date',
 								dates: new Date(call_back.call_date),

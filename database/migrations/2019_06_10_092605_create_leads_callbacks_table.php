@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTwilliosTable extends Migration
+class CreateLeadsCallbacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateTwilliosTable extends Migration
      */
     public function up()
     {
-        Schema::create('twillios', function (Blueprint $table) {
+        Schema::create('leads_callbacks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('agent_name');
-            $table->unsignedInteger('agent_id');
-            $table->unsignedInteger('lead_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('lead_id')->unsigned();
+            $table->date('call_date');
+            $table->time('call_time');
+            $table->string('notes');
             $table->string('call_sid')->nullable();
-            $table->string('call_status')->nullable();
-            $table->tinyInteger('answered')->nullable()->default(0);
-            $table->tinyInteger('sale')->nullable()->default(0);
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateTwilliosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('twillios');
+        Schema::dropIfExists('leads_callbacks');
     }
 }

@@ -183,13 +183,13 @@ a.workstation{
               <a href="/dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'dashboard')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
+              <a href="/call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/social-board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }"> </a>
+              <a href="/education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }"> </a>
             </li>
           </ul>
         </nav>

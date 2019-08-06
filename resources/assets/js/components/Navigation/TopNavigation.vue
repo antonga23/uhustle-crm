@@ -148,7 +148,7 @@
 							<a href="#" @click="showDialer();" :class="{ 'nav-link top-link' : true, 'active' : dialer_active }" class="nav-link">Dialer</a>
 						</li>
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block">
-							<select class="form-control month-selector" v-model="month">
+							<select class="form-control month-selector" v-model="month" @change="topMonthFilterChange">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
 								<option value="3">March {{ getFullYear() }}</option>
@@ -231,7 +231,6 @@
                 vm.lead_id = data.lead_id;
                 vm.phone_number = data.contact_number;
 			});
-
 			Fire.$on('InitiateCall', function(){
 				vm.dialer_active = true;
                 console.log('Call Initiated');
@@ -264,26 +263,33 @@
 				// Trigger submit handler
 				this.handleSubmit();
 			},
+			topMonthFilterChange(){
+				Fire.$emit('TopMonthFilterChange',{ 'month' : this.month })
+			},
 			switchState(){
 				if(this.is_idle == true){
 					this.is_idle = false;
 					this.is_oncall = true;
 					this.is_offline = false;
-					console.log('Switch');
+					// User is idle , getting no leads
+					this.updateTimeLog('idle');
 				}else if(this.is_oncall == true){
 					this.is_idle = false;
 					this.is_oncall = false;
 					this.is_offline = true;
-					console.log('Switch 1');
+					// User is offline , getting no leads
+					this.updateTimeLog('offline');
+					
 				}else if(this.is_offline == true){
 					this.is_idle = true;
 					this.is_oncall = false;
 					this.is_offline = false;
-					console.log('Switch 2');
+					// User is on call , enque leads
+					this.updateTimeLog('active');
 				}
 			},
-			handleSubmit(){
-
+			updateTimeLog(type = ''){
+				
 			},
 			showGeneral(){
 				this.general_active = true;
