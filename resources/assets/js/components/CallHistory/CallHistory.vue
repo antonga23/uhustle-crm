@@ -205,7 +205,7 @@
         width: 30px;
         margin-top: -8px;
     }
-    #scroll-hidden{
+    .scroll-hidden{
         overflow-y: scroll;
         height: 70vh;
         padding-top: 6px;
@@ -339,7 +339,7 @@
                 </div>
             </div>
         </div>
-        <div class="row stats" id="scroll-hidden" v-if="call_log.call_history.length > 0">
+        <div :class="{ 'row stats': true, 'scroll-hidden' : call_log.call_history.length > 8 }" v-if="call_log.call_history.length > 0">
             <div class="col-lg-12" v-for="(item,index) in call_log.call_history" :key="index">
                 <div class="card left" style="text-align: left;">
                     <div class="card-body" style="padding-bottom: 12px;">
