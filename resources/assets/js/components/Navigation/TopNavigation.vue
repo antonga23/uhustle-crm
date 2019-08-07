@@ -191,7 +191,7 @@
 		mounted() {
 
 			var d = new Date();
-			this.month = d.getMonth();
+			this.month = d.getMonth() + 1;
 
 			this.Toast = this.$swal.mixin({
 				toast: true,

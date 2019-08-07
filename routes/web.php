@@ -46,6 +46,8 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::post('/create-call-record', 'TwillioController@createCallRecord');
 	Route::get('/get-call-history', 'TwillioController@getCallHistory');
 	Route::get('/get-call-history/{month}', 'TwillioController@getCallHistory');
+	Route::get('/get-dashboard', 'TwillioController@getDashboard');
+	Route::get('/get-dashboard/{month}', 'TwillioController@getDashboard');
 });
 
 // Clients Routes

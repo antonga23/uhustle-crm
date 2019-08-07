@@ -382,4 +382,74 @@ class TwillioController extends Controller
             return false;
         }
     }
+    
+    public function getDashboard($month = ''){
+
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        $now = Carbon::now();
+
+        if($month == ''){
+            $month = $now->month;
+        }
+
+        // Your Account SID and Auth Token from twilio.com/console
+        $account_sid = config('twillio.twillio_account_sid');
+        $auth_token = config('twillio.twillio_auth_token');
+
+        $client = new Client($account_sid, $auth_token);
+
+        $twilios = Twillio::with('lead')
+                    ->where(['agent_id' => $request_user['user_id']])
+                    ->whereYear('created_at', '=' ,$now->year)
+                    ->whereMonth('created_at', '=' ,$month)
+                    ->orderBy('created_at', 'DESC')
+                    ->get();
+        
+        $sum_sales = 0;
+        $sum_call_back = 0;
+        $avg_time = 0;
+        $total_time = 0;
+        $con_ratio = 0;
+        foreach ($twilios as $key => $value) {
+
+            if($value->sale){
+                $product = Product::find($value->lead->product_id);
+                $price = $product->price;
+                $sum_sales += $price;
+            }
+
+            $sum_call_back += $value->has_call_back;
+            $total_time += $value->call_duration;
+        }
+
+        $total_calls = Twillio::where(['agent_id' => $request_user['user_id']])
+                                ->whereYear('created_at', '=' ,$now->year)
+                                ->whereMonth('created_at', '=' ,$month)
+                                ->count();
+
+        $total_sales = Twillio::where(['sale' => 1])
+                                ->where(['agent_id' => $request_user['user_id']])
+                                ->whereYear('created_at', '=' ,$now->year)
+                                ->whereMonth('created_at', '=' ,$month)
+                                ->count();
+        if($total_calls > 0){
+
+            $con_ratio = ceil( $total_sales / $total_calls );
+
+            $avg_time = ceil($total_time / $total_calls );
+        }
+
+
+        return array(
+            'success' => true, 
+            'total_calls' => $total_calls,
+            'total_sales' => $total_sales,
+            'con_ratio' => $con_ratio,
+            'sum_sales' => $sum_sales,
+            'sum_call_back' => $sum_call_back,
+            'avg_time' => $avg_time,
+            'call_history' => $twilios
+        );
+    }
 }

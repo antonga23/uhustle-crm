@@ -137,8 +137,9 @@
         background: #7fd0ac;    
         margin-left: -53px;
         margin-right: -66px;
-        padding: 63px 68px;
+        padding: 55px 68px 45px;
     }
+    
     .green{
         color:#00a25a !important;
     }
@@ -237,8 +238,27 @@
             </div>
           </div>
 
+          <div class="col-lg-2">
+            <div class="card client">
+              <div class="card-body">
+
+                <p class="card-text">
+                  $3000 
+                </p>
+
+                <p class="card-text-small">
+                    Commition
+                </p>
+
+                <p class="card-link down">
+                    <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+                    33%
+                </p> 
+              </div>
+            </div>
+          </div>
           <div class="col-lg-4"  style="text-align: center;padding-top: 26px;">
-            <h1 class="card-text" style="color: #fff;font-size: 80px;">
+            <h1 class="card-text" style="color: #fff;font-size: 80px;font-weight: 900;margin-bottom: 0;">
                   11 / 10
             </h1>
 
@@ -358,7 +378,14 @@
         },
         mounted() {
             console.log('Component mounted');
-            this.enqueueLead();
+
+            this.getDashboard();
+
+            var vm = this;
+
+            Fire.$on('TopMonthFilterChange', function(data){
+                vm.getCallLog(data.month);
+            });
             
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -372,117 +399,48 @@
         props: [],
         data: function(){
             return {
-                lead : {},
-                lead_info : {},
-                call_counts : {},
-                product : {},
-                comments : {},
-                comments_graph : {},
-                notes_data: [],
-                chart_options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                },
-                comment:{
-                    comment_description :'',
-                    comment_type :''
+                call_log : {
+                    total_calls: '',
+                    total_sales: '',
+                    con_ratio: '',
+                    sum_sales: '',
+                    call_history: '',
+                    sum_call_back: '',
+                    avg_time: '',
                 },
                 Toast: null
             }
         },
         methods: {
-            enqueueLead(){
+            getDashboard(month = ''){
                 var vm = this;
 
-                var payload = {
-                    method : 'GET',
-                    end_point : 'leads/enqueue'
+                if(month == ''){
+                    var endpoint = '/calls/get-dashboard';
+                }else{
+                    var endpoint = '/calls/get-dashboard/' + month;
                 }
 
                 vm.$Progress.start();
 
-                axios.post('/api-request', payload).then(function (response) {
+                axios.get(endpoint).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.lead = response.data;
-                        vm.lead_info = response.data.lead;
-                        vm.call_counts = response.data.call_counts;
-                        vm.product = response.data.product;
-                        vm.comments = response.data.comments;
-                        vm.comments_graph = response.data.comments.comments_graph;
+                        vm.call_log.total_calls = response.data.total_calls;
+                        vm.call_log.total_sales = response.data.total_sales;
+                        vm.call_log.con_ratio = response.data.con_ratio;
+                        vm.call_log.sum_sales = response.data.sum_sales;
+                        vm.call_log.call_history = response.data.call_history;
+                        vm.call_log.sum_call_back = response.data.sum_call_back;
+                        vm.call_log.avg_time = response.data.avg_time;
                         
-                        if(vm.comments_graph.length > 0){ 
-                            for (var i = 0; i < vm.comments_graph.type.length; i++) {
-                                console.log(vm.comments_graph.type[i]);
-                                vm.notes_data.push({ 'title' : vm.comments_graph.type[i], 'value': 84 });
-                            }
-                        }
-
-                        vm.comment.comment_description = '';
-                        vm.comment.comment_type = '';
-                        vm.$Progress.finish();
-                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
-            },
-            addComment(){
-                var vm = this;
-
-                if(vm.comment.comment_type == ''){
-                    vm.$swal('Please note','Please choose your comment type to process','warning');
-                    return false;
-                }
-
-                var payload = {
-                    method : 'POST',
-                    end_point : 'comments/add',
-                    form_data : {
-                        id : this.lead_info.id,
-                        type: 'lead',
-                        comment_type: this.comment.comment_type,
-                        description: this.comment.comment_description
-                    }
-                }
-                vm.$Progress.start();
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.enqueueLead();
-                        vm.$swal('Success', response.data.message,'success');
                         vm.$Progress.finish();
                     }else{
                         vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });
             },
-            getDaysAgo(second_date){
-                var date_string = '';
-                var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-                var firstDate = new Date();
-                var secondDate = new Date(second_date);
-
-                var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-
-                if(diffDays <= 1){
-                    date_string = 'Today';
-                }else if(diffDays < 7){
-                    date_string = diffDays + ' Days ago';
-                }else if(diffDays == 7){
-                    date_string = '1 Week ago';
-                }else if(diffDays >= 30){
-                    date_string = second_date;
-                }
-                return date_string;
-            }
         }
     }
 </script>

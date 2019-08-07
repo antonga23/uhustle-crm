@@ -381,10 +381,12 @@
         },
         mounted() {
             console.log('Component mounted');
+
             this.getCallLog();
+
             var vm = this;
+
 			Fire.$on('TopMonthFilterChange', function(data){
-                console.log(data.month);
                 vm.getCallLog(data.month);
             });
             
@@ -406,25 +408,8 @@
                     con_ratio: '',
                     sum_sales: '',
                     call_history: '',
-                },
-                lead_info : {},
-                call_counts : {},
-                product : {},
-                comments : {},
-                comments_graph : {},
-                notes_data: [],
-                chart_options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                },
-                comment:{
-                    comment_description :'',
-                    comment_type :''
+                    sum_call_back: '',
+                    avg_time: '',
                 },
                 Toast: null
             }
@@ -468,56 +453,6 @@
                     }
                 });
             },
-            addComment(){
-                var vm = this;
-
-                if(vm.comment.comment_type == ''){
-                    vm.$swal('Please note','Please choose your comment type to process','warning');
-                    return false;
-                }
-
-                var payload = {
-                    method : 'POST',
-                    end_point : 'comments/add',
-                    form_data : {
-                        id : this.lead_info.id,
-                        type: 'lead',
-                        comment_type: this.comment.comment_type,
-                        description: this.comment.comment_description
-                    }
-                }
-                vm.$Progress.start();
-                axios.post('/api-request', payload).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.enqueueLead();
-                        vm.$swal('Success', response.data.message,'success');
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                    }
-                });
-            },
-            getDaysAgo(second_date){
-                var date_string = '';
-                var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-                var firstDate = new Date();
-                var secondDate = new Date(second_date);
-
-                var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-
-                if(diffDays <= 1){
-                    date_string = 'Today';
-                }else if(diffDays < 7){
-                    date_string = diffDays + ' Days ago';
-                }else if(diffDays == 7){
-                    date_string = '1 Week ago';
-                }else if(diffDays >= 30){
-                    date_string = second_date;
-                }
-                return date_string;
-            }
         }
     }
 </script>

@@ -953,7 +953,7 @@ a.down-scroll:hover{
             </div>
         </div>
         <div>
-            <b-modal id="modal-1" size="md" ref="my-modal" title="Capture Callback" @ok="toggleModal">
+            <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal">
                 <div class="d-block">
                     <div class="row">
                         <div class="col-lg-6">
@@ -1465,7 +1465,7 @@ a.down-scroll:hover{
                         
                         setTimeout( function(){
                             axios.get('/calls/token').then(function (response) {
-                                
+                                console.log('Token',response.data.token);
                                 // Setup Twilio.Device
                                 Device.setup(response.data.token);
             
@@ -1532,7 +1532,8 @@ a.down-scroll:hover{
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
-                    phone_number : '+27676607233',
+                    // phone_number : vm.lead_info.contact_number,
+                    phone_number : '+27783684144',
                 }
                 
                 Device.connect(form_data);
@@ -1571,7 +1572,7 @@ a.down-scroll:hover{
                 var vm = this;
 
                 if(vm.comment.comment_type == ''){
-                    vm.$swal('Please note','Please choose your comment type to proceed','warning');
+                    vm.$swal('Please note','Please choose a lead status to proceed [+]','warning');
                     vm.choose_comment_type = true;
                     return false;
                 }
