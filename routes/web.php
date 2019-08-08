@@ -37,6 +37,8 @@ Route::get('/workstation/{lead_id}', 'PagesController@index')->name('workstation
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::get('/call-history', 'PagesController@callHistory')->name('call-history');
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
+Route::get('/users', 'PagesController@users')->name('users');
+Route::get('/leads', 'PagesController@leads')->name('leads');
 
 // Calls Routes
 Route::group(['prefix' => 'calls'], function () {
@@ -48,6 +50,18 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::get('/get-call-history/{month}', 'TwillioController@getCallHistory');
 	Route::get('/get-dashboard', 'TwillioController@getDashboard');
 	Route::get('/get-dashboard/{month}', 'TwillioController@getDashboard');
+});
+
+// Users Routes
+Route::group(['prefix' => 'users'], function () {
+	Route::get('/get-users', 'UserController@index');
+	Route::get('/get-user-counts', 'UserController@getUsers');
+	Route::get('/get-user-counts/{role}', 'UserController@getUsers');
+	Route::post('/get-assigned', 'UserController@getAssigned');
+	Route::get('/get/{id}', 'UserController@getById');
+	Route::post('/create', 'UserController@store');
+	Route::post('/update', 'UserController@update');
+	Route::get('/delete/{id}', 'UserController@destroy');
 });
 
 // Clients Routes
@@ -86,6 +100,8 @@ Route::group(['prefix' => 'leads'], function () {
     Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
     Route::post('/setcallback', 'LeadController@setCallback');
     Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+    Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
+    Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
 });
 
 // Roles Routes

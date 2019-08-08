@@ -49,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <top-navigation active="{{ $active }}"></top-navigation>
   <!-- /.navbar -->
 
-  <left-nav active="{{ $active }}"></left-nav>
+  <left-nav active="{{ $active }}" logged_user="{{ json_encode(Auth::user()) }}"></left-nav>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="content-wrapper" >

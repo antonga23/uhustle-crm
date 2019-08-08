@@ -15,21 +15,31 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTablesSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(LeadsTableSeeder::class);
+        $this->call(ClientsTableSeeder::class);
         
         $product = new Product;
-        $product->name = 'AdsBanc';
+        $product->name = 'Insta Essentials';
         $product->type = 'Advertising';
-        $product->description = 'Lorem ipsum dolor imet';
-        $product->price = '320';
+        $product->description = '';
+        $product->price = '';
         $product->currency = '$';
         $product->status = 1;
         $product->save();
 
         $product = new Product;
-        $product->name = 'Winsta';
-        $product->type = 'Online Marketting';
-        $product->description = 'Lorem ipsum dolor imet';
-        $product->price = '230';
+        $product->name = 'Insta Advice';
+        $product->type = 'Advertising';
+        $product->description = '';
+        $product->price = '';
+        $product->currency = '$';
+        $product->status = 1;
+        $product->save();
+
+        $product = new Product;
+        $product->name = 'Insta Fast Growth';
+        $product->type = 'Advertising';
+        $product->description = '';
+        $product->price = '';
         $product->currency = '$';
         $product->status = 1;
         $product->save();

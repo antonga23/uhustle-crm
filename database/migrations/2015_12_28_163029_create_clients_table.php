@@ -14,21 +14,25 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-        
             $table->increments('id');
+            $table->string('source');
             $table->string('title');
             $table->string('name');
             $table->string('surname');
-            $table->string('gender');
-            $table->integer('age');
-            $table->string('phone_number');
-            $table->string('city');
-            $table->string('country');
-            $table->text('description');
-            $table->integer('status');
-            $table->integer('user_assigned_id')->unsigned();
+            $table->string('gender')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('account')->nullable();
+            $table->string('rating')->nullable();
+            $table->integer('deposit')->nullable();
+            $table->integer('user_assigned')->unsigned();
             $table->integer('user_created_id')->unsigned();
-            $table->integer('lead_id')->unsigned();
+            $table->datetime('contact_date');
+            $table->integer('product_id')->unsigned();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }
@@ -40,8 +44,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('clients');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

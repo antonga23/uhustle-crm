@@ -8,27 +8,42 @@ class Client extends Model
 {
         
     protected $fillable = [
+        'source',
         'title',
         'name',
         'surname',
-        'gender',
-        'age',
         'phone_number',
+        'email',
+        'age',
+        'gender',
         'city',
         'country',
-        'description',
-        'status',
-        'user_assigned_id',
+        'account',
+        'rating',
+        'user_assigned',
         'user_created_id',
+        'contact_date',
+        'product_id',
+        'status',
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_assigned_id', 'id');
+        return $this->belongsTo('App\User', 'user_assigned', 'id');
     }
 
-    public function tasks()
+    public function product()
     {
-        return $this->hasMany('App\Tasks', 'client_id');
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function source()
+    {
+        return $this->hasMany('App\LeadSource', 'id','source');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'source_id');
     }
 }

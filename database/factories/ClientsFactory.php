@@ -5,7 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(App\Lead::class, function (Faker $faker) {
+$factory->define(App\Client::class, function (Faker $faker) {
     return [
 		'title' => $faker->title,
 		'name' => $faker->firstname,
@@ -22,7 +22,7 @@ $factory->define(App\Lead::class, function (Faker $faker) {
 		'user_assigned' => $faker->numberBetween(0, 20),
 		'user_created_id' => 1,
 		'contact_date' => $faker->date,
-		'source' => ( $faker->numberBetween(1, 2) ),
+		'source' => $faker->numberBetween(1, 2),
 		'product_id' => $faker->numberBetween(1, 2)
     ];
 });

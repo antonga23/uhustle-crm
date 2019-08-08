@@ -137,6 +137,8 @@
 							<a v-if="active == 'dashboard'" href="#" class="nav-link"><strong>Dashboard</strong></a>
 							<a v-if="active == 'call-history'" href="#" class="nav-link"><strong>Call History</strong></a>
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
+							<a v-if="active == 'users'" href="#" class="nav-link"><strong>Users</strong></a>
+							<a v-if="active == 'leads'" href="#" class="nav-link"><strong>Leads</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
@@ -162,6 +164,9 @@
 								<option value="11">November {{ getFullYear() }}</option>
 								<option value="13">December {{ getFullYear() }}</option>
 							</select>
+						</li> 
+						<li v-if="active == 'users' || active == 'leads'" class="nav-item d-none d-sm-inline-block">
+							<a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : adding_user }" class="nav-link">Add New</a>
 						</li>
 					</ul>
 				</div>
@@ -219,6 +224,8 @@
 				is_idle: true,
 				is_oncall: false,
 				is_offline: false,
+				// Users
+				adding_user : false,
 				types: [
 					'date',
 					'text'
@@ -233,7 +240,9 @@
 			});
 			Fire.$on('InitiateCall', function(){
 				vm.dialer_active = true;
-                console.log('Call Initiated');
+			});
+			Fire.$on('DoneAddingUser', function(){
+				vm.adding_user = !vm.adding_user;
 			});
 
 		},
@@ -308,6 +317,10 @@
 				this.general_active = false;
 				this.scripts_active = false;
 				Fire.$emit('ShowDialer');
+			},
+			addNew(){
+				this.adding_user = !this.adding_user;
+				Fire.$emit('AddingUser');
 			},
 			getFullYear(){
 				var d = new Date();

@@ -6,10 +6,12 @@ use DB;
 use Auth;
 use Session;
 use App\Task;
+use App\User;
 use App\Activity;
 use App\Invoice;
 use App\InvoiceLine;
 use App\Lead;
+use App\LeadSource;
 use App\Comment;
 use App\LeadsCallbacks;
 use App\Product;
@@ -232,21 +234,20 @@ class LeadController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
-		$id = $data['id'];
+        $id = $data['id'];
+        $name = $data['name'];
+        $surname = $data['surname'];
+        $account = $data['account'];
+        $email = $data['email'];
+        $user_created_id = $data['user_created_id'];
+        $phone_number = $data['phone_number'];
+        $product_id = $data['product_id'];
+        $user_assigned = $data['user_assigned'];
+        $source = $data['source'];
+        $status = $data['status'];
         $title = $data['title'];
-		$name = $data['name'];
-		$surname = $data['surname'];
-		$phone_number = $data['phone_number'];
-		$age = $data['age'];
-		$gender = $data['gender'];
-		$city = $data['city'];
-		$country = $data['country'];
-		$description = $data['description'];
-		$status = $data['status'];
-		$user_assigned_id = $data['user_assigned_id'];
-		$user_created_id = $data['user_created_id'];
-		$client_id = $data['client_id'];
-		$contact_date = $data['contact_date'];
+        $country = $data['country'];
+        $city = $data['city'];
 
         try{
             DB::beginTransaction();
@@ -256,16 +257,15 @@ class LeadController extends Controller
 				'name' => $name,
 				'surname' => $surname,
 				'phone_number' => $phone_number,
-				'age' => $age,
-				'gender' => $gender,
+				'email' => $email,
 				'city' => $city,
 				'country' => $country,
-				'description' => $description,
+				'account' => $account,
 				'status' => $status,
-				'user_assigned_id' => $user_assigned_id,
+				'user_assigned' => $user_assigned,
 				'user_created_id' => $user_created_id,
-				'client_id' => $client_id,
-                'contact_date' => Carbon::createFromFormat('d/m/Y', $contact_date)->format('Y-m-d')
+				'product_id' => $product_id,
+                'source' => $source['id']
             ]);
 
             $lead = Lead::find($id);
@@ -273,7 +273,7 @@ class LeadController extends Controller
             event(new \App\Events\LeadAction($lead, $request_user,'updated'));
 
             DB::commit();
-            return array('success' => true, 'lead' => Lead::find($id));
+            return array('success' => true, 'lead' => Lead::find($id), 'message' => 'Lead updated successfully');
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -474,6 +474,39 @@ class LeadController extends Controller
         $call_backs = LeadsCallbacks::with('lead')->where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
 
         return array('success' => true, 'call_backs' => $call_backs);
+    }
+
+    public function getLeadsCount($type = null){
+
+        $count_assigned = Lead::where('user_assigned', '>', 0)->count();    
+
+        $count_unassigned = Lead::where('user_assigned', '=', 0)->count();
+
+        if(is_null($type)){
+            
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->orderBy('updated_at', 'DESC')->get();
+
+        }else if($type == 1){ 
+
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+
+        }else if($type == 0){ 
+
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+
+        }           
+        
+        return array(
+            'success' => true,
+            'leads' => $leads, 
+            'count_leads' => $leads->count(), 
+            'count_unassigned' => $count_unassigned, 
+            'count_assigned' => $count_assigned, 
+            'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->get(), 
+            'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->get(), 
+            'packages' => Product::get(), 
+            'sources' => LeadSource::get(), 
+        );
     }
 
 }

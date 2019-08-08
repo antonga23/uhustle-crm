@@ -21,16 +21,17 @@ class CreateLeadsTable extends Migration
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();
             $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
-            $table->text('description')->nullable();
+            $table->string('account')->nullable();
             $table->string('rating')->nullable();
-            $table->integer('status')->nullable();
             $table->integer('deposit')->nullable();
-            $table->integer('user_assigned_id')->unsigned();
+            $table->integer('user_assigned')->unsigned();
             $table->integer('user_created_id')->unsigned();
             $table->datetime('contact_date');
             $table->integer('product_id')->unsigned();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

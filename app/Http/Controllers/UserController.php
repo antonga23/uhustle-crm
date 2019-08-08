@@ -9,14 +9,18 @@ use Session;
 use Storage;
 use App\User;
 use App\Task;
+use App\Role;
 use App\Activity;
 use App\Invoice;
 use App\InvoiceLine;
 use App\Lead;
+use App\Client;
 use App\Comment;
 use App\LeadsCallbacks;
 use App\Product;
 use App\Twillio;
+use App\UserClients;
+use App\UserLeads;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -30,6 +34,92 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function index(){
+
+        $users = User::with('call_backs')->with('comments')->orderBy('created_at', 'DESC')->get();
+
+        return array('success' => true,'count' => $users->count(), 'users' => $users);
+    }
+
+
+    
+    public function getUsers($role = null){
+
+        $users_col = User::with('role')->orderBy('updated_at', 'DESC')->get();
+
+        $all_users = $this->getUserDataFromColection($users_col);
+
+        $manager = User::with('role')->where(['role_id' => 1])->count();    
+
+        $account_manager = User::where(['role_id' => 2])->count();
+
+        $team_leader = User::where(['role_id' => 3])->count();
+
+        $agent = User::where(['role_id' => 4])->count();
+
+        $roles = Role::get();
+
+        if(is_null($role)):
+            
+            $selected_users = $all_users;
+
+        else:
+
+            $users_col = User::with('role')->where(['role_id' => $role])->orderBy('updated_at', 'DESC')->get();
+            
+            $selected_users = $this->getUserDataFromColection($users_col);
+
+        endif;            
+        
+        return array(
+            'success' => true,
+            'selected_users' => $selected_users, 
+            'count_all' => User::count(), 
+            'manager' => $manager, 
+            'account_manager' => $account_manager, 
+            'team_leader' => $team_leader, 
+            'agent' => $agent, 
+            'roles' => $roles, 
+        );
+    }
+
+    public function getUserDataFromColection($collection = null){
+
+        $user_data = [];
+
+        foreach($collection as $key => $user){
+
+            $data = new \StdClass();
+
+            $user_lead_ids = UserLeads::where(['user_id' => $user->id])->get();
+
+            $lead_ids = [];
+            
+            foreach($user_lead_ids as $key => $user_lead_id){
+                array_push($lead_ids, $user_lead_id->id);
+            }
+
+            $user_leads = Lead::whereIn('id', $lead_ids)->get();
+
+            $user_client_ids = UserClients::where(['user_id' => $user->id])->get();
+
+            $client_ids = [];
+            
+            foreach($user_client_ids as $key => $user_client_id){
+                array_push($client_ids, $user_client_id->id);
+            }
+
+            $user_lients = Client::whereIn('id', $client_ids)->get();
+
+            $data->user = $user;
+            $data->leads = $user_leads;
+            $data->clients = $user_lients;
+
+            array_push($user_data, $data);
+        }
+        return  $user_data;
     }
 
     public function uploadAvatar(Request $request){
@@ -55,19 +145,73 @@ class UserController extends Controller
         return ['user' => Auth::user()];
     }
 
-    public function update(Request $request){
+    public function store(Request $request){
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
 		$id = $request_user['user_id'];
         $name = $data['name'];
 		$lastname = $data['lastname'];
-		$nickname = $data['nickname'];
+		$nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
+		$email = $data['email'];
+		$work_number = $data['work_number'];
+		$personal_number = $data['personal_number'];
+		$address = $data['address'];
+		$role_id = $data['role_id'];
+		$notifications = 1;
+		$password_confirmation = $data['password_confirmation'];
+
+        $validator = \Validator::make($request->all(), [
+            'email' => 'required|email|max:255|unique:users,email',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }else{ 
+
+            try{
+                DB::beginTransaction();
+
+                $user = User::create([
+                    'role_id' => $role_id,
+                    'name' => $name,
+                    'lastname' => $lastname,
+                    'nickname' => $nickname,
+                    'email' => $email,
+                    'work_number' => $work_number,
+                    'personal_number' => $personal_number,
+                    'address' => $address,
+                    'notifications' => $notifications,
+                    'password' => bcrypt($password_confirmation),
+                    'activated' => 1,
+                    'email_verified_at' => date('Y-m-d H:i:s')
+                ]);
+
+                DB::commit();
+                return array('success' => true,'message' => 'User added successfully', 'user' => $user);
+
+            }catch(\QueryException $e){
+                DB::rollback();
+                return array('success' =>false, 'message' => $e->getMessage());
+            }
+        }
+    }
+
+    public function update(Request $request){
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        $data = $request->all();
+		$id = $data['id'];
+        $name = $data['name'];
+		$role_id = $data['role_id'];
+		$lastname = $data['lastname'];
+		$nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
 		$email = $data['email'];
 		$work_number = $data['work_number'];
 		$personal_number = $data['personal_number'];
 		$address = $data['address'];
 		$notifications = $data['notifications'];
+		$activated = $data['activated'];
 
         $validator = \Validator::make($request->all(), [
             'email' => 'required|email|max:255|unique:users,email,'. $id,
@@ -81,6 +225,7 @@ class UserController extends Controller
                 DB::beginTransaction();
 
                 $user = User::where(['id' => $id])->update([
+                    'role_id' => $role_id,
                     'name' => $name,
                     'lastname' => $lastname,
                     'nickname' => $nickname,
@@ -88,10 +233,11 @@ class UserController extends Controller
                     'work_number' => $work_number,
                     'personal_number' => $personal_number,
                     'address' => $address,
-                    'notifications' => $notifications
+                    'notifications' => $notifications,
+                    'activated' => $activated,
                 ]);
 
-                $user = User::find($id);
+                $user = User::with('role')->find($id);
 
                 DB::commit();
                 return array('success' => true,'message' => 'Profile updated successfully', 'user' => $user);
@@ -140,6 +286,20 @@ class UserController extends Controller
                 return array('success' =>false, 'message' => $e->getMessage());
             }
         }
+    }
+
+    public function getAssigned(Request $request){
+        $id = $request->user_id;
+
+        $user = User::where(['id' => $id])->get();
+
+        return array('success' =>true, 'user' => $this->getUserDataFromColection());        
+
+    }
+
+    public function destroy($id = null){
+        User::where(['id' => $id])->delete();
+        return array('success' =>true,'message' => 'Item deleted successfully');
     }
 
 }

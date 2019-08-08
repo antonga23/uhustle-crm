@@ -172,12 +172,12 @@ a.workstation{
       <div class="" id="sidebar">
         <!-- Sidebar user panel (optional) -->
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2" v-if="settings.auto_dialer">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
+              <a href="/workstation" id="workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'dashboard')? true : false }"> </a>
@@ -193,6 +193,27 @@ a.workstation{
             </li>
           </ul>
         </nav>
+        <nav class="mt-2" v-else>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="/workstation" title="Workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
+            </li>
+            <li class="nav-item">
+              <a href="/contacts" title="Contacts" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'contacts')? true : false }"> </a>
+            </li>
+            <li class="nav-item">
+              <a href="/leads" title="Leads" :class="{ 'nav-link social-board' : true, 'active' : (active == 'leads')? true : false }"> </a>
+            </li>
+            <li class="nav-item"  v-if="current_user.role_id == 1 || current_user.role_id == 2">
+              <a href="/users" title="Users" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'users')? true : false }"> </a>
+            </li>
+            <li class="nav-item" style="display:none;">
+              <a href="/call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
+            </li>
+          </ul>
+        </nav>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
@@ -205,6 +226,8 @@ a.workstation{
       mounted() {
         console.log('Component mounted.');
 
+          this.current_user = JSON.parse(this.logged_user);
+
         this.Toast = this.$swal.mixin({
           toast: true,
           position: 'top-end',
@@ -212,10 +235,14 @@ a.workstation{
           timer: 3000
         });
       },
-      props: ['active'],
+      props: ['active','logged_user'],
       data: function(){
         return {
-          current_page : 'workstation'
+          current_page : 'workstation',
+          settings: {
+            auto_dialer : false
+          },
+          current_user: []
         }
       }
     }

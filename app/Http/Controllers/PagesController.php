@@ -47,4 +47,14 @@ class PagesController extends Controller
    {
       return view('pages.social-board')->with(['active'=> 'social-board']);
    }
+
+   public function users()
+   {
+      return view('pages.users')->with(['active'=> 'users']);
+   }
+
+   public function leads()
+   {
+      return view('pages.leads')->with(['active'=> 'leads']);
+   }
 }

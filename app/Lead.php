@@ -12,17 +12,18 @@ class Lead extends Model
         'name',
         'surname',
         'phone_number',
+        'email',
         'age',
         'gender',
         'city',
         'country',
-        'description',
+        'account',
         'rating',
-        'status',
-        'user_assigned_id',
+        'user_assigned',
         'user_created_id',
-        'client_id',
-        'contact_date'
+        'contact_date',
+        'product_id',
+        'status',
     ];
 
     protected $dates = ['contact_date'];
@@ -43,11 +44,6 @@ class Lead extends Model
     {
         return $this->belongsTo(Client::class, 'client_id');
     }
-    
-    public function comments()
-    {
-        return $this->morphMany(Comment::class, 'source');
-    }
 
     public function activity()
     {
@@ -61,23 +57,16 @@ class Lead extends Model
 
     public function product()
     {
-        return $this->hasMany(Product::class, 'id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function getDaysUntilContactAttribute()
+    public function source()
     {
-        return Carbon\Carbon::now()->startOfDay()->diffInDays($this->contact_date, false);
+        return $this->belongsTo('App\LeadSource', 'source');
     }
 
-    /**
-     * Add a reply to the thread.
-     *
-     * @param  array $reply
-     * @return Model
-     */
-    public function addComment($reply)
+    public function comments()
     {
-        $reply = $this->comments()->create($reply);
-        return $reply;
+        return $this->hasMany('App\Comment', 'source_id', 'id');
     }
 }
