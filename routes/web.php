@@ -94,6 +94,7 @@ Route::group(['prefix' => 'leads'], function () {
 	Route::get('/get-all', 'LeadController@index');
 	Route::get('/get-active', 'LeadController@getActive');
 	Route::post('/create', 'LeadController@store');
+	Route::post('/create-client', 'LeadController@storeClient');
 	Route::post('/update', 'LeadController@update');
 	Route::get('/delete/{lead_id}', 'LeadController@destroy');
     Route::post('/updatestatus/{lead_id}', 'LeadController@updateStatus');

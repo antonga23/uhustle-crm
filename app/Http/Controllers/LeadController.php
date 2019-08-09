@@ -217,6 +217,59 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function storeClient(Request $request)
+    {
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        $data = $request->all();
+        $name = $data['name'];
+        $surname = $data['surname'];
+        $account = $data['account'];
+        $email = $data['email'];
+        $user_created_id = $data['user_created_id'];
+        $phone_number = $data['phone_number'];
+        $product_id = $data['product_id'];
+        $user_assigned = $data['user_assigned'];
+        $source = $data['source'];
+        $status = $data['status'];
+        $title = $data['title'];
+        $country = $data['country'];
+        $city = $data['city'];
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        try{
+            DB::beginTransaction();
+
+            $lead = Lead::create([
+				'title' => $title,
+				'name' => $name,
+				'surname' => $surname,
+				'phone_number' => $phone_number,
+				'email' => $email,
+				'city' => $city,
+				'country' => $country,
+				'account' => $account,
+				'status' => $status,
+				'user_assigned' => $user_assigned,
+				'user_created_id' => $user_created_id,
+				'product_id' => $product_id,
+                'source' => $source['id'],
+                'is_client' => 1,
+            ]);
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Lead successfully created', 'lead' => $lead);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function storeFromWinsta(Request $request)
     {
         $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
@@ -511,7 +564,7 @@ class LeadController extends Controller
 
     public function getLeadsCount($type = null){
 
-        if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
+        if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
 
@@ -577,7 +630,7 @@ class LeadController extends Controller
 
     public function getClientCount($type = null){
 
-        if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
+        if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
 

@@ -549,11 +549,12 @@ card-head, .ant-card-padding-transition .ant-card-body {
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
-            
-            var interval = setInterval(function() {
-                  vm.getUsersSilently();
-            }, 2000);
-            
+
+            if(this.current_user.role_id == 3 || this.current_user.role_id == 4){ 
+                var interval = setInterval(function() {
+                    vm.getUsersSilently();
+                }, 2000);
+            }
             vm.Toast = vm.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -676,7 +677,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                         if(!result){
                         }else{
                             
-                            axios.post('/leads/create',this.user).then(function (response) {
+                            axios.post('/leads/create-client',this.user).then(function (response) {
                                     
                                 if(response.data.success == true){
                                     vm.Toast.fire({ type: 'success', title: response.data.message });
