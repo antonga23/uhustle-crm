@@ -431,7 +431,7 @@ table.listing tr  th{
             </div>
         </div>
         <div v-else>
-              <a-card title="Add User">
+              <a-card title="Add User"   style="overflow-y: scroll;height: 380px;">
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                         <label class="col-lg-12 control-label">Role

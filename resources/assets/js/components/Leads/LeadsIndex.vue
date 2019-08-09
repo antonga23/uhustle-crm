@@ -359,7 +359,7 @@ table.listing tr  th{
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Lead">
+              <a-card title="Add Lead" style="overflow-y: scroll;height: 380px;">
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title

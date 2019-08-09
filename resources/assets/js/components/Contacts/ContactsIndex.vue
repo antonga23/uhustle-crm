@@ -230,6 +230,11 @@ table.listing tr  th{
 .modal-body {
     background: orange !important;
 }
+card-head, .ant-card-padding-transition .ant-card-body {
+    transition: padding 0.3s;
+    overflow-y: scroll;
+    height: 380px;
+}
 </style>
 <template>
     <div class="">
@@ -359,7 +364,7 @@ table.listing tr  th{
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Lead">
+              <a-card title="Add Lead" style="overflow-y: scroll;height: 380px;">
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
