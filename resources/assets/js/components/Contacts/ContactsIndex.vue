@@ -330,7 +330,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <li class="truncate"  :title="item.email" >{{ item.email }}</li>
                                 <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" >{{ item.creator.name + ' ' + item.creator.lastname }}</li>
                                 <li style="padding-left: 23px;" >{{ item.phone_number }}</li>
-                                <li style="padding-left: 11px;" >{{ item.product.name }}</li>
+                                <li class="truncate" :title="item.product.name" style="padding-left: 11px;" >{{ item.product.name }}</li>
                                 <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
                                 <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2">
@@ -627,7 +627,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             getUsers(role = ''){
                 var vm = this;
 
-                if(role == 1){
+                if(role == ''){
                     var endpoint = '/leads/get-client-counts';
                 }else{
                     var endpoint = '/leads/get-client-counts/' + role;

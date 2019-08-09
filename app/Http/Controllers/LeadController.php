@@ -201,7 +201,8 @@ class LeadController extends Controller
 				'user_assigned' => $user_assigned,
 				'user_created_id' => $user_created_id,
 				'product_id' => $product_id,
-                'source' => $source['id']
+                'source' => $source['id'],
+                'is_client' => 0,
             ]);
 
             DB::commit();
