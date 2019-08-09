@@ -70383,9 +70383,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -70430,6 +70427,19 @@ __webpack_require__.r(__webpack_exports__);
         lead_owners: []
       },
       user: {
+        name: '',
+        surname: '',
+        account: '',
+        email: '',
+        user_created_id: '',
+        phone_number: '',
+        product_id: '',
+        user_assigned: '',
+        source: '',
+        status: '',
+        title: '',
+        country: '',
+        city: '',
         comments: [],
         assigned: []
       },
@@ -71597,9 +71607,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71644,6 +71651,19 @@ __webpack_require__.r(__webpack_exports__);
         lead_owners: []
       },
       user: {
+        name: '',
+        surname: '',
+        account: '',
+        email: '',
+        user_created_id: '',
+        phone_number: '',
+        product_id: '',
+        user_assigned: '',
+        source: '',
+        status: '',
+        title: '',
+        country: '',
+        city: '',
         comments: [],
         assigned: []
       },
@@ -241684,53 +241704,24 @@ var render = function() {
                           },
                           [
                             _c("ul", { staticClass: "items" }, [
-                              _vm.current_user.role_id == 1 ||
-                              _vm.current_user.role_id == 2
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.showEditModal(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    " +
-                                            _vm._s(
-                                              item.name + " " + item.surname
-                                            ) +
-                                            "\n                                "
-                                        )
-                                      ]
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/workstation/" + item.id,
+                                      title: "Dial"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(item.name + " " + item.surname) +
+                                        "\n                                "
                                     )
-                                  ])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.current_user.role_id == 4
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: {
-                                          href: "/workstation/" + item.id
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    " +
-                                            _vm._s(
-                                              item.name + " " + item.surname
-                                            ) +
-                                            "\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                : _vm._e(),
+                                  ]
+                                )
+                              ]),
                               _vm._v(" "),
                               _c(
                                 "li",
@@ -241825,29 +241816,46 @@ var render = function() {
                               _vm.current_user.role_id == 1 ||
                               _vm.current_user.role_id == 2
                                 ? _c("li", [
-                                    item.status == 1
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "green" } },
-                                          [_vm._v("Active")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    item.status == 2
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "orange" } },
-                                          [_vm._v("Inactive")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    item.status == 0
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "red" } },
-                                          [_vm._v("Canceled")]
-                                        )
-                                      : _vm._e()
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "#", title: "Edit" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.showEditModal(item)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        item.status == 1
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticStyle: { color: "green" }
+                                              },
+                                              [_vm._v("Active")]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.status == 2
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticStyle: { color: "orange" }
+                                              },
+                                              [_vm._v("Inactive")]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.status == 0
+                                          ? _c(
+                                              "span",
+                                              { staticStyle: { color: "red" } },
+                                              [_vm._v("Canceled")]
+                                            )
+                                          : _vm._e()
+                                      ]
+                                    )
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
@@ -241895,7 +241903,7 @@ var render = function() {
               "a-card",
               {
                 staticStyle: { "overflow-y": "scroll", height: "380px" },
-                attrs: { title: "Add Lead" }
+                attrs: { title: "Add Contact" }
               },
               [
                 _c(
@@ -242549,7 +242557,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                            Add Lead\n                        "
+                              "\n                            Add Contact\n                        "
                             )
                           ]
                         )
@@ -244795,53 +244803,24 @@ var render = function() {
                           },
                           [
                             _c("ul", { staticClass: "items" }, [
-                              _vm.current_user.role_id == 1 ||
-                              _vm.current_user.role_id == 2
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.showEditModal(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    " +
-                                            _vm._s(
-                                              item.name + " " + item.surname
-                                            ) +
-                                            "\n                                "
-                                        )
-                                      ]
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/workstation/" + item.id,
+                                      title: "Dial"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(item.name + " " + item.surname) +
+                                        "\n                                "
                                     )
-                                  ])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.current_user.role_id == 4
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: {
-                                          href: "/workstation/" + item.id
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    " +
-                                            _vm._s(
-                                              item.name + " " + item.surname
-                                            ) +
-                                            "\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                : _vm._e(),
+                                  ]
+                                )
+                              ]),
                               _vm._v(" "),
                               _c(
                                 "li",
@@ -244936,29 +244915,46 @@ var render = function() {
                               _vm.current_user.role_id == 1 ||
                               _vm.current_user.role_id == 2
                                 ? _c("li", [
-                                    item.status == 1
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "green" } },
-                                          [_vm._v("Active")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    item.status == 2
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "orange" } },
-                                          [_vm._v("Inactive")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    item.status == 0
-                                      ? _c(
-                                          "span",
-                                          { staticStyle: { color: "red" } },
-                                          [_vm._v("Canceled")]
-                                        )
-                                      : _vm._e()
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "#", title: "Edit" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.showEditModal(item)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        item.status == 1
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticStyle: { color: "green" }
+                                              },
+                                              [_vm._v("Active")]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.status == 2
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticStyle: { color: "orange" }
+                                              },
+                                              [_vm._v("Inactive")]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.status == 0
+                                          ? _c(
+                                              "span",
+                                              { staticStyle: { color: "red" } },
+                                              [_vm._v("Canceled")]
+                                            )
+                                          : _vm._e()
+                                      ]
+                                    )
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),

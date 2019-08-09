@@ -321,13 +321,8 @@ card-head, .ant-card-padding-transition .ant-card-body {
                     <div class="card left" style="text-align: left;">
                         <div class="card-body" style="padding-bottom: 12px;padding-top: 12px;">
                             <ul class="items">
-                                <li v-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                    <a href="#" @click="showEditModal(item)">
-                                        {{ item.name +  ' ' + item.surname }}
-                                    </a>
-                                </li>
-                                <li v-if="current_user.role_id == 4">
-                                    <a :href="'/workstation/' + item.id">
+                                <li>
+                                    <a :href="'/workstation/' + item.id"  title="Dial">
                                         {{ item.name +  ' ' + item.surname }}
                                     </a>
                                 </li>
@@ -339,9 +334,11 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
                                 <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                    <span v-if="item.status == 1" style="color:green;">Active</span>
-                                    <span v-if="item.status == 2" style="color:orange;">Inactive</span>
-                                    <span v-if="item.status == 0" style="color:red;">Canceled</span>
+                                    <a href="#" @click="showEditModal(item)"  title="Edit">
+                                        <span v-if="item.status == 1" style="color:green;">Active</span>
+                                        <span v-if="item.status == 2" style="color:orange;">Inactive</span>
+                                        <span v-if="item.status == 0" style="color:red;">Canceled</span>
+                                    </a>
                                 </li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
                                     <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
@@ -364,7 +361,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Lead" style="overflow-y: scroll;height: 380px;">
+              <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -430,7 +427,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                             </label>
                         <label class="col-lg-12 control-label">
                             <button type="submit" class="btn btn-primary update-user" @click="createUser()">
-                                Add Lead
+                                Add Contact
                             </button>
                         </label>
                     </div>
@@ -578,6 +575,19 @@ card-head, .ant-card-padding-transition .ant-card-body {
                     lead_owners: [],
                 },
 				user: {
+                    name: '',
+                    surname: '',
+                    account: '',
+                    email: '',
+                    user_created_id: '',
+                    phone_number: '',
+                    product_id: '',
+                    user_assigned: '',
+                    source: '',
+                    status: '',
+                    title: '',
+                    country: '',
+                    city: '',
                     comments: [],
                     assigned: [],
                 },
