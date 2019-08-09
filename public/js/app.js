@@ -71592,7 +71592,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71608,9 +71607,13 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
     });
-    var interval = setInterval(function () {
-      vm.getUsersSilently();
-    }, 2000);
+
+    if (this.current_user.role_id == 3 || this.current_user.role_id == 4) {
+      var interval = setInterval(function () {
+        vm.getUsersSilently();
+      }, 2000);
+    }
+
     vm.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -71698,15 +71701,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getUsersSilently: function getUsersSilently() {
-      var role = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var vm = this;
-
-      if (role == 1) {
-        var endpoint = '/leads/get-lead-counts';
-      } else {
-        var endpoint = '/leads/get-lead-counts/' + role;
-      }
-
+      var endpoint = '/leads/get-lead-counts';
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
           vm.users.leads = response.data.leads;

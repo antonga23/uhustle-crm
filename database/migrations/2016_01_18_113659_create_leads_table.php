@@ -14,10 +14,10 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('source');
-            $table->string('title');
-            $table->string('name');
-            $table->string('surname');
+            $table->string('source')->nullable();
+            $table->string('title')->nullable();
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();
             $table->string('phone_number')->nullable();
@@ -27,10 +27,10 @@ class CreateLeadsTable extends Migration
             $table->string('account')->nullable();
             $table->string('rating')->nullable();
             $table->integer('deposit')->nullable();
-            $table->integer('user_assigned')->unsigned();
-            $table->integer('user_created_id')->unsigned();
-            $table->integer('product_id')->unsigned();
-            $table->tinyInteger('is_client')->default(0);
+            $table->integer('user_assigned')->nullable()->unsigned();
+            $table->integer('user_created_id')->nullable()->unsigned();
+            $table->integer('product_id')->nullable()->unsigned();
+            $table->tinyInteger('is_client')->nullable()->default(0);
             $table->integer('status')->nullable();
             $table->timestamps();
         });

@@ -15,3 +15,4 @@ sudo composer dumpautoload
 # #
 # # Run artisan commands
 php /var/www/html/artisan migrate:fresh --seed
+

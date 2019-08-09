@@ -20,9 +20,9 @@ class RolesTablesSeeder extends Seeder
         $editorRole->save();
 
         $adminRole = new Role;
-        $adminRole->name = 'administrator';
-        $adminRole->display_name = 'Administrator';
-        $adminRole->description = 'System Administrator';
+        $adminRole->name = 'account_mananger';
+        $adminRole->display_name = 'Account Manager';
+        $adminRole->description = 'Account Managerr';
         $adminRole->status = 1;
         $adminRole->save();
 

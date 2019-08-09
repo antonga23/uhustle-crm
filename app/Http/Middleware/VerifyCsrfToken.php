@@ -21,5 +21,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'calls/voice',
         'calls/status-update',
+        'leads/create',
     ];
 }

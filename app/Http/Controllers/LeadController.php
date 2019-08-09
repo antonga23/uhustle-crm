@@ -212,6 +212,50 @@ class LeadController extends Controller
             return array('success' =>false, 'message' => $e->getMessage());
         }
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function storeFromWinsta(Request $request)
+    {
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $data = $request->all();        
+        $name = $data['name'];
+        $surname = $data['surname'];
+        $phone_number = $data['phone_number'];
+        $email = $data['email'];
+        $user_created_id = $data['user_created_id'];
+        $is_client = $data['is_client'];
+        $product_id = $data['product_id'];
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        try{
+            DB::beginTransaction();
+
+            $lead = Lead::create([
+                'source' => null,
+				'name' => $name,
+				'surname' => $surname,
+				'phone_number' => $phone_number,
+				'email' => $email,
+				'user_created_id' => $user_created_id,
+				'user_assigned' => 0,
+				'is_client' => $is_client,
+				'status' => 1,
+				'product_id' => $product_id,
+				'account' => '-',
+            ]);
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Lead successfully created', 'lead' => $lead);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
 
     /**
      * Update the specified resource in storage.

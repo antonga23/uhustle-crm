@@ -51,7 +51,8 @@ Route::group(['prefix' => 'leads'], function () {
 	Route::get('/get/{lead_id}', 'LeadController@getById');
 	Route::get('/get-all', 'LeadController@index')->middleware('auth:api');
 	Route::get('/get-active', 'LeadController@getActive');
-	Route::post('/create', 'LeadController@store');
+	Route::post('/create', 'LeadController@store')->middleware('auth:api');
+	Route::post('/create-from-winsta', 'LeadController@storeFromWinsta')->middleware('auth:api');
 	Route::post('/update', 'LeadController@update');
 	Route::get('/delete/{lead_id}', 'LeadController@destroy');
     Route::post('/updatestatus/{lead_id}', 'LeadController@updateStatus');

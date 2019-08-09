@@ -339,8 +339,7 @@ table.listing tr  th{
                                     <span v-if="item.status == 0" style="color:red;">Canceled</span>
                                 </li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
-                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;
-    padding: 0px 7px;">
+                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
                                         x
                                     </a>
                                 </li>
@@ -545,11 +544,11 @@ table.listing tr  th{
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
-            
-            var interval = setInterval(function() {
-                  vm.getUsersSilently();
-            }, 2000);
-            
+            if(this.current_user.role_id == 3 || this.current_user.role_id == 4){ 
+                var interval = setInterval(function() {
+                    vm.getUsersSilently();
+                }, 2000);
+            }
             vm.Toast = vm.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -639,14 +638,10 @@ table.listing tr  th{
                     }
                 });
             },
-            getUsersSilently(role = ''){
+            getUsersSilently(){
                 var vm = this;
 
-                if(role == 1){
-                    var endpoint = '/leads/get-lead-counts';
-                }else{
-                    var endpoint = '/leads/get-lead-counts/' + role;
-                }
+                var endpoint = '/leads/get-lead-counts';
 
                 axios.get(endpoint).then(function (response) {
                     
