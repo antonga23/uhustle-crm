@@ -629,7 +629,7 @@ table.listing tr  th{
                 },
                 current_user: {},
                 add_user: false,
-                avatarUrl: 'storage/images/avatars/',
+                avatarUrl: '/images/avatars/',
                 noImageUrl: 'https://via.placeholder.com/25',
                 bulk_actions: "",
                 Toast: null

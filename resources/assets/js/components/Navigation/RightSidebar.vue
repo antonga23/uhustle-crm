@@ -744,7 +744,7 @@ label.custom-control-label{
 					class: 'today_date',
 					dates: new Date(),
 				}],
-				avatarUrl: 'storage/images/avatars/',
+				avatarUrl: '/images/avatars/',
                 noImageUrl: 'https://via.placeholder.com/',
 			}
 		},

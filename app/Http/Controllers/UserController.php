@@ -127,11 +127,12 @@ class UserController extends Controller
         if($request->hasFile('img')){
             $imageName = time().'.'.request()->img->getClientOriginalExtension();
             
-            $directory = 'public/images/avatars/' . $id ;
+            $directory = '/images/avatars/' . $id ;
 
             Storage::deleteDirectory($directory);
 
-            $path = Storage::putFileAs($directory, $request->file('img'), $imageName);
+            // Storage::disk('public_uploads')->put($directory, $imageName);
+            $path = request()->img->storeAs($directory, $imageName,'public_uploads');
 
             $user = User::where('id', '=', $id)->update(['avatar' => $imageName]);
 
