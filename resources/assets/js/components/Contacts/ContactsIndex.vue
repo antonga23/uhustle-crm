@@ -339,8 +339,7 @@ table.listing tr  th{
                                     <span v-if="item.status == 0" style="color:red;">Canceled</span>
                                 </li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
-                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;
-    padding: 0px 7px;">
+                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
                                         x
                                     </a>
                                 </li>
@@ -353,7 +352,7 @@ table.listing tr  th{
                 <div class="card left" style="width: 100%;">
                     <div class="card-body" style="padding-bottom: 12px;">
                         <ul class="items">
-                            <li colspan="7" style="text-align:center;width: 100%;">0 Leads</li>
+                            <li colspan="7" style="text-align:center;width: 100%;">0 Contacts</li>
                         </ul>
                     </div>
                 </div>
