@@ -566,9 +566,9 @@ class LeadController extends Controller
 
         if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
-            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();    
 
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->count();
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();
     
             if(is_null($type)){
                 
@@ -632,9 +632,9 @@ class LeadController extends Controller
 
         if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
-            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();    
 
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->count();
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();
     
             if(is_null($type)){
                 
