@@ -139,6 +139,7 @@
 							<a v-if="active == 'social-board'" href="#" class="nav-link"><strong>Social Board</strong></a>
 							<a v-if="active == 'users'" href="#" class="nav-link"><strong>Users</strong></a>
 							<a v-if="active == 'leads'" href="#" class="nav-link"><strong>Leads</strong></a>
+							<a v-if="active == 'contacts'" href="#" class="nav-link"><strong>Contacts</strong></a>
 						</li> 
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
@@ -165,7 +166,7 @@
 								<option value="13">December {{ getFullYear() }}</option>
 							</select>
 						</li> 
-						<li v-if="active == 'users' || active == 'leads'" class="nav-item d-none d-sm-inline-block">
+						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts' ) && ( current_user.role_id == 1 || current_user.role_id == 2)" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : adding_user }" class="nav-link">Add New</a>
 						</li>
 					</ul>
@@ -194,7 +195,7 @@
 	import { setupCalendar, Calendar} from 'v-calendar'
 	export default {
 		mounted() {
-
+			this.current_user = JSON.parse(this.logged_user);
 			var d = new Date();
 			this.month = d.getMonth() + 1;
 
@@ -205,7 +206,7 @@
 				timer: 3000
 			});
 		},
-		props: ['active'],
+		props: ['active','logged_user'],
 		components: {
 			
 		},
@@ -226,6 +227,7 @@
 				is_offline: false,
 				// Users
 				adding_user : false,
+				current_user: [],
 				types: [
 					'date',
 					'text'
@@ -238,11 +240,19 @@
                 vm.lead_id = data.lead_id;
                 vm.phone_number = data.contact_number;
 			});
+
 			Fire.$on('InitiateCall', function(){
 				vm.dialer_active = true;
 			});
+
 			Fire.$on('DoneAddingUser', function(){
 				vm.adding_user = !vm.adding_user;
+			});
+
+			Fire.$on('ShowGeneral', function(){
+				vm.general_active = true;
+				vm.scripts_active = false;
+				vm.dialer_active = false;
 			});
 
 		},

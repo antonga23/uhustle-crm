@@ -57,4 +57,9 @@ class PagesController extends Controller
    {
       return view('pages.leads')->with(['active'=> 'leads']);
    }
+
+   public function contacts()
+   {
+      return view('pages.contacts')->with(['active'=> 'contacts']);
+   }
 }

@@ -16,32 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(LeadsTableSeeder::class);
         $this->call(ClientsTableSeeder::class);
-        
-        $product = new Product;
-        $product->name = 'Insta Essentials';
-        $product->type = 'Advertising';
-        $product->description = '';
-        $product->price = '';
-        $product->currency = '$';
-        $product->status = 1;
-        $product->save();
+        $this->call(ProductsTableSeeder::class);
+        $this->call(SourcesTableSeeder::class);
+        $this->call(SourcesTableSeeder::class);
 
-        $product = new Product;
-        $product->name = 'Insta Advice';
-        $product->type = 'Advertising';
-        $product->description = '';
-        $product->price = '';
-        $product->currency = '$';
-        $product->status = 1;
-        $product->save();
-
-        $product = new Product;
-        $product->name = 'Insta Fast Growth';
-        $product->type = 'Advertising';
-        $product->description = '';
-        $product->price = '';
-        $product->currency = '$';
-        $product->status = 1;
-        $product->save();
     }
 }

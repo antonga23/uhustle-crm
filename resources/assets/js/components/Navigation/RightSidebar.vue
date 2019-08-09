@@ -332,15 +332,15 @@ label.custom-control-label{
 		                            </ul>
 		                            <ul class="navbar-nav pull-right">
 		                                <li class="nav-item name-li" v-if="user.nickname != null && user.nickname != ''">
-		                                    <a class="nav-link name" href="#" style="font-size: 12px;">{{ user.nickname }}</a>
+		                                    <a class="nav-link name" href="#" @click="showSettings()" style="font-size: 12px;">{{ user.nickname }}</a>
 		                                </li>
 		                                <li class="nav-item name-li" v-else>
-		                                    <a class="nav-link name" href="#" style="font-size: 12px;">{{ user.name }}</a>
+		                                    <a class="nav-link name" href="#" @click="showSettings()" style="font-size: 12px;">{{ user.name }}</a>
 		                                </li>
 		                                <li class="nav-item">
-		                                    <a class="nav-link icon small-avatar" href="#">
+		                                    <a class="nav-link icon small-avatar" href="#" @click="showSettings()">
 												<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-												<img v-else src="https://via.placeholder.com/25" >
+												<img v-else :src="noImageUrl + '25'" >
 		                                    </a>
 		                                </li>
 		                            </ul>
@@ -366,9 +366,9 @@ label.custom-control-label{
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
 									<label class="col-lg-12 control-label" style="float:left;text-align: center;">
 										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%;width: 27%;">
-										<img v-else src="https://via.placeholder.com/100" style="border-radius:50%;width: 27%;">
+										<img v-else :src="noImageUrl + '100'" style="border-radius:50%;width: 27%;">
 										<div>
-											<button style="    margin: 18px 0 15px 0;font-size: 9px;" class="btn btn-info" type="button" @click="showUploader">Choose Image</button>
+											<button style="margin: 18px 0 15px 0;font-size: 9px;" class="btn btn-info" type="button" @click="showUploader">Choose Image</button>
 										</div>
 									</label>
 								</div>
@@ -744,7 +744,8 @@ label.custom-control-label{
 					class: 'today_date',
 					dates: new Date(),
 				}],
-				avatarUrl: 'storage/images/avatars/'
+				avatarUrl: 'storage/images/avatars/',
+                noImageUrl: 'https://via.placeholder.com/',
 			}
 		},
 		methods: {

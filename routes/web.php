@@ -39,6 +39,7 @@ Route::get('/call-history', 'PagesController@callHistory')->name('call-history')
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
 Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/leads', 'PagesController@leads')->name('leads');
+Route::get('/contacts', 'PagesController@contacts')->name('contacts');
 
 // Calls Routes
 Route::group(['prefix' => 'calls'], function () {
@@ -101,7 +102,10 @@ Route::group(['prefix' => 'leads'], function () {
     Route::post('/setcallback', 'LeadController@setCallback');
     Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
     Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
-    Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
+	Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
+    Route::get('/get-client-counts', 'LeadController@getClientCount');
+	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
+	
 });
 
 // Roles Routes

@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper" id ="app">
   <vue-progress-bar></vue-progress-bar>
   <!-- Navbar -->
-  <top-navigation active="{{ $active }}"></top-navigation>
+  <top-navigation active="{{ $active }}" logged_user="{{ json_encode(Auth::user()) }}"></top-navigation>
   <!-- /.navbar -->
 
   <left-nav active="{{ $active }}" logged_user="{{ json_encode(Auth::user()) }}"></left-nav>

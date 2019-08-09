@@ -644,7 +644,7 @@ a.down-scroll:hover{
                 <ul class="top-section">
                     <li>
                         <p class="top">Lead Source</p>
-                        <p class="bottom">{{ lead_info.source }}</p>
+                        <p class="bottom">{{ lead_info.source.name }}</p>
                     </li>
                     <li>
                         <p class="top">Called</p>
@@ -685,12 +685,12 @@ a.down-scroll:hover{
                         Product
                     </h5>
 
-                    <p class="card-text" :title="product.description + '. ' + product.price ">
-                      {{ product.name }}
+                    <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.price ">
+                      {{ lead_info.product.name }}
                     </p>
 
-                    <p class="card-link truncate" :title="product.description + '. ' + product.price ">
-                        {{ product.description }}
+                    <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price ">
+                        {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}
                     </p> 
                   </div>
                 </div>
@@ -704,7 +704,7 @@ a.down-scroll:hover{
                     </h5>
 
                     <p class="card-text">
-                      11:20 AM
+                      11:20
                     </p>
 
                     <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
@@ -1047,12 +1047,12 @@ a.down-scroll:hover{
                                 Product
                             </h5>
 
-                            <p class="card-text" :title="product.description + '. ' + product.price ">
-                            {{ product.name }}
+                            <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price ">
+                            {{ lead_info.product.name }}
                             </p>
 
-                            <p class="card-link truncate" :title="product.description + '. ' + product.price ">
-                                {{ product.description }}
+                            <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price ">
+                                {{ lead_info.product.description }}
                             </p> 
                         </div>
                         </div>
@@ -1196,7 +1196,7 @@ a.down-scroll:hover{
                                     <div class="">
                                         <div class="verticalChart">
 
-                                            <div class="singleBar" v-for="bar in comments_graph">
+                                            <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
 
                                                 <div class="bar">
 
@@ -1273,7 +1273,7 @@ a.down-scroll:hover{
                 vm.idle = false;
             });
 
-            Fire.$on( 'ShowGeneral', function(){
+            Fire.$on('ShowGeneral', function(){
                 vm.general = true;
                 vm.scripts = false;
                 vm.idle = false;
@@ -1298,7 +1298,9 @@ a.down-scroll:hover{
         data: function(){
             return {
                 lead : {},
-                lead_info : {},
+                lead_info : {
+                    product: {},
+                },
                 call_counts : {},
                 product : {},
                 comments : {},
@@ -1462,57 +1464,60 @@ a.down-scroll:hover{
                         vm.continues = false;
 
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
-                        
-                        setTimeout( function(){
-                            axios.get('/calls/token').then(function (response) {
-                                console.log('Token',response.data.token);
-                                // Setup Twilio.Device
-                                Device.setup(response.data.token);
-            
-                                Device.on('ready',function (device) {
-                                    vm.call_status = 'Device Ready';
-                                    vm.$refs.callBtn.click();
-                                });
-
-                                Device.on('error',function (error) {
-                                    vm.call_status = 'Device Error: ' + error.message;
-                                });
-
-                                Device.on('connect',function (conn) {
-                                    vm.call_status = 'Successfully established call';
-                                    vm.call_back.call_sid = conn.parameters.CallSid;
-                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                        
-                                    }).catch(function (error) {                    
-                                        console.log(error);
+                        if(lead_id == ''){ 
+                            setTimeout( function(){
+                                axios.get('/calls/token').then(function (response) {
+                                    console.log('Token',response.data.token);
+                                    // Setup Twilio.Device
+                                    Device.setup(response.data.token);
+                
+                                    Device.on('ready',function (device) {
+                                        vm.call_status = 'Device Ready';
+                                        vm.$refs.callBtn.click();
                                     });
-                                });
 
-                                Device.on('incoming', function (conn) {
-                                    console.log('Incoming connection from ' + conn.parameters.From);
-                                    var archEnemyPhoneNumber = '+12099517118';
-                            
-                                    if (conn.parameters.From === archEnemyPhoneNumber) {
-                                        conn.reject();
-                                        console.log('It\'s your nemesis. Rejected call.');
-                                    } else {
-                                        // accept the incoming connection and start two-way audio
-                                        conn.accept();
-                                    }
-                                });
+                                    Device.on('error',function (error) {
+                                        vm.call_status = 'Device Error: ' + error.message;
+                                    });
 
-                                Device.on('disconnect',function (conn) {
-                                    vm.call_status = 'Call Disconnected';
-                                    vm.$refs['final-call-step'].show();
-                                });
+                                    Device.on('connect',function (conn) {
+                                        vm.call_status = 'Successfully established call';
+                                        vm.call_back.call_sid = conn.parameters.CallSid;
+                                        axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                                            
+                                        }).catch(function (error) {                    
+                                            console.log(error);
+                                        });
+                                    });
 
-                                vm.$Progress.finish();
+                                    Device.on('incoming', function (conn) {
+                                        console.log('Incoming connection from ' + conn.parameters.From);
+                                        var archEnemyPhoneNumber = '+12099517118';
                                 
-                            }).catch(function (error) {                    
-                                console.log(error);
-                            });
-                        }, 1000 );
+                                        if (conn.parameters.From === archEnemyPhoneNumber) {
+                                            conn.reject();
+                                            console.log('It\'s your nemesis. Rejected call.');
+                                        } else {
+                                            // accept the incoming connection and start two-way audio
+                                            conn.accept();
+                                        }
+                                    });
 
+                                    Device.on('disconnect',function (conn) {
+                                        vm.call_status = 'Call Disconnected';
+                                        vm.$refs['final-call-step'].show();
+                                    });
+
+                                    vm.$Progress.finish();
+                                    
+                                }).catch(function (error) {                    
+                                    console.log(error);
+                                });
+                            }, 1000 );
+                        }else{
+                            Fire.$emit('ShowGeneral');
+                            vm.$Progress.finish();
+                        }
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');

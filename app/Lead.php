@@ -21,14 +21,10 @@ class Lead extends Model
         'rating',
         'user_assigned',
         'user_created_id',
-        'contact_date',
+        'is_client',
         'product_id',
         'status',
     ];
-
-    protected $dates = ['contact_date'];
-
-    protected $hidden = ['remember_token'];
 
     public function user()
     {

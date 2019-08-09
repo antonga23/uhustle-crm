@@ -174,21 +174,36 @@ span.right{
 .badge img{
     width: 100%;
 }
+ul.filters{
+    list-style: none;
+    padding: 0;
+}
+
+ul.filters li{
+   width: 10%;
+}
 ul.headings{
     list-style: none;
-    padding-left: 70px;
+    padding-left: 90px;
+    display: block;
+    width: 100%;
+    height: 39px;
+    margin-bottom: 0;
 }
 ul.headings li {
     float: left;
     font-weight: 700;
     color: #9fb3bb;
-    /* padding: 0 104px 0 0; */
-    width: 14%;
+    width: 15%;
     text-align: left;
 }
 ul.items{
     list-style: none;
-    padding-left: 40px;
+    padding-left: 1px;
+    display: block;
+    width: 100%;
+    height: 39px;
+    margin-bottom: 0;
 }
 ul.items li {
     float:left;
@@ -197,6 +212,35 @@ ul.items li {
     width: 14%;
     text-align: left;
 
+}
+ul.items li.actions{
+    padding-left: 22px;
+    width: 10%;
+    text-align: right;
+}
+ul.items li.active{
+    padding-left: 16px;
+    width: 12%;
+}
+ul.items li.name{
+    width: 20%;
+    padding-top: 4px;
+}
+ul.items li.role{
+    padding-top: 7px;
+}
+ul.items li.mobile{
+    padding-left: 17px;
+    padding-top: 7px;
+}
+ul.items li.check{
+    width: 1%;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+ul.items li.active-date{
+    padding-left: 11px;
+    padding-top: 7px;
 }
 ul.items li a:hover{
     text-decoration: none;
@@ -222,6 +266,7 @@ table.listing tr  th{
 }
 .control-label{
     float: left;
+    height: 77px;
 }
 .help-block{
     color:red;
@@ -229,6 +274,11 @@ table.listing tr  th{
 }
 .modal-body {
     background: orange !important;
+}
+.small-avatar img{
+    width: 28px;
+    margin-top: 0px;
+    border-radius: 50%;
 }
 </style>
 <template>
@@ -317,11 +367,20 @@ table.listing tr  th{
             <div class="row stats">
                 <div class="col-lg-12">
                     <div class="left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 18px;">
+                        <div class="card-body" style="padding: 18px 0 0;">
+                            <ul class="filters" style="display:none;
+                            ">
+                                <li class="bulk-action">
+                                    <select type="text" id="role"  name="Role" v-model="bulk_actions" v-validate="'required'" class="form-control">
+                                        <option value="">- Bulk Actions -</option>
+                                        <option value="delete">Delete</option>
+                                    </select>
+                                </li>
+                            </ul>
                             <ul class="headings">
-                                <li>FULL NAME</li>
+                                <li style="width: 16%;">FULL NAME</li>
                                 <li>ROLE</li>
-                                <li>EMAIL</li>
+                                <li style="width: 16%;">EMAIL</li>
                                 <li>CONTACT NUMBER</li>
                                 <li style="width: 19%;">LAST ACTIVE</li>
                                 <li>ACTIVE</li>
@@ -333,22 +392,27 @@ table.listing tr  th{
             <div :class="{ 'row stats': true, 'scroll-hidden' : users.all_users.length > 8 }" v-if="users.all_users.length > 0">
                 <div class="col-lg-12" v-for="(item,index) in users.all_users" :key="index">
                     <div class="card left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 12px;">
+                        <div class="card-body" style="padding-bottom: 12pxp;adding-top: 17px;">
                             <ul class="items">
-                                <li style="padding-top: 7px;">
-                                    <a href="#" @click="showEditModal(item.user, item.leads,item.clients)">
+                                <li class="check" style="display:none;">
+                                    <input type="checkbox"> 
+                                </li>
+                                <li class="name">
+                                    <a href="#" @click="showEditModal(item.user, item.leads,item.clients)" class="small-avatar">
+                                        <img v-if="item.user.avatar != '' && item.user.avatar != null" :src="avatarUrl + item.user.id + '/' + item.user.avatar">
+                                        <img v-else :src="noImageUrl" >
                                         {{ item.user.name +  ' ' + item.user.lastname }}
                                     </a>
                                 </li>
-                                <li style="padding-left: 17px;padding-top: 7px;" >{{ item.user.role.display_name }}</li>
-                                <li class="truncate" :title="item.user.email" style="padding-left: 30px;padding-top: 7px;" >{{ item.user.email }}</li>
-                                <li style="padding-left: 23px;padding-top: 7px;" >{{ item.user.personal_number }}</li>
-                                <li style="padding-left: 11px;padding-top: 7px;" >{{ item.user.updated_at }}</li>
-                                <li style="padding-left: 22px;">
+                                <li class="role" >{{ item.user.role.display_name }}</li>
+                                <li class="truncate" :title="item.user.email" style="padding-top: 7px;" >{{ item.user.email }}</li>
+                                <li class="mobile" >{{ item.user.personal_number }}</li>
+                                <li class="active-date" >{{ item.user.updated_at }}</li>
+                                <li class="active">
                                     <input v-if="item.user.activated == 1" type="checkbox" class="form-control" checked disabled> 
                                     <input v-else type="checkbox" class="form-control" disabled> 
                                 </li>
-                                <li style="padding-left: 22px;"  v-if="current_user.role_id == 1 || current_user.role_id == 2">
+                                <li class="actions" sv-if="current_user.role_id == 1 || current_user.role_id == 2">
                                     <button class="btn btn-danger" @click="deleteItem(item.user.id)" style="margin: 0;">Delete</button> 
                                 </li>
                             </ul>
@@ -565,6 +629,9 @@ table.listing tr  th{
                 },
                 current_user: {},
                 add_user: false,
+                avatarUrl: 'storage/images/avatars/',
+                noImageUrl: 'https://via.placeholder.com/25',
+                bulk_actions: "",
                 Toast: null
             }
         },

@@ -10,8 +10,8 @@ cd /var/www/html
 # Run composer
 sudo composer install --no-ansi --no-suggest --no-interaction --no-progress --prefer-dist --no-scripts -d /var/www/html
 
-sudo composer dumpautoload
+# sudo composer dumpautoload
 
 # #
 # # Run artisan commands
-php /var/www/html/artisan migrate:fresh --seed
+# php /var/www/html/artisan migrate:fresh --seed

@@ -38,14 +38,14 @@ class LeadController extends Controller
      */
     public function index()
     {
-         $leads = Lead::with('call_backs')->with('comments')->orderBy('created_at', 'DESC')->get();
+         $leads = Lead::with('call_backs')->with('product')->with('source')->with('creator')->with('comments')->orderBy('created_at', 'DESC')->get();
 
          return array('success' => true,'count' => $leads->count(), 'leads' => $leads);
     }
 
     public function getActive()
     {
-         $leads = Lead::with('call_backs')->with('comments')
+         $leads = Lead::with('call_backs')->with('product')->with('source')->with('creator')->with('comments')
                         ->where(['status' => 0])
                         ->orderBy('created_at', 'DESC')
                         ->get();
@@ -55,7 +55,7 @@ class LeadController extends Controller
 
     public function getById($id){
 
-         $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+         $lead = Lead::with('call_backs')->with('product')->with('source')->with('creator')->with('comments')->findOrFail($id);
 
          $lead_info = $this->getLeadInfo($id);
 
@@ -64,7 +64,6 @@ class LeadController extends Controller
                     'lead' => $lead,  
                     'activity_log' => $lead_info['activity_log'],
                     'comments' => $lead_info['comments'],
-                    'product' => $lead_info['product'],
                     'call_counts' => $lead_info['call_counts']
                 );
     }
@@ -73,7 +72,7 @@ class LeadController extends Controller
     {
         $id = rand(1,100);
 
-         $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+         $lead = Lead::with('call_backs')->with('product')->with('source')->with('creator')->with('comments')->findOrFail($id);
 
          $lead_info = $this->getLeadInfo($id);
          
@@ -82,7 +81,6 @@ class LeadController extends Controller
                     'lead' => $lead,  
                     'activity_log' => $lead_info['activity_log'],
                     'comments' => $lead_info['comments'],
-                    'product' => $lead_info['product'],
                     'call_counts' => $lead_info['call_counts']
                 );
     }
@@ -96,8 +94,6 @@ class LeadController extends Controller
                             ->select('created_at', 'text')
                             ->orderBy('created_at', 'DESC')
                             ->get();
-
-        $product = Product::where(['id' => $lead->product_id])->first();
 
         $call_count = Twillio::where(['lead_id' => $lead->id])->count();
 
@@ -116,7 +112,6 @@ class LeadController extends Controller
         return array(
             'activity_log' => $activity_log,
             'comments' => $comments,
-            'product' => $product,
             'call_counts' => [
                 'call_count' => $call_count, 
                 'call_count_answered' => $call_count_answered,
@@ -175,20 +170,19 @@ class LeadController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
-		$title = $data['title'];
-		$name = $data['name'];
-		$surname = $data['surname'];
-		$phone_number = $data['phone_number'];
-		$age = $data['age'];
-		$gender = $data['gender'];
-		$city = $data['city'];
-		$country = $data['country'];
-		$description = $data['description'];
-		$status = $data['status'];
-		$user_assigned_id = $data['user_assigned_id'];
-		$user_created_id = $data['user_created_id'];
-		$client_id = $data['client_id'];
-		$contact_date = $data['contact_date'];
+        $name = $data['name'];
+        $surname = $data['surname'];
+        $account = $data['account'];
+        $email = $data['email'];
+        $user_created_id = $data['user_created_id'];
+        $phone_number = $data['phone_number'];
+        $product_id = $data['product_id'];
+        $user_assigned = $data['user_assigned'];
+        $source = $data['source'];
+        $status = $data['status'];
+        $title = $data['title'];
+        $country = $data['country'];
+        $city = $data['city'];
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         try{
@@ -199,22 +193,19 @@ class LeadController extends Controller
 				'name' => $name,
 				'surname' => $surname,
 				'phone_number' => $phone_number,
-				'age' => $age,
-				'gender' => $gender,
+				'email' => $email,
 				'city' => $city,
 				'country' => $country,
-				'description' => $description,
+				'account' => $account,
 				'status' => $status,
-				'user_assigned_id' => $user_assigned_id,
+				'user_assigned' => $user_assigned,
 				'user_created_id' => $user_created_id,
-				'client_id' => $client_id,
-                'contact_date' => Carbon::createFromFormat('d/m/Y', $contact_date)->format('Y-m-d')
+				'product_id' => $product_id,
+                'source' => $source['id']
             ]);
 
-            event(new \App\Events\LeadAction($lead, $request_user,'created'));
-
             DB::commit();
-            return array('success' => true, 'lead' => $lead);
+            return array('success' => true, 'message' => 'Lead successfully created', 'lead' => $lead);
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -269,8 +260,6 @@ class LeadController extends Controller
             ]);
 
             $lead = Lead::find($id);
-
-            event(new \App\Events\LeadAction($lead, $request_user,'updated'));
 
             DB::commit();
             return array('success' => true, 'lead' => Lead::find($id), 'message' => 'Lead updated successfully');
@@ -478,35 +467,133 @@ class LeadController extends Controller
 
     public function getLeadsCount($type = null){
 
-        $count_assigned = Lead::where('user_assigned', '>', 0)->count();    
+        if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
-        $count_unassigned = Lead::where('user_assigned', '=', 0)->count();
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
 
-        if(is_null($type)){
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->count();
+    
+            if(is_null($type)){
+                
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 1){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 0){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }           
             
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->orderBy('updated_at', 'DESC')->get();
-
-        }else if($type == 1){ 
-
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
-
-        }else if($type == 0){ 
-
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
-
-        }           
-        
-        return array(
-            'success' => true,
-            'leads' => $leads, 
-            'count_leads' => $leads->count(), 
-            'count_unassigned' => $count_unassigned, 
-            'count_assigned' => $count_assigned, 
-            'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->get(), 
-            'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->get(), 
-            'packages' => Product::get(), 
-            'sources' => LeadSource::get(), 
-        );
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }else{
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
+    
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->count();
+    
+            if(is_null($type)){
+                
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 1){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 0){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }           
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 0])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }
     }
 
+    public function getClientCount($type = null){
+
+        if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
+
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
+
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->count();
+    
+            if(is_null($type)){
+                
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 1){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 0){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }           
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }else{
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
+    
+            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->count();
+    
+            if(is_null($type)){
+                
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 1){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }else if($type == 0){ 
+    
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+    
+            }           
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 1])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }
+    }
 }

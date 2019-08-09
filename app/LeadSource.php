@@ -9,6 +9,4 @@ class LeadSource extends Model
     protected $fillable = [
         'name'
     ];
-
-    
 }

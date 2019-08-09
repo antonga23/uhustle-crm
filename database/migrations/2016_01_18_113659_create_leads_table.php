@@ -29,8 +29,8 @@ class CreateLeadsTable extends Migration
             $table->integer('deposit')->nullable();
             $table->integer('user_assigned')->unsigned();
             $table->integer('user_created_id')->unsigned();
-            $table->datetime('contact_date');
             $table->integer('product_id')->unsigned();
+            $table->tinyInteger('is_client')->default(0);
             $table->integer('status')->nullable();
             $table->timestamps();
         });

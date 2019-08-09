@@ -613,9 +613,9 @@ table.listing tr  th{
                 var vm = this;
 
                 if(role == 1){
-                    var endpoint = '/leads/get-lead-counts';
+                    var endpoint = '/leads/get-client-counts';
                 }else{
-                    var endpoint = '/leads/get-lead-counts/' + role;
+                    var endpoint = '/leads/get-client-counts/' + role;
                 }
 
                 vm.$Progress.start();
@@ -643,9 +643,9 @@ table.listing tr  th{
                 var vm = this;
 
                 if(role == 1){
-                    var endpoint = '/leads/get-lead-counts';
+                    var endpoint = '/leads/get-client-counts';
                 }else{
-                    var endpoint = '/leads/get-lead-counts/' + role;
+                    var endpoint = '/leads/get-client-counts/' + role;
                 }
 
                 axios.get(endpoint).then(function (response) {
@@ -712,7 +712,6 @@ table.listing tr  th{
                             axios.post('/leads/update',vm.user).then(function (response) {
                                     
                                 if(response.data.success == true){
-                                    Fire.$emit('LeadUpdated');
                                     vm.Toast.fire({ type: 'success', title: response.data.message });
                                     vm.getUsers();
                                     vm.$bvModal.hide('update-user-modal');

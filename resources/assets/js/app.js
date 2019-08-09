@@ -85,6 +85,7 @@ Vue.component('social-board', require('./components/SocialBoard/SocialBoard.vue'
 Vue.component('avatar-upload', require('./components/Plugins/AvatarUpload.vue').default);
 Vue.component('users', require('./components/Users/UsersIndex.vue').default);
 Vue.component('leads', require('./components/Leads/LeadsIndex.vue').default);
+Vue.component('contacts', require('./components/Contacts/ContactsIndex.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

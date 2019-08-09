@@ -21,8 +21,8 @@ $factory->define(App\Lead::class, function (Faker $faker) {
 		'status' => $faker->numberBetween(0, 2),
 		'user_assigned' => $faker->numberBetween(0, 20),
 		'user_created_id' => 1,
-		'contact_date' => $faker->date,
 		'source' => ( $faker->numberBetween(1, 2) ),
-		'product_id' => $faker->numberBetween(1, 2)
+		'product_id' => $faker->numberBetween(1, 2),
+		'is_client' => $faker->numberBetween(0, 1)
     ];
 });
