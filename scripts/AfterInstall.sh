@@ -14,5 +14,5 @@ sudo composer install --no-ansi --no-suggest --no-interaction --no-progress --pr
 
 # #
 # # Run artisan commands
-php /var/www/html/artisan migrate --seed
+php /var/www/html/artisan migrate
 
