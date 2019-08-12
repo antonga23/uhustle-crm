@@ -206,7 +206,7 @@ a.workstation{
             <li class="nav-item">
               <a href="/leads" title="Leads" :class="{ 'nav-link social-board' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
-            <li class="nav-item"  v-if="current_user.role_id == 1 || current_user.role_id == 2">
+            <li class="nav-item"  v-if="current_user.role_id == 1">
               <a href="/users" title="Users" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'users')? true : false }"> </a>
             </li>
             <li class="nav-item" style="display:none;">
