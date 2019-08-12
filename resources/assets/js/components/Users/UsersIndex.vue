@@ -371,7 +371,7 @@ table.listing tr  th{
                             <ul class="filters" style="display:none;
                             ">
                                 <li class="bulk-action">
-                                    <select type="text" id="role"  name="Role" v-model="bulk_actions" v-validate="'required'" class="form-control">
+                                    <select type="text" id="role"  name="Role" v-model="bulk_actions"  class="form-control">
                                         <option value="">- Bulk Actions -</option>
                                         <option value="delete">Delete</option>
                                     </select>
@@ -435,37 +435,37 @@ table.listing tr  th{
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                         <label class="col-lg-12 control-label">Role
-                            <select type="text" id="role"  name="Role" v-model="user.role_id" v-validate="'required'" class="form-control">
+                            <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">
                                 <option value="">- Please Choose Role </option>
                                 <option :value="item.id" v-for="(item, index) in users.roles" :key="index">{{ item.display_name }}</option>
                             </select>
                             <span id="error" v-show="errors.has('Role')" class="help-block">{{ errors.first('Role') }}</span>
                         </label>
                         <label class="col-lg-4 control-label">Name
-                            <input type="text" id="email"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
+                            <input type="text" id="email"  name="Name" v-model="user.name"  class="form-control">
                             <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
                         </label>
                         <label class="col-lg-4 control-label">Surname
-                            <input type="text" id="email"  name="Surname" v-model="user.lastname" v-validate="'required'" class="form-control">
+                            <input type="text" id="email"  name="Surname" v-model="user.lastname"  class="form-control">
                             <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                         </label>
                         <label class="col-lg-4 control-label">Prefered Nickname
                             <input type="text" id="nickname"  name="Nickname" v-model="user.nickname" class="form-control">
                         </label>
                         <label class="col-lg-4 control-label">Email
-                            <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'required|email'" class="form-control">
+                            <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'" class="form-control">
                             <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                         </label>
                         <label class="col-lg-4 control-label">Work Telephone
-                            <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" v-validate="'required|min:10'" class="form-control">
+                            <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" v-validate="'min:10'" class="form-control">
                             <span id="error" v-show="errors.has('Work Tel')" class="help-block">{{ errors.first('Work Tel') }}</span>
                         </label>
                         <label class="col-lg-4 control-label">Cellphone number
-                            <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" v-validate="'required|min:10'" class="form-control">
+                            <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" v-validate="'min:10'" class="form-control">
                             <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
                         </label>
                         <label class="col-lg-12 control-label">Address
-                            <textarea id="address"  name="Address" v-model="user.address" v-validate="'required'" class="form-control"></textarea>
+                            <textarea id="address"  name="Address" v-model="user.address"  class="form-control"></textarea>
                             <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
                         </label>
                         <label class="col-lg-3 control-label">Username
@@ -473,11 +473,11 @@ table.listing tr  th{
                             <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
                         </label>
                         <label class="col-lg-3 control-label">New Password <em><small>Default: P@ssword</small></em>
-                            <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'required|min:6'" class="form-control">
+                            <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'min:6'" class="form-control">
                             <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
                         </label>
                         <label class="col-lg-3 control-label">Confirm New Password
-                            <input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'required|min:6|confirmed:password'" class="form-control">
+                            <input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'min:6|confirmed:password'" class="form-control">
                             <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
                         </label>
                         <label class="col-lg-12 control-label">
@@ -503,37 +503,37 @@ table.listing tr  th{
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-12 control-label">Role
-                                <select type="text" id="role"  name="Role" v-model="user.role_id" v-validate="'required'" class="form-control">
+                                <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">
                                     <option value="">- Please Choose Role </option>
                                     <option :value="item.id" v-for="(item, index) in users.roles" :key="index">{{ item.display_name }}</option>
                                 </select>
                                 <span id="error" v-show="errors.has('Role')" class="help-block">{{ errors.first('Role') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Name
-                                <input type="text" id="email"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
+                                <input type="text" id="email"  name="Name" v-model="user.name"  class="form-control">
                                 <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="email"  name="Surname" v-model="user.lastname" v-validate="'required'" class="form-control">
+                                <input type="text" id="email"  name="Surname" v-model="user.lastname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Nickname
                                 <input type="text" id="nickname"  name="Nickname" v-model="user.nickname" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'required|email'" class="form-control">
+                                <input type="text" id="email"  name="Email" v-model="user.email" class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Work Telephone
-                                <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" v-validate="'required|min:10'" class="form-control">
+                                <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" class="form-control">
                                 <span id="error" v-show="errors.has('Work Tel')" class="help-block">{{ errors.first('Work Tel') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Cellphone number
-                                <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" v-validate="'required|min:10'" class="form-control">
+                                <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" class="form-control">
                                 <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
                             </label>
                             <label class="col-lg-12 control-label">Address
-                                <textarea id="address"  name="Address" v-model="user.address" v-validate="'required'" class="form-control"></textarea>
+                                <textarea id="address"  name="Address" v-model="user.address"  class="form-control"></textarea>
                                 <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Username
@@ -549,7 +549,7 @@ table.listing tr  th{
                                 <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.activated" v-validate="'required'" class="form-control">
+                                <select type="text" id="role"  name="Role" v-model="user.activated"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
                                     <option value="0">Disabled</option>

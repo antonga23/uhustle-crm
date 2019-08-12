@@ -4282,826 +4282,8 @@ module.exports = exports['default'];
  * Copyright 2014-2018 Abdullah Almsaeed <abdullah@almsaeedstudio.com>
  * Licensed under MIT (https://github.com/almasaeed2010/AdminLTE/blob/master/LICENSE)
  */
-(function (global, factory) {
-	 true ? factory(exports) :
-	undefined;
-}(this, (function (exports) { 'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-/**
- * --------------------------------------------
- * AdminLTE ControlSidebar.js
- * License MIT
- * --------------------------------------------
- */
-
-var ControlSidebar = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'ControlSidebar';
-  var DATA_KEY = 'lte.control.sidebar';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-  var Selector = {
-    CONTROL_SIDEBAR: '.control-sidebar',
-    DATA_TOGGLE: '[data-widget="control-sidebar"]',
-    MAIN_HEADER: '.main-header'
-  };
-
-  var ClassName = {
-    CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
-    CONTROL_SIDEBAR_SLIDE: 'control-sidebar-slide-open'
-  };
-
-  var Default = {
-    slide: true
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var ControlSidebar = function () {
-    function ControlSidebar(element, config) {
-      classCallCheck(this, ControlSidebar);
-
-      this._element = element;
-      this._config = this._getConfig(config);
-    }
-
-    // Public
-
-    ControlSidebar.prototype.show = function show() {
-      // Show the control sidebar
-      if (this._config.slide) {
-        $('body').removeClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      } else {
-        $('body').removeClass(ClassName.CONTROL_SIDEBAR_OPEN);
-      }
-    };
-
-    ControlSidebar.prototype.collapse = function collapse() {
-      // Collapse the control sidebar
-      if (this._config.slide) {
-        $('body').addClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      } else {
-        $('body').addClass(ClassName.CONTROL_SIDEBAR_OPEN);
-      }
-    };
-
-    ControlSidebar.prototype.toggle = function toggle() {
-      this._setMargin();
-
-      var shouldOpen = $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      if (shouldOpen) {
-        // Open the control sidebar
-        this.show();
-      } else {
-        // Close the control sidebar
-        this.collapse();
-      }
-    };
-
-    // Private
-
-    ControlSidebar.prototype._getConfig = function _getConfig(config) {
-      return $.extend({}, Default, config);
-    };
-
-    ControlSidebar.prototype._setMargin = function _setMargin() {
-      $(Selector.CONTROL_SIDEBAR).css({
-        top: $(Selector.MAIN_HEADER).outerHeight()
-      });
-    };
-
-    // Static
-
-    ControlSidebar._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new ControlSidebar(this, $(this).data());
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (data[operation] === 'undefined') {
-          throw new Error(operation + ' is not a function');
-        }
-
-        data[operation]();
-      });
-    };
-
-    return ControlSidebar;
-  }();
-
-  /**
-   *
-   * Data Api implementation
-   * ====================================================
-   */
-
-
-  $(document).on('click', Selector.DATA_TOGGLE, function (event) {
-    event.preventDefault();
-
-    ControlSidebar._jQueryInterface.call($(this), 'toggle');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = ControlSidebar._jQueryInterface;
-  $.fn[NAME].Constructor = ControlSidebar;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return ControlSidebar._jQueryInterface;
-  };
-
-  return ControlSidebar;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Layout.js
- * License MIT
- * --------------------------------------------
- */
-
-var Layout = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Layout';
-  var DATA_KEY = 'lte.layout';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Selector = {
-    SIDEBAR: '.main-sidebar',
-    HEADER: '.main-header',
-    CONTENT: '.content-wrapper',
-    CONTENT_HEADER: '.content-header',
-    WRAPPER: '.wrapper',
-    CONTROL_SIDEBAR: '.control-sidebar',
-    LAYOUT_FIXED: '.layout-fixed',
-    FOOTER: '.main-footer'
-  };
-
-  var ClassName = {
-    HOLD: 'hold-transition',
-    SIDEBAR: 'main-sidebar',
-    CONTROL_SIDEBAR: '.control-sidebar',
-    LAYOUT_FIXED: 'layout-fixed'
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var Layout = function () {
-    function Layout(element) {
-      classCallCheck(this, Layout);
-
-      this._element = element;
-
-      this._init();
-    }
-
-    // Public
-
-    Layout.prototype.fixLayoutHeight = function fixLayoutHeight() {
-      var heights = {
-        window: $(window).height(),
-        header: $(Selector.HEADER).outerHeight(),
-        footer: $(Selector.FOOTER).outerHeight(),
-        sidebar: $(Selector.SIDEBAR).height()
-      };
-      var max = this._max(heights);
-
-      // $(Selector.CONTENT).css('min-height', max - heights.header);
-      $(Selector.SIDEBAR).css('min-height', max - heights.header);
-      $(Selector.CONTROL_SIDEBAR).css('min-height', max + heights.header);
-    };
-
-    // Private
-
-    Layout.prototype._init = function _init() {
-      var _this = this;
-
-      // Enable transitions
-      $('body').removeClass(ClassName.HOLD);
-
-      // Activate layout height watcher
-      this.fixLayoutHeight();
-      $(Selector.SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu', function () {
-        _this.fixLayoutHeight();
-      });
-
-      $(window).resize(function () {
-        _this.fixLayoutHeight();
-      });
-
-      $('body, html').css('height', 'auto');
-    };
-
-    Layout.prototype._max = function _max(numbers) {
-      // Calculate the maximum number in a list
-      var max = 0;
-
-      Object.keys(numbers).forEach(function (key) {
-        if (numbers[key] > max) {
-          max = numbers[key];
-        }
-      });
-
-      return max;
-    };
-
-    // Static
-
-    Layout._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new Layout(this);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (operation) {
-          data[operation]();
-        }
-      });
-    };
-
-    return Layout;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-
-  $(window).on('load', function () {
-    Layout._jQueryInterface.call($('body'));
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Layout._jQueryInterface;
-  $.fn[NAME].Constructor = Layout;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Layout._jQueryInterface;
-  };
-
-  return Layout;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE PushMenu.js
- * License MIT
- * --------------------------------------------
- */
-
-var PushMenu = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'PushMenu';
-  var DATA_KEY = 'lte.pushmenu';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    SHOWN: 'shown' + EVENT_KEY
-  };
-
-  var Default = {
-    screenCollapseSize: 768
-  };
-
-  var Selector = {
-    TOGGLE_BUTTON: '[data-widget="pushmenu"]',
-    SIDEBAR_MINI: '.sidebar-mini',
-    SIDEBAR_COLLAPSED: '.sidebar-collapse',
-    BODY: 'body',
-    OVERLAY: '#sidebar-overlay',
-    WRAPPER: '.wrapper'
-  };
-
-  var ClassName = {
-    SIDEBAR_OPEN: 'sidebar-open',
-    COLLAPSED: 'sidebar-collapse',
-    OPEN: 'sidebar-open',
-    SIDEBAR_MINI: 'sidebar-mini'
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var PushMenu = function () {
-    function PushMenu(element, options) {
-      classCallCheck(this, PushMenu);
-
-      this._element = element;
-      this._options = $.extend({}, Default, options);
-
-      if (!$(Selector.OVERLAY).length) {
-        this._addOverlay();
-      }
-    }
-
-    // Public
-
-    PushMenu.prototype.show = function show() {
-      $(Selector.BODY).addClass(ClassName.OPEN).removeClass(ClassName.COLLAPSED);
-
-      var shownEvent = $.Event(Event.SHOWN);
-      $(this._element).trigger(shownEvent);
-    };
-
-    PushMenu.prototype.collapse = function collapse() {
-      $(Selector.BODY).removeClass(ClassName.OPEN).addClass(ClassName.COLLAPSED);
-
-      var collapsedEvent = $.Event(Event.COLLAPSED);
-      $(this._element).trigger(collapsedEvent);
-    };
-
-    PushMenu.prototype.toggle = function toggle() {
-      var isShown = void 0;
-      if ($(window).width() >= this._options.screenCollapseSize) {
-        isShown = !$(Selector.BODY).hasClass(ClassName.COLLAPSED);
-      } else {
-        isShown = $(Selector.BODY).hasClass(ClassName.OPEN);
-      }
-
-      if (isShown) {
-        this.collapse();
-      } else {
-        this.show();
-      }
-    };
-
-    // Private
-
-
-    PushMenu.prototype._addOverlay = function _addOverlay() {
-      var _this = this;
-
-      var overlay = $('<div />', {
-        id: 'sidebar-overlay'
-      });
-
-      overlay.on('click', function () {
-        _this.collapse();
-      });
-
-      $(Selector.WRAPPER).append(overlay);
-    };
-
-    // Static
-
-    PushMenu._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new PushMenu(this);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (operation) {
-          data[operation]();
-        }
-      });
-    };
-
-    return PushMenu;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(document).on('click', Selector.TOGGLE_BUTTON, function (event) {
-    event.preventDefault();
-
-    var button = event.currentTarget;
-
-    if ($(button).data('widget') !== 'pushmenu') {
-      button = $(button).closest(Selector.TOGGLE_BUTTON);
-    }
-
-    PushMenu._jQueryInterface.call($(button), 'toggle');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = PushMenu._jQueryInterface;
-  $.fn[NAME].Constructor = PushMenu;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return PushMenu._jQueryInterface;
-  };
-
-  return PushMenu;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Treeview.js
- * License MIT
- * --------------------------------------------
- */
-
-var Treeview = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Treeview';
-  var DATA_KEY = 'lte.treeview';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    SELECTED: 'selected' + EVENT_KEY,
-    EXPANDED: 'expanded' + EVENT_KEY,
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    LOAD_DATA_API: 'load' + EVENT_KEY
-  };
-
-  var Selector = {
-    LI: '.nav-item',
-    LINK: '.nav-link',
-    TREEVIEW_MENU: '.nav-treeview',
-    OPEN: '.menu-open',
-    DATA_WIDGET: '[data-widget="treeview"]'
-  };
-
-  var ClassName = {
-    LI: 'nav-item',
-    LINK: 'nav-link',
-    TREEVIEW_MENU: 'nav-treeview',
-    OPEN: 'menu-open'
-  };
-
-  var Default = {
-    trigger: Selector.DATA_WIDGET + ' ' + Selector.LINK,
-    animationSpeed: 300,
-    accordion: true
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-  };
-  var Treeview = function () {
-    function Treeview(element, config) {
-      classCallCheck(this, Treeview);
-
-      this._config = config;
-      this._element = element;
-    }
-
-    // Public
-
-    Treeview.prototype.init = function init() {
-      this._setupListeners();
-    };
-
-    Treeview.prototype.expand = function expand(treeviewMenu, parentLi) {
-      var _this = this;
-
-      var expandedEvent = $.Event(Event.EXPANDED);
-
-      if (this._config.accordion) {
-        var openMenuLi = parentLi.siblings(Selector.OPEN).first();
-        var openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
-        this.collapse(openTreeview, openMenuLi);
-      }
-
-      treeviewMenu.slideDown(this._config.animationSpeed, function () {
-        parentLi.addClass(ClassName.OPEN);
-        $(_this._element).trigger(expandedEvent);
-      });
-    };
-
-    Treeview.prototype.collapse = function collapse(treeviewMenu, parentLi) {
-      var _this2 = this;
-
-      var collapsedEvent = $.Event(Event.COLLAPSED);
-
-      treeviewMenu.slideUp(this._config.animationSpeed, function () {
-        parentLi.removeClass(ClassName.OPEN);
-        $(_this2._element).trigger(collapsedEvent);
-        treeviewMenu.find(Selector.OPEN + ' > ' + Selector.TREEVIEW_MENU).slideUp();
-        treeviewMenu.find(Selector.OPEN).removeClass(ClassName.OPEN);
-      });
-    };
-
-    Treeview.prototype.toggle = function toggle(event) {
-      var $relativeTarget = $(event.currentTarget);
-      var treeviewMenu = $relativeTarget.next();
-
-      if (!treeviewMenu.is(Selector.TREEVIEW_MENU)) {
-        return;
-      }
-
-      event.preventDefault();
-
-      var parentLi = $relativeTarget.parents(Selector.LI).first();
-      var isOpen = parentLi.hasClass(ClassName.OPEN);
-
-      if (isOpen) {
-        this.collapse($(treeviewMenu), parentLi);
-      } else {
-        this.expand($(treeviewMenu), parentLi);
-      }
-    };
-
-    // Private
-
-    Treeview.prototype._setupListeners = function _setupListeners() {
-      var _this3 = this;
-
-      $(document).on('click', this._config.trigger, function (event) {
-        _this3.toggle(event);
-      });
-    };
-
-    // Static
-
-    Treeview._jQueryInterface = function _jQueryInterface(config) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-        var _config = $.extend({}, Default, $(this).data());
-
-        if (!data) {
-          data = new Treeview($(this), _config);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (config === 'init') {
-          data[config]();
-        }
-      });
-    };
-
-    return Treeview;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(window).on(Event.LOAD_DATA_API, function () {
-    $(Selector.DATA_WIDGET).each(function () {
-      Treeview._jQueryInterface.call($(this), 'init');
-    });
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Treeview._jQueryInterface;
-  $.fn[NAME].Constructor = Treeview;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Treeview._jQueryInterface;
-  };
-
-  return Treeview;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Widget.js
- * License MIT
- * --------------------------------------------
- */
-
-var Widget = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Widget';
-  var DATA_KEY = 'lte.widget';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    EXPANDED: 'expanded' + EVENT_KEY,
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    REMOVED: 'removed' + EVENT_KEY
-  };
-
-  var Selector = {
-    DATA_REMOVE: '[data-widget="remove"]',
-    DATA_COLLAPSE: '[data-widget="collapse"]',
-    CARD: '.card',
-    CARD_HEADER: '.card-header',
-    CARD_BODY: '.card-body',
-    CARD_FOOTER: '.card-footer',
-    COLLAPSED: '.collapsed-card'
-  };
-
-  var ClassName = {
-    COLLAPSED: 'collapsed-card'
-  };
-
-  var Default = {
-    animationSpeed: 'normal',
-    collapseTrigger: Selector.DATA_COLLAPSE,
-    removeTrigger: Selector.DATA_REMOVE
-  };
-
-  var Widget = function () {
-    function Widget(element, settings) {
-      classCallCheck(this, Widget);
-
-      this._element = element;
-      this._parent = element.parents(Selector.CARD).first();
-      this._settings = $.extend({}, Default, settings);
-    }
-
-    Widget.prototype.collapse = function collapse() {
-      var _this = this;
-
-      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
-        _this._parent.addClass(ClassName.COLLAPSED);
-      });
-
-      var collapsed = $.Event(Event.COLLAPSED);
-
-      this._element.trigger(collapsed, this._parent);
-    };
-
-    Widget.prototype.expand = function expand() {
-      var _this2 = this;
-
-      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
-        _this2._parent.removeClass(ClassName.COLLAPSED);
-      });
-
-      var expanded = $.Event(Event.EXPANDED);
-
-      this._element.trigger(expanded, this._parent);
-    };
-
-    Widget.prototype.remove = function remove() {
-      this._parent.slideUp();
-
-      var removed = $.Event(Event.REMOVED);
-
-      this._element.trigger(removed, this._parent);
-    };
-
-    Widget.prototype.toggle = function toggle() {
-      if (this._parent.hasClass(ClassName.COLLAPSED)) {
-        this.expand();
-        return;
-      }
-
-      this.collapse();
-    };
-
-    // Private
-
-    Widget.prototype._init = function _init(card) {
-      var _this3 = this;
-
-      this._parent = card;
-
-      $(this).find(this._settings.collapseTrigger).click(function () {
-        _this3.toggle();
-      });
-
-      $(this).find(this._settings.removeTrigger).click(function () {
-        _this3.remove();
-      });
-    };
-
-    // Static
-
-    Widget._jQueryInterface = function _jQueryInterface(config) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new Widget($(this), data);
-          $(this).data(DATA_KEY, typeof config === 'string' ? data : config);
-        }
-
-        if (typeof config === 'string' && config.match(/remove|toggle/)) {
-          data[config]();
-        } else if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object') {
-          data._init($(this));
-        }
-      });
-    };
-
-    return Widget;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(document).on('click', Selector.DATA_COLLAPSE, function (event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    Widget._jQueryInterface.call($(this), 'toggle');
-  });
-
-  $(document).on('click', Selector.DATA_REMOVE, function (event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    Widget._jQueryInterface.call($(this), 'remove');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Widget._jQueryInterface;
-  $.fn[NAME].Constructor = Widget;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Widget._jQueryInterface;
-  };
-
-  return Widget;
-}(jQuery);
-
-exports.ControlSidebar = ControlSidebar;
-exports.Layout = Layout;
-exports.PushMenu = PushMenu;
-exports.Treeview = Treeview;
-exports.Widget = Widget;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-//# sourceMappingURL=adminlte.js.map
-
+!function(e,t){ true?t(exports):undefined}(this,function(e){"use strict";var i,t,o,n,r,a,s,c,f,l,u,d,h,p,_,g,y,m,v,C,D,E,A,O,w,b,L,S,j,T,I,Q,R,P,x,B,M,k,H,N,Y,U,V,G,W,X,z,F,q,J,K,Z,$,ee,te,ne="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ie=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},oe=(i=jQuery,t="ControlSidebar",o="lte.control.sidebar",n=i.fn[t],r=".control-sidebar",a='[data-widget="control-sidebar"]',s=".main-header",c="control-sidebar-open",f="control-sidebar-slide-open",l={slide:!0},u=function(){function n(e,t){ie(this,n),this._element=e,this._config=this._getConfig(t)}return n.prototype.show=function(){this._config.slide?i("body").removeClass(f):i("body").removeClass(c)},n.prototype.collapse=function(){this._config.slide?i("body").addClass(f):i("body").addClass(c)},n.prototype.toggle=function(){this._setMargin(),i("body").hasClass(c)||i("body").hasClass(f)?this.show():this.collapse()},n.prototype._getConfig=function(e){return i.extend({},l,e)},n.prototype._setMargin=function(){i(r).css({top:i(s).outerHeight()})},n._jQueryInterface=function(t){return this.each(function(){var e=i(this).data(o);if(e||(e=new n(this,i(this).data()),i(this).data(o,e)),"undefined"===e[t])throw new Error(t+" is not a function");e[t]()})},n}(),i(document).on("click",a,function(e){e.preventDefault(),u._jQueryInterface.call(i(this),"toggle")}),i.fn[t]=u._jQueryInterface,i.fn[t].Constructor=u,i.fn[t].noConflict=function(){return i.fn[t]=n,u._jQueryInterface},u),re=(d=jQuery,h="Layout",p="lte.layout",_=d.fn[h],g=".main-sidebar",y=".main-header",m=".content-wrapper",v=".main-footer",C="hold-transition",D=function(){function n(e){ie(this,n),this._element=e,this._init()}return n.prototype.fixLayoutHeight=function(){var e={window:d(window).height(),header:d(y).outerHeight(),footer:d(v).outerHeight(),sidebar:d(g).height()},t=this._max(e);d(m).css("min-height",t-e.header),d(g).css("min-height",t-e.header)},n.prototype._init=function(){var e=this;d("body").removeClass(C),this.fixLayoutHeight(),d(g).on("collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu",function(){e.fixLayoutHeight()}),d(window).resize(function(){e.fixLayoutHeight()}),d("body, html").css("height","auto")},n.prototype._max=function(t){var n=0;return Object.keys(t).forEach(function(e){t[e]>n&&(n=t[e])}),n},n._jQueryInterface=function(t){return this.each(function(){var e=d(this).data(p);e||(e=new n(this),d(this).data(p,e)),t&&e[t]()})},n}(),d(window).on("load",function(){D._jQueryInterface.call(d("body"))}),d.fn[h]=D._jQueryInterface,d.fn[h].Constructor=D,d.fn[h].noConflict=function(){return d.fn[h]=_,D._jQueryInterface},D),ae=(E=jQuery,A="PushMenu",w="."+(O="lte.pushmenu"),b=E.fn[A],L={COLLAPSED:"collapsed"+w,SHOWN:"shown"+w},S={screenCollapseSize:768},j={TOGGLE_BUTTON:'[data-widget="pushmenu"]',SIDEBAR_MINI:".sidebar-mini",SIDEBAR_COLLAPSED:".sidebar-collapse",BODY:"body",OVERLAY:"#sidebar-overlay",WRAPPER:".wrapper"},T="sidebar-collapse",I="sidebar-open",Q=function(){function n(e,t){ie(this,n),this._element=e,this._options=E.extend({},S,t),E(j.OVERLAY).length||this._addOverlay()}return n.prototype.show=function(){E(j.BODY).addClass(I).removeClass(T);var e=E.Event(L.SHOWN);E(this._element).trigger(e)},n.prototype.collapse=function(){E(j.BODY).removeClass(I).addClass(T);var e=E.Event(L.COLLAPSED);E(this._element).trigger(e)},n.prototype.toggle=function(){(E(window).width()>=this._options.screenCollapseSize?!E(j.BODY).hasClass(T):E(j.BODY).hasClass(I))?this.collapse():this.show()},n.prototype._addOverlay=function(){var e=this,t=E("<div />",{id:"sidebar-overlay"});t.on("click",function(){e.collapse()}),E(j.WRAPPER).append(t)},n._jQueryInterface=function(t){return this.each(function(){var e=E(this).data(O);e||(e=new n(this),E(this).data(O,e)),t&&e[t]()})},n}(),E(document).on("click",j.TOGGLE_BUTTON,function(e){e.preventDefault();var t=e.currentTarget;"pushmenu"!==E(t).data("widget")&&(t=E(t).closest(j.TOGGLE_BUTTON)),Q._jQueryInterface.call(E(t),"toggle")}),E.fn[A]=Q._jQueryInterface,E.fn[A].Constructor=Q,E.fn[A].noConflict=function(){return E.fn[A]=b,Q._jQueryInterface},Q),se=(R=jQuery,P="Treeview",B="."+(x="lte.treeview"),M=R.fn[P],k={SELECTED:"selected"+B,EXPANDED:"expanded"+B,COLLAPSED:"collapsed"+B,LOAD_DATA_API:"load"+B},H=".nav-item",N=".nav-treeview",Y=".menu-open",V="menu-open",G={trigger:(U='[data-widget="treeview"]')+" "+".nav-link",animationSpeed:300,accordion:!0},W=function(){function i(e,t){ie(this,i),this._config=t,this._element=e}return i.prototype.init=function(){this._setupListeners()},i.prototype.expand=function(e,t){var n=this,i=R.Event(k.EXPANDED);if(this._config.accordion){var o=t.siblings(Y).first(),r=o.find(N).first();this.collapse(r,o)}e.slideDown(this._config.animationSpeed,function(){t.addClass(V),R(n._element).trigger(i)})},i.prototype.collapse=function(e,t){var n=this,i=R.Event(k.COLLAPSED);e.slideUp(this._config.animationSpeed,function(){t.removeClass(V),R(n._element).trigger(i),e.find(Y+" > "+N).slideUp(),e.find(Y).removeClass(V)})},i.prototype.toggle=function(e){var t=R(e.currentTarget),n=t.next();if(n.is(N)){e.preventDefault();var i=t.parents(H).first();i.hasClass(V)?this.collapse(R(n),i):this.expand(R(n),i)}},i.prototype._setupListeners=function(){var t=this;R(document).on("click",this._config.trigger,function(e){t.toggle(e)})},i._jQueryInterface=function(n){return this.each(function(){var e=R(this).data(x),t=R.extend({},G,R(this).data());e||(e=new i(R(this),t),R(this).data(x,e)),"init"===n&&e[n]()})},i}(),R(window).on(k.LOAD_DATA_API,function(){R(U).each(function(){W._jQueryInterface.call(R(this),"init")})}),R.fn[P]=W._jQueryInterface,R.fn[P].Constructor=W,R.fn[P].noConflict=function(){return R.fn[P]=M,W._jQueryInterface},W),ce=(X=jQuery,z="Widget",q="."+(F="lte.widget"),J=X.fn[z],K={EXPANDED:"expanded"+q,COLLAPSED:"collapsed"+q,REMOVED:"removed"+q},$="collapsed-card",ee={animationSpeed:"normal",collapseTrigger:(Z={DATA_REMOVE:'[data-widget="remove"]',DATA_COLLAPSE:'[data-widget="collapse"]',CARD:".card",CARD_HEADER:".card-header",CARD_BODY:".card-body",CARD_FOOTER:".card-footer",COLLAPSED:".collapsed-card"}).DATA_COLLAPSE,removeTrigger:Z.DATA_REMOVE},te=function(){function n(e,t){ie(this,n),this._element=e,this._parent=e.parents(Z.CARD).first(),this._settings=X.extend({},ee,t)}return n.prototype.collapse=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideUp(this._settings.animationSpeed,function(){e._parent.addClass($)});var t=X.Event(K.COLLAPSED);this._element.trigger(t,this._parent)},n.prototype.expand=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideDown(this._settings.animationSpeed,function(){e._parent.removeClass($)});var t=X.Event(K.EXPANDED);this._element.trigger(t,this._parent)},n.prototype.remove=function(){this._parent.slideUp();var e=X.Event(K.REMOVED);this._element.trigger(e,this._parent)},n.prototype.toggle=function(){this._parent.hasClass($)?this.expand():this.collapse()},n.prototype._init=function(e){var t=this;this._parent=e,X(this).find(this._settings.collapseTrigger).click(function(){t.toggle()}),X(this).find(this._settings.removeTrigger).click(function(){t.remove()})},n._jQueryInterface=function(t){return this.each(function(){var e=X(this).data(F);e||(e=new n(X(this),e),X(this).data(F,"string"==typeof t?e:t)),"string"==typeof t&&t.match(/remove|toggle/)?e[t]():"object"===("undefined"==typeof t?"undefined":ne(t))&&e._init(X(this))})},n}(),X(document).on("click",Z.DATA_COLLAPSE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"toggle")}),X(document).on("click",Z.DATA_REMOVE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"remove")}),X.fn[z]=te._jQueryInterface,X.fn[z].Constructor=te,X.fn[z].noConflict=function(){return X.fn[z]=J,te._jQueryInterface},te);e.ControlSidebar=oe,e.Layout=re,e.PushMenu=ae,e.Treeview=se,e.Widget=ce,Object.defineProperty(e,"__esModule",{value:!0})});
+//# sourceMappingURL=adminlte.min.js.map
 
 /***/ }),
 
@@ -66360,10 +65542,10 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*!**************************************************!*\
   !*** ./node_modules/ant-design-vue/package.json ***!
   \**************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"ant-design-vue@^1.3.13","_id":"ant-design-vue@1.3.13","_inBundle":false,"_integrity":"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==","_location":"/ant-design-vue","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"ant-design-vue@^1.3.13","name":"ant-design-vue","escapedName":"ant-design-vue","rawSpec":"^1.3.13","saveSpec":null,"fetchSpec":"^1.3.13"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz","_shasum":"63bfeba6c0b46101abf1cebb1ad1da13a46be932","_spec":"ant-design-vue@^1.3.13","_where":"/var/www/uhustle-app","bugs":{"url":"https://github.com/vueComponent/ant-design-vue/issues"},"bundleDependencies":false,"dependencies":{"@ant-design/icons":"^2.1.1","@ant-design/icons-vue":"^2.0.0","add-dom-event-listener":"^1.0.2","array-tree-filter":"^2.1.0","async-validator":"^1.8.2","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-runtime":"6.x","classnames":"^2.2.5","component-classes":"^1.2.6","dom-align":"^1.7.0","dom-closest":"^0.2.0","dom-scroll-into-view":"^1.2.1","enquire.js":"^2.1.6","intersperse":"^1.0.0","is-negative-zero":"^2.0.0","ismobilejs":"^0.5.1","json2mq":"^0.2.0","lodash":"^4.17.5","moment":"^2.21.0","mutationobserver-shim":"^0.3.2","omit.js":"^1.0.0","raf":"^3.4.0","resize-observer-polyfill":"^1.5.1","shallow-equal":"^1.0.0","shallowequal":"^1.0.2","vue-ref":"^1.0.4","warning":"^3.0.0"},"deprecated":false,"description":"An enterprise-class UI design language and Vue-based implementation","devDependencies":{"@commitlint/cli":"^6.2.0","@commitlint/config-conventional":"^6.1.3","@octokit/rest":"^15.4.1","@vue/cli-plugin-eslint":"^3.0.5","@vue/server-test-utils":"1.0.0-beta.16","@vue/test-utils":"1.0.0-beta.16","acorn":"^6.0.5","autoprefixer":"^9.6.0","axios":"^0.18.0","babel-cli":"^6.26.0","babel-core":"^6.26.0","babel-eslint":"^10.0.1","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-jest":"^23.6.0","babel-loader":"^7.1.2","babel-plugin-import":"^1.1.1","babel-plugin-inline-import-data-uri":"^1.0.1","babel-plugin-istanbul":"^4.1.1","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-syntax-jsx":"^6.18.0","babel-plugin-transform-class-properties":"^6.24.1","babel-plugin-transform-decorators":"^6.24.1","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-es3-member-expression-literals":"^6.22.0","babel-plugin-transform-es3-property-literals":"^6.22.0","babel-plugin-transform-object-assign":"^6.22.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"~6.23.0","babel-plugin-transform-vue-jsx":"^3.7.0","babel-polyfill":"^6.26.0","babel-preset-env":"^1.6.1","case-sensitive-paths-webpack-plugin":"^2.1.2","chalk":"^2.3.2","cheerio":"^1.0.0-rc.2","codecov":"^3.0.0","colorful":"^2.1.0","commander":"^2.15.0","compare-versions":"^3.3.0","cross-env":"^5.1.4","css-loader":"^0.28.7","deep-assign":"^2.0.0","enquire-js":"^0.2.1","eslint":"^5.8.0","eslint-config-prettier":"^3.0.1","eslint-plugin-html":"^3.2.2","eslint-plugin-vue":"^5.1.0","fetch-jsonp":"^1.1.3","fs-extra":"^7.0.0","glob":"^7.1.2","gulp":"^4.0.1","gulp-babel":"^7.0.0","gulp-strip-code":"^0.1.4","highlight.js":"^9.12.0","html-webpack-plugin":"^3.2.0","husky":"^0.14.3","istanbul-instrumenter-loader":"^3.0.0","jest":"^24.0.0","jest-serializer-vue":"^1.0.0","js-base64":"^2.4.8","jsonp":"^0.2.1","less":"^3.9.0","less-loader":"^4.1.0","less-plugin-npm-import":"^2.1.0","lint-staged":"^7.2.2","markdown-it":"^8.4.0","markdown-it-anchor":"^4.0.0","marked":"^0.3.7","merge2":"^1.2.1","mini-css-extract-plugin":"^0.5.0","minimist":"^1.2.0","mkdirp":"^0.5.1","mockdate":"^2.0.2","node-emoji":"^1.10.0","nprogress":"^0.2.0","optimize-css-assets-webpack-plugin":"^5.0.1","postcss":"^7.0.6","postcss-loader":"^3.0.0","pre-commit":"^1.2.2","prettier":"^1.15.3","querystring":"^0.2.0","raw-loader":"^1.0.0-beta.0","reqwest":"^2.0.5","rimraf":"^2.6.2","rucksack-css":"^1.0.2","selenium-server":"^3.0.1","semver":"^5.3.0","style-loader":"^0.18.2","stylelint":"^9.10.1","stylelint-config-prettier":"^4.0.0","stylelint-config-standard":"^18.2.0","through2":"^2.0.3","uglifyjs-webpack-plugin":"^2.1.1","url-loader":"^1.1.2","vue":"^2.5.16","vue-antd-md-loader":"^1.1.0","vue-clipboard2":"0.0.8","vue-eslint-parser":"^5.0.0","vue-i18n":"^8.3.2","vue-infinite-scroll":"^2.0.2","vue-jest":"^2.5.0","vue-loader":"^15.5.1","vue-router":"^3.0.1","vue-server-renderer":"^2.5.16","vue-template-compiler":"^2.5.16","vue-virtual-scroller":"^0.12.0","vuex":"^3.1.0","webpack":"^4.28.4","webpack-cli":"^3.2.1","webpack-dev-server":"^3.1.14","webpack-merge":"^4.1.1","webpackbar":"^3.1.5"},"files":["dist","lib","es","types","scripts"],"homepage":"https://vue.ant.design/","keywords":["ant","design","antd","vue","vueComponent","component","components","ui","framework","frontend"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"ant-design-vue","peerDependencies":{"vue":">=2.5.0","vue-template-compiler":">=2.5.0"},"pre-commit":["lint","prettier"],"repository":{"type":"git","url":"git+https://github.com/vueComponent/ant-design-vue.git"},"scripts":{"codecov":"codecov","commitmsg":"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS","compile":"node antd-tools/cli/run.js compile","copy":"node scripts/run.js copy-html","dev":"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001","dist":"node antd-tools/cli/run.js dist","lint":"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components","lint:style":"stylelint \"{site,components}/**/*.less\" --syntax less","postinstall":"node scripts/postinstall || echo \"ignore\"","pre-publish":"node ./scripts/prepub","prepublish":"node antd-tools/cli/run.js guard","prettier":"node ./scripts/prettier.js","pub":"node antd-tools/cli/run.js pub","pub-with-ci":"node antd-tools/cli/run.js pub-with-ci","site":"node scripts/run.js _site","start":"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot","test":"cross-env NODE_ENV=test jest --config .jest.js"},"sideEffects":["site/*","components/style.js","components/**/style/*","*.vue","*.md","dist/*","es/**/style/*","lib/**/style/*","*.less"],"title":"Ant Design Vue","typings":"types/index.d.ts","version":"1.3.13"};
+module.exports = {"_args":[["ant-design-vue@1.3.13","/var/www/uhustle-app"]],"_from":"ant-design-vue@1.3.13","_id":"ant-design-vue@1.3.13","_inBundle":false,"_integrity":"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==","_location":"/ant-design-vue","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"ant-design-vue@1.3.13","name":"ant-design-vue","escapedName":"ant-design-vue","rawSpec":"1.3.13","saveSpec":null,"fetchSpec":"1.3.13"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz","_spec":"1.3.13","_where":"/var/www/uhustle-app","bugs":{"url":"https://github.com/vueComponent/ant-design-vue/issues"},"dependencies":{"@ant-design/icons":"^2.1.1","@ant-design/icons-vue":"^2.0.0","add-dom-event-listener":"^1.0.2","array-tree-filter":"^2.1.0","async-validator":"^1.8.2","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-runtime":"6.x","classnames":"^2.2.5","component-classes":"^1.2.6","dom-align":"^1.7.0","dom-closest":"^0.2.0","dom-scroll-into-view":"^1.2.1","enquire.js":"^2.1.6","intersperse":"^1.0.0","is-negative-zero":"^2.0.0","ismobilejs":"^0.5.1","json2mq":"^0.2.0","lodash":"^4.17.5","moment":"^2.21.0","mutationobserver-shim":"^0.3.2","omit.js":"^1.0.0","raf":"^3.4.0","resize-observer-polyfill":"^1.5.1","shallow-equal":"^1.0.0","shallowequal":"^1.0.2","vue-ref":"^1.0.4","warning":"^3.0.0"},"description":"An enterprise-class UI design language and Vue-based implementation","devDependencies":{"@commitlint/cli":"^6.2.0","@commitlint/config-conventional":"^6.1.3","@octokit/rest":"^15.4.1","@vue/cli-plugin-eslint":"^3.0.5","@vue/server-test-utils":"1.0.0-beta.16","@vue/test-utils":"1.0.0-beta.16","acorn":"^6.0.5","autoprefixer":"^9.6.0","axios":"^0.18.0","babel-cli":"^6.26.0","babel-core":"^6.26.0","babel-eslint":"^10.0.1","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-jest":"^23.6.0","babel-loader":"^7.1.2","babel-plugin-import":"^1.1.1","babel-plugin-inline-import-data-uri":"^1.0.1","babel-plugin-istanbul":"^4.1.1","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-syntax-jsx":"^6.18.0","babel-plugin-transform-class-properties":"^6.24.1","babel-plugin-transform-decorators":"^6.24.1","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-es3-member-expression-literals":"^6.22.0","babel-plugin-transform-es3-property-literals":"^6.22.0","babel-plugin-transform-object-assign":"^6.22.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"~6.23.0","babel-plugin-transform-vue-jsx":"^3.7.0","babel-polyfill":"^6.26.0","babel-preset-env":"^1.6.1","case-sensitive-paths-webpack-plugin":"^2.1.2","chalk":"^2.3.2","cheerio":"^1.0.0-rc.2","codecov":"^3.0.0","colorful":"^2.1.0","commander":"^2.15.0","compare-versions":"^3.3.0","cross-env":"^5.1.4","css-loader":"^0.28.7","deep-assign":"^2.0.0","enquire-js":"^0.2.1","eslint":"^5.8.0","eslint-config-prettier":"^3.0.1","eslint-plugin-html":"^3.2.2","eslint-plugin-vue":"^5.1.0","fetch-jsonp":"^1.1.3","fs-extra":"^7.0.0","glob":"^7.1.2","gulp":"^4.0.1","gulp-babel":"^7.0.0","gulp-strip-code":"^0.1.4","highlight.js":"^9.12.0","html-webpack-plugin":"^3.2.0","husky":"^0.14.3","istanbul-instrumenter-loader":"^3.0.0","jest":"^24.0.0","jest-serializer-vue":"^1.0.0","js-base64":"^2.4.8","jsonp":"^0.2.1","less":"^3.9.0","less-loader":"^4.1.0","less-plugin-npm-import":"^2.1.0","lint-staged":"^7.2.2","markdown-it":"^8.4.0","markdown-it-anchor":"^4.0.0","marked":"^0.3.7","merge2":"^1.2.1","mini-css-extract-plugin":"^0.5.0","minimist":"^1.2.0","mkdirp":"^0.5.1","mockdate":"^2.0.2","node-emoji":"^1.10.0","nprogress":"^0.2.0","optimize-css-assets-webpack-plugin":"^5.0.1","postcss":"^7.0.6","postcss-loader":"^3.0.0","pre-commit":"^1.2.2","prettier":"^1.15.3","querystring":"^0.2.0","raw-loader":"^1.0.0-beta.0","reqwest":"^2.0.5","rimraf":"^2.6.2","rucksack-css":"^1.0.2","selenium-server":"^3.0.1","semver":"^5.3.0","style-loader":"^0.18.2","stylelint":"^9.10.1","stylelint-config-prettier":"^4.0.0","stylelint-config-standard":"^18.2.0","through2":"^2.0.3","uglifyjs-webpack-plugin":"^2.1.1","url-loader":"^1.1.2","vue":"^2.5.16","vue-antd-md-loader":"^1.1.0","vue-clipboard2":"0.0.8","vue-eslint-parser":"^5.0.0","vue-i18n":"^8.3.2","vue-infinite-scroll":"^2.0.2","vue-jest":"^2.5.0","vue-loader":"^15.5.1","vue-router":"^3.0.1","vue-server-renderer":"^2.5.16","vue-template-compiler":"^2.5.16","vue-virtual-scroller":"^0.12.0","vuex":"^3.1.0","webpack":"^4.28.4","webpack-cli":"^3.2.1","webpack-dev-server":"^3.1.14","webpack-merge":"^4.1.1","webpackbar":"^3.1.5"},"files":["dist","lib","es","types","scripts"],"homepage":"https://vue.ant.design/","keywords":["ant","design","antd","vue","vueComponent","component","components","ui","framework","frontend"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"ant-design-vue","peerDependencies":{"vue":">=2.5.0","vue-template-compiler":">=2.5.0"},"pre-commit":["lint","prettier"],"repository":{"type":"git","url":"git+https://github.com/vueComponent/ant-design-vue.git"},"scripts":{"codecov":"codecov","commitmsg":"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS","compile":"node antd-tools/cli/run.js compile","copy":"node scripts/run.js copy-html","dev":"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001","dist":"node antd-tools/cli/run.js dist","lint":"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components","lint:style":"stylelint \"{site,components}/**/*.less\" --syntax less","postinstall":"node scripts/postinstall || echo \"ignore\"","pre-publish":"node ./scripts/prepub","prepublish":"node antd-tools/cli/run.js guard","prettier":"node ./scripts/prettier.js","pub":"node antd-tools/cli/run.js pub","pub-with-ci":"node antd-tools/cli/run.js pub-with-ci","site":"node scripts/run.js _site","start":"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot","test":"cross-env NODE_ENV=test jest --config .jest.js"},"sideEffects":["site/*","components/style.js","components/**/style/*","*.vue","*.md","dist/*","es/**/style/*","lib/**/style/*","*.less"],"title":"Ant Design Vue","typings":"types/index.d.ts","version":"1.3.13"};
 
 /***/ }),
 
@@ -226608,10 +225790,10 @@ exports.default = WSTransport;
 /*!*************************************************!*\
   !*** ./node_modules/twilio-client/package.json ***!
   \*************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, browser, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"twilio-client","_id":"twilio-client@1.7.5","_inBundle":false,"_integrity":"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==","_location":"/twilio-client","_phantomChildren":{"async-limiter":"1.0.0"},"_requested":{"type":"tag","registry":true,"raw":"twilio-client","name":"twilio-client","escapedName":"twilio-client","rawSpec":"","saveSpec":null,"fetchSpec":"latest"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz","_shasum":"4784f78e0e58e55e460f6b388676c9dc79a70d53","_spec":"twilio-client","_where":"/var/www/uhustle-app","browser":{"xmlhttprequest":"./browser/xmlhttprequest.js","ws":"./browser/ws.js"},"bugs":{"url":"https://github.com/twilio/twilio-client.js/issues"},"bundleDependencies":false,"dependencies":{"@twilio/audioplayer":"1.0.4","backoff":"2.5.0","rtcpeerconnection-shim":"1.2.8","ws":"6.1.3","xmlhttprequest":"1.8.0"},"deprecated":false,"description":"Javascript SDK for Twilio Client","devDependencies":{"@types/mocha":"5.0.0","@types/node":"9.6.5","@types/sinon":"5.0.1","@types/ws":"4.0.2","babel-cli":"6.26.0","babel-eslint":"8.2.2","babel-plugin-envify":"1.2.1","babel-plugin-transform-class-properties":"6.24.1","babel-plugin-transform-inline-environment-variables":"0.4.3","babel-preset-es2015":"6.24.1","browserify":"16.2.2","buffer":"5.2.0","chromedriver":"2.31.0","envify":"2.0.1","es-check":"2.0.3","eslint":"4.19.1","eslint-plugin-babel":"4.1.2","express":"4.14.1","geckodriver":"1.8.1","js-yaml":"3.13.1","jsdoc":"3.5.5","jsonwebtoken":"7.4.3","karma":"3.0.0","karma-chrome-launcher":"2.2.0","karma-firefox-launcher":"1.1.0","karma-mocha":"1.3.0","karma-safaritechpreview-launcher":"0.0.6","karma-spec-reporter":"0.0.32","karma-typescript":"3.0.13","karma-typescript-es6-transform":"1.0.4","lodash":"4.17.11","mocha":"3.5.0","npm-run-all":"4.1.2","nyc":"10.1.2","pre-commit":"1.2.2","querystring":"0.2.0","release-tool":"0.2.2","selenium-webdriver":"3.5.0","sinon":"4.0.0","travis-multirunner":"4.5.0","ts-node":"6.0.0","tslint":"5.9.1","twilio":"3.17.0","typedoc":"github:ryan-rowland/typedoc#twilio","typedoc-plugin-as-member-of":"1.0.2","typedoc-plugin-external-module-name":"1.1.3","typedoc-plugin-internal-external":"1.0.10","typedoc-twilio-theme":"1.0.0","typescript":"2.8.1","uglify-js":"3.3.11","vinyl-fs":"3.0.2","vinyl-source-stream":"2.0.0"},"homepage":"https://github.com/twilio/twilio-client.js#readme","keywords":["twilio","client","voice","voip"],"license":"Apache-2.0","main":"./es5/twilio.js","name":"twilio-client","pre-commit":["lint","test:unit","docs:ts"],"repository":{"type":"git","url":"git+ssh://git@github.com/twilio/twilio-client.js.git"},"scripts":{"build":"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min","build:dev":"ENV=dev npm run build","build:dist":"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js","build:dist-min":"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \"/^! twilio-client.js/\" -b beautify=false,ascii_only=true","build:es5":"rimraf ./es5 && babel lib -d es5","build:release":"npm-run-all lint build test:unit test:integration test:webpack test:es5 status","build:ts":"tsc","clean":"rimraf ./coverage ./dist ./es5","coverage":"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts","coverage:check":"nyc check-coverage --lines 60 --branches 60 --functions 60","docs:clean":"rimraf ./docs","docs:js":"jsdoc -r -d dist/docs/js lib/twilio","docs:json":"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected","docs:ts":"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default","extension":"browserify -t brfs extension/token/index.js > extension/token.js","lint":"npm-run-all lint:js lint:ts","lint:js":"eslint lib","lint:ts":"tslint -c tslint.json --project tsconfig.json -t stylish","release":"release","start":"node server.js","status":"git status","test":"npm-run-all test:unit test:frameworks","test:es5":"es-check es5 \"./es5/**/*.js\" ./dist/*.js","test:framework:no-framework":"mocha tests/framework/no-framework.js","test:framework:react":"npm-run-all test:framework:react:*","test:framework:react:build":"cd ./tests/framework/react && npm run build","test:framework:react:install":"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install","test:framework:react:run":"mocha ./tests/framework/react.js","test:frameworks":"npm-run-all test:framework:no-framework test:framework:react","test:integration":"karma start karma.conf.ts","test:selenium":"mocha tests/browser/index.js","test:unit":"nyc mocha -r ts-node/register ./tests/index.ts","test:webpack":"cd ./tests/webpack && npm install && npm test"},"version":"1.7.5"};
+module.exports = {"_args":[["twilio-client@1.7.5","/var/www/uhustle-app"]],"_from":"twilio-client@1.7.5","_id":"twilio-client@1.7.5","_inBundle":false,"_integrity":"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==","_location":"/twilio-client","_phantomChildren":{"async-limiter":"1.0.0"},"_requested":{"type":"version","registry":true,"raw":"twilio-client@1.7.5","name":"twilio-client","escapedName":"twilio-client","rawSpec":"1.7.5","saveSpec":null,"fetchSpec":"1.7.5"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz","_spec":"1.7.5","_where":"/var/www/uhustle-app","browser":{"xmlhttprequest":"./browser/xmlhttprequest.js","ws":"./browser/ws.js"},"bugs":{"url":"https://github.com/twilio/twilio-client.js/issues"},"dependencies":{"@twilio/audioplayer":"1.0.4","backoff":"2.5.0","rtcpeerconnection-shim":"1.2.8","ws":"6.1.3","xmlhttprequest":"1.8.0"},"description":"Javascript SDK for Twilio Client","devDependencies":{"@types/mocha":"5.0.0","@types/node":"9.6.5","@types/sinon":"5.0.1","@types/ws":"4.0.2","babel-cli":"6.26.0","babel-eslint":"8.2.2","babel-plugin-envify":"1.2.1","babel-plugin-transform-class-properties":"6.24.1","babel-plugin-transform-inline-environment-variables":"0.4.3","babel-preset-es2015":"6.24.1","browserify":"16.2.2","buffer":"5.2.0","chromedriver":"2.31.0","envify":"2.0.1","es-check":"2.0.3","eslint":"4.19.1","eslint-plugin-babel":"4.1.2","express":"4.14.1","geckodriver":"1.8.1","js-yaml":"3.13.1","jsdoc":"3.5.5","jsonwebtoken":"7.4.3","karma":"3.0.0","karma-chrome-launcher":"2.2.0","karma-firefox-launcher":"1.1.0","karma-mocha":"1.3.0","karma-safaritechpreview-launcher":"0.0.6","karma-spec-reporter":"0.0.32","karma-typescript":"3.0.13","karma-typescript-es6-transform":"1.0.4","lodash":"4.17.11","mocha":"3.5.0","npm-run-all":"4.1.2","nyc":"10.1.2","pre-commit":"1.2.2","querystring":"0.2.0","release-tool":"0.2.2","selenium-webdriver":"3.5.0","sinon":"4.0.0","travis-multirunner":"4.5.0","ts-node":"6.0.0","tslint":"5.9.1","twilio":"3.17.0","typedoc":"github:ryan-rowland/typedoc#twilio","typedoc-plugin-as-member-of":"1.0.2","typedoc-plugin-external-module-name":"1.1.3","typedoc-plugin-internal-external":"1.0.10","typedoc-twilio-theme":"1.0.0","typescript":"2.8.1","uglify-js":"3.3.11","vinyl-fs":"3.0.2","vinyl-source-stream":"2.0.0"},"homepage":"https://github.com/twilio/twilio-client.js#readme","keywords":["twilio","client","voice","voip"],"license":"Apache-2.0","main":"./es5/twilio.js","name":"twilio-client","pre-commit":["lint","test:unit","docs:ts"],"repository":{"type":"git","url":"git+ssh://git@github.com/twilio/twilio-client.js.git"},"scripts":{"build":"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min","build:dev":"ENV=dev npm run build","build:dist":"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js","build:dist-min":"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \"/^! twilio-client.js/\" -b beautify=false,ascii_only=true","build:es5":"rimraf ./es5 && babel lib -d es5","build:release":"npm-run-all lint build test:unit test:integration test:webpack test:es5 status","build:ts":"tsc","clean":"rimraf ./coverage ./dist ./es5","coverage":"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts","coverage:check":"nyc check-coverage --lines 60 --branches 60 --functions 60","docs:clean":"rimraf ./docs","docs:js":"jsdoc -r -d dist/docs/js lib/twilio","docs:json":"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected","docs:ts":"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default","extension":"browserify -t brfs extension/token/index.js > extension/token.js","lint":"npm-run-all lint:js lint:ts","lint:js":"eslint lib","lint:ts":"tslint -c tslint.json --project tsconfig.json -t stylish","release":"release","start":"node server.js","status":"git status","test":"npm-run-all test:unit test:frameworks","test:es5":"es-check es5 \"./es5/**/*.js\" ./dist/*.js","test:framework:no-framework":"mocha tests/framework/no-framework.js","test:framework:react":"npm-run-all test:framework:react:*","test:framework:react:build":"cd ./tests/framework/react && npm run build","test:framework:react:install":"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install","test:framework:react:run":"mocha ./tests/framework/react.js","test:frameworks":"npm-run-all test:framework:no-framework test:framework:react","test:integration":"karma start karma.conf.ts","test:selenium":"mocha tests/browser/index.js","test:unit":"nyc mocha -r ts-node/register ./tests/index.ts","test:webpack":"cd ./tests/webpack && npm install && npm test"},"version":"1.7.5"};
 
 /***/ }),
 
@@ -241954,12 +241136,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.name,
                               expression: "user.name"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -242002,12 +241178,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.surname,
                               expression: "user.surname"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -242087,8 +241257,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|email",
-                              expression: "'required|email'"
+                              value: "email",
+                              expression: "'email'"
                             }
                           ],
                           staticClass: "form-control",
@@ -242194,8 +241364,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:10",
-                              expression: "'required|min:10'"
+                              value: "min:10",
+                              expression: "'min:10'"
                             }
                           ],
                           staticClass: "form-control",
@@ -242248,12 +241418,6 @@ var render = function() {
                                 rawName: "v-model",
                                 value: _vm.user.product_id,
                                 expression: "user.product_id"
-                              },
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
                               }
                             ],
                             staticClass: "form-control",
@@ -242497,12 +241661,6 @@ var render = function() {
                                 rawName: "v-model",
                                 value: _vm.user.status,
                                 expression: "user.status"
-                              },
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
                               }
                             ],
                             staticClass: "form-control",
@@ -242641,12 +241799,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.name,
                             expression: "user.name"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -242689,12 +241841,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.surname,
                             expression: "user.surname"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -242766,8 +241912,8 @@ var render = function() {
                           {
                             name: "validate",
                             rawName: "v-validate",
-                            value: "required|email",
-                            expression: "'required|email'"
+                            value: "email",
+                            expression: "'email'"
                           }
                         ],
                         staticClass: "form-control",
@@ -242866,8 +242012,8 @@ var render = function() {
                           {
                             name: "validate",
                             rawName: "v-validate",
-                            value: "required|min:10",
-                            expression: "'required|min:10'"
+                            value: "min:10",
+                            expression: "'min:10'"
                           }
                         ],
                         staticClass: "form-control",
@@ -242920,12 +242066,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.product_id,
                               expression: "user.product_id"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -243157,12 +242297,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.status,
                               expression: "user.status"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -243417,7 +242551,7 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text-small" }, [
-                  _vm._v("\n                Commition\n            ")
+                  _vm._v("\n                Commission\n            ")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-link down" }, [
@@ -243430,8 +242564,8 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "col-lg-4",
-              staticStyle: { "text-align": "center", "padding-top": "26px" }
+              staticClass: "col-lg-2",
+              staticStyle: { "text-align": "center", "padding-top": "35px" }
             },
             [
               _c(
@@ -243440,7 +242574,7 @@ var staticRenderFns = [
                   staticClass: "card-text",
                   staticStyle: {
                     color: "#fff",
-                    "font-size": "80px",
+                    "font-size": "65px",
                     "font-weight": "900",
                     "margin-bottom": "0"
                   }
@@ -245057,12 +244191,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.name,
                               expression: "user.name"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -245105,12 +244233,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.surname,
                               expression: "user.surname"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -245190,8 +244312,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|email",
-                              expression: "'required|email'"
+                              value: "email",
+                              expression: "'email'"
                             }
                           ],
                           staticClass: "form-control",
@@ -245297,8 +244419,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:10",
-                              expression: "'required|min:10'"
+                              value: "min:10",
+                              expression: "'min:10'"
                             }
                           ],
                           staticClass: "form-control",
@@ -245351,12 +244473,6 @@ var render = function() {
                                 rawName: "v-model",
                                 value: _vm.user.product_id,
                                 expression: "user.product_id"
-                              },
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
                               }
                             ],
                             staticClass: "form-control",
@@ -245600,12 +244716,6 @@ var render = function() {
                                 rawName: "v-model",
                                 value: _vm.user.status,
                                 expression: "user.status"
-                              },
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
                               }
                             ],
                             staticClass: "form-control",
@@ -245744,12 +244854,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.name,
                             expression: "user.name"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -245792,12 +244896,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.surname,
                             expression: "user.surname"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -245869,8 +244967,8 @@ var render = function() {
                           {
                             name: "validate",
                             rawName: "v-validate",
-                            value: "required|email",
-                            expression: "'required|email'"
+                            value: "email",
+                            expression: "'email'"
                           }
                         ],
                         staticClass: "form-control",
@@ -245969,8 +245067,8 @@ var render = function() {
                           {
                             name: "validate",
                             rawName: "v-validate",
-                            value: "required|min:10",
-                            expression: "'required|min:10'"
+                            value: "min:10",
+                            expression: "'min:10'"
                           }
                         ],
                         staticClass: "form-control",
@@ -246023,12 +245121,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.product_id,
                               expression: "user.product_id"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -246260,12 +245352,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.status,
                               expression: "user.status"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -248731,10 +247817,9 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              (_vm.active == "users" ||
-                _vm.active == "leads" ||
-                _vm.active == "contacts") &&
-              (_vm.current_user.role_id == 1 || _vm.current_user.role_id == 2)
+              _vm.active == "users" ||
+              _vm.active == "leads" ||
+              _vm.active == "contacts"
                 ? _c(
                     "li",
                     { staticClass: "nav-item d-none d-sm-inline-block" },
@@ -250822,12 +249907,6 @@ var render = function() {
                                     rawName: "v-model",
                                     value: _vm.bulk_actions,
                                     expression: "bulk_actions"
-                                  },
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required",
-                                    expression: "'required'"
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -251055,12 +250134,6 @@ var render = function() {
                                 rawName: "v-model",
                                 value: _vm.user.role_id,
                                 expression: "user.role_id"
-                              },
-                              {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required",
-                                expression: "'required'"
                               }
                             ],
                             staticClass: "form-control",
@@ -251128,12 +250201,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.name,
                               expression: "user.name"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251176,12 +250243,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.lastname,
                               expression: "user.lastname"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251265,8 +250326,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|email",
-                              expression: "'required|email'"
+                              value: "email",
+                              expression: "'email'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251313,8 +250374,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:10",
-                              expression: "'required|min:10'"
+                              value: "min:10",
+                              expression: "'min:10'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251369,8 +250430,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:10",
-                              expression: "'required|min:10'"
+                              value: "min:10",
+                              expression: "'min:10'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251421,12 +250482,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.address,
                               expression: "user.address"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251522,8 +250577,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:6",
-                              expression: "'required|min:6'"
+                              value: "min:6",
+                              expression: "'min:6'"
                             }
                           ],
                           ref: "password",
@@ -251581,8 +250636,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|min:6|confirmed:password",
-                              expression: "'required|min:6|confirmed:password'"
+                              value: "min:6|confirmed:password",
+                              expression: "'min:6|confirmed:password'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251695,12 +250750,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.role_id,
                               expression: "user.role_id"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",
@@ -251768,12 +250817,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.name,
                             expression: "user.name"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -251816,12 +250859,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.lastname,
                             expression: "user.lastname"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -251893,12 +250930,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.email,
                             expression: "user.email"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required|email",
-                            expression: "'required|email'"
                           }
                         ],
                         staticClass: "form-control",
@@ -251941,12 +250972,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.work_number,
                             expression: "user.work_number"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required|min:10",
-                            expression: "'required|min:10'"
                           }
                         ],
                         staticClass: "form-control",
@@ -251997,12 +251022,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.personal_number,
                             expression: "user.personal_number"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required|min:10",
-                            expression: "'required|min:10'"
                           }
                         ],
                         staticClass: "form-control",
@@ -252053,12 +251072,6 @@ var render = function() {
                             rawName: "v-model",
                             value: _vm.user.address,
                             expression: "user.address"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required",
-                            expression: "'required'"
                           }
                         ],
                         staticClass: "form-control",
@@ -252263,12 +251276,6 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.user.activated,
                               expression: "user.activated"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
                             }
                           ],
                           staticClass: "form-control",

@@ -368,18 +368,18 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
+                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
                                 <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname" v-validate="'required'" class="form-control">
+                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Account
                                 <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'required|email'"  class="form-control">
+                                <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Owner
@@ -389,11 +389,11 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 </select>
                             </label>
                             <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'required|min:10'" class="form-control">
+                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"  v-validate="'required'" class="form-control">
+                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
                                     <option value="">- Please Choose Package</option>
                                     <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
                                 </select>
@@ -418,7 +418,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.status" v-validate="'required'" class="form-control">
+                                <select type="text" id="role"  name="Role" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
                                     <option value="2">Inactive</option>
@@ -451,18 +451,18 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name" v-validate="'required'" class="form-control">
+                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
                                 <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname" v-validate="'required'" class="form-control">
+                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Account
                                 <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'required|email'" class="form-control">
+                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Owner
@@ -472,11 +472,11 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 </select>
                             </label>
                             <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'required|min:10'" class="form-control">
+                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"  v-validate="'required'" class="form-control">
+                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
                                     <option value="">- Please Choose Package</option>
                                     <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
                                 </select>
@@ -501,7 +501,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.status" v-validate="'required'" class="form-control">
+                                <select type="text" id="role"  name="Role" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
                                     <option value="2">Inactive</option>

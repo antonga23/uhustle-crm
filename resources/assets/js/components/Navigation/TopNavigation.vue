@@ -166,7 +166,7 @@
 								<option value="13">December {{ getFullYear() }}</option>
 							</select>
 						</li> 
-						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts' ) && ( current_user.role_id == 1 || current_user.role_id == 2)" class="nav-item d-none d-sm-inline-block">
+						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts' )" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : adding_user }" class="nav-link">Add New</a>
 						</li>
 					</ul>

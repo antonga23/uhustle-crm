@@ -247,7 +247,7 @@
                 </p>
 
                 <p class="card-text-small">
-                    Commition
+                    Commission
                 </p>
 
                 <p class="card-link down">
@@ -257,8 +257,8 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4"  style="text-align: center;padding-top: 26px;">
-            <h1 class="card-text" style="color: #fff;font-size: 80px;font-weight: 900;margin-bottom: 0;">
+          <div class="col-lg-2"  style="text-align: center;padding-top: 35px;">
+            <h1 class="card-text" style="color: #fff;font-size: 65px;font-weight: 900;margin-bottom: 0;">
                   11 / 10
             </h1>
 

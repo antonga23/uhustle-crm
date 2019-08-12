@@ -255,8 +255,8 @@ class UsersTableSeeder extends Seeder
             14 => array (
                     'role_id' => 4,
                     'name' => 'eli',
-                    'lastname' => 'lawerence',
-                    'email' => 'eli.lawerence@winsta.io',
+                    'lastname' => 'lawrence',
+                    'email' => 'eli.lawrence@winsta.io',
                     'password' => bcrypt('password'),
                     'address' => '',
                     'work_number' => '0210000000000',
