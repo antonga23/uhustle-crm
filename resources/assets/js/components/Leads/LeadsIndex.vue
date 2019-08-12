@@ -249,7 +249,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2" @click="getUsers(1)" v-if="current_user.role_id == 1 || current_user.role_id == 2">
+          <div class="col-lg-2" @click="getUsers(1)" v-if="current_user.role_id == 1">
             <div class="card ave-time">
               <div class="card-body">
 
@@ -264,7 +264,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2" @click="getUsers(0)" v-if="current_user.role_id == 1 || current_user.role_id == 2">
+          <div class="col-lg-2" @click="getUsers(0)" v-if="current_user.role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
 
