@@ -325,7 +325,7 @@ table.listing tr  th{
                                 <li class="truncate" :title="item.account" style="padding-left: 30px;" v-else>{{ item.account }}</li>
                                 <li class="truncate"  :title="item.email"  v-if="item.email == '' || item.email == null">N/A</li>
                                 <li class="truncate"  :title="item.email" v-else>{{ item.email }}</li>
-                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" v-if="item.creator.length  != null" >
+                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" v-if="item.creator != null" >
                                     {{ item.creator.name + ' ' + item.creator.lastname }}
                                 </li>
                                 <li style="padding-left: 11px;" v-else>N/A</li>
@@ -529,7 +529,7 @@ table.listing tr  th{
                         </div>
                     </form>
                 </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
+                <a-card :title="'Comments'" style="margin-top:20px">
                     <a-list itemLayout="horizontal" :dataSource="user.comments">
                         <a-list-item slot="renderItem" slot-scope="item, index">
                             <a-list-item-meta :description="item.comment_type + ': ' + item.description">

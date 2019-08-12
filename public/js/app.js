@@ -244248,7 +244248,7 @@ var render = function() {
                                     [_vm._v(_vm._s(item.email))]
                                   ),
                               _vm._v(" "),
-                              item.creator.length != null
+                              item.creator != null
                                 ? _c(
                                     "li",
                                     {
@@ -245861,7 +245861,7 @@ var render = function() {
               "a-card",
               {
                 staticStyle: { "margin-top": "20px" },
-                attrs: { title: "Comments: " + _vm.user.comments.length }
+                attrs: { title: "Comments" }
               },
               [
                 _c("a-list", {
