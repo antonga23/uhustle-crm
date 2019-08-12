@@ -567,11 +567,9 @@ class LeadController extends Controller
 
         if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
 
-            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();    
-
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();
+            $count_assigned = Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();    
     
-            if(is_null($type)){
+            if(is_null($type) || $type == -1){
                 
                 $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
     
@@ -589,7 +587,6 @@ class LeadController extends Controller
                 'success' => true,
                 'leads' => $leads, 
                 'count_leads' => Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count(), 
-                'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
                 'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
@@ -599,9 +596,9 @@ class LeadController extends Controller
         }else{
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
     
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 0])->count();
+            $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => 0])->count();
     
-            if(is_null($type)){
+            if(is_null($type) || $type == -1){
                 
                 $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->orderBy('updated_at', 'DESC')->get();
     
@@ -611,7 +608,7 @@ class LeadController extends Controller
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 0])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }           
             
@@ -635,9 +632,7 @@ class LeadController extends Controller
 
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();    
 
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();
-    
-            if(is_null($type)){
+            if(is_null($type) || $type == -1){
                 
                 $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
     
@@ -647,7 +642,7 @@ class LeadController extends Controller
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orWhereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }           
             
@@ -655,7 +650,6 @@ class LeadController extends Controller
                 'success' => true,
                 'leads' => $leads, 
                 'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
-                'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
                 'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
@@ -665,9 +659,9 @@ class LeadController extends Controller
         }else{
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
     
-            $count_unassigned = Lead::where('user_assigned', '=', 0)->where(['is_client' => 1])->count();
+            $count_unassigned = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->count();
     
-            if(is_null($type)){
+            if(is_null($type) || $type == -1){
                 
                 $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->orderBy('updated_at', 'DESC')->get();
     
@@ -677,7 +671,7 @@ class LeadController extends Controller
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }           
             

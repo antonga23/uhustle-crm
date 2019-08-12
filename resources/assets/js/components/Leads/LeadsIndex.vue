@@ -234,7 +234,7 @@ table.listing tr  th{
 <template>
     <div class="">
         <div id="top-section" class="row" style="margin-top:2%;">
-          <div class="col-lg-2"  @click="getUsers()">
+          <div class="col-lg-2"  @click="getUsers(-1)">
             <div class="card sales-amount">
               <div class="card-body">
 
@@ -317,22 +317,31 @@ table.listing tr  th{
                         <div class="card-body" style="padding-bottom: 12px;padding-top: 12px;">
                             <ul class="items">
                                 <li>
-                                    <a :href="'/workstation/' + item.id" title="Dial">
+                                    <a :href="'/workstation/' + item.id"  title="Dial">
                                         {{ item.name +  ' ' + item.surname }}
                                     </a>
                                 </li>
-                                <li class="truncate" :title="item.account" style="padding-left: 30px;" >{{ item.account }}</li>
-                                <li class="truncate"  :title="item.email" >{{ item.email }}</li>
-                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" >{{ item.creator.name + ' ' + item.creator.lastname }}</li>
+                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-if="item.account == '' || item.account == null">NA</li>
+                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-else>{{ item.account }}</li>
+                                <li class="truncate"  :title="item.email"  v-if="item.email == '' || item.email == null">N/A</li>
+                                <li class="truncate"  :title="item.email" v-else>{{ item.email }}</li>
+                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" v-if="item.creator.length  != null" >
+                                    {{ item.creator.name + ' ' + item.creator.lastname }}
+                                </li>
+                                <li style="padding-left: 11px;" v-else>N/A</li>
                                 <li style="padding-left: 23px;" >{{ item.phone_number }}</li>
-                                <li class="truncate" :title="item.product.name"  style="padding-left: 11px;" >{{ item.product.name }}</li>
+                                <li class="truncate" :title="item.product.name" style="padding-left: 11px;" v-if="item.product != null" >
+                                    {{ item.product.name }}
+                                </li>
+                                <li style="padding-left: 11px;" v-else>N/A</li>
                                 <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
                                 <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                    <a href="#" @click="showEditModal(item)" title="Edit">
+                                    <a href="#" @click="showEditModal(item)"  title="Edit">
                                         <span v-if="item.status == 1" style="color:green;">Active</span>
-                                        <span v-if="item.status == 2" style="color:orange;">Inactive</span>
-                                        <span v-if="item.status == 0" style="color:red;">Canceled</span>
+                                        <span v-else-if="item.status == 2" style="color:orange;">Inactive</span>
+                                        <span v-else-if="item.status == 0" style="color:red;">Canceled</span>
+                                        <span v-else="item.status == 0" style="color:blue;">No Status</span>
                                     </a>
                                 </li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
@@ -377,12 +386,20 @@ table.listing tr  th{
                                 <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Owner
+                            <label class="col-lg-4 control-label" v-if="current_user.role_id == 4">Owner
+                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
+                                    <option value="">- Please Choose Lead Owner </option>
+                                    <option value="2" selected>Winsta IO</option>
+                                </select>
+                            </label>
+
+                            <label class="col-lg-4 control-label" v-else>Owner
                                 <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
                                     <option value="">- Please Choose Lead Owner </option>
                                     <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                 </select>
                             </label>
+
                             <label class="col-lg-4 control-label">Mobile number
                                 <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
@@ -394,7 +411,13 @@ table.listing tr  th{
                                 </select>
                                 <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Assigned To
+                            <label class="col-lg-4 control-label"  v-if="current_user.role_id == 4">Assigned To
+                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
+                                    <option value="">- Please Choose Assignee</option>
+                                    <option :value="current_user.id" selected="selected">{{ current_user.name + ' ' + current_user.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label" v-else>Assigned To
                                 <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
                                     <option value="">- Please Choose Assignee</option>
                                     <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
@@ -535,7 +558,7 @@ table.listing tr  th{
 
             vm.current_user = JSON.parse(vm.logged_user);
 
-            vm.getUsers();
+            vm.getUsers(-1);
 
 
 			Fire.$on('AddingUser', function(data){
@@ -618,12 +641,12 @@ table.listing tr  th{
             str_pad_left(string,pad,length) {
                     return (new Array(length+1).join(pad)+string).slice(-length);
             },
-            getUsers(role = ''){
+            getUsers(role){
                 var vm = this;
 
-                if(role == ''){
+                if(role == -1){
                     var endpoint = '/leads/get-lead-counts';
-                }else{
+                }else if(role == 0 || role == 1){
                     var endpoint = '/leads/get-lead-counts/' + role;
                 }
 
