@@ -1,9 +1,9 @@
 #!/bin/bash
 # Set permissions to storage and bootstrap cache
-sudo chmod -R 0775 /var/www/html
-sudo chown -R ubuntu:apache /var/www/html
-sudo chmod -R 0777 /var/www/html/storage
-sudo chmod -R 0777 /var/www/html/bootstrap/cache
+# sudo chmod -R 0775 /var/www/html
+# sudo chown -R ubuntu:apache /var/www/html
+# sudo chmod -R 0777 /var/www/html/storage
+# sudo chmod -R 0777 /var/www/html/bootstrap/cache
 #
 cd /var/www/html
 #
