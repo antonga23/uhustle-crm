@@ -313,6 +313,7 @@ table.listing tr  th{
                                 <li>PACKAGE</li>
                                 <li>LAST ACTIVITY</li>
                                 <li>ACTIVITY</li>
+                                <li>STATUS</li>
                             </ul>
                         </div>
                     </div>
@@ -343,12 +344,12 @@ table.listing tr  th{
                                 <li style="padding-left: 11px;" v-else>N/A</li>
                                 <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
                                 <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
-                                <li v-if="current_user.role_id == 1 || current_user.role_id == 2">
+                                <li>
                                     <a href="#" @click="showEditModal(item)"  title="Edit">
                                         <span v-if="item.status == 1" style="color:green;">Active</span>
                                         <span v-else-if="item.status == 2" style="color:orange;">Inactive</span>
                                         <span v-else-if="item.status == 0" style="color:red;">Canceled</span>
-                                        <span v-else="item.status == 0" style="color:blue;">No Status</span>
+                                        <span v-else style="color:blue;">No Status</span>
                                     </a>
                                 </li>
                                 <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
@@ -443,7 +444,7 @@ table.listing tr  th{
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.status"  class="form-control">
+                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
                                     <option value="2">Inactive</option>
@@ -526,7 +527,7 @@ table.listing tr  th{
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.status"  class="form-control">
+                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
                                     <option value="2">Inactive</option>
@@ -571,11 +572,17 @@ table.listing tr  th{
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
+
+			Fire.$on('FilterData', function(data){
+				vm.applyFilter(data);
+            });
+
             if(this.current_user.role_id == 3 || this.current_user.role_id == 4){ 
                 var interval = setInterval(function() {
                     vm.getUsersSilently();
                 }, 2000);
             }
+
             vm.Toast = vm.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -783,7 +790,7 @@ table.listing tr  th{
                         axios.get('/leads/delete/' + id).then(function (response) {
                             if(response.data.success == true){
                                 vm.Toast.fire({ type: 'success', title: response.data.message });
-                                vm.getUsers();
+                                vm.getUsers(-1);
                                 vm.$Progress.finish();
                             }else{
                                 vm.$Progress.fail();
@@ -792,6 +799,19 @@ table.listing tr  th{
                         });
                     }
                 });
+            },
+            applyFilter(filter){
+                var vm = this;
+                vm.$Progress.start();
+                axios.post('/leads/lead-filter',{ 'filter' : filter }).then(function (response) {
+                    if(response.data.success == true){
+                        vm.users.leads = response.data.leads;
+                        
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+                vm.$Progress.finish();
             }
         }
     }

@@ -106,6 +106,9 @@ Route::group(['prefix' => 'leads'], function () {
 	Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
     Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
+	Route::get('/get-select-options', 'LeadController@getSelectOptions');
+	Route::post('/lead-filter', 'LeadController@filterLeadsData');
+	Route::post('/clients-filter', 'LeadController@filterClientsData');
 	
 });
 

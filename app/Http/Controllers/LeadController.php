@@ -377,7 +377,7 @@ class LeadController extends Controller
     public function destroy($id)
     {
          $client = Lead::where(['id' => $id])->delete();
-         return array('success' => true, 'client' => $client);
+         return array('success' => true, 'client' => $client,'message' => 'Lead deleted successfully');
     }
 
         /**
@@ -687,5 +687,173 @@ class LeadController extends Controller
                 'sources' => LeadSource::get(), 
             );
         }
+    }
+
+    public function getSelectOptions(){
+        return array(
+            'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+            'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+            'packages' => Product::get(), 
+            'sources' => LeadSource::get(), 
+        );
+    }
+
+    public function filterLeadsData(Request $request){
+
+        $data = $request->filter;
+        $filter = $data['filter'];
+        $search = $filter['search'];
+        $user_created_id = $filter['user_created_id'];
+        $user_assigned = $filter['user_assigned'];
+        $source = $filter['source'];
+        $product_id = $filter['product_id'];
+        $status = $filter['status'];
+        
+        $sql = '';
+        
+        foreach($filter as $key => $value){
+            if($key == 'search'){
+                $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
+            }
+            if($key == 'user_created_id' && !is_null($value)){
+                $sql .= " AND user_created_id = '$value' ";
+            }
+            if($key == 'user_assigned' && !is_null($value)){
+                $sql .= " AND user_assigned = '$value' ";
+            }
+            if($key == 'source' && !is_null($value)){
+                $sql .= " AND source = '$value' ";
+            }
+            if($key == 'product_id' && !is_null($value)){
+                $sql .= " AND product_id = '$value' ";
+            }
+            if($key == 'status' && !is_null($value)){
+                $sql .= " AND status = '$value' ";
+            }
+        }
+
+        if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
+
+            $count_assigned = Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count();    
+    
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+                    ->whereRaw($sql)
+                    ->where(['user_assigned' => Auth::user()->id])
+                    ->where(['is_client' => 0])
+                    ->orderBy('updated_at', 'DESC')
+                    ->get();       
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count(), 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }else{
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 0])->count();    
+    
+            $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => 0])->count();
+            
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+                                ->whereRaw($sql)
+                                ->where(['is_client' => 0])
+                                ->orderBy('updated_at', 'DESC')
+                                ->get();
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 0])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }     
+    }
+    public function filterClientsData(Request $request){
+
+        $data = $request->filter;
+        $filter = $data['filter'];
+        $search = $filter['search'];
+        $user_created_id = $filter['user_created_id'];
+        $user_assigned = $filter['user_assigned'];
+        $source = $filter['source'];
+        $product_id = $filter['product_id'];
+        $status = $filter['status'];
+        
+        $sql = '';
+        
+        foreach($filter as $key => $value){
+            if($key == 'search'){
+                $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
+            }
+            if($key == 'user_created_id' && !is_null($value)){
+                $sql .= " AND user_created_id = '$value' ";
+            }
+            if($key == 'user_assigned' && !is_null($value)){
+                $sql .= " AND user_assigned = '$value' ";
+            }
+            if($key == 'source' && !is_null($value)){
+                $sql .= " AND source = '$value' ";
+            }
+            if($key == 'product_id' && !is_null($value)){
+                $sql .= " AND product_id = '$value' ";
+            }
+            if($key == 'status' && !is_null($value)){
+                $sql .= " AND status = '$value' ";
+            }
+        }
+
+        if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
+
+            $count_assigned = Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();    
+    
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+                    ->whereRaw($sql)
+                    ->where(['user_assigned' => Auth::user()->id])
+                    ->where(['is_client' => 1])
+                    ->orderBy('updated_at', 'DESC')
+                    ->get();       
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }else{
+            $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
+    
+            $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => 1])->count();
+            
+            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+                                ->whereRaw($sql)
+                                ->where(['is_client' => 1])
+                                ->orderBy('updated_at', 'DESC')
+                                ->get();
+            
+            return array(
+                'success' => true,
+                'leads' => $leads, 
+                'count_leads' => Lead::where(['is_client' => 1])->count(), 
+                'count_unassigned' => $count_unassigned, 
+                'count_assigned' => $count_assigned, 
+                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+                'packages' => Product::get(), 
+                'sources' => LeadSource::get(), 
+            );
+        }     
     }
 }

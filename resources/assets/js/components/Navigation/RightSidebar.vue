@@ -641,25 +641,124 @@ label.custom-control-label{
 							</div>
 						</div>
 					</div>
-					<div class="row" style="padding:25px  0;">
-						<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />
+					<div v-if="show_filter == false">
+						<div class="row" style="padding:25px  0;">
+							<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="position" style="display:none;">
+									<span>12<sup>th</sup></span>
+								</div>
+
+								<div class="badge badge-1">
+									<img src="/images/icons/Colonel@4x.png" alt="Badge">
+								</div>
+
+								<div class="badge badge-2">
+									<img src="/images/icons/Corporal@4x.png" alt="Badge">
+								</div>
+
+								<div class="badge badge-2">
+									<img src="/images/icons/Captain@4x.png" alt="Badge">
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="position" style="display:none;">
-								<span>12<sup>th</sup></span>
-							</div>
+					<div v-else>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="row" style="padding:5px  0;">
+									<div class="col-lg-12">
+										<p class="heading" style="font-weight: 900;margin-top: 17px;">Data Filters</p>
+									</div>
 
-							<div class="badge badge-1">
-								<img src="/images/icons/Colonel@4x.png" alt="Badge">
-							</div>
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label class="col-lg-12 control-label">Search
+												<input v-on:keyup="filterData()" type="search" placeholder="Name, Surname, Email" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
+											</label>
+										</div>
+									</div>
 
-							<div class="badge badge-2">
-								<img src="/images/icons/Corporal@4x.png" alt="Badge">
-							</div>
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label class="col-lg-12 control-label">Owner
+												<select v-on:change="filterData()" type="text" id="role"  name="Owner" v-model="filter.user_created_id" class="form-control">
+													<option value="">All </option>
+													<option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+												</select>
+											</label>
+										</div>
+									</div>
 
-							<div class="badge badge-2">
-								<img src="/images/icons/Captain@4x.png" alt="Badge">
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label class="col-lg-12 control-label">Assigned To
+												<select v-on:change="filterData()" type="text" id="Assignee"  name="Assignee" v-model="filter.user_assigned"  class="form-control">
+													<option value="">All</option>
+													<option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+												</select>
+											</label>
+										</div>
+									</div>
+
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label v-on:change="filterData()" class="col-lg-12 control-label">Lead Source
+												<select type="text" id="Source"  name="Source" v-model="filter.source"  class="form-control">
+													<option value="">All</option>
+													<option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+												</select>
+											</label>
+										</div>
+									</div>
+
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label v-on:change="filterData()" class="col-lg-12 control-label">Package
+												<select type="text" id="package"  name="Package" v-model="filter.product_id"   class="form-control">
+													<option value="">All</option>
+													<option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+												</select>
+												<span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+											</label>
+										</div>
+									</div>
+
+									<div class="col-lg-12">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label v-on:change="filterData()" class="col-lg-12 control-label">Status
+												<select type="text" id="role"  name="Status" v-model="filter.status"  class="form-control">
+													<option value="">All</option>
+													<option value="1">Active</option>
+													<option value="2">Inactive</option>
+													<option value="0">Canceled</option>
+												</select>
+											</label>
+										</div>
+									</div>
+
+									<div class="col-lg-12" style="margin-top:17px">
+										<div :class="{'input': true, 'form-group' :true }">
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+													Apply
+												</button>
+											</label>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="clearFilter()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+													Clear
+												</button>
+											</label>
+											<!-- <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="saveFilter()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+													Save
+												</button>
+											</label> -->
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -690,6 +789,18 @@ label.custom-control-label{
 					vm.user = response.data.user;	
 				});
 			});
+
+			Fire.$on('ShowFilter', function(){
+				vm.show_filter = !vm.show_filter;
+			});
+
+			axios.get('/leads/get-select-options').then(function (response) {
+				vm.lead_owners = response.data.lead_owners;	
+				vm.assignees = response.data.assignees;	
+				vm.sources = response.data.sources;	
+				vm.packages = response.data.packages;	
+			});
+
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -737,13 +848,26 @@ label.custom-control-label{
 				messages: [],
 				unread_messages: 1,
 				expanded: false,
+				show_filter: false,
 				show:false,
+				lead_owners : [],
+				assignees : [],
+				sources : [],
+				packages : [],
 				attrs: [{
 					key: 'today',
 					highlight: true,
 					class: 'today_date',
 					dates: new Date(),
 				}],
+				filter:{
+					search: '',
+					user_created_id: '',
+					user_assigned: '',
+					source: '',
+					product_id: '',
+					status: '',
+				},
 				avatarUrl: '/images/avatars/',
                 noImageUrl: 'https://via.placeholder.com/',
 			}
@@ -865,6 +989,24 @@ label.custom-control-label{
 			},
 			showUploader(){
 				Fire.$emit('ShowAvatarUploader');
+			},
+			clearFilter(){
+				this.filter = {
+					search: '',
+					user_created_id: '',
+					user_assigned: '',
+					source: '',
+					product_id: '',
+					status: ''
+				}
+			},
+			filterData(){
+				var vm = this;
+				Fire.$emit('FilterData', {'filter' : vm.filter });
+			},
+			saveFilter(){
+				var vm = this;
+				Fire.$emit('FilterData', {'filter' : vm.filter });
 			}
 		},
 		computed: {

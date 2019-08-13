@@ -169,6 +169,9 @@
 						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts' )" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : adding_user }" class="nav-link">Add New</a>
 						</li>
+						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts' )" class="nav-item d-none d-sm-inline-block">
+							<a href="#" @click="showFilter();" :class="{ 'nav-link top-link' : true, 'active' : top_nav_show_filter }" class="nav-link">Show Filter</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-lg-6" style="padding-right: 0"  v-if="active == 'workstation'">
@@ -225,6 +228,7 @@
 				is_idle: true,
 				is_oncall: false,
 				is_offline: false,
+				top_nav_show_filter: false,
 				// Users
 				adding_user : false,
 				current_user: [],
@@ -257,6 +261,10 @@
 
 		},
 	    methods: {
+			showFilter(){
+				this.top_nav_show_filter = !this.top_nav_show_filter;
+				Fire.$emit('ShowFilter');
+			},
 	      	endCall() {
 				 Fire.$emit('CallEnded');
 	      	},

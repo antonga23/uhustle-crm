@@ -375,17 +375,10 @@ table.listing tr  th{
                 <div class="col-lg-12">
                     <div class="left" style="text-align: left;">
                         <div class="card-body" style="padding: 18px 0 0;">
-                            <ul class="filters" style="display:none;
-                            ">
-                                <li class="bulk-action">
-                                    <select type="text" id="role"  name="Role" v-model="bulk_actions"  class="form-control">
-                                        <option value="">- Bulk Actions -</option>
-                                        <option value="delete">Delete</option>
-                                    </select>
-                                </li>
-                            </ul>
                             <ul class="headings">
-                                <li style="width: 16%;">FULL NAME</li>
+                                <li style="width: 16%;">
+                                    FULL NAME
+                                </li>
                                 <li>ROLE</li>
                                 <li style="width: 16%;">EMAIL</li>
                                 <li>CONTACT NUMBER</li>
@@ -781,6 +774,9 @@ table.listing tr  th{
                         });
                     }
                 });
+            },
+            orderBy(){
+
             }
         }
     }

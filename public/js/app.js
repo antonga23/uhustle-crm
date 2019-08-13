@@ -70421,6 +70421,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -70435,6 +70436,9 @@ __webpack_require__.r(__webpack_exports__);
     vm.getUsers(-1);
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
+    });
+    Fire.$on('FilterData', function (data) {
+      vm.applyFilter(data);
     });
 
     if (this.current_user.role_id == 3 || this.current_user.role_id == 4) {
@@ -70654,7 +70658,7 @@ __webpack_require__.r(__webpack_exports__);
                 type: 'success',
                 title: response.data.message
               });
-              vm.getUsers();
+              vm.getUsers(-1);
               vm.$Progress.finish();
             } else {
               vm.$Progress.fail();
@@ -70663,6 +70667,20 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    },
+    applyFilter: function applyFilter(filter) {
+      var vm = this;
+      vm.$Progress.start();
+      axios.post('/leads/clients-filter', {
+        'filter': filter
+      }).then(function (response) {
+        if (response.data.success == true) {
+          vm.users.leads = response.data.leads;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+      vm.$Progress.finish();
     }
   }
 });
@@ -71674,6 +71692,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71688,6 +71707,9 @@ __webpack_require__.r(__webpack_exports__);
     vm.getUsers(-1);
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
+    });
+    Fire.$on('FilterData', function (data) {
+      vm.applyFilter(data);
     });
 
     if (this.current_user.role_id == 3 || this.current_user.role_id == 4) {
@@ -71901,7 +71923,7 @@ __webpack_require__.r(__webpack_exports__);
                 type: 'success',
                 title: response.data.message
               });
-              vm.getUsers();
+              vm.getUsers(-1);
               vm.$Progress.finish();
             } else {
               vm.$Progress.fail();
@@ -71910,6 +71932,20 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    },
+    applyFilter: function applyFilter(filter) {
+      var vm = this;
+      vm.$Progress.start();
+      axios.post('/leads/lead-filter', {
+        'filter': filter
+      }).then(function (response) {
+        if (response.data.success == true) {
+          vm.users.leads = response.data.leads;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+      vm.$Progress.finish();
     }
   }
 });
@@ -72856,6 +72892,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -72871,6 +73006,15 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/get-current-user').then(function (response) {
         vm.user = response.data.user;
       });
+    });
+    Fire.$on('ShowFilter', function () {
+      vm.show_filter = !vm.show_filter;
+    });
+    axios.get('/leads/get-select-options').then(function (response) {
+      vm.lead_owners = response.data.lead_owners;
+      vm.assignees = response.data.assignees;
+      vm.sources = response.data.sources;
+      vm.packages = response.data.packages;
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -72917,13 +73061,26 @@ __webpack_require__.r(__webpack_exports__);
       messages: [],
       unread_messages: 1,
       expanded: false,
+      show_filter: false,
       show: false,
+      lead_owners: [],
+      assignees: [],
+      sources: [],
+      packages: [],
       attrs: [{
         key: 'today',
         highlight: true,
         "class": 'today_date',
         dates: new Date()
       }],
+      filter: {
+        search: '',
+        user_created_id: '',
+        user_assigned: '',
+        source: '',
+        product_id: '',
+        status: ''
+      },
       avatarUrl: '/images/avatars/',
       noImageUrl: 'https://via.placeholder.com/'
     };
@@ -73042,6 +73199,28 @@ __webpack_require__.r(__webpack_exports__);
     },
     showUploader: function showUploader() {
       Fire.$emit('ShowAvatarUploader');
+    },
+    clearFilter: function clearFilter() {
+      this.filter = {
+        search: '',
+        user_created_id: '',
+        user_assigned: '',
+        source: '',
+        product_id: '',
+        status: ''
+      };
+    },
+    filterData: function filterData() {
+      var vm = this;
+      Fire.$emit('FilterData', {
+        'filter': vm.filter
+      });
+    },
+    saveFilter: function saveFilter() {
+      var vm = this;
+      Fire.$emit('FilterData', {
+        'filter': vm.filter
+      });
     }
   },
   computed: {}
@@ -73060,6 +73239,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -73283,6 +73465,7 @@ __webpack_require__.r(__webpack_exports__);
       is_idle: true,
       is_oncall: false,
       is_offline: false,
+      top_nav_show_filter: false,
       // Users
       adding_user: false,
       current_user: [],
@@ -73308,6 +73491,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    showFilter: function showFilter() {
+      this.top_nav_show_filter = !this.top_nav_show_filter;
+      Fire.$emit('ShowFilter');
+    },
     endCall: function endCall() {
       Fire.$emit('CallEnded');
     },
@@ -75224,13 +75411,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -75422,7 +75602,8 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
-    }
+    },
+    orderBy: function orderBy() {}
   }
 });
 
@@ -241738,7 +241919,9 @@ var render = function() {
                             _vm._v(" "),
                             _c("li", [_vm._v("LAST ACTIVITY")]),
                             _vm._v(" "),
-                            _c("li", [_vm._v("ACTIVITY")])
+                            _c("li", [_vm._v("ACTIVITY")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("STATUS")])
                           ])
                         : _vm._e()
                     ]
@@ -241929,53 +242112,44 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm.current_user.role_id == 1 ||
-                              _vm.current_user.role_id == 2
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#", title: "Edit" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.showEditModal(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        item.status == 1
-                                          ? _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "green" }
-                                              },
-                                              [_vm._v("Active")]
-                                            )
-                                          : item.status == 2
-                                          ? _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "orange" }
-                                              },
-                                              [_vm._v("Inactive")]
-                                            )
-                                          : item.status == 0
-                                          ? _c(
-                                              "span",
-                                              { staticStyle: { color: "red" } },
-                                              [_vm._v("Canceled")]
-                                            )
-                                          : _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "blue" }
-                                              },
-                                              [_vm._v("No Status")]
-                                            )
-                                      ]
-                                    )
-                                  ])
-                                : _vm._e(),
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "#", title: "Edit" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.showEditModal(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    item.status == 1
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "green" } },
+                                          [_vm._v("Active")]
+                                        )
+                                      : item.status == 2
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "orange" } },
+                                          [_vm._v("Inactive")]
+                                        )
+                                      : item.status == 0
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "red" } },
+                                          [_vm._v("Canceled")]
+                                        )
+                                      : _c(
+                                          "span",
+                                          { staticStyle: { color: "blue" } },
+                                          [_vm._v("No Status")]
+                                        )
+                                  ]
+                                )
+                              ]),
                               _vm._v(" "),
                               _vm.current_user.role_id == 1 ||
                               _vm.current_user.role_id == 2
@@ -242762,7 +242936,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", id: "role", name: "Role" },
+                            attrs: {
+                              type: "text",
+                              id: "status",
+                              name: "Status"
+                            },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -243398,7 +243576,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", id: "role", name: "Role" },
+                          attrs: { type: "text", id: "status", name: "Status" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -245000,7 +245178,9 @@ var render = function() {
                             _vm._v(" "),
                             _c("li", [_vm._v("LAST ACTIVITY")]),
                             _vm._v(" "),
-                            _c("li", [_vm._v("ACTIVITY")])
+                            _c("li", [_vm._v("ACTIVITY")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("STATUS")])
                           ])
                         : _vm._e()
                     ]
@@ -245191,53 +245371,44 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm.current_user.role_id == 1 ||
-                              _vm.current_user.role_id == 2
-                                ? _c("li", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#", title: "Edit" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.showEditModal(item)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        item.status == 1
-                                          ? _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "green" }
-                                              },
-                                              [_vm._v("Active")]
-                                            )
-                                          : item.status == 2
-                                          ? _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "orange" }
-                                              },
-                                              [_vm._v("Inactive")]
-                                            )
-                                          : item.status == 0
-                                          ? _c(
-                                              "span",
-                                              { staticStyle: { color: "red" } },
-                                              [_vm._v("Canceled")]
-                                            )
-                                          : _c(
-                                              "span",
-                                              {
-                                                staticStyle: { color: "blue" }
-                                              },
-                                              [_vm._v("No Status")]
-                                            )
-                                      ]
-                                    )
-                                  ])
-                                : _vm._e(),
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "#", title: "Edit" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.showEditModal(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    item.status == 1
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "green" } },
+                                          [_vm._v("Active")]
+                                        )
+                                      : item.status == 2
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "orange" } },
+                                          [_vm._v("Inactive")]
+                                        )
+                                      : item.status == 0
+                                      ? _c(
+                                          "span",
+                                          { staticStyle: { color: "red" } },
+                                          [_vm._v("Canceled")]
+                                        )
+                                      : _c(
+                                          "span",
+                                          { staticStyle: { color: "blue" } },
+                                          [_vm._v("No Status")]
+                                        )
+                                  ]
+                                )
+                              ]),
                               _vm._v(" "),
                               _vm.current_user.role_id == 1 ||
                               _vm.current_user.role_id == 2
@@ -246024,7 +246195,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", id: "role", name: "Role" },
+                            attrs: {
+                              type: "text",
+                              id: "status",
+                              name: "Status"
+                            },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -246660,7 +246835,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", id: "role", name: "Role" },
+                          attrs: { type: "text", id: "status", name: "Status" },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -248490,23 +248665,673 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row", staticStyle: { padding: "25px  0" } },
-                [
-                  _c("vc-calendar", {
-                    attrs: {
-                      attributes: _vm.attrs,
-                      "title-position": "right",
-                      "is-expanded": "",
-                      popover: true
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(12)
+              _vm.show_filter == false
+                ? _c("div", [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "row",
+                        staticStyle: { padding: "25px  0" }
+                      },
+                      [
+                        _c("vc-calendar", {
+                          attrs: {
+                            attributes: _vm.attrs,
+                            "title-position": "right",
+                            "is-expanded": "",
+                            popover: true
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._m(12)
+                  ])
+                : _c("div", [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-lg-12" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "row",
+                            staticStyle: { padding: "5px  0" }
+                          },
+                          [
+                            _vm._m(13),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    { staticClass: "col-lg-12 control-label" },
+                                    [
+                                      _vm._v(
+                                        "Search\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      ),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.filter.search,
+                                            expression: "filter.search"
+                                          }
+                                        ],
+                                        ref: "search",
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "search",
+                                          placeholder: "Name, Surname, Email",
+                                          id: "search",
+                                          name: "Search"
+                                        },
+                                        domProps: { value: _vm.filter.search },
+                                        on: {
+                                          keyup: function($event) {
+                                            return _vm.filterData()
+                                          },
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.filter,
+                                              "search",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    { staticClass: "col-lg-12 control-label" },
+                                    [
+                                      _vm._v("Owner\n\t\t\t\t\t\t\t\t\t\t\t\t"),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.filter.user_created_id,
+                                              expression:
+                                                "filter.user_created_id"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "role",
+                                            name: "Owner"
+                                          },
+                                          on: {
+                                            change: [
+                                              function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.filter,
+                                                  "user_created_id",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                              function($event) {
+                                                return _vm.filterData()
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "" } },
+                                            [_vm._v("All ")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.lead_owners, function(
+                                            item,
+                                            index
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: index,
+                                                domProps: { value: item.id }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.name +
+                                                      " " +
+                                                      item.lastname
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    { staticClass: "col-lg-12 control-label" },
+                                    [
+                                      _vm._v(
+                                        "Assigned To\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      ),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.filter.user_assigned,
+                                              expression: "filter.user_assigned"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "Assignee",
+                                            name: "Assignee"
+                                          },
+                                          on: {
+                                            change: [
+                                              function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.filter,
+                                                  "user_assigned",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                              function($event) {
+                                                return _vm.filterData()
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "" } },
+                                            [_vm._v("All")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.assignees, function(
+                                            item,
+                                            index
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: index,
+                                                domProps: { value: item.id }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.name +
+                                                      " " +
+                                                      item.lastname
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-lg-12 control-label",
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.filterData()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lead Source\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      ),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.filter.source,
+                                              expression: "filter.source"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "Source",
+                                            name: "Source"
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$selectedVal = Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function(o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function(o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                              _vm.$set(
+                                                _vm.filter,
+                                                "source",
+                                                $event.target.multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "" } },
+                                            [_vm._v("All")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.sources, function(
+                                            item,
+                                            index
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: index,
+                                                domProps: { value: item.id }
+                                              },
+                                              [_vm._v(_vm._s(item.name))]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-lg-12 control-label",
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.filterData()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Package\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      ),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.filter.product_id,
+                                              expression: "filter.product_id"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "package",
+                                            name: "Package"
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$selectedVal = Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function(o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function(o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                              _vm.$set(
+                                                _vm.filter,
+                                                "product_id",
+                                                $event.target.multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "" } },
+                                            [_vm._v("All")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.packages, function(
+                                            item,
+                                            index
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: index,
+                                                domProps: { value: item.id }
+                                              },
+                                              [_vm._v(_vm._s(item.name))]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "show",
+                                              rawName: "v-show",
+                                              value: _vm.errors.has("Package"),
+                                              expression:
+                                                "errors.has('Package')"
+                                            }
+                                          ],
+                                          staticClass: "help-block",
+                                          attrs: { id: "error" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.first("Package"))
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-12" }, [
+                              _c(
+                                "div",
+                                { class: { input: true, "form-group": true } },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-lg-12 control-label",
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.filterData()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Status\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                      ),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.filter.status,
+                                              expression: "filter.status"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "role",
+                                            name: "Status"
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$selectedVal = Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function(o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function(o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                              _vm.$set(
+                                                _vm.filter,
+                                                "status",
+                                                $event.target.multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "" } },
+                                            [_vm._v("All")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Active")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Inactive")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "0" } },
+                                            [_vm._v("Canceled")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "col-lg-12",
+                                staticStyle: { "margin-top": "17px" }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    class: { input: true, "form-group": true }
+                                  },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "col-lg-3 control-label",
+                                        staticStyle: {
+                                          "margin-right": "8px",
+                                          float: "left"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-default",
+                                            staticStyle: {
+                                              width: "100%",
+                                              margin: "0px"
+                                            },
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.filterData()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tApply\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "col-lg-3 control-label",
+                                        staticStyle: {
+                                          "margin-right": "8px",
+                                          float: "left"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-default",
+                                            staticStyle: {
+                                              width: "100%",
+                                              margin: "0px"
+                                            },
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.clearFilter()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tClear\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
             ])
           : _vm._e()
       ])
@@ -248855,6 +249680,21 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c(
+        "p",
+        {
+          staticClass: "heading",
+          staticStyle: { "font-weight": "900", "margin-top": "17px" }
+        },
+        [_vm._v("Data Filters")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -249144,6 +249984,34 @@ var render = function() {
                           }
                         },
                         [_vm._v("Add New")]
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.active == "users" ||
+              _vm.active == "leads" ||
+              _vm.active == "contacts"
+                ? _c(
+                    "li",
+                    { staticClass: "nav-item d-none d-sm-inline-block" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          class: {
+                            "nav-link top-link": true,
+                            active: _vm.top_nav_show_filter
+                          },
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showFilter()
+                            }
+                          }
+                        },
+                        [_vm._v("Show Filter")]
                       )
                     ]
                   )
@@ -251181,82 +252049,7 @@ var render = function() {
     _vm._v(" "),
     !_vm.add_user
       ? _c("div", [
-          _c("div", { staticClass: "row stats" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "div",
-                { staticClass: "left", staticStyle: { "text-align": "left" } },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "18px 0 0" }
-                    },
-                    [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "filters",
-                          staticStyle: { display: "none" }
-                        },
-                        [
-                          _c("li", { staticClass: "bulk-action" }, [
-                            _c(
-                              "select",
-                              {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.bulk_actions,
-                                    expression: "bulk_actions"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: {
-                                  type: "text",
-                                  id: "role",
-                                  name: "Role"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.bulk_actions = $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  }
-                                }
-                              },
-                              [
-                                _c("option", { attrs: { value: "" } }, [
-                                  _vm._v("- Bulk Actions -")
-                                ]),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "delete" } }, [
-                                  _vm._v("Delete")
-                                ])
-                              ]
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0)
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
+          _vm._m(0),
           _vm._v(" "),
           _vm.users.all_users.length > 0
             ? _c(
@@ -252736,18 +253529,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "headings" }, [
-      _c("li", { staticStyle: { width: "16%" } }, [_vm._v("FULL NAME")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("ROLE")]),
-      _vm._v(" "),
-      _c("li", { staticStyle: { width: "16%" } }, [_vm._v("EMAIL")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("CONTACT NUMBER")]),
-      _vm._v(" "),
-      _c("li", { staticStyle: { width: "19%" } }, [_vm._v("LAST ACTIVE")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("ACTIVE")])
+    return _c("div", { staticClass: "row stats" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c(
+          "div",
+          { staticClass: "left", staticStyle: { "text-align": "left" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "card-body",
+                staticStyle: { padding: "18px 0 0" }
+              },
+              [
+                _c("ul", { staticClass: "headings" }, [
+                  _c("li", { staticStyle: { width: "16%" } }, [
+                    _vm._v(
+                      "\n                                FULL NAME\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("ROLE")]),
+                  _vm._v(" "),
+                  _c("li", { staticStyle: { width: "16%" } }, [
+                    _vm._v("EMAIL")
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("CONTACT NUMBER")]),
+                  _vm._v(" "),
+                  _c("li", { staticStyle: { width: "19%" } }, [
+                    _vm._v("LAST ACTIVE")
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("ACTIVE")])
+                ])
+              ]
+            )
+          ]
+        )
+      ])
     ])
   },
   function() {
