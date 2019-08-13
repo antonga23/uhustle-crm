@@ -318,7 +318,7 @@ table.listing tr  th{
                             <ul class="items">
                                 <li>
                                     <a :href="'/workstation/' + item.id"  title="Dial">
-                                        {{ item.name +  ' ' + item.surname }}
+                                        {{ item.name + ' ' + item.surname }}
                                     </a>
                                 </li>
                                 <li class="truncate" :title="item.account" style="padding-left: 30px;" v-if="item.account == '' || item.account == null">NA</li>
