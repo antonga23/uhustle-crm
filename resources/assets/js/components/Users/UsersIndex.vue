@@ -25,10 +25,11 @@ li p.bottom{
 }
 .card-body p{
     color: #fff;
-    width: 53%;
+    width: 100%;
     margin-right: 0;
-    text-align: right;    
+    text-align: right;
     float: left;
+    margin-bottom: 0;
 }
 .card-title {
     margin-bottom: 0.75rem;
@@ -66,12 +67,12 @@ h5 .icon{
     width: 15px;
     margin: -5px 15px 0 0;
 }
-p.card-text{    
-    font-size: 23px;
+p.card-text{           
+    font-size: 16px;
     color: #fff;
     font-weight: bolder;
     margin: 0;
-    width: 40%;
+    width: 100%;
     float: right;
 }
 p.card-text span{

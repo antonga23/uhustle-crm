@@ -62,11 +62,22 @@
         width: 15px;
         margin: -5px 15px 0 0;
     }
+
+    .card-body p{
+        color: #fff;
+        width: 100%;
+        margin-right: 0;
+        text-align: right;
+        float: left;
+        margin-bottom: 0;
+    }
     p.card-text{
-        font-size: 49px;
+        font-size: 16px;
         color: #fff;
         font-weight: bolder;
         margin: 0;
+        width: 100%;
+        float: right;
     }
     p.card-text span{
         font-size: 19px;
