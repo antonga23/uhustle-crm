@@ -23,9 +23,7 @@
     .card-body{
         text-align: center;
     }
-    .card-body p{
-        color: #fff;
-    }
+    .ca
     .card-title {
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
