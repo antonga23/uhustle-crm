@@ -70676,11 +70676,12 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data.success == true) {
           vm.users.leads = response.data.leads;
+          vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+          vm.$Progress.fail();
         }
       });
-      vm.$Progress.finish();
     }
   }
 });
@@ -71941,11 +71942,12 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data.success == true) {
           vm.users.leads = response.data.leads;
+          vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+          vm.$Progress.fail();
         }
       });
-      vm.$Progress.finish();
     }
   }
 });

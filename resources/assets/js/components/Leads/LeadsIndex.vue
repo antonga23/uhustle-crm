@@ -806,12 +806,12 @@ table.listing tr  th{
                 axios.post('/leads/lead-filter',{ 'filter' : filter }).then(function (response) {
                     if(response.data.success == true){
                         vm.users.leads = response.data.leads;
-                        
+                        vm.$Progress.finish();
                     }else{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                        vm.$Progress.fail();
                     }
                 });
-                vm.$Progress.finish();
             }
         }
     }
