@@ -70440,13 +70440,6 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('FilterData', function (data) {
       vm.applyFilter(data);
     });
-
-    if (this.current_user.role_id == 3 || this.current_user.role_id == 4) {
-      var interval = setInterval(function () {
-        vm.getUsersSilently();
-      }, 2000);
-    }
-
     vm.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -71712,13 +71705,6 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('FilterData', function (data) {
       vm.applyFilter(data);
     });
-
-    if (this.current_user.role_id == 3 || this.current_user.role_id == 4) {
-      var interval = setInterval(function () {
-        vm.getUsersSilently();
-      }, 2000);
-    }
-
     vm.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',

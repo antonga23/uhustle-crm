@@ -572,7 +572,6 @@ card-head, .ant-card-padding-transition .ant-card-body {
 
             vm.getUsers(-1);
 
-
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
@@ -581,11 +580,6 @@ card-head, .ant-card-padding-transition .ant-card-body {
 				vm.applyFilter(data);
             });
 
-            if(this.current_user.role_id == 3 || this.current_user.role_id == 4){ 
-                var interval = setInterval(function() {
-                    vm.getUsersSilently();
-                }, 2000);
-            }
             vm.Toast = vm.$swal.mixin({
                 toast: true,
                 position: 'top-end',
