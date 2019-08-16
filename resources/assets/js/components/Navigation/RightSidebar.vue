@@ -398,6 +398,20 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
     padding: 12px;
     font-size: 16px;
 }
+.final-modal input{
+	font-size: 9px;
+}
+.final-modal select{
+    font-size: 9px;
+    padding: 6px 10px 6px;
+    height: 30px !important;;
+}
+final-modal button{
+	width: 100%;
+    margin: 0px;
+    padding: 7px;
+    font-size: 9px;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -858,7 +872,7 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 																		<span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
 																	</label>
 																	<label class="col-lg-3 control-label">&nbsp;
-																		<button v-on:click="saveFilter()" type="submit" class="btn btn-primary" style="width: 100%; margin: 0px;">
+																		<button v-on:click="saveFilter()" type="submit" class="btn btn-primary">
 																			Save
 																		</button>
 																	</label>
