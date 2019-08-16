@@ -73651,9 +73651,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -250575,34 +250572,6 @@ var render = function() {
                           }
                         },
                         [_vm._v("Add New")]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "users" ||
-              _vm.active == "leads" ||
-              _vm.active == "contacts"
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          class: {
-                            "nav-link top-link": true,
-                            active: _vm.top_nav_show_filter
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showFilter()
-                            }
-                          }
-                        },
-                        [_vm._v("Show Filter")]
                       )
                     ]
                   )
