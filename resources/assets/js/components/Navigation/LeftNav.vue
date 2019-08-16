@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 /*Nav starts*/
 .sidebar-dark-primary {
     background-color: #fff;
@@ -10,9 +10,6 @@
 #sidebar {
      padding-left: 0; 
      padding-right: 0; 
-}
-a.workstation{
-    
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
@@ -26,6 +23,7 @@ a.workstation{
     padding: 0;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
     color: #ffffff;
@@ -52,6 +50,7 @@ a.workstation{
     padding: 0;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
     color: #ffffff;
@@ -78,6 +77,7 @@ a.workstation{
     padding: 0;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
     color: #ffffff;
@@ -104,6 +104,7 @@ a.workstation{
     padding: 0;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
     color: #ffffff;
@@ -130,6 +131,7 @@ a.workstation{
     padding: 0;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
     color: #ffffff;

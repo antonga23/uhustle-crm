@@ -63,9 +63,13 @@ h5 .icon{
     color: #fff;
     width: 100%;
     margin-right: 0;
-    text-align: right;
+    text-align: left;
     float: left;
     margin-bottom: 0;
+    margin-top: 0;
+}
+.card-body p strong{
+    float: right;
 }
 p.card-text{
     font-size: 16px;
@@ -246,49 +250,37 @@ card-head, .ant-card-padding-transition .ant-card-body {
 <template>
     <div class="">
         <div id="top-section" class="row" style="margin-top:2%;">
+
           <div class="col-lg-2"  @click="getUsers(-1)">
             <div class="card sales-amount">
               <div class="card-body">
-
-                <p class="card-text-small" style="text-align:left">
-                      All
-                </p>
-
-                <p class="card-text">
-                  {{ users.count_leads }} 
-                </p>
-
+                <p class="card-text-small">All  <strong> {{ users.count_leads }} </strong> </p>
               </div>
             </div>
           </div>
+
           <div class="col-lg-2" @click="getUsers(1)" v-if="current_user.role_id == 1">
             <div class="card ave-time">
               <div class="card-body">
-
-                <p class="card-text-small" style="text-align:left">
-                      Assigned
-                </p>
-
-                <p class="card-text">
-                  {{ users.count_assigned }} 
-                </p>
-
+                <p class="card-text-small">Assigned <strong> {{ users.count_assigned }}</strong></p>               
               </div>
             </div>
           </div>
+
           <div class="col-lg-2" @click="getUsers(0)" v-if="current_user.role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
-
-                <p class="card-text-small" style="text-align:left">
-                      Unassigned
-                </p>
-
-                <p class="card-text">
-                  {{ users.count_unassigned }} 
-                </p>
-
+                <p class="card-text-small">Unassigned<strong>{{ users.count_unassigned }}</strong></p>
               </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
+            <div class="card con-ratio">
+                <div class="card-body">
+                        <a href="#" class="close" @click="deleteFilter( item.id)"></a>
+                        <p class="card-text-small">{{ item.title }}<strong>{{ item.counts }}</strong></p>
+                </div>
             </div>
           </div>
         </div>
@@ -468,7 +460,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            title="Update Lead"
+            title="Update Contact"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
@@ -569,9 +561,16 @@ card-head, .ant-card-padding-transition .ant-card-body {
             var vm = this;
 
             vm.current_user = JSON.parse(vm.logged_user);
+            vm.filter_data = JSON.parse(vm.custom_filters);
 
             vm.getUsers(-1);
 
+			Fire.$on('SaveFilter', function(data){
+                console.log('in filters', data);
+				vm.filter_data = data.filters;
+            });
+            
+            
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
@@ -589,7 +588,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
         },
         created: function () {
         },
-        props: ['logged_user'],
+        props: ['logged_user', 'contacts', 'custom_filters'],
         data: function(){
             return {
                 users : {
@@ -620,6 +619,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
                     assigned: [],
                 },
                 current_user: [],
+                filter_data: [],
                 add_user: false,
                 Toast: null
             }
@@ -803,13 +803,40 @@ card-head, .ant-card-padding-transition .ant-card-body {
             applyFilter(filter){
                 var vm = this;
                 vm.$Progress.start();
-                axios.post('/leads/clients-filter',{ 'filter' : filter }).then(function (response) {
+                axios.post('/filters/filter/1',{ 'filter' : filter }).then(function (response) {
                     if(response.data.success == true){
                         vm.users.leads = response.data.leads;
+                        Fire.$emit('CustomFilterApplied', filter);
                         vm.$Progress.finish();
                     }else{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                         vm.$Progress.fail();
+                    }
+                });
+            },
+            deleteFilter(id){
+                this.$swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#F56C6C',
+                    cancelButtonColor: '#409EFF',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        var vm = this;
+                        vm.$Progress.start();
+                        axios.get('/filters/delete/' + id + '/contacts').then(function (response) {
+                            if(response.data.success == true){
+                                vm.filter_data = response.data.filters
+                                vm.Toast.fire({ type: 'success', title: response.data.message });
+                                vm.$Progress.finish();
+                            }else{
+                                vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                                vm.$Progress.fail();
+                            }
+                        });
                     }
                 });
             }

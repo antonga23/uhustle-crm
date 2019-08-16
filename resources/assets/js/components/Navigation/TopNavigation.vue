@@ -232,6 +232,7 @@
 				// Users
 				adding_user : false,
 				current_user: [],
+				filter_data: [],
 				types: [
 					'date',
 					'text'

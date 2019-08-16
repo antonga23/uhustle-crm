@@ -107,11 +107,20 @@ Route::group(['prefix' => 'leads'], function () {
     Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
-	Route::post('/lead-filter', 'LeadController@filterLeadsData');
-	Route::post('/clients-filter', 'LeadController@filterClientsData');
-	
 });
 
+// Filters Routes
+Route::group(['prefix' => 'filters'], function () {
+	Route::get('/get/{id}', 'StoredFilterController@getById');
+	Route::get('/get-all', 'StoredFilterController@index');
+	Route::get('/get-active', 'StoredFilterController@getActive');
+	Route::post('/create', 'StoredFilterController@store');
+	Route::post('/update', 'StoredFilterController@update');
+	Route::get('/delete/{id}/{type}', 'StoredFilterController@destroy');
+	Route::post('/filter/{type}', 'StoredFilterController@filterLeadsData');
+	Route::post('/clients-filter', 'StoredFilterController@filterClientsData');
+	Route::post('/filter-counts/{type}', 'StoredFilterController@filterCounts');
+});
 // Roles Routes
 Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get/{role_id}', 'RoleController@getById');

@@ -70414,14 +70414,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -70433,7 +70425,12 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted');
     var vm = this;
     vm.current_user = JSON.parse(vm.logged_user);
+    vm.filter_data = JSON.parse(vm.custom_filters);
     vm.getUsers(-1);
+    Fire.$on('SaveFilter', function (data) {
+      console.log('in filters', data);
+      vm.filter_data = data.filters;
+    });
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
     });
@@ -70448,7 +70445,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['logged_user'],
+  props: ['logged_user', 'contacts', 'custom_filters'],
   data: function data() {
     return {
       users: {
@@ -70479,6 +70476,7 @@ __webpack_require__.r(__webpack_exports__);
         assigned: []
       },
       current_user: [],
+      filter_data: [],
       add_user: false,
       Toast: null
     };
@@ -70664,15 +70662,47 @@ __webpack_require__.r(__webpack_exports__);
     applyFilter: function applyFilter(filter) {
       var vm = this;
       vm.$Progress.start();
-      axios.post('/leads/clients-filter', {
+      axios.post('/filters/filter/1', {
         'filter': filter
       }).then(function (response) {
         if (response.data.success == true) {
           vm.users.leads = response.data.leads;
+          Fire.$emit('CustomFilterApplied', filter);
           vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
           vm.$Progress.fail();
+        }
+      });
+    },
+    deleteFilter: function deleteFilter(id) {
+      var _this2 = this;
+
+      this.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#F56C6C',
+        cancelButtonColor: '#409EFF',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          var vm = _this2;
+          vm.$Progress.start();
+          axios.get('/filters/delete/' + id + '/contacts').then(function (response) {
+            if (response.data.success == true) {
+              vm.filter_data = response.data.filters;
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
         }
       });
     }
@@ -71681,12 +71711,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71698,7 +71722,12 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted');
     var vm = this;
     vm.current_user = JSON.parse(vm.logged_user);
+    vm.filter_data = JSON.parse(vm.custom_filters);
     vm.getUsers(-1);
+    Fire.$on('SaveFilter', function (data) {
+      console.log('in filters', data);
+      vm.filter_data = data.filters;
+    });
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
     });
@@ -71713,7 +71742,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['logged_user'],
+  props: ['logged_user', 'custom_filters'],
   data: function data() {
     return {
       users: {
@@ -71744,7 +71773,9 @@ __webpack_require__.r(__webpack_exports__);
         assigned: []
       },
       current_user: [],
+      filter_data: [],
       add_user: false,
+      filter_counts: 0,
       Toast: null
     };
   },
@@ -71923,15 +71954,47 @@ __webpack_require__.r(__webpack_exports__);
     applyFilter: function applyFilter(filter) {
       var vm = this;
       vm.$Progress.start();
-      axios.post('/leads/lead-filter', {
+      axios.post('/filters/filter/0', {
         'filter': filter
       }).then(function (response) {
         if (response.data.success == true) {
           vm.users.leads = response.data.leads;
+          Fire.$emit('CustomFilterApplied', filter);
           vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
           vm.$Progress.fail();
+        }
+      });
+    },
+    deleteFilter: function deleteFilter(id) {
+      var _this2 = this;
+
+      this.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#F56C6C',
+        cancelButtonColor: '#409EFF',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          var vm = _this2;
+          vm.$Progress.start();
+          axios.get('/filters/delete/' + id + '/leads').then(function (response) {
+            if (response.data.success == true) {
+              vm.filter_data = response.data.filters;
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
         }
       });
     }
@@ -71949,6 +72012,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -72979,10 +73044,146 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['auth_user'],
+  props: ['auth_user', 'active'],
   mounted: function mounted() {
     var vm = this;
     this.user = JSON.parse(this.auth_user);
@@ -72997,6 +73198,10 @@ __webpack_require__.r(__webpack_exports__);
     });
     Fire.$on('ShowFilter', function () {
       vm.show_filter = !vm.show_filter;
+    });
+    Fire.$on('CustomFilterApplied', function (data) {
+      vm.filter = data.filter;
+      vm.show_filter = true;
     });
     axios.get('/leads/get-select-options').then(function (response) {
       vm.lead_owners = response.data.lead_owners;
@@ -73050,11 +73255,13 @@ __webpack_require__.r(__webpack_exports__);
       unread_messages: 1,
       expanded: false,
       show_filter: false,
+      show_filter_save: false,
       show: false,
       lead_owners: [],
       assignees: [],
       sources: [],
       packages: [],
+      filters: [],
       attrs: [{
         key: 'today',
         highlight: true,
@@ -73062,6 +73269,7 @@ __webpack_require__.r(__webpack_exports__);
         dates: new Date()
       }],
       filter: {
+        title: '',
         search: '',
         user_created_id: '',
         user_assigned: '',
@@ -73070,7 +73278,7 @@ __webpack_require__.r(__webpack_exports__);
         status: ''
       },
       avatarUrl: '/images/avatars/',
-      noImageUrl: 'https://via.placeholder.com/'
+      noImageUrl: '/images/icons/user_icon@4x.png'
     };
   },
   methods: {
@@ -73190,6 +73398,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     clearFilter: function clearFilter() {
       this.filter = {
+        title: '',
         search: '',
         user_created_id: '',
         user_assigned: '',
@@ -73197,6 +73406,7 @@ __webpack_require__.r(__webpack_exports__);
         product_id: '',
         status: ''
       };
+      this.show_filter_save = false;
     },
     filterData: function filterData() {
       var vm = this;
@@ -73205,9 +73415,30 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     saveFilter: function saveFilter() {
+      var _this2 = this;
+
       var vm = this;
-      Fire.$emit('FilterData', {
-        'filter': vm.filter
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/filters/create', {
+            filter: _this2.filter,
+            type: _this2.active
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('SaveFilter', {
+                'filters': response.data.filters
+              });
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
       });
     }
   },
@@ -73457,6 +73688,7 @@ __webpack_require__.r(__webpack_exports__);
       // Users
       adding_user: false,
       current_user: [],
+      filter_data: [],
       types: ['date', 'text']
     };
   },
@@ -75442,7 +75674,7 @@ __webpack_require__.r(__webpack_exports__);
       current_user: {},
       add_user: false,
       avatarUrl: '/images/avatars/',
-      noImageUrl: 'https://via.placeholder.com/25',
+      noImageUrl: '/images/icons/user_icon@4x.png',
       bulk_actions: "",
       Toast: null
     };
@@ -127380,7 +127612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-6f97a8da]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: 0;\n}\np.card-text[data-v-6f97a8da]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-6f97a8da]{\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-6f97a8da]{\n    cursor: pointer;\n}\n.control-label[data-v-6f97a8da]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\n    background: orange !important;\n}\ncard-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-6f97a8da]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-6f97a8da]{\n    float: right;\n}\np.card-text[data-v-6f97a8da]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-6f97a8da]{\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-6f97a8da]{\n    cursor: pointer;\n}\n.control-label[data-v-6f97a8da]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\n    background: orange !important;\n}\ncard-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
 
 // exports
 
@@ -127418,17 +127650,17 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-764c47ca]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-764c47ca]{\n    list-style: none;\n}\n.top-section li[data-v-764c47ca]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-764c47ca]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-764c47ca]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-764c47ca]{\n    text-align: center;\n}\n.card-body p[data-v-764c47ca]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: 0;\n}\n.card-title[data-v-764c47ca] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-764c47ca]{\n    color: #fff;\n}\nh5 .icon[data-v-764c47ca]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-764c47ca]{    \n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-764c47ca]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-764c47ca]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-764c47ca]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-764c47ca]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-764c47ca]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-764c47ca] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-764c47ca]{\n    float: right;\n}\n.truncate[data-v-764c47ca] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-764c47ca]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-764c47ca]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-764c47ca]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-764c47ca]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-764c47ca]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-764c47ca] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-764c47ca]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-764c47ca], .show > .btn-secondary.dropdown-toggle[data-v-764c47ca] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-764c47ca]{\n    height: 318px !important;\n}\n#top-section[data-v-764c47ca]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-764c47ca]{\n    color:#00a25a !important;\n}\n.red[data-v-764c47ca]{\n    color:red !important;\n}.card-text-small[data-v-764c47ca]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-764c47ca]{\n    width: 12%;\n}\n.badge img[data-v-764c47ca]{\n    width: 100%;\n}\nul.headings[data-v-764c47ca]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-764c47ca] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-764c47ca]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-764c47ca] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-764c47ca]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-764c47ca]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-764c47ca]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-764c47ca]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-764c47ca]{\n    cursor: pointer;\n}\n.control-label[data-v-764c47ca]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-764c47ca]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-764c47ca] {\n    background: orange !important;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-764c47ca]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-764c47ca]{\n    list-style: none;\n}\n.top-section li[data-v-764c47ca]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-764c47ca]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-764c47ca]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-764c47ca]{\n    text-align: center;\n}\n.card-body p[data-v-764c47ca]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-764c47ca]{\n    float: right;\n}\n.card-title[data-v-764c47ca] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-764c47ca]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-764c47ca]{\n    color: #fff;\n}\nh5 .icon[data-v-764c47ca]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-764c47ca]{    \n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-764c47ca]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-764c47ca]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-764c47ca]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-764c47ca]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-764c47ca]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-764c47ca] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-764c47ca]{\n    float: right;\n}\n.truncate[data-v-764c47ca] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-764c47ca]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-764c47ca]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-764c47ca]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-764c47ca]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-764c47ca]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-764c47ca] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-764c47ca]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-764c47ca], .show > .btn-secondary.dropdown-toggle[data-v-764c47ca] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-764c47ca]{\n    height: 318px !important;\n}\n#top-section[data-v-764c47ca]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-764c47ca]{\n    color:#00a25a !important;\n}\n.red[data-v-764c47ca]{\n    color:red !important;\n}\n.card-text-small[data-v-764c47ca]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-764c47ca]{\n    width: 12%;\n}\n.badge img[data-v-764c47ca]{\n    width: 100%;\n}\nul.headings[data-v-764c47ca]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-764c47ca] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-764c47ca]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-764c47ca] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-764c47ca]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-764c47ca]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-764c47ca]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-764c47ca]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-764c47ca]{\n    cursor: pointer;\n}\n.control-label[data-v-764c47ca]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-764c47ca]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-764c47ca] {\n    background: orange !important;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -127437,7 +127669,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.sidebar-dark-primary {\n    background-color: #fff;\n}\n[class*=\"sidebar-dark\"] .brand-link {\n    color: rgba(255, 255, 255, 0.8);\n    border-bottom: none;\n}\n#sidebar {\n     padding-left: 0; \n     padding-right: 0;\n}\na.workstation{\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/work station icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/work station icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/dashboard icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/dashboard icon .svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/social board icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/social board icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/call history icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/call history icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/education icon actove.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/education icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.main-sidebar, .main-sidebar:before {\n    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n    width: 53px !important;\n}\n.content-wrapper, .main-footer, .main-header {\n    transition: margin-left 0.3s ease-in-out;\n    margin-left: 53px !important;\n    z-index: 3000;\n}\n.nav-sidebar > .nav-item {\n    width: 53px;\n    margin-bottom: 50%;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.sidebar-dark-primary[data-v-57a1bf10] {\n    background-color: #fff;\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n    color: rgba(255, 255, 255, 0.8);\n    border-bottom: none;\n}\n#sidebar[data-v-57a1bf10] {\n     padding-left: 0; \n     padding-right: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/work station icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/work station icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/dashboard icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/dashboard icon .svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/social board icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/social board icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/call history icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/call history icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/education icon actove.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/education icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n    width: 53px !important;\n}\n.content-wrapper[data-v-57a1bf10], .main-footer[data-v-57a1bf10], .main-header[data-v-57a1bf10] {\n    transition: margin-left 0.3s ease-in-out;\n    margin-left: 53px !important;\n    z-index: 3000;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n    width: 53px;\n    margin-bottom: 50%;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -127456,7 +127688,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.control-sidebar-dark label.custom-control-label[data-v-48ad9a74]{\n\tcolor: inherit;\n    font-weight: 200;\n    padding-top: 3px;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n\ttext-align: right;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n    margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\twidth: 100%; margin: 0px 0px 5px 0px;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0\t;\n}\nh2[data-v-48ad9a74]{\n    color: #003449;\n    font-size: 29px;\n    letter-spacing: 4.2px;\n    font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n    color: #1a1c43;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n    position: absolute;\n    top: 0;\n    z-index: 830;\n}\n.help-block[data-v-48ad9a74]{\n\tcolor: red;\n}\n.control-sidebar[data-v-48ad9a74], .control-sidebar[data-v-48ad9a74] {\n    width: 350px !important;\n    right: 0 !important;\n    bottom: 0;\n    transition: right 0.3s ease-in-out;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n}\n.control-sidebar-dark[data-v-48ad9a74], .control-sidebar-dark[data-v-48ad9a74] {\n    background: #fff !important;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.control-sidebar-dark label.custom-control-label[data-v-48ad9a74]{\n\tcolor: inherit;\n    font-weight: 200;\n    padding-top: 3px;\n}\n.status.active[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: #00d68f;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n    width: 76px;\n    text-align: center;\n    border-radius: 8px;\n    display: block;\n    background: orange;\n    padding: 4px 3px;\n    line-height: 20px;\n    color: #fff;\n    text-transform: uppercase;\n    font-size: 12px;\n    float: left;\n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.navbar[data-v-48ad9a74]{\n    margin: 0;\n    float: right;\n    padding: 0;   \n    width: 100%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n    color: rgba(0, 0, 0, 0.5);\n    padding-top: 0;\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n    font-size: 11px;\n    padding-top: 6px;\n}\n.notification-count[data-v-48ad9a74]{\n    position: relative;\n    top: -7px;\n    right: 15px;\n    font-size: 9px;\n    color: #003449;\n}\n.collapse[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    width: 100%;\n}\n.p-3[data-v-48ad9a74]{\n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\twidth: 100%;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n    background: rgb(114, 218, 126);\n    height: 8px;\n    transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n    float: right;\n    font-size: 21px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.value[data-v-48ad9a74]{\n    \n    font-size: 17px;\n    color: #1a1c43;\n    margin-top: -8px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 12px;\n}\n.position[data-v-48ad9a74]{\n    display: block;\n    position: relative;\n    background: #ff8234;\n    color: #fff;\n    height: 62px;\n    text-align: center;\n    font-size: 17px;\n    padding: 18px 9px;\n    width: 62px;\n    transform: rotate(45deg); /* Standard syntax */\n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n    transform: rotate(0deg); /* Standard syntax */\n}\n.badge[data-v-48ad9a74]{\n\twidth: 30%;\n}\n.badge img[data-v-48ad9a74]{\n\twidth: 100%;\n}\np.heading[data-v-48ad9a74]{\n    border-bottom: 1px solid #e3e3e3;\n    margin-bottom: 10px;\n\tfont-weight: 900;\n}\n.vc-border[data-v-48ad9a74] {\n    border-width: 0;\n}\n.aligh-right[data-v-48ad9a74]{\n\ttext-align: right;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n    width: 68%;\n\ttext-align: right;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n\tmargin-right: 0;\n    margin-left: 0;\n    border-bottom: 1px solid #f3f3f3;\n    padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n\twidth: 100%;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n    color: #1a1c43 !important;\n    font-size: 12px;\n    padding: 0;\n    width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n    margin-right: 8px;\n    float: left;\n}\n.btn-default[data-v-48ad9a74]{\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n    border: none !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Dot.png') !important;\n    background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tborder-bottom: none;\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n    background-image: url('/images/icons/Asset 67.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 100px;\n    background-position: center;\n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n    list-style: none;\n}\n.notifications .card[data-v-48ad9a74]{\n    width: 100%;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 16px;\n    letter-spacing: 2.2px;\n    font-weight: 600;\n    display: block;\n    width: 100%;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n    color: #00344a;\n    font-size: 14px;\n    letter-spacing: 2.2px;\n    display: block;\n    width: 100%;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n    margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\twidth: 100%; margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\n    padding: 0 0 1rem;\n\tborder: none\n}\n.final-modal .tab-card[data-v-48ad9a74]{\n\tborder: none;\n\tbox-shadow: none;\n}\n.final-modal .row-a[data-v-48ad9a74]{\n    width: 100%;\n    border-bottom: 1px solid #e3e3e3;\n    margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\n    width: 20px;\n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\n    font-size: 55px;\n    color: #FF933A;\n}\n.final-modal .card-header-tabs[data-v-48ad9a74]{\n    border-bottom: none;\n\tmargin-bottom: 0;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \n\tpadding: 0 11px 0;\n\tborder-bottom: none;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\n    border-bottom: none;\n\tbackground: #fff;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n    border-bottom: none;\n\tbackground: #fff;\n\tbox-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);\n\t-webkit-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);\n\t-moz-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\n    border-bottom: none;\n\tbackground: #fff;\nbox-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;\n-webkit-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;\n-moz-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n    border-bottom: none;\n\tbackground: #fff;\nbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\n-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75));\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\n    border-bottom: none;\n\tbackground: #fff;\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.control-sidebar-dark .nav-tabs[data-v-48ad9a74] {\n    border-bottom: 0;\n}\n.final-modal .card ul li.left[data-v-48ad9a74]{\n    width: 50%;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n    padding: 12px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n    border: none;\n    background: #fff;\n    padding: 12px;\n    font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-48ad9a74]{\n    width: 50%;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n    background: #fff;\n    padding: 12px;\n    font-size: 16px;\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n    background: #fff;\n    padding: 12px;\n    font-size: 16px;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -217704,15 +217936,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -241756,21 +241988,11 @@ var render = function() {
           [
             _c("div", { staticClass: "card sales-amount" }, [
               _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  All\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "\n              " +
-                      _vm._s(_vm.users.count_leads) +
-                      " \n            "
-                  )
+                _c("p", { staticClass: "card-text-small" }, [
+                  _vm._v("All  "),
+                  _c("strong", [
+                    _vm._v(" " + _vm._s(_vm.users.count_leads) + " ")
+                  ])
                 ])
               ])
             ])
@@ -241791,21 +242013,11 @@ var render = function() {
               [
                 _c("div", { staticClass: "card ave-time" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text-small",
-                        staticStyle: { "text-align": "left" }
-                      },
-                      [_vm._v("\n                  Assigned\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.users.count_assigned) +
-                          " \n            "
-                      )
+                    _c("p", { staticClass: "card-text-small" }, [
+                      _vm._v("Assigned "),
+                      _c("strong", [
+                        _vm._v(" " + _vm._s(_vm.users.count_assigned))
+                      ])
                     ])
                   ])
                 ])
@@ -241827,28 +242039,52 @@ var render = function() {
               [
                 _c("div", { staticClass: "card con-ratio" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text-small",
-                        staticStyle: { "text-align": "left" }
-                      },
-                      [_vm._v("\n                  Unassigned\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.users.count_unassigned) +
-                          " \n            "
-                      )
+                    _c("p", { staticClass: "card-text-small" }, [
+                      _vm._v("Unassigned"),
+                      _c("strong", [_vm._v(_vm._s(_vm.users.count_unassigned))])
                     ])
                   ])
                 ])
               ]
             )
-          : _vm._e()
-      ]
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.filter_data, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "col-lg-2",
+              on: {
+                click: function($event) {
+                  return _vm.applyFilter({ filter: item })
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card con-ratio" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("a", {
+                    staticClass: "close",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteFilter(item.id)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text-small" }, [
+                    _vm._v(_vm._s(item.title)),
+                    _c("strong", [_vm._v(_vm._s(item.counts))])
+                  ])
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
     ),
     _vm._v(" "),
     _c("hr", { staticStyle: { "margin-bottom": "2%" } }),
@@ -243006,7 +243242,7 @@ var render = function() {
             ref: "modalUpdateUser",
             attrs: {
               id: "update-user-modal",
-              title: "Update Lead",
+              title: "Update Contact",
               size: "lg",
               "header-text-variant": "light",
               "header-bg-variant": "warning"
@@ -245015,21 +245251,11 @@ var render = function() {
           [
             _c("div", { staticClass: "card sales-amount" }, [
               _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "card-text-small",
-                    staticStyle: { "text-align": "left" }
-                  },
-                  [_vm._v("\n                  All\n            ")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "\n              " +
-                      _vm._s(_vm.users.count_leads) +
-                      " \n            "
-                  )
+                _c("p", { staticClass: "card-text-small" }, [
+                  _vm._v("All  "),
+                  _c("strong", [
+                    _vm._v(" " + _vm._s(_vm.users.count_leads) + " ")
+                  ])
                 ])
               ])
             ])
@@ -245050,21 +245276,11 @@ var render = function() {
               [
                 _c("div", { staticClass: "card ave-time" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text-small",
-                        staticStyle: { "text-align": "left" }
-                      },
-                      [_vm._v("\n                  Assigned\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.users.count_assigned) +
-                          " \n            "
-                      )
+                    _c("p", { staticClass: "card-text-small" }, [
+                      _vm._v("Assigned "),
+                      _c("strong", [
+                        _vm._v(" " + _vm._s(_vm.users.count_assigned))
+                      ])
                     ])
                   ])
                 ])
@@ -245086,28 +245302,52 @@ var render = function() {
               [
                 _c("div", { staticClass: "card con-ratio" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text-small",
-                        staticStyle: { "text-align": "left" }
-                      },
-                      [_vm._v("\n                  Unassigned\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.users.count_unassigned) +
-                          " \n            "
-                      )
+                    _c("p", { staticClass: "card-text-small" }, [
+                      _vm._v("Unassigned"),
+                      _c("strong", [_vm._v(_vm._s(_vm.users.count_unassigned))])
                     ])
                   ])
                 ])
               ]
             )
-          : _vm._e()
-      ]
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.filter_data, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "col-lg-2",
+              on: {
+                click: function($event) {
+                  return _vm.applyFilter({ filter: item })
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card con-ratio" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("a", {
+                    staticClass: "close",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteFilter(item.id)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text-small" }, [
+                    _vm._v(_vm._s(item.title)),
+                    _c("strong", [_vm._v(_vm._s(item.counts))])
+                  ])
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
     ),
     _vm._v(" "),
     _c("hr", { staticStyle: { "margin-bottom": "2%" } }),
@@ -246963,10 +247203,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&":
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10& ***!
-  \****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -247336,7 +247576,7 @@ var render = function() {
                                       }
                                     })
                                   : _c("img", {
-                                      attrs: { src: _vm.noImageUrl + "25" }
+                                      attrs: { src: _vm.noImageUrl }
                                     })
                               ]
                             )
@@ -247453,7 +247693,7 @@ var render = function() {
                                             "border-radius": "50%",
                                             width: "27%"
                                           },
-                                          attrs: { src: _vm.noImageUrl + "100" }
+                                          attrs: { src: _vm.noImageUrl }
                                         }),
                                     _vm._v(" "),
                                     _c("div", [
@@ -248653,673 +248893,981 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm.show_filter == false
-                ? _c("div", [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12 final-modal" }, [
+                  _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                    _vm._m(12),
+                    _vm._v(" "),
                     _c(
                       "div",
                       {
-                        staticClass: "row",
-                        staticStyle: { padding: "25px  0" }
+                        staticClass: "tab-content",
+                        attrs: { id: "myTabContent" }
                       },
                       [
-                        _c("vc-calendar", {
-                          attrs: {
-                            attributes: _vm.attrs,
-                            "title-position": "right",
-                            "is-expanded": "",
-                            popover: true
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _vm._m(12)
-                  ])
-                : _c("div", [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-lg-12" }, [
                         _c(
                           "div",
                           {
-                            staticClass: "row",
-                            staticStyle: { padding: "5px  0" }
+                            staticClass: "tab-pane fade show active p-3",
+                            attrs: {
+                              id: "three",
+                              role: "tabpanel",
+                              "aria-labelledby": "three-tab"
+                            }
                           },
                           [
-                            _vm._m(13),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    { staticClass: "col-lg-12 control-label" },
-                                    [
-                                      _vm._v(
-                                        "Search\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                      ),
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.filter.search,
-                                            expression: "filter.search"
-                                          }
-                                        ],
-                                        ref: "search",
-                                        staticClass: "form-control",
-                                        attrs: {
-                                          type: "search",
-                                          placeholder: "Name, Surname, Email",
-                                          id: "search",
-                                          name: "Search"
-                                        },
-                                        domProps: { value: _vm.filter.search },
-                                        on: {
-                                          keyup: function($event) {
-                                            return _vm.filterData()
-                                          },
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.filter,
-                                              "search",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    { staticClass: "col-lg-12 control-label" },
-                                    [
-                                      _vm._v("Owner\n\t\t\t\t\t\t\t\t\t\t\t\t"),
-                                      _c(
-                                        "select",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.filter.user_created_id,
-                                              expression:
-                                                "filter.user_created_id"
-                                            }
-                                          ],
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            id: "role",
-                                            name: "Owner"
-                                          },
-                                          on: {
-                                            change: [
-                                              function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.$set(
-                                                  _vm.filter,
-                                                  "user_created_id",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                )
-                                              },
-                                              function($event) {
-                                                return _vm.filterData()
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "" } },
-                                            [_vm._v("All ")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.lead_owners, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index,
-                                                domProps: { value: item.id }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    item.name +
-                                                      " " +
-                                                      item.lastname
-                                                  )
-                                                )
-                                              ]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    { staticClass: "col-lg-12 control-label" },
-                                    [
-                                      _vm._v(
-                                        "Assigned To\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                      ),
-                                      _c(
-                                        "select",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.filter.user_assigned,
-                                              expression: "filter.user_assigned"
-                                            }
-                                          ],
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            id: "Assignee",
-                                            name: "Assignee"
-                                          },
-                                          on: {
-                                            change: [
-                                              function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.$set(
-                                                  _vm.filter,
-                                                  "user_assigned",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                )
-                                              },
-                                              function($event) {
-                                                return _vm.filterData()
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "" } },
-                                            [_vm._v("All")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.assignees, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index,
-                                                domProps: { value: item.id }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    item.name +
-                                                      " " +
-                                                      item.lastname
-                                                  )
-                                                )
-                                              ]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "col-lg-12 control-label",
-                                      on: {
-                                        change: function($event) {
-                                          return _vm.filterData()
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Lead Source\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                      ),
-                                      _c(
-                                        "select",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.filter.source,
-                                              expression: "filter.source"
-                                            }
-                                          ],
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            id: "Source",
-                                            name: "Source"
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              var $$selectedVal = Array.prototype.filter
-                                                .call(
-                                                  $event.target.options,
-                                                  function(o) {
-                                                    return o.selected
-                                                  }
-                                                )
-                                                .map(function(o) {
-                                                  var val =
-                                                    "_value" in o
-                                                      ? o._value
-                                                      : o.value
-                                                  return val
-                                                })
-                                              _vm.$set(
-                                                _vm.filter,
-                                                "source",
-                                                $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "" } },
-                                            [_vm._v("All")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.sources, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index,
-                                                domProps: { value: item.id }
-                                              },
-                                              [_vm._v(_vm._s(item.name))]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "col-lg-12 control-label",
-                                      on: {
-                                        change: function($event) {
-                                          return _vm.filterData()
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Package\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                      ),
-                                      _c(
-                                        "select",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.filter.product_id,
-                                              expression: "filter.product_id"
-                                            }
-                                          ],
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            id: "package",
-                                            name: "Package"
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              var $$selectedVal = Array.prototype.filter
-                                                .call(
-                                                  $event.target.options,
-                                                  function(o) {
-                                                    return o.selected
-                                                  }
-                                                )
-                                                .map(function(o) {
-                                                  var val =
-                                                    "_value" in o
-                                                      ? o._value
-                                                      : o.value
-                                                  return val
-                                                })
-                                              _vm.$set(
-                                                _vm.filter,
-                                                "product_id",
-                                                $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "" } },
-                                            [_vm._v("All")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.packages, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index,
-                                                domProps: { value: item.id }
-                                              },
-                                              [_vm._v(_vm._s(item.name))]
-                                            )
-                                          })
-                                        ],
-                                        2
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "show",
-                                              rawName: "v-show",
-                                              value: _vm.errors.has("Package"),
-                                              expression:
-                                                "errors.has('Package')"
-                                            }
-                                          ],
-                                          staticClass: "help-block",
-                                          attrs: { id: "error" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(_vm.errors.first("Package"))
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-lg-12" }, [
-                              _c(
-                                "div",
-                                { class: { input: true, "form-group": true } },
-                                [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "col-lg-12 control-label",
-                                      on: {
-                                        change: function($event) {
-                                          return _vm.filterData()
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Status\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                      ),
-                                      _c(
-                                        "select",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.filter.status,
-                                              expression: "filter.status"
-                                            }
-                                          ],
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            id: "role",
-                                            name: "Status"
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              var $$selectedVal = Array.prototype.filter
-                                                .call(
-                                                  $event.target.options,
-                                                  function(o) {
-                                                    return o.selected
-                                                  }
-                                                )
-                                                .map(function(o) {
-                                                  var val =
-                                                    "_value" in o
-                                                      ? o._value
-                                                      : o.value
-                                                  return val
-                                                })
-                                              _vm.$set(
-                                                _vm.filter,
-                                                "status",
-                                                $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "" } },
-                                            [_vm._v("All")]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "1" } },
-                                            [_vm._v("Active")]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "2" } },
-                                            [_vm._v("Inactive")]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "0" } },
-                                            [_vm._v("Canceled")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-lg-12",
-                                staticStyle: { "margin-top": "17px" }
-                              },
-                              [
+                            _c("vc-calendar", {
+                              attrs: {
+                                attributes: _vm.attrs,
+                                "title-position": "right",
+                                "is-expanded": "",
+                                popover: true
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade p-3",
+                            attrs: {
+                              id: "four",
+                              role: "tabpanel",
+                              "aria-labelledby": "four-tab"
+                            }
+                          },
+                          [
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-lg-12" }, [
                                 _c(
                                   "div",
                                   {
-                                    class: { input: true, "form-group": true }
+                                    staticClass: "row",
+                                    staticStyle: { padding: "5px  0" }
                                   },
                                   [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass: "col-lg-3 control-label",
-                                        staticStyle: {
-                                          "margin-right": "8px",
-                                          float: "left"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass: "btn btn-default",
-                                            staticStyle: {
-                                              width: "100%",
-                                              margin: "0px"
+                                    _vm._m(13),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label"
                                             },
-                                            attrs: { type: "submit" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.filterData()
+                                            [
+                                              _vm._v(
+                                                "Search\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.filter.search,
+                                                    expression: "filter.search"
+                                                  }
+                                                ],
+                                                ref: "search",
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "search",
+                                                  placeholder:
+                                                    "Name, Surname, Email",
+                                                  id: "search",
+                                                  name: "Search"
+                                                },
+                                                domProps: {
+                                                  value: _vm.filter.search
+                                                },
+                                                on: {
+                                                  keyup: function($event) {
+                                                    return _vm.filterData()
+                                                  },
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.filter,
+                                                      "search",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Owner\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.filter
+                                                          .user_created_id,
+                                                      expression:
+                                                        "filter.user_created_id"
+                                                    }
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "role",
+                                                    name: "Owner"
+                                                  },
+                                                  on: {
+                                                    change: [
+                                                      function($event) {
+                                                        var $$selectedVal = Array.prototype.filter
+                                                          .call(
+                                                            $event.target
+                                                              .options,
+                                                            function(o) {
+                                                              return o.selected
+                                                            }
+                                                          )
+                                                          .map(function(o) {
+                                                            var val =
+                                                              "_value" in o
+                                                                ? o._value
+                                                                : o.value
+                                                            return val
+                                                          })
+                                                        _vm.$set(
+                                                          _vm.filter,
+                                                          "user_created_id",
+                                                          $event.target.multiple
+                                                            ? $$selectedVal
+                                                            : $$selectedVal[0]
+                                                        )
+                                                      },
+                                                      function($event) {
+                                                        return _vm.filterData()
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "" } },
+                                                    [_vm._v("All ")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.lead_owners,
+                                                    function(item, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: item.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              item.name +
+                                                                " " +
+                                                                item.lastname
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Assigned To\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.filter
+                                                          .user_assigned,
+                                                      expression:
+                                                        "filter.user_assigned"
+                                                    }
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "Assignee",
+                                                    name: "Assignee"
+                                                  },
+                                                  on: {
+                                                    change: [
+                                                      function($event) {
+                                                        var $$selectedVal = Array.prototype.filter
+                                                          .call(
+                                                            $event.target
+                                                              .options,
+                                                            function(o) {
+                                                              return o.selected
+                                                            }
+                                                          )
+                                                          .map(function(o) {
+                                                            var val =
+                                                              "_value" in o
+                                                                ? o._value
+                                                                : o.value
+                                                            return val
+                                                          })
+                                                        _vm.$set(
+                                                          _vm.filter,
+                                                          "user_assigned",
+                                                          $event.target.multiple
+                                                            ? $$selectedVal
+                                                            : $$selectedVal[0]
+                                                        )
+                                                      },
+                                                      function($event) {
+                                                        return _vm.filterData()
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "" } },
+                                                    [_vm._v("All")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.assignees,
+                                                    function(item, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: item.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              item.name +
+                                                                " " +
+                                                                item.lastname
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label",
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.filterData()
+                                                }
                                               }
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tApply\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Lead Source\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value: _vm.filter.source,
+                                                      expression:
+                                                        "filter.source"
+                                                    }
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "Source",
+                                                    name: "Source"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.filter,
+                                                        "source",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "" } },
+                                                    [_vm._v("All")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(_vm.sources, function(
+                                                    item,
+                                                    index
+                                                  ) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index,
+                                                        domProps: {
+                                                          value: item.id
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(item.name)
+                                                        )
+                                                      ]
+                                                    )
+                                                  })
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label",
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.filterData()
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Package\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.filter.product_id,
+                                                      expression:
+                                                        "filter.product_id"
+                                                    }
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "package",
+                                                    name: "Package"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.filter,
+                                                        "product_id",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "" } },
+                                                    [_vm._v("All")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(_vm.packages, function(
+                                                    item,
+                                                    index
+                                                  ) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index,
+                                                        domProps: {
+                                                          value: item.id
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(item.name)
+                                                        )
+                                                      ]
+                                                    )
+                                                  })
+                                                ],
+                                                2
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "show",
+                                                      rawName: "v-show",
+                                                      value: _vm.errors.has(
+                                                        "Package"
+                                                      ),
+                                                      expression:
+                                                        "errors.has('Package')"
+                                                    }
+                                                  ],
+                                                  staticClass: "help-block",
+                                                  attrs: { id: "error" }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      _vm.errors.first(
+                                                        "Package"
+                                                      )
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-lg-12 control-label",
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.filterData()
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Status\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                              ),
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value: _vm.filter.status,
+                                                      expression:
+                                                        "filter.status"
+                                                    }
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "role",
+                                                    name: "Status"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.filter,
+                                                        "status",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "" } },
+                                                    [_vm._v("All")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "1" } },
+                                                    [_vm._v("Active")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "2" } },
+                                                    [_vm._v("Inactive")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "0" } },
+                                                    [_vm._v("Canceled")]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
                                     _vm._v(" "),
                                     _c(
-                                      "label",
+                                      "div",
                                       {
-                                        staticClass: "col-lg-3 control-label",
-                                        staticStyle: {
-                                          "margin-right": "8px",
-                                          float: "left"
-                                        }
+                                        staticClass: "col-lg-12",
+                                        staticStyle: { "margin-top": "17px" }
                                       },
                                       [
                                         _c(
-                                          "button",
+                                          "div",
                                           {
-                                            staticClass: "btn btn-default",
-                                            staticStyle: {
-                                              width: "100%",
-                                              margin: "0px"
-                                            },
-                                            attrs: { type: "submit" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.clearFilter()
-                                              }
+                                            class: {
+                                              input: true,
+                                              "form-group": true
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tClear\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-3 control-label",
+                                                staticStyle: {
+                                                  "margin-right": "8px",
+                                                  float: "left"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-default",
+                                                    staticStyle: {
+                                                      width: "100%",
+                                                      margin: "0px"
+                                                    },
+                                                    attrs: { type: "submit" },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.filterData()
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tApply\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-3 control-label",
+                                                staticStyle: {
+                                                  "margin-right": "8px",
+                                                  float: "left"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-default",
+                                                    staticStyle: {
+                                                      width: "100%",
+                                                      margin: "0px"
+                                                    },
+                                                    attrs: { type: "submit" },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.clearFilter()
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tClear\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-3 control-label",
+                                                staticStyle: {
+                                                  "margin-right": "8px",
+                                                  float: "left"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    class: {
+                                                      "btn btn-default": true,
+                                                      "btn-active":
+                                                        _vm.show_filter_save
+                                                    },
+                                                    staticStyle: {
+                                                      width: "100%",
+                                                      margin: "0px"
+                                                    },
+                                                    attrs: { type: "submit" },
+                                                    on: {
+                                                      click: function($event) {
+                                                        _vm.show_filter_save = !_vm.show_filter_save
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSave\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "transition",
+                                              { attrs: { name: "slide-fade" } },
+                                              [
+                                                _vm.show_filter_save
+                                                  ? _c("div", [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-lg-8 control-label"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "Filter Title\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                          ),
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.filter
+                                                                    .title,
+                                                                expression:
+                                                                  "filter.title"
+                                                              },
+                                                              {
+                                                                name:
+                                                                  "validate",
+                                                                rawName:
+                                                                  "v-validate",
+                                                                value:
+                                                                  "required",
+                                                                expression:
+                                                                  "'required'"
+                                                              }
+                                                            ],
+                                                            ref: "title",
+                                                            staticClass:
+                                                              "form-control",
+                                                            attrs: {
+                                                              type: "title",
+                                                              id: "title",
+                                                              name:
+                                                                "Filter Title"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.filter.title
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.filter,
+                                                                  "title",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "show",
+                                                                  rawName:
+                                                                    "v-show",
+                                                                  value: _vm.errors.has(
+                                                                    "Filter Title"
+                                                                  ),
+                                                                  expression:
+                                                                    "errors.has('Filter Title')"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "help-block",
+                                                              attrs: {
+                                                                id: "error"
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  _vm.errors.first(
+                                                                    "Filter Title"
+                                                                  )
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-lg-3 control-label"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            " \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                          ),
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "btn btn-primary",
+                                                              staticStyle: {
+                                                                width: "100%",
+                                                                margin: "0px"
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.saveFilter()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSave\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ])
+                                                  : _vm._e()
+                                              ]
                                             )
-                                          ]
+                                          ],
+                                          1
                                         )
                                       ]
                                     )
                                   ]
                                 )
-                              ]
-                            )
+                              ])
+                            ])
                           ]
                         )
-                      ])
-                    ])
+                      ]
+                    )
                   ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(14)
             ])
           : _vm._e()
       ])
@@ -249558,9 +250106,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
+    return _c("p", { staticStyle: { "font-weight": "900" } }, [
       _vm._v("Monthly Target "),
-      _c("span", { staticClass: "monthly-target" }, [_vm._v("74%")])
+      _c("span", { staticClass: "monthly-target" }, [_vm._v("65%")])
     ])
   },
   function() {
@@ -249641,7 +250189,77 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header tab-card-header" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs card-header-tabs",
+          attrs: { id: "myTab", role: "tablist" }
+        },
+        [
+          _c("li", { staticClass: "nav-item left" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: {
+                  id: "three-tab",
+                  "data-toggle": "tab",
+                  href: "#three",
+                  role: "tab",
+                  "aria-controls": "Three",
+                  "aria-selected": "true"
+                }
+              },
+              [_c("span", { staticClass: "left" }, [_vm._v("Calendar")])]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item right" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "four-tab",
+                  "data-toggle": "tab",
+                  href: "#four",
+                  role: "tab",
+                  "aria-controls": "Four",
+                  "aria-selected": "false"
+                }
+              },
+              [_c("span", { staticClass: "left" }, [_vm._v("Search")])]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c(
+        "p",
+        {
+          staticClass: "heading",
+          staticStyle: { "font-weight": "900", "margin-top": "17px" }
+        },
+        [_vm._v("Data Filters")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("p", { staticClass: "heading" }, [_vm._v("Badges")])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "col-lg-12" }, [
         _c(
           "div",
@@ -249667,21 +250285,6 @@ var staticRenderFns = [
           })
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c(
-        "p",
-        {
-          staticClass: "heading",
-          staticStyle: { "font-weight": "900", "margin-top": "17px" }
-        },
-        [_vm._v("Data Filters")]
-      )
     ])
   }
 ]
@@ -286534,9 +287137,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeftNav.vue?vue&type=template&id=57a1bf10& */ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&");
+/* harmony import */ var _LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true& */ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true&");
 /* harmony import */ var _LeftNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeftNav.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LeftNav.vue?vue&type=style&index=0&lang=css& */ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& */ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -286548,11 +287151,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _LeftNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "57a1bf10",
   null
   
 )
@@ -286578,35 +287181,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************!*\
-  !*** ./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************/
+/***/ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=style&index=0&id=57a1bf10&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_style_index_0_id_57a1bf10_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10& ***!
-  \**********************************************************************************************/
+/***/ "./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true& ***!
+  \**********************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=template&id=57a1bf10& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Navigation/LeftNav.vue?vue&type=template&id=57a1bf10&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftNav_vue_vue_type_template_id_57a1bf10_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

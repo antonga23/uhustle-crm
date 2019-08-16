@@ -27,7 +27,9 @@ h3 img{
     top: 0;
     z-index: 830;
 }
-
+.help-block{
+	color: red;
+}
 .control-sidebar, .control-sidebar {
     width: 350px !important;
     right: 0 !important;
@@ -162,6 +164,7 @@ h3 img{
 p.heading{
     border-bottom: 1px solid #e3e3e3;
     margin-bottom: 10px;
+	font-weight: 900;
 }
 .vc-border {
     border-width: 0;
@@ -302,6 +305,99 @@ label.custom-control-label{
 .update-user{
 	width: 100%; margin: 0px 0px 5px 0px;
 }
+
+.final-modal{
+    padding: 0 0 1rem;
+	border: none
+}
+.final-modal .tab-card{
+	border: none;
+	box-shadow: none;
+}
+.final-modal .row-a{
+    width: 100%;
+    border-bottom: 1px solid #e3e3e3;
+    margin-left: 0;
+}
+.final-modal label button img{
+    width: 20px;
+    margin-right: 15px;
+}
+.final-modal .navbar-nav .nav-item{
+    font-size: 55px;
+    color: #FF933A;
+}
+.final-modal .card-header-tabs{
+    border-bottom: none;
+	margin-bottom: 0;
+}
+.final-modal .card-header{    
+	padding: 0 11px 0;
+	border-bottom: none;
+}
+.final-modal .card-header a[aria-selected="true"]{
+    border-bottom: none;
+	background: #fff;
+}
+.final-modal .card-header-tabs .left a.active[aria-selected="true"]{
+    border-bottom: none;
+	background: #fff;
+	box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
+	-webkit-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
+	-moz-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
+}
+.final-modal .card-header-tabs .left a[aria-selected="false"]{
+    border-bottom: none;
+	background: #fff;
+box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
+-webkit-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
+-moz-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
+}
+.final-modal .card-header-tabs .right a.active[aria-selected="true"]{
+    border-bottom: none;
+	background: #fff;
+box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
+-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);
+-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75));
+}
+.final-modal .card-header-tabs .right a[aria-selected="false"]{
+    border-bottom: none;
+	background: #fff;
+	box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
+}
+.control-sidebar-dark .nav-tabs {
+    border-bottom: 0;
+}
+.final-modal .card ul li.left{
+    width: 50%;
+}
+.final-modal .card ul li.left .nav-link {
+    padding: 12px;
+    font-size: 16px;
+    color: #818284;
+}
+.final-modal .card ul li.left .nav-link:hover {
+    border: none;
+    background: #fff;
+    padding: 12px;
+    font-size: 16px;
+}
+.final-modal .card ul li.right{
+    width: 50%;
+}
+.final-modal .card ul li.right .nav-link {
+    background: #fff;
+    padding: 12px;
+    font-size: 16px;
+	color: #818284;
+}
+.final-modal .card ul li.right .nav-link:hover {
+    background: #fff;
+    padding: 12px;
+    font-size: 16px;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -340,7 +436,7 @@ label.custom-control-label{
 		                                <li class="nav-item">
 		                                    <a class="nav-link icon small-avatar" href="#" @click="showSettings()">
 												<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-												<img v-else :src="noImageUrl + '25'" >
+												<img v-else :src="noImageUrl" >
 		                                    </a>
 		                                </li>
 		                            </ul>
@@ -366,7 +462,7 @@ label.custom-control-label{
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
 									<label class="col-lg-12 control-label" style="float:left;text-align: center;">
 										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%;width: 27%;">
-										<img v-else :src="noImageUrl + '100'" style="border-radius:50%;width: 27%;">
+										<img v-else :src="noImageUrl" style="border-radius:50%;width: 27%;">
 										<div>
 											<button style="margin: 18px 0 15px 0;font-size: 9px;" class="btn btn-info" type="button" @click="showUploader">Choose Image</button>
 										</div>
@@ -597,7 +693,7 @@ label.custom-control-label{
 						<div class="col-lg-12">
 							<div class="row" style="padding: 0;">
 								<div class="col-lg-12">
-									<p>Monthly Target <span class="monthly-target">74%</span></p>
+									<p style="font-weight: 900;">Monthly Target <span class="monthly-target">65%</span></p>
 									<div class="progress-bar">
 										<span class="tank" :style="'width:' + 65 + '%'"></span>
 									</div>
@@ -641,124 +737,164 @@ label.custom-control-label{
 							</div>
 						</div>
 					</div>
-					<div v-if="show_filter == false">
-						<div class="row" style="padding:25px  0;">
-							<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="position" style="display:none;">
-									<span>12<sup>th</sup></span>
+
+					<div class="row">
+						<div class="col-lg-12 final-modal">
+							<div class="card left mt-3 tab-card">
+								<div class="card-header tab-card-header">
+									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+										<li class="nav-item left">
+											<a class="nav-link active" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
+												<span class="left">Calendar</span>
+											</a>
+										</li>
+										<li class="nav-item right">
+											<a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
+												<span class="left">Search</span>
+											</a>
+										</li>
+									</ul>
 								</div>
 
-								<div class="badge badge-1">
-									<img src="/images/icons/Colonel@4x.png" alt="Badge">
-								</div>
+								<div class="tab-content" id="myTabContent">
+									<div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+										<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />          
+									</div>
+									<div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="row" style="padding:5px  0;">
+													<div class="col-lg-12">
+														<p class="heading" style="font-weight: 900;margin-top: 17px;">Data Filters</p>
+													</div>
 
-								<div class="badge badge-2">
-									<img src="/images/icons/Corporal@4x.png" alt="Badge">
-								</div>
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label class="col-lg-12 control-label">Search
+																<input v-on:keyup="filterData()" type="search" placeholder="Name, Surname, Email" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
+															</label>
+														</div>
+													</div>
 
-								<div class="badge badge-2">
-									<img src="/images/icons/Captain@4x.png" alt="Badge">
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label class="col-lg-12 control-label">Owner
+																<select v-on:change="filterData()" type="text" id="role"  name="Owner" v-model="filter.user_created_id" class="form-control">
+																	<option value="">All </option>
+																	<option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+																</select>
+															</label>
+														</div>
+													</div>
+
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label class="col-lg-12 control-label">Assigned To
+																<select v-on:change="filterData()" type="text" id="Assignee"  name="Assignee" v-model="filter.user_assigned"  class="form-control">
+																	<option value="">All</option>
+																	<option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+																</select>
+															</label>
+														</div>
+													</div>
+
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label v-on:change="filterData()" class="col-lg-12 control-label">Lead Source
+																<select type="text" id="Source"  name="Source" v-model="filter.source"  class="form-control">
+																	<option value="">All</option>
+																	<option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+																</select>
+															</label>
+														</div>
+													</div>
+
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label v-on:change="filterData()" class="col-lg-12 control-label">Package
+																<select type="text" id="package"  name="Package" v-model="filter.product_id"   class="form-control">
+																	<option value="">All</option>
+																	<option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+																</select>
+																<span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+															</label>
+														</div>
+													</div>
+
+													<div class="col-lg-12">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label v-on:change="filterData()" class="col-lg-12 control-label">Status
+																<select type="text" id="role"  name="Status" v-model="filter.status"  class="form-control">
+																	<option value="">All</option>
+																	<option value="1">Active</option>
+																	<option value="2">Inactive</option>
+																	<option value="0">Canceled</option>
+																</select>
+															</label>
+														</div>
+													</div>
+
+													<div class="col-lg-12" style="margin-top:17px">
+														<div :class="{'input': true, 'form-group' :true }">
+															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+																<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+																	Apply
+																</button>
+															</label>
+															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+																<button v-on:click="clearFilter();" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+																	Clear
+																</button>
+															</label>
+															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+																<button v-on:click="show_filter_save = !show_filter_save" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" style="width: 100%; margin: 0px;">
+																	Save
+																</button>
+															</label>
+															<transition name="slide-fade">
+																<div  v-if="show_filter_save" >
+																	<label class="col-lg-8 control-label">Filter Title
+																		<input type="title" id="title" ref="title" name="Filter Title" v-model="filter.title" v-validate="'required'" class="form-control">
+																		<span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
+																	</label>
+																	<label class="col-lg-3 control-label">&nbsp;
+																		<button v-on:click="saveFilter()" type="submit" class="btn btn-primary" style="width: 100%; margin: 0px;">
+																			Save
+																		</button>
+																	</label>
+																</div>
+															</transition>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div v-else>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="row" style="padding:5px  0;">
-									<div class="col-lg-12">
-										<p class="heading" style="font-weight: 900;margin-top: 17px;">Data Filters</p>
-									</div>
 
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label class="col-lg-12 control-label">Search
-												<input v-on:keyup="filterData()" type="search" placeholder="Name, Surname, Email" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
-											</label>
-										</div>
-									</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<p class="heading">Badges</p>
+						</div>
+						<div class="col-lg-12">
+							
+							<div class="position" style="display:none;">
+								<span>12<sup>th</sup></span>
+							</div>
 
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label class="col-lg-12 control-label">Owner
-												<select v-on:change="filterData()" type="text" id="role"  name="Owner" v-model="filter.user_created_id" class="form-control">
-													<option value="">All </option>
-													<option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-												</select>
-											</label>
-										</div>
-									</div>
+							<div class="badge badge-1">
+								<img src="/images/icons/Colonel@4x.png" alt="Badge">
+							</div>
 
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label class="col-lg-12 control-label">Assigned To
-												<select v-on:change="filterData()" type="text" id="Assignee"  name="Assignee" v-model="filter.user_assigned"  class="form-control">
-													<option value="">All</option>
-													<option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-												</select>
-											</label>
-										</div>
-									</div>
+							<div class="badge badge-2">
+								<img src="/images/icons/Corporal@4x.png" alt="Badge">
+							</div>
 
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label v-on:change="filterData()" class="col-lg-12 control-label">Lead Source
-												<select type="text" id="Source"  name="Source" v-model="filter.source"  class="form-control">
-													<option value="">All</option>
-													<option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
-												</select>
-											</label>
-										</div>
-									</div>
-
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label v-on:change="filterData()" class="col-lg-12 control-label">Package
-												<select type="text" id="package"  name="Package" v-model="filter.product_id"   class="form-control">
-													<option value="">All</option>
-													<option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-												</select>
-												<span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-											</label>
-										</div>
-									</div>
-
-									<div class="col-lg-12">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label v-on:change="filterData()" class="col-lg-12 control-label">Status
-												<select type="text" id="role"  name="Status" v-model="filter.status"  class="form-control">
-													<option value="">All</option>
-													<option value="1">Active</option>
-													<option value="2">Inactive</option>
-													<option value="0">Canceled</option>
-												</select>
-											</label>
-										</div>
-									</div>
-
-									<div class="col-lg-12" style="margin-top:17px">
-										<div :class="{'input': true, 'form-group' :true }">
-											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-													Apply
-												</button>
-											</label>
-											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="clearFilter()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-													Clear
-												</button>
-											</label>
-											<!-- <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="saveFilter()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-													Save
-												</button>
-											</label> -->
-										</div>
-									</div>
-								</div>
+							<div class="badge badge-2">
+								<img src="/images/icons/Captain@4x.png" alt="Badge">
 							</div>
 						</div>
 					</div>
@@ -772,7 +908,7 @@ label.custom-control-label{
 	import { setupCalendar, Calendar} from 'v-calendar'
 	import TransitionHeight from '../Plugins/TransitionExpand.vue';
 	export default {
-		props: ['auth_user'],
+		props: ['auth_user','active'],
 		mounted() {
 			var vm = this;
 
@@ -792,6 +928,11 @@ label.custom-control-label{
 
 			Fire.$on('ShowFilter', function(){
 				vm.show_filter = !vm.show_filter;
+			});
+
+			Fire.$on('CustomFilterApplied', function(data){
+				vm.filter = data.filter;
+				vm.show_filter = true;
 			});
 
 			axios.get('/leads/get-select-options').then(function (response) {
@@ -849,11 +990,13 @@ label.custom-control-label{
 				unread_messages: 1,
 				expanded: false,
 				show_filter: false,
+				show_filter_save: false,
 				show:false,
 				lead_owners : [],
 				assignees : [],
 				sources : [],
 				packages : [],
+				filters : [],
 				attrs: [{
 					key: 'today',
 					highlight: true,
@@ -861,6 +1004,7 @@ label.custom-control-label{
 					dates: new Date(),
 				}],
 				filter:{
+					title: '',
 					search: '',
 					user_created_id: '',
 					user_assigned: '',
@@ -869,7 +1013,7 @@ label.custom-control-label{
 					status: '',
 				},
 				avatarUrl: '/images/avatars/',
-                noImageUrl: 'https://via.placeholder.com/',
+                noImageUrl: '/images/icons/user_icon@4x.png',
 			}
 		},
 		methods: {
@@ -992,6 +1136,7 @@ label.custom-control-label{
 			},
 			clearFilter(){
 				this.filter = {
+					title: '',
 					search: '',
 					user_created_id: '',
 					user_assigned: '',
@@ -999,6 +1144,7 @@ label.custom-control-label{
 					product_id: '',
 					status: ''
 				}
+				this.show_filter_save = false;
 			},
 			filterData(){
 				var vm = this;
@@ -1006,7 +1152,25 @@ label.custom-control-label{
 			},
 			saveFilter(){
 				var vm = this;
-				Fire.$emit('FilterData', {'filter' : vm.filter });
+				vm.$validator.validateAll().then((result) => {
+					if(!result){
+					}else{
+						axios.post('/filters/create',{ filter : this.filter, type: this.active }).then(function (response) {
+							
+							if(response.data.success === true){
+								vm.Toast.fire({ type: 'success', title: response.data.message });
+								
+								Fire.$emit('SaveFilter', {'filters' : response.data.filters });
+
+								vm.$Progress.finish();
+							}else{
+								vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+								vm.$Progress.fail();
+							}
+						});
+						
+					}
+				});
 			}
 		},
 		computed: {

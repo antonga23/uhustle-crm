@@ -630,7 +630,7 @@ table.listing tr  th{
                 current_user: {},
                 add_user: false,
                 avatarUrl: '/images/avatars/',
-                noImageUrl: 'https://via.placeholder.com/25',
+                noImageUrl: '/images/icons/user_icon@4x.png',
                 bulk_actions: "",
                 Toast: null
             }

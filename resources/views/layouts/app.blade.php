@@ -66,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-  <right-sidebar auth_user="{{ Auth::user() }}"></right-sidebar>
+  <right-sidebar active="{{ $active }}" auth_user="{{ Auth::user() }}"></right-sidebar>
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
