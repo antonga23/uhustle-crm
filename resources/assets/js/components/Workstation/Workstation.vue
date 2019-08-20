@@ -1473,7 +1473,7 @@ a.down-scroll:hover{
                 
                                     Device.on('ready',function (device) {
                                         vm.call_status = 'Device Ready';
-                                        vm.$refs.callBtn.click();
+                                        // vm.$refs.callBtn.click();
                                     });
 
                                     Device.on('error',function (error) {

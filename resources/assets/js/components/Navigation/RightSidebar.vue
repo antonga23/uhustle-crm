@@ -209,17 +209,19 @@ label.custom-control-label{
     float: left;
 }
 .btn-default{
-    padding: 6px 25px 6px 18px;
+	padding: 6px 12px 6px 10px;
     font-size: 9px;
-    border: none !important;
+    border: transparent !important;
+    border-radius: 8px !important;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 .btn-default:hover{
 	background: #00344a;
-	color: #ffffff;    border: none !important;
-    padding: 6px 25px 6px 18px;
+	color: #ffffff;    
+	border: transparent !important;
+	padding: 6px 12px 6px 10px;
     font-size: 9px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -228,9 +230,8 @@ label.custom-control-label{
 .btn-active {
 	background: #00344a;
 	color: #ffffff;
-    border: none !important;
-    border: none !important;
-    padding: 6px 25px 6px 18px;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
     font-size: 9px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -338,10 +339,13 @@ label.custom-control-label{
 .final-modal .card-header a[aria-selected="true"]{
     border-bottom: none;
 	background: #fff;
+
+    padding: 6px 12px;
 }
 .final-modal .card-header-tabs .left a.active[aria-selected="true"]{
     border-bottom: none;
 	background: #fff;
+    padding: 6px 12px;
 	box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
 	-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
 	-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
@@ -349,20 +353,23 @@ label.custom-control-label{
 .final-modal .card-header-tabs .left a[aria-selected="false"]{
     border-bottom: none;
 	background: #fff;
-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
--webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
--moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
+    padding: 6px 12px;
+	box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
 }
 .final-modal .card-header-tabs .right a.active[aria-selected="true"]{
     border-bottom: none;
 	background: #fff;
-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
--webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);
--moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75));
+    padding: 6px 12px;
+	box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
+	-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);
+	-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 }
 .final-modal .card-header-tabs .right a[aria-selected="false"]{
     border-bottom: none;
 	background: #fff;
+    padding: 6px 12px;
 	box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
 	-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
 	-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
@@ -374,14 +381,14 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
     width: 50%;
 }
 .final-modal .card ul li.left .nav-link {
-    padding: 12px;
+    padding: 6px 12px;
     font-size: 16px;
     color: #818284;
 }
 .final-modal .card ul li.left .nav-link:hover {
     border: none;
     background: #fff;
-    padding: 12px;
+    padding: 6px 12px;
     font-size: 16px;
 }
 .final-modal .card ul li.right{
@@ -389,28 +396,17 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 }
 .final-modal .card ul li.right .nav-link {
     background: #fff;
-    padding: 12px;
+    padding: 6px 12px;
     font-size: 16px;
 	color: #818284;
 }
 .final-modal .card ul li.right .nav-link:hover {
     background: #fff;
-    padding: 12px;
+    padding: 6px 12px;
     font-size: 16px;
 }
 .final-modal input{
 	font-size: 9px;
-}
-.final-modal select{
-    font-size: 9px;
-    padding: 6px 10px 6px;
-    height: 30px !important;;
-}
-.final-modal button{
-	width: 100%;
-    margin: 0px;
-    padding: 7px;
-    font-size: 9px;
 }
 /*End Right Component*/
 </style>
@@ -774,78 +770,92 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 									<div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
 										<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />          
 									</div>
-									<div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+									<div class="tab-pane fade p-3 search" id="four" role="tabpanel" aria-labelledby="four-tab">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="row" style="padding:5px  0;">
 													<div class="col-lg-12">
-														<p class="heading" style="font-weight: 900;margin-top: 17px;">Data Filters</p>
-													</div>
-
-													<div class="col-lg-12">
-														<div :class="{'input': true, 'form-group' :true }">
-															<label class="col-lg-12 control-label">Search
-																<input v-on:keyup="filterData()" type="search" placeholder="Name, Surname, Email" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
-															</label>
+														<div :class="{'input search': true, 'form-group' :true }">
+															<input v-on:keyup="filterData()" placeholder="Search:" type="search" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
 														</div>
 													</div>
+												</div>
 
+												<div class="row" style="padding:5px  0;">
 													<div class="col-lg-12">
+														<p class="heading">Filter Search</p>
+													</div>
+													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<label class="col-lg-12 control-label">Owner
-																<select v-on:change="filterData()" type="text" id="role"  name="Owner" v-model="filter.user_created_id" class="form-control">
-																	<option value="">All </option>
-																	<option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-																</select>
-															</label>
+															<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+																Highest - Lowest
+															</button>
 														</div>
 													</div>
-
-													<div class="col-lg-12">
+													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<label class="col-lg-12 control-label">Assigned To
-																<select v-on:change="filterData()" type="text" id="Assignee"  name="Assignee" v-model="filter.user_assigned"  class="form-control">
-																	<option value="">All</option>
-																	<option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-																</select>
-															</label>
+															<button v-on:click="clearFilter();" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+																Lowest - Highest
+															</button>
 														</div>
 													</div>
-
+												</div>
+												<div class="row" style="padding:5px  0;">		
 													<div class="col-lg-12">
-														<div :class="{'input': true, 'form-group' :true }">
-															<label v-on:change="filterData()" class="col-lg-12 control-label">Lead Source
-																<select type="text" id="Source"  name="Source" v-model="filter.source"  class="form-control">
-																	<option value="">All</option>
-																	<option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
-																</select>
-															</label>
-														</div>
-													</div>
-
-													<div class="col-lg-12">
-														<div :class="{'input': true, 'form-group' :true }">
-															<label v-on:change="filterData()" class="col-lg-12 control-label">Package
-																<select type="text" id="package"  name="Package" v-model="filter.product_id"   class="form-control">
-																	<option value="">All</option>
-																	<option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-																</select>
-																<span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-															</label>
-														</div>
-													</div>
-
-													<div class="col-lg-12">
-														<div :class="{'input': true, 'form-group' :true }">
-															<label v-on:change="filterData()" class="col-lg-12 control-label">Status
-																<select type="text" id="role"  name="Status" v-model="filter.status"  class="form-control">
-																	<option value="">All</option>
-																	<option value="1">Active</option>
-																	<option value="2">Inactive</option>
-																	<option value="0">Canceled</option>
-																</select>
-															</label>
-														</div>
+														<table class="tg">
+															<tr>
+																<td  class="tg-0las"><p class="heading">Filter By</p></td>
+																<td class="tg-1lax">
+																</td>
+															</tr>
+															<tr>
+																<td class="tg-0lax"><p class="heading" >Owner</p></td>
+																<td class="tg-1lax">
+																	<select v-on:change="filterData()" type="text" id="role"  name="Owner" v-model="filter.user_created_id" class="form-control">
+																		<option value="">All </option>
+																		<option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<td class="tg-0lax"><p class="heading" >Assigned To</p></td>
+																<td class="tg-1lax">
+																	<select v-on:change="filterData()" type="text" id="Assignee"  name="Assignee" v-model="filter.user_assigned"  class="form-control">
+																		<option value="">All</option>
+																		<option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<td class="tg-0lax"><p class="heading" >Lead Source</p></td>
+																<td class="tg-1lax">
+																	<select type="text" v-on:change="filterData()"  id="Source" name="Source" v-model="filter.source"  class="form-control">
+																		<option value="">All</option>
+																		<option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<td class="tg-0lax"><p class="heading" >Package</p></td>
+																<td class="tg-1lax">
+																	<select type="text" v-on:change="filterData()"  id="package"  name="Package" v-model="filter.product_id"   class="form-control">
+																		<option value="">All</option>
+																		<option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<td class="tg-0lax"><p class="heading" >Status</p></td>
+																<td class="tg-1lax">
+																	<select type="text" v-on:change="filterData()"  id="role"  name="Status" v-model="filter.status"  class="form-control">
+																		<option value="">All</option>
+																		<option value="1">Active</option>
+																		<option value="2">Inactive</option>
+																		<option value="0">Canceled</option>
+																	</select>
+																</td>
+															</tr>
+														</table>
 													</div>
 
 													<div class="col-lg-12" style="margin-top:17px">
@@ -860,24 +870,22 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 																	Clear
 																</button>
 															</label>
-															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-																<button v-on:click="show_filter_save = !show_filter_save" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" style="width: 100%; margin: 0px;">
-																	Save
-																</button>
-															</label>
-															<transition name="slide-fade">
-																<div  v-if="show_filter_save" >
-																	<label class="col-lg-8 control-label">Filter Title
-																		<input type="title" id="title" ref="title" name="Filter Title" v-model="filter.title" v-validate="'required'" class="form-control">
-																		<span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
-																	</label>
-																	<label class="col-lg-3 control-label">&nbsp;
-																		<button v-on:click="saveFilter()" type="submit" class="btn btn-primary">
-																			Save
-																		</button>
-																	</label>
-																</div>
-															</transition>
+															<div>
+																<table class="tg">
+																	<tr>
+																		<td class="tg-0lax"><p class="heading" >Save Search:</p></td>
+																		<td class="tg-1lax">
+																			<input type="title" id="title" placeholder="Filter Title" ref="title" name="Filter Title" v-model="filter.title" v-validate="'required'" class="form-control">
+																			<span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
+																		</td>
+																		<td>
+																			<button v-on:click="saveFilter" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" style="width: 100%; margin: 0px;">
+																				Save
+																			</button>
+																		</td>
+																	</tr>
+																</table>
+															</div>
 														</div>
 													</div>
 												</div>

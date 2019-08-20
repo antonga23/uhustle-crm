@@ -228,9 +228,6 @@ table.listing tr  th{
     color: #9fb3bb;
     padding: 0 69px 20px 70px;
 }
-#top-section .col-lg-2{
-    cursor: pointer;
-}
 .control-label{
     float: left;
     height: 77px;
@@ -244,10 +241,10 @@ table.listing tr  th{
 }
 </style>
 <template>
-    <div class="">
+    <div class="right-side-bar">
         <div id="top-section" class="row" style="margin-top:2%;">
 
-          <div class="col-lg-2"  @click="getUsers(-1)">
+          <div class="filter-card"  @click="getUsers(-1)">
             <div class="card sales-amount">
               <div class="card-body">
                 <p class="card-text-small">All  <strong> {{ users.count_leads }} </strong> </p>
@@ -255,7 +252,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="col-lg-2" @click="getUsers(1)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="getUsers(1)" v-if="current_user.role_id == 1">
             <div class="card ave-time">
               <div class="card-body">
                 <p class="card-text-small">Assigned <strong> {{ users.count_assigned }}</strong></p>               
@@ -263,7 +260,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="col-lg-2" @click="getUsers(0)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="getUsers(0)" v-if="current_user.role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
                 <p class="card-text-small">Unassigned<strong>{{ users.count_unassigned }}</strong></p>
@@ -271,7 +268,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="col-lg-2" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
+          <div class="filter-card" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
             <div class="card con-ratio">
                 <div class="card-body">
                         <a href="#" class="close" @click="deleteFilter( item.id)"></a>

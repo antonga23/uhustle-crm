@@ -252,7 +252,7 @@ table.listing tr  th{
     <div class="">
         <div id="top-section" class="row" style="margin-top:2%;">
 
-          <div class="filter-stub"  @click="getUsers(-1)">
+          <div class="filter-card"  @click="getUsers(-1)">
             <div class="card sales-amount">
               <div class="card-body">
                 <p class="card-text-small">All  <strong> {{ users.count_leads }} </strong> </p>
@@ -260,7 +260,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="filter-stub" @click="getUsers(1)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="getUsers(1)" v-if="current_user.role_id == 1">
             <div class="card ave-time">
               <div class="card-body">
                 <p class="card-text-small">Assigned <strong> {{ users.count_assigned }}</strong></p>               
@@ -268,7 +268,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="filter-stub" @click="getUsers(0)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="getUsers(0)" v-if="current_user.role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
                 <p class="card-text-small">Unassigned<strong>{{ users.count_unassigned }}</strong></p>
@@ -276,7 +276,7 @@ table.listing tr  th{
             </div>
           </div>
 
-          <div class="filter-stub" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
+          <div class="filter-card" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
             <div class="card con-ratio">
                 <div class="card-body">
                         <a href="#" class="close" @click="deleteFilter( item.id)"></a>
