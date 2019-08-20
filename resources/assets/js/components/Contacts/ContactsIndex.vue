@@ -227,8 +227,9 @@ table.listing tr  th{
     color: #9fb3bb;
     padding: 0 69px 20px 70px;
 }
-#top-section .col-lg-2{
+#top-section .filter-stub{
     cursor: pointer;
+    margin-right: 15px;
 }
 .control-label{
     float: left;
@@ -241,7 +242,7 @@ table.listing tr  th{
 .modal-body {
     background: orange !important;
 }
-card-head, .ant-card-padding-transition .ant-card-body {
+.card-head, .ant-card-padding-transition .ant-card-body {
     transition: padding 0.3s;
     overflow-y: scroll;
     height: 380px;
@@ -251,7 +252,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
     <div class="">
         <div id="top-section" class="row" style="margin-top:2%;">
 
-          <div class="col-lg-2"  @click="getUsers(-1)">
+          <div class="filter-stub"  @click="getUsers(-1)">
             <div class="card sales-amount">
               <div class="card-body">
                 <p class="card-text-small">All  <strong> {{ users.count_leads }} </strong> </p>
@@ -259,7 +260,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             </div>
           </div>
 
-          <div class="col-lg-2" @click="getUsers(1)" v-if="current_user.role_id == 1">
+          <div class="filter-stub" @click="getUsers(1)" v-if="current_user.role_id == 1">
             <div class="card ave-time">
               <div class="card-body">
                 <p class="card-text-small">Assigned <strong> {{ users.count_assigned }}</strong></p>               
@@ -267,7 +268,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             </div>
           </div>
 
-          <div class="col-lg-2" @click="getUsers(0)" v-if="current_user.role_id == 1">
+          <div class="filter-stub" @click="getUsers(0)" v-if="current_user.role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
                 <p class="card-text-small">Unassigned<strong>{{ users.count_unassigned }}</strong></p>
@@ -275,7 +276,7 @@ card-head, .ant-card-padding-transition .ant-card-body {
             </div>
           </div>
 
-          <div class="col-lg-2" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
+          <div class="filter-stub" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
             <div class="card con-ratio">
                 <div class="card-body">
                         <a href="#" class="close" @click="deleteFilter( item.id)"></a>

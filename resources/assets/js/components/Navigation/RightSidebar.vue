@@ -342,16 +342,16 @@ label.custom-control-label{
 .final-modal .card-header-tabs .left a.active[aria-selected="true"]{
     border-bottom: none;
 	background: #fff;
-	box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
-	-webkit-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
-	-moz-box-shadow: 11px -7px 16px -8px rgba(138,134,134,0.75);
+	box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
+	-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
+	-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);
 }
 .final-modal .card-header-tabs .left a[aria-selected="false"]{
     border-bottom: none;
 	background: #fff;
-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
--webkit-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
--moz-box-shadow: -12px -7px 16px -11px rgba(138,134,134,0.75) inset;
+box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
+-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
+-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;
 }
 .final-modal .card-header-tabs .right a.active[aria-selected="true"]{
     border-bottom: none;
@@ -363,9 +363,9 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
 .final-modal .card-header-tabs .right a[aria-selected="false"]{
     border-bottom: none;
 	background: #fff;
-	box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
-	-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
-	-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
+	-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;
 }
 .control-sidebar-dark .nav-tabs {
     border-bottom: 0;
@@ -406,7 +406,7 @@ box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);
     padding: 6px 10px 6px;
     height: 30px !important;;
 }
-final-modal button{
+.final-modal button{
 	width: 100%;
     margin: 0px;
     padding: 7px;
