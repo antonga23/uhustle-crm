@@ -1537,8 +1537,8 @@ a.down-scroll:hover{
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
-                    // phone_number : vm.lead_info.contact_number,
-                    phone_number : '+27783684144',
+                    phone_number : vm.lead_info.contact_number,
+                    // phone_number : '+27783684144',
                 }
                 
                 Device.connect(form_data);
