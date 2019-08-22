@@ -646,16 +646,6 @@ class LeadController extends Controller
     
             }           
             
-            return array(
-                'success' => true,
-                'leads' => $leads, 
-                'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
-                'count_assigned' => $count_assigned, 
-                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
-                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
-                'packages' => Product::get(), 
-                'sources' => LeadSource::get(), 
-            );
         }else{
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
     
@@ -674,19 +664,18 @@ class LeadController extends Controller
                 $leads = Lead::with('product')->with('source')->with('creator')->with('comments')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }           
-            
-            return array(
-                'success' => true,
-                'leads' => $leads, 
-                'count_leads' => Lead::where(['is_client' => 1])->count(), 
-                'count_unassigned' => $count_unassigned, 
-                'count_assigned' => $count_assigned, 
-                'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
-                'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
-                'packages' => Product::get(), 
-                'sources' => LeadSource::get(), 
-            );
         }
+
+        return array(
+            'success' => true,
+            'leads' => $leads, 
+            'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
+            'count_assigned' => $count_assigned, 
+            'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
+            'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
+            'packages' => Product::get(), 
+            'sources' => LeadSource::get(), 
+        );
     }
 
     public function getSelectOptions(){

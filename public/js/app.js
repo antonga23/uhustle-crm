@@ -4282,826 +4282,8 @@ module.exports = exports['default'];
  * Copyright 2014-2018 Abdullah Almsaeed <abdullah@almsaeedstudio.com>
  * Licensed under MIT (https://github.com/almasaeed2010/AdminLTE/blob/master/LICENSE)
  */
-(function (global, factory) {
-	 true ? factory(exports) :
-	undefined;
-}(this, (function (exports) { 'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-/**
- * --------------------------------------------
- * AdminLTE ControlSidebar.js
- * License MIT
- * --------------------------------------------
- */
-
-var ControlSidebar = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'ControlSidebar';
-  var DATA_KEY = 'lte.control.sidebar';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-  var Selector = {
-    CONTROL_SIDEBAR: '.control-sidebar',
-    DATA_TOGGLE: '[data-widget="control-sidebar"]',
-    MAIN_HEADER: '.main-header'
-  };
-
-  var ClassName = {
-    CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
-    CONTROL_SIDEBAR_SLIDE: 'control-sidebar-slide-open'
-  };
-
-  var Default = {
-    slide: true
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var ControlSidebar = function () {
-    function ControlSidebar(element, config) {
-      classCallCheck(this, ControlSidebar);
-
-      this._element = element;
-      this._config = this._getConfig(config);
-    }
-
-    // Public
-
-    ControlSidebar.prototype.show = function show() {
-      // Show the control sidebar
-      if (this._config.slide) {
-        $('body').removeClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      } else {
-        $('body').removeClass(ClassName.CONTROL_SIDEBAR_OPEN);
-      }
-    };
-
-    ControlSidebar.prototype.collapse = function collapse() {
-      // Collapse the control sidebar
-      if (this._config.slide) {
-        $('body').addClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      } else {
-        $('body').addClass(ClassName.CONTROL_SIDEBAR_OPEN);
-      }
-    };
-
-    ControlSidebar.prototype.toggle = function toggle() {
-      this._setMargin();
-
-      var shouldOpen = $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE);
-      if (shouldOpen) {
-        // Open the control sidebar
-        this.show();
-      } else {
-        // Close the control sidebar
-        this.collapse();
-      }
-    };
-
-    // Private
-
-    ControlSidebar.prototype._getConfig = function _getConfig(config) {
-      return $.extend({}, Default, config);
-    };
-
-    ControlSidebar.prototype._setMargin = function _setMargin() {
-      $(Selector.CONTROL_SIDEBAR).css({
-        top: $(Selector.MAIN_HEADER).outerHeight()
-      });
-    };
-
-    // Static
-
-    ControlSidebar._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new ControlSidebar(this, $(this).data());
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (data[operation] === 'undefined') {
-          throw new Error(operation + ' is not a function');
-        }
-
-        data[operation]();
-      });
-    };
-
-    return ControlSidebar;
-  }();
-
-  /**
-   *
-   * Data Api implementation
-   * ====================================================
-   */
-
-
-  $(document).on('click', Selector.DATA_TOGGLE, function (event) {
-    event.preventDefault();
-
-    ControlSidebar._jQueryInterface.call($(this), 'toggle');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = ControlSidebar._jQueryInterface;
-  $.fn[NAME].Constructor = ControlSidebar;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return ControlSidebar._jQueryInterface;
-  };
-
-  return ControlSidebar;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Layout.js
- * License MIT
- * --------------------------------------------
- */
-
-var Layout = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Layout';
-  var DATA_KEY = 'lte.layout';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Selector = {
-    SIDEBAR: '.main-sidebar',
-    HEADER: '.main-header',
-    CONTENT: '.content-wrapper',
-    CONTENT_HEADER: '.content-header',
-    WRAPPER: '.wrapper',
-    CONTROL_SIDEBAR: '.control-sidebar',
-    LAYOUT_FIXED: '.layout-fixed',
-    FOOTER: '.main-footer'
-  };
-
-  var ClassName = {
-    HOLD: 'hold-transition',
-    SIDEBAR: 'main-sidebar',
-    CONTROL_SIDEBAR: '.control-sidebar',
-    LAYOUT_FIXED: 'layout-fixed'
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var Layout = function () {
-    function Layout(element) {
-      classCallCheck(this, Layout);
-
-      this._element = element;
-
-      this._init();
-    }
-
-    // Public
-
-    Layout.prototype.fixLayoutHeight = function fixLayoutHeight() {
-      var heights = {
-        window: $(window).height(),
-        header: $(Selector.HEADER).outerHeight(),
-        footer: $(Selector.FOOTER).outerHeight(),
-        sidebar: $(Selector.SIDEBAR).height()
-      };
-      var max = this._max(heights);
-
-      // $(Selector.CONTENT).css('min-height', max - heights.header);
-      $(Selector.SIDEBAR).css('min-height', max - heights.header);
-      $(Selector.CONTROL_SIDEBAR).css('min-height', max + heights.header);
-    };
-
-    // Private
-
-    Layout.prototype._init = function _init() {
-      var _this = this;
-
-      // Enable transitions
-      $('body').removeClass(ClassName.HOLD);
-
-      // Activate layout height watcher
-      this.fixLayoutHeight();
-      $(Selector.SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu', function () {
-        _this.fixLayoutHeight();
-      });
-
-      $(window).resize(function () {
-        _this.fixLayoutHeight();
-      });
-
-      $('body, html').css('height', 'auto');
-    };
-
-    Layout.prototype._max = function _max(numbers) {
-      // Calculate the maximum number in a list
-      var max = 0;
-
-      Object.keys(numbers).forEach(function (key) {
-        if (numbers[key] > max) {
-          max = numbers[key];
-        }
-      });
-
-      return max;
-    };
-
-    // Static
-
-    Layout._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new Layout(this);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (operation) {
-          data[operation]();
-        }
-      });
-    };
-
-    return Layout;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-
-  $(window).on('load', function () {
-    Layout._jQueryInterface.call($('body'));
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Layout._jQueryInterface;
-  $.fn[NAME].Constructor = Layout;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Layout._jQueryInterface;
-  };
-
-  return Layout;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE PushMenu.js
- * License MIT
- * --------------------------------------------
- */
-
-var PushMenu = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'PushMenu';
-  var DATA_KEY = 'lte.pushmenu';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    SHOWN: 'shown' + EVENT_KEY
-  };
-
-  var Default = {
-    screenCollapseSize: 768
-  };
-
-  var Selector = {
-    TOGGLE_BUTTON: '[data-widget="pushmenu"]',
-    SIDEBAR_MINI: '.sidebar-mini',
-    SIDEBAR_COLLAPSED: '.sidebar-collapse',
-    BODY: 'body',
-    OVERLAY: '#sidebar-overlay',
-    WRAPPER: '.wrapper'
-  };
-
-  var ClassName = {
-    SIDEBAR_OPEN: 'sidebar-open',
-    COLLAPSED: 'sidebar-collapse',
-    OPEN: 'sidebar-open',
-    SIDEBAR_MINI: 'sidebar-mini'
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-
-  };
-  var PushMenu = function () {
-    function PushMenu(element, options) {
-      classCallCheck(this, PushMenu);
-
-      this._element = element;
-      this._options = $.extend({}, Default, options);
-
-      if (!$(Selector.OVERLAY).length) {
-        this._addOverlay();
-      }
-    }
-
-    // Public
-
-    PushMenu.prototype.show = function show() {
-      $(Selector.BODY).addClass(ClassName.OPEN).removeClass(ClassName.COLLAPSED);
-
-      var shownEvent = $.Event(Event.SHOWN);
-      $(this._element).trigger(shownEvent);
-    };
-
-    PushMenu.prototype.collapse = function collapse() {
-      $(Selector.BODY).removeClass(ClassName.OPEN).addClass(ClassName.COLLAPSED);
-
-      var collapsedEvent = $.Event(Event.COLLAPSED);
-      $(this._element).trigger(collapsedEvent);
-    };
-
-    PushMenu.prototype.toggle = function toggle() {
-      var isShown = void 0;
-      if ($(window).width() >= this._options.screenCollapseSize) {
-        isShown = !$(Selector.BODY).hasClass(ClassName.COLLAPSED);
-      } else {
-        isShown = $(Selector.BODY).hasClass(ClassName.OPEN);
-      }
-
-      if (isShown) {
-        this.collapse();
-      } else {
-        this.show();
-      }
-    };
-
-    // Private
-
-
-    PushMenu.prototype._addOverlay = function _addOverlay() {
-      var _this = this;
-
-      var overlay = $('<div />', {
-        id: 'sidebar-overlay'
-      });
-
-      overlay.on('click', function () {
-        _this.collapse();
-      });
-
-      $(Selector.WRAPPER).append(overlay);
-    };
-
-    // Static
-
-    PushMenu._jQueryInterface = function _jQueryInterface(operation) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new PushMenu(this);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (operation) {
-          data[operation]();
-        }
-      });
-    };
-
-    return PushMenu;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(document).on('click', Selector.TOGGLE_BUTTON, function (event) {
-    event.preventDefault();
-
-    var button = event.currentTarget;
-
-    if ($(button).data('widget') !== 'pushmenu') {
-      button = $(button).closest(Selector.TOGGLE_BUTTON);
-    }
-
-    PushMenu._jQueryInterface.call($(button), 'toggle');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = PushMenu._jQueryInterface;
-  $.fn[NAME].Constructor = PushMenu;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return PushMenu._jQueryInterface;
-  };
-
-  return PushMenu;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Treeview.js
- * License MIT
- * --------------------------------------------
- */
-
-var Treeview = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Treeview';
-  var DATA_KEY = 'lte.treeview';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    SELECTED: 'selected' + EVENT_KEY,
-    EXPANDED: 'expanded' + EVENT_KEY,
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    LOAD_DATA_API: 'load' + EVENT_KEY
-  };
-
-  var Selector = {
-    LI: '.nav-item',
-    LINK: '.nav-link',
-    TREEVIEW_MENU: '.nav-treeview',
-    OPEN: '.menu-open',
-    DATA_WIDGET: '[data-widget="treeview"]'
-  };
-
-  var ClassName = {
-    LI: 'nav-item',
-    LINK: 'nav-link',
-    TREEVIEW_MENU: 'nav-treeview',
-    OPEN: 'menu-open'
-  };
-
-  var Default = {
-    trigger: Selector.DATA_WIDGET + ' ' + Selector.LINK,
-    animationSpeed: 300,
-    accordion: true
-
-    /**
-     * Class Definition
-     * ====================================================
-     */
-  };
-  var Treeview = function () {
-    function Treeview(element, config) {
-      classCallCheck(this, Treeview);
-
-      this._config = config;
-      this._element = element;
-    }
-
-    // Public
-
-    Treeview.prototype.init = function init() {
-      this._setupListeners();
-    };
-
-    Treeview.prototype.expand = function expand(treeviewMenu, parentLi) {
-      var _this = this;
-
-      var expandedEvent = $.Event(Event.EXPANDED);
-
-      if (this._config.accordion) {
-        var openMenuLi = parentLi.siblings(Selector.OPEN).first();
-        var openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
-        this.collapse(openTreeview, openMenuLi);
-      }
-
-      treeviewMenu.slideDown(this._config.animationSpeed, function () {
-        parentLi.addClass(ClassName.OPEN);
-        $(_this._element).trigger(expandedEvent);
-      });
-    };
-
-    Treeview.prototype.collapse = function collapse(treeviewMenu, parentLi) {
-      var _this2 = this;
-
-      var collapsedEvent = $.Event(Event.COLLAPSED);
-
-      treeviewMenu.slideUp(this._config.animationSpeed, function () {
-        parentLi.removeClass(ClassName.OPEN);
-        $(_this2._element).trigger(collapsedEvent);
-        treeviewMenu.find(Selector.OPEN + ' > ' + Selector.TREEVIEW_MENU).slideUp();
-        treeviewMenu.find(Selector.OPEN).removeClass(ClassName.OPEN);
-      });
-    };
-
-    Treeview.prototype.toggle = function toggle(event) {
-      var $relativeTarget = $(event.currentTarget);
-      var treeviewMenu = $relativeTarget.next();
-
-      if (!treeviewMenu.is(Selector.TREEVIEW_MENU)) {
-        return;
-      }
-
-      event.preventDefault();
-
-      var parentLi = $relativeTarget.parents(Selector.LI).first();
-      var isOpen = parentLi.hasClass(ClassName.OPEN);
-
-      if (isOpen) {
-        this.collapse($(treeviewMenu), parentLi);
-      } else {
-        this.expand($(treeviewMenu), parentLi);
-      }
-    };
-
-    // Private
-
-    Treeview.prototype._setupListeners = function _setupListeners() {
-      var _this3 = this;
-
-      $(document).on('click', this._config.trigger, function (event) {
-        _this3.toggle(event);
-      });
-    };
-
-    // Static
-
-    Treeview._jQueryInterface = function _jQueryInterface(config) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-        var _config = $.extend({}, Default, $(this).data());
-
-        if (!data) {
-          data = new Treeview($(this), _config);
-          $(this).data(DATA_KEY, data);
-        }
-
-        if (config === 'init') {
-          data[config]();
-        }
-      });
-    };
-
-    return Treeview;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(window).on(Event.LOAD_DATA_API, function () {
-    $(Selector.DATA_WIDGET).each(function () {
-      Treeview._jQueryInterface.call($(this), 'init');
-    });
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Treeview._jQueryInterface;
-  $.fn[NAME].Constructor = Treeview;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Treeview._jQueryInterface;
-  };
-
-  return Treeview;
-}(jQuery);
-
-/**
- * --------------------------------------------
- * AdminLTE Widget.js
- * License MIT
- * --------------------------------------------
- */
-
-var Widget = function ($) {
-  /**
-   * Constants
-   * ====================================================
-   */
-
-  var NAME = 'Widget';
-  var DATA_KEY = 'lte.widget';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-
-  var Event = {
-    EXPANDED: 'expanded' + EVENT_KEY,
-    COLLAPSED: 'collapsed' + EVENT_KEY,
-    REMOVED: 'removed' + EVENT_KEY
-  };
-
-  var Selector = {
-    DATA_REMOVE: '[data-widget="remove"]',
-    DATA_COLLAPSE: '[data-widget="collapse"]',
-    CARD: '.card',
-    CARD_HEADER: '.card-header',
-    CARD_BODY: '.card-body',
-    CARD_FOOTER: '.card-footer',
-    COLLAPSED: '.collapsed-card'
-  };
-
-  var ClassName = {
-    COLLAPSED: 'collapsed-card'
-  };
-
-  var Default = {
-    animationSpeed: 'normal',
-    collapseTrigger: Selector.DATA_COLLAPSE,
-    removeTrigger: Selector.DATA_REMOVE
-  };
-
-  var Widget = function () {
-    function Widget(element, settings) {
-      classCallCheck(this, Widget);
-
-      this._element = element;
-      this._parent = element.parents(Selector.CARD).first();
-      this._settings = $.extend({}, Default, settings);
-    }
-
-    Widget.prototype.collapse = function collapse() {
-      var _this = this;
-
-      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
-        _this._parent.addClass(ClassName.COLLAPSED);
-      });
-
-      var collapsed = $.Event(Event.COLLAPSED);
-
-      this._element.trigger(collapsed, this._parent);
-    };
-
-    Widget.prototype.expand = function expand() {
-      var _this2 = this;
-
-      this._parent.children(Selector.CARD_BODY + ', ' + Selector.CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
-        _this2._parent.removeClass(ClassName.COLLAPSED);
-      });
-
-      var expanded = $.Event(Event.EXPANDED);
-
-      this._element.trigger(expanded, this._parent);
-    };
-
-    Widget.prototype.remove = function remove() {
-      this._parent.slideUp();
-
-      var removed = $.Event(Event.REMOVED);
-
-      this._element.trigger(removed, this._parent);
-    };
-
-    Widget.prototype.toggle = function toggle() {
-      if (this._parent.hasClass(ClassName.COLLAPSED)) {
-        this.expand();
-        return;
-      }
-
-      this.collapse();
-    };
-
-    // Private
-
-    Widget.prototype._init = function _init(card) {
-      var _this3 = this;
-
-      this._parent = card;
-
-      $(this).find(this._settings.collapseTrigger).click(function () {
-        _this3.toggle();
-      });
-
-      $(this).find(this._settings.removeTrigger).click(function () {
-        _this3.remove();
-      });
-    };
-
-    // Static
-
-    Widget._jQueryInterface = function _jQueryInterface(config) {
-      return this.each(function () {
-        var data = $(this).data(DATA_KEY);
-
-        if (!data) {
-          data = new Widget($(this), data);
-          $(this).data(DATA_KEY, typeof config === 'string' ? data : config);
-        }
-
-        if (typeof config === 'string' && config.match(/remove|toggle/)) {
-          data[config]();
-        } else if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object') {
-          data._init($(this));
-        }
-      });
-    };
-
-    return Widget;
-  }();
-
-  /**
-   * Data API
-   * ====================================================
-   */
-
-  $(document).on('click', Selector.DATA_COLLAPSE, function (event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    Widget._jQueryInterface.call($(this), 'toggle');
-  });
-
-  $(document).on('click', Selector.DATA_REMOVE, function (event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    Widget._jQueryInterface.call($(this), 'remove');
-  });
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Widget._jQueryInterface;
-  $.fn[NAME].Constructor = Widget;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Widget._jQueryInterface;
-  };
-
-  return Widget;
-}(jQuery);
-
-exports.ControlSidebar = ControlSidebar;
-exports.Layout = Layout;
-exports.PushMenu = PushMenu;
-exports.Treeview = Treeview;
-exports.Widget = Widget;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-//# sourceMappingURL=adminlte.js.map
-
+!function(e,t){ true?t(exports):undefined}(this,function(e){"use strict";var i,t,o,n,r,a,s,c,f,l,u,d,h,p,_,g,y,m,v,C,D,E,A,O,w,b,L,S,j,T,I,Q,R,P,x,B,M,k,H,N,Y,U,V,G,W,X,z,F,q,J,K,Z,$,ee,te,ne="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ie=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},oe=(i=jQuery,t="ControlSidebar",o="lte.control.sidebar",n=i.fn[t],r=".control-sidebar",a='[data-widget="control-sidebar"]',s=".main-header",c="control-sidebar-open",f="control-sidebar-slide-open",l={slide:!0},u=function(){function n(e,t){ie(this,n),this._element=e,this._config=this._getConfig(t)}return n.prototype.show=function(){this._config.slide?i("body").removeClass(f):i("body").removeClass(c)},n.prototype.collapse=function(){this._config.slide?i("body").addClass(f):i("body").addClass(c)},n.prototype.toggle=function(){this._setMargin(),i("body").hasClass(c)||i("body").hasClass(f)?this.show():this.collapse()},n.prototype._getConfig=function(e){return i.extend({},l,e)},n.prototype._setMargin=function(){i(r).css({top:i(s).outerHeight()})},n._jQueryInterface=function(t){return this.each(function(){var e=i(this).data(o);if(e||(e=new n(this,i(this).data()),i(this).data(o,e)),"undefined"===e[t])throw new Error(t+" is not a function");e[t]()})},n}(),i(document).on("click",a,function(e){e.preventDefault(),u._jQueryInterface.call(i(this),"toggle")}),i.fn[t]=u._jQueryInterface,i.fn[t].Constructor=u,i.fn[t].noConflict=function(){return i.fn[t]=n,u._jQueryInterface},u),re=(d=jQuery,h="Layout",p="lte.layout",_=d.fn[h],g=".main-sidebar",y=".main-header",m=".content-wrapper",v=".main-footer",C="hold-transition",D=function(){function n(e){ie(this,n),this._element=e,this._init()}return n.prototype.fixLayoutHeight=function(){var e={window:d(window).height(),header:d(y).outerHeight(),footer:d(v).outerHeight(),sidebar:d(g).height()},t=this._max(e);d(m).css("min-height",t-e.header),d(g).css("min-height",t-e.header)},n.prototype._init=function(){var e=this;d("body").removeClass(C),this.fixLayoutHeight(),d(g).on("collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu",function(){e.fixLayoutHeight()}),d(window).resize(function(){e.fixLayoutHeight()}),d("body, html").css("height","auto")},n.prototype._max=function(t){var n=0;return Object.keys(t).forEach(function(e){t[e]>n&&(n=t[e])}),n},n._jQueryInterface=function(t){return this.each(function(){var e=d(this).data(p);e||(e=new n(this),d(this).data(p,e)),t&&e[t]()})},n}(),d(window).on("load",function(){D._jQueryInterface.call(d("body"))}),d.fn[h]=D._jQueryInterface,d.fn[h].Constructor=D,d.fn[h].noConflict=function(){return d.fn[h]=_,D._jQueryInterface},D),ae=(E=jQuery,A="PushMenu",w="."+(O="lte.pushmenu"),b=E.fn[A],L={COLLAPSED:"collapsed"+w,SHOWN:"shown"+w},S={screenCollapseSize:768},j={TOGGLE_BUTTON:'[data-widget="pushmenu"]',SIDEBAR_MINI:".sidebar-mini",SIDEBAR_COLLAPSED:".sidebar-collapse",BODY:"body",OVERLAY:"#sidebar-overlay",WRAPPER:".wrapper"},T="sidebar-collapse",I="sidebar-open",Q=function(){function n(e,t){ie(this,n),this._element=e,this._options=E.extend({},S,t),E(j.OVERLAY).length||this._addOverlay()}return n.prototype.show=function(){E(j.BODY).addClass(I).removeClass(T);var e=E.Event(L.SHOWN);E(this._element).trigger(e)},n.prototype.collapse=function(){E(j.BODY).removeClass(I).addClass(T);var e=E.Event(L.COLLAPSED);E(this._element).trigger(e)},n.prototype.toggle=function(){(E(window).width()>=this._options.screenCollapseSize?!E(j.BODY).hasClass(T):E(j.BODY).hasClass(I))?this.collapse():this.show()},n.prototype._addOverlay=function(){var e=this,t=E("<div />",{id:"sidebar-overlay"});t.on("click",function(){e.collapse()}),E(j.WRAPPER).append(t)},n._jQueryInterface=function(t){return this.each(function(){var e=E(this).data(O);e||(e=new n(this),E(this).data(O,e)),t&&e[t]()})},n}(),E(document).on("click",j.TOGGLE_BUTTON,function(e){e.preventDefault();var t=e.currentTarget;"pushmenu"!==E(t).data("widget")&&(t=E(t).closest(j.TOGGLE_BUTTON)),Q._jQueryInterface.call(E(t),"toggle")}),E.fn[A]=Q._jQueryInterface,E.fn[A].Constructor=Q,E.fn[A].noConflict=function(){return E.fn[A]=b,Q._jQueryInterface},Q),se=(R=jQuery,P="Treeview",B="."+(x="lte.treeview"),M=R.fn[P],k={SELECTED:"selected"+B,EXPANDED:"expanded"+B,COLLAPSED:"collapsed"+B,LOAD_DATA_API:"load"+B},H=".nav-item",N=".nav-treeview",Y=".menu-open",V="menu-open",G={trigger:(U='[data-widget="treeview"]')+" "+".nav-link",animationSpeed:300,accordion:!0},W=function(){function i(e,t){ie(this,i),this._config=t,this._element=e}return i.prototype.init=function(){this._setupListeners()},i.prototype.expand=function(e,t){var n=this,i=R.Event(k.EXPANDED);if(this._config.accordion){var o=t.siblings(Y).first(),r=o.find(N).first();this.collapse(r,o)}e.slideDown(this._config.animationSpeed,function(){t.addClass(V),R(n._element).trigger(i)})},i.prototype.collapse=function(e,t){var n=this,i=R.Event(k.COLLAPSED);e.slideUp(this._config.animationSpeed,function(){t.removeClass(V),R(n._element).trigger(i),e.find(Y+" > "+N).slideUp(),e.find(Y).removeClass(V)})},i.prototype.toggle=function(e){var t=R(e.currentTarget),n=t.next();if(n.is(N)){e.preventDefault();var i=t.parents(H).first();i.hasClass(V)?this.collapse(R(n),i):this.expand(R(n),i)}},i.prototype._setupListeners=function(){var t=this;R(document).on("click",this._config.trigger,function(e){t.toggle(e)})},i._jQueryInterface=function(n){return this.each(function(){var e=R(this).data(x),t=R.extend({},G,R(this).data());e||(e=new i(R(this),t),R(this).data(x,e)),"init"===n&&e[n]()})},i}(),R(window).on(k.LOAD_DATA_API,function(){R(U).each(function(){W._jQueryInterface.call(R(this),"init")})}),R.fn[P]=W._jQueryInterface,R.fn[P].Constructor=W,R.fn[P].noConflict=function(){return R.fn[P]=M,W._jQueryInterface},W),ce=(X=jQuery,z="Widget",q="."+(F="lte.widget"),J=X.fn[z],K={EXPANDED:"expanded"+q,COLLAPSED:"collapsed"+q,REMOVED:"removed"+q},$="collapsed-card",ee={animationSpeed:"normal",collapseTrigger:(Z={DATA_REMOVE:'[data-widget="remove"]',DATA_COLLAPSE:'[data-widget="collapse"]',CARD:".card",CARD_HEADER:".card-header",CARD_BODY:".card-body",CARD_FOOTER:".card-footer",COLLAPSED:".collapsed-card"}).DATA_COLLAPSE,removeTrigger:Z.DATA_REMOVE},te=function(){function n(e,t){ie(this,n),this._element=e,this._parent=e.parents(Z.CARD).first(),this._settings=X.extend({},ee,t)}return n.prototype.collapse=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideUp(this._settings.animationSpeed,function(){e._parent.addClass($)});var t=X.Event(K.COLLAPSED);this._element.trigger(t,this._parent)},n.prototype.expand=function(){var e=this;this._parent.children(Z.CARD_BODY+", "+Z.CARD_FOOTER).slideDown(this._settings.animationSpeed,function(){e._parent.removeClass($)});var t=X.Event(K.EXPANDED);this._element.trigger(t,this._parent)},n.prototype.remove=function(){this._parent.slideUp();var e=X.Event(K.REMOVED);this._element.trigger(e,this._parent)},n.prototype.toggle=function(){this._parent.hasClass($)?this.expand():this.collapse()},n.prototype._init=function(e){var t=this;this._parent=e,X(this).find(this._settings.collapseTrigger).click(function(){t.toggle()}),X(this).find(this._settings.removeTrigger).click(function(){t.remove()})},n._jQueryInterface=function(t){return this.each(function(){var e=X(this).data(F);e||(e=new n(X(this),e),X(this).data(F,"string"==typeof t?e:t)),"string"==typeof t&&t.match(/remove|toggle/)?e[t]():"object"===("undefined"==typeof t?"undefined":ne(t))&&e._init(X(this))})},n}(),X(document).on("click",Z.DATA_COLLAPSE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"toggle")}),X(document).on("click",Z.DATA_REMOVE,function(e){e&&e.preventDefault(),te._jQueryInterface.call(X(this),"remove")}),X.fn[z]=te._jQueryInterface,X.fn[z].Constructor=te,X.fn[z].noConflict=function(){return X.fn[z]=J,te._jQueryInterface},te);e.ControlSidebar=oe,e.Layout=re,e.PushMenu=ae,e.Treeview=se,e.Widget=ce,Object.defineProperty(e,"__esModule",{value:!0})});
+//# sourceMappingURL=adminlte.min.js.map
 
 /***/ }),
 
@@ -66360,10 +65542,10 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*!**************************************************!*\
   !*** ./node_modules/ant-design-vue/package.json ***!
   \**************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"ant-design-vue@^1.3.13","_id":"ant-design-vue@1.3.13","_inBundle":false,"_integrity":"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==","_location":"/ant-design-vue","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"ant-design-vue@^1.3.13","name":"ant-design-vue","escapedName":"ant-design-vue","rawSpec":"^1.3.13","saveSpec":null,"fetchSpec":"^1.3.13"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz","_shasum":"63bfeba6c0b46101abf1cebb1ad1da13a46be932","_spec":"ant-design-vue@^1.3.13","_where":"/var/www/uhustle-app","bugs":{"url":"https://github.com/vueComponent/ant-design-vue/issues"},"bundleDependencies":false,"dependencies":{"@ant-design/icons":"^2.1.1","@ant-design/icons-vue":"^2.0.0","add-dom-event-listener":"^1.0.2","array-tree-filter":"^2.1.0","async-validator":"^1.8.2","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-runtime":"6.x","classnames":"^2.2.5","component-classes":"^1.2.6","dom-align":"^1.7.0","dom-closest":"^0.2.0","dom-scroll-into-view":"^1.2.1","enquire.js":"^2.1.6","intersperse":"^1.0.0","is-negative-zero":"^2.0.0","ismobilejs":"^0.5.1","json2mq":"^0.2.0","lodash":"^4.17.5","moment":"^2.21.0","mutationobserver-shim":"^0.3.2","omit.js":"^1.0.0","raf":"^3.4.0","resize-observer-polyfill":"^1.5.1","shallow-equal":"^1.0.0","shallowequal":"^1.0.2","vue-ref":"^1.0.4","warning":"^3.0.0"},"deprecated":false,"description":"An enterprise-class UI design language and Vue-based implementation","devDependencies":{"@commitlint/cli":"^6.2.0","@commitlint/config-conventional":"^6.1.3","@octokit/rest":"^15.4.1","@vue/cli-plugin-eslint":"^3.0.5","@vue/server-test-utils":"1.0.0-beta.16","@vue/test-utils":"1.0.0-beta.16","acorn":"^6.0.5","autoprefixer":"^9.6.0","axios":"^0.18.0","babel-cli":"^6.26.0","babel-core":"^6.26.0","babel-eslint":"^10.0.1","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-jest":"^23.6.0","babel-loader":"^7.1.2","babel-plugin-import":"^1.1.1","babel-plugin-inline-import-data-uri":"^1.0.1","babel-plugin-istanbul":"^4.1.1","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-syntax-jsx":"^6.18.0","babel-plugin-transform-class-properties":"^6.24.1","babel-plugin-transform-decorators":"^6.24.1","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-es3-member-expression-literals":"^6.22.0","babel-plugin-transform-es3-property-literals":"^6.22.0","babel-plugin-transform-object-assign":"^6.22.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"~6.23.0","babel-plugin-transform-vue-jsx":"^3.7.0","babel-polyfill":"^6.26.0","babel-preset-env":"^1.6.1","case-sensitive-paths-webpack-plugin":"^2.1.2","chalk":"^2.3.2","cheerio":"^1.0.0-rc.2","codecov":"^3.0.0","colorful":"^2.1.0","commander":"^2.15.0","compare-versions":"^3.3.0","cross-env":"^5.1.4","css-loader":"^0.28.7","deep-assign":"^2.0.0","enquire-js":"^0.2.1","eslint":"^5.8.0","eslint-config-prettier":"^3.0.1","eslint-plugin-html":"^3.2.2","eslint-plugin-vue":"^5.1.0","fetch-jsonp":"^1.1.3","fs-extra":"^7.0.0","glob":"^7.1.2","gulp":"^4.0.1","gulp-babel":"^7.0.0","gulp-strip-code":"^0.1.4","highlight.js":"^9.12.0","html-webpack-plugin":"^3.2.0","husky":"^0.14.3","istanbul-instrumenter-loader":"^3.0.0","jest":"^24.0.0","jest-serializer-vue":"^1.0.0","js-base64":"^2.4.8","jsonp":"^0.2.1","less":"^3.9.0","less-loader":"^4.1.0","less-plugin-npm-import":"^2.1.0","lint-staged":"^7.2.2","markdown-it":"^8.4.0","markdown-it-anchor":"^4.0.0","marked":"^0.3.7","merge2":"^1.2.1","mini-css-extract-plugin":"^0.5.0","minimist":"^1.2.0","mkdirp":"^0.5.1","mockdate":"^2.0.2","node-emoji":"^1.10.0","nprogress":"^0.2.0","optimize-css-assets-webpack-plugin":"^5.0.1","postcss":"^7.0.6","postcss-loader":"^3.0.0","pre-commit":"^1.2.2","prettier":"^1.15.3","querystring":"^0.2.0","raw-loader":"^1.0.0-beta.0","reqwest":"^2.0.5","rimraf":"^2.6.2","rucksack-css":"^1.0.2","selenium-server":"^3.0.1","semver":"^5.3.0","style-loader":"^0.18.2","stylelint":"^9.10.1","stylelint-config-prettier":"^4.0.0","stylelint-config-standard":"^18.2.0","through2":"^2.0.3","uglifyjs-webpack-plugin":"^2.1.1","url-loader":"^1.1.2","vue":"^2.5.16","vue-antd-md-loader":"^1.1.0","vue-clipboard2":"0.0.8","vue-eslint-parser":"^5.0.0","vue-i18n":"^8.3.2","vue-infinite-scroll":"^2.0.2","vue-jest":"^2.5.0","vue-loader":"^15.5.1","vue-router":"^3.0.1","vue-server-renderer":"^2.5.16","vue-template-compiler":"^2.5.16","vue-virtual-scroller":"^0.12.0","vuex":"^3.1.0","webpack":"^4.28.4","webpack-cli":"^3.2.1","webpack-dev-server":"^3.1.14","webpack-merge":"^4.1.1","webpackbar":"^3.1.5"},"files":["dist","lib","es","types","scripts"],"homepage":"https://vue.ant.design/","keywords":["ant","design","antd","vue","vueComponent","component","components","ui","framework","frontend"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"ant-design-vue","peerDependencies":{"vue":">=2.5.0","vue-template-compiler":">=2.5.0"},"pre-commit":["lint","prettier"],"repository":{"type":"git","url":"git+https://github.com/vueComponent/ant-design-vue.git"},"scripts":{"codecov":"codecov","commitmsg":"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS","compile":"node antd-tools/cli/run.js compile","copy":"node scripts/run.js copy-html","dev":"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001","dist":"node antd-tools/cli/run.js dist","lint":"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components","lint:style":"stylelint \"{site,components}/**/*.less\" --syntax less","postinstall":"node scripts/postinstall || echo \"ignore\"","pre-publish":"node ./scripts/prepub","prepublish":"node antd-tools/cli/run.js guard","prettier":"node ./scripts/prettier.js","pub":"node antd-tools/cli/run.js pub","pub-with-ci":"node antd-tools/cli/run.js pub-with-ci","site":"node scripts/run.js _site","start":"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot","test":"cross-env NODE_ENV=test jest --config .jest.js"},"sideEffects":["site/*","components/style.js","components/**/style/*","*.vue","*.md","dist/*","es/**/style/*","lib/**/style/*","*.less"],"title":"Ant Design Vue","typings":"types/index.d.ts","version":"1.3.13"};
+module.exports = {"_args":[["ant-design-vue@1.3.13","/var/www/uhustle-app"]],"_from":"ant-design-vue@1.3.13","_id":"ant-design-vue@1.3.13","_inBundle":false,"_integrity":"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==","_location":"/ant-design-vue","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"ant-design-vue@1.3.13","name":"ant-design-vue","escapedName":"ant-design-vue","rawSpec":"1.3.13","saveSpec":null,"fetchSpec":"1.3.13"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz","_spec":"1.3.13","_where":"/var/www/uhustle-app","bugs":{"url":"https://github.com/vueComponent/ant-design-vue/issues"},"dependencies":{"@ant-design/icons":"^2.1.1","@ant-design/icons-vue":"^2.0.0","add-dom-event-listener":"^1.0.2","array-tree-filter":"^2.1.0","async-validator":"^1.8.2","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-runtime":"6.x","classnames":"^2.2.5","component-classes":"^1.2.6","dom-align":"^1.7.0","dom-closest":"^0.2.0","dom-scroll-into-view":"^1.2.1","enquire.js":"^2.1.6","intersperse":"^1.0.0","is-negative-zero":"^2.0.0","ismobilejs":"^0.5.1","json2mq":"^0.2.0","lodash":"^4.17.5","moment":"^2.21.0","mutationobserver-shim":"^0.3.2","omit.js":"^1.0.0","raf":"^3.4.0","resize-observer-polyfill":"^1.5.1","shallow-equal":"^1.0.0","shallowequal":"^1.0.2","vue-ref":"^1.0.4","warning":"^3.0.0"},"description":"An enterprise-class UI design language and Vue-based implementation","devDependencies":{"@commitlint/cli":"^6.2.0","@commitlint/config-conventional":"^6.1.3","@octokit/rest":"^15.4.1","@vue/cli-plugin-eslint":"^3.0.5","@vue/server-test-utils":"1.0.0-beta.16","@vue/test-utils":"1.0.0-beta.16","acorn":"^6.0.5","autoprefixer":"^9.6.0","axios":"^0.18.0","babel-cli":"^6.26.0","babel-core":"^6.26.0","babel-eslint":"^10.0.1","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-jest":"^23.6.0","babel-loader":"^7.1.2","babel-plugin-import":"^1.1.1","babel-plugin-inline-import-data-uri":"^1.0.1","babel-plugin-istanbul":"^4.1.1","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-syntax-jsx":"^6.18.0","babel-plugin-transform-class-properties":"^6.24.1","babel-plugin-transform-decorators":"^6.24.1","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-es3-member-expression-literals":"^6.22.0","babel-plugin-transform-es3-property-literals":"^6.22.0","babel-plugin-transform-object-assign":"^6.22.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"~6.23.0","babel-plugin-transform-vue-jsx":"^3.7.0","babel-polyfill":"^6.26.0","babel-preset-env":"^1.6.1","case-sensitive-paths-webpack-plugin":"^2.1.2","chalk":"^2.3.2","cheerio":"^1.0.0-rc.2","codecov":"^3.0.0","colorful":"^2.1.0","commander":"^2.15.0","compare-versions":"^3.3.0","cross-env":"^5.1.4","css-loader":"^0.28.7","deep-assign":"^2.0.0","enquire-js":"^0.2.1","eslint":"^5.8.0","eslint-config-prettier":"^3.0.1","eslint-plugin-html":"^3.2.2","eslint-plugin-vue":"^5.1.0","fetch-jsonp":"^1.1.3","fs-extra":"^7.0.0","glob":"^7.1.2","gulp":"^4.0.1","gulp-babel":"^7.0.0","gulp-strip-code":"^0.1.4","highlight.js":"^9.12.0","html-webpack-plugin":"^3.2.0","husky":"^0.14.3","istanbul-instrumenter-loader":"^3.0.0","jest":"^24.0.0","jest-serializer-vue":"^1.0.0","js-base64":"^2.4.8","jsonp":"^0.2.1","less":"^3.9.0","less-loader":"^4.1.0","less-plugin-npm-import":"^2.1.0","lint-staged":"^7.2.2","markdown-it":"^8.4.0","markdown-it-anchor":"^4.0.0","marked":"^0.3.7","merge2":"^1.2.1","mini-css-extract-plugin":"^0.5.0","minimist":"^1.2.0","mkdirp":"^0.5.1","mockdate":"^2.0.2","node-emoji":"^1.10.0","nprogress":"^0.2.0","optimize-css-assets-webpack-plugin":"^5.0.1","postcss":"^7.0.6","postcss-loader":"^3.0.0","pre-commit":"^1.2.2","prettier":"^1.15.3","querystring":"^0.2.0","raw-loader":"^1.0.0-beta.0","reqwest":"^2.0.5","rimraf":"^2.6.2","rucksack-css":"^1.0.2","selenium-server":"^3.0.1","semver":"^5.3.0","style-loader":"^0.18.2","stylelint":"^9.10.1","stylelint-config-prettier":"^4.0.0","stylelint-config-standard":"^18.2.0","through2":"^2.0.3","uglifyjs-webpack-plugin":"^2.1.1","url-loader":"^1.1.2","vue":"^2.5.16","vue-antd-md-loader":"^1.1.0","vue-clipboard2":"0.0.8","vue-eslint-parser":"^5.0.0","vue-i18n":"^8.3.2","vue-infinite-scroll":"^2.0.2","vue-jest":"^2.5.0","vue-loader":"^15.5.1","vue-router":"^3.0.1","vue-server-renderer":"^2.5.16","vue-template-compiler":"^2.5.16","vue-virtual-scroller":"^0.12.0","vuex":"^3.1.0","webpack":"^4.28.4","webpack-cli":"^3.2.1","webpack-dev-server":"^3.1.14","webpack-merge":"^4.1.1","webpackbar":"^3.1.5"},"files":["dist","lib","es","types","scripts"],"homepage":"https://vue.ant.design/","keywords":["ant","design","antd","vue","vueComponent","component","components","ui","framework","frontend"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"ant-design-vue","peerDependencies":{"vue":">=2.5.0","vue-template-compiler":">=2.5.0"},"pre-commit":["lint","prettier"],"repository":{"type":"git","url":"git+https://github.com/vueComponent/ant-design-vue.git"},"scripts":{"codecov":"codecov","commitmsg":"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS","compile":"node antd-tools/cli/run.js compile","copy":"node scripts/run.js copy-html","dev":"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001","dist":"node antd-tools/cli/run.js dist","lint":"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components","lint:style":"stylelint \"{site,components}/**/*.less\" --syntax less","postinstall":"node scripts/postinstall || echo \"ignore\"","pre-publish":"node ./scripts/prepub","prepublish":"node antd-tools/cli/run.js guard","prettier":"node ./scripts/prettier.js","pub":"node antd-tools/cli/run.js pub","pub-with-ci":"node antd-tools/cli/run.js pub-with-ci","site":"node scripts/run.js _site","start":"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot","test":"cross-env NODE_ENV=test jest --config .jest.js"},"sideEffects":["site/*","components/style.js","components/**/style/*","*.vue","*.md","dist/*","es/**/style/*","lib/**/style/*","*.less"],"title":"Ant Design Vue","typings":"types/index.d.ts","version":"1.3.13"};
 
 /***/ }),
 
@@ -69865,6 +69047,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DataTables_ContactsDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/ContactsDataTable */ "./resources/assets/js/components/DataTables/ContactsDataTable.vue");
 //
 //
 //
@@ -70415,12 +69598,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
-    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"]
+    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
+    'datatable': _DataTables_ContactsDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
     console.log('Component mounted');
@@ -70450,7 +69637,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       users: {
-        leads: '',
+        leads: [],
         count_leads: '',
         count_unassigned: '',
         count_assigned: '',
@@ -70479,7 +69666,108 @@ __webpack_require__.r(__webpack_exports__);
       current_user: [],
       filter_data: [],
       add_user: false,
-      Toast: null
+      Toast: null,
+      columns: [{
+        label: 'NAME',
+        // Column name
+        field: 'name',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'SURNAME',
+        // Column name
+        field: 'surname',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'EMAIL',
+        // Column name
+        field: 'email',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'OWNER',
+        // Column name
+        field: 'creator',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'MOBILE #',
+        // Column name
+        field: 'phone_number',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'PACKAGE',
+        // Column name
+        field: 'product',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'LAST ACTIVITY',
+        // Column name
+        field: 'comments',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'ACTIVITY',
+        // Column name
+        field: 'comments',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'STATUS',
+        // Column name
+        field: 'status',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'ACTIONS',
+        // Column name
+        field: 'actions',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }]
     };
   },
   methods: {
@@ -71147,6 +70435,290 @@ __webpack_require__.r(__webpack_exports__);
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuse.js */ "./node_modules/fuse.js/src/fuse.js");
+/* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuse_js__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    role: '',
+    title: {},
+    columns: {
+      required: true
+    },
+    rows: {
+      required: true
+    },
+    onClick: {},
+    customButtons: {
+      "default": function _default() {
+        return [];
+      }
+    },
+    perPage: {
+      "default": 10
+    },
+    sortable: {
+      "default": true
+    },
+    searchable: {
+      "default": true
+    },
+    paginate: {
+      "default": true
+    },
+    exportable: {
+      "default": true
+    },
+    printable: {
+      "default": true
+    }
+  },
+  data: function data() {
+    return {
+      view_claim: {
+        claim: [],
+        hub: []
+      },
+      summaryModal: false,
+      showModal: false,
+      loading: false,
+      currentPage: 1,
+      currentPerPage: 10,
+      sortColumn: -1,
+      sortType: 'asc',
+      searching: false,
+      searchInput: '',
+      claim: '',
+      claim_items: '',
+      Toast: ''
+    };
+  },
+  methods: {
+    nextPage: function nextPage() {
+      if (this.processedRows.length > this.currentPerPage * this.currentPage) ++this.currentPage;
+    },
+    previousPage: function previousPage() {
+      if (this.currentPage > 1) --this.currentPage;
+    },
+    onTableLength: function onTableLength(e) {
+      this.currentPerPage = e.target.value;
+    },
+    sort: function sort(index) {
+      if (!this.sortable) return;
+
+      if (this.sortColumn === index) {
+        this.sortType = this.sortType === 'asc' ? 'desc' : 'asc';
+      } else {
+        this.sortType = 'asc';
+        this.sortColumn = index;
+      }
+    },
+    search: function search(e) {
+      this.searching = !this.searching;
+    },
+    click: function click(row, index) {
+      if (this.onClick) this.onClick(row, index);
+    },
+    exportExcel: function exportExcel() {
+      var mimeType = 'data:application/vnd.ms-excel';
+      var html = this.renderTable().replace(/ /g, '%20');
+      var d = new Date();
+      var dummy = document.createElement('a');
+      dummy.href = mimeType + ', ' + html;
+      dummy.download = this.title.toLowerCase().replace(/ /g, '-') + '-' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getHours() + '-' + d.getMinutes() + '-' + d.getSeconds() + '.xls';
+      dummy.click();
+    },
+    print: function print() {
+      var win = window.open("");
+      win.document.write(this.renderTable());
+      win.print();
+      win.close();
+    },
+    renderTable: function renderTable() {
+      var table = '<table><thead>';
+      table += '<tr>';
+
+      for (var i = 0; i < this.columns.length; i++) {
+        var column = this.columns[i];
+        table += '<th>';
+        table += column.label;
+        table += '</th>';
+      }
+
+      table += '</tr>';
+      table += '</thead><tbody>';
+
+      for (var i = 0; i < this.rows.length; i++) {
+        var row = this.rows[i];
+        table += '<tr>';
+
+        for (var j = 0; j < this.columns.length; j++) {
+          var _column = this.columns[j];
+          table += '<td>';
+          table += this.collect(row, _column.field);
+          table += '</td>';
+        }
+
+        table += '</tr>';
+      }
+
+      table += '</tbody></table>';
+      return table;
+    },
+    dig: function dig(obj, selector) {
+      var result = obj;
+      var splitter = selector.split('.');
+
+      for (var i = 0; i < splitter.length; i++) {
+        if (typeof result === 'undefined') return undefined;else result = result[splitter[i]];
+      }
+
+      return result;
+    },
+    collect: function collect(obj, field) {
+      if (typeof field === 'function') return field(obj);else if (typeof field === 'string') return this.dig(obj, field);else return undefined;
+    },
+    viewLine: function viewLine(id, type) {
+      if (type = "order") {
+        window.location = '/view-order/' + id;
+      } else {}
+    }
+  },
+  computed: {
+    processedRows: function processedRows() {
+      var _this = this;
+
+      var computedRows = this.rows;
+      if (this.sortable !== false) computedRows = computedRows.sort(function (x, y) {
+        if (!_this.columns[_this.sortColumn]) return 0;
+
+        var cook = function cook(x) {
+          x = _this.collect(x, _this.columns[_this.sortColumn].field);
+
+          if (typeof x === 'string') {
+            x = x.toLowerCase();
+            if (_this.columns[_this.sortColumn].numeric) x = x.indexOf('.') >= 0 ? parseFloat(x) : parseInt(x);
+          }
+
+          return x;
+        };
+
+        x = cook(x);
+        y = cook(y);
+        return (x < y ? -1 : x > y ? 1 : 0) * (_this.sortType === 'desc' ? -1 : 1);
+      });
+      if (this.searching && this.searchInput) computedRows = new fuse_js__WEBPACK_IMPORTED_MODULE_0___default.a(computedRows, {
+        keys: this.columns.map(function (c) {
+          return c.field;
+        })
+      }).search(this.searchInput);
+      return computedRows;
+    },
+    paginated: function paginated() {
+      var paginatedRows = this.processedRows;
+      if (this.paginate) paginatedRows = paginatedRows.slice((this.currentPage - 1) * this.currentPerPage, this.currentPerPage === -1 ? paginatedRows.length + 1 : this.currentPage * this.currentPerPage);
+      return paginatedRows;
     }
   }
 });
@@ -77418,8 +76990,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       Fire.$emit('InitiateCall');
       var form_data = {
         lead_id: vm.lead_info.id,
-        // phone_number : vm.lead_info.contact_number,
-        phone_number: '+27783684144'
+        phone_number: vm.lead_info.contact_number // phone_number : '+27783684144',
+
       };
       Device.connect(form_data);
     },
@@ -127654,6 +127226,25 @@ exports.push([module.i, "\n.row[data-v-2c246ed2]{\n   margin-bottom: 3%;\n}\n.to
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ndiv.material-table[data-v-c0c20230] {\n    padding: 0;\n}\n#breakdown tr td[data-v-c0c20230]{\n    height: 35px;\n}\n#items tr td[data-v-c0c20230]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-c0c20230], #items tr[data-v-c0c20230] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-c0c20230] {\n    cursor: pointer;\n}\n#search-input[data-v-c0c20230] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-c0c20230] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-c0c20230] {\n    table-layout: fixed;\n}\n.table-header[data-v-c0c20230] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-c0c20230] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-c0c20230] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-c0c20230] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-c0c20230] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-c0c20230] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-c0c20230] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-c0c20230] {\n    outline: none;\n}\n.table-footer label[data-v-c0c20230] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .select-wrapper[data-v-c0c20230] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-c0c20230],\n.table-footer .datatable-length[data-v-c0c20230] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-c0c20230] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-c0c20230] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-c0c20230] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-c0c20230] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-c0c20230] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-c0c20230] {\n    padding: 0 0 0 56px;\n    height: 48px;\n    font-size: 13px;\n    color: rgba(0, 0, 0, 0.87);\n    border-bottom: solid 1px #DDDDDD;\n    display: table-cell;\n    /* white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; */\n}\ntable tr td a[data-v-c0c20230] {\n    color: inherit;\n}\ntable tr td a i[data-v-c0c20230] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-c0c20230] {\n    font-size: 12px;\n}\ntable th[data-v-c0c20230] {\n    font-size: 12px;\n    font-weight: 500;\n    color: #757575;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    height: 56px;\n    padding-left: 56px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\ntable th[data-v-c0c20230]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-c0c20230],\ntable th.sorting-desc[data-v-c0c20230] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting[data-v-c0c20230]:after,\ntable th.sorting-asc[data-v-c0c20230]:after {\n    font-family: 'Material Icons';\n    font-weight: normal;\n    font-style: normal;\n    font-size: 16px;\n    line-height: 1;\n    letter-spacing: normal;\n    text-transform: none;\n    display: inline-block;\n    word-wrap: normal;\n    -webkit-font-feature-settings: 'liga';\n    -webkit-font-smoothing: antialiased;\n    content: \" arrow_back \";\n    -webkit-transform: rotate(90deg);\n    display: none;\n    vertical-align: middle;\n}\ntable th.sorting[data-v-c0c20230]:hover:after,\ntable th.sorting-asc[data-v-c0c20230]:after,\ntable th.sorting-desc[data-v-c0c20230]:after {\n    display: inline-block;\n}\ntable th.sorting-desc[data-v-c0c20230]:after {\n    content: \"arrow_forward \";\n}\ntable tbody tr[data-v-c0c20230]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-c0c20230]:last-child,\ntable td[data-v-c0c20230]:last-child {\n    padding-right: 14px;\n}\ntable th[data-v-c0c20230]:first-child,\ntable td[data-v-c0c20230]:first-child {\n    padding-left: 24px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Leads/LeadsIndex.vue?vue&type=style&index=0&id=764c47ca&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Leads/LeadsIndex.vue?vue&type=style&index=0&id=764c47ca&scoped=true&lang=css& ***!
@@ -156251,6 +155842,831 @@ function unwrapListeners(arr) {
   }
   return ret;
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/fuse.js/src/fuse.js":
+/*!******************************************!*\
+  !*** ./node_modules/fuse.js/src/fuse.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * @license
+ * Fuse - Lightweight fuzzy-search
+ *
+ * Copyright (c) 2012-2016 Kirollos Risk <kirollos@gmail.com>.
+ * All Rights Reserved. Apache Software License 2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+;(function (global) {
+  'use strict'
+
+  /** @type {function(...*)} */
+  function log () {
+    console.log.apply(console, arguments)
+  }
+
+  var defaultOptions = {
+    // The name of the identifier property. If specified, the returned result will be a list
+    // of the items' dentifiers, otherwise it will be a list of the items.
+    id: null,
+
+    // Indicates whether comparisons should be case sensitive.
+
+    caseSensitive: false,
+
+    // An array of values that should be included from the searcher's output. When this array
+    // contains elements, each result in the list will be of the form `{ item: ..., include1: ..., include2: ... }`.
+    // Values you can include are `score`, `matchedLocations`
+    include: [],
+
+    // Whether to sort the result list, by score
+    shouldSort: true,
+
+    // The search function to use
+    // Note that the default search function ([[Function]]) must conform to the following API:
+    //
+    //  @param pattern The pattern string to search
+    //  @param options The search option
+    //  [[Function]].constructor = function(pattern, options)
+    //
+    //  @param text: the string to search in for the pattern
+    //  @return Object in the form of:
+    //    - isMatch: boolean
+    //    - score: Int
+    //  [[Function]].prototype.search = function(text)
+    searchFn: BitapSearcher,
+
+    // Default sort function
+    sortFn: function (a, b) {
+      return a.score - b.score
+    },
+
+    // The get function to use when fetching an object's properties.
+    // The default will search nested paths *ie foo.bar.baz*
+    getFn: deepValue,
+
+    // List of properties that will be searched. This also supports nested properties.
+    keys: [],
+
+    // Will print to the console. Useful for debugging.
+    verbose: false,
+
+    // When true, the search algorithm will search individual words **and** the full string,
+    // computing the final score as a function of both. Note that when `tokenize` is `true`,
+    // the `threshold`, `distance`, and `location` are inconsequential for individual tokens.
+    tokenize: false,
+
+    // When true, the result set will only include records that match all tokens. Will only work
+    // if `tokenize` is also true.
+    matchAllTokens: false,
+
+    // Regex used to separate words when searching. Only applicable when `tokenize` is `true`.
+    tokenSeparator: / +/g,
+
+    // Minimum number of characters that must be matched before a result is considered a match
+    minMatchCharLength: 1,
+
+    // When true, the algorithm continues searching to the end of the input even if a perfect
+    // match is found before the end of the same input.
+    findAllMatches: false
+  }
+
+  /**
+   * @constructor
+   * @param {!Array} list
+   * @param {!Object<string, *>} options
+   */
+  function Fuse (list, options) {
+    var key
+
+    this.list = list
+    this.options = options = options || {}
+
+    for (key in defaultOptions) {
+      if (!defaultOptions.hasOwnProperty(key)) {
+        continue;
+      }
+      // Add boolean type options
+      if (typeof defaultOptions[key] === 'boolean') {
+        this.options[key] = key in options ? options[key] : defaultOptions[key];
+      // Add all other options
+      } else {
+        this.options[key] = options[key] || defaultOptions[key]
+      }
+    }
+  }
+
+  Fuse.VERSION = '2.7.3'
+
+  /**
+   * Sets a new list for Fuse to match against.
+   * @param {!Array} list
+   * @return {!Array} The newly set list
+   * @public
+   */
+  Fuse.prototype.set = function (list) {
+    this.list = list
+    return list
+  }
+
+  Fuse.prototype.search = function (pattern) {
+    if (this.options.verbose) log('\nSearch term:', pattern, '\n')
+
+    this.pattern = pattern
+    this.results = []
+    this.resultMap = {}
+    this._keyMap = null
+
+    this._prepareSearchers()
+    this._startSearch()
+    this._computeScore()
+    this._sort()
+
+    var output = this._format()
+    return output
+  }
+
+  Fuse.prototype._prepareSearchers = function () {
+    var options = this.options
+    var pattern = this.pattern
+    var searchFn = options.searchFn
+    var tokens = pattern.split(options.tokenSeparator)
+    var i = 0
+    var len = tokens.length
+
+    if (this.options.tokenize) {
+      this.tokenSearchers = []
+      for (; i < len; i++) {
+        this.tokenSearchers.push(new searchFn(tokens[i], options))
+      }
+    }
+    this.fullSeacher = new searchFn(pattern, options)
+  }
+
+  Fuse.prototype._startSearch = function () {
+    var options = this.options
+    var getFn = options.getFn
+    var list = this.list
+    var listLen = list.length
+    var keys = this.options.keys
+    var keysLen = keys.length
+    var key
+    var weight
+    var item = null
+    var i
+    var j
+
+    // Check the first item in the list, if it's a string, then we assume
+    // that every item in the list is also a string, and thus it's a flattened array.
+    if (typeof list[0] === 'string') {
+      // Iterate over every item
+      for (i = 0; i < listLen; i++) {
+        this._analyze('', list[i], i, i)
+      }
+    } else {
+      this._keyMap = {}
+      // Otherwise, the first item is an Object (hopefully), and thus the searching
+      // is done on the values of the keys of each item.
+      // Iterate over every item
+      for (i = 0; i < listLen; i++) {
+        item = list[i]
+        // Iterate over every key
+        for (j = 0; j < keysLen; j++) {
+          key = keys[j]
+          if (typeof key !== 'string') {
+            weight = (1 - key.weight) || 1
+            this._keyMap[key.name] = {
+              weight: weight
+            }
+            if (key.weight <= 0 || key.weight > 1) {
+              throw new Error('Key weight has to be > 0 and <= 1')
+            }
+            key = key.name
+          } else {
+            this._keyMap[key] = {
+              weight: 1
+            }
+          }
+          this._analyze(key, getFn(item, key, []), item, i)
+        }
+      }
+    }
+  }
+
+  Fuse.prototype._analyze = function (key, text, entity, index) {
+    var options = this.options
+    var words
+    var scores
+    var exists = false
+    var existingResult
+    var averageScore
+    var finalScore
+    var scoresLen
+    var mainSearchResult
+    var tokenSearcher
+    var termScores
+    var word
+    var tokenSearchResult
+    var hasMatchInText
+    var checkTextMatches
+    var i
+    var j
+
+    // Check if the text can be searched
+    if (text === undefined || text === null) {
+      return
+    }
+
+    scores = []
+
+    var numTextMatches = 0
+
+    if (typeof text === 'string') {
+      words = text.split(options.tokenSeparator)
+
+      if (options.verbose) log('---------\nKey:', key)
+
+      if (this.options.tokenize) {
+        for (i = 0; i < this.tokenSearchers.length; i++) {
+          tokenSearcher = this.tokenSearchers[i]
+
+          if (options.verbose) log('Pattern:', tokenSearcher.pattern)
+
+          termScores = []
+          hasMatchInText = false
+
+          for (j = 0; j < words.length; j++) {
+            word = words[j]
+            tokenSearchResult = tokenSearcher.search(word)
+            var obj = {}
+            if (tokenSearchResult.isMatch) {
+              obj[word] = tokenSearchResult.score
+              exists = true
+              hasMatchInText = true
+              scores.push(tokenSearchResult.score)
+            } else {
+              obj[word] = 1
+              if (!this.options.matchAllTokens) {
+                scores.push(1)
+              }
+            }
+            termScores.push(obj)
+          }
+
+          if (hasMatchInText) {
+            numTextMatches++
+          }
+
+          if (options.verbose) log('Token scores:', termScores)
+        }
+
+        averageScore = scores[0]
+        scoresLen = scores.length
+        for (i = 1; i < scoresLen; i++) {
+          averageScore += scores[i]
+        }
+        averageScore = averageScore / scoresLen
+
+        if (options.verbose) log('Token score average:', averageScore)
+      }
+
+      mainSearchResult = this.fullSeacher.search(text)
+      if (options.verbose) log('Full text score:', mainSearchResult.score)
+
+      finalScore = mainSearchResult.score
+      if (averageScore !== undefined) {
+        finalScore = (finalScore + averageScore) / 2
+      }
+
+      if (options.verbose) log('Score average:', finalScore)
+
+      checkTextMatches = (this.options.tokenize && this.options.matchAllTokens) ? numTextMatches >= this.tokenSearchers.length : true
+
+      if (options.verbose) log('Check Matches', checkTextMatches)
+
+      // If a match is found, add the item to <rawResults>, including its score
+      if ((exists || mainSearchResult.isMatch) && checkTextMatches) {
+        // Check if the item already exists in our results
+        existingResult = this.resultMap[index]
+
+        if (existingResult) {
+          // Use the lowest score
+          // existingResult.score, bitapResult.score
+          existingResult.output.push({
+            key: key,
+            score: finalScore,
+            matchedIndices: mainSearchResult.matchedIndices
+          })
+        } else {
+          // Add it to the raw result list
+          this.resultMap[index] = {
+            item: entity,
+            output: [{
+              key: key,
+              score: finalScore,
+              matchedIndices: mainSearchResult.matchedIndices
+            }]
+          }
+
+          this.results.push(this.resultMap[index])
+        }
+      }
+    } else if (isArray(text)) {
+      for (i = 0; i < text.length; i++) {
+        this._analyze(key, text[i], entity, index)
+      }
+    }
+  }
+
+  Fuse.prototype._computeScore = function () {
+    var i
+    var j
+    var keyMap = this._keyMap
+    var totalScore
+    var output
+    var scoreLen
+    var score
+    var weight
+    var results = this.results
+    var bestScore
+    var nScore
+
+    if (this.options.verbose) log('\n\nComputing score:\n')
+
+    for (i = 0; i < results.length; i++) {
+      totalScore = 0
+      output = results[i].output
+      scoreLen = output.length
+
+      bestScore = 1
+
+      for (j = 0; j < scoreLen; j++) {
+        score = output[j].score
+        weight = keyMap ? keyMap[output[j].key].weight : 1
+
+        nScore = score * weight
+
+        if (weight !== 1) {
+          bestScore = Math.min(bestScore, nScore)
+        } else {
+          totalScore += nScore
+          output[j].nScore = nScore
+        }
+      }
+
+      if (bestScore === 1) {
+        results[i].score = totalScore / scoreLen
+      } else {
+        results[i].score = bestScore
+      }
+
+      if (this.options.verbose) log(results[i])
+    }
+  }
+
+  Fuse.prototype._sort = function () {
+    var options = this.options
+    if (options.shouldSort) {
+      if (options.verbose) log('\n\nSorting....')
+      this.results.sort(options.sortFn)
+    }
+  }
+
+  Fuse.prototype._format = function () {
+    var options = this.options
+    var getFn = options.getFn
+    var finalOutput = []
+    var i
+    var len
+    var results = this.results
+    var replaceValue
+    var getItemAtIndex
+    var include = options.include
+
+    if (options.verbose) log('\n\nOutput:\n\n', results)
+
+    // Helper function, here for speed-up, which replaces the item with its value,
+    // if the options specifies it,
+    replaceValue = options.id ? function (index) {
+      results[index].item = getFn(results[index].item, options.id, [])[0]
+    } : function () {}
+
+    getItemAtIndex = function (index) {
+      var record = results[index]
+      var data
+      var j
+      var output
+      var _item
+      var _result
+
+      // If `include` has values, put the item in the result
+      if (include.length > 0) {
+        data = {
+          item: record.item
+        }
+        if (include.indexOf('matches') !== -1) {
+          output = record.output
+          data.matches = []
+          for (j = 0; j < output.length; j++) {
+            _item = output[j]
+            _result = {
+              indices: _item.matchedIndices
+            }
+            if (_item.key) {
+              _result.key = _item.key
+            }
+            data.matches.push(_result)
+          }
+        }
+
+        if (include.indexOf('score') !== -1) {
+          data.score = results[index].score
+        }
+
+      } else {
+        data = record.item
+      }
+
+      return data
+    }
+
+    // From the results, push into a new array only the item identifier (if specified)
+    // of the entire item.  This is because we don't want to return the <results>,
+    // since it contains other metadata
+    for (i = 0, len = results.length; i < len; i++) {
+      replaceValue(i)
+      finalOutput.push(getItemAtIndex(i))
+    }
+
+    return finalOutput
+  }
+
+  // Helpers
+
+  function deepValue (obj, path, list) {
+    var firstSegment
+    var remaining
+    var dotIndex
+    var value
+    var i
+    var len
+
+    if (!path) {
+      // If there's no path left, we've gotten to the object we care about.
+      list.push(obj)
+    } else {
+      dotIndex = path.indexOf('.')
+
+      if (dotIndex !== -1) {
+        firstSegment = path.slice(0, dotIndex)
+        remaining = path.slice(dotIndex + 1)
+      } else {
+        firstSegment = path
+      }
+
+      value = obj[firstSegment]
+      if (value !== null && value !== undefined) {
+        if (!remaining && (typeof value === 'string' || typeof value === 'number')) {
+          list.push(value)
+        } else if (isArray(value)) {
+          // Search each item in the array.
+          for (i = 0, len = value.length; i < len; i++) {
+            deepValue(value[i], remaining, list)
+          }
+        } else if (remaining) {
+          // An object. Recurse further.
+          deepValue(value, remaining, list)
+        }
+      }
+    }
+
+    return list
+  }
+
+  function isArray (obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]'
+  }
+
+  /**
+   * Adapted from "Diff, Match and Patch", by Google
+   *
+   *   http://code.google.com/p/google-diff-match-patch/
+   *
+   * Modified by: Kirollos Risk <kirollos@gmail.com>
+   * -----------------------------------------------
+   * Details: the algorithm and structure was modified to allow the creation of
+   * <Searcher> instances with a <search> method which does the actual
+   * bitap search. The <pattern> (the string that is searched for) is only defined
+   * once per instance and thus it eliminates redundant re-creation when searching
+   * over a list of strings.
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License")
+   * you may not use this file except in compliance with the License.
+   *
+   * @constructor
+   */
+  function BitapSearcher (pattern, options) {
+    options = options || {}
+    this.options = options
+    this.options.location = options.location || BitapSearcher.defaultOptions.location
+    this.options.distance = 'distance' in options ? options.distance : BitapSearcher.defaultOptions.distance
+    this.options.threshold = 'threshold' in options ? options.threshold : BitapSearcher.defaultOptions.threshold
+    this.options.maxPatternLength = options.maxPatternLength || BitapSearcher.defaultOptions.maxPatternLength
+
+    this.pattern = options.caseSensitive ? pattern : pattern.toLowerCase()
+    this.patternLen = pattern.length
+
+    if (this.patternLen <= this.options.maxPatternLength) {
+      this.matchmask = 1 << (this.patternLen - 1)
+      this.patternAlphabet = this._calculatePatternAlphabet()
+    }
+  }
+
+  BitapSearcher.defaultOptions = {
+    // Approximately where in the text is the pattern expected to be found?
+    location: 0,
+
+    // Determines how close the match must be to the fuzzy location (specified above).
+    // An exact letter match which is 'distance' characters away from the fuzzy location
+    // would score as a complete mismatch. A distance of '0' requires the match be at
+    // the exact location specified, a threshold of '1000' would require a perfect match
+    // to be within 800 characters of the fuzzy location to be found using a 0.8 threshold.
+    distance: 100,
+
+    // At what point does the match algorithm give up. A threshold of '0.0' requires a perfect match
+    // (of both letters and location), a threshold of '1.0' would match anything.
+    threshold: 0.6,
+
+    // Machine word size
+    maxPatternLength: 32
+  }
+
+  /**
+   * Initialize the alphabet for the Bitap algorithm.
+   * @return {Object} Hash of character locations.
+   * @private
+   */
+  BitapSearcher.prototype._calculatePatternAlphabet = function () {
+    var mask = {},
+      i = 0
+
+    for (i = 0; i < this.patternLen; i++) {
+      mask[this.pattern.charAt(i)] = 0
+    }
+
+    for (i = 0; i < this.patternLen; i++) {
+      mask[this.pattern.charAt(i)] |= 1 << (this.pattern.length - i - 1)
+    }
+
+    return mask
+  }
+
+  /**
+   * Compute and return the score for a match with `e` errors and `x` location.
+   * @param {number} errors Number of errors in match.
+   * @param {number} location Location of match.
+   * @return {number} Overall score for match (0.0 = good, 1.0 = bad).
+   * @private
+   */
+  BitapSearcher.prototype._bitapScore = function (errors, location) {
+    var accuracy = errors / this.patternLen,
+      proximity = Math.abs(this.options.location - location)
+
+    if (!this.options.distance) {
+      // Dodge divide by zero error.
+      return proximity ? 1.0 : accuracy
+    }
+    return accuracy + (proximity / this.options.distance)
+  }
+
+  /**
+   * Compute and return the result of the search
+   * @param {string} text The text to search in
+   * @return {{isMatch: boolean, score: number}} Literal containing:
+   *                          isMatch - Whether the text is a match or not
+   *                          score - Overall score for the match
+   * @public
+   */
+  BitapSearcher.prototype.search = function (text) {
+    var options = this.options
+    var i
+    var j
+    var textLen
+    var findAllMatches
+    var location
+    var threshold
+    var bestLoc
+    var binMin
+    var binMid
+    var binMax
+    var start, finish
+    var bitArr
+    var lastBitArr
+    var charMatch
+    var score
+    var locations
+    var matches
+    var isMatched
+    var matchMask
+    var matchedIndices
+    var matchesLen
+    var match
+
+    text = options.caseSensitive ? text : text.toLowerCase()
+
+    if (this.pattern === text) {
+      // Exact match
+      return {
+        isMatch: true,
+        score: 0,
+        matchedIndices: [[0, text.length - 1]]
+      }
+    }
+
+    // When pattern length is greater than the machine word length, just do a a regex comparison
+    if (this.patternLen > options.maxPatternLength) {
+      matches = text.match(new RegExp(this.pattern.replace(options.tokenSeparator, '|')))
+      isMatched = !!matches
+
+      if (isMatched) {
+        matchedIndices = []
+        for (i = 0, matchesLen = matches.length; i < matchesLen; i++) {
+          match = matches[i]
+          matchedIndices.push([text.indexOf(match), match.length - 1])
+        }
+      }
+
+      return {
+        isMatch: isMatched,
+        // TODO: revisit this score
+        score: isMatched ? 0.5 : 1,
+        matchedIndices: matchedIndices
+      }
+    }
+
+    findAllMatches = options.findAllMatches
+
+    location = options.location
+    // Set starting location at beginning text and initialize the alphabet.
+    textLen = text.length
+    // Highest score beyond which we give up.
+    threshold = options.threshold
+    // Is there a nearby exact match? (speedup)
+    bestLoc = text.indexOf(this.pattern, location)
+
+    // a mask of the matches
+    matchMask = []
+    for (i = 0; i < textLen; i++) {
+      matchMask[i] = 0
+    }
+
+    if (bestLoc != -1) {
+      threshold = Math.min(this._bitapScore(0, bestLoc), threshold)
+      // What about in the other direction? (speed up)
+      bestLoc = text.lastIndexOf(this.pattern, location + this.patternLen)
+
+      if (bestLoc != -1) {
+        threshold = Math.min(this._bitapScore(0, bestLoc), threshold)
+      }
+    }
+
+    bestLoc = -1
+    score = 1
+    locations = []
+    binMax = this.patternLen + textLen
+
+    for (i = 0; i < this.patternLen; i++) {
+      // Scan for the best match; each iteration allows for one more error.
+      // Run a binary search to determine how far from the match location we can stray
+      // at this error level.
+      binMin = 0
+      binMid = binMax
+      while (binMin < binMid) {
+        if (this._bitapScore(i, location + binMid) <= threshold) {
+          binMin = binMid
+        } else {
+          binMax = binMid
+        }
+        binMid = Math.floor((binMax - binMin) / 2 + binMin)
+      }
+
+      // Use the result from this iteration as the maximum for the next.
+      binMax = binMid
+      start = Math.max(1, location - binMid + 1)
+      if (findAllMatches) {
+        finish = textLen;
+      } else {
+        finish = Math.min(location + binMid, textLen) + this.patternLen
+      }
+
+      // Initialize the bit array
+      bitArr = Array(finish + 2)
+
+      bitArr[finish + 1] = (1 << i) - 1
+
+      for (j = finish; j >= start; j--) {
+        charMatch = this.patternAlphabet[text.charAt(j - 1)]
+
+        if (charMatch) {
+          matchMask[j - 1] = 1
+        }
+
+        bitArr[j] = ((bitArr[j + 1] << 1) | 1) & charMatch
+
+        if (i !== 0) {
+          // Subsequent passes: fuzzy match.
+          bitArr[j] |= (((lastBitArr[j + 1] | lastBitArr[j]) << 1) | 1) | lastBitArr[j + 1]
+        }
+        if (bitArr[j] & this.matchmask) {
+          score = this._bitapScore(i, j - 1)
+
+          // This match will almost certainly be better than any existing match.
+          // But check anyway.
+          if (score <= threshold) {
+            // Indeed it is
+            threshold = score
+            bestLoc = j - 1
+            locations.push(bestLoc)
+
+            // Already passed loc, downhill from here on in.
+            if (bestLoc <= location) {
+              break
+            }
+
+            // When passing loc, don't exceed our current distance from loc.
+            start = Math.max(1, 2 * location - bestLoc)
+          }
+        }
+      }
+
+      // No hope for a (better) match at greater error levels.
+      if (this._bitapScore(i + 1, location) > threshold) {
+        break
+      }
+      lastBitArr = bitArr
+    }
+
+    matchedIndices = this._getMatchedIndices(matchMask)
+
+    // Count exact matches (those with a score of 0) to be "almost" exact
+    return {
+      isMatch: bestLoc >= 0,
+      score: score === 0 ? 0.001 : score,
+      matchedIndices: matchedIndices
+    }
+  }
+
+  BitapSearcher.prototype._getMatchedIndices = function (matchMask) {
+    var matchedIndices = []
+    var start = -1
+    var end = -1
+    var i = 0
+    var match
+    var len = matchMask.length
+    for (; i < len; i++) {
+      match = matchMask[i]
+      if (match && start === -1) {
+        start = i
+      } else if (!match && start !== -1) {
+        end = i - 1
+        if ((end - start) + 1 >= this.options.minMatchCharLength) {
+            matchedIndices.push([start, end])
+        }
+        start = -1
+      }
+    }
+    if (matchMask[i - 1]) {
+      if ((i-1 - start) + 1 >= this.options.minMatchCharLength) {
+        matchedIndices.push([start, i - 1])
+      }
+    }
+    return matchedIndices
+  }
+
+  // Export to Common JS Loader
+  if (true) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = Fuse
+  } else {}
+
+})(this);
 
 
 /***/ }),
@@ -217922,6 +218338,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Leads/LeadsIndex.vue?vue&type=style&index=0&id=764c47ca&scoped=true&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Leads/LeadsIndex.vue?vue&type=style&index=0&id=764c47ca&scoped=true&lang=css& ***!
@@ -227098,10 +227544,10 @@ exports.default = WSTransport;
 /*!*************************************************!*\
   !*** ./node_modules/twilio-client/package.json ***!
   \*************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, browser, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"twilio-client","_id":"twilio-client@1.7.5","_inBundle":false,"_integrity":"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==","_location":"/twilio-client","_phantomChildren":{"async-limiter":"1.0.0"},"_requested":{"type":"tag","registry":true,"raw":"twilio-client","name":"twilio-client","escapedName":"twilio-client","rawSpec":"","saveSpec":null,"fetchSpec":"latest"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz","_shasum":"4784f78e0e58e55e460f6b388676c9dc79a70d53","_spec":"twilio-client","_where":"/var/www/uhustle-app","browser":{"xmlhttprequest":"./browser/xmlhttprequest.js","ws":"./browser/ws.js"},"bugs":{"url":"https://github.com/twilio/twilio-client.js/issues"},"bundleDependencies":false,"dependencies":{"@twilio/audioplayer":"1.0.4","backoff":"2.5.0","rtcpeerconnection-shim":"1.2.8","ws":"6.1.3","xmlhttprequest":"1.8.0"},"deprecated":false,"description":"Javascript SDK for Twilio Client","devDependencies":{"@types/mocha":"5.0.0","@types/node":"9.6.5","@types/sinon":"5.0.1","@types/ws":"4.0.2","babel-cli":"6.26.0","babel-eslint":"8.2.2","babel-plugin-envify":"1.2.1","babel-plugin-transform-class-properties":"6.24.1","babel-plugin-transform-inline-environment-variables":"0.4.3","babel-preset-es2015":"6.24.1","browserify":"16.2.2","buffer":"5.2.0","chromedriver":"2.31.0","envify":"2.0.1","es-check":"2.0.3","eslint":"4.19.1","eslint-plugin-babel":"4.1.2","express":"4.14.1","geckodriver":"1.8.1","js-yaml":"3.13.1","jsdoc":"3.5.5","jsonwebtoken":"7.4.3","karma":"3.0.0","karma-chrome-launcher":"2.2.0","karma-firefox-launcher":"1.1.0","karma-mocha":"1.3.0","karma-safaritechpreview-launcher":"0.0.6","karma-spec-reporter":"0.0.32","karma-typescript":"3.0.13","karma-typescript-es6-transform":"1.0.4","lodash":"4.17.11","mocha":"3.5.0","npm-run-all":"4.1.2","nyc":"10.1.2","pre-commit":"1.2.2","querystring":"0.2.0","release-tool":"0.2.2","selenium-webdriver":"3.5.0","sinon":"4.0.0","travis-multirunner":"4.5.0","ts-node":"6.0.0","tslint":"5.9.1","twilio":"3.17.0","typedoc":"github:ryan-rowland/typedoc#twilio","typedoc-plugin-as-member-of":"1.0.2","typedoc-plugin-external-module-name":"1.1.3","typedoc-plugin-internal-external":"1.0.10","typedoc-twilio-theme":"1.0.0","typescript":"2.8.1","uglify-js":"3.3.11","vinyl-fs":"3.0.2","vinyl-source-stream":"2.0.0"},"homepage":"https://github.com/twilio/twilio-client.js#readme","keywords":["twilio","client","voice","voip"],"license":"Apache-2.0","main":"./es5/twilio.js","name":"twilio-client","pre-commit":["lint","test:unit","docs:ts"],"repository":{"type":"git","url":"git+ssh://git@github.com/twilio/twilio-client.js.git"},"scripts":{"build":"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min","build:dev":"ENV=dev npm run build","build:dist":"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js","build:dist-min":"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \"/^! twilio-client.js/\" -b beautify=false,ascii_only=true","build:es5":"rimraf ./es5 && babel lib -d es5","build:release":"npm-run-all lint build test:unit test:integration test:webpack test:es5 status","build:ts":"tsc","clean":"rimraf ./coverage ./dist ./es5","coverage":"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts","coverage:check":"nyc check-coverage --lines 60 --branches 60 --functions 60","docs:clean":"rimraf ./docs","docs:js":"jsdoc -r -d dist/docs/js lib/twilio","docs:json":"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected","docs:ts":"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default","extension":"browserify -t brfs extension/token/index.js > extension/token.js","lint":"npm-run-all lint:js lint:ts","lint:js":"eslint lib","lint:ts":"tslint -c tslint.json --project tsconfig.json -t stylish","release":"release","start":"node server.js","status":"git status","test":"npm-run-all test:unit test:frameworks","test:es5":"es-check es5 \"./es5/**/*.js\" ./dist/*.js","test:framework:no-framework":"mocha tests/framework/no-framework.js","test:framework:react":"npm-run-all test:framework:react:*","test:framework:react:build":"cd ./tests/framework/react && npm run build","test:framework:react:install":"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install","test:framework:react:run":"mocha ./tests/framework/react.js","test:frameworks":"npm-run-all test:framework:no-framework test:framework:react","test:integration":"karma start karma.conf.ts","test:selenium":"mocha tests/browser/index.js","test:unit":"nyc mocha -r ts-node/register ./tests/index.ts","test:webpack":"cd ./tests/webpack && npm install && npm test"},"version":"1.7.5"};
+module.exports = {"_args":[["twilio-client@1.7.5","/var/www/uhustle-app"]],"_from":"twilio-client@1.7.5","_id":"twilio-client@1.7.5","_inBundle":false,"_integrity":"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==","_location":"/twilio-client","_phantomChildren":{"async-limiter":"1.0.0"},"_requested":{"type":"version","registry":true,"raw":"twilio-client@1.7.5","name":"twilio-client","escapedName":"twilio-client","rawSpec":"1.7.5","saveSpec":null,"fetchSpec":"1.7.5"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz","_spec":"1.7.5","_where":"/var/www/uhustle-app","browser":{"xmlhttprequest":"./browser/xmlhttprequest.js","ws":"./browser/ws.js"},"bugs":{"url":"https://github.com/twilio/twilio-client.js/issues"},"dependencies":{"@twilio/audioplayer":"1.0.4","backoff":"2.5.0","rtcpeerconnection-shim":"1.2.8","ws":"6.1.3","xmlhttprequest":"1.8.0"},"description":"Javascript SDK for Twilio Client","devDependencies":{"@types/mocha":"5.0.0","@types/node":"9.6.5","@types/sinon":"5.0.1","@types/ws":"4.0.2","babel-cli":"6.26.0","babel-eslint":"8.2.2","babel-plugin-envify":"1.2.1","babel-plugin-transform-class-properties":"6.24.1","babel-plugin-transform-inline-environment-variables":"0.4.3","babel-preset-es2015":"6.24.1","browserify":"16.2.2","buffer":"5.2.0","chromedriver":"2.31.0","envify":"2.0.1","es-check":"2.0.3","eslint":"4.19.1","eslint-plugin-babel":"4.1.2","express":"4.14.1","geckodriver":"1.8.1","js-yaml":"3.13.1","jsdoc":"3.5.5","jsonwebtoken":"7.4.3","karma":"3.0.0","karma-chrome-launcher":"2.2.0","karma-firefox-launcher":"1.1.0","karma-mocha":"1.3.0","karma-safaritechpreview-launcher":"0.0.6","karma-spec-reporter":"0.0.32","karma-typescript":"3.0.13","karma-typescript-es6-transform":"1.0.4","lodash":"4.17.11","mocha":"3.5.0","npm-run-all":"4.1.2","nyc":"10.1.2","pre-commit":"1.2.2","querystring":"0.2.0","release-tool":"0.2.2","selenium-webdriver":"3.5.0","sinon":"4.0.0","travis-multirunner":"4.5.0","ts-node":"6.0.0","tslint":"5.9.1","twilio":"3.17.0","typedoc":"github:ryan-rowland/typedoc#twilio","typedoc-plugin-as-member-of":"1.0.2","typedoc-plugin-external-module-name":"1.1.3","typedoc-plugin-internal-external":"1.0.10","typedoc-twilio-theme":"1.0.0","typescript":"2.8.1","uglify-js":"3.3.11","vinyl-fs":"3.0.2","vinyl-source-stream":"2.0.0"},"homepage":"https://github.com/twilio/twilio-client.js#readme","keywords":["twilio","client","voice","voip"],"license":"Apache-2.0","main":"./es5/twilio.js","name":"twilio-client","pre-commit":["lint","test:unit","docs:ts"],"repository":{"type":"git","url":"git+ssh://git@github.com/twilio/twilio-client.js.git"},"scripts":{"build":"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min","build:dev":"ENV=dev npm run build","build:dist":"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js","build:dist-min":"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \"/^! twilio-client.js/\" -b beautify=false,ascii_only=true","build:es5":"rimraf ./es5 && babel lib -d es5","build:release":"npm-run-all lint build test:unit test:integration test:webpack test:es5 status","build:ts":"tsc","clean":"rimraf ./coverage ./dist ./es5","coverage":"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts","coverage:check":"nyc check-coverage --lines 60 --branches 60 --functions 60","docs:clean":"rimraf ./docs","docs:js":"jsdoc -r -d dist/docs/js lib/twilio","docs:json":"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected","docs:ts":"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default","extension":"browserify -t brfs extension/token/index.js > extension/token.js","lint":"npm-run-all lint:js lint:ts","lint:js":"eslint lib","lint:ts":"tslint -c tslint.json --project tsconfig.json -t stylish","release":"release","start":"node server.js","status":"git status","test":"npm-run-all test:unit test:frameworks","test:es5":"es-check es5 \"./es5/**/*.js\" ./dist/*.js","test:framework:no-framework":"mocha tests/framework/no-framework.js","test:framework:react":"npm-run-all test:framework:react:*","test:framework:react:build":"cd ./tests/framework/react && npm run build","test:framework:react:install":"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install","test:framework:react:run":"mocha ./tests/framework/react.js","test:frameworks":"npm-run-all test:framework:no-framework test:framework:react","test:integration":"karma start karma.conf.ts","test:selenium":"mocha tests/browser/index.js","test:unit":"nyc mocha -r ts-node/register ./tests/index.ts","test:webpack":"cd ./tests/webpack && npm install && npm test"},"version":"1.7.5"};
 
 /***/ }),
 
@@ -242107,69 +242553,87 @@ var render = function() {
     _vm._v(" "),
     !_vm.add_user
       ? _c("div", [
-          _c("div", { staticClass: "row stats" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "div",
-                { staticClass: "left", staticStyle: { "text-align": "left" } },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { "padding-bottom": "18px" }
-                    },
-                    [
-                      _vm.current_user.role_id == 1 ||
-                      _vm.current_user.role_id == 2
-                        ? _c("ul", { staticClass: "headings" }, [
-                            _c("li", [_vm._v("FULL NAME")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("ACCOUNT")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("EMAIL")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("OWNER")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("MOBILE #")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("PACKAGE")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("LAST ACTIVITY")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("ACTIVITY")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("STATUS")])
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_user.role_id == 4
-                        ? _c("ul", { staticClass: "headings" }, [
-                            _c("li", [_vm._v("FULL NAME")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("ACCOUNT")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("EMAIL")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("OWNER")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("MOBILE #")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("PACKAGE")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("LAST ACTIVITY")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("ACTIVITY")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("STATUS")])
-                          ])
-                        : _vm._e()
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
+          _c(
+            "div",
+            { staticClass: "row stats" },
+            [
+              _c("datatable", {
+                attrs: {
+                  id: "datatable",
+                  rows: _vm.users.leads,
+                  columns: _vm.columns,
+                  role: _vm.current_user.role_id,
+                  title: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "left",
+                    staticStyle: { "text-align": "left" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-body",
+                        staticStyle: { "padding-bottom": "18px" }
+                      },
+                      [
+                        _vm.current_user.role_id == 1 ||
+                        _vm.current_user.role_id == 2
+                          ? _c("ul", { staticClass: "headings" }, [
+                              _c("li", [_vm._v("FULL NAME")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("ACCOUNT")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("EMAIL")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("OWNER")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("MOBILE #")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("PACKAGE")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("LAST ACTIVITY")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("ACTIVITY")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("STATUS")])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.current_user.role_id == 4
+                          ? _c("ul", { staticClass: "headings" }, [
+                              _c("li", [_vm._v("FULL NAME")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("ACCOUNT")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("EMAIL")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("OWNER")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("MOBILE #")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("PACKAGE")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("LAST ACTIVITY")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("ACTIVITY")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("STATUS")])
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _vm.users.leads.length > 0
             ? _c(
@@ -244347,6 +244811,321 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card material-table" }, [
+    _c("div", { staticClass: "table-header" }, [
+      _c("span", { staticClass: "table-title" }, [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "actions" },
+        [
+          _vm._l(_vm.customButtons, function(button) {
+            return (button.hide
+            ? !button.hide
+            : true)
+              ? _c(
+                  "a",
+                  {
+                    directives: [
+                      {
+                        name: "nclick",
+                        rawName: "v-nclick",
+                        value: button.onclick,
+                        expression: "button.onclick"
+                      }
+                    ],
+                    staticClass: "nopadding",
+                    staticStyle: { "margin-right": "16px" },
+                    attrs: { href: "javascript:undefined" }
+                  },
+                  [
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v(_vm._s(button.icon))
+                    ])
+                  ]
+                )
+              : _vm._e()
+          }),
+          _vm._v(" "),
+          this.printable
+            ? _c(
+                "a",
+                {
+                  staticClass: "nopadding",
+                  staticStyle: { "margin-right": "16px" },
+                  attrs: { href: "javascript:undefined" },
+                  on: { click: _vm.print }
+                },
+                [_c("i", { staticClass: "material-icons" }, [_vm._v("print")])]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          this.exportable
+            ? _c(
+                "a",
+                {
+                  staticClass: "nopadding",
+                  staticStyle: { "margin-right": "16px" },
+                  attrs: { href: "javascript:undefined" },
+                  on: { click: _vm.exportExcel }
+                },
+                [
+                  _c("i", { staticClass: "material-icons" }, [
+                    _vm._v("export excel")
+                  ])
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          this.searchable
+            ? _c(
+                "a",
+                {
+                  staticClass: "nopadding",
+                  staticStyle: { "margin-right": "16px" },
+                  attrs: { href: "javascript:undefined" },
+                  on: { click: _vm.search }
+                },
+                [_c("i", { staticClass: "material-icons" }, [_vm._v("search")])]
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    this.searching
+      ? _c("div", [
+          _c("div", { attrs: { id: "search-input-container" } }, [
+            _c("label", [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchInput,
+                    expression: "searchInput"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "search",
+                  id: "search-input",
+                  placeholder: "Search data"
+                },
+                domProps: { value: _vm.searchInput },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.searchInput = $event.target.value
+                  }
+                }
+              })
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("table", { ref: "table" }, [
+      _c("thead", [
+        _c(
+          "tr",
+          _vm._l(_vm.columns, function(column, index) {
+            return _c(
+              "th",
+              {
+                class:
+                  (_vm.sortable ? "sorting " : "") +
+                  (_vm.sortColumn === index
+                    ? _vm.sortType === "desc"
+                      ? "sorting-desc"
+                      : "sorting-asc"
+                    : "") +
+                  (column.numeric ? " numeric" : ""),
+                style: { width: column.width ? column.width : "auto" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort(index)
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(column.label) +
+                    "\n                "
+                )
+              ]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.paginated, function(row, index) {
+          return _c(
+            "tr",
+            {
+              class: _vm.onClick ? "clickable" : "",
+              on: {
+                click: function($event) {
+                  return _vm.click(row, index)
+                }
+              }
+            },
+            [
+              _vm._l(_vm.columns, function(column) {
+                return column.field != "creator"
+                  ? _c("td", { class: column.numeric ? "numeric" : "" }, [
+                      _c("span", [
+                        _vm._v(" " + _vm._s(_vm.collect(row, column.field)))
+                      ])
+                    ])
+                  : _vm._e()
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.columns, function(column) {
+                return column.field == "creator"
+                  ? _c("td", { class: column.numeric ? "numeric" : "" }, [
+                      _c("span", [
+                        _vm._v(" " + _vm._s(_vm.collect(row.id, column.field)))
+                      ])
+                    ])
+                  : _vm._e()
+              })
+            ],
+            2
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _vm.paginate
+      ? _c("div", { staticClass: "table-footer" }, [
+          _c("div", { staticClass: "datatable-length" }, [
+            _c("label", [
+              _c("span", [_vm._v("Rows per page:")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "browser-default",
+                  on: { change: _vm.onTableLength }
+                },
+                [
+                  _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "40" } }, [_vm._v("40")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "-1" } }, [_vm._v("All")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "datatable-info" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(
+                  (_vm.currentPage - 1) * _vm.currentPerPage
+                    ? (_vm.currentPage - 1) * _vm.currentPerPage
+                    : 1
+                ) +
+                " -" +
+                _vm._s(
+                  Math.min(
+                    _vm.processedRows.length,
+                    _vm.currentPerPage * _vm.currentPage
+                  )
+                ) +
+                " of " +
+                _vm._s(_vm.processedRows.length) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("ul", { staticClass: "material-pagination" }, [
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.previousPage($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v("chevron_left")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.nextPage($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v("chevron_right")
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -286914,6 +287693,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_2c246ed2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_2c246ed2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/ContactsDataTable.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ContactsDataTable.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true& */ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true&");
+/* harmony import */ var _ContactsDataTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsDataTable.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& */ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ContactsDataTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c0c20230",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/DataTables/ContactsDataTable.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsDataTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=style&index=0&id=c0c20230&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_style_index_0_id_c0c20230_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true& ***!
+  \********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ContactsDataTable.vue?vue&type=template&id=c0c20230&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsDataTable_vue_vue_type_template_id_c0c20230_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

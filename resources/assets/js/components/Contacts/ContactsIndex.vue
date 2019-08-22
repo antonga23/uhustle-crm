@@ -287,7 +287,9 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
+
             <div class="row stats">
+                <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" title=""></datatable>
                 <div class="col-lg-12">
                     <div class="left" style="text-align: left;">
                         <div class="card-body" style="padding-bottom: 18px;">
@@ -551,10 +553,12 @@ table.listing tr  th{
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
+    import DataTable from '../DataTables/ContactsDataTable';
     export default {
         extends: Bar,
         components: { 
             BarChart,
+            'datatable' : DataTable
         },
         mounted() {
             console.log('Component mounted');
@@ -593,7 +597,7 @@ table.listing tr  th{
         data: function(){
             return {
                 users : {
-                    leads: '',
+                    leads: [],
                     count_leads: '',
                     count_unassigned: '',
                     count_assigned: '',
@@ -622,7 +626,79 @@ table.listing tr  th{
                 current_user: [],
                 filter_data: [],
                 add_user: false,
-                Toast: null
+                Toast: null,
+                columns:[
+                    {
+                        label: 'NAME',  // Column name
+                        field: 'name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'SURNAME',  // Column name
+                        field: 'surname',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'EMAIL',  // Column name
+                        field: 'email',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'creator',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'phone_number',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'LAST ACTIVITY',  // Column name
+                        field: 'comments',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ACTIVITY',  // Column name
+                        field: 'comments',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                ]
             }
         },
         methods: {
