@@ -24,11 +24,12 @@ class Lead extends Model
         'is_client',
         'product_id',
         'status',
+        'start_date',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_assigned_id');
+        return $this->belongsTo(User::class, 'user_assigned');
     }
 
     public function creator()
@@ -56,7 +57,7 @@ class Lead extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function source()
+    public function lead_source()
     {
         return $this->belongsTo('App\LeadSource', 'source');
     }

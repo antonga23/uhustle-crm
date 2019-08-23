@@ -1,29 +1,5 @@
 <template>
     <div class="card material-table">
-        <div class="table-header">
-            <span class="table-title">{{title}}</span>
-            <div class="actions">
-                <a style="margin-right: 16px;" v-for="button in customButtons" href="javascript:undefined" class="nopadding" v-if="button.hide ? !button.hide : true" v-nclick="button.onclick">
-                    <i class="material-icons">{{button.icon}}</i>
-                </a>
-                <a style="margin-right: 16px;" href="javascript:undefined" class="nopadding" v-if="this.printable" @click="print">
-                    <i class="material-icons">print</i>
-                </a>
-                <a style="margin-right: 16px;" href="javascript:undefined" class="nopadding" v-if="this.exportable" @click="exportExcel">
-                    <i class="material-icons">export excel</i>
-                </a>
-                <a style="margin-right: 16px;" href="javascript:undefined" class="nopadding" v-if="this.searchable" @click="search">
-                    <i class="material-icons">search</i>
-                </a>
-            </div>
-        </div>
-        <div v-if="this.searching">
-            <div id="search-input-container">
-                <label>
-                    <input type="search" id="search-input" class="form-control" placeholder="Search data" v-model="searchInput">
-                </label>
-            </div>
-        </div>
         <table ref="table">
             <thead>
                 <tr>
@@ -38,11 +14,11 @@
             </thead>
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)">
-                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-if="column.field != 'creator'">
+                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" >
                         <span > {{ collect(row, column.field) }}</span>
-                    </td>
-                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-if="column.field == 'creator'">
-                        <span > {{ collect(row.id, column.field) }}</span>
+                        <!-- <span v-if="row.status == 0"> Canceled</span>
+                        <span v-if="row.status == 1"> Active</span>
+                        <span v-if="row.status == 2"> Pending</span> -->
                     </td>
                 </tr>
             </tbody>
@@ -52,7 +28,7 @@
                 <label>
                     <span>Rows per page:</span>
                     <select class="browser-default" @change="onTableLength">
-                        <option value="10">10</option>
+                        <option value="11">11</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
@@ -119,7 +95,19 @@ export default {
             default: true
         },
     },
-
+    mounted(){
+        var vm = this;
+        Fire.$on('Export', function(){
+            vm.exportExcel();
+        });        
+        Fire.$on('Print', function(){        
+            vm.print();
+        });
+        Fire.$on('Search', function(data){
+            vm.searching = true;    
+            vm.searchInput = data.search_term;
+        });
+    },
     data() {
         return {
             view_claim: {
@@ -130,7 +118,7 @@ export default {
             showModal: false,
             loading: false,
             currentPage: 1,
-            currentPerPage: 10,
+            currentPerPage: 11,
             sortColumn: -1,
             sortType: 'asc',
             searching: false,
@@ -140,7 +128,6 @@ export default {
             Toast: '',
         }
     },
-
     methods: {
         nextPage() {
             if (this.processedRows.length > this.currentPerPage * this.currentPage)
@@ -327,7 +314,9 @@ tr.clickable {
 }
 
 table {
-    table-layout: fixed;
+    /* table-layout: fixed; */
+    border-collapse: separate;
+    border-spacing: 0 6px;
 }
 
 .table-header {
@@ -457,11 +446,10 @@ table {
 }
 
 table tr td {
-    padding: 0 0 0 56px;
     height: 48px;
     font-size: 13px;
     color: rgba(0, 0, 0, 0.87);
-    border-bottom: solid 1px #DDDDDD;
+    /* border-bottom: solid 1px #DDDDDD; */
     display: table-cell;
     /* white-space: nowrap;
     overflow: hidden;
@@ -479,6 +467,7 @@ table tr td a i {
 
 table tr {
     font-size: 12px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 table th {
@@ -489,7 +478,7 @@ table th {
     white-space: nowrap;
     padding: 0;
     height: 56px;
-    padding-left: 56px;
+    padding-left: 0px;
     vertical-align: middle;
     outline: none !important;
     overflow: hidden;
@@ -546,6 +535,6 @@ table td:last-child {
 
 table th:first-child,
 table td:first-child {
-    padding-left: 24px;
+    padding-left: 14px;
 }
 </style>

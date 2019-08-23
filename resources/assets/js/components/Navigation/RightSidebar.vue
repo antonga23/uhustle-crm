@@ -776,7 +776,7 @@ label.custom-control-label{
 												<div class="row" style="padding:5px  0;">
 													<div class="col-lg-12">
 														<div :class="{'input search': true, 'form-group' :true }">
-															<input v-on:keyup="filterData()" placeholder="Search:" type="search" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
+															<input v-on:keyup="fireSearchEvent('Search')" placeholder="Search:" type="search" id="search" ref="search" name="Search" v-model="filter.search" class="form-control">
 														</div>
 													</div>
 												</div>
@@ -787,15 +787,15 @@ label.custom-control-label{
 													</div>
 													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
-																Highest - Lowest
+															<button v-on:click="fireTableEvent('Print')" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+																Print
 															</button>
 														</div>
 													</div>
 													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<button v-on:click="clearFilter();" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
-																Lowest - Highest
+															<button v-on:click="fireTableEvent('Export')" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+																Export
 															</button>
 														</div>
 													</div>
@@ -1193,6 +1193,12 @@ label.custom-control-label{
 						
 					}
 				});
+			},
+			fireTableEvent(event = ''){
+				Fire.$emit(event);
+			},
+			fireSearchEvent(){
+				Fire.$emit('Search',{'search_term' : this.filter.search});
 			}
 		},
 		computed: {

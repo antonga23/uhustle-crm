@@ -288,10 +288,10 @@ table.listing tr  th{
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
 
-            <div class="row stats">
-                <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" title=""></datatable>
+            <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <div class="left" style="text-align: left;">
+                    <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" title=""></datatable>
+                    <!-- <div class="left" style="text-align: left;">
                         <div class="card-body" style="padding-bottom: 18px;">
                             <ul class="headings" v-if="current_user.role_id == 1 || current_user.role_id == 2">
                                 <li>FULL NAME</li>
@@ -316,10 +316,10 @@ table.listing tr  th{
                                 <li>STATUS</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div :class="{ 'row stats': true, 'scroll-hidden' : users.leads.length > 8 }" v-if="users.leads.length > 0">
+            <!-- <div :class="{ 'row stats': true, 'scroll-hidden' : users.leads.length > 8 }" v-if="users.leads.length > 0">
                 <div class="col-lg-12" v-for="(item,index) in users.leads" :key="index">
                     <div class="card left" style="text-align: left;">
                         <div class="card-body" style="padding-bottom: 12px;padding-top: 12px;">
@@ -370,7 +370,7 @@ table.listing tr  th{
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div v-else>
               <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
@@ -575,7 +575,6 @@ table.listing tr  th{
 				vm.filter_data = data.filters;
             });
             
-            
 			Fire.$on('AddingUser', function(data){
 				vm.add_user = !vm.add_user;
             });
@@ -629,15 +628,8 @@ table.listing tr  th{
                 Toast: null,
                 columns:[
                     {
-                        label: 'NAME',  // Column name
-                        field: 'name',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'SURNAME',  // Column name
-                        field: 'surname',  // Field name from row
+                        label: 'FULL NAME',  // Column name
+                        field: 'full_name',  // Field name from row
                         numeric: false, // Affects sorting
                         html: false,    // Escapes output if false.
                         sortable:true
@@ -657,6 +649,13 @@ table.listing tr  th{
                         sortable:true
                     },
                     {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
                         label: 'MOBILE #',  // Column name
                         field: 'phone_number',  // Field name from row
                         numeric: false, // Affects sorting
@@ -668,22 +667,30 @@ table.listing tr  th{
                         field: 'product',  // Field name from row
                         numeric: false, // Affects sorting
                         html: false,    // Escapes output if false.
-                        sortable:true
+                        sortable:true,
+                        exportable: true
                     },
                     {
-                        label: 'LAST ACTIVITY',  // Column name
-                        field: 'comments',  // Field name from row
+                        label: 'START DATE',  // Column name
+                        field: 'start_date',  // Field name from row
                         numeric: false, // Affects sorting
                         html: false,    // Escapes output if false.
                         sortable:true
                     },
-                    {
-                        label: 'ACTIVITY',  // Column name
-                        field: 'comments',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
+                    // {
+                    //     label: 'LAST ACTIVITY',  // Column name
+                    //     field: 'last_activity',  // Field name from row
+                    //     numeric: false, // Affects sorting
+                    //     html: false,    // Escapes output if false.
+                    //     sortable:true
+                    // },
+                    // {
+                    //     label: 'ACTIVITY',  // Column name
+                    //     field: 'activity',  // Field name from row
+                    //     numeric: false, // Affects sorting
+                    //     html: false,    // Escapes output if false.
+                    //     sortable:true
+                    // },
                     {
                         label: 'STATUS',  // Column name
                         field: 'status',  // Field name from row
