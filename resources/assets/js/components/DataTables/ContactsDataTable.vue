@@ -7,18 +7,17 @@
                             + (sortColumn === index ?
                                 (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                 : '')
-                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}">
+                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
                         {{column.label}}
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)">
-                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" >
-                        <span > {{ collect(row, column.field) }}</span>
-                        <!-- <span v-if="row.status == 0"> Canceled</span>
-                        <span v-if="row.status == 1"> Active</span>
-                        <span v-if="row.status == 2"> Pending</span> -->
+                <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
+                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
+                        <span v-if="column.field == 'full_name'"> <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a></span>
+                        <span v-else-if="column.field == 'status'"> <a href="#"  @click="showEditModal(row.lead)"  title="Edit">{{ collect(row, column.field) }}</a></span>
+                        <span v-else> <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a></span>
                     </td>
                 </tr>
             </tbody>
@@ -57,6 +56,94 @@
         </div>
         <!-- Modal Start Summary-->
 
+        <div>
+            <b-modal
+            id="update-user-modal"
+            ref="modalUpdateUser"
+            title="Update Contact"
+            size="lg"
+            header-text-variant="light"
+            header-bg-variant="warning"
+            @ok="handleOk"
+            >
+                <a-card title="Lead Information">
+                    <form ref="form" @submit.stop.prevent="handleSubmit">
+                        <div :class="{'input': true, 'form-group' :true }">
+                            <label class="col-lg-4 control-label">Title
+                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
+                            </label>
+                            <label class="col-lg-4 control-label">Name
+                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
+                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Surname
+                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
+                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Account
+                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
+                            </label>
+                            <label class="col-lg-4 control-label">Email
+                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
+                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Owner
+                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
+                                    <option value="">- Please Choose Lead Owner </option>
+                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Mobile number
+                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
+                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Package
+                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
+                                    <option value="">- Please Choose Package</option>
+                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
+                                </select>
+                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Assigned To
+                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
+                                    <option value="">- Please Choose Assignee</option>
+                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Lead Source
+                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
+                                    <option value="">- Please Choose Source</option>
+                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Country
+                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
+                            </label>
+                            <label class="col-lg-4 control-label">City
+                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
+                            </label>
+                            <label class="col-lg-4 control-label">Status
+                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
+                                    <option value="">- Please Choose Status </option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                    <option value="0">Canceled</option>
+                                </select>
+                            </label>
+                        </div>
+                    </form>
+                </a-card>
+                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
+                    <a-list itemLayout="horizontal" :dataSource="user.comments">
+                        <a-list-item slot="renderItem" slot-scope="item, index">
+                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
+                                <a slot="title" href="#">{{item.user_name}}</a>
+                            </a-list-item-meta>
+                        </a-list-item>
+                    </a-list>
+                </a-card>
+            </b-modal>
+        </div>
         <!-- Modal -->
     </div>
 </template>
@@ -66,6 +153,7 @@ export default {
     props: {
         role: '',
         title: {},
+        users: null,
         columns: {
             required: true
         },
@@ -107,12 +195,36 @@ export default {
             vm.searching = true;    
             vm.searchInput = data.search_term;
         });
+
+        this.Toast = vm.$swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
     },
     data() {
         return {
             view_claim: {
                 claim : [],
                 hub : [],
+            },
+            user: {
+                name: '',
+                surname: '',
+                account: '',
+                email: '',
+                user_created_id: '',
+                phone_number: '',
+                product_id: '',
+                user_assigned: '',
+                source: '',
+                status: '',
+                title: '',
+                country: '',
+                city: '',
+                comments: [],
+                assigned: [],
             },
             summaryModal: false,
             showModal: false,
@@ -129,6 +241,72 @@ export default {
         }
     },
     methods: {
+        showEditModal(user){
+            var vm = this;
+            this.user = user;
+            this.user.source = user.lead_source;
+            this.$bvModal.show('update-user-modal');
+        },
+        handleOk(bvModalEvt) {
+            // Prevent modal from closing
+            bvModalEvt.preventDefault()
+            // Trigger submit handler
+            this.handleSubmit()
+        },
+        handleSubmit(){
+            var vm = this;  
+            vm.$Progress.start();
+            this.$validator.validateAll().then((result) => {
+                    if(!result){
+                    }else{
+                        axios.post('/leads/update',vm.user).then(function (response) {
+                                
+                            if(response.data.success == true){
+                                vm.Toast.fire({ type: 'success', title: response.data.message });
+                                Fire.$emit('ReloadLeads');
+                                vm.$bvModal.hide('update-user-modal');
+                                vm.user = {
+                                    comments: [],
+                                    assigned: [],
+                                };
+                                vm.$Progress.finish();
+                            }else if(response.data.errors.email[0] != ''){
+                                vm.$Progress.fail();
+                                vm.$swal('Failed', response.data.errors.email[0] ,'warning');
+                            }else{
+                                vm.$Progress.fail();
+                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                            }
+                        });
+                    }
+            });
+        },
+        deleteItem(id){
+            var vm = this;  
+            vm.$swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F56C6C',
+                cancelButtonColor: '#409EFF',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    vm.$Progress.start();
+                    axios.get('/leads/delete/' + id).then(function (response) {
+                        if(response.data.success == true){
+                            vm.Toast.fire({ type: 'success', title: response.data.message });
+                            Fire.$emit('ReloadLeads');
+                            vm.$Progress.finish();
+                        }else{
+                            vm.$Progress.fail();
+                            vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
+                        }
+                    });
+                }
+            });
+        },
         nextPage() {
             if (this.processedRows.length > this.currentPerPage * this.currentPage)
                 ++this.currentPage;
@@ -284,6 +462,9 @@ export default {
 }
 </script>
 <style scoped>
+.control-label{
+    float: left;
+}
 div.material-table {
     padding: 0;
 }
@@ -495,7 +676,7 @@ table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
 }
 
-table th.sorting:after,
+/* table th.sorting:after,
 table th.sorting-asc:after {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -512,7 +693,7 @@ table th.sorting-asc:after {
     -webkit-transform: rotate(90deg);
     display: none;
     vertical-align: middle;
-}
+} */
 
 table th.sorting:hover:after,
 table th.sorting-asc:after,
@@ -520,9 +701,9 @@ table th.sorting-desc:after {
     display: inline-block;
 }
 
-table th.sorting-desc:after {
+/* table th.sorting-desc:after {
     content: "arrow_forward ";
-}
+} */
 
 table tbody tr:hover {
     background-color: #EEE;

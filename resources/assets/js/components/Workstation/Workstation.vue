@@ -644,7 +644,7 @@ a.down-scroll:hover{
                 <ul class="top-section">
                     <li>
                         <p class="top">Lead Source</p>
-                        <p class="bottom">{{ lead_info.source.name }}</p>
+                        <p class="bottom">{{ lead_info.lead_source.name }}</p>
                     </li>
                     <li>
                         <p class="top">Called</p>

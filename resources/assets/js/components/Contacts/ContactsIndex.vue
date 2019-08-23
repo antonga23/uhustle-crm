@@ -290,7 +290,7 @@ table.listing tr  th{
 
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" title=""></datatable>
+                    <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
                     <!-- <div class="left" style="text-align: left;">
                         <div class="card-body" style="padding-bottom: 18px;">
                             <ul class="headings" v-if="current_user.role_id == 1 || current_user.role_id == 2">
@@ -459,94 +459,6 @@ table.listing tr  th{
                 </div>
             </a-card>
         </div>
-        <div>
-            <b-modal
-            id="update-user-modal"
-            ref="modalUpdateUser"
-            title="Update Contact"
-            size="lg"
-            header-text-variant="light"
-            header-bg-variant="warning"
-            @ok="handleOk"
-            >
-                <a-card title="Lead Information">
-                    <form ref="form" @submit.stop.prevent="handleSubmit">
-                        <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
-                </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-            </b-modal>
-        </div>
     </div>
 </template>
 
@@ -581,6 +493,10 @@ table.listing tr  th{
 
 			Fire.$on('FilterData', function(data){
 				vm.applyFilter(data);
+            });
+
+			Fire.$on('ReloadLeads', function(data){
+				vm.getUsers(-1);
             });
 
             vm.Toast = vm.$swal.mixin({
@@ -818,71 +734,6 @@ table.listing tr  th{
                             });
 						}
 				});
-            },
-            showEditModal(user){
-                var vm = this;
-                this.user = user;
-                this.$bvModal.show('update-user-modal');
-            },
-            handleOk(bvModalEvt) {
-                // Prevent modal from closing
-                bvModalEvt.preventDefault()
-                // Trigger submit handler
-                this.handleSubmit()
-            },
-            handleSubmit(){
-				var vm = this;  
-				vm.$Progress.start();
-				this.$validator.validateAll().then((result) => {
-                        if(!result){
-                        }else{
-                            axios.post('/leads/update',vm.user).then(function (response) {
-                                    
-                                if(response.data.success == true){
-                                    vm.Toast.fire({ type: 'success', title: response.data.message });
-                                    vm.getUsers();
-                                    vm.$bvModal.hide('update-user-modal');
-                                    vm.user = {
-                                        comments: [],
-                                        assigned: [],
-                                    };
-                                    vm.$Progress.finish();
-                                }else if(response.data.errors.email[0] != ''){
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', response.data.errors.email[0] ,'warning');
-                                }else{
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                                }
-                            });
-						}
-				});
-            },
-            deleteItem(id){
-                var vm = this;  
-                vm.$swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#F56C6C',
-                    cancelButtonColor: '#409EFF',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        vm.$Progress.start();
-                        axios.get('/leads/delete/' + id).then(function (response) {
-                            if(response.data.success == true){
-                                vm.Toast.fire({ type: 'success', title: response.data.message });
-                                vm.getUsers(-1);
-                                vm.$Progress.finish();
-                            }else{
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
-                            }
-                        });
-                    }
-                });
             },
             applyFilter(filter){
                 var vm = this;

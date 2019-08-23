@@ -768,7 +768,30 @@ label.custom-control-label{
 
 								<div class="tab-content" id="myTabContent">
 									<div class="tab-pane fade show active p-3" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-										<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />          
+										<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />
+										<div class="row">
+											<div class="col-lg-12">
+												<p class="heading">Badges</p>
+											</div>
+											<div class="col-lg-12">
+												
+												<div class="position" style="display:none;">
+													<span>12<sup>th</sup></span>
+												</div>
+
+												<div class="badge badge-1">
+													<img src="/images/icons/Colonel@4x.png" alt="Badge">
+												</div>
+
+												<div class="badge badge-2">
+													<img src="/images/icons/Corporal@4x.png" alt="Badge">
+												</div>
+
+												<div class="badge badge-2">
+													<img src="/images/icons/Captain@4x.png" alt="Badge">
+												</div>
+											</div>
+										</div>          
 									</div>
 									<div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
 										<div class="row">
@@ -893,30 +916,6 @@ label.custom-control-label{
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-lg-12">
-							<p class="heading">Badges</p>
-						</div>
-						<div class="col-lg-12">
-							
-							<div class="position" style="display:none;">
-								<span>12<sup>th</sup></span>
-							</div>
-
-							<div class="badge badge-1">
-								<img src="/images/icons/Colonel@4x.png" alt="Badge">
-							</div>
-
-							<div class="badge badge-2">
-								<img src="/images/icons/Corporal@4x.png" alt="Badge">
-							</div>
-
-							<div class="badge badge-2">
-								<img src="/images/icons/Captain@4x.png" alt="Badge">
 							</div>
 						</div>
 					</div>

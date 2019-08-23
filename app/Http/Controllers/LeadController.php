@@ -585,7 +585,7 @@ class LeadController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count(), 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
@@ -614,7 +614,7 @@ class LeadController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => 0])->count(), 
                 'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
@@ -647,7 +647,7 @@ class LeadController extends Controller
             }  
             return array(
                 'success' => true,
-                'leads' => $compact_leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
@@ -705,11 +705,12 @@ class LeadController extends Controller
             if($lead->status == 1){
                 $status = 'Active';
             }else if($lead->status == 2){
-                $status = 'Pending';
+                $status = 'Inactive';
             }else if($lead->status == 0){
                 $status = 'Canceled';
             }
 
+            $data->id = $lead->id;
             $data->full_name = $lead->title . ' ' . $lead->name . ' ' . $lead->surname;
             $data->email = $lead->email ;
             $data->creator = $lead->creator['name'] . ' ' . $lead->creator['lastname'];
@@ -721,7 +722,8 @@ class LeadController extends Controller
             $data->activity = $last_activity['comment_type'] ;
             $data->activity_note = $last_activity['description'] ;
             $data->start_date = $lead->start_date ;
-            $data->status  = $status ;
+            $data->status  = $status;
+            $data->lead  = $lead;
 
             array_push($compact_leads, $data);
 

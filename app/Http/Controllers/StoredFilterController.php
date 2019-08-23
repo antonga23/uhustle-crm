@@ -6,6 +6,7 @@ use DB;
 use App\User;
 use App\Lead;
 use App\Product;
+use App\Comment;
 use App\LeadSource;
 use App\StoredFilterAttribute;
 use App\StoredFilter;
@@ -150,7 +151,7 @@ class StoredFilterController extends Controller
         }
         }
 
-        $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
+        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
             ->whereRaw($sql)
             ->where(['is_client' => $type])
             ->orderBy('updated_at', 'DESC')
@@ -196,7 +197,7 @@ class StoredFilterController extends Controller
 
             $count_assigned = Lead::where(['is_client' => $type])->where(['user_assigned' => Auth::user()->id])->count();    
     
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
                     ->whereRaw($sql)
                     ->where(['user_assigned' => Auth::user()->id])
                     ->where(['is_client' => $type])
@@ -205,7 +206,7 @@ class StoredFilterController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => $type])->where(['user_assigned' => Auth::user()->id])->count(), 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
@@ -218,7 +219,7 @@ class StoredFilterController extends Controller
     
             $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => $type])->count();
             
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
                                 ->whereRaw($sql)
                                 ->where(['is_client' => $type])
                                 ->orderBy('updated_at', 'DESC')
@@ -226,7 +227,7 @@ class StoredFilterController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => $type])->count(), 
                 'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
@@ -237,6 +238,7 @@ class StoredFilterController extends Controller
             );
         }     
     }
+
     public function filterClientsData(Request $request){
 
         $data = $request->filter;
@@ -275,7 +277,7 @@ class StoredFilterController extends Controller
 
             $count_assigned = Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();    
     
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
                     ->whereRaw($sql)
                     ->where(['user_assigned' => Auth::user()->id])
                     ->where(['is_client' => 1])
@@ -284,7 +286,7 @@ class StoredFilterController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count(), 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
@@ -297,7 +299,7 @@ class StoredFilterController extends Controller
     
             $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => 1])->count();
             
-            $leads = Lead::with('product')->with('source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
                                 ->whereRaw($sql)
                                 ->where(['is_client' => 1])
                                 ->orderBy('updated_at', 'DESC')
@@ -305,7 +307,7 @@ class StoredFilterController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $leads, 
+                'leads' => $this->compactLeads($leads), 
                 'count_leads' => Lead::where(['is_client' => 1])->count(), 
                 'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
@@ -315,6 +317,48 @@ class StoredFilterController extends Controller
                 'sources' => LeadSource::get(), 
             );
         }     
+    }
+
+    public function compactLeads($leads = null){
+
+        $compact_leads = [];
+
+        foreach($leads as $key => $lead){
+            $data = new \StdClass();
+
+            $last_activity = $this->getLastActivity($lead->id);
+            
+            if($lead->status == 1){
+                $status = 'Active';
+            }else if($lead->status == 2){
+                $status = 'Inactive';
+            }else if($lead->status == 0){
+                $status = 'Canceled';
+            }
+
+            $data->id = $lead->id;
+            $data->full_name = $lead->title . ' ' . $lead->name . ' ' . $lead->surname;
+            $data->email = $lead->email ;
+            $data->creator = $lead->creator['name'] . ' ' . $lead->creator['lastname'];
+            $data->assignee = $lead->user['name'] . ' ' . $lead->user['lastname'];
+            $data->phone_number = $lead->phone_number ;
+            $data->product = $lead->product['name'] ;
+            $data->source = $lead->lead_source['name'] ;
+            $data->last_activity =   $last_activity['updated_at'];
+            $data->activity = $last_activity['comment_type'] ;
+            $data->activity_note = $last_activity['description'] ;
+            $data->start_date = $lead->start_date ;
+            $data->status  = $status;
+            $data->lead  = $lead;
+
+            array_push($compact_leads, $data);
+
+        }
+        return $compact_leads;
+    }
+
+    public function getLastActivity($lead_id){
+        return Comment::where(['source_id' => $lead_id])->latest()->first();
     }
 
     public function filterCounts(Request $request,$type = null){
@@ -351,7 +395,7 @@ class StoredFilterController extends Controller
             }
         }
 
-        $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
+        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
             ->whereRaw($sql)
             ->where(['is_client' => $type])
             ->orderBy('updated_at', 'DESC')
