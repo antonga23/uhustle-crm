@@ -585,7 +585,7 @@ class LeadController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $this->compactLeads($leads), 
+                'leads' => $leads, 
                 'count_leads' => Lead::where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->count(), 
                 'count_assigned' => $count_assigned, 
                 'assignees' => User::where(['activated' => 1])->whereIn('role_id', [2,3,4])->orderBy('name', 'ASC')->get(), 
@@ -614,7 +614,7 @@ class LeadController extends Controller
             
             return array(
                 'success' => true,
-                'leads' => $this->compactLeads($leads), 
+                'leads' => $leads, 
                 'count_leads' => Lead::where(['is_client' => 0])->count(), 
                 'count_unassigned' => $count_unassigned, 
                 'count_assigned' => $count_assigned, 
