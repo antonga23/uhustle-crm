@@ -754,12 +754,12 @@ label.custom-control-label{
 								<div class="card-header tab-card-header">
 									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
 										<li class="nav-item left">
-											<a class="nav-link active" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
+											<a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true">
 												<span class="left">Calendar</span>
 											</a>
 										</li>
 										<li class="nav-item right">
-											<a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
+											<a class="nav-link" id="search-panel-tab" data-toggle="tab" href="#search-panel" role="tab" aria-controls="Search" aria-selected="false">
 												<span class="left">Search</span>
 											</a>
 										</li>
@@ -767,10 +767,10 @@ label.custom-control-label{
 								</div>
 
 								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+									<div class="tab-pane fade show active p-3" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
 										<vc-calendar :attributes='attrs' title-position="right" is-expanded :popover="true" />          
 									</div>
-									<div class="tab-pane fade p-3 search" id="four" role="tabpanel" aria-labelledby="four-tab">
+									<div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="row" style="padding:5px  0;">

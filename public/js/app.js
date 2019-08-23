@@ -250045,9 +250045,9 @@ var render = function() {
                           {
                             staticClass: "tab-pane fade show active p-3",
                             attrs: {
-                              id: "three",
+                              id: "calendar",
                               role: "tabpanel",
-                              "aria-labelledby": "three-tab"
+                              "aria-labelledby": "calendar-tab"
                             }
                           },
                           [
@@ -250068,9 +250068,9 @@ var render = function() {
                           {
                             staticClass: "tab-pane fade p-3 search",
                             attrs: {
-                              id: "four",
+                              id: "search-panel",
                               role: "tabpanel",
-                              "aria-labelledby": "four-tab"
+                              "aria-labelledby": "search-panel-tab"
                             }
                           },
                           [
@@ -251234,11 +251234,11 @@ var staticRenderFns = [
               {
                 staticClass: "nav-link active",
                 attrs: {
-                  id: "three-tab",
+                  id: "calendar-tab",
                   "data-toggle": "tab",
-                  href: "#three",
+                  href: "#calendar",
                   role: "tab",
-                  "aria-controls": "Three",
+                  "aria-controls": "Calendar",
                   "aria-selected": "true"
                 }
               },
@@ -251252,11 +251252,11 @@ var staticRenderFns = [
               {
                 staticClass: "nav-link",
                 attrs: {
-                  id: "four-tab",
+                  id: "search-panel-tab",
                   "data-toggle": "tab",
-                  href: "#four",
+                  href: "#search-panel",
                   role: "tab",
-                  "aria-controls": "Four",
+                  "aria-controls": "Search",
                   "aria-selected": "false"
                 }
               },
