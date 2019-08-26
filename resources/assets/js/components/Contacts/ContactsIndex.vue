@@ -287,90 +287,11 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
                     <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
-                    <!-- <div class="left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 18px;">
-                            <ul class="headings" v-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                <li>FULL NAME</li>
-                                <li>ACCOUNT</li>
-                                <li>EMAIL</li>
-                                <li>OWNER</li>
-                                <li>MOBILE #</li>
-                                <li>PACKAGE</li>
-                                <li>LAST ACTIVITY</li>
-                                <li>ACTIVITY</li>
-                                <li>STATUS</li>
-                            </ul>
-                            <ul class="headings" v-if="current_user.role_id == 4">
-                                <li>FULL NAME</li>
-                                <li>ACCOUNT</li>
-                                <li>EMAIL</li>
-                                <li>OWNER</li>
-                                <li>MOBILE #</li>
-                                <li>PACKAGE</li>
-                                <li>LAST ACTIVITY</li>
-                                <li>ACTIVITY</li>
-                                <li>STATUS</li>
-                            </ul>
-                        </div>
-                    </div> -->
                 </div>
             </div>
-            <!-- <div :class="{ 'row stats': true, 'scroll-hidden' : users.leads.length > 8 }" v-if="users.leads.length > 0">
-                <div class="col-lg-12" v-for="(item,index) in users.leads" :key="index">
-                    <div class="card left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 12px;padding-top: 12px;">
-                            <ul class="items">
-                                <li>
-                                    <a :href="'/workstation/' + item.id"  title="Dial">
-                                        {{ item.name +  ' ' + item.surname }}
-                                    </a>
-                                </li>
-                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-if="item.account == '' || item.account == null">NA</li>
-                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-else>{{ item.account }}</li>
-                                <li class="truncate"  :title="item.email"  v-if="item.email == '' || item.email == null">N/A</li>
-                                <li class="truncate"  :title="item.email" v-else>{{ item.email }}</li>
-                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" v-if="item.creator != null" >
-                                    {{ item.creator.name + ' ' + item.creator.lastname }}
-                                </li>
-                                <li style="padding-left: 11px;" v-else>N/A</li>
-                                <li style="padding-left: 23px;" >{{ item.phone_number }}</li>
-                                <li class="truncate" :title="item.product.name" style="padding-left: 11px;" v-if="item.product != null" >
-                                    {{ item.product.name }}
-                                </li>
-                                <li style="padding-left: 11px;" v-else>N/A</li>
-                                <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
-                                <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
-                                <li>
-                                    <a href="#" @click="showEditModal(item)"  title="Edit">
-                                        <span v-if="item.status == 1" style="color:green;">Active</span>
-                                        <span v-else-if="item.status == 2" style="color:orange;">Inactive</span>
-                                        <span v-else-if="item.status == 0" style="color:red;">Canceled</span>
-                                        <span v-else  style="color:blue;">No Status</span>
-                                    </a>
-                                </li>
-                                <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
-                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                        x
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row stats"  v-else>
-                <div class="card left" style="width: 100%;">
-                    <div class="card-body" style="padding-bottom: 12px;">
-                        <ul class="items">
-                            <li colspan="7" style="text-align:center;width: 100%;">0 Contacts</li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <div v-else>
               <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
@@ -593,20 +514,6 @@ table.listing tr  th{
                         html: false,    // Escapes output if false.
                         sortable:true
                     },
-                    // {
-                    //     label: 'LAST ACTIVITY',  // Column name
-                    //     field: 'last_activity',  // Field name from row
-                    //     numeric: false, // Affects sorting
-                    //     html: false,    // Escapes output if false.
-                    //     sortable:true
-                    // },
-                    // {
-                    //     label: 'ACTIVITY',  // Column name
-                    //     field: 'activity',  // Field name from row
-                    //     numeric: false, // Affects sorting
-                    //     html: false,    // Escapes output if false.
-                    //     sortable:true
-                    // },
                     {
                         label: 'STATUS',  // Column name
                         field: 'status',  // Field name from row

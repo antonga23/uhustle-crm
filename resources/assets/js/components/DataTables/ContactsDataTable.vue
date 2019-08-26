@@ -15,9 +15,24 @@
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                     <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
-                        <span v-if="column.field == 'full_name'"> <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a></span>
-                        <span v-else-if="column.field == 'status'"> <a href="#"  @click="showEditModal(row.lead)"  title="Edit">{{ collect(row, column.field) }}</a></span>
-                        <span v-else> <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a></span>
+                        <span v-if="column.field == 'full_name'">
+                            <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a>
+                        </span>
+                        <span v-else-if="column.field == 'status'">
+                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit">{{ collect(row, column.field) }}</a>
+                        </span>
+                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )">
+                            <a class="btn btn-success" :href="'/workstation/' + row.id" style="margin: -3px 0 0 0;padding: 0px 7px;">
+                                View
+                            </a>
+                            <a href="#" class="btn btn-warning" @click="showEditModal(row.lead)" style="margin: -3px 0 0 0;padding: 0px 7px;">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-danger" @click="deleteItem(row.lead.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
+                                Delete
+                            </a>
+                        </span>
+                        <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
                 </tr>
             </tbody>
@@ -462,6 +477,15 @@ export default {
 }
 </script>
 <style scoped>
+table tr td a.Canceled{
+    color: red;
+}
+table tr td a.Inactive{
+    color: orange;
+}
+table tr td a.Active{
+    color: green;
+}
 .control-label{
     float: left;
 }
@@ -641,10 +665,6 @@ table tr td {
     text-overflow: ellipsis; */
 }
 
-table tr td a {
-    color: inherit;
-}
-
 table tr td a i {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.54);
@@ -687,7 +707,15 @@ table th.sorting-asc,
 table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
 }
-
+table tr td a{
+    color: #1890ff;
+    background-color: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    -webkit-text-decoration-skip: objects;
+}
 /* table th.sorting:after,
 table th.sorting-asc:after {
     font-family: 'Material Icons';

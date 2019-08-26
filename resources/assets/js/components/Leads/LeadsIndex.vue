@@ -21,19 +21,7 @@ li p.bottom{
     border: none;
 }
 .card-body{
-    text-align: center;
-}
-.card-body p{
     color: #fff;
-    width: 100%;
-    margin-right: 0;
-    text-align: left;
-    float: left;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-.card-body p strong{
-    float: right;
 }
 .card-title {
     margin-bottom: 0.75rem;
@@ -71,7 +59,19 @@ h5 .icon{
     width: 15px;
     margin: -5px 15px 0 0;
 }
-p.card-text{    
+.card-body p{
+    color: #fff;
+    width: 100%;
+    margin-right: 0;
+    text-align: left;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.card-body p strong{
+    float: right;
+}
+p.card-text{
     font-size: 16px;
     color: #fff;
     font-weight: bolder;
@@ -175,8 +175,7 @@ span.right{
 }
 .red{
     color:red !important;
-}
-.card-text-small{
+}.card-text-small{
     margin-top: -7px;
     color: #3b3b3b;
 }
@@ -228,6 +227,10 @@ table.listing tr  th{
     color: #9fb3bb;
     padding: 0 69px 20px 70px;
 }
+#top-section .filter-stub{
+    cursor: pointer;
+    margin-right: 15px;
+}
 .control-label{
     float: left;
     height: 77px;
@@ -239,9 +242,14 @@ table.listing tr  th{
 .modal-body {
     background: orange !important;
 }
+.card-head, .ant-card-padding-transition .ant-card-body {
+    transition: padding 0.3s;
+    overflow-y: scroll;
+    height: 380px;
+}
 </style>
 <template>
-    <div class="right-side-bar">
+    <div class="">
         <div id="top-section" class="row" style="margin-top:2%;">
 
           <div class="filter-card"  @click="getUsers(-1)">
@@ -277,94 +285,16 @@ table.listing tr  th{
             </div>
           </div>
         </div>
-
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats">
+            <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <div class="left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 18px;">
-                            <ul class="headings" v-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                <li>FULL NAME</li>
-                                <li>ACCOUNT</li>
-                                <li>EMAIL</li>
-                                <li>OWNER</li>
-                                <li>MOBILE #</li>
-                                <li>PACKAGE</li>
-                                <li>LAST ACTIVITY</li>
-                                <li>ACTIVITY</li>
-                                <li>STATUS</li>
-                            </ul>
-                            <ul class="headings" v-if="current_user.role_id == 4">
-                                <li>FULL NAME</li>
-                                <li>ACCOUNT</li>
-                                <li>EMAIL</li>
-                                <li>OWNER</li>
-                                <li>MOBILE #</li>
-                                <li>PACKAGE</li>
-                                <li>LAST ACTIVITY</li>
-                                <li>ACTIVITY</li>
-                                <li>STATUS</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div :class="{ 'row stats': true, 'scroll-hidden' : users.leads.length > 8 }" v-if="users.leads.length > 0">
-                <div class="col-lg-12" v-for="(item,index) in users.leads" :key="index">
-                    <div class="card left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 12px;padding-top: 12px;">
-                            <ul class="items">
-                                <li>
-                                    <a :href="'/workstation/' + item.id"  title="Dial">
-                                        {{ item.name + ' ' + item.surname }}
-                                    </a>
-                                </li>
-                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-if="item.account == '' || item.account == null">NA</li>
-                                <li class="truncate" :title="item.account" style="padding-left: 30px;" v-else>{{ item.account }}</li>
-                                <li class="truncate"  :title="item.email"  v-if="item.email == '' || item.email == null">N/A</li>
-                                <li class="truncate"  :title="item.email" v-else>{{ item.email }}</li>
-                                <li class="truncate" :title="item.creator.name + ' ' + item.creator.lastname" style="padding-left: 11px;" v-if="item.creator != null" >
-                                    {{ item.creator.name + ' ' + item.creator.lastname }}
-                                </li>
-                                <li style="padding-left: 11px;" v-else>N/A</li>
-                                <li style="padding-left: 23px;" >{{ item.phone_number }}</li>
-                                <li class="truncate" :title="item.product.name" style="padding-left: 11px;" v-if="item.product != null" >
-                                    {{ item.product.name }}
-                                </li>
-                                <li style="padding-left: 11px;" v-else>N/A</li>
-                                <li class="truncate" :title="getLastCommentDade(item.comments)" style="padding-left: 11px;" >{{ getLastCommentDade(item.comments) }}</li>
-                                <li class="truncate" :title="getLastCommentType(item.comments)" style="padding-left: 11px;" >{{ getLastCommentType(item.comments) }}</li>
-                                <li>
-                                    <a href="#" @click="showEditModal(item)"  title="Edit">
-                                        <span v-if="item.status == 1" style="color:green;">Active</span>
-                                        <span v-else-if="item.status == 2" style="color:orange;">Inactive</span>
-                                        <span v-else-if="item.status == 0" style="color:red;">Canceled</span>
-                                        <span v-else style="color:blue;">No Status</span>
-                                    </a>
-                                </li>
-                                <li v-if="current_user.role_id == 1 || current_user.role_id == 2" style="width:1%">
-                                    <a href="#" class="btn btn-danger" @click="deleteItem(item.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                        x
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row stats"  v-else>
-                <div class="card left" style="width: 100%;">
-                    <div class="card-body" style="padding-bottom: 12px;">
-                        <ul class="items">
-                            <li colspan="7" style="text-align:center;width: 100%;">0 Leads</li>
-                        </ul>
-                    </div>
+                    <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
                 </div>
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Lead" style="overflow-y: scroll;height: 380px;">
+              <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
                 <div style="margin-top: 20px;width: 100% !important;" >
                     <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -398,7 +328,6 @@ table.listing tr  th{
                                     <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                 </select>
                             </label>
-
                             <label class="col-lg-4 control-label">Mobile number
                                 <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
@@ -444,100 +373,12 @@ table.listing tr  th{
                             </label>
                         <label class="col-lg-12 control-label">
                             <button type="submit" class="btn btn-primary update-user" @click="createUser()">
-                                Add Lead
+                                Add Contact
                             </button>
                         </label>
                     </div>
                 </div>
             </a-card>
-        </div>
-        <div>
-            <b-modal
-            id="update-user-modal"
-            ref="modalUpdateUser"
-            title="Update Lead"
-            size="lg"
-            header-text-variant="light"
-            header-bg-variant="warning"
-            @ok="handleOk"
-            >
-                <a-card title="Lead Information">
-                    <form ref="form" @submit.stop.prevent="handleSubmit">
-                        <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
-                </a-card>
-                <a-card :title="'Comments'" style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-            </b-modal>
         </div>
     </div>
 </template>
@@ -545,10 +386,12 @@ table.listing tr  th{
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
+    import DataTable from '../DataTables/ContactsDataTable';
     export default {
         extends: Bar,
         components: { 
             BarChart,
+            'datatable' : DataTable
         },
         mounted() {
             console.log('Component mounted');
@@ -557,7 +400,7 @@ table.listing tr  th{
 
             vm.current_user = JSON.parse(vm.logged_user);
             vm.filter_data = JSON.parse(vm.custom_filters);
-            
+
             vm.getUsers(-1);
 
 			Fire.$on('SaveFilter', function(data){
@@ -573,6 +416,10 @@ table.listing tr  th{
 				vm.applyFilter(data);
             });
 
+			Fire.$on('ReloadLeads', function(data){
+				vm.getUsers(-1);
+            });
+
             vm.Toast = vm.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -582,11 +429,11 @@ table.listing tr  th{
         },
         created: function () {
         },
-        props: ['logged_user', 'custom_filters'],
+        props: ['logged_user', 'contacts', 'custom_filters'],
         data: function(){
             return {
                 users : {
-                    leads: '',
+                    leads: [],
                     count_leads: '',
                     count_unassigned: '',
                     count_assigned: '',
@@ -615,8 +462,73 @@ table.listing tr  th{
                 current_user: [],
                 filter_data: [],
                 add_user: false,
-                filter_counts: 0,
-                Toast: null
+                Toast: null,
+                columns:[
+                    {
+                        label: 'FULL NAME',  // Column name
+                        field: 'full_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'EMAIL',  // Column name
+                        field: 'email',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'creator',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'phone_number',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'START DATE',  // Column name
+                        field: 'start_date',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                ]
             }
         },
         methods: {
@@ -645,9 +557,9 @@ table.listing tr  th{
                 return finalTime;
             },
             str_pad_left(string,pad,length) {
-                return (new Array(length+1).join(pad)+string).slice(-length);
+                    return (new Array(length+1).join(pad)+string).slice(-length);
             },
-            getUsers(role){
+            getUsers(role ){
                 var vm = this;
 
                 if(role == -1){
@@ -677,10 +589,14 @@ table.listing tr  th{
                     }
                 });
             },
-            getUsersSilently(){
+            getUsersSilently(role = ''){
                 var vm = this;
 
-                var endpoint = '/leads/get-lead-counts';
+                if(role == 1){
+                    var endpoint = '/leads/get-lead-counts';
+                }else{
+                    var endpoint = '/leads/get-lead-counts/' + role;
+                }
 
                 axios.get(endpoint).then(function (response) {
                     
@@ -725,72 +641,6 @@ table.listing tr  th{
                             });
 						}
 				});
-            },
-            showEditModal(user){
-                var vm = this;
-                this.user = user;
-                this.$bvModal.show('update-user-modal');
-            },
-            handleOk(bvModalEvt) {
-                // Prevent modal from closing
-                bvModalEvt.preventDefault()
-                // Trigger submit handler
-                this.handleSubmit()
-            },
-            handleSubmit(){
-				var vm = this;  
-				vm.$Progress.start();
-				this.$validator.validateAll().then((result) => {
-                        if(!result){
-                        }else{
-                            axios.post('/leads/update',vm.user).then(function (response) {
-                                    
-                                if(response.data.success == true){
-                                    Fire.$emit('LeadUpdated');
-                                    vm.Toast.fire({ type: 'success', title: response.data.message });
-                                    vm.getUsers();
-                                    vm.$bvModal.hide('update-user-modal');
-                                    vm.user = {
-                                        comments: [],
-                                        assigned: [],
-                                    };
-                                    vm.$Progress.finish();
-                                }else if(response.data.errors.email[0] != ''){
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', response.data.errors.email[0] ,'warning');
-                                }else{
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                                }
-                            });
-						}
-				});
-            },
-            deleteItem(id){
-                var vm = this;  
-                vm.$swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#F56C6C',
-                    cancelButtonColor: '#409EFF',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        vm.$Progress.start();
-                        axios.get('/leads/delete/' + id).then(function (response) {
-                            if(response.data.success == true){
-                                vm.Toast.fire({ type: 'success', title: response.data.message });
-                                vm.getUsers(-1);
-                                vm.$Progress.finish();
-                            }else{
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
-                            }
-                        });
-                    }
-                });
             },
             applyFilter(filter){
                 var vm = this;
