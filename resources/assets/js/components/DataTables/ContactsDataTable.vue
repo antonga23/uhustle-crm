@@ -43,12 +43,12 @@
                 <ul class="material-pagination">
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">
-                            <i class="material-icons">chevron_left</i>
+                            <img src="/images/DataTables/left arrow.svg" class="chevron" />
                         </a>
                     </li>
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">
-                            <i class="material-icons">chevron_right</i>
+                            <img src="/images/DataTables/right arrow.svg" class="chevron" />
                         </a>
                     </li>
                 </ul>
@@ -557,6 +557,9 @@ table {
     outline: none;
 }
 
+.table-footer img {
+    width: 46px;
+}
 .table-footer label {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.54);
@@ -569,6 +572,7 @@ table {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    margin-bottom: 0;
 }
 
 .table-footer .select-wrapper {
@@ -651,19 +655,27 @@ table tr {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+table thead tr:first-child {
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);
+}
+
 table th {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 500;
-    color: #757575;
+    color: #003449;
     cursor: pointer;
     white-space: nowrap;
     padding: 0;
     height: 56px;
-    padding-left: 0px;
+    padding-left: 14px;
     vertical-align: middle;
     outline: none !important;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-image: url('/images/DataTables/filter icon.svg') !important;
+    background-size: 11px 12px;
+	background-repeat: no-repeat;
+	background-position: left center;
 }
 
 table th:hover {
@@ -712,10 +724,12 @@ table tbody tr:hover {
 table th:last-child,
 table td:last-child {
     padding-right: 14px;
+    background-image: none !important;
 }
 
 table th:first-child,
 table td:first-child {
-    padding-left: 14px;
+    padding-left: 25px;
+    background-position: 10px center;
 }
 </style>

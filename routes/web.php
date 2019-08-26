@@ -109,7 +109,7 @@ Route::group(['prefix' => 'leads'], function () {
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
 });
 
-// Filters Routes
+ // Filters Routes 
 Route::group(['prefix' => 'filters'], function () {
 	Route::get('/get/{id}', 'StoredFilterController@getById');
 	Route::get('/get-all', 'StoredFilterController@index');
