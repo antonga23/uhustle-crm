@@ -71186,12 +71186,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -71672,10 +71666,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -71972,7 +71962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DataTables/ListingDataTable */ "./resources/assets/js/components/DataTables/ListingDataTable.vue");
+/* harmony import */ var _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/ListingDataTable */ "./resources/assets/js/components/DataTables/ListingDataTable.vue");
 //
 //
 //
@@ -72365,7 +72355,7 @@ __webpack_require__.r(__webpack_exports__);
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    'datatable': _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_3__["default"]
+    'datatable': _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
     console.log('Component mounted');
@@ -128260,7 +128250,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 48px;\n    font-size: 13px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    height: 56px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-image: url('/images/DataTables/filter icon.svg') !important;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n    background-position: 10px center;\n}\n", ""]);
+exports.push([module.i, "\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    padding: 0px 7px;\n    width: 38px;\n    display: block;\n    height: 46px;\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 48px;\n    font-size: 13px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    height: 56px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-image: url('/images/DataTables/filter icon.svg') !important;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n    background-position: 10px center;\n}\n", ""]);
 
 // exports
 
@@ -128279,7 +128269,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.ant-list-item[data-v-3f7b2f16] {\n    align-items: center;\n    display: flex;\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\n    width: 28px;\n    margin-top: 0px;\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\n    color: green;\n}\n.control-label[data-v-3f7b2f16]{\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\n    height: 48px;\n    font-size: 13px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-3f7b2f16] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-3f7b2f16] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    height: 56px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-image: url('/images/DataTables/filter icon.svg') !important;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n}\ntable th[data-v-3f7b2f16]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable tr td span a[data-v-3f7b2f16]{\n    color: #1890ff !important;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\ntable th.sorting-asc[data-v-3f7b2f16]:after,\ntable th.sorting-desc[data-v-3f7b2f16]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\ntable td[data-v-3f7b2f16]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\ntable td[data-v-3f7b2f16]:first-child {\n    padding-left: 25px;\n    background-position: 10px center;\n}\n", ""]);
+exports.push([module.i, "\n.ant-list-item[data-v-3f7b2f16] {\n    align-items: center;\n    display: flex;\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\n    width: 28px;\n    margin-top: 0px;\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{\n    padding: 0px 7px;\n    width: 38px;\n    display: block;\n    height: 46px;\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,\ntable tr td a.View[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,\ntable tr td a.Delete[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,\ntable tr td a.Edit[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\n    height: 48px;\n    font-size: 13px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-3f7b2f16] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-3f7b2f16] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    height: 56px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-image: url('/images/DataTables/filter icon.svg') !important;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n}\ntable th[data-v-3f7b2f16]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable tr td span a[data-v-3f7b2f16]{\n    color: #1890ff !important;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\ntable th.sorting-asc[data-v-3f7b2f16]:after,\ntable th.sorting-desc[data-v-3f7b2f16]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\ntable td[data-v-3f7b2f16]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\ntable td[data-v-3f7b2f16]:first-child {\n    padding-left: 25px;\n    background-position: 10px center;\n}\n", ""]);
 
 // exports
 
@@ -244966,67 +244956,34 @@ var render = function() {
                       ])
                     : column.field == "actions" &&
                       (_vm.role == 1 || _vm.role == 2)
-                    ? _c("span", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-success",
-                            staticStyle: {
-                              margin: "-3px 0 0 0",
-                              padding: "0px 7px"
-                            },
-                            attrs: { href: "/workstation/" + row.id }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            View\n                        "
-                            )
-                          ]
-                        ),
+                    ? _c("span", { staticClass: "actions" }, [
+                        _c("a", {
+                          staticClass: "View",
+                          attrs: {
+                            href: "/workstation/" + row.id,
+                            title: "View"
+                          }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-warning",
-                            staticStyle: {
-                              margin: "-3px 0 0 0",
-                              padding: "0px 7px"
-                            },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.showEditModal(row.lead)
-                              }
+                        _c("a", {
+                          staticClass: "Edit",
+                          attrs: { href: "#", title: "Edit" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showEditModal(row.lead)
                             }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Edit\n                        "
-                            )
-                          ]
-                        ),
+                          }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            staticStyle: {
-                              margin: "-3px 0 0 0",
-                              padding: "0px 7px"
-                            },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteItem(row.lead.id)
-                              }
+                        _c("a", {
+                          staticClass: "Delete",
+                          attrs: { href: "#", title: "Delete" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteItem(row.lead.id)
                             }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Delete\n                        "
-                            )
-                          ]
-                        )
+                          }
+                        })
                       ])
                     : _c("span", [
                         _vm._v(_vm._s(_vm.collect(row, column.field)))
@@ -245964,54 +245921,30 @@ var render = function() {
                       ])
                     : column.field == "actions" &&
                       (_vm.role == 1 || _vm.role == 2)
-                    ? _c("span", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-warning",
-                            staticStyle: {
-                              margin: "-3px 0 0 0",
-                              padding: "0px 7px"
-                            },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.showEditModal(
-                                  row,
-                                  row.leads,
-                                  row.clients
-                                )
-                              }
+                    ? _c("span", { staticClass: "actions" }, [
+                        _c("a", {
+                          staticClass: "Edit",
+                          attrs: { href: "#", title: "Edit" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showEditModal(
+                                row,
+                                row.leads,
+                                row.clients
+                              )
                             }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Edit\n                        "
-                            )
-                          ]
-                        ),
+                          }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            staticStyle: {
-                              margin: "-3px 0 0 0",
-                              padding: "0px 7px"
-                            },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteItem(row.id)
-                              }
+                        _c("a", {
+                          staticClass: "Delete",
+                          attrs: { href: "#", title: "Delete" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteItem(row.id)
                             }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Delete\n                        "
-                            )
-                          ]
-                        )
+                          }
+                        })
                       ])
                     : _c("span", [
                         _vm._v(_vm._s(_vm.collect(row, column.field)))

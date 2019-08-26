@@ -275,7 +275,7 @@ class LeadController extends Controller
     {
         $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
 
-        $data = $request->all();        
+        $data = $this->convert_from_latin1_to_utf8_recursively($request->all());        
         $name = $data['name'];
         $surname = $data['surname'];
         $phone_number = $data['phone_number'];
@@ -284,12 +284,17 @@ class LeadController extends Controller
         $is_client = $data['is_client'];
         $product_id = $data['product_id'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        $duplicate_check = Lead::where(['email' => trim($data['email'])])->count();
+
+        if($duplicate_check > 0){
+            return array('success' => false, 'message' => 'Duplicate email entry : ' . $data['email']);
+        }
+
         try{
             DB::beginTransaction();
 
             $lead = Lead::create([
-                'source' => null,
+                'source' => 1,
 				'name' => $name,
 				'surname' => $surname,
 				'phone_number' => $phone_number,
@@ -303,14 +308,35 @@ class LeadController extends Controller
             ]);
 
             DB::commit();
-            return array('success' => true, 'message' => 'Lead successfully created', 'lead' => $lead);
+            return array('success' => true, 'message' => 'Entry successfully created', 'lead' => $lead);
 
         }catch(\QueryException $e){
             DB::rollback();
             return array('success' =>false, 'message' => $e->getMessage());
         }
     }
+    /**
+     * Encode array from latin1 to utf8 recursively
+     * @param $dat
+     * @return array|string
+     */
+    public static function convert_from_latin1_to_utf8_recursively($dat)
+    {
+        if (is_string($dat)) {
+            return utf8_encode($dat);
+        } elseif (is_array($dat)) {
+            $ret = [];
+            foreach ($dat as $i => $d) $ret[ $i ] = self::convert_from_latin1_to_utf8_recursively($d);
 
+            return $ret;
+        } elseif (is_object($dat)) {
+            foreach ($dat as $i => $d) $dat->$i = self::convert_from_latin1_to_utf8_recursively($d);
+
+            return $dat;
+        } else {
+            return $dat;
+        }
+    }
     /**
      * Update the specified resource in storage.
      *

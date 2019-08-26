@@ -23,6 +23,7 @@ class Lead extends Model
         'user_created_id',
         'is_client',
         'product_id',
+        'product_variant',
         'status',
         'start_date',
     ];

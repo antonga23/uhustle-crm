@@ -21,16 +21,10 @@
                         <span v-else-if="column.field == 'status'">
                             <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit">{{ collect(row, column.field) }}</a>
                         </span>
-                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )">
-                            <a class="btn btn-success" :href="'/workstation/' + row.id" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                View
-                            </a>
-                            <a href="#" class="btn btn-warning" @click="showEditModal(row.lead)" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                Edit
-                            </a>
-                            <a href="#" class="btn btn-danger" @click="deleteItem(row.lead.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                Delete
-                            </a>
+                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
+                            <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
+                            <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
+                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete"></a>
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
@@ -485,6 +479,46 @@ table tr td a.Inactive{
 }
 table tr td a.Active{
     color: green;
+}
+table tr td span.actions a{
+    padding: 0px 7px;
+    width: 38px;
+    display: block;
+    height: 46px;
+    float: left;
+}
+table tr td a.View{
+    background-image: url('/images/DataTables/View_Icon_Active.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+table tr td a.View:hover,
+table tr td a.View:active{
+    background-image: url('/images/DataTables/View_Icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+table tr td a.Delete{
+    background-image: url('/images/DataTables/Delete_Icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+table tr td a.Delete:hover,
+table tr td a.Delete:active{
+    background-image: url('/images/DataTables/Delete_Icon_Active.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+table tr td a.Edit{
+    background-image: url('/images/DataTables/Edit_Icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+table tr td a.Edit:hover,
+table tr td a.Edit:active{
+    background-image: url('/images/DataTables/Edit_Icon_Active.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .control-label{
     float: left;
