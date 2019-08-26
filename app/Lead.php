@@ -26,6 +26,7 @@ class Lead extends Model
         'product_variant',
         'status',
         'start_date',
+        'expires_at',
     ];
 
     public function user()

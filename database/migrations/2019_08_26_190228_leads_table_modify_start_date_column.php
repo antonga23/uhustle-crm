@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class LeadsTableAddProductVariantColumn extends Migration
+class LeadsTableModifyStartDateColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class LeadsTableAddProductVariantColumn extends Migration
      */
     public function up()
     {
-
         Schema::table('leads', function (Blueprint $table) {
-            $table->string('product_variant')->after('product_id')->nullable();
+            $table->dateTime('start_date')->after('status')->nullable()->change();
         });
-       
     }
 
     /**

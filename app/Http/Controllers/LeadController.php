@@ -283,6 +283,8 @@ class LeadController extends Controller
         $user_created_id = $data['user_created_id'];
         $is_client = $data['is_client'];
         $product_id = $data['product_id'];
+        $start_date = $data['start_date'];
+        $expires_at = $data['expires_at'];
 
         $duplicate_check = Lead::where(['email' => trim($data['email'])])->count();
 
@@ -305,6 +307,8 @@ class LeadController extends Controller
 				'status' => 1,
 				'product_id' => $product_id,
 				'account' => '-',
+				'start_date' => $start_date,
+				'expires_at' => $expires_at,
             ]);
 
             DB::commit();
