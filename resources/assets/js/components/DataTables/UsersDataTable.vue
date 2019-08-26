@@ -16,19 +16,32 @@
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                     <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
                         <span v-if="column.field == 'full_name'">
-                            <a :href="'/workstation/' + row.id">{{ collect(row, column.field) }}</a>
+                            <a  @click="showEditModal(row, row.leads,row.clients)"  class="small-avatar">
+                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar">
+                                <img v-else :src="noImageUrl" >
+                                {{ row.full_name }}
+                            </a>
+                        </span>
+                        <span v-else-if="column.field == 'role'">
+                            {{ row.role }}
+                        </span>
+                        <span v-else-if="column.field == 'email'">
+                            {{ row.email }}
+                        </span>
+                        <span v-else-if="column.field == 'personal_number'">
+                            {{ row.personal_number }}
+                        </span>
+                        <span v-else-if="column.field == 'updated_at'">
+                            {{ row.updated_at }}
                         </span>
                         <span v-else-if="column.field == 'status'">
-                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit">{{ collect(row, column.field) }}</a>
+                           {{ row.status }}
                         </span>
                         <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )">
-                            <a class="btn btn-success" :href="'/workstation/' + row.id" style="margin: -3px 0 0 0;padding: 0px 7px;">
-                                View
-                            </a>
-                            <a href="#" class="btn btn-warning" @click="showEditModal(row.lead)" style="margin: -3px 0 0 0;padding: 0px 7px;">
+                            <a href="#" class="btn btn-warning" @click="showEditModal(row, row.leads,row.clients)" style="margin: -3px 0 0 0;padding: 0px 7px;">
                                 Edit
                             </a>
-                            <a href="#" class="btn btn-danger" @click="deleteItem(row.lead.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
+                            <a href="#" class="btn btn-danger" @click="deleteItem(row.id)" style="margin: -3px 0 0 0;padding: 0px 7px;">
                                 Delete
                             </a>
                         </span>
@@ -75,84 +88,86 @@
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            title="Update Contact"
+            title="Update User"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
             @ok="handleOk"
             >
-                <a-card title="Lead Information">
+                <a-card title="Update User Profile">
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
+                            <label class="col-lg-12 control-label">Role
+                                <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">
+                                    <option value="">- Please Choose Role </option>
+                                    <option :value="item.id" v-for="(item, index) in users.roles" :key="index">{{ item.display_name }}</option>
+                                </select>
+                                <span id="error" v-show="errors.has('Role')" class="help-block">{{ errors.first('Role') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
+                                <input type="text" id="email"  name="Name" v-model="user.name"  class="form-control">
                                 <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
+                                <input type="text" id="email"  name="Surname" v-model="user.lastname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
+                            <label class="col-lg-4 control-label">Nickname
+                                <input type="text" id="nickname"  name="Nickname" v-model="user.nickname" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
+                                <input type="text" id="email"  name="Email" v-model="user.email" class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
+                            <label class="col-lg-4 control-label">Work Telephone
+                                <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" class="form-control">
+                                <span id="error" v-show="errors.has('Work Tel')" class="help-block">{{ errors.first('Work Tel') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
+                            <label class="col-lg-4 control-label">Cellphone number
+                                <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" class="form-control">
+                                <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+                            <label class="col-lg-12 control-label">Address
+                                <textarea id="address"  name="Address" v-model="user.address"  class="form-control"></textarea>
+                                <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
+                            <label class="col-lg-4 control-label">Username
+                                <input type="text" id="email"  name="Old Password" v-model="user.email" class="form-control" disabled>
+                                <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
+                            <label class="col-lg-4 control-label">New Password <em><small>Default: P@ssword</small></em>
+                                <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'min:6'" class="form-control">
+                                <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
+                            <label class="col-lg-4 control-label">Confirm New Password
+                                <input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'min:6|confirmed:password'" class="form-control">
+                                <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
+                                <select type="text" id="role"  name="Role" v-model="user.activated"  class="form-control">
                                     <option value="">- Please Choose Status </option>
                                     <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
+                                    <option value="0">Disabled</option>
                                 </select>
                             </label>
                         </div>
                     </form>
                 </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
+                <a-card :title="'Assigned Leads: ' + user.leads.length" style="margin-top:20px">
+                    <a-list itemLayout="horizontal" :dataSource="user.leads">
                         <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
+                            <a-list-item-meta>
+                                <a slot="title" :href="'/workstation/' + item.id">{{item.name}}&nbsp;{{item.surname}}</a>
+                            </a-list-item-meta>
+                        </a-list-item>
+                    </a-list>
+                </a-card>
+
+                <a-card :title="'Assigned Clients: ' + user.clients.length" style="margin-top:20px">
+                    <a-list itemLayout="horizontal" :dataSource="user.clients">
+                        <a-list-item slot="renderItem" slot-scope="item, index">
+                            <a-list-item-meta>
+                                <a slot="title" :href="'/workstation/' + item.id">{{item.name}}&nbsp;{{item.surname}}</a>
                             </a-list-item-meta>
                         </a-list-item>
                     </a-list>
@@ -225,21 +240,8 @@ export default {
                 hub : [],
             },
             user: {
-                name: '',
-                surname: '',
-                account: '',
-                email: '',
-                user_created_id: '',
-                phone_number: '',
-                product_id: '',
-                user_assigned: '',
-                source: '',
-                status: '',
-                title: '',
-                country: '',
-                city: '',
-                comments: [],
-                assigned: [],
+                leads: [],
+                clients: [],
             },
             summaryModal: false,
             showModal: false,
@@ -253,13 +255,16 @@ export default {
             claim: '',
             claim_items: '',
             Toast: '',
+            avatarUrl: '/images/avatars/',
+            noImageUrl: '/images/icons/user_icon@4x.png',
         }
     },
     methods: {
-        showEditModal(user){
+        showEditModal(user, leads, clients){
             var vm = this;
             this.user = user;
-            this.user.source = user.lead_source;
+            this.user.leads = leads;
+            this.user.clients = clients;
             this.$bvModal.show('update-user-modal');
         },
         handleOk(bvModalEvt) {
@@ -274,15 +279,15 @@ export default {
             this.$validator.validateAll().then((result) => {
                     if(!result){
                     }else{
-                        axios.post('/leads/update',vm.user).then(function (response) {
+                        axios.post('/users/update',vm.user).then(function (response) {
                                 
                             if(response.data.success == true){
+                                Fire.$emit('ReloadUsers');
                                 vm.Toast.fire({ type: 'success', title: response.data.message });
-                                Fire.$emit('ReloadLeads');
                                 vm.$bvModal.hide('update-user-modal');
                                 vm.user = {
-                                    comments: [],
-                                    assigned: [],
+                                    leads: [],
+                                    clients: [],
                                 };
                                 vm.$Progress.finish();
                             }else if(response.data.errors.email[0] != ''){
@@ -309,10 +314,10 @@ export default {
             }).then((result) => {
                 if (result.value) {
                     vm.$Progress.start();
-                    axios.get('/leads/delete/' + id).then(function (response) {
+                    axios.get('/users/delete/' + id).then(function (response) {
                         if(response.data.success == true){
+                            Fire.$emit('ReloadUsers');
                             vm.Toast.fire({ type: 'success', title: response.data.message });
-                            Fire.$emit('ReloadLeads');
                             vm.$Progress.finish();
                         }else{
                             vm.$Progress.fail();
@@ -477,6 +482,16 @@ export default {
 }
 </script>
 <style scoped>
+.ant-list-item {
+    align-items: center;
+    display: flex;
+    padding: 0;
+}
+.small-avatar img{
+    width: 28px;
+    margin-top: 0px;
+    border-radius: 50%;
+}
 table tr td a.Canceled{
     color: red;
 }
@@ -658,11 +673,7 @@ table tr td {
     height: 48px;
     font-size: 13px;
     color: rgba(0, 0, 0, 0.87);
-    /* border-bottom: solid 1px #DDDDDD; */
     display: table-cell;
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
 }
 
 table tr td a i {
@@ -707,8 +718,8 @@ table th.sorting-asc,
 table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
 }
-table tr td a{
-    color: #1890ff;
+table tr td span a{
+    color: #1890ff !important;
     background-color: transparent;
     text-decoration: none;
     outline: none;
@@ -716,34 +727,12 @@ table tr td a{
     transition: color 0.3s;
     -webkit-text-decoration-skip: objects;
 }
-/* table th.sorting:after,
-table th.sorting-asc:after {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    word-wrap: normal;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
-    content: " arrow_back ";
-    -webkit-transform: rotate(90deg);
-    display: none;
-    vertical-align: middle;
-} */
 
 table th.sorting:hover:after,
 table th.sorting-asc:after,
 table th.sorting-desc:after {
     display: inline-block;
 }
-
-/* table th.sorting-desc:after {
-    content: "arrow_forward ";
-} */
 
 table tbody tr:hover {
     background-color: #EEE;

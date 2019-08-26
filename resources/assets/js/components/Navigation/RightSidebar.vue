@@ -963,7 +963,6 @@ label.custom-control-label{
 				vm.packages = response.data.packages;	
 			});
 
-
 			this.Toast = this.$swal.mixin({
 				toast: true,
 				position: 'top-end',

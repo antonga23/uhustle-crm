@@ -93,27 +93,25 @@ class UserController extends Controller
 
             $data = new \StdClass();
 
-            $user_lead_ids = UserLeads::where(['user_id' => $user->id])->get();
+            $user_leads = Lead::where(['user_assigned' => $user->id])->where(['is_client' => 0])->get();
 
-            $lead_ids = [];
-            
-            foreach($user_lead_ids as $key => $user_lead_id){
-                array_push($lead_ids, $user_lead_id->id);
-            }
+            $user_lients = Lead::where(['user_assigned' => $user->id])->where(['is_client' => 1])->get();
 
-            $user_leads = Lead::whereIn('id', $lead_ids)->get();
-
-            $user_client_ids = UserClients::where(['user_id' => $user->id])->get();
-
-            $client_ids = [];
-            
-            foreach($user_client_ids as $key => $user_client_id){
-                array_push($client_ids, $user_client_id->id);
-            }
-
-            $user_lients = Client::whereIn('id', $client_ids)->get();
-
-            $data->user = $user;
+            $data->id = $user->id;
+            $data->full_name = $user->name . ' ' . $user->lastname;
+            $data->name = $user->name;
+            $data->lastname = $user->lastname;
+            $data->nickname = $user->nickname;
+            $data->email = $user->email;
+            $data->role = $user->role->display_name;
+            $data->role_id = $user->role->id;
+            $data->personal_number = $user->personal_number;
+            $data->work_number = $user->work_number;
+            $data->address = $user->address;
+            $data->updated_at = ( null !== $user->updated_at )? $user->updated_at->toDateString() : '';
+            $data->avatar = $user->avatar;
+            $data->status = ( $user->activated == 1 ) ? 'Active' : 'Inactive';
+            $data->activated = $user->activated;
             $data->leads = $user_leads;
             $data->clients = $user_lients;
 
@@ -211,7 +209,7 @@ class UserController extends Controller
 		$work_number = $data['work_number'];
 		$personal_number = $data['personal_number'];
 		$address = $data['address'];
-		$notifications = $data['notifications'];
+		$notifications = (isset($data['notifications'])) ? $data['notifications'] : 1;
 		$activated = $data['activated'];
 
         $validator = \Validator::make($request->all(), [

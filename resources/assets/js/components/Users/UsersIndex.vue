@@ -282,11 +282,6 @@ table.listing tr  th{
 .modal-body {
     background: orange !important;
 }
-.small-avatar img{
-    width: 28px;
-    margin-top: 0px;
-    border-radius: 50%;
-}
 </style>
 <template>
     <div class="">
@@ -371,62 +366,9 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats">
+            <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <div class="left" style="text-align: left;">
-                        <div class="card-body" style="padding: 18px 0 0;">
-                            <ul class="headings">
-                                <li style="width: 16%;">
-                                    FULL NAME
-                                </li>
-                                <li>ROLE</li>
-                                <li style="width: 16%;">EMAIL</li>
-                                <li>CONTACT NUMBER</li>
-                                <li style="width: 19%;">LAST ACTIVE</li>
-                                <li>ACTIVE</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div :class="{ 'row stats': true, 'scroll-hidden' : users.all_users.length > 8 }" v-if="users.all_users.length > 0">
-                <div class="col-lg-12" v-for="(item,index) in users.all_users" :key="index">
-                    <div class="card left" style="text-align: left;">
-                        <div class="card-body" style="padding-bottom: 12pxp;adding-top: 17px;">
-                            <ul class="items">
-                                <li class="check" style="display:none;">
-                                    <input type="checkbox"> 
-                                </li>
-                                <li class="name">
-                                    <a href="#" @click="showEditModal(item.user, item.leads,item.clients)" class="small-avatar">
-                                        <img v-if="item.user.avatar != '' && item.user.avatar != null" :src="avatarUrl + item.user.id + '/' + item.user.avatar">
-                                        <img v-else :src="noImageUrl" >
-                                        {{ item.user.name +  ' ' + item.user.lastname }}
-                                    </a>
-                                </li>
-                                <li class="role" >{{ item.user.role.display_name }}</li>
-                                <li class="truncate" :title="item.user.email" style="padding-top: 7px;" >{{ item.user.email }}</li>
-                                <li class="mobile" >{{ item.user.personal_number }}</li>
-                                <li class="active-date" >{{ item.user.updated_at }}</li>
-                                <li class="active">
-                                    <input v-if="item.user.activated == 1" type="checkbox" class="form-control" checked disabled> 
-                                    <input v-else type="checkbox" class="form-control" disabled> 
-                                </li>
-                                <li class="actions" sv-if="current_user.role_id == 1 || current_user.role_id == 2">
-                                    <button class="btn btn-danger" @click="deleteItem(item.user.id)" style="margin: 0;">Delete</button> 
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row stats"  v-else>
-                <div class="card left" style="width: 100%;">
-                    <div class="card-body" style="padding-bottom: 12px;">
-                        <ul class="items">
-                            <li colspan="7" style="text-align:center;width: 100%;">0 Users</li>
-                        </ul>
-                    </div>
+                    <datatable id="datatable" :rows="users.all_users" :columns="columns" :role="current_user.role_id" :users="users"  title=""></datatable>
                 </div>
             </div>
         </div>
@@ -489,106 +431,18 @@ table.listing tr  th{
                 </div>
             </a-card>
         </div>
-        <div>
-            <b-modal
-            id="update-user-modal"
-            ref="modalUpdateUser"
-            title="Update User"
-            size="lg"
-            header-text-variant="light"
-            header-bg-variant="warning"
-            @ok="handleOk"
-            >
-                <a-card title="Update User Profile">
-                    <form ref="form" @submit.stop.prevent="handleSubmit">
-                        <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-12 control-label">Role
-                                <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">
-                                    <option value="">- Please Choose Role </option>
-                                    <option :value="item.id" v-for="(item, index) in users.roles" :key="index">{{ item.display_name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Role')" class="help-block">{{ errors.first('Role') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="email"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="email"  name="Surname" v-model="user.lastname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Nickname
-                                <input type="text" id="nickname"  name="Nickname" v-model="user.nickname" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email" class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Work Telephone
-                                <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" class="form-control">
-                                <span id="error" v-show="errors.has('Work Tel')" class="help-block">{{ errors.first('Work Tel') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Cellphone number
-                                <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" class="form-control">
-                                <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
-                            </label>
-                            <label class="col-lg-12 control-label">Address
-                                <textarea id="address"  name="Address" v-model="user.address"  class="form-control"></textarea>
-                                <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Username
-                                <input type="text" id="email"  name="Old Password" v-model="user.email" class="form-control" disabled>
-                                <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">New Password <em><small>Default: P@ssword</small></em>
-                                <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'min:6'" class="form-control">
-                                <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Confirm New Password
-                                <input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'min:6|confirmed:password'" class="form-control">
-                                <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="role"  name="Role" v-model="user.activated"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Disabled</option>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
-                </a-card>
-                <a-card :title="'Assigned Leads: ' + user.leads.length" style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.leads">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta>
-                                <a slot="title" href="/workstation/item.id">{{item.name}}&nbsp;{{item.surname}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-
-                <a-card :title="'Assigned Clients: ' + user.clients.length" style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.clients">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta>
-                                <a slot="title" href="/workstation/item.id">{{item.name}}&nbsp;{{item.surname}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-            </b-modal>
-        </div>
     </div>
 </template>
 
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
+    import DataTable from '../DataTables/UsersDataTable';
     export default {
         extends: Bar,
         components: { 
             BarChart,
+            'datatable' : DataTable
         },
         mounted() {
             console.log('Component mounted');
@@ -601,6 +455,14 @@ table.listing tr  th{
 				vm.add_user = !vm.add_user;
             });
             
+			Fire.$on('ReloadUsers', function(data){
+				vm.getUsers();
+            });
+
+			Fire.$on('FilterData', function(data){
+				vm.applyFilter(data);
+            });
+
             this.Toast = this.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -614,7 +476,7 @@ table.listing tr  th{
         data: function(){
             return {
                 users : {
-                    all_users: '',
+                    all_users: [],
                     count_all: '',
                     manager: '',
                     account_manager: '',
@@ -632,7 +494,59 @@ table.listing tr  th{
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 bulk_actions: "",
-                Toast: null
+                Toast: null,
+                columns:[
+                    {
+                        label: 'FULL NAME',  // Column name
+                        field: 'full_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'EMAIL',  // Column name
+                        field: 'email',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ROLE',  // Column name
+                        field: 'role',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'CONTACT NUMBER',  // Column name
+                        field: 'personal_number',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'LAST ACTIVE',  // Column name
+                        field: 'updated_at',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                ]
             }
         },
         methods: {
@@ -748,32 +662,6 @@ table.listing tr  th{
                             });
 						}
 				});
-            },
-            deleteItem(id){
-                var vm = this;  
-                vm.$swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#F56C6C',
-                    cancelButtonColor: '#409EFF',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        vm.$Progress.start();
-                        axios.get('/users/delete/' + id).then(function (response) {
-                            if(response.data.success == true){
-                                vm.Toast.fire({ type: 'success', title: response.data.message });
-                                vm.getUsers();
-                                vm.$Progress.finish();
-                            }else{
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
-                            }
-                        });
-                    }
-                });
             },
             orderBy(){
 

@@ -386,7 +386,7 @@ table.listing tr  th{
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
-    import DataTable from '../DataTables/ContactsDataTable';
+    import DataTable from '../DataTables/ListingDataTable';
     export default {
         extends: Bar,
         components: { 
