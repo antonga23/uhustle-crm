@@ -21,6 +21,7 @@ use App\Product;
 use App\Twillio;
 use App\UserClients;
 use App\UserLeads;
+use App\SystemSettings;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -301,4 +302,86 @@ class UserController extends Controller
         return array('success' =>true,'message' => 'Item deleted successfully');
     }
 
+    public function getPreferences(){
+        $user_id = Auth::user()->id;
+
+        $user_role = Auth::user()->role_id;
+
+        if($user_role == 1){
+            $preferences = SystemSettings::where(['user_id' => $user_id])->orWhere(['system_setting' => 1])->get();
+        }else{
+            $preferences = SystemSettings::where(['user_id' => $user_id])->get();
+        }
+
+        return array('success' =>true,'preferences' => $preferences);
+    }
+
+    public function updatePreferences(Request $request){
+        $user_id = Auth::user()->id;
+
+        $settings = $request->all();
+        // dd($settings);
+        $user_role = Auth::user()->role_id;
+
+        try{
+            DB::beginTransaction();
+
+            if($user_role == 1){
+                $current_auto_dialer = SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->first();
+                
+                $previous_value = $current_auto_dialer->value;
+                if($previous_value != $settings['auto_dialer']['value']){ 
+                    SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->update([
+                        'value' => $settings['auto_dialer']['value'],
+                        'previous_value' => $current_auto_dialer->value,
+                        'modified_by' => $user_id,
+                        'applies_to_role' => $settings['auto_dialer']['applies_to'],
+                    ]);
+                }
+            }
+
+            $check = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->count();
+            if($check > 0){
+                $prev_value = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->first();
+                
+                SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->update([
+                    'value' => $settings['language'],
+                    'previous_value' => $prev_value->value,
+                    'modified_by' => $user_id,
+                ]);
+            }else{
+                SystemSettings::create([
+                    'user_id' => $user_id,
+                    'setting' => 'language',
+                    'value' => $settings['language'],
+                    'modified_by' => $user_id,
+                ]);
+            }
+
+            $check = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'theme'])->count();
+            if($check > 0){
+                $prev_value = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'theme'])->first();
+                
+                SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'theme'])->update([
+                    'value' => $settings['theme'],
+                    'previous_value' => $prev_value->value,
+                    'modified_by' => $user_id,
+                ]);
+            }else{
+                SystemSettings::create([
+                    'user_id' => $user_id,
+                    'setting' => 'theme',
+                    'value' => $settings['theme'],
+                    'modified_by' => $user_id,
+                ]);
+            }
+
+            DB::commit();
+            return array('success' => true,'message' => 'Preferences updated successfully');
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+
+    }
 }

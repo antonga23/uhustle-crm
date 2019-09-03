@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Lead;
 use App\StoredFilter;
+use App\SystemSettings;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -29,10 +30,18 @@ class PagesController extends Controller
     */
    public function index($lead_id = null)
    {
+      $auto_dialer_settings = SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->first();
+
       if(is_null($lead_id)){
-         return view('pages.workstation')->with(['active'=> 'workstation'])->with(['lead_id'=> '']);
+         return view('pages.workstation')
+            ->with(['active'=> 'workstation'])
+            ->with(['lead_id'=> ''])
+            ->with(['auto_dialer_settings' => $auto_dialer_settings]);
       }else{
-         return view('pages.workstation')->with(['active'=> 'workstation'])->with(['lead_id'=> $lead_id]);
+         return view('pages.workstation')
+            ->with(['active'=> 'workstation'])
+            ->with(['lead_id'=> $lead_id])
+            ->with(['auto_dialer_settings' => $auto_dialer_settings]);
       }
    }
 

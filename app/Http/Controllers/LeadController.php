@@ -16,6 +16,7 @@ use App\Comment;
 use App\LeadsCallbacks;
 use App\Product;
 use App\Twillio;
+use App\Role;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -767,6 +768,7 @@ class LeadController extends Controller
             'lead_owners' => User::where(['activated' => 1])->whereIn('role_id', [1,2])->orderBy('name', 'ASC')->get(), 
             'packages' => Product::get(), 
             'sources' => LeadSource::get(), 
+            'roles' => Role::get(), 
         );
     }
 

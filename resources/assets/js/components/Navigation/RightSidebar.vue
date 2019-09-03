@@ -212,7 +212,7 @@ label.custom-control-label{
 	padding: 6px 12px 6px 10px;
     font-size: 9px;
     border: transparent !important;
-    border-radius: 8px !important;
+    border-radius: 5px !important;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -229,6 +229,66 @@ label.custom-control-label{
 }
 .btn-active {
 	background: #00344a;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-orange {
+	background: #FF9039;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.orange-btn:hover {
+	background: #FF9039;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.red-btn:hover {
+	background: red;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.blue-btn:hover {
+	background: blue;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-red {
+	background: red;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 6px 12px 6px 10px;
+    font-size: 9px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-blue {
+	background: blue;
 	color: #ffffff;
     border: transparent !important;
 	padding: 6px 12px 6px 10px;
@@ -407,6 +467,12 @@ label.custom-control-label{
 }
 .final-modal input{
 	font-size: 9px;
+} 
+.form-control {
+    border-radius: 25px;
+    padding: 7px;
+    height: 28px !important;
+    font-size: 9px;
 }
 /*End Right Component*/
 </style>
@@ -463,8 +529,8 @@ label.custom-control-label{
 					<div class="row">
 						<h3>
 							Profile 
-							<img @click="expanded = true;profile_on = true;account_on = false" v-if="profile_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Profile Edit Off" width="30">
-							<img @click="expanded = false;profile_on = false;account_on = false" v-else src="/images/icons/settings edit button hover@4x.png" alt="Profile Edit Off" width="30">
+							<img @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;" v-if="profile_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Profile Edit Off" width="30">
+							<img @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;" v-else src="/images/icons/settings edit button hover@4x.png" alt="Profile Edit Off" width="30">
 						</h3>
 						<p class="description" title="Personal Information">Personal Information</p>
 					    <transition-expand>
@@ -531,8 +597,8 @@ label.custom-control-label{
 					<div class="row">
 						<h3>
 							Account 
-							<img @click="expanded = true;account_on = true;profile_on = false" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-							<img @click="expanded = false;account_on = false;profile_on = false" v-else src="/images/icons/settings edit button hover@4x.png" alt="Account Edit Off" width="30">
+							<img @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
+							<img @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;" v-else src="/images/icons/settings edit button hover@4x.png" alt="Account Edit Off" width="30">
 						</h3>
 						<p class="description" title="Personal Information">Account Information</p>
 					    <transition-expand>
@@ -578,49 +644,86 @@ label.custom-control-label{
 							</div>
 					    </transition-expand>
 					</div>
-					<div class="row" v-if="profile_on == false">
-						<h3 style="width: 100%;">
-							Themes 
+					<div class="row preferences">
+						<h3>
+							Preferences 
+							<img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
+							<img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false" v-else src="/images/icons/settings edit button hover@4x.png" alt="Account Edit Off" width="30">
 						</h3>
-						<div style="margin-top: 20px;width: 100%;" >
-							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-active" style="width: 100%; margin: 0px;">
-	                                Orange
-	                            </button>
-							</label>
-							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-	                                Blue
-	                            </button>
-							</label>
-							<label class="col-lg-3 control-label">
-								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-	                                Red
-	                            </button>
-							</label>
-						</div>
-					</div>
-					<div class="row" v-if="profile_on == false">
-						<h3 style="width: 100%;">
-							Language 
-						</h3>
-						<div style="margin-top: 20px;width: 100%;" >
-							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-active" style="width: 100%; margin: 0px;">
-	                                English
-	                            </button>
-							</label>
-							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
-	                                Spanish
-	                            </button>
-							</label>
-						</div>
+						<p class="description" title="Personal Information">General System Preferences</p>
+					    <transition-expand>
+							<div v-if="expanded == true && system_settings_on == true" style="margin-top: 20px;width: 100%;" >
+								<div class="row">
+									<h3>
+										Settings 
+									</h3>
+									<div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
+										<div v-if="setting.setting == 'auto_dialer'">
+											<label class="col-lg-5 control-label">
+												Auto Dialing
+												<select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control">
+													<option value="on">On</option>
+													<option value="off">Off</option>
+												</select>
+											</label>
+											<label class="col-lg-6 control-label">
+												Apply To
+												<select id="auto_dialler" v-model="system_settings.auto_dialer.applies_to" class="form-control" v-on:change="applySetting()">
+													<option :value="role.id" v-for="(role, index) in roles" :key="index">{{ role.display_name }}</option>
+													<option value="-1">Everyone</option>
+												</select>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<h3>
+										Themes 
+									</h3>
+									<div v-for="(setting, index) in preferences" :key="index" style="width: 100%;">
+										<div v-if="setting.setting == 'theme' && setting.system_setting != 1">
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" style="width: 100%; margin: 0px;">
+													Orange
+												</button>
+											</label>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" style="width: 100%; margin: 0px;">
+													Blue
+												</button>
+											</label>
+											<label class="col-lg-3 control-label">
+												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" style="width: 100%; margin: 0px;">
+													Red
+												</button>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<h3>
+										Language 
+									</h3>
+									<div v-for="(setting, index) in preferences" :key="index" style="width: 100%;">
+										<div v-if="setting.setting == 'language' && setting.system_setting != 1">
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" style="width: 100%; margin: 0px;">
+													English
+												</button>
+											</label>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'language', value :'spanish'})"type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" style="width: 100%; margin: 0px;">
+													Spanish
+												</button>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </transition-expand>
 					</div>
 					<div class="row logout-wrapper"  v-if="profile_on == false">
-						<a href="/logout" id="logout">
-							
-						</a>
+						<a href="/logout" id="logout"></a>
 						<h3 style="width: 100%; text-align:center;">
 							Logout 
 						</h3>
@@ -961,7 +1064,10 @@ label.custom-control-label{
 				vm.assignees = response.data.assignees;	
 				vm.sources = response.data.sources;	
 				vm.packages = response.data.packages;	
+				vm.roles = response.data.roles;	
 			});
+			
+			vm.getPreferences();
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -974,26 +1080,6 @@ label.custom-control-label{
 			'transition-expand' : TransitionHeight
 		},
 		data: function(){
-			const todos = [
-				{
-					description: 'Call back Pete Andrews.',
-					isComplete: false,
-					dates: new Date('2019-09-09'), // Every Friday
-					color: 'red',
-				},
-				{
-					description: 'Call back Pete Andrews.',
-					isComplete: false,
-					dates: new Date('2019-09-10'), // Every Friday
-					color: 'red',
-				},
-				{
-					description: 'Call back Yongama Sobambela.',
-					isComplete: false,
-					dates: new Date('2019-08-19'), // Every Friday
-					color: 'red',
-				}
-			];
 			return {
 				user : {
 					notifications: 1,
@@ -1001,6 +1087,7 @@ label.custom-control-label{
 				status : 'active',
 				notifications_on: false,
 				settings_on: false,
+				system_settings_on: false,
 				profile_on: false,
 				account_on: false,
 				callbacks_on: true,
@@ -1017,6 +1104,8 @@ label.custom-control-label{
 				sources : [],
 				packages : [],
 				filters : [],
+				preferences : [],
+				roles: [],
 				attrs: [{
 					key: 'today',
 					highlight: true,
@@ -1031,6 +1120,15 @@ label.custom-control-label{
 					source: '',
 					product_id: '',
 					status: '',
+				},
+				system_settings: {
+					id:'',
+					auto_dialer: {
+						value : 'on',
+						applies_to : '4'
+					},
+					theme: 'orange',
+					language : 'english'
 				},
 				avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
@@ -1086,6 +1184,49 @@ label.custom-control-label{
 							}
 						);
 					});	
+				});
+			},
+			applySetting(settings = null){
+
+				var vm = this;
+
+				if(settings != null && settings.type == 'language'){
+					vm.system_settings.language = settings.value;
+				}else if(settings != null && settings.type == 'theme'){
+					vm.system_settings.theme = settings.value;
+				}
+
+				vm.$Progress.start();
+
+				axios.post('/update-preferences', vm.system_settings).then(function (response) {
+										
+					if(response.data.success == true){
+						vm.Toast.fire({ type: 'success', title: response.data.message });
+						vm.getPreferences();
+						vm.$Progress.finish();
+					}else{
+						vm.$Progress.fail();
+						vm.$swal('Failed', 'Opps, something went wrong while update, please try again','warning');
+					}
+				});
+			},
+			getPreferences(){
+
+				var vm = this;
+
+				axios.get('/get-preferences').then(function (response) {
+					vm.preferences = response.data.preferences;
+					vm.preferences.forEach(function(preference){
+						vm.system_settings.id = preference.id;
+						if(preference.setting == 'auto_dialer'){
+							vm.system_settings.auto_dialer.value = preference.value;
+							vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
+						}else if(preference.setting == 'theme'){
+							vm.system_settings.theme = preference.value;
+						}else if(preference.setting == 'language'){
+							vm.system_settings.language = preference.value;
+						}
+					});
 				});
 			},
 			updateNotifications(){

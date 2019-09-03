@@ -121,13 +121,13 @@
         float: left;
         margin-top: 11px;
         width: 57%;
-        font-size: 14px;
+        font-size: 10px;
         color: #7f99a4;
     }
     .author{    
         float: right;
         margin-top: 11px;
-        font-size: 12px;
+        font-size: 10px;
         text-align: left;
         width: 22%;
         display: block;
@@ -415,7 +415,6 @@ a.down-scroll:hover{
     padding: 25px;
     text-align: center;
 }
-
 .btn-active:hover{
 	background: #00344a;
 	color: #ffffff;    border: none !important;
@@ -591,51 +590,51 @@ a.down-scroll:hover{
                 <div class="col-lg-12">
                     <p class="heading">Calls</p>
                 </div>
-              <div>
-                <div class="card client">
-                  <div class="card-body">
+                <div>
+                    <div class="card client">
+                        <div class="card-body">
 
-                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
-                      Cashed Out
-                    </p>
- 
-                  </div>
+                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            Cashed Out
+                            </p>
+        
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <div class="card product">
-                  <div class="card-body">
+                <div>
+                    <div class="card product">
+                        <div class="card-body">
 
-                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
-                      Upsell
-                    </p>
- 
-                  </div>
+                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            Upsell
+                            </p>
+        
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <div class="card time">
-                  <div class="card-body">
+                <div>
+                    <div class="card time">
+                        <div class="card-body">
 
-                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
-                      Not Interested
-                    </p>
- 
-                  </div>
+                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            Not Interested
+                            </p>
+        
+                        </div>
+                    </div>
                 </div>
-              </div>
 
-              <div>
-                <div class="card activity">
-                  <div class="card-body">
+                <div>
+                    <div class="card activity">
+                        <div class="card-body">
 
-                    <p class="card-text" :title="lead.name + ' ' + lead.surname">
-                      More Info
-                    </p>
- 
-                  </div>
+                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            More Info
+                            </p>
+        
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>  
 
@@ -1252,9 +1251,11 @@ a.down-scroll:hover{
 
             var vm = this;
 
-            this.enqueueLead(vm.lead_id);
+            vm.enqueueLead(vm.lead_id);
 
-            this.prepDates();
+            vm.prepDates();
+
+            vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
 
             Fire.$on('CallStarted', function(){
                 vm.general = false;
@@ -1294,7 +1295,7 @@ a.down-scroll:hover{
         },
         created: function () {
         },
-        props: ['user_name','user_id','lead_id'],
+        props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'],
         data: function(){
             return {
                 lead : {},
@@ -1339,6 +1340,7 @@ a.down-scroll:hover{
                 selected_date: moment(),
                 selected_time:  moment(),
                 dates: [],
+                dialer_settings: [],
                 Toast: null
             }
         },
@@ -1464,7 +1466,7 @@ a.down-scroll:hover{
                         vm.continues = false;
 
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
-                        if(lead_id == ''){ 
+                        if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){ 
                             setTimeout( function(){
                                 axios.get('/calls/token').then(function (response) {
                                     console.log('Token',response.data.token);
@@ -1538,7 +1540,7 @@ a.down-scroll:hover{
                 var form_data = {
                     lead_id : vm.lead_info.id,
                     phone_number : vm.lead_info.contact_number,
-                    // phone_number : '+27783684144',
+                    phone_number : '+27738802485',
                 }
                 
                 Device.connect(form_data);
@@ -1659,7 +1661,7 @@ a.down-scroll:hover{
                     date_string = diffDays + ' Days ago';
                 }else if(diffDays == 7){
                     date_string = '1 Week ago';
-                }else if(diffDays >= 30){
+                }else if(diffDays >= 7 ){
                     date_string = second_date;
                 }
                 return date_string;

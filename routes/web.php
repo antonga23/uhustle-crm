@@ -30,6 +30,8 @@ Route::post('/upload-avatar','UserController@uploadAvatar');
 Route::post('/update-user','UserController@update');
 Route::post('/update-account','UserController@updateAccount');
 Route::get('/get-current-user','UserController@getCurrentUser');
+Route::get('/get-preferences','UserController@getPreferences');
+Route::post('/update-preferences','UserController@updatePreferences');
 
 // App Pages Routes
 Route::get('/workstation', 'PagesController@index')->name('workstation');
