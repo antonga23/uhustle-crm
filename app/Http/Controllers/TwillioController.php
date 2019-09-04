@@ -133,23 +133,43 @@ class TwillioController extends Controller
 
         // Call
         $lead_id = $request->lead_id;
-        // $to_number = '+27619932376';
         $to_number = $request->phone_number;
+        $encodedSalesPhone = urlencode(str_replace(' ','',$twilio_number));
+        $host = config('app.url');
         
-        $response = new Twiml;
-        
-        if (isset($to_number) && strlen($to_number) > 0) {
-            
-            $dial = $response->dial(array('callerId' => $twilio_number));
+        $account_sid = config('twillio.twillio_account_sid');
+        $auth_token = config('twillio.twillio_auth_token');
 
-            $dial->number($to_number);
+        $client = new Client($account_sid, $auth_token);
 
-        }else{
-            $response->say("Thanks for calling!");
-            
+        try {
+            $client->calls->create(
+                $to_number, // The visitor's phone number
+                $twilio_number, // A Twilio number in your account
+                array(
+                    "url" => "$host/calls/outbound/$encodedSalesPhone"
+                )
+            );
+        } catch (Exception $e) {
+            // Failed calls will throw
+            return $e;
         }
-        
-        echo $response;
+    
+        // return a JSON response
+        return array('message' => 'Call incoming!');
+    }
+
+    public function outBound ($salesPhone) {
+        // A message for Twilio's TTS engine to repeat
+        $sayMessage = 'Thanks for contacting our sales department. Our
+            next available representative will take your call.';
+    
+        $twiml = new Twiml();
+        $twiml->say($sayMessage, array('voice' => 'alice'));
+        $twiml->dial($salesPhone);
+    
+        return response($twiml, 200)
+                            ->header('Content-Type', 'text/xml'); 
     }
 
     public function newToken(Request $request)

@@ -45,6 +45,8 @@ Route::get('/contacts', 'PagesController@contacts')->name('contacts');
 
 // Calls Routes
 Route::group(['prefix' => 'calls'], function () {
+	Route::post('/call', 'TwillioController@call');
+	Route::post('/outbound/{salesPhone}', 'TwillioController@outBound');
 	Route::get('/token', 'TwillioController@newToken');
 	Route::post('/voice', 'TwillioController@voice');
 	Route::post('/status-update', 'TwillioController@statusUpdate');

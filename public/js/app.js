@@ -76666,8 +76666,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotesStats_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotesStats.vue */ "./resources/assets/js/components/Workstation/NotesStats.vue");
 /* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-flip-countdown */ "./node_modules/vue2-flip-countdown/dist/vue2-flip-countdown.js");
 /* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_5__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -78122,54 +78120,52 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             'lead_id': vm.lead_info.id,
             'contact_number': vm.lead_info.phone_number
           });
-
-          if (vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on') {
-            setTimeout(function () {
-              axios.get('/calls/token').then(function (response) {
-                console.log('Token', response.data.token); // Setup Twilio.Device
-
-                Device.setup(response.data.token);
-                Device.on('ready', function (device) {
-                  vm.call_status = 'Device Ready'; // vm.$refs.callBtn.click();
-                });
-                Device.on('error', function (error) {
-                  vm.call_status = 'Device Error: ' + error.message;
-                });
-                Device.on('connect', function (conn) {
-                  vm.call_status = 'Successfully established call';
-                  vm.call_back.call_sid = conn.parameters.CallSid;
-                  axios.post('/calls/create-call-record', {
-                    'lead_id': vm.lead_info.id,
-                    'call_sid': conn.parameters.CallSid
-                  }).then(function (response) {})["catch"](function (error) {
-                    console.log(error);
-                  });
-                });
-                Device.on('incoming', function (conn) {
-                  console.log('Incoming connection from ' + conn.parameters.From);
-                  var archEnemyPhoneNumber = '+12099517118';
-
-                  if (conn.parameters.From === archEnemyPhoneNumber) {
-                    conn.reject();
-                    console.log('It\'s your nemesis. Rejected call.');
-                  } else {
-                    // accept the incoming connection and start two-way audio
-                    conn.accept();
-                  }
-                });
-                Device.on('disconnect', function (conn) {
-                  vm.call_status = 'Call Disconnected';
-                  vm.$refs['final-call-step'].show();
-                });
-                vm.$Progress.finish();
-              })["catch"](function (error) {
-                console.log(error);
-              });
-            }, 1000);
-          } else {
-            Fire.$emit('ShowGeneral');
-            vm.$Progress.finish();
-          }
+          vm.call_status = 'Device Ready';
+          vm.$refs.callBtn.click(); // if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){ 
+          //     setTimeout( function(){
+          //         axios.get('/calls/token').then(function (response) {
+          //             console.log('Token',response.data.token);
+          //             // Setup Twilio.Device
+          //             Device.setup(response.data.token);
+          //             Device.on('ready',function (device) {
+          //                 vm.call_status = 'Device Ready';
+          //                 // vm.$refs.callBtn.click();
+          //             });
+          //             Device.on('error',function (error) {
+          //                 vm.call_status = 'Device Error: ' + error.message;
+          //             });
+          //             Device.on('connect',function (conn) {
+          //                 vm.call_status = 'Successfully established call';
+          //                 vm.call_back.call_sid = conn.parameters.CallSid;
+          //                 axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
+          //                 }).catch(function (error) {                    
+          //                     console.log(error);
+          //                 });
+          //             });
+          //             Device.on('incoming', function (conn) {
+          //                 console.log('Incoming connection from ' + conn.parameters.From);
+          //                 var archEnemyPhoneNumber = '+12099517118';
+          //                 if (conn.parameters.From === archEnemyPhoneNumber) {
+          //                     conn.reject();
+          //                     console.log('It\'s your nemesis. Rejected call.');
+          //                 } else {
+          //                     // accept the incoming connection and start two-way audio
+          //                     conn.accept();
+          //                 }
+          //             });
+          //             Device.on('disconnect',function (conn) {
+          //                 vm.call_status = 'Call Disconnected';
+          //                 vm.$refs['final-call-step'].show();
+          //             });
+          //             vm.$Progress.finish();
+          //         }).catch(function (error) {                    
+          //             console.log(error);
+          //         });
+          //     }, 1000 );
+          // }else{
+          //     Fire.$emit('ShowGeneral');
+          //     vm.$Progress.finish();
+          // }
         } else {
           vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -78184,14 +78180,32 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var audioCtx = new AudioContext();
       audioCtx.resume();
       Fire.$emit('InitiateCall');
-
-      var form_data = _defineProperty({
+      var form_data = {
         lead_id: vm.lead_info.id,
-        phone_number: vm.lead_info.contact_number
-      }, "phone_number", '+27682554070');
-
-      Device.connect(form_data);
+        // phone_number : vm.lead_info.contact_number,
+        phone_number: '+27738802485'
+      };
+      axios.post('/calls/call', form_data).then(function (response) {
+        console.log(response.data.message);
+      })["catch"](function (error) {
+        console.log(JSON.stringify(error));
+      });
     },
+    // startCall() {
+    //     var vm = this;
+    //     this.idle = true;
+    //     this.show_edication_blocks = true;
+    //     this.general = false;
+    //     var audioCtx = new AudioContext();
+    //     audioCtx.resume();
+    //     Fire.$emit('InitiateCall');
+    //     var form_data = {
+    //         lead_id : vm.lead_info.id,
+    //         phone_number : vm.lead_info.contact_number,
+    //         phone_number : '+27682554070',
+    //     }
+    //     Device.connect(form_data);
+    // },
     endCall: function endCall() {
       var vm = this;
       Device.disconnectAll(function (conn) {
