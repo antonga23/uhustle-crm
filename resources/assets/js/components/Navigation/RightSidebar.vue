@@ -653,15 +653,15 @@ label.custom-control-label{
 						<p class="description" title="Personal Information">General System Preferences</p>
 					    <transition-expand>
 							<div v-if="expanded == true && system_settings_on == true" style="margin-top: 20px;width: 100%;" >
-								<div class="row">
+								<div class="row" v-if="user.role_id == 1">
 									<h3>
 										Settings 
 									</h3>
-									<div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
+									<div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in system_preferences" :key="index">
 										<div v-if="setting.setting == 'auto_dialer'">
 											<label class="col-lg-5 control-label">
 												Auto Dialing
-												<select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control">
+												<select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control" v-on:change="applySetting()">
 													<option value="on">On</option>
 													<option value="off">Off</option>
 												</select>
@@ -676,7 +676,7 @@ label.custom-control-label{
 										</div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" v-if="preferences.length > 0">
 									<h3>
 										Themes 
 									</h3>
@@ -700,7 +700,31 @@ label.custom-control-label{
 										</div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" v-else>
+									<h3>
+										Themes 
+									</h3>
+									<div style="width: 100%;">
+										<div>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" style="width: 100%; margin: 0px;">
+													Orange
+												</button>
+											</label>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-default' : true }" style="width: 100%; margin: 0px;">
+													Blue
+												</button>
+											</label>
+											<label class="col-lg-3 control-label">
+												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-default' :  true }" style="width: 100%; margin: 0px;">
+													Red
+												</button>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row" v-if="preferences.length > 0">
 									<h3>
 										Language 
 									</h3>
@@ -712,7 +736,26 @@ label.custom-control-label{
 												</button>
 											</label>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'language', value :'spanish'})"type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" style="width: 100%; margin: 0px;">
+													Spanish
+												</button>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row" v-else>
+									<h3>
+										Language 
+									</h3>
+									<div style="width: 100%;">
+										<div>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" style="width: 100%; margin: 0px;">
+													English
+												</button>
+											</label>
+											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" style="width: 100%; margin: 0px;">
 													Spanish
 												</button>
 											</label>
@@ -1105,6 +1148,7 @@ label.custom-control-label{
 				packages : [],
 				filters : [],
 				preferences : [],
+				system_preferences : [],
 				roles: [],
 				attrs: [{
 					key: 'today',
@@ -1124,9 +1168,12 @@ label.custom-control-label{
 				system_settings: {
 					id:'',
 					auto_dialer: {
-						value : 'on',
-						applies_to : '4'
-					},
+						value : '',
+						applies_to : ''
+					}
+				},
+				user_settings: {
+					id:'',
 					theme: 'orange',
 					language : 'english'
 				},
@@ -1191,14 +1238,14 @@ label.custom-control-label{
 				var vm = this;
 
 				if(settings != null && settings.type == 'language'){
-					vm.system_settings.language = settings.value;
+					vm.user_settings.language = settings.value;
 				}else if(settings != null && settings.type == 'theme'){
-					vm.system_settings.theme = settings.value;
+					vm.user_settings.theme = settings.value;
 				}
 
 				vm.$Progress.start();
 
-				axios.post('/update-preferences', vm.system_settings).then(function (response) {
+				axios.post('/update-preferences',{ system_settings: vm.system_settings,  user_settings: vm.user_settings }).then(function (response) {
 										
 					if(response.data.success == true){
 						vm.Toast.fire({ type: 'success', title: response.data.message });
@@ -1216,15 +1263,20 @@ label.custom-control-label{
 
 				axios.get('/get-preferences').then(function (response) {
 					vm.preferences = response.data.preferences;
-					vm.preferences.forEach(function(preference){
-						vm.system_settings.id = preference.id;
+					vm.system_preferences = response.data.system_preferences;
+					vm.system_preferences.forEach(function(preference){
 						if(preference.setting == 'auto_dialer'){
 							vm.system_settings.auto_dialer.value = preference.value;
 							vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-						}else if(preference.setting == 'theme'){
-							vm.system_settings.theme = preference.value;
+							console.log('asdad 2',vm.system_settings);
+						}
+					});
+					vm.preferences.forEach(function(preference){
+						vm.system_settings.id = preference.id;
+						if(preference.setting == 'theme'){
+							vm.user_settings.theme = preference.value;
 						}else if(preference.setting == 'language'){
-							vm.system_settings.language = preference.value;
+							vm.user_settings.language = preference.value;
 						}
 					});
 				});

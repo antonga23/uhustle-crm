@@ -17,20 +17,11 @@ class SystemSettingsSeeder extends Seeder
             'system_setting' => 1,
             'user_id' => null,
             'setting' => 'auto_dialer',
-            'value' => 'no',
-            'previous_value' => 'no',
+            'value' => 'on',
+            'previous_value' => 'on',
             'modified_by' => 1,
-            'applies_to_role' => 2,
+            'applies_to_role' => 1,
         ]);
 
-        SystemSettings::create([
-            'system_setting' => 1,
-            'user_id' => null,
-            'setting' => 'theme',
-            'value' => 'default',
-            'previous_value' => 'default',
-            'modified_by' => 1,
-            'applies_to_role' => -1
-        ]);
     }
 }

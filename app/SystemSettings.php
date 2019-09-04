@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SystemSettings extends Model
 {
-    protected $fillabble = [
+    protected $fillable = [
         'system_setting',
         'user_id',
         'setting',

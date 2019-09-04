@@ -308,19 +308,23 @@ class UserController extends Controller
         $user_role = Auth::user()->role_id;
 
         if($user_role == 1){
-            $preferences = SystemSettings::where(['user_id' => $user_id])->orWhere(['system_setting' => 1])->get();
+            $system_preferences = SystemSettings::where(['system_setting' => 1])->get();
         }else{
-            $preferences = SystemSettings::where(['user_id' => $user_id])->get();
+            $system_preferences = [];
         }
 
-        return array('success' =>true,'preferences' => $preferences);
+        $preferences = SystemSettings::where(['user_id' => $user_id])->get();
+
+        return array('success' =>true,'system_preferences' => $system_preferences,'preferences' => $preferences);
     }
 
     public function updatePreferences(Request $request){
         $user_id = Auth::user()->id;
 
-        $settings = $request->all();
-        // dd($settings);
+        $data = $request->all();
+        $system_settings = $request['system_settings'];
+        $user_settings = $request['user_settings'];
+        
         $user_role = Auth::user()->role_id;
 
         try{
@@ -330,14 +334,12 @@ class UserController extends Controller
                 $current_auto_dialer = SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->first();
                 
                 $previous_value = $current_auto_dialer->value;
-                if($previous_value != $settings['auto_dialer']['value']){ 
-                    SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->update([
-                        'value' => $settings['auto_dialer']['value'],
-                        'previous_value' => $current_auto_dialer->value,
-                        'modified_by' => $user_id,
-                        'applies_to_role' => $settings['auto_dialer']['applies_to'],
-                    ]);
-                }
+                SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->update([
+                    'value' => $system_settings['auto_dialer']['value'],
+                    'previous_value' => $current_auto_dialer->value,
+                    'modified_by' => $user_id,
+                    'applies_to_role' => $system_settings['auto_dialer']['applies_to'],
+                ]);
             }
 
             $check = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->count();
@@ -345,7 +347,7 @@ class UserController extends Controller
                 $prev_value = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->first();
                 
                 SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->update([
-                    'value' => $settings['language'],
+                    'value' => $user_settings['language'],
                     'previous_value' => $prev_value->value,
                     'modified_by' => $user_id,
                 ]);
@@ -353,7 +355,7 @@ class UserController extends Controller
                 SystemSettings::create([
                     'user_id' => $user_id,
                     'setting' => 'language',
-                    'value' => $settings['language'],
+                    'value' => $user_settings['language'],
                     'modified_by' => $user_id,
                 ]);
             }
@@ -363,7 +365,7 @@ class UserController extends Controller
                 $prev_value = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'theme'])->first();
                 
                 SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'theme'])->update([
-                    'value' => $settings['theme'],
+                    'value' => $user_settings['theme'],
                     'previous_value' => $prev_value->value,
                     'modified_by' => $user_id,
                 ]);
@@ -371,7 +373,7 @@ class UserController extends Controller
                 SystemSettings::create([
                     'user_id' => $user_id,
                     'setting' => 'theme',
-                    'value' => $settings['theme'],
+                    'value' => $user_settings['theme'],
                     'modified_by' => $user_id,
                 ]);
             }

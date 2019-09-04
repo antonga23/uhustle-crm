@@ -1540,7 +1540,7 @@ a.down-scroll:hover{
                 var form_data = {
                     lead_id : vm.lead_info.id,
                     phone_number : vm.lead_info.contact_number,
-                    phone_number : '+27738802485',
+                    phone_number : '+27682554070',
                 }
                 
                 Device.connect(form_data);

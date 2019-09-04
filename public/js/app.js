@@ -73974,6 +73974,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -74041,6 +74084,7 @@ __webpack_require__.r(__webpack_exports__);
       packages: [],
       filters: [],
       preferences: [],
+      system_preferences: [],
       roles: [],
       attrs: [{
         key: 'today',
@@ -74060,9 +74104,12 @@ __webpack_require__.r(__webpack_exports__);
       system_settings: {
         id: '',
         auto_dialer: {
-          value: 'on',
-          applies_to: '4'
-        },
+          value: '',
+          applies_to: ''
+        }
+      },
+      user_settings: {
+        id: '',
         theme: 'orange',
         language: 'english'
       },
@@ -74118,13 +74165,16 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
 
       if (settings != null && settings.type == 'language') {
-        vm.system_settings.language = settings.value;
+        vm.user_settings.language = settings.value;
       } else if (settings != null && settings.type == 'theme') {
-        vm.system_settings.theme = settings.value;
+        vm.user_settings.theme = settings.value;
       }
 
       vm.$Progress.start();
-      axios.post('/update-preferences', vm.system_settings).then(function (response) {
+      axios.post('/update-preferences', {
+        system_settings: vm.system_settings,
+        user_settings: vm.user_settings
+      }).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
             type: 'success',
@@ -74142,16 +74192,21 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       axios.get('/get-preferences').then(function (response) {
         vm.preferences = response.data.preferences;
-        vm.preferences.forEach(function (preference) {
-          vm.system_settings.id = preference.id;
-
+        vm.system_preferences = response.data.system_preferences;
+        vm.system_preferences.forEach(function (preference) {
           if (preference.setting == 'auto_dialer') {
             vm.system_settings.auto_dialer.value = preference.value;
             vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-          } else if (preference.setting == 'theme') {
-            vm.system_settings.theme = preference.value;
+            console.log('asdad 2', vm.system_settings);
+          }
+        });
+        vm.preferences.forEach(function (preference) {
+          vm.system_settings.id = preference.id;
+
+          if (preference.setting == 'theme') {
+            vm.user_settings.theme = preference.value;
           } else if (preference.setting == 'language') {
-            vm.system_settings.language = preference.value;
+            vm.user_settings.language = preference.value;
           }
         });
       });
@@ -78148,7 +78203,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var form_data = _defineProperty({
         lead_id: vm.lead_info.id,
         phone_number: vm.lead_info.contact_number
-      }, "phone_number", '+27738802485');
+      }, "phone_number", '+27682554070');
 
       Device.connect(form_data);
     },
@@ -250334,528 +250389,821 @@ var render = function() {
                             staticStyle: { "margin-top": "20px", width: "100%" }
                           },
                           [
-                            _c(
-                              "div",
-                              { staticClass: "row" },
-                              [
-                                _c("h3", [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\tSettings \n\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _vm._l(_vm.preferences, function(
-                                  setting,
-                                  index
-                                ) {
-                                  return _c(
-                                    "div",
-                                    {
-                                      key: index,
-                                      class: { input: true, "form-group": true }
-                                    },
-                                    [
-                                      setting.setting == "auto_dialer"
-                                        ? _c("div", [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-5 control-label"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\tAuto Dialing\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                ),
+                            _vm.user.role_id == 1
+                              ? _c(
+                                  "div",
+                                  { staticClass: "row" },
+                                  [
+                                    _c("h3", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\tSettings \n\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.system_preferences, function(
+                                      setting,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          class: {
+                                            input: true,
+                                            "form-group": true
+                                          }
+                                        },
+                                        [
+                                          setting.setting == "auto_dialer"
+                                            ? _c("div", [
                                                 _c(
-                                                  "select",
+                                                  "label",
                                                   {
-                                                    directives: [
+                                                    staticClass:
+                                                      "col-lg-5 control-label"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\tAuto Dialing\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    ),
+                                                    _c(
+                                                      "select",
                                                       {
-                                                        name: "model",
-                                                        rawName: "v-model",
-                                                        value:
-                                                          _vm.system_settings
-                                                            .auto_dialer.value,
-                                                        expression:
-                                                          "system_settings.auto_dialer.value"
-                                                      }
-                                                    ],
-                                                    staticClass: "form-control",
-                                                    attrs: {
-                                                      id: "auto_dialler"
-                                                    },
-                                                    on: {
-                                                      change: function($event) {
-                                                        var $$selectedVal = Array.prototype.filter
-                                                          .call(
-                                                            $event.target
-                                                              .options,
-                                                            function(o) {
-                                                              return o.selected
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm
+                                                                .system_settings
+                                                                .auto_dialer
+                                                                .value,
+                                                            expression:
+                                                              "system_settings.auto_dialer.value"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "form-control",
+                                                        attrs: {
+                                                          id: "auto_dialler"
+                                                        },
+                                                        on: {
+                                                          change: [
+                                                            function($event) {
+                                                              var $$selectedVal = Array.prototype.filter
+                                                                .call(
+                                                                  $event.target
+                                                                    .options,
+                                                                  function(o) {
+                                                                    return o.selected
+                                                                  }
+                                                                )
+                                                                .map(function(
+                                                                  o
+                                                                ) {
+                                                                  var val =
+                                                                    "_value" in
+                                                                    o
+                                                                      ? o._value
+                                                                      : o.value
+                                                                  return val
+                                                                })
+                                                              _vm.$set(
+                                                                _vm
+                                                                  .system_settings
+                                                                  .auto_dialer,
+                                                                "value",
+                                                                $event.target
+                                                                  .multiple
+                                                                  ? $$selectedVal
+                                                                  : $$selectedVal[0]
+                                                              )
+                                                            },
+                                                            function($event) {
+                                                              return _vm.applySetting()
                                                             }
-                                                          )
-                                                          .map(function(o) {
-                                                            var val =
-                                                              "_value" in o
-                                                                ? o._value
-                                                                : o.value
-                                                            return val
-                                                          })
-                                                        _vm.$set(
-                                                          _vm.system_settings
-                                                            .auto_dialer,
-                                                          "value",
-                                                          $event.target.multiple
-                                                            ? $$selectedVal
-                                                            : $$selectedVal[0]
+                                                          ]
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "option",
+                                                          {
+                                                            attrs: {
+                                                              value: "on"
+                                                            }
+                                                          },
+                                                          [_vm._v("On")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "option",
+                                                          {
+                                                            attrs: {
+                                                              value: "off"
+                                                            }
+                                                          },
+                                                          [_vm._v("Off")]
                                                         )
-                                                      }
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-lg-6 control-label"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\tApply To\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    ),
+                                                    _c(
+                                                      "select",
+                                                      {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm
+                                                                .system_settings
+                                                                .auto_dialer
+                                                                .applies_to,
+                                                            expression:
+                                                              "system_settings.auto_dialer.applies_to"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "form-control",
+                                                        attrs: {
+                                                          id: "auto_dialler"
+                                                        },
+                                                        on: {
+                                                          change: [
+                                                            function($event) {
+                                                              var $$selectedVal = Array.prototype.filter
+                                                                .call(
+                                                                  $event.target
+                                                                    .options,
+                                                                  function(o) {
+                                                                    return o.selected
+                                                                  }
+                                                                )
+                                                                .map(function(
+                                                                  o
+                                                                ) {
+                                                                  var val =
+                                                                    "_value" in
+                                                                    o
+                                                                      ? o._value
+                                                                      : o.value
+                                                                  return val
+                                                                })
+                                                              _vm.$set(
+                                                                _vm
+                                                                  .system_settings
+                                                                  .auto_dialer,
+                                                                "applies_to",
+                                                                $event.target
+                                                                  .multiple
+                                                                  ? $$selectedVal
+                                                                  : $$selectedVal[0]
+                                                              )
+                                                            },
+                                                            function($event) {
+                                                              return _vm.applySetting()
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._l(
+                                                          _vm.roles,
+                                                          function(
+                                                            role,
+                                                            index
+                                                          ) {
+                                                            return _c(
+                                                              "option",
+                                                              {
+                                                                key: index,
+                                                                domProps: {
+                                                                  value: role.id
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    role.display_name
+                                                                  )
+                                                                )
+                                                              ]
+                                                            )
+                                                          }
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "option",
+                                                          {
+                                                            attrs: {
+                                                              value: "-1"
+                                                            }
+                                                          },
+                                                          [_vm._v("Everyone")]
+                                                        )
+                                                      ],
+                                                      2
+                                                    )
+                                                  ]
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ]
+                                      )
+                                    })
+                                  ],
+                                  2
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.preferences.length > 0
+                              ? _c(
+                                  "div",
+                                  { staticClass: "row" },
+                                  [
+                                    _c("h3", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.preferences, function(
+                                      setting,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          staticStyle: { width: "100%" }
+                                        },
+                                        [
+                                          setting.setting == "theme" &&
+                                          setting.system_setting != 1
+                                            ? _c("div", [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-lg-3 control-label",
+                                                    staticStyle: {
+                                                      "margin-right": "8px",
+                                                      float: "left"
                                                     }
                                                   },
                                                   [
                                                     _c(
-                                                      "option",
+                                                      "button",
                                                       {
-                                                        attrs: { value: "on" }
-                                                      },
-                                                      [_vm._v("On")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "option",
-                                                      {
-                                                        attrs: { value: "off" }
-                                                      },
-                                                      [_vm._v("Off")]
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-6 control-label"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\tApply To\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                ),
-                                                _c(
-                                                  "select",
-                                                  {
-                                                    directives: [
-                                                      {
-                                                        name: "model",
-                                                        rawName: "v-model",
-                                                        value:
-                                                          _vm.system_settings
-                                                            .auto_dialer
-                                                            .applies_to,
-                                                        expression:
-                                                          "system_settings.auto_dialer.applies_to"
-                                                      }
-                                                    ],
-                                                    staticClass: "form-control",
-                                                    attrs: {
-                                                      id: "auto_dialler"
-                                                    },
-                                                    on: {
-                                                      change: [
-                                                        function($event) {
-                                                          var $$selectedVal = Array.prototype.filter
-                                                            .call(
-                                                              $event.target
-                                                                .options,
-                                                              function(o) {
-                                                                return o.selected
+                                                        class: {
+                                                          "btn orange-btn": true,
+                                                          "btn-orange":
+                                                            setting.value ==
+                                                            "orange"
+                                                              ? true
+                                                              : false,
+                                                          "btn-default":
+                                                            setting.value !=
+                                                            "orange"
+                                                              ? true
+                                                              : false
+                                                        },
+                                                        staticStyle: {
+                                                          width: "100%",
+                                                          margin: "0px"
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.applySetting(
+                                                              {
+                                                                type: "theme",
+                                                                value: "orange"
                                                               }
                                                             )
-                                                            .map(function(o) {
-                                                              var val =
-                                                                "_value" in o
-                                                                  ? o._value
-                                                                  : o.value
-                                                              return val
-                                                            })
-                                                          _vm.$set(
-                                                            _vm.system_settings
-                                                              .auto_dialer,
-                                                            "applies_to",
-                                                            $event.target
-                                                              .multiple
-                                                              ? $$selectedVal
-                                                              : $$selectedVal[0]
-                                                          )
-                                                        },
-                                                        function($event) {
-                                                          return _vm.applySetting()
+                                                          }
                                                         }
-                                                      ]
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._l(_vm.roles, function(
-                                                      role,
-                                                      index
-                                                    ) {
-                                                      return _c(
-                                                        "option",
-                                                        {
-                                                          key: index,
-                                                          domProps: {
-                                                            value: role.id
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              role.display_name
-                                                            )
-                                                          )
-                                                        ]
-                                                      )
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "option",
-                                                      {
-                                                        attrs: { value: "-1" }
                                                       },
-                                                      [_vm._v("Everyone")]
+                                                      [
+                                                        _vm._v(
+                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tOrange\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                        )
+                                                      ]
                                                     )
-                                                  ],
-                                                  2
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-lg-3 control-label",
+                                                    staticStyle: {
+                                                      "margin-right": "8px",
+                                                      float: "left"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        class: {
+                                                          "btn blue-btn": true,
+                                                          "btn-blue":
+                                                            setting.value ==
+                                                            "blue"
+                                                              ? true
+                                                              : false,
+                                                          "btn-default":
+                                                            setting.value !=
+                                                            "blue"
+                                                              ? true
+                                                              : false
+                                                        },
+                                                        staticStyle: {
+                                                          width: "100%",
+                                                          margin: "0px"
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.applySetting(
+                                                              {
+                                                                type: "theme",
+                                                                value: "blue"
+                                                              }
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tBlue\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-lg-3 control-label"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        class: {
+                                                          "btn red-btn": true,
+                                                          "btn-red":
+                                                            setting.value ==
+                                                            "red"
+                                                              ? true
+                                                              : false,
+                                                          "btn-default":
+                                                            setting.value !=
+                                                            "red"
+                                                              ? true
+                                                              : false
+                                                        },
+                                                        staticStyle: {
+                                                          width: "100%",
+                                                          margin: "0px"
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.applySetting(
+                                                              {
+                                                                type: "theme",
+                                                                value: "red"
+                                                              }
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tRed\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ]
+                                      )
+                                    })
+                                  ],
+                                  2
+                                )
+                              : _c("div", { staticClass: "row" }, [
+                                  _c("h3", [
+                                    _vm._v(
+                                      "\n\t\t\t\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t\t\t\t"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticStyle: { width: "100%" } },
+                                    [
+                                      _c("div", [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-3 control-label",
+                                            staticStyle: {
+                                              "margin-right": "8px",
+                                              float: "left"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                class: {
+                                                  "btn orange-btn": true,
+                                                  "btn-orange": true
+                                                },
+                                                staticStyle: {
+                                                  width: "100%",
+                                                  margin: "0px"
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "theme",
+                                                      value: "orange"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\t\tOrange\n\t\t\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ]
                                             )
-                                          ])
-                                        : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-3 control-label",
+                                            staticStyle: {
+                                              "margin-right": "8px",
+                                              float: "left"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                class: {
+                                                  "btn blue-btn": true,
+                                                  "btn-default": true
+                                                },
+                                                staticStyle: {
+                                                  width: "100%",
+                                                  margin: "0px"
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "theme",
+                                                      value: "blue"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\t\tBlue\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-3 control-label"
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                class: {
+                                                  "btn red-btn": true,
+                                                  "btn-default": true
+                                                },
+                                                staticStyle: {
+                                                  width: "100%",
+                                                  margin: "0px"
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "theme",
+                                                      value: "red"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\t\tRed\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
                                     ]
-                                  )
-                                })
-                              ],
-                              2
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row" },
-                              [
-                                _c("h3", [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\tThemes \n\t\t\t\t\t\t\t\t\t"
                                   )
                                 ]),
-                                _vm._v(" "),
-                                _vm._l(_vm.preferences, function(
-                                  setting,
-                                  index
-                                ) {
-                                  return _c(
-                                    "div",
-                                    {
-                                      key: index,
-                                      staticStyle: { width: "100%" }
-                                    },
-                                    [
-                                      setting.setting == "theme" &&
-                                      setting.system_setting != 1
-                                        ? _c("div", [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-3 control-label",
-                                                staticStyle: {
-                                                  "margin-right": "8px",
-                                                  float: "left"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "button",
-                                                  {
-                                                    class: {
-                                                      "btn orange-btn": true,
-                                                      "btn-orange":
-                                                        setting.value ==
-                                                        "orange"
-                                                          ? true
-                                                          : false,
-                                                      "btn-default":
-                                                        setting.value !=
-                                                        "orange"
-                                                          ? true
-                                                          : false
-                                                    },
-                                                    staticStyle: {
-                                                      width: "100%",
-                                                      margin: "0px"
-                                                    },
-                                                    attrs: { type: "submit" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.applySetting(
-                                                          {
-                                                            type: "theme",
-                                                            value: "orange"
-                                                          }
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tOrange\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-3 control-label",
-                                                staticStyle: {
-                                                  "margin-right": "8px",
-                                                  float: "left"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "button",
-                                                  {
-                                                    class: {
-                                                      "btn blue-btn": true,
-                                                      "btn-blue":
-                                                        setting.value == "blue"
-                                                          ? true
-                                                          : false,
-                                                      "btn-default":
-                                                        setting.value != "blue"
-                                                          ? true
-                                                          : false
-                                                    },
-                                                    staticStyle: {
-                                                      width: "100%",
-                                                      margin: "0px"
-                                                    },
-                                                    attrs: { type: "submit" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.applySetting(
-                                                          {
-                                                            type: "theme",
-                                                            value: "blue"
-                                                          }
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tBlue\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-3 control-label"
-                                              },
-                                              [
-                                                _c(
-                                                  "button",
-                                                  {
-                                                    class: {
-                                                      "btn red-btn": true,
-                                                      "btn-red":
-                                                        setting.value == "red"
-                                                          ? true
-                                                          : false,
-                                                      "btn-default":
-                                                        setting.value != "red"
-                                                          ? true
-                                                          : false
-                                                    },
-                                                    staticStyle: {
-                                                      width: "100%",
-                                                      margin: "0px"
-                                                    },
-                                                    attrs: { type: "submit" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.applySetting(
-                                                          {
-                                                            type: "theme",
-                                                            value: "red"
-                                                          }
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tRed\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ])
-                                        : _vm._e()
-                                    ]
-                                  )
-                                })
-                              ],
-                              2
-                            ),
                             _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "row" },
-                              [
-                                _c("h3", [
-                                  _vm._v(
-                                    "\n\t\t\t\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t\t\t\t"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _vm._l(_vm.preferences, function(
-                                  setting,
-                                  index
-                                ) {
-                                  return _c(
-                                    "div",
-                                    {
-                                      key: index,
-                                      staticStyle: { width: "100%" }
-                                    },
-                                    [
-                                      setting.setting == "language" &&
-                                      setting.system_setting != 1
-                                        ? _c("div", [
-                                            _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "col-lg-3 control-label",
-                                                staticStyle: {
-                                                  "margin-right": "8px",
-                                                  float: "left"
-                                                }
-                                              },
-                                              [
+                            _vm.preferences.length > 0
+                              ? _c(
+                                  "div",
+                                  { staticClass: "row" },
+                                  [
+                                    _c("h3", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.preferences, function(
+                                      setting,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          staticStyle: { width: "100%" }
+                                        },
+                                        [
+                                          setting.setting == "language" &&
+                                          setting.system_setting != 1
+                                            ? _c("div", [
                                                 _c(
-                                                  "button",
+                                                  "label",
                                                   {
-                                                    class: {
-                                                      btn: true,
-                                                      "btn-active":
-                                                        setting.value ==
-                                                        "english"
-                                                          ? true
-                                                          : false,
-                                                      "btn-default":
-                                                        setting.value !=
-                                                        "english"
-                                                          ? true
-                                                          : false
-                                                    },
+                                                    staticClass:
+                                                      "col-lg-3 control-label",
                                                     staticStyle: {
-                                                      width: "100%",
-                                                      margin: "0px"
-                                                    },
-                                                    attrs: { type: "submit" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.applySetting(
-                                                          {
-                                                            type: "language",
-                                                            value: "english"
-                                                          }
-                                                        )
-                                                      }
+                                                      "margin-right": "8px",
+                                                      float: "left"
                                                     }
                                                   },
                                                   [
-                                                    _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tEnglish\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        class: {
+                                                          btn: true,
+                                                          "btn-active":
+                                                            setting.value ==
+                                                            "english"
+                                                              ? true
+                                                              : false,
+                                                          "btn-default":
+                                                            setting.value !=
+                                                            "english"
+                                                              ? true
+                                                              : false
+                                                        },
+                                                        staticStyle: {
+                                                          width: "100%",
+                                                          margin: "0px"
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.applySetting(
+                                                              {
+                                                                type:
+                                                                  "language",
+                                                                value: "english"
+                                                              }
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tEnglish\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-lg-3 control-label",
+                                                    staticStyle: {
+                                                      "margin-right": "8px",
+                                                      float: "left"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        class: {
+                                                          btn: true,
+                                                          "btn-active":
+                                                            setting.value ==
+                                                            "spanish"
+                                                              ? true
+                                                              : false,
+                                                          "btn-default":
+                                                            setting.value !=
+                                                            "spanish"
+                                                              ? true
+                                                              : false
+                                                        },
+                                                        staticStyle: {
+                                                          width: "100%",
+                                                          margin: "0px"
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.applySetting(
+                                                              {
+                                                                type:
+                                                                  "language",
+                                                                value: "spanish"
+                                                              }
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tSpanish\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                        )
+                                                      ]
                                                     )
                                                   ]
                                                 )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
+                                              ])
+                                            : _vm._e()
+                                        ]
+                                      )
+                                    })
+                                  ],
+                                  2
+                                )
+                              : _c("div", { staticClass: "row" }, [
+                                  _c("h3", [
+                                    _vm._v(
+                                      "\n\t\t\t\t\t\t\t\t\t\tLanguage \n\t\t\t\t\t\t\t\t\t"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticStyle: { width: "100%" } },
+                                    [
+                                      _c("div", [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-3 control-label",
+                                            staticStyle: {
+                                              "margin-right": "8px",
+                                              float: "left"
+                                            }
+                                          },
+                                          [
                                             _c(
-                                              "label",
+                                              "button",
                                               {
-                                                staticClass:
-                                                  "col-lg-3 control-label",
+                                                class: {
+                                                  btn: true,
+                                                  "btn-active": true
+                                                },
                                                 staticStyle: {
-                                                  "margin-right": "8px",
-                                                  float: "left"
+                                                  width: "100%",
+                                                  margin: "0px"
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "language",
+                                                      value: "english"
+                                                    })
+                                                  }
                                                 }
                                               },
                                               [
-                                                _c(
-                                                  "button",
-                                                  {
-                                                    class: {
-                                                      btn: true,
-                                                      "btn-active":
-                                                        setting.value ==
-                                                        "spanish"
-                                                          ? true
-                                                          : false,
-                                                      "btn-default":
-                                                        setting.value !=
-                                                        "spanish"
-                                                          ? true
-                                                          : false
-                                                    },
-                                                    staticStyle: {
-                                                      width: "100%",
-                                                      margin: "0px"
-                                                    },
-                                                    attrs: { type: "submit" },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.applySetting(
-                                                          {
-                                                            type: "language",
-                                                            value: "spanish"
-                                                          }
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tSpanish\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                    )
-                                                  ]
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\t\tEnglish\n\t\t\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ]
                                             )
-                                          ])
-                                        : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-3 control-label",
+                                            staticStyle: {
+                                              "margin-right": "8px",
+                                              float: "left"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                class: {
+                                                  btn: true,
+                                                  "btn-active": false,
+                                                  "btn-default": true
+                                                },
+                                                staticStyle: {
+                                                  width: "100%",
+                                                  margin: "0px"
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "language",
+                                                      value: "spanish"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\t\t\tSpanish\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
                                     ]
                                   )
-                                })
-                              ],
-                              2
-                            )
+                                ])
                           ]
                         )
                       : _vm._e()
