@@ -174,33 +174,18 @@
       <div class="" id="sidebar">
         <!-- Sidebar user panel (optional) -->
         <!-- Sidebar Menu -->
-        <nav class="mt-2" v-if="settings.auto_dialer">
+        <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/workstation" id="workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
+              <a href="/workstation" title="Workstation" id="workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'dashboard')? true : false }"> </a>
+              <a href="/dashboard" title="Dashboard" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'dashboard')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
-            </li>
-            <li class="nav-item">
-              <a href="/social-board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
-            </li>
-            <li class="nav-item">
-              <a href="/education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }"> </a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="mt-2" v-else>
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="/workstation" title="Workstation" :class="{ 'nav-link workstation' : true, 'active' : (active == 'workstation')? true : false }"> </a>
+              <a href="/call-history" title="Call History" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/contacts" title="Contacts" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'contacts')? true : false }"> </a>
@@ -208,11 +193,14 @@
             <li class="nav-item">
               <a href="/leads" title="Leads" :class="{ 'nav-link social-board' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
+            <li class="nav-item">
+              <a href="/social-board" title="Social Board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
+            </li>
             <li class="nav-item"  v-if="current_user.role_id == 1">
               <a href="/users" title="Users" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'users')? true : false }"> </a>
             </li>
-            <li class="nav-item" style="display:none;">
-              <a href="/call-history" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
+            <li class="nav-item">
+              <a href="/education" title="Education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }" disabled> </a>
             </li>
           </ul>
         </nav>
@@ -228,7 +216,7 @@
       mounted() {
         console.log('Component mounted.');
 
-          this.current_user = JSON.parse(this.logged_user);
+        this.current_user = JSON.parse(this.logged_user);
 
         this.Toast = this.$swal.mixin({
           toast: true,
@@ -241,9 +229,6 @@
       data: function(){
         return {
           current_page : 'workstation',
-          settings: {
-            auto_dialer : false
-          },
           current_user: []
         }
       }

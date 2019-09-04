@@ -72895,18 +72895,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -72922,9 +72910,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       current_page: 'workstation',
-      settings: {
-        auto_dialer: false
-      },
       current_user: []
     };
   }
@@ -248875,144 +248860,110 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("div", { attrs: { id: "sidebar" } }, [
-          _vm.settings.auto_dialer
-            ? _c("nav", { staticClass: "mt-2" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass: "nav nav-pills nav-sidebar flex-column",
+          _c("nav", { staticClass: "mt-2" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-pills nav-sidebar flex-column",
+                attrs: {
+                  "data-widget": "treeview",
+                  role: "menu",
+                  "data-accordion": "false"
+                }
+              },
+              [
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link workstation": true,
+                      active: _vm.active == "workstation" ? true : false
+                    },
                     attrs: {
-                      "data-widget": "treeview",
-                      role: "menu",
-                      "data-accordion": "false"
+                      href: "/workstation",
+                      title: "Workstation",
+                      id: "workstation"
                     }
-                  },
-                  [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link workstation": true,
-                          active: _vm.active == "workstation" ? true : false
-                        },
-                        attrs: { href: "/workstation", id: "workstation" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link dashboard": true,
+                      active: _vm.active == "dashboard" ? true : false
+                    },
+                    attrs: { href: "/dashboard", title: "Dashboard" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link call-history": true,
+                      active: _vm.active == "call-history" ? true : false
+                    },
+                    attrs: { href: "/call-history", title: "Call History" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link dashboard": true,
+                      active: _vm.active == "contacts" ? true : false
+                    },
+                    attrs: { href: "/contacts", title: "Contacts" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link social-board": true,
+                      active: _vm.active == "leads" ? true : false
+                    },
+                    attrs: { href: "/leads", title: "Leads" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link social-board": true,
+                      active: _vm.active == "social-board" ? true : false
+                    },
+                    attrs: { href: "/social-board", title: "Social Board" }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm.current_user.role_id == 1
+                  ? _c("li", { staticClass: "nav-item" }, [
                       _c("a", {
                         class: {
                           "nav-link dashboard": true,
-                          active: _vm.active == "dashboard" ? true : false
+                          active: _vm.active == "users" ? true : false
                         },
-                        attrs: { href: "/dashboard" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link call-history": true,
-                          active: _vm.active == "call-history" ? true : false
-                        },
-                        attrs: { href: "/call-history" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link social-board": true,
-                          active: _vm.active == "social-board" ? true : false
-                        },
-                        attrs: { href: "/social-board" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link education": true,
-                          active: _vm.active == "education" ? true : false
-                        },
-                        attrs: { href: "/education" }
+                        attrs: { href: "/users", title: "Users" }
                       })
                     ])
-                  ]
-                )
-              ])
-            : _c("nav", { staticClass: "mt-2" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass: "nav nav-pills nav-sidebar flex-column",
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c("a", {
+                    class: {
+                      "nav-link education": true,
+                      active: _vm.active == "education" ? true : false
+                    },
                     attrs: {
-                      "data-widget": "treeview",
-                      role: "menu",
-                      "data-accordion": "false"
+                      href: "/education",
+                      title: "Education",
+                      disabled: ""
                     }
-                  },
-                  [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link workstation": true,
-                          active: _vm.active == "workstation" ? true : false
-                        },
-                        attrs: { href: "/workstation", title: "Workstation" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link dashboard": true,
-                          active: _vm.active == "contacts" ? true : false
-                        },
-                        attrs: { href: "/contacts", title: "Contacts" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c("a", {
-                        class: {
-                          "nav-link social-board": true,
-                          active: _vm.active == "leads" ? true : false
-                        },
-                        attrs: { href: "/leads", title: "Leads" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm.current_user.role_id == 1
-                      ? _c("li", { staticClass: "nav-item" }, [
-                          _c("a", {
-                            class: {
-                              "nav-link dashboard": true,
-                              active: _vm.active == "users" ? true : false
-                            },
-                            attrs: { href: "/users", title: "Users" }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item",
-                        staticStyle: { display: "none" }
-                      },
-                      [
-                        _c("a", {
-                          class: {
-                            "nav-link call-history": true,
-                            active: _vm.active == "call-history" ? true : false
-                          },
-                          attrs: { href: "/call-history" }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ])
+                  })
+                ])
+              ]
+            )
+          ])
         ])
       ]
     )
