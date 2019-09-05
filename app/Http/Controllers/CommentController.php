@@ -41,15 +41,15 @@ class CommentController extends Controller
 
         $source_type = $request->type == "task" ? 'App\Task' : 'App\Lead'; 
 
-        $exists = Comment::where([
-            'source_type' => 'App\Lead' , 
-            'source_id' => $request->id , 
-            'user_id' => $request_user['user_id'],
-        ])->whereDate('created_at', Carbon::today())->count();
+        // $exists = Comment::where([
+        //     'source_type' => 'App\Lead' , 
+        //     'source_id' => $request->id , 
+        //     'user_id' => $request_user['user_id'],
+        // ])->whereDate('created_at', Carbon::today())->count();
 
-        if($exists > 0){
-            return array('success' =>false, 'message' => 'Please edit existing comment.');
-        }
+        // if($exists > 0){
+        //     return array('success' =>false, 'message' => 'Please edit existing comment.');
+        // }
 
         try{
             DB::beginTransaction();
