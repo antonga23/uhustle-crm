@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         'calls/voice',
         'calls/status-update',
         'leads/create',
+        'calls/outbound/*',
     ];
 }

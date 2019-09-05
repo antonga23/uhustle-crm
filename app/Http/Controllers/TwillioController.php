@@ -172,9 +172,7 @@ class TwillioController extends Controller
 
         $token = $capability->generateToken();
         // return serialized token and the user's randomly generated ID
-        
-        Log::info("Token");
-        Log::info($token);
+
 
         return array( 'identity' => $identity,'token' => $token,);
     }
@@ -193,18 +191,21 @@ class TwillioController extends Controller
         
         if (isset($to_number) && strlen($to_number) > 0) {
             
-            $twiml->dial($to_number,array('callerId' => $twilio_number));
+            $dial = $twiml->dial();
+            $dial->conference('LID-'.$lead_id, ['maxParticipants' => 3, 'startConferenceOnEnter' => true]);
 
         }else{
             $twiml->say("Thanks for calling!");
-            
         }
+
         $twiml->record();
         
         $response = Response::make($twiml, 200);
         $response->header('Content-Type', 'text/xml');
-        Log::info("Voice");
+        
+        Log::info("TWIML NGROK");
         Log::info($response);
+
         return $response;
     }
 

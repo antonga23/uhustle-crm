@@ -74182,7 +74182,6 @@ __webpack_require__.r(__webpack_exports__);
           if (preference.setting == 'auto_dialer') {
             vm.system_settings.auto_dialer.value = preference.value;
             vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-            console.log('asdad 2', vm.system_settings);
           }
         });
         vm.preferences.forEach(function (preference) {
@@ -74532,12 +74531,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.current_user = JSON.parse(this.logged_user);
     var d = new Date();
     this.month = d.getMonth() + 1;
+
+    if (this.active == 'workstation' && (this.current_user.role_id == 1 || this.current_user.role_id == 2 || this.current_user.role_id == 3)) {
+      this.active_calls = true;
+      this.showActiveCalls();
+    }
+
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -74556,6 +74567,8 @@ __webpack_require__.r(__webpack_exports__);
       call_back_time: '',
       call_back_notes: '',
       general_active: false,
+      active_calls_active: false,
+      active_calls: false,
       scripts_active: false,
       general_show: false,
       dialer_active: false,
@@ -74588,6 +74601,7 @@ __webpack_require__.r(__webpack_exports__);
       vm.dialer_active = false;
     });
   },
+  computed: {},
   methods: {
     showFilter: function showFilter() {
       this.top_nav_show_filter = !this.top_nav_show_filter;
@@ -74647,22 +74661,32 @@ __webpack_require__.r(__webpack_exports__);
     updateTimeLog: function updateTimeLog() {
       var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     },
+    showActiveCalls: function showActiveCalls() {
+      this.active_calls_active = true;
+      this.general_active = false;
+      this.scripts_active = false;
+      this.dialer_active = false;
+      Fire.$emit('ShowActiveCalls');
+    },
     showGeneral: function showGeneral() {
       this.general_active = true;
       this.scripts_active = false;
       this.dialer_active = false;
+      this.active_calls_active = false;
       Fire.$emit('ShowGeneral');
     },
     showScripts: function showScripts() {
       this.scripts_active = true;
       this.general_active = false;
       this.dialer_active = false;
+      this.active_calls_active = false;
       Fire.$emit('ShowScripts');
     },
     showDialer: function showDialer() {
       this.dialer_active = true;
       this.general_active = false;
       this.scripts_active = false;
+      this.active_calls_active = false;
       Fire.$emit('ShowDialer');
     },
     addNew: function addNew() {
@@ -77900,6 +77924,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -77918,13 +77943,18 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
   },
   mounted: function mounted() {
     var vm = this;
-    vm.enqueueLead(vm.lead_id);
+
+    if (this.role_id == 4 || vm.lead_id != '') {
+      vm.enqueueLead(vm.lead_id);
+    }
+
     vm.prepDates();
     vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
     Fire.$on('CallStarted', function () {
       vm.general = false;
       vm.idle = true;
       vm.scripts = false;
+      vm.active_calls = false;
       vm.startCall();
     });
     Fire.$on('CallEnded', function () {
@@ -77934,16 +77964,26 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.scripts = true;
       vm.general = false;
       vm.idle = false;
+      vm.active_calls = false;
     });
     Fire.$on('ShowGeneral', function () {
       vm.general = true;
       vm.scripts = false;
       vm.idle = false;
+      vm.active_calls = false;
+    });
+    Fire.$on('ShowActiveCalls', function () {
+      vm.general = false;
+      vm.scripts = false;
+      vm.idle = false;
+      vm.active_calls = true;
+      console.log('Get Done');
     });
     Fire.$on('ShowDialer', function () {
       vm.general = false;
       vm.scripts = false;
       vm.idle = true;
+      vm.active_calls = false;
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -77968,9 +78008,10 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       minimized: false,
       scripts: false,
       general: false,
+      active_calls: false,
       calling: false,
       show_edication_blocks: false,
-      idle: true,
+      idle: false,
       added_time: false,
       choose_comment_type: false,
       edit_comment: false,
@@ -78186,7 +78227,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var form_data = {
         lead_id: vm.lead_info.id,
         // phone_number : vm.lead_info.contact_number,
-        phone_number: '+27607152316'
+        phone_number: '+27738802485'
       };
       Device.connect(form_data);
     },
@@ -128528,7 +128569,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 68px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\t/*Right Component*/\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-6ec57eb6]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-6ec57eb6]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-6ec57eb6]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-6ec57eb6]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-6ec57eb6]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-6ec57eb6]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-6ec57eb6] {\n\t    border-bottom: none !important;\n        padding: 23px 68px 0;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\nselect[data-v-6ec57eb6]{\n\t    border-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n        padding: 2px 17px 6px !important;\n}\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n\t\tdisplay: block;\n\t\twidth: 84%;\n\t\ttext-align: center;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n\t/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -252609,7 +252650,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "row", staticStyle: { width: "100%" } }, [
-          _c("div", { staticClass: "col-lg-6" }, [
+          _c("div", { staticClass: "col-lg-7" }, [
             _c("ul", { staticClass: "navbar-nav left" }, [
               _c(
                 "li",
@@ -252673,6 +252714,32 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
+              _vm.active_calls
+                ? _c(
+                    "li",
+                    { staticClass: "nav-item d-none d-sm-inline-block" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          ref: "ActiveCallsBtn",
+                          class: {
+                            "nav-link top-link": true,
+                            active: _vm.active_calls_active
+                          },
+                          attrs: { role: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showActiveCalls()
+                            }
+                          }
+                        },
+                        [_vm._v("Active Calls")]
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _vm.active == "workstation"
                 ? _c(
                     "li",
@@ -252681,7 +252748,6 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link",
                           class: {
                             "nav-link top-link": true,
                             active: _vm.general_active
@@ -252707,7 +252773,6 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link",
                           class: {
                             "nav-link top-link": true,
                             active: _vm.scripts_active
@@ -252733,7 +252798,6 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link",
                           class: {
                             "nav-link top-link": true,
                             active: _vm.dialer_active
@@ -252877,7 +252941,7 @@ var render = function() {
             ? _c(
                 "div",
                 {
-                  staticClass: "col-lg-6",
+                  staticClass: "col-lg-5",
                   staticStyle: { "padding-right": "0" }
                 },
                 [
@@ -255550,1427 +255614,156 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _vm.scripts == true
-        ? _c("div", { staticClass: "scripts" }, [
-            _c(
-              "div",
-              {
-                class: { row: true },
-                staticStyle: { "margin-top": "6%" },
-                attrs: {
-                  "data-aos": "fade-up",
-                  "data-aos-duration": "700",
-                  "data-aos-offset": "700"
-                }
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "card client" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title: _vm.lead.name + " " + _vm.lead.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Cashed Out\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "card product" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title: _vm.lead.name + " " + _vm.lead.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Upsell\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "card time" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title: _vm.lead.name + " " + _vm.lead.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Not Interested\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "card activity" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title: _vm.lead.name + " " + _vm.lead.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        More Info\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ]
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.general == true
-        ? _c("div", {}, [
-            _c(
-              "div",
-              { staticClass: "row", staticStyle: { "margin-top": "5%" } },
-              [
-                _c("ul", { staticClass: "top-section" }, [
-                  _c("li", [
-                    _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "bottom" }, [
-                      _vm._v(_vm._s(_vm.lead_info.lead_source.name))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("p", { staticClass: "top" }, [_vm._v("Called")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "bottom" }, [
-                      _vm._v(_vm._s(_vm.call_counts.call_count))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "bottom" }, [
-                      _vm._v(_vm._s(_vm.call_counts.call_count))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "bottom" }, [
-                      _vm._v(_vm._s(_vm.call_counts.call_count_sales))
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-3 col-md-4 col-sm-4",
-                  staticStyle: { "padding-right": "35px" }
-                },
-                [
-                  _c("div", { staticClass: "card client" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text truncate",
-                          attrs: {
-                            title: _vm.lead.name + " " + _vm.lead.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                  " +
-                              _vm._s(
-                                this.lead_info.name +
-                                  " " +
-                                  _vm.lead_info.surname
-                              ) +
-                              "\n                "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-link truncate" }, [
-                        _vm._v(
-                          _vm._s(_vm.lead_info.country) +
-                            " | " +
-                            _vm._s(_vm.lead_info.gender) +
-                            " | " +
-                            _vm._s(_vm.lead_info.age)
-                        )
-                      ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-3",
-                  staticStyle: {
-                    "padding-right": "35px",
-                    "padding-left": "35px"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "card product" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title:
-                              _vm.lead_info.product.description +
-                              ". " +
-                              _vm.lead_info.product.price
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                  " +
-                              _vm._s(_vm.lead_info.product.name) +
-                              "\n                "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-link truncate",
-                          attrs: {
-                            title:
-                              _vm.lead_info.product.description +
-                              ". " +
-                              _vm.lead_info.product.currency +
-                              _vm.lead_info.product.price
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(
-                                _vm.lead_info.product.description +
-                                  ". " +
-                                  _vm.lead_info.product.currency +
-                                  _vm.lead_info.product.price
-                              ) +
-                              "\n                "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-3",
-                  staticStyle: {
-                    "padding-right": "35px",
-                    "padding-left": "35px"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "card time" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v("\n                  11:20\n                ")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-link truncate" }, [
-                        _vm._v(
-                          _vm._s(_vm.lead_info.city) +
-                            " | " +
-                            _vm._s(_vm.lead_info.country)
-                        )
-                      ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(4)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row stats final-modal" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-right": "3%" }
-                },
-                [
-                  _c("div", { staticClass: "card left mt-3 tab-card" }, [
-                    _c("div", { staticClass: "card-header tab-card-header" }, [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
-                        },
-                        [
-                          _c("li", { staticClass: "nav-item left" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "one-tab",
-                                  "data-toggle": "tab",
-                                  href: "#one",
-                                  role: "tab",
-                                  "aria-controls": "One",
-                                  "aria-selected": "true"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Agent_Notes_Icon@4x.png",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Agent Notes")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(5)
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-content",
-                        attrs: { id: "myTabContent" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade show active p-3",
-                            attrs: {
-                              id: "one",
-                              role: "tabpanel",
-                              "aria-labelledby": "one-tab"
-                            }
-                          },
-                          [
-                            _c("div", { staticClass: "notes-roll" }, [
-                              _c(
-                                "ul",
-                                {
-                                  staticClass: "list-group",
-                                  staticStyle: {
-                                    height: "245px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                    "overflow-y": "scroll"
-                                  }
-                                },
-                                _vm._l(_vm.comments.comments, function(
-                                  comment
-                                ) {
-                                  return _c(
-                                    "li",
-                                    {
-                                      key: comment.id,
-                                      staticClass: "list-group-item"
-                                    },
-                                    [
-                                      _c("p", [
-                                        _c("strong", [
-                                          _vm._v(_vm._s(comment.comment_type))
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "comment-notes" },
-                                          [
-                                            _vm._v(
-                                              "\n                                                " +
-                                                _vm._s(comment.description) +
-                                                " \n                                                "
-                                            ),
-                                            comment.user_id == _vm.user_id &&
-                                            _vm.getDaysAgo(
-                                              comment.created_at
-                                            ) == "Today"
-                                              ? _c(
-                                                  "a",
-                                                  {
-                                                    class: {
-                                                      "edit-comment": true,
-                                                      "pulse-round":
-                                                        _vm.edit_comment
-                                                    },
-                                                    attrs: {
-                                                      href: "#",
-                                                      role: "button"
-                                                    },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.editComment(
-                                                          comment
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("img", {
-                                                      staticClass: "icon",
-                                                      attrs: {
-                                                        src:
-                                                          "/images/icons/settings edit buttin@4x.png",
-                                                        alt: "Icon",
-                                                        width: "23"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              : _vm._e()
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", { staticClass: "author" }, [
-                                          _vm._v(
-                                            "\n                                                " +
-                                              _vm._s(
-                                                _vm.getDaysAgo(
-                                                  comment.created_at
-                                                )
-                                              ) +
-                                              " "
-                                          ),
-                                          _c("br"),
-                                          _vm._v(" "),
-                                          _c("small", [
-                                            _vm._v(_vm._s(comment.user_name))
-                                          ])
-                                        ])
-                                      ])
-                                    ]
-                                  )
-                                }),
-                                0
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "notes-capture" },
-                              [
-                                _c(
-                                  "b-button",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "b-modal",
-                                        rawName: "v-b-modal.modal-1",
-                                        modifiers: { "modal-1": true }
-                                      }
-                                    ],
-                                    class: {
-                                      "choose-comment-type": true,
-                                      pulse: _vm.choose_comment_type
-                                    }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass: "icon",
-                                      staticStyle: { width: "27px" },
-                                      attrs: {
-                                        src:
-                                          "/images/workstation/Asset 28@4x.png",
-                                        alt: "Icon"
-                                      }
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.comment.comment_description,
-                                      expression: "comment.comment_description"
-                                    }
-                                  ],
-                                  staticClass: "comment-desc",
-                                  staticStyle: { width: "69%" },
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Write comment here"
-                                  },
-                                  domProps: {
-                                    value: _vm.comment.comment_description
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.comment,
-                                        "comment_description",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-primary",
-                                    staticStyle: { width: "75px" },
-                                    attrs: { id: "send-btn", type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.addComment()
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                    Send\n                                "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade p-3",
-                            staticStyle: { "padding-top": "0 !important" },
-                            attrs: {
-                              id: "two",
-                              role: "tabpanel",
-                              "aria-labelledby": "two-tab"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "row",
-                                staticStyle: { "margin-bottom": "0" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "col-lg-4",
-                                    staticStyle: { "padding-right": "0" }
-                                  },
-                                  [
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "col-lg-12 control-label"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Date of Callback\n                                                "
-                                              ),
-                                              _c("a-date-picker", {
-                                                attrs: {
-                                                  format: "YYYY-MM-DD",
-                                                  allowEmpty: false
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.checkCBDate()
-                                                  }
-                                                },
-                                                model: {
-                                                  value: _vm.selected_date,
-                                                  callback: function($$v) {
-                                                    _vm.selected_date = $$v
-                                                  },
-                                                  expression: "selected_date"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "col-lg-12 control-label"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Time of Callback\n                                                "
-                                              ),
-                                              _c("a-time-picker", {
-                                                attrs: {
-                                                  allowEmpty: false,
-                                                  use24Hours: "",
-                                                  format: "hh:mm a"
-                                                },
-                                                model: {
-                                                  value: _vm.selected_time,
-                                                  callback: function($$v) {
-                                                    _vm.selected_time = $$v
-                                                  },
-                                                  expression: "selected_time"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "col-lg-12 control-label"
-                                            },
-                                            [
-                                              _c("strong", [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    _vm.selected_date.format(
-                                                      "DD-MM-YYYY"
-                                                    ) +
-                                                      " @" +
-                                                      _vm.selected_time.format(
-                                                        "hh:mm a"
-                                                      )
-                                                  )
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-lg-8" },
-                                  [
-                                    _c("vc-date-picker", {
-                                      attrs: {
-                                        mode: "multiple",
-                                        "is-inline": "",
-                                        "is-expanded": "",
-                                        "min-date": new Date(),
-                                        "max-date": _vm.max_date,
-                                        color: "pink"
-                                      },
-                                      model: {
-                                        value: _vm.dates,
-                                        callback: function($$v) {
-                                          _vm.dates = $$v
-                                        },
-                                        expression: "dates"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "row",
-                                staticStyle: { "margin-bottom": "0" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "col-lg-12",
-                                    staticStyle: { "padding-right": "0" }
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.call_back.note,
-                                          expression: "call_back.note"
-                                        }
-                                      ],
-                                      staticClass: "comment-desc",
-                                      staticStyle: { width: "77.5%" },
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Write notes here"
-                                      },
-                                      domProps: { value: _vm.call_back.note },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.call_back,
-                                            "note",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-primary",
-                                        staticStyle: { width: "100px" },
-                                        attrs: {
-                                          id: "send-btn",
-                                          type: "submit"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.addCallback()
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Schedule\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-left": "3%" }
-                },
-                [
-                  _c("div", { staticClass: "card left mt-3 tab-card" }, [
-                    _c("div", { staticClass: "card-header tab-card-header" }, [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
-                        },
-                        [
-                          _c("li", { staticClass: "nav-item left" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "three-tab",
-                                  "data-toggle": "tab",
-                                  href: "#three",
-                                  role: "tab",
-                                  "aria-controls": "Three",
-                                  "aria-selected": "true"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Feedback_Summary.svg",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Feedback Summary")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(6)
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-content",
-                        attrs: { id: "myTabContent" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade show active p-3",
-                            staticStyle: { height: "349px" },
-                            attrs: {
-                              id: "three",
-                              role: "tabpanel",
-                              "aria-labelledby": "three-tab"
-                            }
-                          },
-                          [
-                            _c("div", {}, [
-                              _c(
-                                "div",
-                                { staticClass: "verticalChart" },
-                                [
-                                  _vm._l(_vm.comments_graph, function(bar) {
-                                    return _c(
-                                      "div",
-                                      { staticClass: "singleBar" },
-                                      [
-                                        _c("div", { staticClass: "bar" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "value",
-                                              style:
-                                                "height: " +
-                                                bar.percentage +
-                                                "%;"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticStyle: {
-                                                    color: "rgb(45, 137, 239)",
-                                                    display: "inline"
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(bar.percentage + "%")
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "title" }, [
-                                          _vm._v(_vm._s(bar.type))
-                                        ])
-                                      ]
-                                    )
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "clearfix" })
-                                ],
-                                2
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(7)
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.idle == true
-        ? _c("div", {}, [
-            _c(
-              "div",
-              {
-                class: { "row idle-div": true },
-                staticStyle: { "margin-top": "1%" },
-                attrs: {
-                  "data-aos": "fade-up",
-                  "data-aos-duration": "700",
-                  "data-aos-offset": "700"
-                }
-              },
-              [
-                _c("div", {
-                  class: {
-                    "col-lg-12": true,
-                    "top-animation": !_vm.show_edication_blocks,
-                    "top-animation-minimized": _vm.show_edication_blocks
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-12 tip call-status",
-                  staticStyle: { "padding-top": "10px" }
-                },
-                [
-                  _c(
-                    "h1",
-                    {
-                      staticStyle: {
-                        "text-align": "center",
-                        "font-size": "19px",
-                        color: "#1c2331"
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.call_status) + "...")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              !_vm.show_edication_blocks
-                ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
-                    _c("p", [_vm._v("Show Education")]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "down-scroll",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            _vm.show_edication_blocks = true
-                          }
-                        }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/Idle_Pages_Assest/Asset 120.png",
-                            alt: "Scroll Down"
-                          }
-                        })
-                      ]
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.show_edication_blocks
-                ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
-                    _c("p", [_vm._v("Hide Education")]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "down-scroll",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            _vm.show_edication_blocks = false
-                          }
-                        }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/Idle_Pages_Assest/Asset 119.png",
-                            alt: "Scroll Down"
-                          }
-                        })
-                      ]
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _vm.show_edication_blocks
-              ? _c(
-                  "div",
-                  { staticClass: "row idle-education justify-content-center" },
-                  [_vm._m(8)]
-                )
-              : _vm._e()
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
+  return _c("div", {}, [
+    _vm.scripts == true
+      ? _c("div", { staticClass: "scripts" }, [
           _c(
-            "b-modal",
+            "div",
             {
-              ref: "my-modal",
-              attrs: { id: "modal-1", size: "md", title: "Lead Status" },
-              on: { ok: _vm.toggleModal }
+              class: { row: true },
+              staticStyle: { "margin-top": "6%" },
+              attrs: {
+                "data-aos": "fade-up",
+                "data-aos-duration": "700",
+                "data-aos-offset": "700"
+              }
             },
             [
-              _c("div", { staticClass: "d-block" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "A" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("Answered")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "NA" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("No Answer")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "VM" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("Voicemail")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "LB" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("Language Barrier")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "NI" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("Not Interested")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-6" },
-                    [
-                      _c(
-                        "b-form-radio",
-                        {
-                          attrs: { name: "some-radios", value: "PTP" },
-                          model: {
-                            value: _vm.comment.comment_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.comment, "comment_type", $$v)
-                            },
-                            expression: "comment.comment_type"
-                          }
-                        },
-                        [_vm._v("Promise To Pay")]
-                      )
-                    ],
-                    1
-                  )
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "card client" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Cashed Out\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "card product" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Upsell\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "card time" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Not Interested\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "card activity" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        More Info\n                        "
+                        )
+                      ]
+                    )
+                  ])
                 ])
               ])
             ]
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          ref: "final-call-step",
-          staticStyle: { "z-index": "999999", padding: "1rem 3rem" },
-          attrs: {
-            id: "modal-prevent-closing",
-            size: "xl",
-            title: "Submit Your Name",
-            "hide-header": "",
-            "hide-footer": ""
-          },
-          on: {
-            show: _vm.preventClosing,
-            hide: function($event) {
-              return _vm.preventClosing()
-            },
-            ok: _vm.preventClosing
-          }
-        },
-        [
-          _c("div", { staticClass: "final-modal" }, [
-            _c("div", { staticClass: "row row-a" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-left": "6%" }
-                },
-                [
-                  _c("ul", { staticClass: "navbar-nav left" }, [
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item d-none d-sm-inline-block title"
-                      },
-                      [
-                        _c("countdown", {
-                          attrs: { time: _vm.set_time },
-                          on: {
-                            progress: _vm.handleCountdownProgress,
-                            abort: _vm.handleAbort
-                          },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function(props) {
-                                return [
-                                  _vm._v(
-                                    _vm._s(props.minutes) +
-                                      ":" +
-                                      _vm._s(props.seconds)
-                                  )
-                                ]
-                              }
-                            }
-                          ])
-                        })
-                      ],
-                      1
-                    )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.general == true
+      ? _c("div", {}, [
+          _c(
+            "div",
+            { staticClass: "row", staticStyle: { "margin-top": "5%" } },
+            [
+              _c("ul", { staticClass: "top-section" }, [
+                _c("li", [
+                  _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bottom" }, [
+                    _vm._v(_vm._s(_vm.lead_info.lead_source.name))
                   ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-right": "0", "padding-top": "2%" }
-                },
-                [
-                  _c("div", { staticStyle: { width: "100%" } }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "col-lg-4 control-label",
-                        staticStyle: { "margin-right": "8px", float: "left" }
-                      },
-                      [
-                        _vm.added_time
-                          ? _c(
-                              "button",
-                              {
-                                class: { btn: true, "btn-active": true },
-                                staticStyle: { width: "100%", margin: "0px" },
-                                attrs: { type: "submit", disabled: "" },
-                                on: { click: _vm.addTime }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src: "/images/icons/Asset 135.svg",
-                                    alt: "Icon"
-                                  }
-                                }),
-                                _vm._v(
-                                  "More Time\n                            "
-                                )
-                              ]
-                            )
-                          : _c(
-                              "button",
-                              {
-                                class: { btn: true, "btn-active": true },
-                                staticStyle: { width: "100%", margin: "0px" },
-                                attrs: { type: "submit" },
-                                on: { click: _vm.addTime }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src: "/images/icons/Asset 135.svg",
-                                    alt: "Icon"
-                                  }
-                                }),
-                                _vm._v(
-                                  "More Time\n                            "
-                                )
-                              ]
-                            )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "col-lg-4 control-label",
-                        staticStyle: {
-                          "margin-right": "8px",
-                          float: "left",
-                          "padding-right": "0",
-                          "text-align": "right"
-                        }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            class: { btn: true, "btn-active": true },
-                            staticStyle: { width: "100%", margin: "0px" },
-                            attrs: { type: "submit" },
-                            on: { click: _vm.completeCall }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "icon",
-                              attrs: {
-                                src: "/images/icons/Asset 136.svg",
-                                alt: "Icon"
-                              }
-                            }),
-                            _vm._v("Complete\n                            ")
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "col-lg-3 control-label",
-                        staticStyle: {
-                          "margin-right": "8px",
-                          float: "left",
-                          "padding-right": "0",
-                          "text-align": "right"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "icon",
-                          staticStyle: { width: "60px", "margin-top": "-13px" },
-                          attrs: {
-                            src: "/images/icons/Asset 56.svg",
-                            alt: "Icon"
-                          }
-                        })
-                      ]
-                    )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("p", { staticClass: "top" }, [_vm._v("Called")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bottom" }, [
+                    _vm._v(_vm._s(_vm.call_counts.call_count))
                   ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bottom" }, [
+                    _vm._v(_vm._s(_vm.call_counts.call_count))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bottom" }, [
+                    _vm._v(_vm._s(_vm.call_counts.call_count_sales))
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-3 col-md-4 col-sm-4",
+                staticStyle: { "padding-right": "35px" }
+              },
+              [
                 _c("div", { staticClass: "card client" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "icon",
-                        attrs: {
-                          src: "/images/workstation/D_A@4x.png",
-                          alt: "Icon"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                            Client\n                        "
-                      )
-                    ]),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "p",
@@ -256980,11 +255773,11 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        " +
+                          "\n                  " +
                             _vm._s(
                               this.lead_info.name + " " + _vm.lead_info.surname
                             ) +
-                            "\n                        "
+                            "\n                "
                         )
                       ]
                     ),
@@ -257000,23 +255793,19 @@ var render = function() {
                     ])
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-3",
+                staticStyle: { "padding-right": "35px", "padding-left": "35px" }
+              },
+              [
                 _c("div", { staticClass: "card product" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "icon",
-                        attrs: {
-                          src: "/images/workstation/Stock_Icon@4x.png",
-                          alt: "Icon"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                            Product\n                        "
-                      )
-                    ]),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c(
                       "p",
@@ -257026,15 +255815,14 @@ var render = function() {
                           title:
                             _vm.lead_info.product.description +
                             ". " +
-                            _vm.lead_info.product.currency +
                             _vm.lead_info.product.price
                         }
                       },
                       [
                         _vm._v(
-                          "\n                        " +
+                          "\n                  " +
                             _vm._s(_vm.lead_info.product.name) +
-                            "\n                        "
+                            "\n                "
                         )
                       ]
                     ),
@@ -257053,36 +255841,35 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            " +
-                            _vm._s(_vm.lead_info.product.description) +
-                            "\n                        "
+                          "\n                    " +
+                            _vm._s(
+                              _vm.lead_info.product.description +
+                                ". " +
+                                _vm.lead_info.product.currency +
+                                _vm.lead_info.product.price
+                            ) +
+                            "\n                "
                         )
                       ]
                     )
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-3",
+                staticStyle: { "padding-right": "35px", "padding-left": "35px" }
+              },
+              [
                 _c("div", { staticClass: "card time" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "icon",
-                        attrs: {
-                          src: "/images/workstation/Time_Icon@4x.png",
-                          alt: "Icon"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                            Time\n                        "
-                      )
-                    ]),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n                        11:20 AM\n                        "
-                      )
+                      _vm._v("\n                  11:20\n                ")
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-link truncate" }, [
@@ -257094,789 +255881,2072 @@ var render = function() {
                     ])
                   ])
                 ])
-              ])
-            ]),
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "row stats final-modal" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-right": "3%" }
-                },
-                [
-                  _c("div", { staticClass: "card left mt-3 tab-card" }, [
-                    _c("div", { staticClass: "card-header tab-card-header" }, [
+            _vm._m(4)
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row stats final-modal" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-6",
+                staticStyle: { "padding-right": "3%" }
+              },
+              [
+                _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                  _c("div", { staticClass: "card-header tab-card-header" }, [
+                    _c(
+                      "ul",
+                      {
+                        staticClass: "nav nav-tabs card-header-tabs",
+                        attrs: { id: "myTab", role: "tablist" }
+                      },
+                      [
+                        _c("li", { staticClass: "nav-item left" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "one-tab",
+                                "data-toggle": "tab",
+                                href: "#one",
+                                role: "tab",
+                                "aria-controls": "One",
+                                "aria-selected": "true"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Agent_Notes_Icon@4x.png",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Agent Notes")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "right" }, [
+                                _vm._v(_vm._s(_vm.comments.total_comments))
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(5)
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
                       _c(
-                        "ul",
+                        "div",
                         {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
+                          staticClass: "tab-pane fade show active p-3",
+                          attrs: {
+                            id: "one",
+                            role: "tabpanel",
+                            "aria-labelledby": "one-tab"
+                          }
                         },
                         [
-                          _c("li", { staticClass: "nav-item left" }, [
+                          _c("div", { staticClass: "notes-roll" }, [
                             _c(
-                              "a",
+                              "ul",
                               {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "one-tab",
-                                  "data-toggle": "tab",
-                                  href: "#one",
-                                  role: "tab",
-                                  "aria-controls": "One",
-                                  "aria-selected": "true"
+                                staticClass: "list-group",
+                                staticStyle: {
+                                  height: "245px",
+                                  width: "100%",
+                                  overflow: "hidden",
+                                  "overflow-y": "scroll"
                                 }
                               },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Agent_Notes_Icon@4x.png",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Agent Notes")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
+                              _vm._l(_vm.comments.comments, function(comment) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: comment.id,
+                                    staticClass: "list-group-item"
+                                  },
+                                  [
+                                    _c("p", [
+                                      _c("strong", [
+                                        _vm._v(_vm._s(comment.comment_type))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "comment-notes" },
+                                        [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(comment.description) +
+                                              " \n                                                "
+                                          ),
+                                          comment.user_id == _vm.user_id &&
+                                          _vm.getDaysAgo(comment.created_at) ==
+                                            "Today"
+                                            ? _c(
+                                                "a",
+                                                {
+                                                  class: {
+                                                    "edit-comment": true,
+                                                    "pulse-round":
+                                                      _vm.edit_comment
+                                                  },
+                                                  attrs: {
+                                                    href: "#",
+                                                    role: "button"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.editComment(
+                                                        comment
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    staticClass: "icon",
+                                                    attrs: {
+                                                      src:
+                                                        "/images/icons/settings edit buttin@4x.png",
+                                                      alt: "Icon",
+                                                      width: "23"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "author" }, [
+                                        _vm._v(
+                                          "\n                                                " +
+                                            _vm._s(
+                                              _vm.getDaysAgo(comment.created_at)
+                                            ) +
+                                            " "
+                                        ),
+                                        _c("br"),
+                                        _vm._v(" "),
+                                        _c("small", [
+                                          _vm._v(_vm._s(comment.user_name))
+                                        ])
+                                      ])
+                                    ])
+                                  ]
+                                )
+                              }),
+                              0
                             )
                           ]),
                           _vm._v(" "),
-                          _c("li", { staticClass: "nav-item right" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "two-tab",
-                                  "data-toggle": "tab",
-                                  href: "#two",
-                                  role: "tab",
-                                  "aria-controls": "Two",
-                                  "aria-selected": "false"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Schedule_Callbacks.svg",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Schedule Callback")
-                                ])
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-content",
-                        attrs: { id: "myTabContent" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade show active p-3",
-                            attrs: {
-                              id: "one",
-                              role: "tabpanel",
-                              "aria-labelledby": "one-tab"
-                            }
-                          },
-                          [
-                            _c("div", { staticClass: "notes-roll" }, [
+                          _c(
+                            "div",
+                            { staticClass: "notes-capture" },
+                            [
                               _c(
-                                "ul",
+                                "b-button",
                                 {
-                                  staticClass: "list-group",
-                                  staticStyle: {
-                                    height: "245px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                    "overflow-y": "scroll"
+                                  directives: [
+                                    {
+                                      name: "b-modal",
+                                      rawName: "v-b-modal.modal-1",
+                                      modifiers: { "modal-1": true }
+                                    }
+                                  ],
+                                  class: {
+                                    "choose-comment-type": true,
+                                    pulse: _vm.choose_comment_type
                                   }
                                 },
-                                _vm._l(_vm.comments.comments, function(
-                                  comment
-                                ) {
-                                  return _c(
-                                    "li",
-                                    {
-                                      key: comment.id,
-                                      staticClass: "list-group-item"
-                                    },
-                                    [
-                                      _c("p", [
-                                        _c("strong", [
-                                          _vm._v(_vm._s(comment.comment_type))
-                                        ]),
-                                        _vm._v(" "),
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    staticStyle: { width: "27px" },
+                                    attrs: {
+                                      src:
+                                        "/images/workstation/Asset 28@4x.png",
+                                      alt: "Icon"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.comment.comment_description,
+                                    expression: "comment.comment_description"
+                                  }
+                                ],
+                                staticClass: "comment-desc",
+                                staticStyle: { width: "69%" },
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Write comment here"
+                                },
+                                domProps: {
+                                  value: _vm.comment.comment_description
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.comment,
+                                      "comment_description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  staticStyle: { width: "75px" },
+                                  attrs: { id: "send-btn", type: "submit" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.addComment()
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    Send\n                                "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade p-3",
+                          staticStyle: { "padding-top": "0 !important" },
+                          attrs: {
+                            id: "two",
+                            role: "tabpanel",
+                            "aria-labelledby": "two-tab"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "row",
+                              staticStyle: { "margin-bottom": "0" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "col-lg-4",
+                                  staticStyle: { "padding-right": "0" }
+                                },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
                                         _c(
-                                          "span",
+                                          "label",
                                           {
-                                            staticClass: "comment-notes",
-                                            staticStyle: { width: "54%" }
+                                            staticClass:
+                                              "col-lg-12 control-label"
                                           },
                                           [
                                             _vm._v(
-                                              "\n                                                    " +
-                                                _vm._s(comment.description) +
-                                                " \n                                                    "
+                                              "Date of Callback\n                                                "
                                             ),
-                                            comment.user_id == _vm.user_id &&
-                                            _vm.getDaysAgo(
-                                              comment.created_at
-                                            ) == "Today"
-                                              ? _c(
-                                                  "a",
-                                                  {
-                                                    class: {
-                                                      "edit-comment": true,
-                                                      "pulse-round":
-                                                        _vm.edit_comment
-                                                    },
-                                                    attrs: {
-                                                      href: "#",
-                                                      role: "button"
-                                                    },
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.editComment(
-                                                          comment
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("img", {
-                                                      staticClass: "icon",
-                                                      attrs: {
-                                                        src:
-                                                          "/images/icons/settings edit buttin@4x.png",
-                                                        alt: "Icon",
-                                                        width: "23"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              : _vm._e()
-                                          ]
-                                        ),
-                                        _vm._v(" "),
+                                            _c("a-date-picker", {
+                                              attrs: {
+                                                format: "YYYY-MM-DD",
+                                                allowEmpty: false
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.checkCBDate()
+                                                }
+                                              },
+                                              model: {
+                                                value: _vm.selected_date,
+                                                callback: function($$v) {
+                                                  _vm.selected_date = $$v
+                                                },
+                                                expression: "selected_date"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
                                         _c(
-                                          "span",
+                                          "label",
                                           {
-                                            staticClass: "author",
-                                            staticStyle: { width: "25%" }
+                                            staticClass:
+                                              "col-lg-12 control-label"
                                           },
                                           [
                                             _vm._v(
-                                              "\n                                                    " +
+                                              "Time of Callback\n                                                "
+                                            ),
+                                            _c("a-time-picker", {
+                                              attrs: {
+                                                allowEmpty: false,
+                                                use24Hours: "",
+                                                format: "hh:mm a"
+                                              },
+                                              model: {
+                                                value: _vm.selected_time,
+                                                callback: function($$v) {
+                                                  _vm.selected_time = $$v
+                                                },
+                                                expression: "selected_time"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-12 control-label"
+                                          },
+                                          [
+                                            _c("strong", [
+                                              _vm._v(
                                                 _vm._s(
-                                                  _vm.getDaysAgo(
-                                                    comment.created_at
-                                                  )
-                                                ) +
-                                                " "
-                                            ),
-                                            _c("br"),
-                                            _vm._v(" "),
-                                            _c("small", [
-                                              _vm._v(_vm._s(comment.user_name))
+                                                  _vm.selected_date.format(
+                                                    "DD-MM-YYYY"
+                                                  ) +
+                                                    " @" +
+                                                    _vm.selected_time.format(
+                                                      "hh:mm a"
+                                                    )
+                                                )
+                                              )
                                             ])
                                           ]
                                         )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-lg-8" },
+                                [
+                                  _c("vc-date-picker", {
+                                    attrs: {
+                                      mode: "multiple",
+                                      "is-inline": "",
+                                      "is-expanded": "",
+                                      "min-date": new Date(),
+                                      "max-date": _vm.max_date,
+                                      color: "pink"
+                                    },
+                                    model: {
+                                      value: _vm.dates,
+                                      callback: function($$v) {
+                                        _vm.dates = $$v
+                                      },
+                                      expression: "dates"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "row",
+                              staticStyle: { "margin-bottom": "0" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "col-lg-12",
+                                  staticStyle: { "padding-right": "0" }
+                                },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.call_back.note,
+                                        expression: "call_back.note"
+                                      }
+                                    ],
+                                    staticClass: "comment-desc",
+                                    staticStyle: { width: "77.5%" },
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Write notes here"
+                                    },
+                                    domProps: { value: _vm.call_back.note },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.call_back,
+                                          "note",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      staticStyle: { width: "100px" },
+                                      attrs: { id: "send-btn", type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.addCallback()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        Schedule\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-6",
+                staticStyle: { "padding-left": "3%" }
+              },
+              [
+                _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                  _c("div", { staticClass: "card-header tab-card-header" }, [
+                    _c(
+                      "ul",
+                      {
+                        staticClass: "nav nav-tabs card-header-tabs",
+                        attrs: { id: "myTab", role: "tablist" }
+                      },
+                      [
+                        _c("li", { staticClass: "nav-item left" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "three-tab",
+                                "data-toggle": "tab",
+                                href: "#three",
+                                role: "tab",
+                                "aria-controls": "Three",
+                                "aria-selected": "true"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src:
+                                    "/images/workstation/Feedback_Summary.svg",
+                                  alt: "Icon",
+                                  width: "23"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "left" }, [
+                                _vm._v("Feedback Summary")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "right" }, [
+                                _vm._v(_vm._s(_vm.comments.total_comments))
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(6)
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active p-3",
+                          staticStyle: { height: "349px" },
+                          attrs: {
+                            id: "three",
+                            role: "tabpanel",
+                            "aria-labelledby": "three-tab"
+                          }
+                        },
+                        [
+                          _c("div", {}, [
+                            _c(
+                              "div",
+                              { staticClass: "verticalChart" },
+                              [
+                                _vm._l(_vm.comments_graph, function(bar) {
+                                  return _c(
+                                    "div",
+                                    { staticClass: "singleBar" },
+                                    [
+                                      _c("div", { staticClass: "bar" }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "value",
+                                            style:
+                                              "height: " + bar.percentage + "%;"
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticStyle: {
+                                                  color: "rgb(45, 137, 239)",
+                                                  display: "inline"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(bar.percentage + "%")
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "title" }, [
+                                        _vm._v(_vm._s(bar.type))
                                       ])
                                     ]
                                   )
                                 }),
-                                0
+                                _vm._v(" "),
+                                _c("div", { staticClass: "clearfix" })
+                              ],
+                              2
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(7)
+                    ]
+                  )
+                ])
+              ]
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.idle == true
+      ? _c("div", {}, [
+          _c(
+            "div",
+            {
+              class: { "row idle-div": true },
+              staticStyle: { "margin-top": "1%" },
+              attrs: {
+                "data-aos": "fade-up",
+                "data-aos-duration": "700",
+                "data-aos-offset": "700"
+              }
+            },
+            [
+              _c("div", {
+                class: {
+                  "col-lg-12": true,
+                  "top-animation": !_vm.show_edication_blocks,
+                  "top-animation-minimized": _vm.show_edication_blocks
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-12 tip call-status",
+                staticStyle: { "padding-top": "10px" }
+              },
+              [
+                _c(
+                  "h1",
+                  {
+                    staticStyle: {
+                      "text-align": "center",
+                      "font-size": "19px",
+                      color: "#1c2331"
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.call_status) + "...")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            !_vm.show_edication_blocks
+              ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
+                  _c("p", [_vm._v("Show Education")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "down-scroll",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          _vm.show_edication_blocks = true
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/Idle_Pages_Assest/Asset 120.png",
+                          alt: "Scroll Down"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.show_edication_blocks
+              ? _c("div", { staticClass: "col-lg-3 col-md-3 idle-footer" }, [
+                  _c("p", [_vm._v("Hide Education")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "down-scroll",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          _vm.show_edication_blocks = false
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/Idle_Pages_Assest/Asset 119.png",
+                          alt: "Scroll Down"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm.show_edication_blocks
+            ? _c(
+                "div",
+                { staticClass: "row idle-education justify-content-center" },
+                [_vm._m(8)]
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c(
+          "b-modal",
+          {
+            ref: "my-modal",
+            attrs: { id: "modal-1", size: "md", title: "Lead Status" },
+            on: { ok: _vm.toggleModal }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "A" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Answered")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NA" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("No Answer")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "VM" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Voicemail")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "LB" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Language Barrier")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "NI" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Not Interested")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-6" },
+                  [
+                    _c(
+                      "b-form-radio",
+                      {
+                        attrs: { name: "some-radios", value: "PTP" },
+                        model: {
+                          value: _vm.comment.comment_type,
+                          callback: function($$v) {
+                            _vm.$set(_vm.comment, "comment_type", $$v)
+                          },
+                          expression: "comment.comment_type"
+                        }
+                      },
+                      [_vm._v("Promise To Pay")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "final-call-step",
+            staticStyle: { "z-index": "999999", padding: "1rem 3rem" },
+            attrs: {
+              id: "modal-prevent-closing",
+              size: "xl",
+              title: "Submit Your Name",
+              "hide-header": "",
+              "hide-footer": ""
+            },
+            on: {
+              show: _vm.preventClosing,
+              hide: function($event) {
+                return _vm.preventClosing()
+              },
+              ok: _vm.preventClosing
+            }
+          },
+          [
+            _c("div", { staticClass: "final-modal" }, [
+              _c("div", { staticClass: "row row-a" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-left": "6%" }
+                  },
+                  [
+                    _c("ul", { staticClass: "navbar-nav left" }, [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "nav-item d-none d-sm-inline-block title"
+                        },
+                        [
+                          _c("countdown", {
+                            attrs: { time: _vm.set_time },
+                            on: {
+                              progress: _vm.handleCountdownProgress,
+                              abort: _vm.handleAbort
+                            },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      _vm._s(props.minutes) +
+                                        ":" +
+                                        _vm._s(props.seconds)
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-right": "0", "padding-top": "2%" }
+                  },
+                  [
+                    _c("div", { staticStyle: { width: "100%" } }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _vm.added_time
+                            ? _c(
+                                "button",
+                                {
+                                  class: { btn: true, "btn-active": true },
+                                  staticStyle: { width: "100%", margin: "0px" },
+                                  attrs: { type: "submit", disabled: "" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v(
+                                    "More Time\n                                "
+                                  )
+                                ]
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "notes-capture" },
-                              [
+                            : _c(
+                                "button",
+                                {
+                                  class: { btn: true, "btn-active": true },
+                                  staticStyle: { width: "100%", margin: "0px" },
+                                  attrs: { type: "submit" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v(
+                                    "More Time\n                                "
+                                  )
+                                ]
+                              )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label",
+                          staticStyle: {
+                            "margin-right": "8px",
+                            float: "left",
+                            "padding-right": "0",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class: { btn: true, "btn-active": true },
+                              staticStyle: { width: "100%", margin: "0px" },
+                              attrs: { type: "submit" },
+                              on: { click: _vm.completeCall }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src: "/images/icons/Asset 136.svg",
+                                  alt: "Icon"
+                                }
+                              }),
+                              _vm._v(
+                                "Complete\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-3 control-label",
+                          staticStyle: {
+                            "margin-right": "8px",
+                            float: "left",
+                            "padding-right": "0",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            staticStyle: {
+                              width: "60px",
+                              "margin-top": "-13px"
+                            },
+                            attrs: {
+                              src: "/images/icons/Asset 56.svg",
+                              alt: "Icon"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                  _c("div", { staticClass: "card client" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _c("img", {
+                          staticClass: "icon",
+                          attrs: {
+                            src: "/images/workstation/D_A@4x.png",
+                            alt: "Icon"
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                Client\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "card-text truncate",
+                          attrs: {
+                            title: _vm.lead.name + " " + _vm.lead.surname
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(
+                                this.lead_info.name +
+                                  " " +
+                                  _vm.lead_info.surname
+                              ) +
+                              "\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-link truncate" }, [
+                        _vm._v(
+                          _vm._s(_vm.lead_info.country) +
+                            " | " +
+                            _vm._s(_vm.lead_info.gender) +
+                            " | " +
+                            _vm._s(_vm.lead_info.age)
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                  _c("div", { staticClass: "card product" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _c("img", {
+                          staticClass: "icon",
+                          attrs: {
+                            src: "/images/workstation/Stock_Icon@4x.png",
+                            alt: "Icon"
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                Product\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "card-text",
+                          attrs: {
+                            title:
+                              _vm.lead_info.product.description +
+                              ". " +
+                              _vm.lead_info.product.currency +
+                              _vm.lead_info.product.price
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.lead_info.product.name) +
+                              "\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "card-link truncate",
+                          attrs: {
+                            title:
+                              _vm.lead_info.product.description +
+                              ". " +
+                              _vm.lead_info.product.currency +
+                              _vm.lead_info.product.price
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(_vm.lead_info.product.description) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                  _c("div", { staticClass: "card time" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _c("img", {
+                          staticClass: "icon",
+                          attrs: {
+                            src: "/images/workstation/Time_Icon@4x.png",
+                            alt: "Icon"
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                Time\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "\n                            11:20 AM\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-link truncate" }, [
+                        _vm._v(
+                          _vm._s(_vm.lead_info.city) +
+                            " | " +
+                            _vm._s(_vm.lead_info.country)
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row stats final-modal" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-right": "3%" }
+                  },
+                  [
+                    _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                      _c(
+                        "div",
+                        { staticClass: "card-header tab-card-header" },
+                        [
+                          _c(
+                            "ul",
+                            {
+                              staticClass: "nav nav-tabs card-header-tabs",
+                              attrs: { id: "myTab", role: "tablist" }
+                            },
+                            [
+                              _c("li", { staticClass: "nav-item left" }, [
                                 _c(
-                                  "b-button",
+                                  "a",
                                   {
-                                    directives: [
-                                      {
-                                        name: "b-modal",
-                                        rawName: "v-b-modal.modal-1",
-                                        modifiers: { "modal-1": true }
-                                      }
-                                    ],
-                                    class: {
-                                      "choose-comment-type": true,
-                                      pulse: _vm.choose_comment_type
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "one-tab",
+                                      "data-toggle": "tab",
+                                      href: "#one",
+                                      role: "tab",
+                                      "aria-controls": "One",
+                                      "aria-selected": "true"
                                     }
                                   },
                                   [
                                     _c("img", {
                                       staticClass: "icon",
-                                      staticStyle: { width: "27px" },
                                       attrs: {
                                         src:
-                                          "/images/workstation/Asset 28@4x.png",
-                                        alt: "Icon"
+                                          "/images/workstation/Agent_Notes_Icon@4x.png",
+                                        alt: "Icon",
+                                        width: "23"
                                       }
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.comment.comment_description,
-                                      expression: "comment.comment_description"
-                                    }
-                                  ],
-                                  staticClass: "comment-desc",
-                                  staticStyle: { width: "66%" },
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Write comment here"
-                                  },
-                                  domProps: {
-                                    value: _vm.comment.comment_description
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.comment,
-                                        "comment_description",
-                                        $event.target.value
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Agent Notes")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "right" }, [
+                                      _vm._v(
+                                        _vm._s(_vm.comments.total_comments)
                                       )
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-primary",
-                                    staticStyle: { width: "75px" },
-                                    attrs: { id: "send-btn", type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.addComment()
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                        Send\n                                    "
-                                    )
+                                    ])
                                   ]
                                 )
-                              ],
-                              1
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade p-3",
-                            staticStyle: { "padding-top": "0 !important" },
-                            attrs: {
-                              id: "two",
-                              role: "tabpanel",
-                              "aria-labelledby": "two-tab"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "row",
-                                staticStyle: { "margin-bottom": "0" }
-                              },
-                              [
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "nav-item right" }, [
                                 _c(
-                                  "div",
+                                  "a",
                                   {
-                                    staticClass: "col-lg-4",
-                                    staticStyle: { "padding-right": "0" }
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "two-tab",
+                                      "data-toggle": "tab",
+                                      href: "#two",
+                                      role: "tab",
+                                      "aria-controls": "Two",
+                                      "aria-selected": "false"
+                                    }
                                   },
                                   [
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/workstation/Schedule_Callbacks.svg",
+                                        alt: "Icon",
+                                        width: "23"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Schedule Callback")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-content",
+                          attrs: { id: "myTabContent" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade show active p-3",
+                              attrs: {
+                                id: "one",
+                                role: "tabpanel",
+                                "aria-labelledby": "one-tab"
+                              }
+                            },
+                            [
+                              _c("div", { staticClass: "notes-roll" }, [
+                                _c(
+                                  "ul",
+                                  {
+                                    staticClass: "list-group",
+                                    staticStyle: {
+                                      height: "245px",
+                                      width: "100%",
+                                      overflow: "hidden",
+                                      "overflow-y": "scroll"
+                                    }
+                                  },
+                                  _vm._l(_vm.comments.comments, function(
+                                    comment
+                                  ) {
+                                    return _c(
+                                      "li",
+                                      {
+                                        key: comment.id,
+                                        staticClass: "list-group-item"
+                                      },
+                                      [
+                                        _c("p", [
+                                          _c("strong", [
+                                            _vm._v(_vm._s(comment.comment_type))
+                                          ]),
+                                          _vm._v(" "),
                                           _c(
-                                            "label",
+                                            "span",
                                             {
-                                              staticClass:
-                                                "col-lg-12 control-label"
+                                              staticClass: "comment-notes",
+                                              staticStyle: { width: "54%" }
                                             },
                                             [
                                               _vm._v(
-                                                "Date of Callback\n                                                    "
+                                                "\n                                                        " +
+                                                  _vm._s(comment.description) +
+                                                  " \n                                                        "
                                               ),
-                                              _c("a-date-picker", {
-                                                attrs: {
-                                                  format: "YYYY-MM-DD",
-                                                  allowEmpty: false
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.checkCBDate()
-                                                  }
-                                                },
-                                                model: {
-                                                  value: _vm.selected_date,
-                                                  callback: function($$v) {
-                                                    _vm.selected_date = $$v
-                                                  },
-                                                  expression: "selected_date"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "col-lg-12 control-label"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Time of Callback\n                                                    "
-                                              ),
-                                              _c("a-time-picker", {
-                                                attrs: {
-                                                  allowEmpty: false,
-                                                  use24Hours: "",
-                                                  format: "hh:mm a"
-                                                },
-                                                model: {
-                                                  value: _vm.selected_time,
-                                                  callback: function($$v) {
-                                                    _vm.selected_time = $$v
-                                                  },
-                                                  expression: "selected_time"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "row" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          class: {
-                                            input: true,
-                                            "form-group": true,
-                                            "has-error": _vm.errors.has("Name")
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "col-lg-12 control-label"
-                                            },
-                                            [
-                                              _c("strong", [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    _vm.selected_date.format(
-                                                      "DD-MM-YYYY"
-                                                    ) +
-                                                      " @" +
-                                                      _vm.selected_time.format(
-                                                        "hh:mm a"
-                                                      )
+                                              comment.user_id == _vm.user_id &&
+                                              _vm.getDaysAgo(
+                                                comment.created_at
+                                              ) == "Today"
+                                                ? _c(
+                                                    "a",
+                                                    {
+                                                      class: {
+                                                        "edit-comment": true,
+                                                        "pulse-round":
+                                                          _vm.edit_comment
+                                                      },
+                                                      attrs: {
+                                                        href: "#",
+                                                        role: "button"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.editComment(
+                                                            comment
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticClass: "icon",
+                                                        attrs: {
+                                                          src:
+                                                            "/images/icons/settings edit buttin@4x.png",
+                                                          alt: "Icon",
+                                                          width: "23"
+                                                        }
+                                                      })
+                                                    ]
                                                   )
+                                                : _vm._e()
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "author",
+                                              staticStyle: { width: "25%" }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                        " +
+                                                  _vm._s(
+                                                    _vm.getDaysAgo(
+                                                      comment.created_at
+                                                    )
+                                                  ) +
+                                                  " "
+                                              ),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c("small", [
+                                                _vm._v(
+                                                  _vm._s(comment.user_name)
                                                 )
                                               ])
                                             ]
                                           )
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-lg-8" },
-                                  [
-                                    _c("vc-date-picker", {
-                                      attrs: {
-                                        mode: "multiple",
-                                        "is-inline": "",
-                                        "is-expanded": "",
-                                        "min-date": new Date(),
-                                        "max-date": _vm.max_date,
-                                        color: "pink"
-                                      },
-                                      model: {
-                                        value: _vm.dates,
-                                        callback: function($$v) {
-                                          _vm.dates = $$v
-                                        },
-                                        expression: "dates"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "row",
-                                staticStyle: { "margin-bottom": "0" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "col-lg-12",
-                                    staticStyle: { "padding-right": "0" }
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.call_back.note,
-                                          expression: "call_back.note"
-                                        }
-                                      ],
-                                      staticClass: "comment-desc",
-                                      staticStyle: { width: "72.5%" },
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Write notes here"
-                                      },
-                                      domProps: { value: _vm.call_back.note },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.call_back,
-                                            "note",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-primary",
-                                        staticStyle: { width: "100px" },
-                                        attrs: {
-                                          id: "send-btn",
-                                          type: "submit"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.addCallback()
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            Schedule\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6",
-                  staticStyle: { "padding-left": "3%" }
-                },
-                [
-                  _c("div", { staticClass: "card left mt-3 tab-card" }, [
-                    _c("div", { staticClass: "card-header tab-card-header" }, [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
-                        },
-                        [
-                          _c("li", { staticClass: "nav-item left" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "three-tab",
-                                  "data-toggle": "tab",
-                                  href: "#three",
-                                  role: "tab",
-                                  "aria-controls": "Three",
-                                  "aria-selected": "true"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Feedback_Summary.svg",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Feedback Summary")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "nav-item right" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "four-tab",
-                                  "data-toggle": "tab",
-                                  href: "#four",
-                                  role: "tab",
-                                  "aria-controls": "Four",
-                                  "aria-selected": "false"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src: "/images/workstation/Email_Client.svg",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left" }, [
-                                  _vm._v("Email Client")
-                                ])
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-content",
-                        attrs: { id: "myTabContent" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade show active p-3",
-                            staticStyle: { height: "349px" },
-                            attrs: {
-                              id: "three",
-                              role: "tabpanel",
-                              "aria-labelledby": "three-tab"
-                            }
-                          },
-                          [
-                            _c("div", {}, [
-                              _c(
-                                "div",
-                                { staticClass: "verticalChart" },
-                                [
-                                  _vm._l(_vm.comments_graph, function(
-                                    bar,
-                                    index
-                                  ) {
-                                    return _c(
-                                      "div",
-                                      { key: index, staticClass: "singleBar" },
-                                      [
-                                        _c("div", { staticClass: "bar" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "value",
-                                              style:
-                                                "height: " +
-                                                bar.percentage +
-                                                "%;"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticStyle: {
-                                                    color: "rgb(45, 137, 239)",
-                                                    display: "inline"
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(bar.percentage + "%")
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "title" }, [
-                                          _vm._v(_vm._s(bar.type))
                                         ])
                                       ]
                                     )
                                   }),
+                                  0
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "notes-capture" },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "b-modal",
+                                          rawName: "v-b-modal.modal-1",
+                                          modifiers: { "modal-1": true }
+                                        }
+                                      ],
+                                      class: {
+                                        "choose-comment-type": true,
+                                        pulse: _vm.choose_comment_type
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "icon",
+                                        staticStyle: { width: "27px" },
+                                        attrs: {
+                                          src:
+                                            "/images/workstation/Asset 28@4x.png",
+                                          alt: "Icon"
+                                        }
+                                      })
+                                    ]
+                                  ),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "clearfix" })
-                                ],
-                                2
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade p-3",
-                            attrs: {
-                              id: "four",
-                              role: "tabpanel",
-                              "aria-labelledby": "four-tab"
-                            }
-                          },
-                          [
-                            _c("h5", { staticClass: "card-title" }, [
-                              _vm._v("TODO")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticStyle: {
-                                  height: "245px",
-                                  width: "100%",
-                                  overflow: "hidden",
-                                  color: "#818284"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "card-text" }, [
-                                  _vm._v(
-                                    "\n                                        Email client form\n                                    "
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.comment.comment_description,
+                                        expression:
+                                          "comment.comment_description"
+                                      }
+                                    ],
+                                    staticClass: "comment-desc",
+                                    staticStyle: { width: "66%" },
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Write comment here"
+                                    },
+                                    domProps: {
+                                      value: _vm.comment.comment_description
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.comment,
+                                          "comment_description",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      staticStyle: { width: "75px" },
+                                      attrs: { id: "send-btn", type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.addComment()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            Send\n                                        "
+                                      )
+                                    ]
                                   )
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
+                                ],
+                                1
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade p-3",
+                              staticStyle: { "padding-top": "0 !important" },
+                              attrs: {
+                                id: "two",
+                                role: "tabpanel",
+                                "aria-labelledby": "two-tab"
+                              }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "row",
+                                  staticStyle: { "margin-bottom": "0" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "col-lg-4",
+                                      staticStyle: { "padding-right": "0" }
+                                    },
+                                    [
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            class: {
+                                              input: true,
+                                              "form-group": true,
+                                              "has-error": _vm.errors.has(
+                                                "Name"
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-12 control-label"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Date of Callback\n                                                        "
+                                                ),
+                                                _c("a-date-picker", {
+                                                  attrs: {
+                                                    format: "YYYY-MM-DD",
+                                                    allowEmpty: false
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.checkCBDate()
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: _vm.selected_date,
+                                                    callback: function($$v) {
+                                                      _vm.selected_date = $$v
+                                                    },
+                                                    expression: "selected_date"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            class: {
+                                              input: true,
+                                              "form-group": true,
+                                              "has-error": _vm.errors.has(
+                                                "Name"
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-12 control-label"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Time of Callback\n                                                        "
+                                                ),
+                                                _c("a-time-picker", {
+                                                  attrs: {
+                                                    allowEmpty: false,
+                                                    use24Hours: "",
+                                                    format: "hh:mm a"
+                                                  },
+                                                  model: {
+                                                    value: _vm.selected_time,
+                                                    callback: function($$v) {
+                                                      _vm.selected_time = $$v
+                                                    },
+                                                    expression: "selected_time"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            class: {
+                                              input: true,
+                                              "form-group": true,
+                                              "has-error": _vm.errors.has(
+                                                "Name"
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "col-lg-12 control-label"
+                                              },
+                                              [
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      _vm.selected_date.format(
+                                                        "DD-MM-YYYY"
+                                                      ) +
+                                                        " @" +
+                                                        _vm.selected_time.format(
+                                                          "hh:mm a"
+                                                        )
+                                                    )
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-lg-8" },
+                                    [
+                                      _c("vc-date-picker", {
+                                        attrs: {
+                                          mode: "multiple",
+                                          "is-inline": "",
+                                          "is-expanded": "",
+                                          "min-date": new Date(),
+                                          "max-date": _vm.max_date,
+                                          color: "pink"
+                                        },
+                                        model: {
+                                          value: _vm.dates,
+                                          callback: function($$v) {
+                                            _vm.dates = $$v
+                                          },
+                                          expression: "dates"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "row",
+                                  staticStyle: { "margin-bottom": "0" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "col-lg-12",
+                                      staticStyle: { "padding-right": "0" }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.call_back.note,
+                                            expression: "call_back.note"
+                                          }
+                                        ],
+                                        staticClass: "comment-desc",
+                                        staticStyle: { width: "72.5%" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Write notes here"
+                                        },
+                                        domProps: { value: _vm.call_back.note },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.call_back,
+                                              "note",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary",
+                                          staticStyle: { width: "100px" },
+                                          attrs: {
+                                            id: "send-btn",
+                                            type: "submit"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.addCallback()
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                Schedule\n                                            "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-left": "3%" }
+                  },
+                  [
+                    _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                      _c(
+                        "div",
+                        { staticClass: "card-header tab-card-header" },
+                        [
+                          _c(
+                            "ul",
+                            {
+                              staticClass: "nav nav-tabs card-header-tabs",
+                              attrs: { id: "myTab", role: "tablist" }
+                            },
+                            [
+                              _c("li", { staticClass: "nav-item left" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "three-tab",
+                                      "data-toggle": "tab",
+                                      href: "#three",
+                                      role: "tab",
+                                      "aria-controls": "Three",
+                                      "aria-selected": "true"
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/workstation/Feedback_Summary.svg",
+                                        alt: "Icon",
+                                        width: "23"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Feedback Summary")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "right" }, [
+                                      _vm._v(
+                                        _vm._s(_vm.comments.total_comments)
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "nav-item right" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "four-tab",
+                                      "data-toggle": "tab",
+                                      href: "#four",
+                                      role: "tab",
+                                      "aria-controls": "Four",
+                                      "aria-selected": "false"
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/workstation/Email_Client.svg",
+                                        alt: "Icon",
+                                        width: "23"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Email Client")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-content",
+                          attrs: { id: "myTabContent" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade show active p-3",
+                              staticStyle: { height: "349px" },
+                              attrs: {
+                                id: "three",
+                                role: "tabpanel",
+                                "aria-labelledby": "three-tab"
+                              }
+                            },
+                            [
+                              _c("div", {}, [
+                                _c(
+                                  "div",
+                                  { staticClass: "verticalChart" },
+                                  [
+                                    _vm._l(_vm.comments_graph, function(
+                                      bar,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          staticClass: "singleBar"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "bar" }, [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "value",
+                                                style:
+                                                  "height: " +
+                                                  bar.percentage +
+                                                  "%;"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticStyle: {
+                                                      color:
+                                                        "rgb(45, 137, 239)",
+                                                      display: "inline"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        bar.percentage + "%"
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "title" }, [
+                                            _vm._v(_vm._s(bar.type))
+                                          ])
+                                        ]
+                                      )
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "clearfix" })
+                                  ],
+                                  2
+                                )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade p-3",
+                              attrs: {
+                                id: "four",
+                                role: "tabpanel",
+                                "aria-labelledby": "four-tab"
+                              }
+                            },
+                            [
+                              _c("h5", { staticClass: "card-title" }, [
+                                _vm._v("TODO")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticStyle: {
+                                    height: "245px",
+                                    width: "100%",
+                                    overflow: "hidden",
+                                    color: "#818284"
+                                  }
+                                },
+                                [
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "\n                                            Email client form\n                                        "
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
             ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        ref: "callBtn",
-        attrs: { type: "hidden" },
-        on: {
-          click: function($event) {
-            return _vm.startCall()
-          }
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("input", {
+      ref: "callBtn",
+      attrs: { type: "hidden" },
+      on: {
+        click: function($event) {
+          return _vm.startCall()
         }
-      })
-    ],
-    1
-  )
+      }
+    })
+  ])
 }
 var staticRenderFns = [
   function() {

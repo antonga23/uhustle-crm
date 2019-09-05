@@ -1268,7 +1268,6 @@ label.custom-control-label{
 						if(preference.setting == 'auto_dialer'){
 							vm.system_settings.auto_dialer.value = preference.value;
 							vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-							console.log('asdad 2',vm.system_settings);
 						}
 					});
 					vm.preferences.forEach(function(preference){

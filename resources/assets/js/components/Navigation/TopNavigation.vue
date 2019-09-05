@@ -113,6 +113,9 @@
 	    margin: 5px 8px 8px 55px !important;
 	    height: 29px !important;
 	    padding: 2px 17px 6px !important;
+		display: block;
+		width: 84%;
+		text-align: center;
 	}
 	a.active{    
 		border-radius: 26px;
@@ -130,7 +133,7 @@
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
 			<!-- Left navbar links -->
 			<div class="row" style="width: 100%;">
-				<div class="col-lg-6">
+				<div class="col-lg-7">
 					<ul class="navbar-nav left">
 						<li class="nav-item d-none d-sm-inline-block title">
 							<a v-if="active == 'workstation'" href="#" class="nav-link"><strong>Workstation</strong></a>
@@ -141,14 +144,17 @@
 							<a v-if="active == 'leads'" href="#" class="nav-link"><strong>Leads</strong></a>
 							<a v-if="active == 'contacts'" href="#" class="nav-link"><strong>Contacts</strong></a>
 						</li> 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
-							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }" class="nav-link">General</a>
+						<li v-if="active_calls" class="nav-item d-none d-sm-inline-block">
+							<a role="button" ref="ActiveCallsBtn" @click="showActiveCalls()" :class="{ 'nav-link top-link' : true, 'active' : active_calls_active }">Active Calls</a>
 						</li>
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
-							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }" class="nav-link">Scripts</a>
+							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }">General</a>
 						</li>
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
-							<a href="#" @click="showDialer();" :class="{ 'nav-link top-link' : true, 'active' : dialer_active }" class="nav-link">Dialer</a>
+							<a href="#" @click="showScripts();" :class="{ 'nav-link top-link' : true, 'active' : scripts_active }">Scripts</a>
+						</li>
+						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
+							<a href="#" @click="showDialer();" :class="{ 'nav-link top-link' : true, 'active' : dialer_active }">Dialer</a>
 						</li>
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block">
 							<select class="form-control month-selector" v-model="month" @change="topMonthFilterChange">
@@ -171,7 +177,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-lg-6" style="padding-right: 0"  v-if="active == 'workstation'">
+				<div class="col-lg-5" style="padding-right: 0"  v-if="active == 'workstation'">
 					<ul class="navbar-nav pull-right">
 						<li class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link search">
@@ -197,7 +203,13 @@
 		mounted() {
 			this.current_user = JSON.parse(this.logged_user);
 			var d = new Date();
+
 			this.month = d.getMonth() + 1;
+
+			if(this.active == 'workstation' && ( this.current_user.role_id == 1 || this.current_user.role_id == 2  || this.current_user.role_id == 3 ) ){
+				this.active_calls = true;
+				this.showActiveCalls();
+			}
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -219,6 +231,8 @@
 				call_back_time : '',
 				call_back_notes : '',
 				general_active : false,
+				active_calls_active : false,
+				active_calls : false,
 				scripts_active : false,
 				general_show : false,
 				dialer_active : false,
@@ -256,6 +270,9 @@
 				vm.scripts_active = false;
 				vm.dialer_active = false;
 			});
+
+		},
+		computed: {
 
 		},
 	    methods: {
@@ -316,22 +333,32 @@
 			updateTimeLog(type = ''){
 				
 			},
+			showActiveCalls(){
+				this.active_calls_active = true;
+				this.general_active = false;
+				this.scripts_active = false;
+				this.dialer_active = false;
+				Fire.$emit('ShowActiveCalls');
+			},
 			showGeneral(){
 				this.general_active = true;
 				this.scripts_active = false;
 				this.dialer_active = false;
+				this.active_calls_active = false;
 				Fire.$emit('ShowGeneral');
 			},
 			showScripts(){
 				this.scripts_active = true;
 				this.general_active = false;
 				this.dialer_active = false;
+				this.active_calls_active = false;
 				Fire.$emit('ShowScripts');
 			},
 			showDialer(){
 				this.dialer_active = true;
 				this.general_active = false;
 				this.scripts_active = false;
+				this.active_calls_active = false;
 				Fire.$emit('ShowDialer');
 			},
 			addNew(){
