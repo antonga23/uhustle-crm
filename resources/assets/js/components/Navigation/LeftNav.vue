@@ -146,6 +146,87 @@
     border-radius: 0;
     margin: 0;
 }
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
+    color: #ffffff;
+    background-image: url('/images/icons/Contacts_Active.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
+    color: #ffffff;
+    background-color: #fff;
+    background-image: url('/images/icons/Contacts.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
+    color: #ffffff;
+    background-image: url('/images/icons/Leads Active.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
+    color: #ffffff;
+    background-color: #fff;
+    background-image: url('/images/icons/Leads.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
+    color: #ffffff;
+    background-image: url('/images/icons/Users Active.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
+    color: #ffffff;
+    background-color: #fff;
+    background-image: url('/images/icons/Users.svg') !important;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: -10px;
+    min-height: 53px;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+}
 .main-sidebar, .main-sidebar:before {
     transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
     width: 53px !important;
@@ -188,16 +269,16 @@
               <a href="/call-history" title="Call History" :class="{ 'nav-link call-history' : true, 'active' : (active == 'call-history')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/contacts" title="Contacts" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'contacts')? true : false }"> </a>
+              <a href="/contacts" title="Contacts" :class="{ 'nav-link contacts' : true, 'active' : (active == 'contacts')? true : false }"> </a>
             </li>
             <li class="nav-item">
-              <a href="/leads" title="Leads" :class="{ 'nav-link social-board' : true, 'active' : (active == 'leads')? true : false }"> </a>
+              <a href="/leads" title="Leads" :class="{ 'nav-link leads' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/social-board" title="Social Board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
             </li>
             <li class="nav-item"  v-if="current_user.role_id == 1">
-              <a href="/users" title="Users" :class="{ 'nav-link dashboard' : true, 'active' : (active == 'users')? true : false }"> </a>
+              <a href="/users" title="Users" :class="{ 'nav-link users' : true, 'active' : (active == 'users')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/education" title="Education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }" disabled> </a>

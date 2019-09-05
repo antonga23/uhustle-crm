@@ -72895,6 +72895,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -128531,7 +128612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.sidebar-dark-primary[data-v-57a1bf10] {\n    background-color: #fff;\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n    color: rgba(255, 255, 255, 0.8);\n    border-bottom: none;\n}\n#sidebar[data-v-57a1bf10] {\n     padding-left: 0; \n     padding-right: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/work station icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/work station icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/dashboard icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/dashboard icon .svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/social board icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/social board icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/call history icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/call history icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/education icon actove.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/education icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n    width: 53px !important;\n}\n.content-wrapper[data-v-57a1bf10], .main-footer[data-v-57a1bf10], .main-header[data-v-57a1bf10] {\n    transition: margin-left 0.3s ease-in-out;\n    margin-left: 53px !important;\n    z-index: 3000;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n    width: 53px;\n    margin-bottom: 50%;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.sidebar-dark-primary[data-v-57a1bf10] {\n    background-color: #fff;\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n    color: rgba(255, 255, 255, 0.8);\n    border-bottom: none;\n}\n#sidebar[data-v-57a1bf10] {\n     padding-left: 0; \n     padding-right: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/work station icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/work station icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/dashboard icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/dashboard icon .svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/social board icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/social board icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/call history icon active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/call history icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/education icon actove.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/education icon.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/Contacts_Active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/Contacts.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/Leads Active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/Leads.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\n    color: #ffffff;\n    background-image: url('/images/icons/Users Active.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n    box-shadow: none;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\n    color: #ffffff;\n    background-color: #fff;\n    background-image: url('/images/icons/Users.svg') !important;\n    background-size: 80px;\n    background-repeat: no-repeat;\n    background-position: -10px;\n    min-height: 53px;\n    width: 100%;\n    padding: 0;\n    border-radius: 0;\n    margin: 0;\n}\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n    width: 53px !important;\n}\n.content-wrapper[data-v-57a1bf10], .main-footer[data-v-57a1bf10], .main-header[data-v-57a1bf10] {\n    transition: margin-left 0.3s ease-in-out;\n    margin-left: 53px !important;\n    z-index: 3000;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n    width: 53px;\n    margin-bottom: 50%;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -248948,7 +249029,7 @@ var render = function() {
                 _c("li", { staticClass: "nav-item" }, [
                   _c("a", {
                     class: {
-                      "nav-link dashboard": true,
+                      "nav-link contacts": true,
                       active: _vm.active == "contacts" ? true : false
                     },
                     attrs: { href: "/contacts", title: "Contacts" }
@@ -248958,7 +249039,7 @@ var render = function() {
                 _c("li", { staticClass: "nav-item" }, [
                   _c("a", {
                     class: {
-                      "nav-link social-board": true,
+                      "nav-link leads": true,
                       active: _vm.active == "leads" ? true : false
                     },
                     attrs: { href: "/leads", title: "Leads" }
@@ -248979,7 +249060,7 @@ var render = function() {
                   ? _c("li", { staticClass: "nav-item" }, [
                       _c("a", {
                         class: {
-                          "nav-link dashboard": true,
+                          "nav-link users": true,
                           active: _vm.active == "users" ? true : false
                         },
                         attrs: { href: "/users", title: "Users" }
