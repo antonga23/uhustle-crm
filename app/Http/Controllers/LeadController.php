@@ -71,11 +71,17 @@ class LeadController extends Controller
 
     public function enQueue($value='')
     {
-        $id = rand(1,100);
+         $lead = Lead::with('call_backs')
+                        ->with('product')
+                        ->with('lead_source')
+                        ->with('creator')
+                        ->with('user')
+                        ->with('comments')
+                        ->where(['user_assigned' => Auth::user()->id])
+                        ->orWhere(['user_created_id' => Auth::user()->id])
+                        ->first();
 
-         $lead = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->findOrFail($id);
-
-         $lead_info = $this->getLeadInfo($id);
+         $lead_info = $this->getLeadInfo($lead->id);
          
          return array(
                     'success' => true, 
