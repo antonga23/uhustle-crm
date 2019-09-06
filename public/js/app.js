@@ -246124,8 +246124,7 @@ var render = function() {
                           }
                         })
                       ])
-                    : column.field == "actions" &&
-                      (_vm.role == 1 || _vm.role == 2)
+                    : column.field == "actions"
                     ? _c("span", { staticClass: "actions" }, [
                         _c("a", {
                           staticClass: "View",
@@ -246145,15 +246144,17 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("a", {
-                          staticClass: "Delete",
-                          attrs: { href: "#", title: "Delete" },
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteItem(row.lead.id)
-                            }
-                          }
-                        })
+                        _vm.role == 1 || _vm.role == 2
+                          ? _c("a", {
+                              staticClass: "Delete",
+                              attrs: { href: "#", title: "Delete" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteItem(row.lead.id)
+                                }
+                              }
+                            })
+                          : _vm._e()
                       ])
                     : _c("span", [
                         _vm._v(_vm._s(_vm.collect(row, column.field)))

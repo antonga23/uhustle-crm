@@ -21,10 +21,10 @@
                         <span v-else-if="column.field == 'status'">
                             <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit" disabled></a>
                         </span>
-                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
+                        <span v-else-if="column.field == 'actions'" class="actions">
                             <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
                             <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete"></a>
+                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2 "></a>
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
