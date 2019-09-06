@@ -739,7 +739,6 @@ table th {
     outline: none !important;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-image: url('/images/DataTables/filter icon.svg') !important;
     background-size: 11px 12px;
 	background-repeat: no-repeat;
 	background-position: left center;
@@ -753,6 +752,18 @@ table th:hover {
 table th.sorting-asc,
 table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
+}
+table th.sorting-asc {
+    color: rgba(0, 0, 0, 0.87);
+    background-image: url('/images/DataTables/Filter_1.svg') !important;
+	background-repeat: no-repeat;
+	background-position: 77% 45%;
+}
+table th.sorting-desc {
+    color: rgba(0, 0, 0, 0.87);
+    background-image: url('/images/DataTables/Filter_2.svg') !important;
+	background-repeat: no-repeat;
+	background-position: 77% 45%;
 }
 table tr td span a{
     color: #1890ff !important;
@@ -783,6 +794,5 @@ table td:last-child {
 table th:first-child,
 table td:first-child {
     padding-left: 25px;
-    background-position: 10px center;
 }
 </style>

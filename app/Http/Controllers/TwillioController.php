@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use Response;
+use App\User;
 use App\Lead;
 use App\Twillio;
 use App\Product;
@@ -30,100 +31,82 @@ class TwillioController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Twillio  $twillio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Twillio $twillio)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Twillio  $twillio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Twillio $twillio)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Twillio  $twillio
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Twillio $twillio)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Twillio  $twillio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Twillio $twillio)
+    public function index()
     {
         $twilio_number = config('twillio.twillio_number');
-        
-        // Your Account SID and Auth Token from twilio.com/console
         $account_sid = config('twillio.twillio_account_sid');
         $auth_token = config('twillio.twillio_auth_token');
         $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
 
-        $twilio = new Client($account_sid, $auth_token);
-        
-        // Call
-        $lead_id = $request->lead_id;
-        // $to_number = '+27619932376';
-        $to_number = $request->phone_number;
+        // $twilio = new Client($account_sid, $auth_token);
 
-        $call = $twilio->calls
-                       ->create(
-                            $to_number, // to
-                            $twilio_number, // from
-                            array("url" => "http://demo.twilio.com/docs/voice.xml")
-                       );
+        // $conferences = $twilio->conferences
+        //                       ->read(array(),500);
+        $conferences_arr = [];
+        // foreach ($conferences as $record) {
+        //     $data = new \StdClass();
+        //     $data->accountSid = $record->accountSid;
+        //     $data->dateCreated = Carbon::parse($record->dateCreated)->toDateTimeString();
+        //     $data->dateUpdated = Carbon::parse($record->dateUpdated)->toDateTimeString();
+        //     $data->duration = Carbon::parse($record->dateCreated)->diffInSeconds(Carbon::parse($record->dateUpdated));
+        //     $data->friendlyName = $record->friendlyName;
+        //     $data->sid = $record->sid;
+        //     // TODO - Get caller to coach SID
+        //     $data->coaching_sid = 'AC0f2cf7a41ad8a3b09e9db15dc7a45205';
+        //     array_push($conferences_arr, $data);
+        // }
+        for($i = 1; $i <= 10; $i++) {
+            $data = new \StdClass();
+            // Get lead info from Friendly name
+            $data->friendlyName = 'L-191-24';
+            $lead_info = $this->getConferenceLeadInfo($data->friendlyName);
+
+            $lead = $lead_info['lead'];
+
+            $caller = $lead_info['caller'];
+            $data->lead = $lead;
+            $data->lead_type = $lead_info['lead_type'];
+            $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
+            $data->lead_mobile = $lead->phone_number;
+            $data->lead_country = $lead->country;
+            $data->lead_owner = ucwords($lead->creator->name . ' ' . $lead->creator->lastname);
+            $data->lead_assignee = ucwords($lead->user->name . ' ' . $lead->user->lastname);
+            $data->lead_caller = ucwords($caller->name . ' ' . $caller->lastname);
+            $data->lead_product = $lead->product->name;
+            // TODO - Get caller to coach SID
+            $data->coaching_sid = 'AC0f2cf7a41ad8a3b09e9db15dc7a45205';
+            $data->accountSid = 'AC0f2cf7a41ad8a3b09e9db15dc7a45205';
+            $data->sid = 'CFd3d42a8dd27bf746b83044e4f8fcbdc7';
+            $data->dateCreated = '2019-09-06 00:09:11';
+            $data->dateUpdated = '2019-09-06 00:09:54';;
+            $data->duration = 43;
+            $data->status = 'in-progress';
+
+            array_push($conferences_arr, $data);
+        }
         
-        print($call->sid);
+        return ['conferences' => $conferences_arr];
+    }
+
+    public function getConferenceLeadInfo($conference_name){
+        $name_parts = explode('-', $conference_name);
+        $lead_type = ( $name_parts[0] == 'L' )? 'Lead' : 'Contact' ;
+        $lead_id = $name_parts[1];
+        $caller_id = $name_parts[2];
+
+        $lead = Lead::with('user')->with('creator')->with('product')->findOrFail($lead_id);
+        $caller = User::where(['id' => $caller_id])->select('name','lastname')->first();
+
+        return [
+            'caller' => $caller,
+            'lead' => $lead,
+            'lead_type' => $lead_type,
+        ];
     }
 
     public function call(Request $request){
@@ -179,20 +162,36 @@ class TwillioController extends Controller
 
     public function voice(Request $request){
         
-        // A Twilio number you own with Voice capabilities
+        // API info
         $twilio_number = config('twillio.twillio_number');
+        $account_sid = config('twillio.twillio_account_sid');
+        $auth_token = config('twillio.twillio_auth_token');
+        $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
 
-        // Where to make a voice call (your cell phone?)
+        // Lead information needed to create the conference
         $lead_id = $request->lead_id;
+        $is_client = $request->is_client;
+        $lead_owner = $request->lead_owner;
+        $lead_assignee = $request->lead_assignee;
+        $lead_caller_id = Auth::user()->id;
         // $to_number = '+27619932376';
         $to_number = $request->phone_number;
         
         $twiml = new Twiml;
         
         if (isset($to_number) && strlen($to_number) > 0) {
+
+            $prefix = ($is_client == 0)? 'L-' : 'C-';
+
+            $conference_name = $prefix.$lead_id . '-' . $lead_caller_id;
             
             $dial = $twiml->dial();
-            $dial->conference('LID-'.$lead_id, ['maxParticipants' => 3, 'startConferenceOnEnter' => true]);
+
+            $dial->conference($conference_name, [
+                    'maxParticipants' => 3, 
+                    'startConferenceOnEnter' => true, 
+                    'record' => 'record-from-start'
+                ]);
 
         }else{
             $twiml->say("Thanks for calling!");
@@ -202,9 +201,35 @@ class TwillioController extends Controller
         
         $response = Response::make($twiml, 200);
         $response->header('Content-Type', 'text/xml');
-        
+
+        $client = new \GuzzleHttp\Client([
+            'auth' => [$account_sid, $auth_token],
+        ]);
+
+        $form_data = [
+            'To' => $to_number,
+            'From' => $twilio_number,
+            'EarlyMedia' => true
+        ];
+
+        $end_point = "https://api.twilio.com/2010-04-01/Accounts/$account_sid/Conferences/$conference_name/Participants";
+
+        $participants_response = $client->request( 
+            'POST', 
+            $end_point, 
+            [
+                    'headers' => [
+                    'Accept' => 'application/json',
+                ],
+                'form_params' => $form_data
+            ]
+        );
+
+        $body = json_decode($participants_response->getBody(), true);
+
         Log::info("TWIML NGROK");
         Log::info($response);
+        Log::info($body);
 
         return $response;
     }

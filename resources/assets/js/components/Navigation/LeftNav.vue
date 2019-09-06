@@ -203,7 +203,7 @@
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
     color: #ffffff;
-    background-image: url('/images/icons/Users Active.svg') !important;
+    background-image: url('/images/icons/User active.svg') !important;
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: -10px;

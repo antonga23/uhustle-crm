@@ -147,7 +147,7 @@
 						<li v-if="active_calls" class="nav-item d-none d-sm-inline-block">
 							<a role="button" ref="ActiveCallsBtn" @click="showActiveCalls()" :class="{ 'nav-link top-link' : true, 'active' : active_calls_active }">Active Calls</a>
 						</li>
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
+						<li v-if="active == 'workstation' && lead_id !== ''" class="nav-item d-none d-sm-inline-block">
 							<a href="#" @click="showGeneral();" :class="{ 'nav-link top-link' : true, 'active' : general_active }">General</a>
 						</li>
 						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block">
@@ -198,7 +198,7 @@
 </template>
 
 <script>
-	import { setupCalendar, Calendar} from 'v-calendar'
+	import { setupCalendar, Calendar} from 'v-calendar';
 	export default {
 		mounted() {
 			this.current_user = JSON.parse(this.logged_user);
@@ -224,6 +224,7 @@
 		},
 		data: function(){
 			return {
+				lead_id: '',
 				status : 'active',
 				call_status : 'active',
 				month : '',
@@ -259,6 +260,9 @@
 
 			Fire.$on('InitiateCall', function(){
 				vm.dialer_active = true;
+				vm.general_active = false;
+				vm.scripts_active = false;
+				vm.active_calls_active = false;
 			});
 
 			Fire.$on('DoneAddingUser', function(){
@@ -269,6 +273,7 @@
 				vm.general_active = true;
 				vm.scripts_active = false;
 				vm.dialer_active = false;
+				vm.active_calls_active = false;
 			});
 
 		},

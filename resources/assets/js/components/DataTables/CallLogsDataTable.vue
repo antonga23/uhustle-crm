@@ -3,7 +3,7 @@
         <table ref="table">
             <thead>
                 <tr>
-                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
+                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(column.sortable ? 'sorting ' : '')
                             + (sortColumn === index ?
                                 (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                 : '')
@@ -14,17 +14,16 @@
             </thead>
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
+                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" >
                         <span v-if="column.field == 'full_name'">
                             {{ collect(row, column.field) }}
                         </span>
-                        <span v-else-if="column.field == 'status'">
-                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit" disabled></a>
+                        <span v-else-if="column.field == 'status'" :class="collect(row, column.field)">
+                            
                         </span>
                         <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
-                            <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
-                            <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete"></a>
+                            <a  class="Whisper" href="#" @click="coachActions('Whisper',row)" title="Whisper"></a>
+                            <a  class="Barge" href="#" @click="coachActions('Barge',row)" title="Barge"></a>
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
@@ -63,94 +62,7 @@
             </div>
         </div>
         <!-- Modal Start Summary-->
-
         <div>
-            <b-modal
-            id="update-user-modal"
-            ref="modalUpdateUser"
-            title="Update Contact"
-            size="lg"
-            header-text-variant="light"
-            header-bg-variant="warning"
-            @ok="handleOk"
-            >
-                <a-card title="Lead Information">
-                    <form ref="form" @submit.stop.prevent="handleSubmit">
-                        <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
-                </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-            </b-modal>
         </div>
         <!-- Modal -->
     </div>
@@ -260,6 +172,26 @@ export default {
             bvModalEvt.preventDefault()
             // Trigger submit handler
             this.handleSubmit()
+        },
+        coachActions(action, conference){
+            this.$swal.fire({
+                title: 'Are you sure?',
+                text: "Proceed with action: " + action,
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#409EFF',
+                cancelButtonColor: '#F56C6C',
+                confirmButtonText: 'Yes!'
+            }).then((result) => {
+                if (result.value) {
+                    // axios.get('/shop/delete-product/'+id).then((response) =>{
+                    //     Fire.$emit('AfterRequest');
+                    //     this.$swal.fire('Deleted!','Product has been deleted.', 'success');
+                    // }).catch(() => {
+                    //     this.$swal('Failed', 'Opps, something went wrong, please try again','warning');
+                    // });
+                }
+            });
         },
         handleSubmit(){
             var vm = this;  
@@ -472,36 +404,36 @@ export default {
 <style scoped>
 table tr td a.Canceled{
     color: red;
-    background-color: red;
-    width: 19px;
-    display: block;
-    height: 19px;
-    margin: 0 auto;
-    border-radius: 32px;
 }
 table tr td a.Inactive{
     color: orange;
-    background-color: orange;
-    width: 19px;
-    display: block;
-    height: 19px;
-    margin: 0 auto;
-    border-radius: 32px;
 }
 table tr td a.Active{
     color: green;
-    background-color: green;
-    width: 19px;
-    display: block;
-    height: 19px;
-    margin: 0 auto;
-    border-radius: 32px;
 }
 table tr td span.actions a{
     width: 32px;
     display: block;
     height: 35px;
     float: left;
+}
+table tr td span.in-progress{
+    background-image: url('/images/icons/Talking.svg');
+    background-size: 75%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 38px;
+    background-position: center;
+}
+table tr td span.completed{
+    background-image: url('/images/icons/No Talking.svg');
+    background-size: 90%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 38px;
+    background-position: center;
 }
 table tr td a.View{
     background-image: url('/images/DataTables/View_Icon_Active.svg');
@@ -536,6 +468,28 @@ table tr td a.Edit:active{
     background-size: 36px 35px;
     background-repeat: no-repeat;
 }
+table tr td a.Whisper{
+    background-image: url('/images/icons/Whisper.svg');
+    background-size: 30px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Whisper:hover,
+table tr td a.Whisper:active{
+    background-image: url('/images/icons/Whisper.svg');
+    background-size: 31px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Barge{
+    background-image: url('/images/icons/Barge.svg');
+    background-size: 30px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Barge:hover,
+table tr td a.Barge:active{
+    background-image: url('/images/icons/Barge.svg');
+    background-size: 31px 35px;
+    background-repeat: no-repeat;
+}Barge
 .control-label{
     float: left;
 }
@@ -739,12 +693,16 @@ table th {
     overflow: hidden;
     text-overflow: ellipsis;
     background-size: 11px 12px;
+	background-repeat: no-repeat;
+	background-position: left center;
 }
 
 table th:hover {
     overflow: visible;
     text-overflow: initial;
+    
 }
+
 table th.sorting-asc,
 table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
@@ -784,6 +742,7 @@ table tbody tr:hover {
 table th:last-child,
 table td:last-child {
     padding-right: 14px;
+    padding-left: 11px;
     background-image: none !important;
 }
 

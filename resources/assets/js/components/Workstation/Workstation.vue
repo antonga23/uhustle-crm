@@ -580,10 +580,17 @@ a.down-scroll:hover{
 .ant-time-picker{
     width: 100% !important;
 }
+.scroll-hidden{
+    overflow-y: scroll;
+    height: 70vh;
+    padding-top: 6px;
+    padding-right: 6px;
+    width: 104%;
+}
 </style>
 <template>
     <div class="">
-
+        <!-- Scripts Section Starts -->
         <div class="scripts" v-if="scripts == true">
             <div :class="{ 'row' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%">
 
@@ -637,7 +644,9 @@ a.down-scroll:hover{
                 </div>
             </div>
         </div>  
+        <!-- Scripts Section ends -->
 
+        <!-- General Section Starts -->
         <div class="" v-if="general == true">
             <div class="row" style="margin-top:5%;">
                 <ul class="top-section">
@@ -762,7 +771,7 @@ a.down-scroll:hover{
                                                     </a>
                                                 </span>
                                                 <span class="author">
-                                                    {{ getDaysAgo(comment.created_at) }} <br/>
+                                                    {{ comment.created_at }} <br/>
                                                     <small>{{ comment.user_name }}</small>
                                                 </span>
                                             </p>
@@ -880,6 +889,9 @@ a.down-scroll:hover{
                 </div>
             </div>
         </div>
+        <!-- General Section Ends -->
+
+        <!-- Dialer Section Starts -->
         <div class="" v-if="idle == true">
             <div :class="{ 'row idle-div' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%">
                 <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"> </div>
@@ -951,6 +963,19 @@ a.down-scroll:hover{
                 </div>
             </div>
         </div>
+        <!-- Dialer Section Ends -->
+
+        <!-- Active calls Section Starts -->
+        <div class="" v-if="active_calls == true">
+            <div class="row stats scroll-hidden"  style="margin-top: 6%">
+                <div class="col-lg-12">
+                    <datatable id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>
+                </div>
+            </div>
+        </div>
+        <!-- Active calls Section Ends -->
+
+        <!-- Modals Section Starts -->
         <div>
             <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal">
                 <div class="d-block">
@@ -981,7 +1006,7 @@ a.down-scroll:hover{
                 id="modal-prevent-closing"
                 size="xl"
                 ref="final-call-step"
-                title="Submit Your Name"
+                title=""
                 @show="preventClosing"
                 @hide="preventClosing()"
                 @ok="preventClosing"
@@ -1030,8 +1055,8 @@ a.down-scroll:hover{
                                     Client
                                 </h5>
 
-                                <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                                {{ this.lead_info.name + ' ' + lead_info.surname }}
+                                <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">
+                                {{ lead_info.name + ' ' + lead_info.surname }}
                                 </p>
 
                                 <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
@@ -1108,7 +1133,7 @@ a.down-scroll:hover{
                                                             </a>
                                                         </span>
                                                         <span class="author" style="width: 25%;">
-                                                            {{ getDaysAgo(comment.created_at) }} <br/>
+                                                            {{ comment.created_at }} <br/>
                                                             <small>{{ comment.user_name }}</small>
                                                         </span>
                                                     </p>
@@ -1240,12 +1265,14 @@ a.down-scroll:hover{
     import { BarChart } from 'vue-morris';
     import NotesStats from './NotesStats.vue';
     import FlipCountdown from 'vue2-flip-countdown';
+    import DataTable from '../DataTables/CallLogsDataTable';
     const Device = require('twilio-client').Device;
     export default {
         extends: Bar,
         components: { 
             BarChart,
             FlipCountdown,
+            'datatable' : DataTable,
             'notes-stats' : NotesStats 
         },
         mounted() {
@@ -1255,6 +1282,12 @@ a.down-scroll:hover{
             if( this.role_id == 4 || vm.lead_id != ''){
                 vm.enqueueLead(vm.lead_id);
             }
+            
+            if( this.role_id == 1 || this.role_id == 2){
+                vm.active_calls = true;
+            }
+            
+            vm.getActiveCalls();
 
             vm.prepDates();
 
@@ -1291,7 +1324,6 @@ a.down-scroll:hover{
                 vm.scripts = false;
                 vm.idle = false;
                 vm.active_calls = true;
-                console.log('Get Done');
             });
 
             Fire.$on( 'ShowDialer', function(){
@@ -1314,6 +1346,7 @@ a.down-scroll:hover{
         data: function(){
             return {
                 lead : {},
+                conferences: [],
                 lead_info : {
                     product: {},
                 },
@@ -1357,10 +1390,91 @@ a.down-scroll:hover{
                 selected_time:  moment(),
                 dates: [],
                 dialer_settings: [],
+                columns:[
+                    {
+                        label: 'CALLER',  // Column name
+                        field: 'lead_caller',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TYPE',  // Column name
+                        field: 'lead_type',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'NAME',  // Column name
+                        field: 'lead_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'lead_owner',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'lead_assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'lead_mobile',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'lead_product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'CALL START',  // Column name
+                        field: 'dateCreated',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                ],
                 Toast: null
             }
         },
         methods: {
+            getActiveCalls(){
+                var vm = this;
+                setInterval(function(){ 
+                    axios.get('/calls/list').then(function (response) { 
+                        vm.conferences = response.data.conferences;
+                    });
+                }, 2000);
+            },
             checkCBDate(){
                 var now = moment(new Date()); //todays date
                 
@@ -1465,6 +1579,7 @@ a.down-scroll:hover{
                     end_point_choice = '/leads/enqueue';
                 }
               
+                vm.show_page_loader = true;
                 vm.$Progress.start();
 
                 axios.get(end_point_choice).then(function (response) {
@@ -1480,63 +1595,61 @@ a.down-scroll:hover{
                         vm.comment.comment_type = '';
                         vm.added_time = false;
                         vm.continues = false;
-
+                        // vm.show_page_loader = false;
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
 
                         if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){ 
-                            setTimeout( function(){
-                                axios.get('/calls/token').then(function (response) {
-                                    console.log('Token',response.data.token);
-                                    // Setup Twilio.Device
-                                    Device.setup(response.data.token);
-                
-                                    Device.on('ready',function (device) {
-                                        vm.call_status = 'Device Ready';
+                            axios.get('/calls/token').then(function (response) {
+                                console.log('Token',response.data.token);
+                                // Setup Twilio.Device
+                                Device.setup(response.data.token);
+            
+                                Device.on('ready',function (device) {
+                                    vm.call_status = 'Device Ready';
 
-                                        vm.$refs.callBtn.click();
-                                    });
-
-                                    Device.on('error',function (error) {
-                                        vm.call_status = 'Device Error: ' + error.message;
-                                    });
-
-                                    Device.on('connect',function (conn) {
-                                        vm.call_status = 'Successfully established call';
-                                        vm.call_back.call_sid = conn.parameters.CallSid;
-                                        axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                            
-                                        }).catch(function (error) {                    
-                                            console.log(error);
-                                        });
-                                    });
-
-                                    Device.on('incoming', function (conn) {
-                                        console.log('Incoming connection from ' + conn.parameters.From);
-                                        var archEnemyPhoneNumber = '+12099517118';
-                                
-                                        if (conn.parameters.From === archEnemyPhoneNumber) {
-                                            conn.reject();
-                                            console.log('It\'s your nemesis. Rejected call.');
-                                        } else {
-                                            // accept the incoming connection and start two-way audio
-                                            conn.accept();
-                                        }
-                                    });
-
-                                    Device.on('disconnect',function (conn) {
-                                        vm.call_status = 'Call Disconnected';
-                                        vm.$refs['final-call-step'].show();
-                                    });
-
-                                    vm.$Progress.finish();
-                                    
-                                }).catch(function (error) {                    
-                                    console.log(error);
+                                    vm.$refs.callBtn.click();
                                 });
-                            }, 1000 );
+
+                                Device.on('error',function (error) {
+                                    vm.call_status = 'Device Error: ' + error.message;
+                                });
+
+                                Device.on('connect',function (conn) {
+                                    vm.call_status = 'Successfully established call';
+                                    vm.call_back.call_sid = conn.parameters.CallSid;
+                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                                        
+                                    }).catch(function (error) {                    
+                                        console.log(error);
+                                    });
+                                });
+
+                                Device.on('incoming', function (conn) {
+                                    console.log('Incoming connection from ' + conn.parameters.From);
+                                    var archEnemyPhoneNumber = '+12099517118';
+                            
+                                    if (conn.parameters.From === archEnemyPhoneNumber) {
+                                        conn.reject();
+                                        console.log('It\'s your nemesis. Rejected call.');
+                                    } else {
+                                        // accept the incoming connection and start two-way audio
+                                        conn.accept();
+                                    }
+                                });
+
+                                Device.on('disconnect',function (conn) {
+                                    vm.call_status = 'Call Disconnected';
+                                    vm.$refs['final-call-step'].show();
+                                });
+
+                                vm.$Progress.finish();
+                                
+                            }).catch(function (error) {                    
+                                console.log(error);
+                            });
                         }else{
                             Fire.$emit('ShowGeneral');
-                            vm.$Progress.finish();
+                            vm.show_page_loader = true;
                         }
                     }else{
                         vm.$Progress.fail();
@@ -1557,6 +1670,9 @@ a.down-scroll:hover{
 
                 var form_data = {
                     lead_id : vm.lead_info.id,
+                    is_client : vm.lead_info.is_client,
+                    lead_owner : vm.lead_info.user_created_id,
+                    lead_assignee : vm.lead_info.user_assigned,
                     // phone_number : vm.lead_info.contact_number,
                     phone_number : '+27738802485',
                 }

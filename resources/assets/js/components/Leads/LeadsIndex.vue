@@ -289,7 +289,8 @@ table.listing tr  th{
         <div v-if="!add_user">
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <datatable id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
+                    <vcl-table v-if="show_page_loader" ></vcl-table>
+                    <datatable v-if="!show_page_loader" id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
                 </div>
             </div>
         </div>
@@ -387,10 +388,14 @@ table.listing tr  th{
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
     import DataTable from '../DataTables/ListingDataTable';
+    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
         components: { 
             BarChart,
+            VclFacebook,
+            VclInstagram,
+            VclTable,
             'datatable' : DataTable
         },
         mounted() {
@@ -462,6 +467,7 @@ table.listing tr  th{
                 current_user: [],
                 filter_data: [],
                 add_user: false,
+                show_page_loader: false,
                 Toast: null,
                 columns:[
                     {
@@ -568,6 +574,7 @@ table.listing tr  th{
                     var endpoint = '/leads/get-lead-counts/' + role;
                 }
 
+                vm.show_page_loader = true;
                 vm.$Progress.start();
 
                 axios.get(endpoint).then(function (response) {
@@ -582,8 +589,10 @@ table.listing tr  th{
                         vm.users.packages = response.data.packages;
                         vm.users.sources = response.data.sources;
                         
+                        vm.show_page_loader = false;
                         vm.$Progress.finish();
                     }else{
+                        vm.show_page_loader = false;
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
