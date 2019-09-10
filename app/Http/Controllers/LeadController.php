@@ -316,6 +316,7 @@ class LeadController extends Controller
                     'trans_num' => $trans_num,
                     'total' => $total,
                 ]);
+                DB::commit();
                 return array('success' => false, 'message' => 'Duplicate email entry :: ' . $data['email'] );
             }else{ 
                 $lead = Lead::create([
