@@ -19,7 +19,7 @@
                             {{ collect(row, column.field) }}
                         </span>
                         <span v-else-if="column.field == 'status'">
-                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit" disabled></a>
+                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  :title="collect(row, column.field)" disabled></a>
                         </span>
                         <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
                             {{ getDaysRemaining(row.lead) }}

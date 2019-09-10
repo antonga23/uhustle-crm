@@ -65,6 +65,11 @@ class PagesController extends Controller
       return view('pages.users')->with(['active'=> 'users']);
    }
 
+   public function preferences()
+   {
+      return view('pages.preferences')->with(['active'=> 'preferences']);
+   }
+
    public function leads()
    {
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();

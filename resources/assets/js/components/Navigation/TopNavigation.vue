@@ -72,7 +72,6 @@
     	background-repeat: no-repeat;
 	}
 
-
 	.pull-right li .add-call-back-btn{
     	background-image: url('/images/workstation/Asset 28@4x.png') !important;
     	background-size: contain;

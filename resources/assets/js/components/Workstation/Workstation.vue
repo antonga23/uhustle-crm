@@ -669,72 +669,72 @@ a.down-scroll:hover{
                 </ul>
             </div>
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-4" style="padding-right: 35px;">
-                <div class="card client">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                        <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
-                        Client
-                    </h5>
+                <div class="col-lg-3 col-md-4 col-sm-4" style="padding-right: 35px;">
+                    <div class="card client">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />
+                            Client
+                        </h5>
 
-                    <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                      {{ this.lead_info.name + ' ' + lead_info.surname }}
-                    </p>
+                        <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
+                        {{ this.lead_info.name + ' ' + lead_info.surname }}
+                        </p>
 
-                    <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
-                  </div>
+                        <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
+                    </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
-                <div class="card product">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                        <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
-                        Product
-                    </h5>
+                <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
+                    <div class="card product">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />
+                            Product
+                        </h5>
 
-                    <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.price ">
-                      {{ lead_info.product.name }}
-                    </p>
+                        <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.price ">
+                        {{ lead_info.product.name }}
+                        </p>
 
-                    <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price ">
-                        {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}
-                    </p> 
-                  </div>
+                        <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price ">
+                            {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}
+                        </p> 
+                    </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
-                <div class="card time">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                        <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
-                        Time
-                    </h5>
+                <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;">
+                    <div class="card time">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />
+                            Time
+                        </h5>
 
-                    <p class="card-text">
-                      11:20
-                    </p>
+                        <p class="card-text">
+                        11:20
+                        </p>
 
-                    <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
-                  </div>
+                        <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p> 
+                    </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-3"  style="padding-left: 35px;">
-                <div class="card activity">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                        <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" />
-                        Activity
-                    </h5>
+                <div class="col-lg-3"  style="padding-left: 35px;">
+                    <div class="card activity">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" />
+                            Activity
+                        </h5>
 
-                    <p class="card-text">
-                      Off-line
-                    </p>
+                        <p class="card-text">
+                        Off-line
+                        </p>
 
-                    <p class="card-link">Online 2 Days ago</p> 
-                  </div>
+                        <p class="card-link">Online 2 Days ago</p> 
+                    </div>
+                    </div>
                 </div>
-              </div>
             </div>                    
             <div class="row stats final-modal">
                 <div class="col-lg-6" style="padding-right: 3%;">

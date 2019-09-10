@@ -42,6 +42,7 @@ Route::get('/social-board', 'PagesController@socialBoard')->name('social-board')
 Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/leads', 'PagesController@leads')->name('leads');
 Route::get('/contacts', 'PagesController@contacts')->name('contacts');
+Route::get('/preferences', 'PagesController@preferences')->name('preferences');
 
 // Stripe Routes
 Route::group(['prefix' => 'stripe'], function () {

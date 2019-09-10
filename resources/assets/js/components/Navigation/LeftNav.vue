@@ -280,6 +280,9 @@
             <li class="nav-item"  v-if="current_user.role_id == 1">
               <a href="/users" title="Users" :class="{ 'nav-link users' : true, 'active' : (active == 'users')? true : false }"> </a>
             </li>
+            <li class="nav-item"  v-if="current_user.role_id == 1">
+              <a href="/preferences" title="System Preferences" :class="{ 'nav-link users' : true, 'active' : (active == 'preferences')? true : false }"> </a>
+            </li>
             <li class="nav-item">
               <a href="/education" title="Education" :class="{ 'nav-link education' : true, 'active' : (active == 'education')? true : false }" disabled> </a>
             </li>

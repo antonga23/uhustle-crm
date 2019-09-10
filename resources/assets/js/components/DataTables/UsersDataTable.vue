@@ -499,7 +499,7 @@ table tr td a.Active{
 }
 table tr td span.actions a{
     padding: 0px 7px;
-    width: 38px;
+    width: 41px;
     display: block;
     height: 46px;
     float: left;

@@ -87,6 +87,7 @@ Vue.component('avatar-upload', require('./components/Plugins/AvatarUpload.vue').
 Vue.component('users', require('./components/Users/UsersIndex.vue').default);
 Vue.component('leads', require('./components/Leads/LeadsIndex.vue').default);
 Vue.component('contacts', require('./components/Contacts/ContactsIndex.vue').default);
+Vue.component('preferences', require('./components/Preferences/PreferencesIndex.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
