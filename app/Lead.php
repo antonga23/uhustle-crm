@@ -27,6 +27,8 @@ class Lead extends Model
         'status',
         'start_date',
         'expires_at',
+        'trans_num',
+        'total',
     ];
 
     public function user()

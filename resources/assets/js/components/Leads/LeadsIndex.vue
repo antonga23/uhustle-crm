@@ -514,9 +514,23 @@ table.listing tr  th{
                         exportable: true
                     },
                     {
-                        label: 'START DATE',  // Column name
+                        label: 'TRIAL STARTS',  // Column name
                         field: 'start_date',  // Field name from row
                         numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TRIAL ENDS',  // Column name
+                        field: 'expires_at',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'DAYS REMAINING',  // Column name
+                        field: 'days_remaining',  // Field name from row
+                        numeric: true, // Affects sorting
                         html: false,    // Escapes output if false.
                         sortable:true
                     },

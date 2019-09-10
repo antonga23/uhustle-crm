@@ -43,6 +43,11 @@ Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/leads', 'PagesController@leads')->name('leads');
 Route::get('/contacts', 'PagesController@contacts')->name('contacts');
 
+// Stripe Routes
+Route::group(['prefix' => 'stripe'], function () {
+	Route::get('/balance-transactions', 'StripeController@index');
+});
+
 // Calls Routes
 Route::group(['prefix' => 'calls'], function () {
 	Route::get('/list', 'TwillioController@index');

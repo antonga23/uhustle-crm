@@ -21,10 +21,13 @@
                         <span v-else-if="column.field == 'status'">
                             <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  title="Edit" disabled></a>
                         </span>
+                        <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
+                            {{ getDaysRemaining(row.lead) }}
+                        </span>
                         <span v-else-if="column.field == 'actions'" class="actions">
                             <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
                             <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2 "></a>
+                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
@@ -249,6 +252,19 @@ export default {
         }
     },
     methods: {
+        getDaysRemaining(lead){
+            if(lead.expires_at){ 
+                var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+                var firstDate = new Date();
+                var secondDate = new Date(lead.expires_at);
+
+                var diffDays = Math.round(( secondDate.getTime() - firstDate.getTime())/(oneDay));
+
+                return ( diffDays < 0 ) ? 'Expired' : diffDays;
+            }else{
+                return '-'
+            }
+        },
         showEditModal(user){
             var vm = this;
             this.user = user;
@@ -470,6 +486,11 @@ export default {
 }
 </script>
 <style scoped>
+span.days-remaining{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
 table tr td a.Canceled{
     color: red;
     background-color: red;
@@ -706,7 +727,7 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 13px;
+    font-size: 11px;
     color: rgba(0, 0, 0, 0.87);
     display: table-cell;
 }
@@ -753,13 +774,13 @@ table th.sorting-asc {
     color: rgba(0, 0, 0, 0.87);
     background-image: url('/images/DataTables/Filter_1.svg') !important;
 	background-repeat: no-repeat;
-	background-position: 77% 7px;
+	background-position: 100% 7px;
 }
 table th.sorting-desc {
     color: rgba(0, 0, 0, 0.87);
     background-image: url('/images/DataTables/Filter_2.svg') !important;
 	background-repeat: no-repeat;
-	background-position: 77% 7px;
+	background-position: 100% 7px;
 }
 table tr td a{
     color: #1890ff;

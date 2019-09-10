@@ -969,7 +969,8 @@ a.down-scroll:hover{
         <div class="" v-if="active_calls == true">
             <div class="row stats scroll-hidden"  style="margin-top: 6%">
                 <div class="col-lg-12">
-                    <datatable id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>
+                    <vcl-table v-if="show_page_loader === true"></vcl-table>
+                    <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>
                 </div>
             </div>
         </div>
@@ -1266,12 +1267,16 @@ a.down-scroll:hover{
     import NotesStats from './NotesStats.vue';
     import FlipCountdown from 'vue2-flip-countdown';
     import DataTable from '../DataTables/CallLogsDataTable';
+    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     const Device = require('twilio-client').Device;
     export default {
         extends: Bar,
         components: { 
             BarChart,
             FlipCountdown,
+            VclFacebook,
+            VclInstagram,
+            VclTable,
             'datatable' : DataTable,
             'notes-stats' : NotesStats 
         },
@@ -1366,6 +1371,7 @@ a.down-scroll:hover{
                 choose_comment_type: false,
                 edit_comment: false,
                 continues: false,
+                show_page_loader: false,
                 call_status: '',
                 call_sid: '',
                 handle: '',
@@ -1469,9 +1475,11 @@ a.down-scroll:hover{
         methods: {
             getActiveCalls(){
                 var vm = this;
+                vm.show_page_loader = true;
                 setInterval(function(){ 
                     axios.get('/calls/list').then(function (response) { 
                         vm.conferences = response.data.conferences;
+                        vm.show_page_loader = false;
                     });
                 }, 2000);
             },

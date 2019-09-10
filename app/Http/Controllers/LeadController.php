@@ -292,34 +292,56 @@ class LeadController extends Controller
         $product_id = $data['product_id'];
         $start_date = $data['start_date'];
         $expires_at = $data['expires_at'];
+        $trans_num = $data['trans_num'];
+        $total = $data['total'];
 
-        $duplicate_check = Lead::where(['email' => trim($data['email'])])->count();
-
-        if($duplicate_check > 0){
-            return array('success' => false, 'message' => 'Duplicate email entry : ' . $data['email']);
-        }
 
         try{
             DB::beginTransaction();
 
-            $lead = Lead::create([
-                'source' => 1,
-				'name' => $name,
-				'surname' => $surname,
-				'phone_number' => $phone_number,
-				'email' => $email,
-				'user_created_id' => $user_created_id,
-				'user_assigned' => 0,
-				'is_client' => $is_client,
-				'status' => 1,
-				'product_id' => $product_id,
-				'account' => '-',
-				'start_date' => $start_date,
-				'expires_at' => $expires_at,
-            ]);
+            $duplicate_check = Lead::where(['email' => trim($data['email'])])->count();
+
+            if($duplicate_check > 0){
+                $lead = Lead::where(['email' => trim($data['email'])])->update([
+                    'source' => 1,
+                    'name' => $name,
+                    'surname' => $surname,
+                    'phone_number' => $phone_number,
+                    'email' => $email,
+                    'user_created_id' => $user_created_id,
+                    'user_assigned' => 0,
+                    'is_client' => $is_client,
+                    'status' => 1,
+                    'product_id' => $product_id,
+                    'account' => '-',
+                    'start_date' => $start_date,
+                    'expires_at' => $expires_at,
+                    'trans_num' => $trans_num,
+                    'total' => $total,
+                ]);
+                return array('success' => false, 'message' => 'Duplicate email entry :: ' . $data['email'] . ':: ' . $is_client);
+            }else{ 
+                $lead = Lead::create([
+                    'source' => 1,
+                    'name' => $name,
+                    'surname' => $surname,
+                    'phone_number' => $phone_number,
+                    'email' => $email,
+                    'user_created_id' => $user_created_id,
+                    'user_assigned' => 0,
+                    'is_client' => $is_client,
+                    'status' => 1,
+                    'product_id' => $product_id,
+                    'account' => '-',
+                    'start_date' => $start_date,
+                    'expires_at' => $expires_at,
+                    'trans_num' => $trans_num,
+                    'total' => $total,
+                ]);
+            }
 
             DB::commit();
-            return array('success' => true, 'message' => 'Entry successfully created', 'lead' => $lead);
+            return array('success' => true, 'message' => 'Entry successfully created ::' . $is_client, 'lead' => $lead , );
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -759,6 +781,7 @@ class LeadController extends Controller
             $data->activity = $last_activity['comment_type'] ;
             $data->activity_note = $last_activity['description'] ;
             $data->start_date = $lead->start_date ;
+            $data->expires_at = $lead->expires_at ;
             $data->status  = $status;
             $data->lead  = $lead;
 
