@@ -316,7 +316,7 @@ class LeadController extends Controller
                     'trans_num' => $trans_num,
                     'total' => $total,
                 ]);
-                return array('success' => false, 'message' => 'Duplicate email entry :: ' . $data['email'] . ':: ' . $is_client);
+                return array('success' => false, 'message' => 'Duplicate email entry :: ' . $data['email'] );
             }else{ 
                 $lead = Lead::create([
                     'source' => 1,
@@ -338,7 +338,7 @@ class LeadController extends Controller
             }
 
             DB::commit();
-            return array('success' => true, 'message' => 'Entry successfully created ::' . $is_client, 'lead' => $lead , );
+            return array('success' => true, 'message' => 'Entry successfully created ', 'lead' => $lead , );
 
         }catch(\QueryException $e){
             DB::rollback();
