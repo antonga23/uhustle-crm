@@ -43,6 +43,7 @@ Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/leads', 'PagesController@leads')->name('leads');
 Route::get('/contacts', 'PagesController@contacts')->name('contacts');
 Route::get('/preferences', 'PagesController@preferences')->name('preferences');
+Route::get('/transactions', 'PagesController@transactions')->name('transactions');
 
 // Stripe Routes
 Route::group(['prefix' => 'stripe'], function () {
@@ -81,6 +82,7 @@ Route::group(['prefix' => 'clients'], function () {
 	Route::post('/create', 'ClientsController@store');
 	Route::post('/update', 'ClientsController@update');
 	Route::get('/delete/{client_id}', 'ClientsController@destroy');
+	Route::get('/transactions', 'ClientsController@getAllTransactions');
 });
 
 // Tasks Routes
@@ -154,5 +156,14 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('/update', 'CommentController@update');
     Route::get('/get/{type}/{id}', 'CommentController@getStatsTypeById');
     Route::post('/check-exist', 'CommentController@checkExist');
+});
+
+// Modules Routes
+Route::group(['prefix' => 'modules'], function () {
+    Route::get('/get-all', 'ModuleController@index');
+    Route::post('/add', 'ModuleController@store');
+    Route::post('/update', 'ModuleController@update');
+    Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
+    Route::post('/check-exist', 'ModuleController@checkExist');
 });
 

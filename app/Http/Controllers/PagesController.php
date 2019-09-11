@@ -69,6 +69,11 @@ class PagesController extends Controller
    {
       return view('pages.preferences')->with(['active'=> 'preferences']);
    }
+   
+   public function transactions()
+   {
+      return view('pages.transactions')->with(['active'=> 'transactions']);
+   }
 
    public function leads()
    {

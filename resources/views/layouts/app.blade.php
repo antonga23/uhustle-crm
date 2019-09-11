@@ -50,14 +50,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <left-nav active="{{ $active }}" logged_user="{{ json_encode(Auth::user()) }}"></left-nav>
-
+  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="content-wrapper" >
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
         @yield('content')
-
         <avatar-upload auth_user="{{ Auth::user() }}"></avatar-uploadr>
       </div><!-- /.container-fluid -->
     </div>

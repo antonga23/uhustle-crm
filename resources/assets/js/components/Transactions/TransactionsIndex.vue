@@ -251,10 +251,10 @@
 			<!-- Left navbar links -->
             <ul class="navbar-nav left">
                 <li class="nav-item d-none d-sm-inline-block title">
-                    <a href="#" class="nav-link"><strong>Preferences</strong></a>
+                    <a href="#" class="nav-link"><strong>Transactions</strong></a>
                 </li> 
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : user_roles_active }" class="nav-link">User Roles</a>
+                <!-- <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : user_roles_active }" class="nav-link">Leads</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : leads_active }" class="nav-link">Leads</a>
@@ -264,7 +264,7 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : add_new_section_active }" class="nav-link" title="Add new section">+ Add New</a>
-                </li>
+                </li> -->
             </ul>
 		</nav>
         <hr style="margin-bottom: 2%;">
@@ -272,29 +272,7 @@
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
-                    <div class="col-lg-12 final-modal user-roles" v-if="!show_page_loader">
-                        <b-card no-body>
-                            <b-tabs card>
-                                <b-tab :title="role.display_name" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
-                                    <div class="">
-                                        <b-card :title="item.display_name" sub-title="Permisions"  v-for="(item,i) in modules" :key="i" class="col-lg-3">
-                                            <b-form-group>
-                                                <b-form-checkbox-group id="checkbox-group-2" v-model="selected_permissions" name="flavour-2" stacked class="permisions">
-                                                    <b-form-checkbox value="view">View</b-form-checkbox>
-                                                    <b-form-checkbox value="edit">Edit</b-form-checkbox>
-                                                    <b-form-checkbox value="delete">Delete</b-form-checkbox>
-                                                </b-form-checkbox-group>
-                                            </b-form-group>
-                                            {{ selected_permissions }}
-                                        </b-card>
-                                    </div>
-                                </b-tab>
-                                <b-tab title="Add New">
-                                    <b-card-text>Add new Role</b-card-text>
-                                </b-tab>
-                            </b-tabs>
-                        </b-card>
-                    </div>
+                    <datatable v-if="!show_page_loader" id="datatable" :rows="transactions" :columns="columns" :role="current_user.role_id" title=""></datatable>
                 </div>
             </div>
         </div>
@@ -304,7 +282,7 @@
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
-    import DataTable from '../DataTables/UsersDataTable';
+    import DataTable from '../DataTables/TransactionsDataTable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -318,18 +296,9 @@
         mounted() {
             console.log('Component mounted');
             this.current_user = JSON.parse(this.logged_user);
-            this.getRoles();
-            this.getModules();
+            this.getTransactions();
 
             var vm = this;
-
-			Fire.$on('AddingUser', function(data){
-				vm.add_user = !vm.add_user;
-            });
-            
-			Fire.$on('ReloadUsers', function(data){
-				vm.getRoles();
-            });
 
 			Fire.$on('FilterData', function(data){
 				vm.applyFilter(data);
@@ -347,16 +316,7 @@
         props: ['logged_user'],
         data: function(){
             return {
-                user : {
-                    all_users: [],
-                    count_all: '',
-                    manager: '',
-                    account_manager: '',
-                    team_leader: '',
-                    agent: '',
-                    roles: '',
-                    current_user: '',
-                },
+                transactions: null,
                 roles: null,
                 modules: null,
                 permissions:[],
@@ -376,6 +336,100 @@
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 bulk_actions: "",
                 Toast: null,
+                columns:[
+                    {
+                        label: 'FULL NAME',  // Column name
+                        field: 'full_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'EMAIL',  // Column name
+                        field: 'email',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'creator',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'phone_number',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'TRIAL STARTS',  // Column name
+                        field: 'start_date',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TRIAL ENDS',  // Column name
+                        field: 'expires_at',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'DAYS REMAINING',  // Column name
+                        field: 'days_remaining',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TRANSACTION NUMBER',  // Column name
+                        field: 'transaction_mumber',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'AMOUNT',  // Column name
+                        field: 'amount',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                ]
             }
         },
         methods: {
@@ -388,9 +442,9 @@
             str_pad_left(string,pad,length) {
                     return (new Array(length+1).join(pad)+string).slice(-length);
             },
-            getRoles(){
+            getTransactions(){
                 var vm = this;
-                var endpoint = '/roles/get-all';
+                var endpoint = '/clients/transactions';
 
                 vm.show_page_loader = true;
                 vm.$Progress.start();
@@ -398,25 +452,12 @@
                 axios.get(endpoint).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.roles = response.data.roles;
+                        vm.transactions = response.data.transactions;
                         vm.show_page_loader = false;
                         vm.$Progress.finish();
                     }else{
                         vm.show_page_loader = false;
                         vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },	
-            getModules(){
-                var vm = this;
-                var endpoint = '/modules/get-all';
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.modules = response.data.modules;
-                    }else{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });
