@@ -14,5 +14,9 @@ class Role extends Model
     protected $fillable = [
         'name', 'display_name', 'description', 'status'
     ];
-
+    
+    public function permissions()
+    {
+        return $this->hasMany(Permissions::class, 'role_id');
+    }
 }

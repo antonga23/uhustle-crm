@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Role;
+use App\Permissions;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -118,4 +119,8 @@ class RoleController extends Controller
         }
     }
 
+    public function getPermissions(){
+        $permissions = Permissions::get();
+        return array('success' => true, 'permissions' => $permissions);
+    }
 }

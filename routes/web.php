@@ -139,6 +139,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-active', 'RoleController@getActive');
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
+	Route::get('/get-permissions', 'RoleController@getPermissions');
 });
 
 // Products Routes

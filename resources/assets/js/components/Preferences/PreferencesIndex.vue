@@ -257,6 +257,9 @@
                     <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : user_roles_active }" class="nav-link">User Roles</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : api_inte_active }" class="nav-link">API Integration</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" @click="addNew();" :class="{ 'nav-link top-link' : true, 'active' : leads_active }" class="nav-link">Leads</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
@@ -277,15 +280,14 @@
                             <b-tabs card>
                                 <b-tab :title="role.display_name" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
                                     <div class="">
-                                        <b-card :title="item.display_name" sub-title="Permisions"  v-for="(item,i) in modules" :key="i" class="col-lg-3">
-                                            <b-form-group>
-                                                <b-form-checkbox-group id="checkbox-group-2" v-model="selected_permissions" name="flavour-2" stacked class="permisions">
-                                                    <b-form-checkbox value="view">View</b-form-checkbox>
-                                                    <b-form-checkbox value="edit">Edit</b-form-checkbox>
-                                                    <b-form-checkbox value="delete">Delete</b-form-checkbox>
-                                                </b-form-checkbox-group>
-                                            </b-form-group>
-                                            {{ selected_permissions }}
+                                        <b-card :title="a_module.display_name" sub-title="Permisions"  v-for="(a_module,i) in modules" :key="i" class="col-lg-3">
+                                            <div v-for="(permission,k) in permissions" :key="k">
+                                                <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id">
+                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">View</b-form-checkbox>
+                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Edit</b-form-checkbox>
+                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Delete</b-form-checkbox>
+                                                </b-form-group>
+                                            </div>
                                         </b-card>
                                     </div>
                                 </b-tab>
@@ -320,6 +322,7 @@
             this.current_user = JSON.parse(this.logged_user);
             this.getRoles();
             this.getModules();
+            this.getPermissions();
 
             var vm = this;
 
@@ -360,7 +363,6 @@
                 roles: null,
                 modules: null,
                 permissions:[],
-                selected_permissions: [],
 				user: {
                     leads: [],
                     clients: [],
@@ -371,6 +373,7 @@
                 leads_active: false,
                 contacts_active: false,
                 add_new_section_active: false,
+                api_inte_active: false,
                 show_page_loader: false,
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
@@ -416,6 +419,19 @@
                     
                     if(response.data.success == true){
                         vm.modules = response.data.modules;
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },	
+            getPermissions(){
+                var vm = this;
+                var endpoint = '/roles/get-permissions';
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.permissions = response.data.permissions;
                     }else{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }

@@ -27,5 +27,10 @@ class ModuleTableSeeder extends Seeder
             'tag' => 'users',
             'display_name' => 'Users'
         ]);
+
+        Module::create([
+            'tag' => 'api_integration',
+            'display_name' => 'API Integration'
+        ]);
     }
 }

@@ -293,7 +293,7 @@ table.listing tr  th{
 
 
                 <p class="card-text-small" style="text-align:left">
-                      All
+                    All
                 </p>
 
                 <p class="card-text">
@@ -307,9 +307,8 @@ table.listing tr  th{
             <div class="card call-backs">
               <div class="card-body">
 
-
                 <p class="card-text-small" style="text-align:left">
-                      Admin
+                    Admin
                 </p>
 
                 <p class="card-text">
@@ -324,7 +323,7 @@ table.listing tr  th{
               <div class="card-body">
 
                 <p class="card-text-small" style="text-align:left">
-                      Account Managers
+                    Account Managers
                 </p>
 
                 <p class="card-text">

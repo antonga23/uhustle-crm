@@ -76129,6 +76129,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -76147,6 +76149,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.current_user = JSON.parse(this.logged_user);
     this.getRoles();
     this.getModules();
+    this.getPermissions();
     var vm = this;
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
@@ -76182,12 +76185,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       roles: null,
       modules: null,
-      permissions: [],
-      selected_permissions: []
+      permissions: []
     }, _defineProperty(_ref, "user", {
       leads: [],
       clients: []
-    }), _defineProperty(_ref, "current_user", {}), _defineProperty(_ref, "add_user", false), _defineProperty(_ref, "user_roles_active", true), _defineProperty(_ref, "leads_active", false), _defineProperty(_ref, "contacts_active", false), _defineProperty(_ref, "add_new_section_active", false), _defineProperty(_ref, "show_page_loader", false), _defineProperty(_ref, "avatarUrl", '/images/avatars/'), _defineProperty(_ref, "noImageUrl", '/images/icons/user_icon@4x.png'), _defineProperty(_ref, "bulk_actions", ""), _defineProperty(_ref, "Toast", null), _ref;
+    }), _defineProperty(_ref, "current_user", {}), _defineProperty(_ref, "add_user", false), _defineProperty(_ref, "user_roles_active", true), _defineProperty(_ref, "leads_active", false), _defineProperty(_ref, "contacts_active", false), _defineProperty(_ref, "add_new_section_active", false), _defineProperty(_ref, "api_inte_active", false), _defineProperty(_ref, "show_page_loader", false), _defineProperty(_ref, "avatarUrl", '/images/avatars/'), _defineProperty(_ref, "noImageUrl", '/images/icons/user_icon@4x.png'), _defineProperty(_ref, "bulk_actions", ""), _defineProperty(_ref, "Toast", null), _ref;
   },
   methods: {
     secondsToMinues: function secondsToMinues(time) {
@@ -76222,6 +76224,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
           vm.modules = response.data.modules;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
+    getPermissions: function getPermissions() {
+      var vm = this;
+      var endpoint = '/roles/get-permissions';
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.permissions = response.data.permissions;
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
@@ -77837,7 +77850,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
-//
 //
 //
 //
@@ -255954,6 +255966,26 @@ var render = function() {
               "a",
               {
                 staticClass: "nav-link",
+                class: {
+                  "nav-link top-link": true,
+                  active: _vm.api_inte_active
+                },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.addNew()
+                  }
+                }
+              },
+              [_vm._v("API Integration")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
                 class: { "nav-link top-link": true, active: _vm.leads_active },
                 attrs: { href: "#" },
                 on: {
@@ -256046,77 +256078,123 @@ var render = function() {
                                   _c(
                                     "div",
                                     {},
-                                    _vm._l(_vm.modules, function(item, i) {
+                                    _vm._l(_vm.modules, function(a_module, i) {
                                       return _c(
                                         "b-card",
                                         {
                                           key: i,
                                           staticClass: "col-lg-3",
                                           attrs: {
-                                            title: item.display_name,
+                                            title: a_module.display_name,
                                             "sub-title": "Permisions"
                                           }
                                         },
-                                        [
-                                          _c(
-                                            "b-form-group",
+                                        _vm._l(_vm.permissions, function(
+                                          permission,
+                                          k
+                                        ) {
+                                          return _c(
+                                            "div",
+                                            { key: k },
                                             [
-                                              _c(
-                                                "b-form-checkbox-group",
-                                                {
-                                                  staticClass: "permisions",
-                                                  attrs: {
-                                                    id: "checkbox-group-2",
-                                                    name: "flavour-2",
-                                                    stacked: ""
-                                                  },
-                                                  model: {
-                                                    value:
-                                                      _vm.selected_permissions,
-                                                    callback: function($$v) {
-                                                      _vm.selected_permissions = $$v
-                                                    },
-                                                    expression:
-                                                      "selected_permissions"
-                                                  }
-                                                },
-                                                [
-                                                  _c(
-                                                    "b-form-checkbox",
+                                              permission.module_id ==
+                                                a_module.id &&
+                                              role.id == permission.role_id
+                                                ? _c(
+                                                    "b-form-group",
                                                     {
-                                                      attrs: { value: "view" }
+                                                      staticClass: "permisions"
                                                     },
-                                                    [_vm._v("View")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "b-form-checkbox",
-                                                    {
-                                                      attrs: { value: "edit" }
-                                                    },
-                                                    [_vm._v("Edit")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "b-form-checkbox",
-                                                    {
-                                                      attrs: { value: "delete" }
-                                                    },
-                                                    [_vm._v("Delete")]
+                                                    [
+                                                      _c(
+                                                        "b-form-checkbox",
+                                                        {
+                                                          attrs: {
+                                                            value: "1",
+                                                            "unchecked-value":
+                                                              "0"
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              permission.read,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                permission,
+                                                                "read",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "permission.read"
+                                                          }
+                                                        },
+                                                        [_vm._v("View")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "b-form-checkbox",
+                                                        {
+                                                          attrs: {
+                                                            value: "1",
+                                                            "unchecked-value":
+                                                              "0"
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              permission.write,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                permission,
+                                                                "write",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "permission.write"
+                                                          }
+                                                        },
+                                                        [_vm._v("Edit")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "b-form-checkbox",
+                                                        {
+                                                          attrs: {
+                                                            value: "1",
+                                                            "unchecked-value":
+                                                              "0"
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              permission.delete,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                permission,
+                                                                "delete",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "permission.delete"
+                                                          }
+                                                        },
+                                                        [_vm._v("Delete")]
+                                                      )
+                                                    ],
+                                                    1
                                                   )
-                                                ],
-                                                1
-                                              )
+                                                : _vm._e()
                                             ],
                                             1
-                                          ),
-                                          _vm._v(
-                                            "\n                                            " +
-                                              _vm._s(_vm.selected_permissions) +
-                                              "\n                                        "
                                           )
-                                        ],
-                                        1
+                                        }),
+                                        0
                                       )
                                     }),
                                     1
@@ -257936,7 +258014,7 @@ var render = function() {
                     staticClass: "card-text-small",
                     staticStyle: { "text-align": "left" }
                   },
-                  [_vm._v("\n                  All\n            ")]
+                  [_vm._v("\n                All\n            ")]
                 ),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -257970,7 +258048,7 @@ var render = function() {
                     staticClass: "card-text-small",
                     staticStyle: { "text-align": "left" }
                   },
-                  [_vm._v("\n                  Admin\n            ")]
+                  [_vm._v("\n                Admin\n            ")]
                 ),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -258004,7 +258082,7 @@ var render = function() {
                     staticClass: "card-text-small",
                     staticStyle: { "text-align": "left" }
                   },
-                  [_vm._v("\n                  Account Managers\n            ")]
+                  [_vm._v("\n                Account Managers\n            ")]
                 ),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
