@@ -24,7 +24,7 @@
                         <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
                             {{ getDaysRemaining(row.lead) }}
                         </span>
-                        <span v-else-if="column.field == 'actions'" class="actions">
+                        <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 90px;">
                             <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
                             <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
                             <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
@@ -747,8 +747,8 @@ table thead tr:first-child {
 }
 
 table th {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 10;
+    font-weight: 900;
     color: #003449;
     cursor: pointer;
     white-space: nowrap;
