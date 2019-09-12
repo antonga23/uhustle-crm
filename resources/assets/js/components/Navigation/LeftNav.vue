@@ -274,13 +274,13 @@
             <li class="nav-item">
               <a href="/leads" title="Leads" :class="{ 'nav-link leads' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="current_user.role_id == 1">
               <a href="/transactions" title="Transactions" :class="{ 'nav-link leads' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/social-board" title="Social Board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>
             </li>
-            <li class="nav-item"  v-if="current_user.role_id == 1">
+            <li class="nav-item" v-if="current_user.role_id == 1">
               <a href="/users" title="Users" :class="{ 'nav-link users' : true, 'active' : (active == 'users')? true : false }"> </a>
             </li>
             <li class="nav-item"  v-if="current_user.role_id == 1">

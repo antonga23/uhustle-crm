@@ -656,6 +656,7 @@ table.listing tr  th{
                                         assigned: [],
                                     };
                                     vm.getUsers();
+                                    vm.show_page_loader = false;
                                     Fire.$emit('DoneAddingUser');
                                 }else {
                                     vm.$Progress.fail();

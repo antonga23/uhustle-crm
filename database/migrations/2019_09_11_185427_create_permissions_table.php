@@ -20,6 +20,7 @@ class CreatePermissionsTable extends Migration
             $table->tinyInteger('read')->nullable()->default(0);
             $table->tinyInteger('write')->nullable()->default(0);
             $table->tinyInteger('delete')->nullable()->default(0);
+            $table->tinyInteger('status')->nullable()->default(0);
             $table->timestamps();
         });
     }

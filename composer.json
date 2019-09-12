@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "owen-it/laravel-auditing": "^9.3",
         "stripe/stripe-php": "^7.0",
         "twilio/sdk": "^5.33"
     },

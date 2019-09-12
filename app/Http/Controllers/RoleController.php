@@ -99,7 +99,6 @@ class RoleController extends Controller
         $description = $data['description'];
         $status = $data['status'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         try{
             DB::beginTransaction();
 
@@ -123,4 +122,38 @@ class RoleController extends Controller
         $permissions = Permissions::get();
         return array('success' => true, 'permissions' => $permissions);
     }
+
+    public function applyPermissions(Request $request){
+        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+
+        $data = $request->all();
+
+        $permissions = $data['permissions'];
+            
+        try{
+            DB::beginTransaction();
+
+            foreach($permissions as $key => $permission){
+                Permissions::find($permission['id'])->update([
+                    "module_id" => $permission['module_id'],
+                    "role_id" => $permission['role_id'],
+                    "read" => $permission['read'],
+                    "write" => $permission['write'],
+                    "delete" => $permission['delete'],
+                    "status" => $permission['status'],
+                ]);
+            }
+
+            DB::commit();
+
+            $permissions = Permissions::get();
+
+            return array('success' => true, 'permissions' => $permissions);
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
+
 }

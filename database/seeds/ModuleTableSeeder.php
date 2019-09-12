@@ -14,6 +14,16 @@ class ModuleTableSeeder extends Seeder
     public function run()
     {
         Module::create([
+            'tag' => 'auto_dialer',
+            'display_name' => 'Dialer'
+        ]);
+
+        Module::create([
+            'tag' => 'api_integration',
+            'display_name' => 'API Integration'
+        ]);
+        
+        Module::create([
             'tag' => 'leads',
             'display_name' => 'Leads',
         ]);
@@ -28,9 +38,5 @@ class ModuleTableSeeder extends Seeder
             'display_name' => 'Users'
         ]);
 
-        Module::create([
-            'tag' => 'api_integration',
-            'display_name' => 'API Integration'
-        ]);
     }
 }

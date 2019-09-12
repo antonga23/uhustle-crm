@@ -96,15 +96,6 @@
 	.modal-content{
 		background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
 	}
-	select{
-	    border-radius: 26px;
-	    margin: 5px 8px 8px 55px !important;
-	    height: 29px !important;
-	    background: #F98B39 !important;
-	    border-color: #F98B39 !important;
-	    color: #fff !important;
-        padding: 2px 17px 6px !important;
-	}
 	.error{
 		color:#F98B39;
 	}
@@ -240,6 +231,17 @@
     }
     .user-roles .tab-pane .col-lg-3{
         float: left;
+        flex: 0 0 24%;
+        max-width: 24%;
+        margin-right: 1%;
+        min-height: 187px;
+    }
+    .user-roles .tab-pane .row{
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .user-roles .tab-pane .row .col-lg-2 button{
+       width: 100%;
     }
     .user-roles .tab-pane .col-lg-3 .card-body .permisions{
         padding-left: 30px;
@@ -279,10 +281,13 @@
                         <b-card no-body>
                             <b-tabs card>
                                 <b-tab :title="role.display_name" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
-                                    <div class="">
+                                    <div class="row" >
                                         <b-card :title="a_module.display_name" sub-title="Permisions"  v-for="(a_module,i) in modules" :key="i" class="col-lg-3">
                                             <div v-for="(permission,k) in permissions" :key="k">
-                                                <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id">
+                                                <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id && a_module.id == 1">
+                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.status">{{ (permission.status == 1)? 'On' : 'Off' }}</b-form-checkbox>
+                                                </b-form-group>
+                                                <b-form-group  class="permisions" v-else-if="permission.module_id == a_module.id && role.id == permission.role_id">
                                                     <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">View</b-form-checkbox>
                                                     <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Edit</b-form-checkbox>
                                                     <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Delete</b-form-checkbox>
@@ -290,9 +295,20 @@
                                             </div>
                                         </b-card>
                                     </div>
-                                </b-tab>
-                                <b-tab title="Add New">
-                                    <b-card-text>Add new Role</b-card-text>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <b-button variant="success" @click="applyPermissions">Apply Permissions</b-button>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <b-button variant="success" @click="editRole(role)">Edit Role</b-button>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <b-button variant="success" @click="addRole">Add New Role</b-button>
+                                        </div>
+                                    </div>
+                                    <div class="row" v-if="role_edit">
+                                        <edit-role :role="edit_role" />
+                                    </div>
                                 </b-tab>
                             </b-tabs>
                         </b-card>
@@ -307,6 +323,7 @@
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
     import DataTable from '../DataTables/UsersDataTable';
+    import EditRole from './EditRole';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -315,6 +332,7 @@
             VclFacebook,
             VclInstagram,
             VclTable,
+            EditRole,
             'datatable' : DataTable
         },
         mounted() {
@@ -360,6 +378,11 @@
                     roles: '',
                     current_user: '',
                 },
+                edit_role: {
+                    display_name : '',
+                    description : '',
+                    status : '',
+                },
                 roles: null,
                 modules: null,
                 permissions:[],
@@ -375,6 +398,7 @@
                 add_new_section_active: false,
                 api_inte_active: false,
                 show_page_loader: false,
+                role_edit: false,
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 bulk_actions: "",
@@ -436,7 +460,37 @@
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });
-            },	
+            },
+            applyPermissions(){
+                var vm = this;
+                var endpoint = '/roles/apply-permissions';
+
+                vm.$Progress.start();
+
+                axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
+                    if(response.data.success == true){
+                        vm.permissions = response.data.permissions;
+                        vm.$Progress.finish();
+                        vm.Toast.fire({ type: 'success', title: 'Permissions have been applied' });
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            editRole(edit_role = null){
+                var vm = this;
+                vm.edit_role = edit_role;
+                vm.role_edit = true;
+            },
+            addRole(){
+                var vm = this;
+                vm.role_add_edit = true;
+                vm.role_submit_label = 'Add Role';
+                vm.role.display_name = '';
+                vm.role.description = '';
+                vm.role.status = '';
+            }
         }
     }
 </script>

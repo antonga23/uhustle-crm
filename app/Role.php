@@ -3,14 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Role extends Model
+class Role extends Model implements Auditable
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use \OwenIt\Auditing\Auditable;
+
+    protected $auditInclude = [
+        // Audit all
+    ];
+
+    public function generateTags(): array
+    {
+        return [
+            'roles',
+        ];
+    }
+
     protected $fillable = [
         'name', 'display_name', 'description', 'status'
     ];

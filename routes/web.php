@@ -140,6 +140,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
+	Route::put('/apply-permissions', 'RoleController@applyPermissions');
 });
 
 // Products Routes
