@@ -309,6 +309,9 @@
                                     <div class="row" v-if="role_edit">
                                         <edit-role :role="edit_role" />
                                     </div>
+                                    <div class="row" v-if="role_add">
+                                        <add-role/>
+                                    </div>
                                 </b-tab>
                             </b-tabs>
                         </b-card>
@@ -324,6 +327,7 @@
     import { BarChart } from 'vue-morris';
     import DataTable from '../DataTables/UsersDataTable';
     import EditRole from './EditRole';
+    import AddRole from './AddRole';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -333,6 +337,7 @@
             VclInstagram,
             VclTable,
             EditRole,
+            AddRole,
             'datatable' : DataTable
         },
         mounted() {
@@ -343,18 +348,6 @@
             this.getPermissions();
 
             var vm = this;
-
-			Fire.$on('AddingUser', function(data){
-				vm.add_user = !vm.add_user;
-            });
-            
-			Fire.$on('ReloadUsers', function(data){
-				vm.getRoles();
-            });
-
-			Fire.$on('FilterData', function(data){
-				vm.applyFilter(data);
-            });
 
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -399,6 +392,7 @@
                 api_inte_active: false,
                 show_page_loader: false,
                 role_edit: false,
+                role_add: false,
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 bulk_actions: "",
@@ -482,14 +476,12 @@
                 var vm = this;
                 vm.edit_role = edit_role;
                 vm.role_edit = true;
+                vm.role_add = false;
             },
             addRole(){
                 var vm = this;
-                vm.role_add_edit = true;
-                vm.role_submit_label = 'Add Role';
-                vm.role.display_name = '';
-                vm.role.description = '';
-                vm.role.status = '';
+                vm.role_add = true;
+                vm.role_edit = false;
             }
         }
     }
