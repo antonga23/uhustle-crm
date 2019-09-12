@@ -1,5 +1,5 @@
 <template>
-    <div class="card material-table">
+    <div class="card material-table" style="width: fit-content;">
         <table ref="table">
             <thead>
                 <tr>
@@ -24,7 +24,7 @@
                         <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
                             {{ getDaysRemaining(row.lead) }}
                         </span>
-                        <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 90px;">
+                        <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
                             <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
                             <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
                             <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
