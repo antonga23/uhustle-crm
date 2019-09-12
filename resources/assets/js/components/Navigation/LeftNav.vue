@@ -275,7 +275,7 @@
               <a href="/leads" title="Leads" :class="{ 'nav-link leads' : true, 'active' : (active == 'leads')? true : false }"> </a>
             </li>
             <li class="nav-item" v-if="current_user.role_id == 1">
-              <a href="/transactions" title="Transactions" :class="{ 'nav-link leads' : true, 'active' : (active == 'leads')? true : false }"> </a>
+              <a href="/transactions" title="Transactions" :class="{ 'nav-link leads' : true, 'active' : (active == 'transactions')? true : false }"> </a>
             </li>
             <li class="nav-item">
               <a href="/social-board" title="Social Board" :class="{ 'nav-link social-board' : true, 'active' : (active == 'social-board')? true : false }"> </a>

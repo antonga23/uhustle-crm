@@ -73468,7 +73468,7 @@ __webpack_require__.r(__webpack_exports__);
                 comments: [],
                 assigned: []
               };
-              vm.getUsers();
+              vm.getUsers(-1);
               vm.show_page_loader = false;
               Fire.$emit('DoneAddingUser');
             } else {
@@ -251935,7 +251935,7 @@ var render = function() {
                       _c("a", {
                         class: {
                           "nav-link leads": true,
-                          active: _vm.active == "leads" ? true : false
+                          active: _vm.active == "transactions" ? true : false
                         },
                         attrs: { href: "/transactions", title: "Transactions" }
                       })

@@ -655,7 +655,7 @@ table.listing tr  th{
                                         comments: [],
                                         assigned: [],
                                     };
-                                    vm.getUsers();
+                                    vm.getUsers(-1);
                                     vm.show_page_loader = false;
                                     Fire.$emit('DoneAddingUser');
                                 }else {
