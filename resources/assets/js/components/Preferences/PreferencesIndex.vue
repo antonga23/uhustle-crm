@@ -69,6 +69,30 @@
     .user-roles .tab-pane .col-lg-3 .card-body .permisions{
         padding-left: 30px;
     }
+
+    .btn-default{
+        padding: 6px 12px 6px 10px;
+        font-size: 9px;
+        border: transparent !important;
+        border-radius: 5px !important;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    .btn-default:hover{
+        background: #00344a;
+        color: #ffffff;    
+        border: transparent !important;
+        padding: 6px 12px 6px 10px;
+        font-size: 9px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    .btn-block {
+        display: block;
+        width: 98%;
+    }
 </style>
 <template>
     <div class="">
@@ -102,41 +126,15 @@
                         <b-card no-body>
                             <b-tabs card>
                                 <b-tab :title="role.display_name" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
-                                    <div class="row" >
-                                        <b-card :title="a_module.display_name" sub-title="Permisions"  v-for="(a_module,i) in modules" :key="i" class="col-lg-3">
-                                            <div v-for="(permission,k) in permissions" :key="k" v-if="a_module.id !== 1">
-                                                <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id && a_module.id == 1">
-                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.status">{{ (permission.status == 1)? 'On' : 'Off' }}</b-form-checkbox>
-                                                </b-form-group>
-                                                <b-form-group  class="permisions" v-else-if="permission.module_id == a_module.id && role.id == permission.role_id">
-                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">View</b-form-checkbox>
-
-                                                        <b-form-group  class="permisions">
-                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">Name</b-form-checkbox>
-                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Surname</b-form-checkbox>
-                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Phone number</b-form-checkbox>
-                                                        </b-form-group>
-
-                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Edit</b-form-checkbox>
-
-                                        
-                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Delete</b-form-checkbox>
-
-                                
-
-                                                </b-form-group>
-                                            </div>
-                                        </b-card>
-                                    </div>
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <b-button variant="success" @click="applyPermissions">Apply Permissions</b-button>
+                                            <b-button class="btn btn-default" @click="applyPermissions">Apply Permissions</b-button>
                                         </div>
                                         <div class="col-lg-3">
-                                            <b-button variant="success" @click="editRole(role)">Edit Role</b-button>
+                                            <b-button class="btn btn-default" @click="editRole(role)">Edit Role</b-button>
                                         </div>
                                         <div class="col-lg-3">
-                                            <b-button variant="success" @click="addRole">Add New Role</b-button>
+                                            <b-button class="btn btn-default" @click="addRole">Add New Role</b-button>
                                         </div>
                                     </div>
                                     <div class="row" v-if="role_edit">
@@ -144,6 +142,46 @@
                                     </div>
                                     <div class="row" v-if="role_add">
                                         <add-role/>
+                                    </div>
+                                    <div class="row">
+                                        <div role="tablist" class="col-lg-12">
+                                            <div v-for="(a_module,i) in modules" :key="i">
+                                                <b-card no-body class="mb-1">
+                                                    <b-card-header header-tag="header" class="p-1" role="tab">
+                                                        <b-button block href="#" :aria-controls="'accordion-' + i" variant="info">{{ a_module.display_name }}</b-button>
+                                                    </b-card-header>
+                                                    <b-collapse :id="'accordion-' + i" :visible="(a_module.id == 1)? true : false" accordion="my-accordion" role="tabpanel">
+                                                        <b-card-body>
+                                                            <b-card-text>Permissions</b-card-text>
+
+                                                            <div v-for="(permission,k) in permissions" :key="k">
+                                                                <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id">
+                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">View</b-form-checkbox>
+
+                                                                        <b-form-group  class="permisions">
+                                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.read">Name</b-form-checkbox>
+                                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Surname</b-form-checkbox>
+                                                                            <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Phone number</b-form-checkbox>
+                                                                        </b-form-group>
+
+                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.write">Edit</b-form-checkbox>
+
+                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.delete">Delete</b-form-checkbox>
+
+                                                                </b-form-group>
+                                                            </div>
+
+                                                        </b-card-body>
+                                                    </b-collapse>
+                                                </b-card>
+                                            </div>
+                                        </div>
+
+
+
+                                        <b-card :title="a_module.display_name" :sub-title="'Permisions' + a_module.id"  v-for="(a_module,i) in modules" :key="i" class="col-lg-3">
+                                            
+                                        </b-card>
                                     </div>
                                 </b-tab>
                             </b-tabs>
@@ -294,7 +332,11 @@
                 var vm = this;
                 vm.role_add = true;
                 vm.role_edit = false;
+            },
+            showModulePreferences(type){
+                this.active_module = type;
             }
+            
         }
     }
 </script>

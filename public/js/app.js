@@ -76160,6 +76160,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -76292,6 +76330,9 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       vm.role_add = true;
       vm.role_edit = false;
+    },
+    showModulePreferences: function showModulePreferences(type) {
+      this.active_module = type;
     }
   }
 });
@@ -130801,7 +130842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n", ""]);
+exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        border: transparent !important;\n        border-radius: 5px !important;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-d4042370]:hover{\n        background: #00344a;\n        color: #ffffff;    \n        border: transparent !important;\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-block[data-v-d4042370] {\n        display: block;\n        width: 98%;\n}\n", ""]);
 
 // exports
 
@@ -256555,283 +256596,6 @@ var render = function() {
                                 }
                               },
                               [
-                                _c(
-                                  "div",
-                                  { staticClass: "row" },
-                                  _vm._l(_vm.modules, function(a_module, i) {
-                                    return _c(
-                                      "b-card",
-                                      {
-                                        key: i,
-                                        staticClass: "col-lg-3",
-                                        attrs: {
-                                          title: a_module.display_name,
-                                          "sub-title": "Permisions"
-                                        }
-                                      },
-                                      _vm._l(_vm.permissions, function(
-                                        permission,
-                                        k
-                                      ) {
-                                        return a_module.id !== 1
-                                          ? _c(
-                                              "div",
-                                              { key: k },
-                                              [
-                                                permission.module_id ==
-                                                  a_module.id &&
-                                                role.id == permission.role_id &&
-                                                a_module.id == 1
-                                                  ? _c(
-                                                      "b-form-group",
-                                                      {
-                                                        staticClass:
-                                                          "permisions"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "b-form-checkbox",
-                                                          {
-                                                            attrs: {
-                                                              value: "1",
-                                                              "unchecked-value":
-                                                                "0"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                permission.status,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  permission,
-                                                                  "status",
-                                                                  $$v
-                                                                )
-                                                              },
-                                                              expression:
-                                                                "permission.status"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                permission.status ==
-                                                                  1
-                                                                  ? "On"
-                                                                  : "Off"
-                                                              )
-                                                            )
-                                                          ]
-                                                        )
-                                                      ],
-                                                      1
-                                                    )
-                                                  : permission.module_id ==
-                                                      a_module.id &&
-                                                    role.id ==
-                                                      permission.role_id
-                                                  ? _c(
-                                                      "b-form-group",
-                                                      {
-                                                        staticClass:
-                                                          "permisions"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "b-form-checkbox",
-                                                          {
-                                                            attrs: {
-                                                              value: "1",
-                                                              "unchecked-value":
-                                                                "0"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                permission.read,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  permission,
-                                                                  "read",
-                                                                  $$v
-                                                                )
-                                                              },
-                                                              expression:
-                                                                "permission.read"
-                                                            }
-                                                          },
-                                                          [_vm._v("View")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "b-form-group",
-                                                          {
-                                                            staticClass:
-                                                              "permisions"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "b-form-checkbox",
-                                                              {
-                                                                attrs: {
-                                                                  value: "1",
-                                                                  "unchecked-value":
-                                                                    "0"
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    permission.read,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      permission,
-                                                                      "read",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "permission.read"
-                                                                }
-                                                              },
-                                                              [_vm._v("Name")]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "b-form-checkbox",
-                                                              {
-                                                                attrs: {
-                                                                  value: "1",
-                                                                  "unchecked-value":
-                                                                    "0"
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    permission.write,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      permission,
-                                                                      "write",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "permission.write"
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "Surname"
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "b-form-checkbox",
-                                                              {
-                                                                attrs: {
-                                                                  value: "1",
-                                                                  "unchecked-value":
-                                                                    "0"
-                                                                },
-                                                                model: {
-                                                                  value:
-                                                                    permission.delete,
-                                                                  callback: function(
-                                                                    $$v
-                                                                  ) {
-                                                                    _vm.$set(
-                                                                      permission,
-                                                                      "delete",
-                                                                      $$v
-                                                                    )
-                                                                  },
-                                                                  expression:
-                                                                    "permission.delete"
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "Phone number"
-                                                                )
-                                                              ]
-                                                            )
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "b-form-checkbox",
-                                                          {
-                                                            attrs: {
-                                                              value: "1",
-                                                              "unchecked-value":
-                                                                "0"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                permission.write,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  permission,
-                                                                  "write",
-                                                                  $$v
-                                                                )
-                                                              },
-                                                              expression:
-                                                                "permission.write"
-                                                            }
-                                                          },
-                                                          [_vm._v("Edit")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "b-form-checkbox",
-                                                          {
-                                                            attrs: {
-                                                              value: "1",
-                                                              "unchecked-value":
-                                                                "0"
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                permission.delete,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  permission,
-                                                                  "delete",
-                                                                  $$v
-                                                                )
-                                                              },
-                                                              expression:
-                                                                "permission.delete"
-                                                            }
-                                                          },
-                                                          [_vm._v("Delete")]
-                                                        )
-                                                      ],
-                                                      1
-                                                    )
-                                                  : _vm._e()
-                                              ],
-                                              1
-                                            )
-                                          : _vm._e()
-                                      }),
-                                      0
-                                    )
-                                  }),
-                                  1
-                                ),
-                                _vm._v(" "),
                                 _c("div", { staticClass: "row" }, [
                                   _c(
                                     "div",
@@ -256840,7 +256604,7 @@ var render = function() {
                                       _c(
                                         "b-button",
                                         {
-                                          attrs: { variant: "success" },
+                                          staticClass: "btn btn-default",
                                           on: { click: _vm.applyPermissions }
                                         },
                                         [_vm._v("Apply Permissions")]
@@ -256856,7 +256620,7 @@ var render = function() {
                                       _c(
                                         "b-button",
                                         {
-                                          attrs: { variant: "success" },
+                                          staticClass: "btn btn-default",
                                           on: {
                                             click: function($event) {
                                               return _vm.editRole(role)
@@ -256876,7 +256640,7 @@ var render = function() {
                                       _c(
                                         "b-button",
                                         {
-                                          attrs: { variant: "success" },
+                                          staticClass: "btn btn-default",
                                           on: { click: _vm.addRole }
                                         },
                                         [_vm._v("Add New Role")]
@@ -256906,7 +256670,358 @@ var render = function() {
                                       [_c("add-role")],
                                       1
                                     )
-                                  : _vm._e()
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "row" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "col-lg-12",
+                                        attrs: { role: "tablist" }
+                                      },
+                                      _vm._l(_vm.modules, function(
+                                        a_module,
+                                        i
+                                      ) {
+                                        return _c(
+                                          "div",
+                                          { key: i },
+                                          [
+                                            _c(
+                                              "b-card",
+                                              {
+                                                staticClass: "mb-1",
+                                                attrs: { "no-body": "" }
+                                              },
+                                              [
+                                                _c(
+                                                  "b-card-header",
+                                                  {
+                                                    staticClass: "p-1",
+                                                    attrs: {
+                                                      "header-tag": "header",
+                                                      role: "tab"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "b-button",
+                                                      {
+                                                        attrs: {
+                                                          block: "",
+                                                          href: "#",
+                                                          "aria-controls":
+                                                            "accordion-" + i,
+                                                          variant: "info"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            a_module.display_name
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "b-collapse",
+                                                  {
+                                                    attrs: {
+                                                      id: "accordion-" + i,
+                                                      visible:
+                                                        a_module.id == 1
+                                                          ? true
+                                                          : false,
+                                                      accordion: "my-accordion",
+                                                      role: "tabpanel"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "b-card-body",
+                                                      [
+                                                        _c("b-card-text", [
+                                                          _vm._v("Permissions")
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _vm._l(
+                                                          _vm.permissions,
+                                                          function(
+                                                            permission,
+                                                            k
+                                                          ) {
+                                                            return _c(
+                                                              "div",
+                                                              { key: k },
+                                                              [
+                                                                permission.module_id ==
+                                                                  a_module.id &&
+                                                                role.id ==
+                                                                  permission.role_id
+                                                                  ? _c(
+                                                                      "b-form-group",
+                                                                      {
+                                                                        staticClass:
+                                                                          "permisions"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "b-form-checkbox",
+                                                                          {
+                                                                            attrs: {
+                                                                              value:
+                                                                                "1",
+                                                                              "unchecked-value":
+                                                                                "0"
+                                                                            },
+                                                                            model: {
+                                                                              value:
+                                                                                permission.read,
+                                                                              callback: function(
+                                                                                $$v
+                                                                              ) {
+                                                                                _vm.$set(
+                                                                                  permission,
+                                                                                  "read",
+                                                                                  $$v
+                                                                                )
+                                                                              },
+                                                                              expression:
+                                                                                "permission.read"
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "View"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "b-form-group",
+                                                                          {
+                                                                            staticClass:
+                                                                              "permisions"
+                                                                          },
+                                                                          [
+                                                                            _c(
+                                                                              "b-form-checkbox",
+                                                                              {
+                                                                                attrs: {
+                                                                                  value:
+                                                                                    "1",
+                                                                                  "unchecked-value":
+                                                                                    "0"
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    permission.read,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      permission,
+                                                                                      "read",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "permission.read"
+                                                                                }
+                                                                              },
+                                                                              [
+                                                                                _vm._v(
+                                                                                  "Name"
+                                                                                )
+                                                                              ]
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "b-form-checkbox",
+                                                                              {
+                                                                                attrs: {
+                                                                                  value:
+                                                                                    "1",
+                                                                                  "unchecked-value":
+                                                                                    "0"
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    permission.write,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      permission,
+                                                                                      "write",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "permission.write"
+                                                                                }
+                                                                              },
+                                                                              [
+                                                                                _vm._v(
+                                                                                  "Surname"
+                                                                                )
+                                                                              ]
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "b-form-checkbox",
+                                                                              {
+                                                                                attrs: {
+                                                                                  value:
+                                                                                    "1",
+                                                                                  "unchecked-value":
+                                                                                    "0"
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    permission.delete,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      permission,
+                                                                                      "delete",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "permission.delete"
+                                                                                }
+                                                                              },
+                                                                              [
+                                                                                _vm._v(
+                                                                                  "Phone number"
+                                                                                )
+                                                                              ]
+                                                                            )
+                                                                          ],
+                                                                          1
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "b-form-checkbox",
+                                                                          {
+                                                                            attrs: {
+                                                                              value:
+                                                                                "1",
+                                                                              "unchecked-value":
+                                                                                "0"
+                                                                            },
+                                                                            model: {
+                                                                              value:
+                                                                                permission.write,
+                                                                              callback: function(
+                                                                                $$v
+                                                                              ) {
+                                                                                _vm.$set(
+                                                                                  permission,
+                                                                                  "write",
+                                                                                  $$v
+                                                                                )
+                                                                              },
+                                                                              expression:
+                                                                                "permission.write"
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "Edit"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "b-form-checkbox",
+                                                                          {
+                                                                            attrs: {
+                                                                              value:
+                                                                                "1",
+                                                                              "unchecked-value":
+                                                                                "0"
+                                                                            },
+                                                                            model: {
+                                                                              value:
+                                                                                permission.delete,
+                                                                              callback: function(
+                                                                                $$v
+                                                                              ) {
+                                                                                _vm.$set(
+                                                                                  permission,
+                                                                                  "delete",
+                                                                                  $$v
+                                                                                )
+                                                                              },
+                                                                              expression:
+                                                                                "permission.delete"
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "Delete"
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  : _vm._e()
+                                                              ],
+                                                              1
+                                                            )
+                                                          }
+                                                        )
+                                                      ],
+                                                      2
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      }),
+                                      0
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.modules, function(a_module, i) {
+                                      return _c("b-card", {
+                                        key: i,
+                                        staticClass: "col-lg-3",
+                                        attrs: {
+                                          title: a_module.display_name,
+                                          "sub-title":
+                                            "Permisions" + a_module.id
+                                        }
+                                      })
+                                    })
+                                  ],
+                                  2
+                                )
                               ]
                             )
                           }),
