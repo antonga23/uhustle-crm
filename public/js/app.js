@@ -76003,175 +76003,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddRole__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddRole */ "./resources/assets/js/components/Preferences/AddRole.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -76363,19 +76194,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {},
   props: ['logged_user'],
   data: function data() {
-    var _ref;
-
-    return _ref = {
-      user: {
-        all_users: [],
-        count_all: '',
-        manager: '',
-        account_manager: '',
-        team_leader: '',
-        agent: '',
-        roles: '',
-        current_user: ''
-      },
+    return {
       edit_role: {
         display_name: '',
         description: '',
@@ -76383,11 +76202,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       roles: null,
       modules: null,
-      permissions: []
-    }, _defineProperty(_ref, "user", {
-      leads: [],
-      clients: []
-    }), _defineProperty(_ref, "current_user", {}), _defineProperty(_ref, "add_user", false), _defineProperty(_ref, "user_roles_active", true), _defineProperty(_ref, "leads_active", false), _defineProperty(_ref, "contacts_active", false), _defineProperty(_ref, "add_new_section_active", false), _defineProperty(_ref, "api_inte_active", false), _defineProperty(_ref, "show_page_loader", false), _defineProperty(_ref, "role_edit", false), _defineProperty(_ref, "role_add", false), _defineProperty(_ref, "avatarUrl", '/images/avatars/'), _defineProperty(_ref, "noImageUrl", '/images/icons/user_icon@4x.png'), _defineProperty(_ref, "bulk_actions", ""), _defineProperty(_ref, "Toast", null), _ref;
+      permissions: [],
+      current_user: {},
+      add_user: false,
+      active_module: 'roles',
+      show_page_loader: false,
+      role_edit: false,
+      role_add: false,
+      Toast: null
+    };
   },
   methods: {
     secondsToMinues: function secondsToMinues(time) {
@@ -130978,7 +130801,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\n.navbar-nav li.title[data-v-d4042370]{\n\t\tline-height: 20px;\n}\n.pull-right[data-v-d4042370]{\n\t\tfloat: right;\n}\n.pull-right li[data-v-d4042370]{\n    \tfloat: left !important;\n\t    width: 43px;\n        margin-left: 15px !important;\n}\n.pull-right li a[data-v-d4042370]{\n\t    background-size: 100%;\n\t    background-repeat: no-repeat;\n\t    color: black;\n\t    padding: 0 !important;\n\t    background-size: 59px !important;\n\t    background-repeat: no-repeat !important;\n\t    background-position: center center !important;\n}\n.pull-right li a.search[data-v-d4042370]{\n    \tbackground-image: url('/images/icons/Asset 60.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li a.search[data-v-d4042370]:hover{\n    \tbackground-image: url('/images/icons/Asset 61.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.idle .status[data-v-d4042370]{\n    \tbackground-image: url('/images/icons/Asset 55.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.on-call .status[data-v-d4042370]{\n    \tbackground-image: url('/images/icons/Asset 56.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li.offline .status[data-v-d4042370]{\n    \tbackground-image: url('/images/icons/Asset 57.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-d4042370]{\n    \tbackground-image: url('/images/icons/Asset 59.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .call[data-v-d4042370]:hover{\n    \tbackground-image: url('/images/icons/Asset 58.svg') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n}\n.pull-right li .add-call-back-btn[data-v-d4042370]{\n    \tbackground-image: url('/images/workstation/Asset 28@4x.png') !important;\n    \tbackground-size: contain;\n    \tbackground-repeat: no-repeat;\n\t\tbackground-color: transparent;\n\t\tborder: none;\n\t\tpadding: 14px;\n\t\tmargin-top: 5px;\n\t\tmargin-left: 20px;\n}\n.pull-right button[data-v-d4042370]{\n\t    background-color: transparent;border: none;padding: 29px;margin-top: -10px;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.modal-content[data-v-d4042370]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n.error[data-v-d4042370]{\n\t\tcolor:#F98B39;\n}\na.top-link[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    padding: 2px 17px 6px !important;\n\t\tdisplay: block;\n\t\twidth: 84%;\n\t\ttext-align: center;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.final-modal[data-v-d4042370]{\n        padding: 0 0 1rem;\n        border: none\n}\n.final-modal .tab-card[data-v-d4042370]{\n        border: none;\n        box-shadow: none;\n}\n.final-modal .row-a[data-v-d4042370]{\n        width: 100%;\n        border-bottom: 1px solid #e3e3e3;\n        margin-left: 0;\n}\n.final-modal label button img[data-v-d4042370]{\n        width: 20px;\n        margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-d4042370]{\n        font-size: 55px;\n        color: #FF933A;\n}\n.final-modal .card-header-tabs[data-v-d4042370]{\n        border-bottom: none;\n        margin-bottom: 0;\n}\n.final-modal .card-header[data-v-d4042370]{    \n        padding: 0 11px 0;\n        border-bottom: none;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-d4042370]{\n        border-bottom: none;\n        background: #fff;\n        padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-d4042370]{\n        border-bottom: none;\n        background: #fff;\n        padding: 6px 12px;\n        box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n        -webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n        -moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n        border:none;\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-d4042370]{\n        border-bottom: none;\n        background: #fff;\n        padding: 6px 12px;\n        box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        -webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        -moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        border:none;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-d4042370]{\n        border-bottom: none;\n        background: #fff;\n        padding: 6px 12px;\n        box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n        -webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\n        -moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n        border:none;\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-d4042370]{\n        border-bottom: none;\n        background: #fff;\n        padding: 6px 12px;\n        box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        -webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        -moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n        border:none;\n}\n.control-sidebar-dark .nav-tabs[data-v-d4042370] {\n        border-bottom: 0;\n}\n.final-modal .card ul li.left[data-v-d4042370]{\n        width: 50%;\n}\n.final-modal .card ul li.left .nav-link[data-v-d4042370] {\n        padding: 6px 12px;\n        font-size: 16px;\n        color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-d4042370]:hover {\n        border: none;\n        background: #fff;\n        padding: 6px 12px;\n        font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-d4042370]{\n        width: 50%;\n}\n.final-modal .card ul li.right .nav-link[data-v-d4042370] {\n        background: #fff;\n        padding: 6px 12px;\n        font-size: 16px;\n        color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-d4042370]:hover {\n        background: #fff;\n        padding: 6px 12px;\n        font-size: 16px;\n}\n.final-modal input[data-v-d4042370]{\n        font-size: 9px;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-2 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n", ""]);
+exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n", ""]);
 
 // exports
 
@@ -256634,115 +256457,70 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c(
-      "nav",
-      {
-        staticClass:
-          "main-header navbar navbar-expand navbar-white navbar-light border-bottom"
-      },
-      [
-        _c("ul", { staticClass: "navbar-nav left" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "row top-nav" }, [
+      _c(
+        "ul",
+        { staticClass: "top-menu" },
+        [
+          _c("li", { staticClass: "item" }, [
             _c(
               "a",
               {
-                staticClass: "nav-link",
-                class: {
-                  "nav-link top-link": true,
-                  active: _vm.user_roles_active
+                class: { active: _vm.active_module === "roles" ? true : false },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.showModulePreferences("roles")
+                  }
+                }
+              },
+              [_vm._v("Roles")]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.modules, function(module, index) {
+            return _c("li", { key: index, staticClass: "item" }, [
+              _c(
+                "a",
+                {
+                  class: {
+                    active: _vm.active_module === module.tag ? true : false
+                  },
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.showModulePreferences(module.tag)
+                    }
+                  }
                 },
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.addNew()
-                  }
-                }
-              },
-              [_vm._v("User Roles")]
-            )
-          ]),
+                [_vm._v(_vm._s(module.display_name))]
+              )
+            ])
+          }),
           _vm._v(" "),
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
+          _c("li", { staticClass: "item" }, [
             _c(
               "a",
               {
-                staticClass: "nav-link",
                 class: {
-                  "nav-link top-link": true,
-                  active: _vm.api_inte_active
-                },
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.addNew()
-                  }
-                }
-              },
-              [_vm._v("API Integration")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                class: { "nav-link top-link": true, active: _vm.leads_active },
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.addNew()
-                  }
-                }
-              },
-              [_vm._v("Leads")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                class: {
-                  "nav-link top-link": true,
-                  active: _vm.contacts_active
-                },
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.addNew()
-                  }
-                }
-              },
-              [_vm._v("Contacts")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                class: {
-                  "nav-link top-link": true,
-                  active: _vm.add_new_section_active
+                  active: _vm.active_module === "add_new" ? true : false
                 },
                 attrs: { href: "#", title: "Add new section" },
                 on: {
                   click: function($event) {
-                    return _vm.addNew()
+                    return _vm.showModulePreferences("add_new")
                   }
                 }
               },
               [_vm._v("+ Add New")]
             )
           ])
-        ])
-      ]
-    ),
+        ],
+        2
+      )
+    ]),
     _vm._v(" "),
     _c("hr", { staticStyle: { "margin-bottom": "2%" } }),
     _vm._v(" "),
@@ -256757,7 +256535,7 @@ var render = function() {
             !_vm.show_page_loader
               ? _c(
                   "div",
-                  { staticClass: "col-lg-12 final-modal user-roles" },
+                  { staticClass: "col-lg-12  user-roles" },
                   [
                     _c(
                       "b-card",
@@ -256795,146 +256573,258 @@ var render = function() {
                                         permission,
                                         k
                                       ) {
-                                        return _c(
-                                          "div",
-                                          { key: k },
-                                          [
-                                            permission.module_id ==
-                                              a_module.id &&
-                                            role.id == permission.role_id &&
-                                            a_module.id == 1
-                                              ? _c(
-                                                  "b-form-group",
-                                                  { staticClass: "permisions" },
-                                                  [
-                                                    _c(
-                                                      "b-form-checkbox",
+                                        return a_module.id !== 1
+                                          ? _c(
+                                              "div",
+                                              { key: k },
+                                              [
+                                                permission.module_id ==
+                                                  a_module.id &&
+                                                role.id == permission.role_id &&
+                                                a_module.id == 1
+                                                  ? _c(
+                                                      "b-form-group",
                                                       {
-                                                        attrs: {
-                                                          value: "1",
-                                                          "unchecked-value": "0"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            permission.status,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              permission,
-                                                              "status",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "permission.status"
-                                                        }
+                                                        staticClass:
+                                                          "permisions"
                                                       },
                                                       [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            permission.status ==
-                                                              1
-                                                              ? "On"
-                                                              : "Off"
-                                                          )
+                                                        _c(
+                                                          "b-form-checkbox",
+                                                          {
+                                                            attrs: {
+                                                              value: "1",
+                                                              "unchecked-value":
+                                                                "0"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                permission.status,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  permission,
+                                                                  "status",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "permission.status"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                permission.status ==
+                                                                  1
+                                                                  ? "On"
+                                                                  : "Off"
+                                                              )
+                                                            )
+                                                          ]
                                                         )
-                                                      ]
+                                                      ],
+                                                      1
                                                     )
-                                                  ],
-                                                  1
-                                                )
-                                              : permission.module_id ==
-                                                  a_module.id &&
-                                                role.id == permission.role_id
-                                              ? _c(
-                                                  "b-form-group",
-                                                  { staticClass: "permisions" },
-                                                  [
-                                                    _c(
-                                                      "b-form-checkbox",
+                                                  : permission.module_id ==
+                                                      a_module.id &&
+                                                    role.id ==
+                                                      permission.role_id
+                                                  ? _c(
+                                                      "b-form-group",
                                                       {
-                                                        attrs: {
-                                                          value: "1",
-                                                          "unchecked-value": "0"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            permission.read,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              permission,
-                                                              "read",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "permission.read"
-                                                        }
+                                                        staticClass:
+                                                          "permisions"
                                                       },
-                                                      [_vm._v("View")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "b-form-checkbox",
-                                                      {
-                                                        attrs: {
-                                                          value: "1",
-                                                          "unchecked-value": "0"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            permission.write,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              permission,
-                                                              "write",
-                                                              $$v
-                                                            )
+                                                      [
+                                                        _c(
+                                                          "b-form-checkbox",
+                                                          {
+                                                            attrs: {
+                                                              value: "1",
+                                                              "unchecked-value":
+                                                                "0"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                permission.read,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  permission,
+                                                                  "read",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "permission.read"
+                                                            }
                                                           },
-                                                          expression:
-                                                            "permission.write"
-                                                        }
-                                                      },
-                                                      [_vm._v("Edit")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "b-form-checkbox",
-                                                      {
-                                                        attrs: {
-                                                          value: "1",
-                                                          "unchecked-value": "0"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            permission.delete,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              permission,
-                                                              "delete",
-                                                              $$v
-                                                            )
+                                                          [_vm._v("View")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "b-form-group",
+                                                          {
+                                                            staticClass:
+                                                              "permisions"
                                                           },
-                                                          expression:
-                                                            "permission.delete"
-                                                        }
-                                                      },
-                                                      [_vm._v("Delete")]
+                                                          [
+                                                            _c(
+                                                              "b-form-checkbox",
+                                                              {
+                                                                attrs: {
+                                                                  value: "1",
+                                                                  "unchecked-value":
+                                                                    "0"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    permission.read,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      permission,
+                                                                      "read",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "permission.read"
+                                                                }
+                                                              },
+                                                              [_vm._v("Name")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "b-form-checkbox",
+                                                              {
+                                                                attrs: {
+                                                                  value: "1",
+                                                                  "unchecked-value":
+                                                                    "0"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    permission.write,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      permission,
+                                                                      "write",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "permission.write"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Surname"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "b-form-checkbox",
+                                                              {
+                                                                attrs: {
+                                                                  value: "1",
+                                                                  "unchecked-value":
+                                                                    "0"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    permission.delete,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      permission,
+                                                                      "delete",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "permission.delete"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Phone number"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "b-form-checkbox",
+                                                          {
+                                                            attrs: {
+                                                              value: "1",
+                                                              "unchecked-value":
+                                                                "0"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                permission.write,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  permission,
+                                                                  "write",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "permission.write"
+                                                            }
+                                                          },
+                                                          [_vm._v("Edit")]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "b-form-checkbox",
+                                                          {
+                                                            attrs: {
+                                                              value: "1",
+                                                              "unchecked-value":
+                                                                "0"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                permission.delete,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  permission,
+                                                                  "delete",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "permission.delete"
+                                                            }
+                                                          },
+                                                          [_vm._v("Delete")]
+                                                        )
+                                                      ],
+                                                      1
                                                     )
-                                                  ],
-                                                  1
-                                                )
-                                              : _vm._e()
-                                          ],
-                                          1
-                                        )
+                                                  : _vm._e()
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
                                       }),
                                       0
                                     )
@@ -256945,7 +256835,7 @@ var render = function() {
                                 _c("div", { staticClass: "row" }, [
                                   _c(
                                     "div",
-                                    { staticClass: "col-lg-2" },
+                                    { staticClass: "col-lg-3" },
                                     [
                                       _c(
                                         "b-button",
@@ -256961,7 +256851,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "col-lg-2" },
+                                    { staticClass: "col-lg-3" },
                                     [
                                       _c(
                                         "b-button",
@@ -256981,7 +256871,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "col-lg-2" },
+                                    { staticClass: "col-lg-3" },
                                     [
                                       _c(
                                         "b-button",
@@ -257042,11 +256932,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "li",
-      { staticClass: "nav-item d-none d-sm-inline-block title" },
+      "nav",
+      {
+        staticClass:
+          "main-header navbar navbar-expand navbar-white navbar-light border-bottom"
+      },
       [
-        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-          _c("strong", [_vm._v("Preferences")])
+        _c("ul", { staticClass: "navbar-nav left" }, [
+          _c("li", { staticClass: "nav-item d-none d-sm-inline-block title" }, [
+            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+              _c("strong", [_vm._v("Preferences")])
+            ])
+          ])
         ])
       ]
     )

@@ -19,8 +19,8 @@ class ModuleTableSeeder extends Seeder
         ]);
 
         Module::create([
-            'tag' => 'api_integration',
-            'display_name' => 'API Integration'
+            'tag' => 'api',
+            'display_name' => 'API'
         ]);
         
         Module::create([

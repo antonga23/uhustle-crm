@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModuleCustomFieldsTable extends Migration
+class CreateModuleItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateModuleCustomFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('module_custom_fields', function (Blueprint $table) {
+        Schema::create('module_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('module_id');
-            $table->string('key');
-            $table->text('value')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateModuleCustomFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module_custom_fields');
+        Schema::dropIfExists('module_items');
     }
 }
