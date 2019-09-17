@@ -13,13 +13,6 @@ class Permissions extends Model implements Auditable
         // Audit all
     ];
 
-    public function generateTags(): array
-    {
-        return [
-            'permissions',
-        ];
-    }
-
     protected $fillable = [
         'module_id',
         'role_id',
@@ -28,4 +21,11 @@ class Permissions extends Model implements Auditable
         'delete',
         'status',
     ];
+
+    public function generateTags(): array
+    {
+        return [
+            'permissions',
+        ];
+    }
 }

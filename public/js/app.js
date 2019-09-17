@@ -75986,6 +75986,212 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('Add Module Component mounted');
+
+    if (this.module !== null) {
+      this.new_module = this.module;
+    } else {
+      this.new_module = {
+        display_name: null,
+        description: null,
+        module_fields: [{
+          id: '',
+          name: '',
+          type: null
+        }]
+      };
+    }
+
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['module'],
+  data: function data() {
+    return {
+      new_module: {
+        display_name: null,
+        description: null,
+        module_fields: [{
+          id: '',
+          name: '',
+          type: null
+        }]
+      },
+      types: [{
+        value: null,
+        text: 'Please select'
+      }, {
+        value: 'text',
+        text: 'Text'
+      }, {
+        value: 'password',
+        text: 'Password'
+      }, {
+        value: 'email',
+        text: 'Email'
+      }, {
+        value: 'number',
+        text: 'Number'
+      }, {
+        value: 'url',
+        text: 'Url'
+      }, {
+        value: 'tel',
+        text: 'Tel'
+      }, {
+        value: 'date',
+        text: 'Date'
+      }, {
+        value: "time",
+        text: 'Time'
+      }, {
+        value: 'range',
+        text: 'Range'
+      }, {
+        value: 'color',
+        text: 'Color'
+      }],
+      display_name_state: null,
+      Toast: null
+    };
+  },
+  methods: {
+    addModule: function addModule() {
+      var _this = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+
+          if (vm.module !== null) {
+            var end_point = '/modules/update';
+          } else {
+            var end_point = '/modules/add';
+          }
+
+          axios.post(end_point, _this.new_module).then(function (response) {
+            if (response.data.success == true) {
+              vm.new_module = response.data.module;
+              Fire.$emit('DoneAddingModule');
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    addField: function addField() {
+      this.new_module.module_fields.push({
+        id: '',
+        name: '',
+        type: null
+      });
+    },
+    removeField: function removeField(index) {
+      if (index > -1) {
+        this.new_module.module_fields.splice(index, 1);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=script&lang=js& ***!
@@ -76001,8 +76207,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var _EditRole__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditRole */ "./resources/assets/js/components/Preferences/EditRole.vue");
 /* harmony import */ var _AddRole__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddRole */ "./resources/assets/js/components/Preferences/AddRole.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Module */ "./resources/assets/js/components/Preferences/Module.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_6__);
 //
 //
 //
@@ -76198,6 +76405,141 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -76208,11 +76550,12 @@ __webpack_require__.r(__webpack_exports__);
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclTable"],
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclTable"],
     EditRole: _EditRole__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddRole: _AddRole__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Module: _Module__WEBPACK_IMPORTED_MODULE_5__["default"],
     'datatable': _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
@@ -76222,6 +76565,9 @@ __webpack_require__.r(__webpack_exports__);
     this.getModules();
     this.getPermissions();
     var vm = this;
+    Fire.$on('DoneAddingModule', function () {
+      vm.getModules();
+    });
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -76240,6 +76586,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       roles: null,
       modules: null,
+      editing_module: null,
       permissions: [],
       current_user: {},
       add_user: false,
@@ -76247,10 +76594,22 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       role_edit: false,
       role_add: false,
-      Toast: null
+      Toast: null,
+      dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
+      dialer_selected: [],
+      dialer_allSelected: false,
+      dialer_indeterminate: false,
+      flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
+      selected: [],
+      allSelected: false,
+      indeterminate: false
     };
   },
   methods: {
+    toggleAll: function toggleAll() {},
+    dialerToggleAll: function dialerToggleAll(checked) {
+      this.dialer_selected = checked ? this.dialer_options.slice() : [];
+    },
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -76331,8 +76690,37 @@ __webpack_require__.r(__webpack_exports__);
       vm.role_add = true;
       vm.role_edit = false;
     },
-    showModulePreferences: function showModulePreferences(type) {
+    showModulePreferences: function showModulePreferences(type, in_module) {
+      this.editing_module = in_module;
       this.active_module = type;
+    }
+  },
+  watch: {
+    selected: function selected(newVal, oldVal) {
+      // Handle changes in individual flavour checkboxes
+      if (newVal.length === 0) {
+        this.indeterminate = false;
+        this.allSelected = false;
+      } else if (newVal.length === this.flavours.length) {
+        this.indeterminate = false;
+        this.allSelected = true;
+      } else {
+        this.indeterminate = true;
+        this.allSelected = false;
+      }
+    },
+    dialer_selected: function dialer_selected(newVal, oldVal) {
+      // Handle changes in individual flavour checkboxes
+      if (newVal.length === 0) {
+        this.dialer_indeterminate = false;
+        this.dialer_allSelected = false;
+      } else if (newVal.length === this.flavours.length) {
+        this.dialer_indeterminate = false;
+        this.dialer_allSelected = true;
+      } else {
+        this.dialer_indeterminate = true;
+        this.dialer_allSelected = false;
+      }
     }
   }
 });
@@ -130830,6 +131218,25 @@ exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n    border-radius: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.add-fields .btn[data-v-6f27d27a]{\n    margin: 0;\n}\n.help-block[data-v-6f27d27a]{\n    color: #dc3545;\n    font-size: 12px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=style&index=0&id=d4042370&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=style&index=0&id=d4042370&scoped=true&lang=css& ***!
@@ -130842,7 +131249,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        border: transparent !important;\n        border-radius: 5px !important;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-d4042370]:hover{\n        background: #00344a;\n        color: #ffffff;    \n        border: transparent !important;\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-block[data-v-d4042370] {\n        display: block;\n        width: 98%;\n}\n", ""]);
+exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 50px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        border: transparent !important;\n        border-radius: 5px !important;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-d4042370]:hover{\n        background: #00344a;\n        color: #ffffff;    \n        border: transparent !important;\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-block[data-v-d4042370] {\n        display: block;\n        width: 98%;\n}\n.card-body .form-group[data-v-d4042370]{\n        margin-left: 0%;\n}\n.pt-0[data-v-d4042370], .py-0[data-v-d4042370] {\n        padding-top: 0 !important;\n        padding-bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -222196,6 +222603,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=style&index=0&id=d4042370&scoped=true&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=style&index=0&id=d4042370&scoped=true&lang=css& ***!
@@ -256482,6 +256919,370 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-card",
+        {
+          attrs: {
+            title:
+              _vm.module === null
+                ? "Add Module"
+                : "Update " + _vm.module.display_name
+          }
+        },
+        [
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Information.")])]),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-none" } }, [
+                      _vm._v("Module Name:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        attrs: {
+                          id: "input-none",
+                          state: _vm.display_name_state,
+                          "data-vv-name": "Module Name"
+                        },
+                        model: {
+                          value: _vm.new_module.display_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.new_module, "display_name", $$v)
+                          },
+                          expression: "new_module.display_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Module Name"),
+                              expression: "errors.has('Module Name')"
+                            }
+                          ],
+                          staticClass: "help-block"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Module Name")))]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-valid" } }, [
+                      _vm._v("Module Description:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "input-valid", state: null },
+                        model: {
+                          value: _vm.new_module.description,
+                          callback: function($$v) {
+                            _vm.$set(_vm.new_module, "description", $$v)
+                          },
+                          expression: "new_module.description"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Fields.")])]),
+              _vm._v(" "),
+              _vm._l(_vm.new_module.module_fields, function(field, index) {
+                return _c(
+                  "b-row",
+                  { key: index, staticClass: "my-1 add-fields" },
+                  [
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field name:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            id: "input-none",
+                            state: null,
+                            "data-vv-name": "Field " + (index + 1) + "'s Name"
+                          },
+                          model: {
+                            value: field.name,
+                            callback: function($$v) {
+                              _vm.$set(field, "name", $$v)
+                            },
+                            expression: "field.name"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Name"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Name')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Name"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field type:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-select", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            options: _vm.types,
+                            "data-vv-name": "Field " + (index + 1) + "'s Type"
+                          },
+                          model: {
+                            value: field.type,
+                            callback: function($$v) {
+                              _vm.$set(field, "type", $$v)
+                            },
+                            expression: "field.type"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Type"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Type')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Type"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "2" } },
+                      [
+                        index + 1 < _vm.new_module.module_fields.length
+                          ? _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "danger" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeField(index)
+                                  }
+                                }
+                              },
+                              [_vm._v("-")]
+                            )
+                          : _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "success" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addField()
+                                  }
+                                }
+                              },
+                              [_vm._v("+")]
+                            )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _vm.module === null
+                        ? _c(
+                            "b-button",
+                            {
+                              attrs: { variant: "success" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addModule()
+                                }
+                              }
+                            },
+                            [_vm._v("Add Module")]
+                          )
+                        : _c(
+                            "b-button",
+                            {
+                              attrs: { variant: "success" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addModule()
+                                }
+                              }
+                            },
+                            [_vm._v("Update Module")]
+                          )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=template&id=d4042370&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/PreferencesIndex.vue?vue&type=template&id=d4042370&scoped=true& ***!
@@ -256532,7 +257333,7 @@ var render = function() {
                   attrs: { href: "#" },
                   on: {
                     click: function($event) {
-                      return _vm.showModulePreferences(module.tag)
+                      return _vm.showModulePreferences("edit_module", module)
                     }
                   }
                 },
@@ -256551,7 +257352,7 @@ var render = function() {
                 attrs: { href: "#", title: "Add new section" },
                 on: {
                   click: function($event) {
-                    return _vm.showModulePreferences("add_new")
+                    return _vm.showModulePreferences("add_new", null)
                   }
                 }
               },
@@ -256573,7 +257374,7 @@ var render = function() {
           [
             _vm.show_page_loader ? _c("vcl-table") : _vm._e(),
             _vm._v(" "),
-            !_vm.show_page_loader
+            !_vm.show_page_loader && _vm.active_module == "roles"
               ? _c(
                   "div",
                   { staticClass: "col-lg-12  user-roles" },
@@ -256672,328 +257473,904 @@ var render = function() {
                                     )
                                   : _vm._e(),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "row" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "col-lg-12",
-                                        attrs: { role: "tablist" }
-                                      },
-                                      _vm._l(_vm.modules, function(
-                                        a_module,
-                                        i
-                                      ) {
-                                        return _c(
-                                          "div",
-                                          { key: i },
-                                          [
-                                            _c(
-                                              "b-card",
-                                              {
-                                                staticClass: "mb-1",
-                                                attrs: { "no-body": "" }
-                                              },
+                                _c("div", { staticClass: "row" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "col-lg-12",
+                                      attrs: { role: "tablist" }
+                                    },
+                                    _vm._l(_vm.modules, function(a_module, i) {
+                                      return _c("div", { key: i }, [
+                                        a_module.id == 1 || a_module.id > 2
+                                          ? _c(
+                                              "div",
                                               [
                                                 _c(
-                                                  "b-card-header",
+                                                  "b-card",
                                                   {
-                                                    staticClass: "p-1",
-                                                    attrs: {
-                                                      "header-tag": "header",
-                                                      role: "tab"
-                                                    }
+                                                    staticClass: "mb-1",
+                                                    attrs: { "no-body": "" }
                                                   },
                                                   [
                                                     _c(
-                                                      "b-button",
+                                                      "b-card-header",
                                                       {
+                                                        staticClass: "p-1",
                                                         attrs: {
-                                                          block: "",
-                                                          href: "#",
-                                                          "aria-controls":
-                                                            "accordion-" + i,
-                                                          variant: "info"
+                                                          "header-tag":
+                                                            "header",
+                                                          role: "tab"
                                                         }
                                                       },
                                                       [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            a_module.display_name
-                                                          )
-                                                        )
-                                                      ]
-                                                    )
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "b-collapse",
-                                                  {
-                                                    attrs: {
-                                                      id: "accordion-" + i,
-                                                      visible:
-                                                        a_module.id == 1
-                                                          ? true
-                                                          : false,
-                                                      accordion: "my-accordion",
-                                                      role: "tabpanel"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "b-card-body",
-                                                      [
-                                                        _c("b-card-text", [
-                                                          _vm._v("Permissions")
-                                                        ]),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.permissions,
-                                                          function(
-                                                            permission,
-                                                            k
-                                                          ) {
-                                                            return _c(
-                                                              "div",
-                                                              { key: k },
-                                                              [
-                                                                permission.module_id ==
-                                                                  a_module.id &&
-                                                                role.id ==
-                                                                  permission.role_id
-                                                                  ? _c(
-                                                                      "b-form-group",
-                                                                      {
-                                                                        staticClass:
-                                                                          "permisions"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.read,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "read",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.read"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "View"
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-group",
-                                                                          {
-                                                                            staticClass:
-                                                                              "permisions"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.read,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "read",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.read"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Name"
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.write,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "write",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.write"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Surname"
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.delete,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "delete",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.delete"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Phone number"
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ],
-                                                                          1
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.write,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "write",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.write"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "Edit"
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.delete,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "delete",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.delete"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "Delete"
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ],
-                                                                      1
-                                                                    )
-                                                                  : _vm._e()
-                                                              ],
-                                                              1
+                                                        _c(
+                                                          "b-button",
+                                                          {
+                                                            directives: [
+                                                              {
+                                                                name:
+                                                                  "b-toggle",
+                                                                rawName:
+                                                                  "v-b-toggle",
+                                                                value:
+                                                                  "accordion-" +
+                                                                  i,
+                                                                expression:
+                                                                  "'accordion-' + i"
+                                                              }
+                                                            ],
+                                                            attrs: {
+                                                              block: "",
+                                                              href: "#",
+                                                              "aria-controls":
+                                                                "accordion-" +
+                                                                i,
+                                                              variant: "info"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                a_module.display_name
+                                                              )
                                                             )
-                                                          }
+                                                          ]
                                                         )
                                                       ],
-                                                      2
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "b-collapse",
+                                                      {
+                                                        attrs: {
+                                                          id: "accordion-" + i,
+                                                          visible:
+                                                            a_module.id == 1
+                                                              ? true
+                                                              : false,
+                                                          accordion:
+                                                            "my-accordion",
+                                                          role: "tabpanel"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "b-card-body",
+                                                          _vm._l(
+                                                            _vm.permissions,
+                                                            function(
+                                                              permission,
+                                                              k
+                                                            ) {
+                                                              return _c(
+                                                                "div",
+                                                                { key: k },
+                                                                [
+                                                                  permission.module_id ==
+                                                                    a_module.id &&
+                                                                  role.id ==
+                                                                    permission.role_id
+                                                                    ? _c(
+                                                                        "b-form-group",
+                                                                        {
+                                                                          staticClass:
+                                                                            "permisions"
+                                                                        },
+                                                                        [
+                                                                          a_module.id ==
+                                                                          1
+                                                                            ? _c(
+                                                                                "div",
+                                                                                [
+                                                                                  _c(
+                                                                                    "b-form-group",
+                                                                                    {
+                                                                                      scopedSlots: _vm._u(
+                                                                                        [
+                                                                                          {
+                                                                                            key:
+                                                                                              "label",
+                                                                                            fn: function() {
+                                                                                              return [
+                                                                                                _c(
+                                                                                                  "b",
+                                                                                                  [
+                                                                                                    _vm._v(
+                                                                                                      "Auto Dialer settings:"
+                                                                                                    )
+                                                                                                  ]
+                                                                                                ),
+                                                                                                _c(
+                                                                                                  "br"
+                                                                                                ),
+                                                                                                _vm._v(
+                                                                                                  " "
+                                                                                                ),
+                                                                                                _c(
+                                                                                                  "b-form-checkbox",
+                                                                                                  {
+                                                                                                    attrs: {
+                                                                                                      indeterminate:
+                                                                                                        _vm.dialer_indeterminate,
+                                                                                                      "aria-describedby":
+                                                                                                        "dialer",
+                                                                                                      "aria-controls":
+                                                                                                        "dialer"
+                                                                                                    },
+                                                                                                    on: {
+                                                                                                      change:
+                                                                                                        _vm.dialerToggleAll
+                                                                                                    },
+                                                                                                    model: {
+                                                                                                      value:
+                                                                                                        _vm.dialer_allSelected,
+                                                                                                      callback: function(
+                                                                                                        $$v
+                                                                                                      ) {
+                                                                                                        _vm.dialer_allSelected = $$v
+                                                                                                      },
+                                                                                                      expression:
+                                                                                                        "dialer_allSelected"
+                                                                                                    }
+                                                                                                  },
+                                                                                                  [
+                                                                                                    _vm._v(
+                                                                                                      "\n                                                                                    " +
+                                                                                                        _vm._s(
+                                                                                                          _vm.allSelected
+                                                                                                            ? "Un-select All"
+                                                                                                            : "Select All"
+                                                                                                        ) +
+                                                                                                        "\n                                                                                    "
+                                                                                                    )
+                                                                                                  ]
+                                                                                                )
+                                                                                              ]
+                                                                                            },
+                                                                                            proxy: true
+                                                                                          }
+                                                                                        ],
+                                                                                        null,
+                                                                                        true
+                                                                                      )
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        " "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "b-form-checkbox-group",
+                                                                                        {
+                                                                                          staticClass:
+                                                                                            "ml-4",
+                                                                                          attrs: {
+                                                                                            id:
+                                                                                              "dialer",
+                                                                                            options:
+                                                                                              _vm.dialer_options,
+                                                                                            name:
+                                                                                              "dialer",
+                                                                                            "aria-label":
+                                                                                              "Individual Options",
+                                                                                            stacked:
+                                                                                              ""
+                                                                                          },
+                                                                                          model: {
+                                                                                            value:
+                                                                                              _vm.dialer_selected,
+                                                                                            callback: function(
+                                                                                              $$v
+                                                                                            ) {
+                                                                                              _vm.dialer_selected = $$v
+                                                                                            },
+                                                                                            expression:
+                                                                                              "dialer_selected"
+                                                                                          }
+                                                                                        }
+                                                                                      )
+                                                                                    ],
+                                                                                    1
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "div",
+                                                                                    {
+                                                                                      staticStyle: {
+                                                                                        display:
+                                                                                          "none"
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "\n                                                                                Selected: "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "strong",
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              _vm.dialer_selected
+                                                                                            )
+                                                                                          )
+                                                                                        ]
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "br"
+                                                                                      ),
+                                                                                      _vm._v(
+                                                                                        "\n                                                                                All Selected: "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "strong",
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              _vm.dialer_allSelected
+                                                                                            )
+                                                                                          )
+                                                                                        ]
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "br"
+                                                                                      ),
+                                                                                      _vm._v(
+                                                                                        "\n                                                                                Indeterminate: "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "strong",
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              _vm.dialer_indeterminate
+                                                                                            )
+                                                                                          )
+                                                                                        ]
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ],
+                                                                                1
+                                                                              )
+                                                                            : _c(
+                                                                                "div",
+                                                                                [
+                                                                                  _c(
+                                                                                    "div",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "row"
+                                                                                    },
+                                                                                    [
+                                                                                      _c(
+                                                                                        "div",
+                                                                                        {
+                                                                                          staticClass:
+                                                                                            "col-lg-4"
+                                                                                        },
+                                                                                        [
+                                                                                          _c(
+                                                                                            "b-form-group",
+                                                                                            {
+                                                                                              scopedSlots: _vm._u(
+                                                                                                [
+                                                                                                  {
+                                                                                                    key:
+                                                                                                      "label",
+                                                                                                    fn: function() {
+                                                                                                      return [
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "Set " +
+                                                                                                                _vm._s(
+                                                                                                                  role.display_name
+                                                                                                                ) +
+                                                                                                                " permissions for " +
+                                                                                                                _vm._s(
+                                                                                                                  a_module.display_name
+                                                                                                                ) +
+                                                                                                                ":"
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "View"
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b-form-checkbox",
+                                                                                                          {
+                                                                                                            attrs: {
+                                                                                                              indeterminate:
+                                                                                                                _vm.dialer_indeterminate,
+                                                                                                              "aria-describedby":
+                                                                                                                "dialer",
+                                                                                                              "aria-controls":
+                                                                                                                "dialer"
+                                                                                                            },
+                                                                                                            on: {
+                                                                                                              change:
+                                                                                                                _vm.toggleAll
+                                                                                                            },
+                                                                                                            model: {
+                                                                                                              value:
+                                                                                                                _vm.dialer_allSelected,
+                                                                                                              callback: function(
+                                                                                                                $$v
+                                                                                                              ) {
+                                                                                                                _vm.dialer_allSelected = $$v
+                                                                                                              },
+                                                                                                              expression:
+                                                                                                                "dialer_allSelected"
+                                                                                                            }
+                                                                                                          },
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "\n                                                                                            " +
+                                                                                                                _vm._s(
+                                                                                                                  _vm.allSelected
+                                                                                                                    ? "Un-select All"
+                                                                                                                    : "Select All"
+                                                                                                                ) +
+                                                                                                                "\n                                                                                            "
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        )
+                                                                                                      ]
+                                                                                                    },
+                                                                                                    proxy: true
+                                                                                                  }
+                                                                                                ],
+                                                                                                null,
+                                                                                                true
+                                                                                              )
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                " "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "b-form-checkbox-group",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "ml-4",
+                                                                                                  attrs: {
+                                                                                                    id:
+                                                                                                      "dialer",
+                                                                                                    options:
+                                                                                                      _vm.dialer_options,
+                                                                                                    name:
+                                                                                                      "dialer",
+                                                                                                    "aria-label":
+                                                                                                      "Individual Options",
+                                                                                                    stacked:
+                                                                                                      ""
+                                                                                                  },
+                                                                                                  model: {
+                                                                                                    value:
+                                                                                                      _vm.dialer_selected,
+                                                                                                    callback: function(
+                                                                                                      $$v
+                                                                                                    ) {
+                                                                                                      _vm.dialer_selected = $$v
+                                                                                                    },
+                                                                                                    expression:
+                                                                                                      "dialer_selected"
+                                                                                                  }
+                                                                                                }
+                                                                                              )
+                                                                                            ],
+                                                                                            1
+                                                                                          ),
+                                                                                          _vm._v(
+                                                                                            " "
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "div",
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_selected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        All Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_allSelected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Indeterminate: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_indeterminate
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        ],
+                                                                                        1
+                                                                                      ),
+                                                                                      _vm._v(
+                                                                                        " "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "div",
+                                                                                        {
+                                                                                          staticClass:
+                                                                                            "col-lg-4"
+                                                                                        },
+                                                                                        [
+                                                                                          _c(
+                                                                                            "b-form-group",
+                                                                                            {
+                                                                                              scopedSlots: _vm._u(
+                                                                                                [
+                                                                                                  {
+                                                                                                    key:
+                                                                                                      "label",
+                                                                                                    fn: function() {
+                                                                                                      return [
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              " "
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "Edit"
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b-form-checkbox",
+                                                                                                          {
+                                                                                                            attrs: {
+                                                                                                              indeterminate:
+                                                                                                                _vm.dialer_indeterminate,
+                                                                                                              "aria-describedby":
+                                                                                                                "dialer",
+                                                                                                              "aria-controls":
+                                                                                                                "dialer"
+                                                                                                            },
+                                                                                                            on: {
+                                                                                                              change:
+                                                                                                                _vm.toggleAll
+                                                                                                            },
+                                                                                                            model: {
+                                                                                                              value:
+                                                                                                                _vm.dialer_allSelected,
+                                                                                                              callback: function(
+                                                                                                                $$v
+                                                                                                              ) {
+                                                                                                                _vm.dialer_allSelected = $$v
+                                                                                                              },
+                                                                                                              expression:
+                                                                                                                "dialer_allSelected"
+                                                                                                            }
+                                                                                                          },
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "\n                                                                                            " +
+                                                                                                                _vm._s(
+                                                                                                                  _vm.allSelected
+                                                                                                                    ? "Un-select All"
+                                                                                                                    : "Select All"
+                                                                                                                ) +
+                                                                                                                "\n                                                                                            "
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        )
+                                                                                                      ]
+                                                                                                    },
+                                                                                                    proxy: true
+                                                                                                  }
+                                                                                                ],
+                                                                                                null,
+                                                                                                true
+                                                                                              )
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                " "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "b-form-checkbox-group",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "ml-4",
+                                                                                                  attrs: {
+                                                                                                    id:
+                                                                                                      "dialer",
+                                                                                                    options:
+                                                                                                      _vm.dialer_options,
+                                                                                                    name:
+                                                                                                      "dialer",
+                                                                                                    "aria-label":
+                                                                                                      "Individual Options",
+                                                                                                    stacked:
+                                                                                                      ""
+                                                                                                  },
+                                                                                                  model: {
+                                                                                                    value:
+                                                                                                      _vm.dialer_selected,
+                                                                                                    callback: function(
+                                                                                                      $$v
+                                                                                                    ) {
+                                                                                                      _vm.dialer_selected = $$v
+                                                                                                    },
+                                                                                                    expression:
+                                                                                                      "dialer_selected"
+                                                                                                  }
+                                                                                                }
+                                                                                              )
+                                                                                            ],
+                                                                                            1
+                                                                                          ),
+                                                                                          _vm._v(
+                                                                                            " "
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "div",
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_selected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        All Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_allSelected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Indeterminate: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_indeterminate
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        ],
+                                                                                        1
+                                                                                      ),
+                                                                                      _vm._v(
+                                                                                        " "
+                                                                                      ),
+                                                                                      _c(
+                                                                                        "div",
+                                                                                        {
+                                                                                          staticClass:
+                                                                                            "col-lg-4"
+                                                                                        },
+                                                                                        [
+                                                                                          _c(
+                                                                                            "b-form-group",
+                                                                                            {
+                                                                                              scopedSlots: _vm._u(
+                                                                                                [
+                                                                                                  {
+                                                                                                    key:
+                                                                                                      "label",
+                                                                                                    fn: function() {
+                                                                                                      return [
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              " "
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b",
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "Delete"
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "br"
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _c(
+                                                                                                          "b-form-checkbox",
+                                                                                                          {
+                                                                                                            attrs: {
+                                                                                                              indeterminate:
+                                                                                                                _vm.dialer_indeterminate,
+                                                                                                              "aria-describedby":
+                                                                                                                "dialer",
+                                                                                                              "aria-controls":
+                                                                                                                "dialer"
+                                                                                                            },
+                                                                                                            on: {
+                                                                                                              change:
+                                                                                                                _vm.toggleAll
+                                                                                                            },
+                                                                                                            model: {
+                                                                                                              value:
+                                                                                                                _vm.dialer_allSelected,
+                                                                                                              callback: function(
+                                                                                                                $$v
+                                                                                                              ) {
+                                                                                                                _vm.dialer_allSelected = $$v
+                                                                                                              },
+                                                                                                              expression:
+                                                                                                                "dialer_allSelected"
+                                                                                                            }
+                                                                                                          },
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "\n                                                                                            " +
+                                                                                                                _vm._s(
+                                                                                                                  _vm.allSelected
+                                                                                                                    ? "Un-select All"
+                                                                                                                    : "Select All"
+                                                                                                                ) +
+                                                                                                                "\n                                                                                            "
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        )
+                                                                                                      ]
+                                                                                                    },
+                                                                                                    proxy: true
+                                                                                                  }
+                                                                                                ],
+                                                                                                null,
+                                                                                                true
+                                                                                              )
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                " "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "b-form-checkbox-group",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "ml-4",
+                                                                                                  attrs: {
+                                                                                                    id:
+                                                                                                      "dialer",
+                                                                                                    options:
+                                                                                                      _vm.dialer_options,
+                                                                                                    name:
+                                                                                                      "dialer",
+                                                                                                    "aria-label":
+                                                                                                      "Individual Options",
+                                                                                                    stacked:
+                                                                                                      ""
+                                                                                                  },
+                                                                                                  model: {
+                                                                                                    value:
+                                                                                                      _vm.dialer_selected,
+                                                                                                    callback: function(
+                                                                                                      $$v
+                                                                                                    ) {
+                                                                                                      _vm.dialer_selected = $$v
+                                                                                                    },
+                                                                                                    expression:
+                                                                                                      "dialer_selected"
+                                                                                                  }
+                                                                                                }
+                                                                                              )
+                                                                                            ],
+                                                                                            1
+                                                                                          ),
+                                                                                          _vm._v(
+                                                                                            " "
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "div",
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_selected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        All Selected: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_allSelected
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "br"
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                "\n                                                                                        Indeterminate: "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "strong",
+                                                                                                [
+                                                                                                  _vm._v(
+                                                                                                    _vm._s(
+                                                                                                      _vm.dialer_indeterminate
+                                                                                                    )
+                                                                                                  )
+                                                                                                ]
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        ],
+                                                                                        1
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
+                                                                ],
+                                                                1
+                                                              )
+                                                            }
+                                                          ),
+                                                          0
+                                                        )
+                                                      ],
+                                                      1
                                                     )
                                                   ],
                                                   1
@@ -257001,27 +258378,12 @@ var render = function() {
                                               ],
                                               1
                                             )
-                                          ],
-                                          1
-                                        )
-                                      }),
-                                      0
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.modules, function(a_module, i) {
-                                      return _c("b-card", {
-                                        key: i,
-                                        staticClass: "col-lg-3",
-                                        attrs: {
-                                          title: a_module.display_name,
-                                          "sub-title":
-                                            "Permisions" + a_module.id
-                                        }
-                                      })
-                                    })
-                                  ],
-                                  2
-                                )
+                                          : _vm._e()
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ])
                               ]
                             )
                           }),
@@ -257031,6 +258393,24 @@ var render = function() {
                       1
                     )
                   ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.show_page_loader && _vm.active_module == "add_new"
+              ? _c(
+                  "div",
+                  { staticClass: "col-lg-12  user-roles" },
+                  [_c("module", { attrs: { module: null } })],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.show_page_loader && _vm.active_module == "edit_module"
+              ? _c(
+                  "div",
+                  { staticClass: "col-lg-12  user-roles" },
+                  [_c("module", { attrs: { module: _vm.editing_module } })],
                   1
                 )
               : _vm._e()
@@ -293523,6 +294903,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditRole_vue_vue_type_template_id_81b88ba4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditRole_vue_vue_type_template_id_81b88ba4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/Module.vue":
+/*!***************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/Module.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Module.vue?vue&type=template&id=6f27d27a&scoped=true& */ "./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true&");
+/* harmony import */ var _Module_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Module.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Module_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6f27d27a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/Module.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Module.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=style&index=0&id=6f27d27a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_style_index_0_id_6f27d27a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Module.vue?vue&type=template&id=6f27d27a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/Module.vue?vue&type=template&id=6f27d27a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Module_vue_vue_type_template_id_6f27d27a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
