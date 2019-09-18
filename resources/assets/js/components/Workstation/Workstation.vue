@@ -1300,6 +1300,8 @@ a.down-scroll:hover{
                 vm.scripts = false;
                 vm.idle = true;
                 vm.active_calls = false;
+            }else if(( this.role_id == 1 || this.role_id == 2) && vm.lead_id != ''){
+                vm.enqueueLead(vm.lead_id);
             }
             
             if( this.role_id == 1 || this.role_id == 2){
