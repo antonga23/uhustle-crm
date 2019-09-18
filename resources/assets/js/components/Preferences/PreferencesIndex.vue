@@ -117,6 +117,9 @@
                     <a href="#" @click="showModulePreferences('roles', 'roles', null);" :class="{ 'active' : ( active_module_name ===  'roles')? true : false }">Roles</a>
                 </li>
                 <li class="item">
+                    <a href="#" @click="showModulePreferences('dialer', 'dialer', null);" :class="{ 'active' : ( active_module_name ===  'dialer')? true : false }">Dialer</a>
+                </li>
+                <li class="item">
                     <a href="#" @click="showModulePreferences('api_integration', 'api_integration', null);" :class="{ 'active' : ( active_module_name ===  'api_integration')? true : false }">API Integration</a>
                 </li>
                 <li class="item" v-for="(module, index) in modules" :key="index">
@@ -319,7 +322,7 @@
                         </b-card>
                     </div>
                     <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'api_integration'">
-                        <api-integration/>
+                        <api-integration :apis="apis"/>
                     </div>
                     <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'add_module'">
                         <add-module/>
@@ -362,6 +365,7 @@
             this.getRoles();
             this.getModules();
             this.getPermissions();
+            this.getApis();
 
             var vm = this;
 
@@ -384,6 +388,10 @@
                 vm.showModulePreferences('add_module','add_module', null);
             });
 
+            Fire.$on('AfterUpdatingApis', function(){
+                vm.getApis();
+            });
+
             this.Toast = this.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -403,6 +411,7 @@
                 },
                 roles: null,
                 modules: null,
+                apis: null,
                 editing_module: null,
                 permissions:[],
                 current_user: {},
@@ -469,6 +478,23 @@
                     if(response.data.success == true){
                         vm.modules = response.data.modules;
                     }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            getApis(){
+                var vm = this;
+                var endpoint = '/apis/get-all';
+
+                vm.$Progress.start();
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.apis = response.data.apis;
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });

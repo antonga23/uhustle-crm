@@ -1008,9 +1008,8 @@ a.down-scroll:hover{
                 size="xl"
                 ref="final-call-step"
                 title=""
-                @show="preventClosing"
-                @hide="preventClosing()"
-                @ok="preventClosing"
+                v-on:mouseleave="mouseLeave"
+                @hide="preventClosing"
                 style="z-index: 999999;padding: 1rem 3rem;"
                 hide-header
                 hide-footer
@@ -1338,6 +1337,17 @@ a.down-scroll:hover{
                 vm.active_calls = false;
             });
 
+            vm.addEvent(document, "mouseout", function(e) {
+                e = e ? e : window.event;
+                console.log(e.pageX);
+                var from = e.relatedTarget || e.toElement;
+                if (!from || from.nodeName == "HTML") {
+                    // stop your drag event here
+                    // for now we can just use an alert
+                    vm.completeCall();
+                }
+            });
+
             this.Toast = this.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -1540,9 +1550,21 @@ a.down-scroll:hover{
                 var date = new Date();
                 this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
             },
-            preventClosing(){
-                if(this.continues == false){
-                    this.$refs['final-call-step'].show();
+            preventClosing(BvModalEvent){
+                var vm = this;
+                if(BvModalEvent.trigger == 'backdrop')
+                    BvModalEvent.preventDefault();
+            },
+            mouseLeave(event){
+                console.log(event.pageX); 
+                console.log(event.pagey);
+            },
+            addEvent(obj, evt, fn) {
+                if (obj.addEventListener) {
+                    obj.addEventListener(evt, fn, false);
+                }
+                else if (obj.attachEvent) {
+                    obj.attachEvent("on" + evt, fn);
                 }
             },
             toggleModal() {
@@ -1560,7 +1582,6 @@ a.down-scroll:hover{
                     if(response.data.success){
                         vm.continues = true;
                         vm.$refs['final-call-step'].hide();
-                        location.reload();
                     }else{
                         vm.$swal('Warning','Please updated Notes or Callback information before continuing','warning');
                     }
@@ -1657,6 +1678,8 @@ a.down-scroll:hover{
                             });
                         }else{
                             Fire.$emit('ShowGeneral');
+                            vm.$refs['final-call-step'].show();
+                            vm.$Progress.finish();
                             vm.show_page_loader = true;
                         }
                     }else{

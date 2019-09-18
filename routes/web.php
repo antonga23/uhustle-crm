@@ -170,3 +170,9 @@ Route::group(['prefix' => 'modules'], function () {
     Route::post('/check-exist', 'ModuleController@checkExist');
 });
 
+// API Integration Routes
+Route::group(['prefix' => 'apis'], function () {
+    Route::get('/get-all', 'ApiIntegrationController@index');
+    Route::post('/update', 'ApiIntegrationController@update');
+});
+

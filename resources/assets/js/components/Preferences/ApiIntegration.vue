@@ -10,65 +10,34 @@
     <div>
         <b-card no-body>
             <b-tabs pills card>
-                <b-tab title="Twillio" active>
+                <b-tab :title="api.name"  v-for="(api,index) in apis" :key="index" :active="(index == 0)? true : false">
                     <div class="col-lg-9">
                         <b-container fluid>
-                            <b-row class="my-1">
-                                <b-col sm="3">
-                                <label for="input-none">Twilio Phone Number</label>
-                                </b-col>
-                                <b-col sm="7">
-                                    <b-form-input v-if="default_calling_api === 'twilio'" v-validate="'required'" id="input-none" :state="null" v-model="twilio.phone_number"></b-form-input>
-                                    <b-form-input v-else id="input-none" :state="null" v-model="twilio.phone_number"></b-form-input>
-                                </b-col>
-                            </b-row>
-
-                            <b-row class="my-1">
-                                <b-col sm="3">
-                                <label for="input-valid">Account SID</label>
-                                </b-col>
-                                <b-col sm="7">
-                                    <b-form-input v-if="default_calling_api === 'twilio'" v-validate="'required'" id="input-valid" :state="null" v-model="twilio.account_sid"></b-form-input>
-                                    <b-form-input v-else id="input-valid" :state="null" v-model="twilio.account_sid"></b-form-input>
-                                </b-col>
-                            </b-row>
-
-                            <b-row class="my-1">
-                                <b-col sm="3">
-                                <label for="input-valid">Auth Token</label>
-                                </b-col>
-                                <b-col sm="7">
-                                    <b-form-input v-if="default_calling_api === 'twilio'" v-validate="'required'" id="input-valid" :state="null" v-model="twilio.auth_token"></b-form-input>
-                                    <b-form-input v-else id="input-valid" :state="null" v-model="twilio.auth_token"></b-form-input>
-                                </b-col>
-                            </b-row>
-
-                            <b-row class="my-1">
-                                <b-col sm="3">
-                                    <label for="input-valid">Twiml App SID</label>
-                                </b-col>
-                                <b-col sm="7">
-                                    <b-form-input v-if="default_calling_api === 'twilio'" v-validate="'required'" id="input-valid" :state="null" v-model="twilio.twiml_app_sid"></b-form-input>
-                                    <b-form-input v-else id="input-valid" :state="null" v-model="twilio.twiml_app_sid"></b-form-input>
-                                </b-col>
-                            </b-row>
-
-                            <b-row class="my-1">
-                                <b-col sm="3">
-                                <label for="input-valid">Set as default dialing API</label>
-                                </b-col>
-                                <b-col sm="7">
-                                    <b-form-checkbox
-                                    id="checkbox-1"
-                                    v-model="default_calling_api"
-                                    name="checkbox-1"
-                                    value="twilio"
-                                    unchecked-value=""
-                                    >
-                                    </b-form-checkbox>
-                                </b-col>
-                            </b-row>
-
+                            <div  v-for="(attr,i) in api.attributes"  :key="i">
+                                <b-row class="my-1"  v-if="attr.key != 'default_dialing_api' && attr.key != 'default_payment_api'">
+                                    <b-col sm="3">
+                                    <label for="input-none">{{ attr.display_name }}</label>
+                                    </b-col>
+                                    <b-col sm="7">
+                                        <b-form-input id="input-none" :state="null" v-model="attr.value"></b-form-input>
+                                    </b-col>   
+                                </b-row>                         
+                                <b-row class="my-1" v-else>
+                                    <b-col sm="3">
+                                    <label for="input-valid">{{ attr.display_name }}</label>
+                                    </b-col>
+                                    <b-col sm="7">
+                                        <b-form-checkbox
+                                        id="checkbox-1"
+                                        v-model="attr.value"
+                                        name="checkbox-1"
+                                        value="1"
+                                        unchecked-value="0"
+                                        >
+                                        </b-form-checkbox>
+                                    </b-col>
+                                </b-row>
+                            </div>
                             <b-row class="my-1">
                                 <b-col sm="9">
                                     <b-button variant="default" @click="updateDetails()">Update Details</b-button>
@@ -76,156 +45,7 @@
                             </b-row>
                         </b-container>
                     </div>
-                    </b-tab>
-                    <b-tab title="Nexmo">
-                        <div class="col-lg-9">
-                            <b-container fluid>
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                        <label for="input-none">Nexmo Phone number:</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input v-if="default_calling_api === 'nexmo'" v-validate="'required'"  id="input-none" :state="null" v-model="nexmo.phone_number"></b-form-input>
-                                        <b-form-input v-else id="input-none" :state="null" v-model="nexmo.phone_number"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Key</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input v-if="default_calling_api === 'nexmo'" v-validate="'required'"  id="input-valid" :state="null" v-model="nexmo.api_key"></b-form-input>
-                                        <b-form-input v-else v-validate="'required'"  id="input-valid" :state="null" v-model="nexmo.api_key"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Secret</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input v-if="default_calling_api === 'nexmo'" id="input-valid" :state="null" v-model="nexmo.api_secrete"></b-form-input>
-                                        <b-form-input v-else id="input-valid" :state="null" v-model="nexmo.api_secrete"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">Set as default dialing API</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-checkbox
-                                        id="checkbox-1"
-                                        v-model="default_calling_api"
-                                        name="checkbox-1"
-                                        value="nexmo"
-                                        unchecked-value=""
-                                        >
-                                        </b-form-checkbox>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="9">
-                                        <b-button variant="default" @click="updateDetails()">Update Details</b-button>
-                                    </b-col>
-                                </b-row>
-                            </b-container>
-                        </div>
-                    </b-tab>
-                    <b-tab title="Stripe">
-                        <div class="col-lg-9">
-                            <b-container fluid>
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Key</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input v-if="default_payment_api === 'stripe'" v-validate="'required'"  id="input-valid" :state="null" v-model="stripe.api_key"></b-form-input>
-                                        <b-form-input v-validate="'required'"  id="input-valid" :state="null" v-model="stripe.api_key"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Secret</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input id="input-valid" :state="null" v-model="stripe.api_secrete"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">Set as default payment API</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-checkbox
-                                        id="checkbox-1"
-                                        v-model="default_payment_api"
-                                        name="checkbox-1"
-                                        value="stripe"
-                                        unchecked-value=""
-                                        >
-                                        </b-form-checkbox>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="9">
-                                        <b-button variant="default" @click="updateDetails()">Update Details</b-button>
-                                    </b-col>
-                                </b-row>
-                            </b-container>
-                        </div>
-                    </b-tab>
-                    <b-tab title="Paypal">
-                        <div class="col-lg-9">
-                            <b-container fluid>
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Key</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input v-if="default_payment_api === 'paypal'" v-validate="'required'"  id="input-valid" :state="null" v-model="paypal.api_key"></b-form-input>
-                                        <b-form-input v-else v-validate="'required'"  id="input-valid" :state="null" v-model="paypal.api_key"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">API Secret</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-input id="input-valid" :state="null" v-model="paypal.api_secrete"></b-form-input>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="3">
-                                    <label for="input-valid">Set as default payment API</label>
-                                    </b-col>
-                                    <b-col sm="7">
-                                        <b-form-checkbox
-                                        id="checkbox-1"
-                                        v-model="default_payment_api"
-                                        name="checkbox-1"
-                                        value="paypal"
-                                        unchecked-value=""
-                                        >
-                                        </b-form-checkbox>
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="my-1">
-                                    <b-col sm="9">
-                                        <b-button variant="default" @click="updateDetails()">Update Details</b-button>
-                                    </b-col>
-                                </b-row>
-                            </b-container>
-                        </div>
-                    </b-tab>
+                </b-tab>
             </b-tabs>
         </b-card>
     </div>
@@ -235,8 +55,7 @@
         components: { 
         },
         mounted() {
-            console.log('Component mounted');
-
+            console.log('API Component mounted');
             this.Toast = this.$swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -246,35 +65,16 @@
         },
         created: function () {
         },
-        props: [],
+        props: ['apis'],
         data: function(){
             return {
-                twilio: {
-                    phone_number : '',
-                    account_sid : '',
-                    auth_token : '',
-                    twiml_app_sid : '',
-                },
-                nexmo: {
-                    phone_number: '',
-                    api_key: '',
-                    api_secrete: '',
-                },
-                stripe: {
-                    api_key: '',
-                    api_secrete: '',
-                },
-                paypal: {
-                    api_key: '',
-                    api_secrete: '',
-                },
                 default_calling_api: '',
                 default_payment_api: '',
                 Toast: null,
             }
         },
         methods: {
-            addRole(){
+            updateDetails(){
 				var vm = this;  
 				vm.$Progress.start();
 				this.$validator.validateAll().then((result) => {
@@ -284,15 +84,12 @@
                             
                             vm.display_name_state = true;
 
-                            var end_point = '/roles/create';
+                            var end_point = '/apis/update';
 
-                            axios.post(end_point,this.role).then(function (response) {
+                            axios.post(end_point,this.apis).then(function (response) {
                                     
-                                if(response.data.success == true){
-
-                                    vm.resteRole();
-                                    
-                                    Fire.$emit('DoneAddingRole');
+                                if(response.data.success == true){                                   
+                                    Fire.$emit('AfterUpdatingApis');
                                     vm.$Progress.finish();
                                     vm.Toast.fire({ type: 'success', title: response.data.message });
                                 }else {

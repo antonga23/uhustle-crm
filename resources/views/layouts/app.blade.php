@@ -41,6 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           font-family: Montserrat !important;
       }
     </style>
+    @yield('disable_back')
 </head>
 <body class="hold-transition sidebar-mini" style="    overflow-y: hidden;">
 <div class="wrapper" id ="app">

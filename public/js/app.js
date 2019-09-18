@@ -76173,190 +76173,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
-    console.log('Component mounted');
+    console.log('API Component mounted');
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -76365,35 +76185,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: [],
+  props: ['apis'],
   data: function data() {
     return {
-      twilio: {
-        phone_number: '',
-        account_sid: '',
-        auth_token: '',
-        twiml_app_sid: ''
-      },
-      nexmo: {
-        phone_number: '',
-        api_key: '',
-        api_secrete: ''
-      },
-      stripe: {
-        api_key: '',
-        api_secrete: ''
-      },
-      paypal: {
-        api_key: '',
-        api_secrete: ''
-      },
       default_calling_api: '',
       default_payment_api: '',
       Toast: null
     };
   },
   methods: {
-    addRole: function addRole() {
+    updateDetails: function updateDetails() {
       var _this = this;
 
       var vm = this;
@@ -76403,11 +76204,10 @@ __webpack_require__.r(__webpack_exports__);
           vm.display_name_state = false;
         } else {
           vm.display_name_state = true;
-          var end_point = '/roles/create';
-          axios.post(end_point, _this.role).then(function (response) {
+          var end_point = '/apis/update';
+          axios.post(end_point, _this.apis).then(function (response) {
             if (response.data.success == true) {
-              vm.resteRole();
-              Fire.$emit('DoneAddingRole');
+              Fire.$emit('AfterUpdatingApis');
               vm.$Progress.finish();
               vm.Toast.fire({
                 type: 'success',
@@ -77104,6 +76904,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -77132,6 +76935,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getRoles();
     this.getModules();
     this.getPermissions();
+    this.getApis();
     var vm = this;
     Fire.$on('DoneAddingRole', function () {
       vm.getRoles();
@@ -77147,6 +76951,9 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('AfterModuleDelete', function () {
       vm.getModules();
       vm.showModulePreferences('add_module', 'add_module', null);
+    });
+    Fire.$on('AfterUpdatingApis', function () {
+      vm.getApis();
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -77166,6 +76973,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       roles: null,
       modules: null,
+      apis: null,
       editing_module: null,
       permissions: [],
       current_user: {},
@@ -77225,6 +77033,20 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.success == true) {
           vm.modules = response.data.modules;
         } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
+    getApis: function getApis() {
+      var vm = this;
+      var endpoint = '/apis/get-all';
+      vm.$Progress.start();
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.apis = response.data.apis;
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
       });
@@ -80930,7 +80752,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -81000,6 +80821,17 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.scripts = false;
       vm.idle = true;
       vm.active_calls = false;
+    });
+    vm.addEvent(document, "mouseout", function (e) {
+      e = e ? e : window.event;
+      console.log(e.pageX);
+      var from = e.relatedTarget || e.toElement;
+
+      if (!from || from.nodeName == "HTML") {
+        // stop your drag event here
+        // for now we can just use an alert
+        vm.completeCall();
+      }
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -81224,9 +81056,19 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var date = new Date();
       this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
     },
-    preventClosing: function preventClosing() {
-      if (this.continues == false) {
-        this.$refs['final-call-step'].show();
+    preventClosing: function preventClosing(BvModalEvent) {
+      var vm = this;
+      if (BvModalEvent.trigger == 'backdrop') BvModalEvent.preventDefault();
+    },
+    mouseLeave: function mouseLeave(event) {
+      console.log(event.pageX);
+      console.log(event.pagey);
+    },
+    addEvent: function addEvent(obj, evt, fn) {
+      if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
+      } else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
       }
     },
     toggleModal: function toggleModal() {
@@ -81247,7 +81089,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         if (response.data.success) {
           vm.continues = true;
           vm.$refs['final-call-step'].hide();
-          location.reload();
         } else {
           vm.$swal('Warning', 'Please updated Notes or Callback information before continuing', 'warning');
         }
@@ -81338,6 +81179,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             });
           } else {
             Fire.$emit('ShowGeneral');
+            vm.$refs['final-call-step'].show();
+            vm.$Progress.finish();
             vm.show_page_loader = true;
           }
         } else {
@@ -257970,901 +257813,141 @@ var render = function() {
           _c(
             "b-tabs",
             { attrs: { pills: "", card: "" } },
-            [
-              _c("b-tab", { attrs: { title: "Twillio", active: "" } }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-9" },
-                  [
-                    _c(
-                      "b-container",
-                      { attrs: { fluid: "" } },
-                      [
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Twilio Phone Number")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
+            _vm._l(_vm.apis, function(api, index) {
+              return _c(
+                "b-tab",
+                {
+                  key: index,
+                  attrs: { title: api.name, active: index == 0 ? true : false }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-9" },
+                    [
+                      _c(
+                        "b-container",
+                        { attrs: { fluid: "" } },
+                        [
+                          _vm._l(api.attributes, function(attr, i) {
+                            return _c(
+                              "div",
+                              { key: i },
                               [
-                                _vm.default_calling_api === "twilio"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
+                                attr.key != "default_dialing_api" &&
+                                attr.key != "default_payment_api"
+                                  ? _c(
+                                      "b-row",
+                                      { staticClass: "my-1" },
+                                      [
+                                        _c("b-col", { attrs: { sm: "3" } }, [
+                                          _c(
+                                            "label",
+                                            { attrs: { for: "input-none" } },
+                                            [_vm._v(_vm._s(attr.display_name))]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-col",
+                                          { attrs: { sm: "7" } },
+                                          [
+                                            _c("b-form-input", {
+                                              attrs: {
+                                                id: "input-none",
+                                                state: null
+                                              },
+                                              model: {
+                                                value: attr.value,
+                                                callback: function($$v) {
+                                                  _vm.$set(attr, "value", $$v)
+                                                },
+                                                expression: "attr.value"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
                                       ],
-                                      attrs: { id: "input-none", state: null },
-                                      model: {
-                                        value: _vm.twilio.phone_number,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "phone_number",
-                                            $$v
+                                      1
+                                    )
+                                  : _c(
+                                      "b-row",
+                                      { staticClass: "my-1" },
+                                      [
+                                        _c("b-col", { attrs: { sm: "3" } }, [
+                                          _c(
+                                            "label",
+                                            { attrs: { for: "input-valid" } },
+                                            [_vm._v(_vm._s(attr.display_name))]
                                           )
-                                        },
-                                        expression: "twilio.phone_number"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-none", state: null },
-                                      model: {
-                                        value: _vm.twilio.phone_number,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "phone_number",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.phone_number"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Account SID")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "twilio"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-col",
+                                          { attrs: { sm: "7" } },
+                                          [
+                                            _c("b-form-checkbox", {
+                                              attrs: {
+                                                id: "checkbox-1",
+                                                name: "checkbox-1",
+                                                value: "1",
+                                                "unchecked-value": "0"
+                                              },
+                                              model: {
+                                                value: attr.value,
+                                                callback: function($$v) {
+                                                  _vm.$set(attr, "value", $$v)
+                                                },
+                                                expression: "attr.value"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
                                       ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.account_sid,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "account_sid",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.account_sid"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.account_sid,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "account_sid",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.account_sid"
-                                      }
-                                    })
+                                      1
+                                    )
                               ],
                               1
                             )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Auth Token")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "twilio"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.auth_token,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "auth_token",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.auth_token"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.auth_token,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "auth_token",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.auth_token"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Twiml App SID")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "twilio"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.twiml_app_sid,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "twiml_app_sid",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.twiml_app_sid"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.twilio.twiml_app_sid,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.twilio,
-                                            "twiml_app_sid",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "twilio.twiml_app_sid"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Set as default dialing API")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-checkbox", {
-                                  attrs: {
-                                    id: "checkbox-1",
-                                    name: "checkbox-1",
-                                    value: "twilio",
-                                    "unchecked-value": ""
-                                  },
-                                  model: {
-                                    value: _vm.default_calling_api,
-                                    callback: function($$v) {
-                                      _vm.default_calling_api = $$v
-                                    },
-                                    expression: "default_calling_api"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "9" } },
-                              [
-                                _c(
-                                  "b-button",
-                                  {
-                                    attrs: { variant: "default" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateDetails()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Update Details")]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "Nexmo" } }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-9" },
-                  [
-                    _c(
-                      "b-container",
-                      { attrs: { fluid: "" } },
-                      [
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Nexmo Phone number:")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "nexmo"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-none", state: null },
-                                      model: {
-                                        value: _vm.nexmo.phone_number,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.nexmo,
-                                            "phone_number",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "nexmo.phone_number"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-none", state: null },
-                                      model: {
-                                        value: _vm.nexmo.phone_number,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.nexmo,
-                                            "phone_number",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "nexmo.phone_number"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Key")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "nexmo"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.nexmo.api_key,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.nexmo, "api_key", $$v)
-                                        },
-                                        expression: "nexmo.api_key"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.nexmo.api_key,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.nexmo, "api_key", $$v)
-                                        },
-                                        expression: "nexmo.api_key"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Secret")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_calling_api === "nexmo"
-                                  ? _c("b-form-input", {
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.nexmo.api_secrete,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.nexmo,
-                                            "api_secrete",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "nexmo.api_secrete"
-                                      }
-                                    })
-                                  : _c("b-form-input", {
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.nexmo.api_secrete,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.nexmo,
-                                            "api_secrete",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "nexmo.api_secrete"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Set as default dialing API")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-checkbox", {
-                                  attrs: {
-                                    id: "checkbox-1",
-                                    name: "checkbox-1",
-                                    value: "nexmo",
-                                    "unchecked-value": ""
-                                  },
-                                  model: {
-                                    value: _vm.default_calling_api,
-                                    callback: function($$v) {
-                                      _vm.default_calling_api = $$v
-                                    },
-                                    expression: "default_calling_api"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "9" } },
-                              [
-                                _c(
-                                  "b-button",
-                                  {
-                                    attrs: { variant: "default" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateDetails()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Update Details")]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "Stripe" } }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-9" },
-                  [
-                    _c(
-                      "b-container",
-                      { attrs: { fluid: "" } },
-                      [
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Key")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_payment_api === "stripe"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.stripe.api_key,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.stripe, "api_key", $$v)
-                                        },
-                                        expression: "stripe.api_key"
-                                      }
-                                    })
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c("b-form-input", {
-                                  directives: [
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "my-1" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "9" } },
+                                [
+                                  _c(
+                                    "b-button",
                                     {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: "'required'"
-                                    }
-                                  ],
-                                  attrs: { id: "input-valid", state: null },
-                                  model: {
-                                    value: _vm.stripe.api_key,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.stripe, "api_key", $$v)
-                                    },
-                                    expression: "stripe.api_key"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Secret")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-input", {
-                                  attrs: { id: "input-valid", state: null },
-                                  model: {
-                                    value: _vm.stripe.api_secrete,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.stripe, "api_secrete", $$v)
-                                    },
-                                    expression: "stripe.api_secrete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Set as default payment API")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-checkbox", {
-                                  attrs: {
-                                    id: "checkbox-1",
-                                    name: "checkbox-1",
-                                    value: "stripe",
-                                    "unchecked-value": ""
-                                  },
-                                  model: {
-                                    value: _vm.default_payment_api,
-                                    callback: function($$v) {
-                                      _vm.default_payment_api = $$v
-                                    },
-                                    expression: "default_payment_api"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "9" } },
-                              [
-                                _c(
-                                  "b-button",
-                                  {
-                                    attrs: { variant: "default" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateDetails()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Update Details")]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "Paypal" } }, [
-                _c(
-                  "div",
-                  { staticClass: "col-lg-9" },
-                  [
-                    _c(
-                      "b-container",
-                      { attrs: { fluid: "" } },
-                      [
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Key")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _vm.default_payment_api === "paypal"
-                                  ? _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
+                                      attrs: { variant: "default" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.updateDetails()
                                         }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.paypal.api_key,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.paypal, "api_key", $$v)
-                                        },
-                                        expression: "paypal.api_key"
                                       }
-                                    })
-                                  : _c("b-form-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required",
-                                          expression: "'required'"
-                                        }
-                                      ],
-                                      attrs: { id: "input-valid", state: null },
-                                      model: {
-                                        value: _vm.paypal.api_key,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.paypal, "api_key", $$v)
-                                        },
-                                        expression: "paypal.api_key"
-                                      }
-                                    })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("API Secret")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-input", {
-                                  attrs: { id: "input-valid", state: null },
-                                  model: {
-                                    value: _vm.paypal.api_secrete,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.paypal, "api_secrete", $$v)
                                     },
-                                    expression: "paypal.api_secrete"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c("b-col", { attrs: { sm: "3" } }, [
-                              _c("label", { attrs: { for: "input-valid" } }, [
-                                _vm._v("Set as default payment API")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "7" } },
-                              [
-                                _c("b-form-checkbox", {
-                                  attrs: {
-                                    id: "checkbox-1",
-                                    name: "checkbox-1",
-                                    value: "paypal",
-                                    "unchecked-value": ""
-                                  },
-                                  model: {
-                                    value: _vm.default_payment_api,
-                                    callback: function($$v) {
-                                      _vm.default_payment_api = $$v
-                                    },
-                                    expression: "default_payment_api"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-row",
-                          { staticClass: "my-1" },
-                          [
-                            _c(
-                              "b-col",
-                              { attrs: { sm: "9" } },
-                              [
-                                _c(
-                                  "b-button",
-                                  {
-                                    attrs: { variant: "default" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateDetails()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Update Details")]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            ],
+                                    [_vm._v("Update Details")]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            }),
             1
           )
         ],
@@ -259455,6 +258538,24 @@ var render = function() {
                 }
               },
               [_vm._v("Roles")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "item" }, [
+            _c(
+              "a",
+              {
+                class: {
+                  active: _vm.active_module_name === "dialer" ? true : false
+                },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.showModulePreferences("dialer", "dialer", null)
+                  }
+                }
+              },
+              [_vm._v("Dialer")]
             )
           ]),
           _vm._v(" "),
@@ -260578,7 +259679,7 @@ var render = function() {
               ? _c(
                   "div",
                   { staticClass: "col-lg-12  user-roles" },
-                  [_c("api-integration")],
+                  [_c("api-integration", { attrs: { apis: _vm.apis } })],
                   1
                 )
               : _vm._e(),
@@ -264441,13 +263542,7 @@ var render = function() {
               "hide-header": "",
               "hide-footer": ""
             },
-            on: {
-              show: _vm.preventClosing,
-              hide: function($event) {
-                return _vm.preventClosing()
-              },
-              ok: _vm.preventClosing
-            }
+            on: { mouseleave: _vm.mouseLeave, hide: _vm.preventClosing }
           },
           [
             _c("div", { staticClass: "final-modal" }, [
