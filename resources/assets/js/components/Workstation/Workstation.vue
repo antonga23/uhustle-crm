@@ -1283,8 +1283,23 @@ a.down-scroll:hover{
 
             var vm = this;
             
-            if( this.role_id == 4 || vm.lead_id != ''){
+            if( ( this.role_id == 4 || this.role_id == 3) && vm.lead_id != ''){
                 vm.enqueueLead(vm.lead_id);
+
+                vm.addEvent(document, "mouseout", function(e) {
+                    e = e ? e : window.event;
+                    var from = e.relatedTarget || e.toElement;
+                    if (!from || from.nodeName == "HTML") {
+                        // stop your drag event here
+                        // for now we can just use an alert
+                        vm.completeCall();
+                    }
+                });
+            }else if(( this.role_id == 4 || this.role_id == 3) && vm.lead_id == '' ){
+                vm.general = false;
+                vm.scripts = false;
+                vm.idle = true;
+                vm.active_calls = false;
             }
             
             if( this.role_id == 1 || this.role_id == 2){
@@ -1335,17 +1350,6 @@ a.down-scroll:hover{
                 vm.scripts = false;
                 vm.idle = true;
                 vm.active_calls = false;
-            });
-
-            vm.addEvent(document, "mouseout", function(e) {
-                e = e ? e : window.event;
-                console.log(e.pageX);
-                var from = e.relatedTarget || e.toElement;
-                if (!from || from.nodeName == "HTML") {
-                    // stop your drag event here
-                    // for now we can just use an alert
-                    vm.completeCall();
-                }
             });
 
             this.Toast = this.$swal.mixin({
