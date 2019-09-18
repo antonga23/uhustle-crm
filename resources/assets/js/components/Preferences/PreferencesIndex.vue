@@ -114,13 +114,16 @@
         <div class="row top-nav">
             <ul class="top-menu">
                 <li class="item">
-                    <a href="#" @click="showModulePreferences('roles');" :class="{ 'active' : ( active_module ===  'roles')? true : false }">Roles</a>
-                </li>
-                <li class="item" v-for="(module, index) in modules" :key="index">
-                    <a href="#" @click="showModulePreferences('edit_module', module);" :class="{ 'active' : ( active_module ===  module.tag)? true : false }">{{ module.display_name }}</a>
+                    <a href="#" @click="showModulePreferences('roles', 'roles', null);" :class="{ 'active' : ( active_module_name ===  'roles')? true : false }">Roles</a>
                 </li>
                 <li class="item">
-                    <a href="#" @click="showModulePreferences('add_new', null);" :class="{ 'active' : ( active_module ===  'add_new')? true : false }" title="Add new section">+ Add New</a>
+                    <a href="#" @click="showModulePreferences('api_integration', 'api_integration', null);" :class="{ 'active' : ( active_module_name ===  'api_integration')? true : false }">API Integration</a>
+                </li>
+                <li class="item" v-for="(module, index) in modules" :key="index">
+                    <a href="#" @click="showModulePreferences(module.tag, 'edit_module', module);" :class="{ 'active' : ( active_module_name ===  module.tag)? true : false }">{{ module.display_name }}</a>
+                </li>
+                <li class="item">
+                    <a role="button" rel="addModuleLink" @click="showModulePreferences('add_module','add_module', null);" :class="{ 'active' : ( active_module_name ===  'add_module')? true : false }" title="Add new Module">+ Add New</a>
                 </li>
             </ul>
 		</div>
@@ -129,10 +132,10 @@
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
-                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module == 'roles'">
+                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_name == 'roles'">
                         <b-card no-body>
                             <b-tabs card>
-                                <b-tab :title="role.display_name" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
+                                <b-tab :title="role.display_name" @click="editRole(role)" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
                                     <div class="row">
                                         <div class="col-lg-3">
                                             <b-button class="btn btn-default" @click="applyPermissions">Apply Permissions</b-button>
@@ -315,11 +318,14 @@
                             </b-tabs>
                         </b-card>
                     </div>
-                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module == 'add_new'">
-                        <module :module="null"/>
+                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'api_integration'">
+                        <api-integration/>
                     </div>
-                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module == 'edit_module'">
-                        <module  :module="editing_module"/>
+                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'add_module'">
+                        <add-module/>
+                    </div>
+                    <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'edit_module'">
+                        <edit-module :module="editing_module"/>
                     </div>
                 </div>
             </div>
@@ -333,7 +339,9 @@
     import DataTable from '../DataTables/UsersDataTable';
     import EditRole from './EditRole';
     import AddRole from './AddRole';
-    import Module from './Module';
+    import AddModule from './AddModule';
+    import EditModule from './EditModule';
+    import ApiIntegration from './ApiIntegration';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -344,11 +352,12 @@
             VclTable,
             EditRole,
             AddRole,
-            Module,
+            AddModule,
+            EditModule,
+            ApiIntegration,
             'datatable' : DataTable
         },
         mounted() {
-            console.log('Component mounted');
             this.current_user = JSON.parse(this.logged_user);
             this.getRoles();
             this.getModules();
@@ -356,8 +365,23 @@
 
             var vm = this;
 
+            Fire.$on('DoneAddingRole', function(){
+                vm.getRoles();
+                vm.getPermissions();
+            });
+
+            Fire.$on('DoneEditingRole', function(){
+                vm.getRoles();
+                vm.getPermissions();
+            });
+
             Fire.$on('DoneAddingModule', function(){
                 vm.getModules();
+            });
+
+            Fire.$on('AfterModuleDelete', function(){
+                vm.getModules();
+                vm.showModulePreferences('add_module','add_module', null);
             });
 
             this.Toast = this.$swal.mixin({
@@ -383,7 +407,8 @@
                 permissions:[],
                 current_user: {},
                 add_user: false,
-                active_module: 'roles',
+                active_module_action: null,
+                active_module_name: 'roles',
                 show_page_loader: false,
                 role_edit: false,
                 role_add: false,
@@ -425,6 +450,7 @@
                     
                     if(response.data.success == true){
                         vm.roles = response.data.roles;
+                        vm.editRole(vm.roles[0]);
                         vm.show_page_loader = false;
                         vm.$Progress.finish();
                     }else{
@@ -488,11 +514,12 @@
                 vm.role_add = true;
                 vm.role_edit = false;
             },
-            showModulePreferences(type, in_module){
+            showModulePreferences(active_module, action, in_module){
+                Fire.$emit(action, { 'module' : in_module });
                 this.editing_module = in_module;
-                this.active_module = type;
+                this.active_module_name = active_module;
+                this.active_module_action = action;
             }
-            
         },
         watch: {
             selected(newVal, oldVal) {

@@ -165,6 +165,7 @@ Route::group(['prefix' => 'modules'], function () {
     Route::get('/get-all', 'ModuleController@index');
     Route::post('/add', 'ModuleController@store');
     Route::post('/update', 'ModuleController@update');
+    Route::get('/destroy/{id}', 'ModuleController@destroy');
     Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
     Route::post('/check-exist', 'ModuleController@checkExist');
 });

@@ -71,13 +71,13 @@
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            title="Update Contact"
+            :title="(user.is_client == 1)? 'Update Contact' : 'Update Lead'"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
             @ok="handleOk"
             >
-                <a-card title="Lead Information">
+                <a-card :title="(user.is_client == 1)? 'Contact Information' : 'Lead Information'">
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -91,7 +91,7 @@
                                 <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Account
+                            <label class="col-lg-4 control-label">Instagram Account
                                 <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email

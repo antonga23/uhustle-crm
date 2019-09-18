@@ -17,7 +17,7 @@
                     <label for="input-none">Module Name:</label>
                     </b-col>
                     <b-col sm="9">
-                        <b-form-input id="input-none" :state="display_name_state" v-model="new_module.display_name" v-validate="'required'" data-vv-name="Module Name"></b-form-input>
+                        <b-form-input id="input-none" :state="display_name_state" v-model="module.display_name" v-validate="'required'" data-vv-name="Module Name"></b-form-input>
                         <span v-show="errors.has('Module Name')" class="help-block">{{ errors.first('Module Name') }}</span>
                     </b-col>
                 </b-row>
@@ -27,13 +27,13 @@
                     <label for="input-valid">Module Description:</label>
                     </b-col>
                     <b-col sm="9">
-                    <b-form-input id="input-valid" :state="null" v-model="new_module.description"></b-form-input>
+                    <b-form-input id="input-valid" :state="null" v-model="module.description"></b-form-input>
                     </b-col>
                 </b-row>
             </b-container>
             <b-container fluid>
                 <b-card-text><b>Module Fields.</b></b-card-text>
-                <b-row class="my-1 add-fields" v-for="(field, index) in new_module.module_fields" :key="index">
+                <b-row class="my-1 add-fields" v-for="(field, index) in module.module_fields" :key="index">
                     <b-col sm="2">
                         <label for="input-none">Field name:</label>
                     </b-col>
@@ -49,16 +49,19 @@
                         <span v-show="errors.has('Field ' + (index + 1) +'\'s Type')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
                     </b-col>
                     <b-col sm="2">
-                        <b-button variant="danger" v-if="(index + 1) < new_module.module_fields.length" @click="removeField(index)">-</b-button>
+                        <b-button variant="danger" v-if="(index + 1) < module.module_fields.length" @click="removeField(index)">-</b-button>
                         <b-button variant="success" v-else @click="addField()">+</b-button>
                     </b-col>
                 </b-row>
             </b-container>
+            <hr>
             <b-container fluid>
                 <b-row class="my-1">
-                    <b-col sm="9">
-                        <b-button variant="success" @click="addModule()" v-if="module === null">Add Module</b-button>
-                        <b-button variant="success" @click="addModule()" v-else>Update Module</b-button>
+                    <b-col sm="2">
+                        <b-button variant="success" @click="editModule()">Update Module</b-button>
+                    </b-col>
+                    <b-col sm="2">
+                        <b-button variant="danger" @click="deleteModule()">Delete Module</b-button>
                     </b-col>
                 </b-row>
             </b-container>
@@ -71,23 +74,7 @@
         components: { 
         },
         mounted() {
-            console.log('Add Module Component mounted');
-
-            if(this.module !== null){
-                this.new_module = this.module;
-            }else{
-                this.new_module = {
-                    display_name: null,
-                    description: null,
-                    module_fields:[
-                        {
-                            id : '',
-                            name : '',
-                            type : null,
-                        }
-                    ]
-                }
-            }
+            console.log('Module Component mounted');
 
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -97,21 +84,11 @@
             });
         },
         created: function () {
+            
         },
         props: ['module'],
         data: function(){
             return {
-                new_module: {
-                    display_name: null,
-                    description: null,
-                    module_fields:[
-                        {
-                            id : '',
-                            name : '',
-                            type : null,
-                        }
-                    ]
-                },
                 types: [
                     { value: null, text: 'Please select' },
                     { value : 'text', text : 'Text'},
@@ -130,7 +107,7 @@
             }
         },
         methods: {
-            addModule(){
+            editModule(){
 				var vm = this;  
 				vm.$Progress.start();
 				this.$validator.validateAll().then((result) => {
@@ -140,17 +117,13 @@
                             
                             vm.display_name_state = true;
 
-                            if(vm.module !== null){
-                                var end_point = '/modules/update';
-                            }else{
-                                var end_point = '/modules/add';
-                            }
+                            var end_point = '/modules/update';
 
-                            axios.post(end_point,this.new_module).then(function (response) {
+                            axios.post(end_point,this.module).then(function (response) {
                                     
                                 if(response.data.success == true){
 
-                                    vm.new_module = response.data.module;
+                                    vm.module = response.data.module;
                                     
                                     Fire.$emit('DoneAddingModule');
                                     vm.$Progress.finish();
@@ -163,8 +136,29 @@
 						}
 				});
             },
+            deleteModule(){
+				var vm = this;  
+                vm.$swal.fire({
+                    title: 'Are you sure?',
+                    text: "All module data will be lost. You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#409EFF',
+                    cancelButtonColor: '#F56C6C',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.get('/modules/destroy/'+this.module.id).then((response) =>{
+                            Fire.$emit('AfterModuleDelete');
+                            vm.Toast.fire({ type: 'success', title: 'Module has been deleted.' });
+                        }).catch(() => {
+                            vm.$swal('Failed', 'Opps, something went wrong, please try again','warning');
+                        });
+                    }
+                });
+            },
             addField(){
-                this.new_module.module_fields.push(
+                this.module.module_fields.push(
                     {
                         id : '',
                         name : '',
@@ -175,7 +169,7 @@
             removeField(index){
                 
                 if (index > -1) {
-                    this.new_module.module_fields.splice(index, 1);
+                    this.module.module_fields.splice(index, 1);
                 }
             }
         }

@@ -6,6 +6,8 @@ use DB;
 use Auth;
 use App\Module;
 use App\ModuleCustomFields;
+use App\ModuleItem;
+use App\ModuleItemMeta;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -123,8 +125,25 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Module $module)
+    public function destroy($id = null)
     {
-        //
+        try{
+            DB::beginTransaction();
+
+            Module::find($id)->delete();
+
+            ModuleCustomFields::where(['module_id' => $id])->delete();
+            
+            ModuleItem::where(['module_id' => $id])->delete();
+
+            ModuleItemMeta::where(['item_id' => $id])->delete();
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Module successfully deleted' );
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
     }
 }
