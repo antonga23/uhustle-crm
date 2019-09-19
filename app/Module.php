@@ -21,7 +21,12 @@ class Module extends Model implements Auditable
    
     public function module_fields()
     {
-        return $this->hasMany(ModuleCustomFields::class, 'module_id');
+        return $this->hasMany(ModuleCustomFields::class, 'module_id','id');
+    }
+   
+    public function winsta_uploads()
+    {
+        return $this->hasMany(WinstaImages::class, 'module_id', 'id');
     }
 
     public function generateTags(): array

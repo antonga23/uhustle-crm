@@ -32,6 +32,8 @@ Route::post('/update-account','UserController@updateAccount');
 Route::get('/get-current-user','UserController@getCurrentUser');
 Route::get('/get-preferences','UserController@getPreferences');
 Route::post('/update-preferences','UserController@updatePreferences');
+Route::get('/delete-file/{id}', 'UserController@deleteFile');
+Route::get('/download-file/{id}', 'UserController@downloadFile');
 
 // App Pages Routes
 Route::get('/workstation', 'PagesController@index')->name('workstation');

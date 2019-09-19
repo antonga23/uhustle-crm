@@ -39,14 +39,14 @@ class LeadController extends Controller
      */
     public function index()
     {
-         $leads = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->orderBy('created_at', 'DESC')->get();
+         $leads = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->orderBy('created_at', 'DESC')->get();
 
          return array('success' => true,'count' => $leads->count(), 'leads' => $leads);
     }
 
     public function getActive()
     {
-         $leads = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')
+         $leads = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')
                         ->where(['status' => 0])
                         ->orderBy('created_at', 'DESC')
                         ->get();
@@ -56,7 +56,7 @@ class LeadController extends Controller
 
     public function getById($id){
 
-         $lead = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->findOrFail($id);
+         $lead = Lead::with('call_backs')->with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->findOrFail($id);
 
          $lead_info = $this->getLeadInfo($id);
 
@@ -76,7 +76,7 @@ class LeadController extends Controller
                         ->with('lead_source')
                         ->with('creator')
                         ->with('user')
-                        ->with('comments')
+                        ->with('comments')->with('winsta_uploads')
                         ->where(['user_assigned' => Auth::user()->id])
                         ->orWhere(['user_created_id' => Auth::user()->id])
                         ->first();
@@ -94,7 +94,7 @@ class LeadController extends Controller
 
     public function getLeadInfo($id = null){
 
-        $lead = Lead::with('call_backs')->with('comments')->findOrFail($id);
+        $lead = Lead::with('call_backs')->with('comments')->with('winsta_uploads')->findOrFail($id);
 
         $activity_log = Activity::where(['source_id' => $id])
                             ->where(['source_type' => 'App\Lead'])
@@ -628,15 +628,15 @@ class LeadController extends Controller
     
             if(is_null($type) || $type == -1){
                 
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 1){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orderBy('updated_at', 'DESC')->get();
     
             }           
             
@@ -657,15 +657,15 @@ class LeadController extends Controller
     
             if(is_null($type) || $type == -1){
                 
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 1){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 0])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 0])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }           
             
@@ -691,15 +691,15 @@ class LeadController extends Controller
 
             if(is_null($type) || $type == -1){
                 
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->with('winsta_uploads')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 1){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orWhereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->where('user_assigned', '=', 0)->orWhereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             }  
             return array(
@@ -716,19 +716,19 @@ class LeadController extends Controller
         }else{
             $count_assigned = Lead::where('user_assigned', '>', 0)->where(['is_client' => 1])->count();    
     
-            $count_unassigned = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->count();
+            $count_unassigned = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->count();
     
             if(is_null($type) || $type == -1){
                 
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 1){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->where('user_assigned', '>', 0)->orderBy('updated_at', 'DESC')->get();
     
             }else if($type == 0){ 
     
-                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
+                $leads = Lead::with('product')->with('lead_source')->with('creator')->with('user')->with('comments')->with('winsta_uploads')->where(['is_client' => 1])->whereNull('user_assigned')->orderBy('updated_at', 'DESC')->get();
     
             } 
 

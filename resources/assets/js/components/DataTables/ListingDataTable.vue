@@ -153,6 +153,19 @@
                         </a-list-item>
                     </a-list>
                 </a-card>
+                <a-card :title="'File Uploads: ' + user.winsta_uploads.length " style="margin-top:20px" class="uploaded-files">
+                    <div  v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
+                        <a @click="downloadFile(upload.id)">
+                            <b-alert v-if="index % 2 == 0" variant="success"  show>
+                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
+                            </b-alert>
+                            <b-alert v-else show>
+                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
+                            </b-alert>
+                        </a>
+                        <b-button class="Delete" @click="deleteFile(upload.id, index)"></b-button>
+                    </div>
+                </a-card>
             </b-modal>
         </div>
         <!-- Modal -->
@@ -234,6 +247,7 @@ export default {
                 title: '',
                 country: '',
                 city: '',
+                winsta_uploads: [],
                 comments: [],
                 assigned: [],
             },
@@ -249,6 +263,7 @@ export default {
             claim: '',
             claim_items: '',
             Toast: '',
+            winstaUpload: '/images/winsta-uploads/'
         }
     },
     methods: {
@@ -329,6 +344,50 @@ export default {
                         }
                     });
                 }
+            });
+        },
+        deleteFile(id, index){
+            var vm = this;  
+            vm.$swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F56C6C',
+                cancelButtonColor: '#409EFF',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    vm.$Progress.start();
+                    axios.get('/delete-file/' + id).then(function (response) {
+                        if(response.data.success == true){
+                            vm.Toast.fire({ type: 'success', title: response.data.message });
+                            vm.user.winsta_uploads.splice(index, 1);
+                            vm.$Progress.finish();
+                        }else{
+                            vm.$Progress.fail();
+                            vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
+                        }
+                    });
+                }
+            });
+        },
+        downloadFile(id, index){
+            var vm = this;  
+            // axios({
+            //     url: '/download-file/' + id,
+            //     method: 'GET',
+            //     responseType: 'blob', // important
+            // }).then((response) => {
+            //     const url = window.URL.createObjectURL(new Blob([response.data]));
+            //     const link = document.createElement('a');
+            //     link.href = url;
+            //     link.setAttribute('download'); //or any other extension
+            //     document.body.appendChild(link);
+            //     link.click();
+            // });
+            axios.get('/download-file/' + id).then(function (response) {
+                window.open('/download-file/' + id);
             });
         },
         nextPage() {
@@ -535,6 +594,15 @@ table tr td a.View:active{
     background-size: 36px 35px;
     background-repeat: no-repeat;
 }
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    width: 100%;
+    float: left;
+}
 table tr td a.Delete{
     background-image: url('/images/DataTables/Delete_Icon.svg');
     background-size: 36px 35px;
@@ -544,6 +612,34 @@ table tr td a.Delete:hover,
 table tr td a.Delete:active{
     background-image: url('/images/DataTables/Delete_Icon_Active.svg');
     background-size: 36px 35px;
+    background-repeat: no-repeat;
+}
+.uploaded-files a{
+    display: flex;
+    width: 90%;
+    float: left;
+}
+.uploaded-files .Delete{
+    background-color: transparent;
+    border: none;
+    width: 49px;
+    height: 46px;
+    margin: 0;
+    box-shadow: none;
+    background-image: url('/images/DataTables/Delete_Icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.uploaded-files .Delete:hover,
+.uploaded-files .Delete:active{
+    background-color: transparent;
+    border: none;
+    width: 49px;
+    height: 46px;
+    margin: 0;
+    box-shadow: none;
+    background-image: url('/images/DataTables/Delete_Icon_Active.svg');
+    background-size: cover;
     background-repeat: no-repeat;
 }
 table tr td a.Edit{

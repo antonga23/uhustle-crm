@@ -69,5 +69,10 @@ class Lead extends Model
     public function comments()
     {
         return $this->hasMany('App\Comment', 'source_id', 'id');
+    }   
+
+    public function winsta_uploads()
+    {
+        return $this->hasMany(WinstaUploads::class, 'module_id', 'id');
     }
 }
