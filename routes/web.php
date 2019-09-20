@@ -11,12 +11,35 @@
 |
 */
 
+use App\Lead;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home', function () {
     return redirect('/workstation');
+});
+
+Route::get('/update-leads', function(){
+	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->get();
+
+	try{
+		DB::beginTransaction();
+		foreach ($leads as $key => $value) {
+			Lead::find($value->id)->update([
+				'user_assigned' => 53,
+				'user_created_id' => 53,
+			]);
+		}
+		DB::commit();
+
+		echo 'Done';
+	}catch(\QueryException $e){
+		DB::rollback();
+		return array('success' =>false, 'message' => $e->getMessage());
+	}
+
 });
 
 Route::post('/api-request', 'GuzzleController@index')->name('api-request');
