@@ -22,7 +22,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/update-leads', function(){
-	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->get();
+	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->orWhereIn('user_assigned', [25, 23, 16])->get();
 
 	try{
 		DB::beginTransaction();
