@@ -1684,7 +1684,7 @@ a.down-scroll:hover{
                             });
                         }else{
                             Fire.$emit('ShowGeneral');
-                            vm.$refs['final-call-step'].show();
+                            // vm.$refs['final-call-step'].show();
                             vm.$Progress.finish();
                             vm.show_page_loader = true;
                         }
