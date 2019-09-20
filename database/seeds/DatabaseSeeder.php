@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(LeadsTableSeeder::class);
         // $this->call(ClientsTableSeeder::class);
         // $this->call(SystemSettingsSeeder::class);
-        // $this->call(ModuleTableSeeder::class);
-        // $this->call(PermissionsTableSeeder::class);
+        $this->call(ModuleTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
         $this->call(ApiIntegrationTableSeeder::class);
 
     }

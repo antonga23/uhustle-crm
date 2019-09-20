@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Role;
 use App\Permissions;
+use App\DialerPermissions;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -61,6 +62,13 @@ class RoleController extends Controller
                 'status' => $status
             ]);
 
+            DialerPermissions::create([
+                'role_id' => $role->id,
+                'disabled' => 1,
+                'barge' => 1,
+                'whisper' => 1,
+            ]);
+            
             DB::commit();
             return array('success' => true, 'message' => 'User role has been created.');
 
@@ -115,6 +123,11 @@ class RoleController extends Controller
 
     public function getPermissions(){
         $permissions = Permissions::get();
+        return array('success' => true, 'permissions' => $permissions);
+    }
+
+    public function getDialerPermissions(){
+        $permissions = DialerPermissions::get();
         return array('success' => true, 'permissions' => $permissions);
     }
 

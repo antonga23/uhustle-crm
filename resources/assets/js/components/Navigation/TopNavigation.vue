@@ -205,11 +205,6 @@
 
 			this.month = d.getMonth() + 1;
 
-			if(this.active == 'workstation' && ( this.current_user.role_id == 1 || this.current_user.role_id == 2  || this.current_user.role_id == 3 ) ){
-				this.active_calls = true;
-				this.showActiveCalls();
-			}
-
 			this.Toast = this.$swal.mixin({
 				toast: true,
 				position: 'top-end',
@@ -254,7 +249,8 @@
 			var vm = this;
 			Fire.$on('AfterLeadEnqueue', function(data){
                 vm.lead_id = data.lead_id;
-                vm.phone_number = data.contact_number;
+				vm.phone_number = data.contact_number;
+				vm.general_active = true;
 			});
 
 			Fire.$on('InitiateCall', function(){
@@ -273,6 +269,11 @@
 				vm.scripts_active = false;
 				vm.dialer_active = false;
 				vm.active_calls_active = false;
+			});
+
+			Fire.$on('ShowActiveCalls', function(){
+				vm.active_calls = true;
+				vm.showActiveCalls();
 			});
 
 		},

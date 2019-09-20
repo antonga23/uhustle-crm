@@ -36,11 +36,11 @@
                 </b-col>
             </b-row>
 
-            <b-row class="my-1">
+            <!-- <b-row class="my-1">
                 <b-col sm="9">
                     <b-button variant="default" @click="updateRole()">Update Role</b-button>
                 </b-col>
-            </b-row>
+            </b-row> -->
         </b-container>
     </div>
 </template>
@@ -51,6 +51,11 @@
         },
         mounted() {
             console.log('Component mounted');
+
+            Fire.$on('UpdateRole', (data) => {
+                this.updateRole();
+                console.log(data);
+            });
 
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -90,10 +95,10 @@
                                 if(response.data.success == true){
 
                                     vm.role = response.data.role;
+                                    vm.$Progress.finish();
+                                    // vm.Toast.fire({ type: 'success', title: response.data.message });
                                     
                                     Fire.$emit('DoneEditingRole');
-                                    vm.$Progress.finish();
-                                    vm.Toast.fire({ type: 'success', title: response.data.message });
                                 }else {
                                     vm.$Progress.fail();
                                     vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');

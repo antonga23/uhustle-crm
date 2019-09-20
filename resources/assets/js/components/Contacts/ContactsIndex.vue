@@ -316,6 +316,7 @@ table.listing tr  th{
                                 <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
+                            
                             <label class="col-lg-4 control-label" v-if="current_user.role_id == 4">Owner
                                 <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
                                     <option value="">- Please Choose Lead Owner </option>

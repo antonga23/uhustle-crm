@@ -151,7 +151,7 @@ class StoredFilterController extends Controller
         }
         }
 
-        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
             ->whereRaw($sql)
             ->where(['is_client' => $type])
             ->orderBy('updated_at', 'DESC')
@@ -197,7 +197,7 @@ class StoredFilterController extends Controller
 
             $count_assigned = Lead::where(['is_client' => $type])->where(['user_assigned' => Auth::user()->id])->count();    
     
-            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
                     ->whereRaw($sql)
                     ->where(['user_assigned' => Auth::user()->id])
                     ->where(['is_client' => $type])
@@ -219,7 +219,7 @@ class StoredFilterController extends Controller
     
             $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => $type])->count();
             
-            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
                                 ->whereRaw($sql)
                                 ->where(['is_client' => $type])
                                 ->orderBy('updated_at', 'DESC')
@@ -277,7 +277,7 @@ class StoredFilterController extends Controller
 
             $count_assigned = Lead::where(['is_client' => 1])->where(['user_assigned' => Auth::user()->id])->count();    
     
-            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
                     ->whereRaw($sql)
                     ->where(['user_assigned' => Auth::user()->id])
                     ->where(['is_client' => 1])
@@ -299,7 +299,7 @@ class StoredFilterController extends Controller
     
             $count_unassigned = Lead::whereNull('user_assigned')->where(['is_client' => 1])->count();
             
-            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+            $leads = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
                                 ->whereRaw($sql)
                                 ->where(['is_client' => 1])
                                 ->orderBy('updated_at', 'DESC')
@@ -395,7 +395,7 @@ class StoredFilterController extends Controller
             }
         }
 
-        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')
+        $counts = Lead::with('product')->with('lead_source')->with('creator')->with('comments')->with('winsta_uploads')
             ->whereRaw($sql)
             ->where(['is_client' => $type])
             ->orderBy('updated_at', 'DESC')

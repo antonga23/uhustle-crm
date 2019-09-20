@@ -153,10 +153,10 @@
                         </a-list-item>
                     </a-list>
                 </a-card>
-                <a-card :title="'File Uploads: ' + user.winsta_uploads.length " style="margin-top:20px" class="uploaded-files">
-                    <div  v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
+                <a-card :title="'File Uploads: ' + user.winsta_uploads.length" style="margin-top:20px" class="uploaded-files">
+                    <div v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
                         <a @click="downloadFile(upload.id)">
-                            <b-alert v-if="index % 2 == 0" variant="success"  show>
+                            <b-alert v-if="index % 2 == 0" variant="success" show>
                                 {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
                             </b-alert>
                             <b-alert v-else show>
@@ -282,6 +282,7 @@ export default {
         },
         showEditModal(user){
             var vm = this;
+            console.log(user);
             this.user = user;
             this.user.source = user.lead_source;
             this.$bvModal.show('update-user-modal');

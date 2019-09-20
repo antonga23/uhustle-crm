@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('disable_back');
+@section('disable_back')
 	@if(Auth::user()->role_id > 1 && $has_interaction === false)
 		<script type="text/javascript" >
 			function preventBack(){

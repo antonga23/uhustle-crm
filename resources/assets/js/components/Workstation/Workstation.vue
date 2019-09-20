@@ -1283,29 +1283,28 @@ a.down-scroll:hover{
 
             var vm = this;
             
-            if( ( this.role_id == 4 || this.role_id == 3) && vm.lead_id != ''){
+            if( vm.lead_id != ''){
                 vm.enqueueLead(vm.lead_id);
+                vm.general = true;
+                vm.active_calls = false;
 
-                vm.addEvent(document, "mouseout", function(e) {
-                    e = e ? e : window.event;
-                    var from = e.relatedTarget || e.toElement;
-                    if (!from || from.nodeName == "HTML") {
-                        // stop your drag event here
-                        // for now we can just use an alert
-                        vm.completeCall();
-                    }
-                });
-            }else if(( this.role_id == 4 || this.role_id == 3) && vm.lead_id == '' ){
+                // vm.addEvent(document, "mouseout", function(e) {
+                //     e = e ? e : window.event;
+                //     var from = e.relatedTarget || e.toElement;
+                //     if (!from || from.nodeName == "HTML") {
+                //         // stop your drag event here
+                //         // for now we can just use an alert
+                //         vm.completeCall();
+                //     }
+                // });
+            }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){
+                vm.active_calls = true;
+                Fire.$emit('ShowActiveCalls');
+            }else{
                 vm.general = false;
                 vm.scripts = false;
                 vm.idle = true;
                 vm.active_calls = false;
-            }else if(( this.role_id == 1 || this.role_id == 2) && vm.lead_id != ''){
-                vm.enqueueLead(vm.lead_id);
-            }
-            
-            if( this.role_id == 1 || this.role_id == 2){
-                vm.active_calls = true;
             }
             
             vm.getActiveCalls();
@@ -1607,14 +1606,11 @@ a.down-scroll:hover{
             },
             enqueueLead(lead_id = ''){
                 var vm = this;
-                var end_point_choice = '';
-                if(lead_id != ''){
-                    end_point_choice = '/leads/get/' + lead_id;
-                }else{
-                    end_point_choice = '/leads/enqueue';
-                }
+
+                var end_point_choice = '/leads/get/' + lead_id;
               
                 vm.show_page_loader = true;
+
                 vm.$Progress.start();
 
                 axios.get(end_point_choice).then(function (response) {
@@ -1630,8 +1626,11 @@ a.down-scroll:hover{
                         vm.comment.comment_type = '';
                         vm.added_time = false;
                         vm.continues = false;
-                        // vm.show_page_loader = false;
+                        
                         Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
+
+                        vm.show_page_loader = false;
+                        vm.$Progress.finish();
 
                         if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){ 
                             axios.get('/calls/token').then(function (response) {
@@ -1682,12 +1681,8 @@ a.down-scroll:hover{
                             }).catch(function (error) {                    
                                 console.log(error);
                             });
-                        }else{
-                            Fire.$emit('ShowGeneral');
-                            // vm.$refs['final-call-step'].show();
-                            vm.$Progress.finish();
-                            vm.show_page_loader = true;
                         }
+
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
