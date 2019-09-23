@@ -472,6 +472,13 @@ table.listing tr  th{
                 Toast: null,
                 columns:[
                     {
+                        label: '',  // Column name
+                        field: 'all',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                    {
                         label: 'FULL NAME',  // Column name
                         field: 'full_name',  // Field name from row
                         numeric: false, // Affects sorting

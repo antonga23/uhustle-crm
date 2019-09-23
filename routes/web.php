@@ -21,9 +21,9 @@ Route::get('/home', function () {
     return redirect('/workstation');
 });
 
-Route::get('/update-leads', function(){
+Route::get('/update-leads',  function(){
 	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->orWhereIn('user_created_id', [25, 23, 16])->get();
-
+	$user = User::whereIn()->get();
 	try{
 		DB::beginTransaction();
 		foreach ($leads as $key => $value) {
@@ -143,6 +143,7 @@ Route::group(['prefix' => 'leads'], function () {
     Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
+	Route::post('mass-assign', 'LeadController@massAssign');
 });
 
  // Filters Routes 

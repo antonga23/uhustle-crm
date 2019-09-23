@@ -799,4 +799,31 @@ class LeadController extends Controller
         );
     }
 
+    public function massAssign(Request $request){
+        $data = $request->all();
+        
+        try{
+            DB::beginTransaction();
+            foreach ( $data['lead_ids'] as $key => $value) {
+                if( !is_null($data['user_assigned'])){
+                    $lead = Lead::find($value)->update([
+                        'user_assigned' => $data['user_assigned'],
+                    ]);
+                }
+                
+                if( !is_null($data['lead_owner'])){
+                    $lead = Lead::find($value)->update([
+                        'user_created_id' => $data['lead_owner'],
+                    ]);
+                }
+            }
+            DB::commit();
+            return array('success' => true, 'message' => 'Leads successfully assigned');
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
+    }
+
 }
