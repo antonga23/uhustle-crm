@@ -70432,6 +70432,16 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
+        label: 'LAST ACTIVITY',
+        // Column name
+        field: 'last_activity',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
         label: 'STATUS',
         // Column name
         field: 'status',
@@ -73403,6 +73413,16 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       Toast: null,
       columns: [{
+        label: '',
+        // Column name
+        field: 'all',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: false
+      }, {
         label: 'FULL NAME',
         // Column name
         field: 'full_name',
@@ -73487,6 +73507,16 @@ __webpack_require__.r(__webpack_exports__);
         label: 'DAYS REMAINING',
         // Column name
         field: 'days_remaining',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'LAST ACTIVITY',
+        // Column name
+        field: 'last_activity',
         // Field name from row
         numeric: true,
         // Affects sorting

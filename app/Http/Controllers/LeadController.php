@@ -766,6 +766,12 @@ class LeadController extends Controller
             }else if($lead->status == 0){
                 $status = 'Canceled';
             }
+            
+            if(!is_null($last_activity['updated_at']) || $last_activity['updated_at'] != ''){
+                $last_activity_var = date("Y-m-d H:i:s",strtotime($last_activity['updated_at']));
+            }else{
+                $last_activity_var = '-';
+            }
 
             $data->id = $lead->id;
             $data->full_name = $lead->title . ' ' . $lead->name . ' ' . $lead->surname;
@@ -775,7 +781,7 @@ class LeadController extends Controller
             $data->phone_number = $lead->phone_number ;
             $data->product = $lead->product['name'] ;
             $data->source = $lead->lead_source['name'] ;
-            $data->last_activity =   $last_activity['updated_at'];
+            $data->last_activity = $last_activity_var;
             $data->activity = $last_activity['comment_type'] ;
             $data->activity_note = $last_activity['description'] ;
             $data->start_date = $lead->start_date ;

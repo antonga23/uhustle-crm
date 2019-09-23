@@ -543,6 +543,13 @@ table.listing tr  th{
                         sortable:true
                     },
                     {
+                        label: 'LAST ACTIVITY',  // Column name
+                        field: 'last_activity',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
                         label: 'STATUS',  // Column name
                         field: 'status',  // Field name from row
                         numeric: false, // Affects sorting
