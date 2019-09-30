@@ -240,7 +240,7 @@
               <div class="card-body">
 
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Calls
                 </p>
 
@@ -256,7 +256,7 @@
               <div class="card-body">
 
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Sales
                 </p>
 
@@ -272,7 +272,7 @@
               <div class="card-body">
 
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Sales Amount
                 </p>
 
@@ -288,7 +288,7 @@
               <div class="card-body">
 
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Callbacks
                 </p>
 
@@ -303,7 +303,7 @@
             <div class="card ave-time">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Ave. Time
                 </p>
 
@@ -318,7 +318,7 @@
             <div class="card con-ratio">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Conversion Ratio
                 </p>
 
@@ -333,7 +333,7 @@
         <hr style="margin-bottom: 2%;">
         <div class="row stats">
             <div class="col-lg-12">
-                <div class="left" style="text-align: left;">
+                <div class="left text-left">
                     <div class="card-body" style="padding-bottom: 18px;">
                         <ul class="headings">
                             <li>NAME</li>
@@ -350,7 +350,7 @@
         </div>
         <div :class="{ 'row stats': true, 'scroll-hidden' : call_log.call_history.length > 8 }" v-if="call_log.call_history.length > 0">
             <div class="col-lg-12" v-for="(item,index) in call_log.call_history" :key="index">
-                <div class="card left" style="text-align: left;">
+                <div class="card left text-left">
                     <div class="card-body" style="padding-bottom: 12px;">
                         <ul class="items">
                             <li><a href="#">{{ item.lead_name }}</a></li>
@@ -369,10 +369,10 @@
             </div>
         </div>
         <div class="row stats"  v-else>
-            <div class="card left" style="width: 100%;">
+            <div class="card left w-100">
                 <div class="card-body" style="padding-bottom: 12px;">
                     <ul class="items">
-                        <li colspan="7" style="text-align:center;width: 100%;">Your call history is empty</li>
+                        <li colspan="7" class="text-center w-100">Your call history is empty</li>
                     </ul>
                 </div>
             </div>

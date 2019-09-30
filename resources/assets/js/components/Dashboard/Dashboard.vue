@@ -257,8 +257,8 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2"  style="text-align: center;padding-top: 35px;">
-            <h1 class="card-text" style="color: #fff;font-size: 65px;font-weight: 900;margin-bottom: 0;">
+          <div class="col-lg-2 text-center"  style="padding-top: 35px;">
+            <h1 class="card-text mb-0" style="color: #fff;font-size: 65px;font-weight: 900;">
                   11 / 10
             </h1>
 
@@ -270,9 +270,9 @@
         </div>
         <div class="row stats">
             <div class="col-lg-6" >
-                <div class="card left" style="text-align: left;">
+                <div class="card left text-left">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: left;">
+                        <h5 class="card-title text-left">
                             <img src="/images/icons/Feedback summary icon@4x.png" alt="Icon" class="icon" />
                             <span class="left">Feedback Summary</span>
                             <span class="right">23 Review(s)</span>

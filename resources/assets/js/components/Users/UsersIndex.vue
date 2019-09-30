@@ -292,7 +292,7 @@ table.listing tr  th{
               <div class="card-body">
 
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                     All
                 </p>
 
@@ -307,7 +307,7 @@ table.listing tr  th{
             <div class="card call-backs">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                     Admin
                 </p>
 
@@ -322,7 +322,7 @@ table.listing tr  th{
             <div class="card sales-amount">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                     Account Managers
                 </p>
 
@@ -337,7 +337,7 @@ table.listing tr  th{
             <div class="card ave-time">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Team Leaders
                 </p>
 
@@ -352,7 +352,7 @@ table.listing tr  th{
             <div class="card con-ratio">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Agents
                 </p>
 
@@ -375,7 +375,7 @@ table.listing tr  th{
         </div>
         <div v-else>
               <a-card title="Add User"   style="overflow-y: scroll;height: 380px;">
-                <div style="margin-top: 20px;width: 100% !important;" >
+                <div class="w-100" style="margin-top: 20px;" >
                     <div :class="{'input': true, 'form-group' :true }">
                         <label class="col-lg-12 control-label">Role
                             <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">

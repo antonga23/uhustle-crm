@@ -484,19 +484,19 @@ label.custom-control-label{
 				<div>
 					<div class="row">
 		                <nav class="navbar navbar-expand-md navbar-light bg-white">
-		                    <div style="padding-left: 12px;padding-right: 18px;width: 100%;">
+		                    <div class="w-100" style="padding-left: 12px;padding-right: 18px;">
 		                        <div class="collapse navbar-collapse" id="">
 		                            <!-- Right Side Of Navbar -->
 		                            <ul class="navbar-nav pull-left">
 		                                <li class="nav-item">
-		                                    <a class="nav-link icon" href="#" @click="showNotifications()" style="padding: 0;">
+		                                    <a class="nav-link icon p-0" href="#" @click="showNotifications()">
 		                                    	<img v-if="notifications_on == true" src="/images/icons/Notification_active.svg" alt="Notification Bell" width="50">
 		                                    	<img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/Notification.svg" alt="Notification Bell" width="50">
 		                                    	<img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/Notification_new.svg" alt="Notification Bell" width="50">
 		                                    </a>
 		                                </li>
 		                                <li class="nav-item">
-		                                    <a class="nav-link icon" href="#" @click="showSettings()" style="padding-right: 0;">
+		                                    <a class="nav-link icon pr-0" href="#" @click="showSettings()">
 		                                    	<img v-if="settings_on == false" src="/images/icons/Asset 62.svg" alt="Settings Cog" width="50">
 		                                    	<img v-else src="/images/icons/Asset 63.svg" alt="Settings Cog" width="50">
 		                                    </a>
@@ -534,9 +534,9 @@ label.custom-control-label{
 						</h3>
 						<p class="description" title="Personal Information">Personal Information</p>
 					    <transition-expand>
-							<div v-if="expanded == true && profile_on == true" style="margin-top: 20px;width: 100% !important;" >
+							<div v-if="expanded == true && profile_on == true" class="w-100" style="margin-top: 20px;" >
 								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-									<label class="col-lg-12 control-label" style="float:left;text-align: center;">
+									<label class="col-lg-12 control-label text-center" style="float:left;">
 										<img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" style="border-radius:50%;width: 27%;">
 										<img v-else :src="noImageUrl" style="border-radius:50%;width: 27%;">
 										<div>
@@ -602,7 +602,7 @@ label.custom-control-label{
 						</h3>
 						<p class="description" title="Personal Information">Account Information</p>
 					    <transition-expand>
-							<div v-if="expanded == true && account_on == true" style="margin-top: 20px;width: 100%;" >
+							<div v-if="expanded == true && account_on == true" class="w-100" style="margin-top: 20px;" >
 								<div :class="{'input': true, 'form-group' :true }">
 									<label class="col-lg-12 control-label">
 										Notifications
@@ -652,7 +652,7 @@ label.custom-control-label{
 						</h3>
 						<p class="description" title="Personal Information">General System Preferences</p>
 					    <transition-expand>
-							<div v-if="expanded == true && system_settings_on == true" style="margin-top: 20px;width: 100%;" >
+							<div v-if="expanded == true && system_settings_on == true" class="w-100" style="margin-top: 20px;" >
 								<div class="row" v-if="user.role_id == 1">
 									<h3>
 										Settings 
@@ -680,20 +680,20 @@ label.custom-control-label{
 									<h3>
 										Themes 
 									</h3>
-									<div v-for="(setting, index) in preferences" :key="index" style="width: 100%;">
+									<div v-for="(setting, index) in preferences" :key="index" class="w-100;">
 										<div v-if="setting.setting == 'theme' && setting.system_setting != 1">
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" class="w-100 m-0">
 													Orange
 												</button>
 											</label>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" class="w-100 m-0">
 													Blue
 												</button>
 											</label>
 											<label class="col-lg-3 control-label">
-												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" class="w-100 m-0">
 													Red
 												</button>
 											</label>
@@ -704,20 +704,20 @@ label.custom-control-label{
 									<h3>
 										Themes 
 									</h3>
-									<div style="width: 100%;">
+									<div class="w-100">
 										<div>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" class="w-100 m-0">
 													Orange
 												</button>
 											</label>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-default' : true }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-default' : true }" class="w-100 m-0">
 													Blue
 												</button>
 											</label>
 											<label class="col-lg-3 control-label">
-												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-default' :  true }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'theme', value  : 'red'})" type="submit" :class="{ 'btn red-btn': true, 'btn-default' :  true }" class="w-100 m-0">
 													Red
 												</button>
 											</label>
@@ -728,15 +728,15 @@ label.custom-control-label{
 									<h3>
 										Language 
 									</h3>
-									<div v-for="(setting, index) in preferences" :key="index" style="width: 100%;">
+									<div v-for="(setting, index) in preferences" :key="index" class="w-100">
 										<div v-if="setting.setting == 'language' && setting.system_setting != 1">
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" class="w-100 m-0">
 													English
 												</button>
 											</label>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" class="w-100 m-0">
 													Spanish
 												</button>
 											</label>
@@ -747,15 +747,15 @@ label.custom-control-label{
 									<h3>
 										Language 
 									</h3>
-									<div style="width: 100%;">
+									<div class="w-100">
 										<div>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="w-100 m-0">
 													English
 												</button>
 											</label>
 											<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" style="width: 100%; margin: 0px;">
+												<button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" class="w-100 m-0">
 													Spanish
 												</button>
 											</label>
@@ -774,17 +774,17 @@ label.custom-control-label{
 				</div>
 				<div v-if="notifications_on == true" class="notifications">
 					<div class="row">
-						<h2 style="width: 100%;">
+						<h2 class="w-100">
 							Notifications 
 						</h2>
-						<div style="margin-top: 20px;width: 100%;" >
+						<div class="w-100" style="margin-top: 20px;" >
 							<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" style="width: 100%; margin: 0px;">
+								<button @click="showCallbacks"  type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0">
 	                                Callbacks
 	                            </button>
 							</label>
 							<label @click="showMessages" class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-								<button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" style="width: 100%; margin: 0px;">
+								<button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0">
 	                                Messages
 	                            </button>
 							</label>
@@ -845,9 +845,9 @@ label.custom-control-label{
 					</div>
 				</div>
 				<div v-if="notifications_on == false && settings_on == false">
-					<div class="row" style="padding: 0;margin-top: 35px;">
+					<div class="row p-0" style="margin-top: 35px;">
 						<div class="col-lg-12">
-							<div class="row" style="padding: 0;">
+							<div class="row p-0">
 								<div class="col-lg-12">
 									<p style="font-weight: 900;">Monthly Target <span class="monthly-target">65%</span></p>
 									<div class="progress-bar">
@@ -921,7 +921,7 @@ label.custom-control-label{
 											</div>
 											<div class="col-lg-12">
 												
-												<div class="position" style="display:none;">
+												<div class="position d-none">
 													<span>12<sup>th</sup></span>
 												</div>
 
@@ -956,14 +956,14 @@ label.custom-control-label{
 													</div>
 													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<button v-on:click="fireTableEvent('Print')" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+															<button v-on:click="fireTableEvent('Print')" type="submit" class="btn btn-default m-0" style="width: 90%;">
 																Print
 															</button>
 														</div>
 													</div>
 													<div class="col-lg-6">
 														<div :class="{'input': true, 'form-group' :true }">
-															<button v-on:click="fireTableEvent('Export')" type="submit" class="btn btn-default" style="width: 90%; margin: 0px;">
+															<button v-on:click="fireTableEvent('Export')" type="submit" class="btn btn-default m-0" style="width: 90%;">
 																Export
 															</button>
 														</div>
@@ -1030,12 +1030,12 @@ label.custom-control-label{
 													<div class="col-lg-12" style="margin-top:17px">
 														<div :class="{'input': true, 'form-group' :true }">
 															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-																<button v-on:click="filterData()" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+																<button v-on:click="filterData()" type="submit" class="btn btn-default w-100 m-0">
 																	Apply
 																</button>
 															</label>
 															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
-																<button v-on:click="clearFilter();" type="submit" class="btn btn-default" style="width: 100%; margin: 0px;">
+																<button v-on:click="clearFilter();" type="submit" class="btn btn-default w-100 m-0">
 																	Clear
 																</button>
 															</label>
@@ -1048,7 +1048,7 @@ label.custom-control-label{
 																			<span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
 																		</td>
 																		<td>
-																			<button v-on:click="saveFilter" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" style="width: 100%; margin: 0px;">
+																			<button v-on:click="saveFilter" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" class="w-100 m-0">
 																				Save
 																			</button>
 																		</td>

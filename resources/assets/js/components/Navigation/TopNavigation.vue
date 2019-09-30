@@ -131,7 +131,7 @@
 	<div>
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
 			<!-- Left navbar links -->
-			<div class="row" style="width: 100%;">
+			<div class="row w-100">
 				<div class="col-lg-7">
 					<ul class="navbar-nav left">
 						<li class="nav-item d-none d-sm-inline-block title">
@@ -176,7 +176,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-lg-5" style="padding-right: 0"  v-if="active == 'workstation'">
+				<div class="col-lg-5 pr-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav pull-right">
 						<li class="nav-item d-none d-sm-inline-block">
 							<a href="#" class="nav-link search">

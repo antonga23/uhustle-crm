@@ -296,7 +296,7 @@ table.listing tr  th{
         </div>
         <div v-else>
               <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
-                <div style="margin-top: 20px;width: 100% !important;" >
+                <div class="w-100" style="margin-top: 20px;" >
                     <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
                                 <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">

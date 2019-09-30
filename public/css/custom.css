@@ -27,32 +27,26 @@
   }
   
   .container {
-        max-width: 100%;
+      max-width: 100%;
     }
 .left-side{
-    height: 100vh;
-    background-image: url('/images/Sign_In/Assests/Image_Edited.png');
+    background-image: url('/images/Sign_In/Assests/uhustle-login_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding-right: 0px !important;
-    max-width: 63.666667% !important;
+    background-position: left top;
 }
-.right-side{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-}
-.navbar .container {
-    padding: 0;
+.left-side img {
+  max-width:70%;
+  height:auto;
+  position: absolute;
+  top: 39%;
+  left: 15%;
 }
 #top-landing-logo {
-    margin: 0;
     width: 30%;
 }
-.nav-item .nav-link{
-
-}
 #navbarSupportedContent{
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid #f4f4f4;
     padding-bottom: 6px;
 }
 #sign-in-watermark{
@@ -60,17 +54,15 @@
     margin: 28% auto 0 auto;
     display: block;
 }
-.auth-buttons .btn{
-    width: 43%;
-}
 .btn{
     margin: 9px;
     border-radius: 5px !important;
 }
 .auth-buttons .col-lg-7{
     max-width: 374px;
-    margin: 23% auto 45px auto;
-    padding: 0;
+}
+.auth-buttons a{
+  font-family: 'Cormorant', serif;
 }
 .btn-primary {
     color: #fff;
@@ -93,8 +85,8 @@
 
 .close {
     position: absolute;
-      right: -13px;
-      top: -3px;
+    right: -13px;
+    top: -3px;
     width: 32px;
     height: 32px;
     opacity: 0.3;
@@ -222,7 +214,142 @@
   cursor: pointer;
 }
 .filter-card strong{
-      margin-left: 29px;
+  margin-left: 29px;
 }
+/*auth nav styling*/
+#auth .navbar-nav.ml-auto li a{
+  font-weight: 300;
+  color: rgba(1,52,73,0.5)!important;
+}
+/*end auth nav styling*/
+/*auth buttons styling*/
+.activeBtn{
+  border-bottom: 1px solid #faba00!important;
+  border-radius: 0!important;
+  color: #013449!important;
+}
+.inactiveBtn{
+  color: rgba(1,52,73,0.5)!important;
+}
+/*end auth buttons styling*/
 
+/*login right sidebar*/
+.right-side .col-10 .auth-buttons.login{
+  margin-top:35%;
+}
+.login .btn-primary{
+  font-family: 'Cormorant', serif;
+}
+@media screen and (min-width: 1440px) {
+  .right-side .col-10 .auth-buttons.login{
+    margin-top:65%;
+  }
+}
+.right-side .col-10 .login, .right-side .col-10 .register{
+  max-width:310px;
+}
+/*register right sidebar*/
+.right-side .col-10 .auth-buttons.register{
+  margin-top:10%;
+}
+@media screen and (min-width:1440px) {
+  .right-side .col-10 .auth-buttons.register{
+    margin-top:40%;
+  }
+}
+/*Register stepper*/
+.stepper-step p {
+  margin-top: 0px;
+  color:#666;
+}
+.stepper {
+  display: table;
+  max-width:300px;
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+}
+.stepper-row {
+  display: table-row;
+}
+.stepper-step button[disabled] {
+  /*opacity: 1 !important;
+  filter: alpha(opacity=100) !important;*/
+}
+.stepper .btn.disabled, .stepper .btn[disabled], .stepper fieldset[disabled] .btn {
+  opacity:1 !important;
+  color:rgba(250,138, 1,1);
+}
+.stepper-row:before {
+  top: 12px;
+  bottom: 0;
+  position: absolute;
+  content:" ";
+  width: 100%;
+  height: 1px;
+  background-color: rgba(250,138, 1,1);
+  z-index: 0;
+}
+.stepper-step {
+  display: table-cell;
+  position: relative;
+}
+.stepper-step-center {
+  text-align: center;
+}
+.stepper-step-right {
+  text-align: right;
+}
+.stepper-step .btn-circle {
+  width: 11px;
+  height: 11px;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 11px;
+  line-height: 1.428571429;
+  border-radius: 15px!important;
+  -webkit-appearance: inherit!important;
+  color: #fff;
+}
+.stepper-step .btn-default {
+  border:1px solid rgba(250,138,1,1)!important;
+  background: #fff;
+}
+.setup-content input, .setup-content select, .setup-content textarea, .login input {
+  font-size:12px!important;
+  font-weight: 300;
+}
+.omni-shadow {
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;
+  border: 1px solid #eee!important;
+}
+.form-group {
+  margin-bottom: 1.3rem!important;
+}
+.form-control {
+  height: auto!important;
+  padding: 0.75rem!important;
+}
+.nextBtn, .backBtn {
+  margin-top: 10%;
+  font-family: 'Cormorant', serif;
+}
+/*end Register Stepper*/
+/*start scrollbar Styling*/
+.panel-body .row select::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+.panel-body .row select::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+/* Handle */
+.panel-body .row select::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+/* Handle on hover */
+.panel-body .row select::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/*end scrollbar styling*/
   
