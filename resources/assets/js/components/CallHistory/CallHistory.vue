@@ -17,7 +17,7 @@
         font-weight: 900;
     }
     .card{
-        border-radius: 27px;
+        border-radius: 10px;
         border: none;
     }
     .card-body{
@@ -162,10 +162,9 @@
     }
 
     #top-section{
-        background: #fff;    
-        margin-left: -53px;
-        margin-right: -66px;
-        padding: 0px 37px;
+        background: #fff;
+        margin-top: 2%;
+        padding: 0px 3%;
 
     }
     .green{
@@ -190,10 +189,12 @@
     ul.headings li {
         float: left;
         font-weight: 700;
-        color: #9fb3bb;
+        color: #9c9c9c;
         /* padding: 0 104px 0 0; */
         width: 14%;
         text-align: left;
+        font-size: 14px;
+        text-transform: capitalize;
     }
     ul.items{
         list-style: none;
@@ -230,21 +231,40 @@
         color: #9fb3bb;
         padding: 0 69px 20px 70px;
     }
+    .padding-bottom-12{
+        padding-bottom: 12px;
+    }
+    .padding-bottom-18{
+        padding-bottom: 18px;
+    }
+    .card .card-text.text-center {
+        font-size: 36px;
+    } 
+    @media screen and (min-width: 1353px) and (max-width:1543px) {
+        .card .card-text.text-center {
+            font-size: 26px;
+        }
+    }
+    @media screen and (max-width: 1352px) {
+        .card .card-text.text-center {
+            font-size: 16px;
+        }
+    }
+    .card .card-text-small.text-left {
+        word-break: keep-all;
+    }
     
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row" style="margin-top:2%;">
+        <div id="top-section" class="row mx-0">
           <div class="col-lg-2">
             <div class="card calls">
               <div class="card-body">
 
+                <p class="card-text-small text-left">Calls</p>
 
-                <p class="card-text-small" style="text-align:left">
-                      Calls
-                </p>
-
-                <p class="card-text">
+                <p class="card-text text-center">
                   {{ call_log.total_calls }} 
                 </p>
 
@@ -255,12 +275,11 @@
             <div class="card sales">
               <div class="card-body">
 
-
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Sales
                 </p>
 
-                <p class="card-text">
+                <p class="card-text text-center">
                   {{ call_log.total_sales }} 
                 </p>
 
@@ -271,12 +290,11 @@
             <div class="card sales-amount">
               <div class="card-body">
 
-
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Sales Amount
                 </p>
 
-                <p class="card-text">
+                <p class="card-text text-center">
                   ${{ call_log.sum_sales }} 
                 </p>
 
@@ -287,12 +305,11 @@
             <div class="card call-backs">
               <div class="card-body">
 
-
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Callbacks
                 </p>
 
-                <p class="card-text">
+                <p class="card-text text-center">
                   {{ call_log.sum_call_back }}
                 </p>
 
@@ -303,11 +320,11 @@
             <div class="card ave-time">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Ave. Time
                 </p>
 
-                <p class="card-text">
+                <p class="card-text text-center">
                   {{ secondsToMinues(call_log.avg_time) }} 
                 </p>
 
@@ -318,11 +335,11 @@
             <div class="card con-ratio">
               <div class="card-body">
 
-                <p class="card-text-small" style="text-align:left">
+                <p class="card-text-small text-left">
                       Conversion Ratio
                 </p>
 
-                <p class="card-text">
+                <p class="card-text text-center">
                   {{ call_log.con_ratio }} 
                 </p>
 
@@ -330,11 +347,10 @@
             </div>
           </div>
         </div>
-        <hr style="margin-bottom: 2%;">
-        <div class="row stats">
+        <div class="row stats mx-0">
             <div class="col-lg-12">
-                <div class="left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 18px;">
+                <div class="left text-left">
+                    <div class="card-body padding-bottom-18">
                         <ul class="headings">
                             <li>NAME</li>
                             <li>COUNTRY</li>
@@ -350,8 +366,8 @@
         </div>
         <div :class="{ 'row stats': true, 'scroll-hidden' : call_log.call_history.length > 8 }" v-if="call_log.call_history.length > 0">
             <div class="col-lg-12" v-for="(item,index) in call_log.call_history" :key="index">
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body" style="padding-bottom: 12px;">
+                <div class="card left text-left">
+                    <div class="card-body padding-bottom-12">
                         <ul class="items">
                             <li><a href="#">{{ item.lead_name }}</a></li>
                             <li class="truncate" v-b-tooltip.hover :title="item.lead_country">{{ item.lead_country }}</li>
@@ -369,10 +385,10 @@
             </div>
         </div>
         <div class="row stats"  v-else>
-            <div class="card left" style="width: 100%;">
-                <div class="card-body" style="padding-bottom: 12px;">
+            <div class="card left w-100">
+                <div class="card-body padding-bottom-12">
                     <ul class="items">
-                        <li colspan="7" style="text-align:center;width: 100%;">Your call history is empty</li>
+                        <li colspan="7" class="text-center w-100">Your call history is empty</li>
                     </ul>
                 </div>
             </div>

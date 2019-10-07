@@ -22,6 +22,5 @@ class DatabaseSeeder extends Seeder
         // $this->call(ModuleTableSeeder::class);
         // $this->call(PermissionsTableSeeder::class);
         // $this->call(ApiIntegrationTableSeeder::class);
-
     }
 }

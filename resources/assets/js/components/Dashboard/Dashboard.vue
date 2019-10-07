@@ -5,23 +5,18 @@
     .top-section{
         list-style: none;
     }
-    .top-section li{    
+    .top-section .col-4{    
+        font-family: 'Rubik', sans-serif;
         float: left;
-        margin-right: 52px;
-        padding: 6px 72px 3px 15px;
         border-right: 1px solid #e3e3e3;
     }
-    li p.bottom{
-        margin-bottom: 0;
+    .col-4 p.bottom{
         font-size: 19px;
         font-weight: 900;
+        font-family: 'Montserrat', sans-serif;
     }
     .card{
         border-radius: 27px;
-        border: none;
-    }
-    .card-body{
-        text-align: center;
     }
     .card-title {
         margin-bottom: 0.75rem;
@@ -47,7 +42,18 @@
         font-size: 40px;
         color: #333333;
         font-weight: bolder;
-        margin: 0;
+        line-height: 1em;
+        margin-bottom: 10px!important;
+    }
+    @media screen and (min-width: 1389px) and (max-width:1596px) {
+        p.card-text {
+            font-size: 30px;
+        }
+    }
+    @media screen and (max-width: 1388px) {
+        p.card-text {
+            font-size: 20px;
+        }
     }
     p.card-text span{
         font-size: 19px;
@@ -55,8 +61,9 @@
         font-weight: bolder;
     }
     p.card-link{
-        font-size: 22px;
+        font-size: 12px;
         color: #333333;
+        font-family: 'Rubik', sans-serif;
     }
     .stats .card{
         border-radius: 20px;
@@ -134,10 +141,11 @@
     }
 
     #top-section{
-        background: #7fd0ac;    
+        background: #7fd0ac; 
+        margin-top:2%;   
         margin-left: -53px;
         margin-right: -66px;
-        padding: 55px 68px 45px;
+        padding: 55px 3% 45px;
     }
     
     .green{
@@ -147,25 +155,81 @@
         color:red !important;
     }
     .card-text-small{
-        margin-top: -7px;
-        color: #3b3b3b;
+        color: #8d999f;
         font-size: 13px;
+        font-family: 'Rubik', sans-serif;
+        margin-bottom: 25px;
+        word-break: keep-all;
     }
-    .badge{
-        width: 12%;
+    .call-stats h1 {
+        padding-top: 35px;
+        color: #fff;
+        font-size: 65px;
+        font-weight: 900;
     }
-    .badge img{
-        width: 100%;
+    @media screen and (min-width: 1496px) and (max-width:1675px) {
+        .call-stats h1 {
+            font-size: 55px;
+        }
+    }
+    @media screen and (min-width: 1317px) and (max-width:1495px) {
+        .call-stats h1 {
+            font-size: 45px;
+        }
+        .call-stats p {
+            font-size: 15px;
+        }
+    }
+    @media screen and (max-width:1316px) {
+        .call-stats h1 {
+            font-size: 35px;
+        }
+    }
+    .call-stats p{
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 1px;
+        word-break: keep-all;
+    }
+    .badges .col-sm-3{
+        border-right: 1px solid #e6e6e7;
+    }
+    .badges .col-sm-3:last-child {
+        border-right: 0;
+    }
+    .description{
+        font-size: 10px;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 1px;
+        color: #7f99a4;
+    }
+    .row.stats {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .notes-roll {
+        height:345px;
+    }
+    .stats .margin-4 {
+        margin-bottom: 4%;
+    }
+    .card .card-body .row .col-4 .top {
+        font-size: 12px;
+        color: #9fb3bb;
+    }
+    .margin-5 {
+        margin-bottom: 5%;
     }
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row"  style="margin-top:2%;">
-          <div class="col-lg-2">
-            <div class="card client">
-              <div class="card-body">
+        <div id="top-section" class="row mx-0">
+          <div class="col-lg-2 px-2">
+            <div class="card border-0 client">
+              <div class="card-body text-center">
 
-                <p class="card-text">
+                <p class="card-text m-0">
                   11 
                 </p>
 
@@ -180,11 +244,11 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
-            <div class="card client">
-              <div class="card-body">
+          <div class="col-lg-2 px-2">
+            <div class="card border-0 client">
+              <div class="card-body text-center">
 
-                <p class="card-text">
+                <p class="card-text m-0">
                   5 
                 </p>
 
@@ -199,11 +263,11 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
-            <div class="card client">
-              <div class="card-body">
+          <div class="col-lg-2 px-2">
+            <div class="card border-0 client">
+              <div class="card-body text-center">
 
-                <p class="card-text">
+                <p class="card-text m-0">
                   $365 
                 </p>
 
@@ -218,11 +282,11 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
-            <div class="card client">
-              <div class="card-body">
+          <div class="col-lg-2 px-2">
+            <div class="card border-0 client">
+              <div class="card-body text-center">
 
-                <p class="card-text">
+                <p class="card-text m-0">
                   45% 
                 </p>
 
@@ -238,11 +302,11 @@
             </div>
           </div>
 
-          <div class="col-lg-2">
-            <div class="card client">
-              <div class="card-body">
+          <div class="col-lg-2 px-2">
+            <div class="card border-0 client">
+              <div class="card-body text-center">
 
-                <p class="card-text">
+                <p class="card-text m-0">
                   $3000 
                 </p>
 
@@ -257,96 +321,100 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2"  style="text-align: center;padding-top: 35px;">
-            <h1 class="card-text" style="color: #fff;font-size: 65px;font-weight: 900;margin-bottom: 0;">
+          <div class="col-lg-2 text-center px-2 call-stats">
+            <h1 class="card-text mb-0">
                   11 / 10
             </h1>
 
-            <p class="card-text-small" style="color: #fff;font-size: 22px;">
+            <p class="card-text-small">
                   Missed Target
             </p>
 
           </div>
         </div>
-        <div class="row stats">
+        <div class="row stats mx-0">
             <div class="col-lg-6" >
-                <div class="card left" style="text-align: left;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: left;">
+                <div class="card left text-left border-0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-left">
                             <img src="/images/icons/Feedback summary icon@4x.png" alt="Icon" class="icon" />
                             <span class="left">Feedback Summary</span>
                             <span class="right">23 Review(s)</span>
                         </h5>
 
-                        <div class="notes-roll" style="height:345px;">
+                        <div class="notes-roll">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6" >
-                <div class="row" style="margin-bottom: 4%;">
+                <div class="row margin-4">
                     <div class="col-lg-12">
-                        <div class="card right">
-                            <div class="card-body">
-                                <ul class="top-section">
-                                    <li>
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Active</p>
-                                        <p class="bottom">22 hours</p>
-                                    </li>
-                                    <li>
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Idle</p>
-                                        <p class="bottom">2 Hours</p>
-                                    </li>
-                                    <li style="border-right:none;padding-right: 0;">
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Offline</p>
-                                        <p class="bottom">1 Hour</p>
-                                    </li>
-                                </ul>
+                        <div class="card right border-0">
+                            <div class="card-body text-center">
+                                <div class="row justfy-content-between align-items-center top-section">
+                                    <div class="col-4">
+                                        <p class="top">Active</p>
+                                        <p class="bottom mb-0">22 hours</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="top">Idle</p>
+                                        <p class="bottom mb-0">2 Hours</p>
+                                    </div>
+                                    <div class="col-4 border-right-0 pr-0">
+                                        <p class="top">Offline</p>
+                                        <p class="bottom mb-0">1 Hour</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-bottom: 4%;">
+                <div class="row margin-4">
                     <div class="col-lg-12">
-                        <div class="card right">
-                            <div class="card-body">
-                                <ul class="top-section">
-                                    <li>
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Leads</p>
-                                        <p class="bottom">123</p>
-                                    </li>
-                                    <li>
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Dialed</p>
-                                        <p class="bottom">70</p>
-                                    </li>
-                                    <li style="border-right:none;padding-right: 0;">
-                                        <p class="top" style="font-size: 12px;color: #9fb3bb;">Answered</p>
-                                        <p class="bottom">67</p>
-                                    </li>
-                                </ul>
+                        <div class="card right border-0">
+                            <div class="card-body text-center">
+                                <div class="row justfy-content-between align-items-center top-section">
+                                    <div class="col-4">
+                                        <p class="top">Leads</p>
+                                        <p class="bottom mb-0">123</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="top">Dialed</p>
+                                        <p class="bottom mb-0">70</p>
+                                   </div>
+                                    <div class="col-4 border-right-0 pr-0">
+                                        <p class="top">Answered</p>
+                                        <p class="bottom mb-0">67</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-bottom: 5%;">
+                <div class="row margin-5">
                     <div class="col-lg-12">
-                        <div class="card right">
-                            <div class="card-body">
+                        <div class="card right border-0">
+                            <div class="card-body text-center row justify-content-between align-items-end badges">
 
-                                <div class="badge badge-1">
-                                    <img src="/images/icons/Colonel@4x.png" alt="Badge">
+                                <div class="col-sm-3 badge-1 px-4">
+                                    <img src="/images/icons/Colonel@4x.png" alt="Badge" class="w-100">
+                                    <p class="description text-center">Colonel</p>
                                 </div>
 
-                                <div class="badge badge-2">
-                                    <img src="/images/icons/Corporal@4x.png" alt="Badge">
+                                <div class="col-sm-3 badge-2 px-4">
+                                    <img src="/images/icons/Corporal@4x.png" alt="Badge" class="w-100">
+                                    <p class="description text-center">Corporal</p>
                                 </div>
 
-                                <div class="badge badge-2">
-                                    <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                <div class="col-sm-3 badge-2 px-4">
+                                    <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
+                                    <p class="description text-center">Corporal</p>
                                 </div>
 
-                                <div class="badge badge-2">
-                                    <img src="/images/icons/Captain@4x.png" alt="Badge">
+                                <div class="col-sm-3 badge-2 px-4">
+                                    <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
+                                    <p class="description text-center">Corporal</p>
                                 </div>
                             </div>
                         </div>
