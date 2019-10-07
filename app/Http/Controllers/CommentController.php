@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Auth;
+use Session;
 use App\Task;
 use App\Lead;
 use App\Comment;
@@ -143,6 +144,7 @@ class CommentController extends Controller
                             ->whereDate('created_at', Carbon::today())
                             ->count();
         if($comment > 0){
+            session(['CommentExist' => true]);
             return array(
                 'success' => true, 
                 'id' => $id,
@@ -150,6 +152,7 @@ class CommentController extends Controller
                 'source_type' => $source_type
             );
         }else{
+            session(['CommentExist' => false]);
             return array(
                 'success' => false, 
                 'id' => $id,

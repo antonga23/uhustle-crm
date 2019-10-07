@@ -1,7 +1,11 @@
 <?php
 
+use App\Role;
 use App\Module;
 use App\Permissions;
+use App\PermissionAttributes;
+use App\DialerPermissions;
+use App\ModuleCustomFields;
 use Illuminate\Database\Seeder;
 
 class PermissionsTableSeeder extends Seeder
@@ -13,38 +17,39 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+
+        $roles = Role::get();
+
         //  Manager Role, Leads Module
-        for($i = 1; $i <= 4; $i++){ // Roles
-            for($k = 1; $k <= 5; $k++){ // Modules
-                if($i == 1 && $k == 1){ // Auto Diler for admin
-                    Permissions::create([
-                        'module_id' => $k,
-                        'role_id' => $i,
-                        'status' => 1,
-                    ]);
-                }else if($i > 1 && $k == 1){ // Auto Diler for other
-                    Permissions::create([
-                        'module_id' => $k,
-                        'role_id' => $i,
-                        'status' => 0,
-                    ]);
-                }else if($i == 1 && $k > 1){ // Other modules for admin
-                    Permissions::create([
-                        'module_id' => $k,
-                        'role_id' => $i,
-                        'read' => 1,
-                        'write' => 1,
-                        'delete' => 1,
-                    ]);
-                }else if($i > 1 && $k > 1){ // Other roles and other modules
-                    Permissions::create([
-                        'module_id' => $k,
-                        'role_id' => $i,
-                        'read' => 1,
-                        'write' => 0,
-                        'delete' => 0,
-                    ]);
-                }
+        foreach($roles as $key => $role){ // Roles
+            DialerPermissions::create([
+                'role_id' => $role->id,
+                'disabled' => 1,
+                'barge' => 1,
+                'whisper' => 1,
+            ]);
+
+            $modules = Module::get();
+            foreach($modules as $key => $module){ 
+                Permissions::create([
+                    'module_id' => $module->id,
+                    'role_id' => $role->id,
+                ]);
+            }
+        }
+
+        $permissions = Permissions::get();
+        foreach($permissions as $key => $permission){ 
+
+            $module_cust_fields = ModuleCustomFields::where(['module_id' => $permission->module_id])->get();
+            foreach($module_cust_fields as $i => $field){ 
+                PermissionAttributes::create([
+                    'permission_id' => $permission->id,
+                    'custom_field_id'=>  $field->id,
+                    'read' => 1,
+                    'write' => 1,
+                    'delete' => 1,
+                ]);
             }
         }
     }

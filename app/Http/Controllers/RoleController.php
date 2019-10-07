@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Role;
 use App\Permissions;
+use App\DialerPermissions;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -45,15 +46,12 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
-        $name = $data['name'];
+        $name = strtolower( str_replace(' ','_',$data['display_name']) );
         $display_name = $data['display_name'];
         $description = $data['description'];
         $status = $data['status'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         try{
             DB::beginTransaction();
 
@@ -64,8 +62,15 @@ class RoleController extends Controller
                 'status' => $status
             ]);
 
+            DialerPermissions::create([
+                'role_id' => $role->id,
+                'disabled' => 1,
+                'barge' => 1,
+                'whisper' => 1,
+            ]);
+            
             DB::commit();
-            return array('success' => true, 'role' => $role);
+            return array('success' => true, 'message' => 'User role has been created.');
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -90,11 +95,9 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
         $id = $data['id'];
-        $name = $data['name'];
+        $name = strtolower( str_replace(' ','_',$data['display_name']) );
         $display_name = $data['display_name'];
         $description = $data['description'];
         $status = $data['status'];
@@ -102,7 +105,7 @@ class RoleController extends Controller
         try{
             DB::beginTransaction();
 
-            $role = Role::where(['id' => $id])->update([
+            $role = Role::find($id)->update([
                 'name' => $name,
                 'display_name' => $display_name,
                 'description' => $description,
@@ -110,7 +113,7 @@ class RoleController extends Controller
             ]);
 
             DB::commit();
-            return array('success' => true, 'role' => $role);
+            return array('success' => true, 'message' => 'User role has been updated.', 'role' => Role::find($id));
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -120,6 +123,11 @@ class RoleController extends Controller
 
     public function getPermissions(){
         $permissions = Permissions::get();
+        return array('success' => true, 'permissions' => $permissions);
+    }
+
+    public function getDialerPermissions(){
+        $permissions = DialerPermissions::get();
         return array('success' => true, 'permissions' => $permissions);
     }
 

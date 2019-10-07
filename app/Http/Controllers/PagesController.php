@@ -6,6 +6,7 @@ use Auth;
 use App\Lead;
 use App\StoredFilter;
 use App\SystemSettings;
+use App\Comment;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -118,7 +119,8 @@ class PagesController extends Controller
       
       return view('pages.leads')->with([
          'active'=> 'leads',
-         'custom_filters' => json_encode($data)
+         'custom_filters' => json_encode($data),
+         'has_interaction' => session('CommentExist')
       ]);
    }
 
@@ -196,7 +198,9 @@ class PagesController extends Controller
       
       return view('pages.contacts')->with([
          'active'=> 'contacts',
-         'custom_filters' => json_encode($data)
+         'custom_filters' => json_encode($data),
+         'has_interaction' => session('CommentExist')
       ]);
    }
+
 }

@@ -1,39 +1,81 @@
+
 <template>
     <div class="card material-table" style="width: fit-content;">
-        <table ref="table">
-            <thead>
-                <tr>
-                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
-                            + (sortColumn === index ?
-                                (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
-                                : '')
-                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
-                        {{column.label}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
-                        <span v-if="column.field == 'full_name'">
-                            {{ collect(row, column.field) }}
-                        </span>
-                        <span v-else-if="column.field == 'status'">
-                            <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  :title="collect(row, column.field)" disabled></a>
-                        </span>
-                        <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
-                            {{ getDaysRemaining(row.lead) }}
-                        </span>
-                        <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
-                            <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
-                            <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                            <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
-                        </span>
-                        <span v-else>{{ collect(row, column.field) }}</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <table class="tg" v-if="show_mass_assign">
+                    <tr>
+                        <td class="tg-1lax" style="padding-right:20px;width:500px">
+
+                            <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
+                                <b-dropdown-form>
+                                    <b-form-group>
+                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
+                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                        </b-form-checkbox-group>
+                                    </b-form-group>
+                                </b-dropdown-form>
+                            </b-dropdown>
+                        </td>
+                        <td class="tg-1lax">
+
+                            <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
+                                <b-dropdown-form>
+                                    <b-form-group>
+                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
+                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                        </b-form-checkbox-group>
+                                    </b-form-group>
+                                </b-dropdown-form>
+                            </b-dropdown>
+                        </td>
+                        <td class="tg-1lax">
+                            <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
+                                Assign
+                            </button>
+                        </td>
+                    </tr>
+            </table>
+        <b-form-group>
+            <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
+                <table ref="table">
+                    <thead>
+                        <tr>
+                            <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
+                                    + (sortColumn === index ?
+                                        (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
+                                        : '')
+                                    + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
+                                <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>  
+                                {{column.label}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
+                            <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
+                                <span v-if="column.field == 'all'">
+                                    <b-form-checkbox :value="row.lead.id" v-model="selected" @change="selectOne"></b-form-checkbox>
+                                </span>
+                                <span v-if="column.field == 'full_name'">
+                                    {{ collect(row, column.field) }}
+                                </span>
+                                <span v-else-if="column.field == 'status'">
+                                    <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  :title="collect(row, column.field)" disabled></a>
+                                </span>
+                                <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
+                                    {{ getDaysRemaining(row.lead) }}
+                                </span>
+                                <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
+                                    <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
+                                    <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
+                                    <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
+                                </span>
+                                <span v-else>{{ collect(row, column.field) }}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </b-form-checkbox-group>
+        </b-form-group>
         <div class="table-footer" v-if="paginate">
             <div class="datatable-length">
                 <label>
@@ -71,13 +113,13 @@
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            title="Update Contact"
+            :title="(user.is_client == 1)? 'Update Contact' : 'Update Lead'"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
             @ok="handleOk"
             >
-                <a-card title="Lead Information">
+                <a-card :title="(user.is_client == 1)? 'Contact Information' : 'Lead Information'">
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -91,7 +133,7 @@
                                 <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Account
+                            <label class="col-lg-4 control-label">Instagram Account
                                 <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
@@ -152,6 +194,19 @@
                             </a-list-item-meta>
                         </a-list-item>
                     </a-list>
+                </a-card>
+                <a-card :title="'File Uploads: ' + user.winsta_uploads.length" style="margin-top:20px" class="uploaded-files">
+                    <div v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
+                        <a @click="downloadFile(upload.id)">
+                            <b-alert v-if="index % 2 == 0" variant="success" show>
+                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
+                            </b-alert>
+                            <b-alert v-else show>
+                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
+                            </b-alert>
+                        </a>
+                        <b-button class="Delete" @click="deleteFile(upload.id, index)"></b-button>
+                    </div>
                 </a-card>
             </b-modal>
         </div>
@@ -216,10 +271,13 @@ export default {
     },
     data() {
         return {
-            view_claim: {
-                claim : [],
-                hub : [],
-            },
+            selected: [],
+            leads_select_all: null,
+            show_mass_assign: false,
+            user_assigned: '',
+            lead_owner: '',
+            selected_assignees: '',
+            selected_owners: '',
             user: {
                 name: '',
                 surname: '',
@@ -234,6 +292,7 @@ export default {
                 title: '',
                 country: '',
                 city: '',
+                winsta_uploads: [],
                 comments: [],
                 assigned: [],
             },
@@ -249,9 +308,44 @@ export default {
             claim: '',
             claim_items: '',
             Toast: '',
+            winstaUpload: '/images/winsta-uploads/'
         }
     },
     methods: {
+        selectOne(e){
+            if(e !== null){ 
+                if(this.selected.length > 0 ){
+                    this.show_mass_assign = true;
+                }else{
+                    this.show_mass_assign = false;
+                }
+            }
+        },
+        assignTo(){
+            var vm = this;
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.selected_assignees, 'lead_owner' : vm.selected_owners }).then(function (response) {
+                    
+                if(response.data.success == true){
+                    vm.Toast.fire({ type: 'success', title: response.data.message });
+                    vm.$Progress.finish();
+                    Fire.$emit('ReloadLeads');
+                }else{
+                    vm.$Progress.fail();
+                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                }
+            });
+        },
+        selectAll(e){
+            if(e == 'select_all'){
+                this.rows.map((lead) => {
+                    this.selected.push(lead.lead.id);
+                });
+                this.show_mass_assign = true;
+            }else{
+                this.selected = [];
+                this.show_mass_assign = false;
+            }
+        },
         getDaysRemaining(lead){
             if(lead.expires_at){ 
                 var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
@@ -329,6 +423,38 @@ export default {
                         }
                     });
                 }
+            });
+        },
+        deleteFile(id, index){
+            var vm = this;  
+            vm.$swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F56C6C',
+                cancelButtonColor: '#409EFF',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    vm.$Progress.start();
+                    axios.get('/delete-file/' + id).then(function (response) {
+                        if(response.data.success == true){
+                            vm.Toast.fire({ type: 'success', title: response.data.message });
+                            vm.user.winsta_uploads.splice(index, 1);
+                            vm.$Progress.finish();
+                        }else{
+                            vm.$Progress.fail();
+                            vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again','warning');
+                        }
+                    });
+                }
+            });
+        },
+        downloadFile(id, index){
+            var vm = this;  
+            axios.get('/download-file/' + id).then(function (response) {
+                window.open('/download-file/' + id);
             });
         },
         nextPage() {
@@ -486,6 +612,38 @@ export default {
 }
 </script>
 <style scoped>
+
+.btn-orange {
+	background: #FF9039;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 9px 12px 9px 10px;
+    font-size: 13px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.dropdown-menu.show {
+    display: block;
+    width: 98%;
+}
+.orange-btn:hover {
+	background: #FF9039;
+	color: #ffffff;
+    border: transparent !important;
+	padding: 9px 12px 9px 10px;
+    font-size: 13px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+table.tg{
+    width: 98%;
+    margin: 0 auto;
+}
+table.tg td p{
+    margin-top: 1em;
+}
 span.days-remaining{
     display: block;
     width: 100%;
@@ -535,6 +693,15 @@ table tr td a.View:active{
     background-size: 36px 35px;
     background-repeat: no-repeat;
 }
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    width: 100%;
+    float: left;
+}
 table tr td a.Delete{
     background-image: url('/images/DataTables/Delete_Icon.svg');
     background-size: 36px 35px;
@@ -544,6 +711,34 @@ table tr td a.Delete:hover,
 table tr td a.Delete:active{
     background-image: url('/images/DataTables/Delete_Icon_Active.svg');
     background-size: 36px 35px;
+    background-repeat: no-repeat;
+}
+.uploaded-files a{
+    display: flex;
+    width: 90%;
+    float: left;
+}
+.uploaded-files .Delete{
+    background-color: transparent;
+    border: none;
+    width: 49px;
+    height: 46px;
+    margin: 0;
+    box-shadow: none;
+    background-image: url('/images/DataTables/Delete_Icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.uploaded-files .Delete:hover,
+.uploaded-files .Delete:active{
+    background-color: transparent;
+    border: none;
+    width: 49px;
+    height: 46px;
+    margin: 0;
+    box-shadow: none;
+    background-image: url('/images/DataTables/Delete_Icon_Active.svg');
+    background-size: cover;
     background-repeat: no-repeat;
 }
 table tr td a.Edit{

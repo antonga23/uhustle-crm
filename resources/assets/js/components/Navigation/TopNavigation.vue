@@ -272,11 +272,6 @@
 
 			this.month = d.getMonth() + 1;
 
-			if(this.active == 'workstation' && ( this.current_user.role_id == 1 || this.current_user.role_id == 2  || this.current_user.role_id == 3 ) ){
-				this.active_calls = true;
-				this.showActiveCalls();
-			}
-
 			this.Toast = this.$swal.mixin({
 				toast: true,
 				position: 'top-end',

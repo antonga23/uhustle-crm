@@ -471,6 +471,13 @@ table.listing tr  th{
                 Toast: null,
                 columns:[
                     {
+                        label: '',  // Column name
+                        field: 'all',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                    {
                         label: 'FULL NAME',  // Column name
                         field: 'full_name',  // Field name from row
                         numeric: false, // Affects sorting
@@ -530,6 +537,13 @@ table.listing tr  th{
                     {
                         label: 'DAYS REMAINING',  // Column name
                         field: 'days_remaining',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'LAST ACTIVITY',  // Column name
+                        field: 'last_activity',  // Field name from row
                         numeric: true, // Affects sorting
                         html: false,    // Escapes output if false.
                         sortable:true

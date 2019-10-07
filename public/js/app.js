@@ -69450,6 +69450,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+//
+//
+//
+=======
+>>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
 
 
 
@@ -69526,6 +69532,16 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       Toast: null,
       columns: [{
+        label: '',
+        // Column name
+        field: 'all',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: false
+      }, {
         label: 'FULL NAME',
         // Column name
         field: 'full_name',
@@ -69610,6 +69626,16 @@ __webpack_require__.r(__webpack_exports__);
         label: 'DAYS REMAINING',
         // Column name
         field: 'days_remaining',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'LAST ACTIVITY',
+        // Column name
+        field: 'last_activity',
         // Field name from row
         numeric: true,
         // Affects sorting
@@ -70876,6 +70902,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -70934,10 +71015,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      view_claim: {
-        claim: [],
-        hub: []
-      },
+      selected: [],
+      leads_select_all: null,
+      show_mass_assign: false,
+      user_assigned: '',
+      lead_owner: '',
+      selected_assignees: '',
+      selected_owners: '',
       user: {
         name: '',
         surname: '',
@@ -70952,6 +71036,7 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         country: '',
         city: '',
+        winsta_uploads: [],
         comments: [],
         assigned: []
       },
@@ -70966,10 +71051,53 @@ __webpack_require__.r(__webpack_exports__);
       searchInput: '',
       claim: '',
       claim_items: '',
-      Toast: ''
+      Toast: '',
+      winstaUpload: '/images/winsta-uploads/'
     };
   },
   methods: {
+    selectOne: function selectOne(e) {
+      if (e !== null) {
+        if (this.selected.length > 0) {
+          this.show_mass_assign = true;
+        } else {
+          this.show_mass_assign = false;
+        }
+      }
+    },
+    assignTo: function assignTo() {
+      var vm = this;
+      axios.post('/leads/mass-assign', {
+        lead_ids: vm.selected,
+        'user_assigned': vm.selected_assignees,
+        'lead_owner': vm.selected_owners
+      }).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.$Progress.finish();
+          Fire.$emit('ReloadLeads');
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    },
+    selectAll: function selectAll(e) {
+      var _this = this;
+
+      if (e == 'select_all') {
+        this.rows.map(function (lead) {
+          _this.selected.push(lead.lead.id);
+        });
+        this.show_mass_assign = true;
+      } else {
+        this.selected = [];
+        this.show_mass_assign = false;
+      }
+    },
     getDaysRemaining: function getDaysRemaining(lead) {
       if (lead.expires_at) {
         var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -71050,6 +71178,41 @@ __webpack_require__.r(__webpack_exports__);
             }
           });
         }
+      });
+    },
+    deleteFile: function deleteFile(id, index) {
+      var vm = this;
+      vm.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#F56C6C',
+        cancelButtonColor: '#409EFF',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          vm.$Progress.start();
+          axios.get('/delete-file/' + id).then(function (response) {
+            if (response.data.success == true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              vm.user.winsta_uploads.splice(index, 1);
+              vm.$Progress.finish();
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while deleting data, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    downloadFile: function downloadFile(id, index) {
+      var vm = this;
+      axios.get('/download-file/' + id).then(function (response) {
+        window.open('/download-file/' + id);
       });
     },
     nextPage: function nextPage() {
@@ -71144,18 +71307,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     processedRows: function processedRows() {
-      var _this = this;
+      var _this2 = this;
 
       var computedRows = this.rows;
       if (this.sortable !== false) computedRows = computedRows.sort(function (x, y) {
-        if (!_this.columns[_this.sortColumn]) return 0;
+        if (!_this2.columns[_this2.sortColumn]) return 0;
 
         var cook = function cook(x) {
-          x = _this.collect(x, _this.columns[_this.sortColumn].field);
+          x = _this2.collect(x, _this2.columns[_this2.sortColumn].field);
 
           if (typeof x === 'string') {
             x = x.toLowerCase();
-            if (_this.columns[_this.sortColumn].numeric) x = x.indexOf('.') >= 0 ? parseFloat(x) : parseInt(x);
+            if (_this2.columns[_this2.sortColumn].numeric) x = x.indexOf('.') >= 0 ? parseFloat(x) : parseInt(x);
           }
 
           return x;
@@ -71163,7 +71326,7 @@ __webpack_require__.r(__webpack_exports__);
 
         x = cook(x);
         y = cook(y);
-        return (x < y ? -1 : x > y ? 1 : 0) * (_this.sortType === 'desc' ? -1 : 1);
+        return (x < y ? -1 : x > y ? 1 : 0) * (_this2.sortType === 'desc' ? -1 : 1);
       });
       if (this.searching && this.searchInput) computedRows = new fuse_js__WEBPACK_IMPORTED_MODULE_0___default.a(computedRows, {
         keys: this.columns.map(function (c) {
@@ -72517,6 +72680,16 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       Toast: null,
       columns: [{
+        label: '',
+        // Column name
+        field: 'all',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: false
+      }, {
         label: 'FULL NAME',
         // Column name
         field: 'full_name',
@@ -72601,6 +72774,16 @@ __webpack_require__.r(__webpack_exports__);
         label: 'DAYS REMAINING',
         // Column name
         field: 'days_remaining',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'LAST ACTIVITY',
+        // Column name
+        field: 'last_activity',
         // Field name from row
         numeric: true,
         // Affects sorting
@@ -75147,6 +75330,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+<<<<<<< HEAD
+  mounted: function mounted() {
+    this.current_user = JSON.parse(this.logged_user);
+    var d = new Date();
+    this.month = d.getMonth() + 1;
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+=======
+>>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
   props: ['active', 'logged_user'],
   components: {},
   data: function data() {
@@ -75180,6 +75377,7 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('AfterLeadEnqueue', function (data) {
       vm.lead_id = data.lead_id;
       vm.phone_number = data.contact_number;
+      vm.general_active = true;
     });
     Fire.$on('InitiateCall', function () {
       vm.dialer_active = true;
@@ -75195,6 +75393,10 @@ __webpack_require__.r(__webpack_exports__);
       vm.scripts_active = false;
       vm.dialer_active = false;
       vm.active_calls_active = false;
+    });
+    Fire.$on('ShowActiveCalls', function () {
+      vm.active_calls = true;
+      vm.showActiveCalls();
     });
   },
   mounted: function mounted() {
@@ -75474,6 +75676,190 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('Module Component mounted');
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: [],
+  data: function data() {
+    return {
+      new_module: {
+        display_name: null,
+        description: null,
+        module_fields: [{
+          id: '',
+          name: '',
+          type: null
+        }]
+      },
+      types: [{
+        value: null,
+        text: 'Please select'
+      }, {
+        value: 'text',
+        text: 'Text'
+      }, {
+        value: 'password',
+        text: 'Password'
+      }, {
+        value: 'email',
+        text: 'Email'
+      }, {
+        value: 'number',
+        text: 'Number'
+      }, {
+        value: 'url',
+        text: 'Url'
+      }, {
+        value: 'tel',
+        text: 'Tel'
+      }, {
+        value: 'date',
+        text: 'Date'
+      }, {
+        value: "time",
+        text: 'Time'
+      }, {
+        value: 'range',
+        text: 'Range'
+      }, {
+        value: 'color',
+        text: 'Color'
+      }],
+      display_name_state: null,
+      Toast: null
+    };
+  },
+  methods: {
+    addModule: function addModule() {
+      var _this = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+          var end_point = '/modules/add';
+          axios.post(end_point, _this.new_module).then(function (response) {
+            if (response.data.success == true) {
+              vm.new_module = response.data.module;
+              Fire.$emit('DoneAddingModule');
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    addField: function addField() {
+      this.new_module.module_fields.push({
+        id: '',
+        name: '',
+        type: null
+      });
+    },
+    removeField: function removeField(index) {
+      if (index > -1) {
+        this.new_module.module_fields.splice(index, 1);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=script&lang=js& ***!
@@ -75555,7 +75941,361 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addRole: function addRole() {
-      console.log(this.role);
+      var _this = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+          var end_point = '/roles/create';
+          axios.post(end_point, _this.role).then(function (response) {
+            if (response.data.success == true) {
+              vm.resteRole();
+              Fire.$emit('DoneAddingRole');
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    resteRole: function resteRole() {
+      this.role.display_name = '';
+      this.role.description = '';
+      this.role.status = '';
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('API Component mounted');
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['apis'],
+  data: function data() {
+    return {
+      default_calling_api: '',
+      default_payment_api: '',
+      Toast: null
+    };
+  },
+  methods: {
+    updateDetails: function updateDetails() {
+      var _this = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+          var end_point = '/apis/update';
+          axios.post(end_point, _this.apis).then(function (response) {
+            if (response.data.success == true) {
+              Fire.$emit('AfterUpdatingApis');
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    resteRole: function resteRole() {
+      this.role.display_name = '';
+      this.role.description = '';
+      this.role.status = '';
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('Module Component mounted');
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['module'],
+  data: function data() {
+    return {
+      types: [{
+        value: null,
+        text: 'Please select'
+      }, {
+        value: 'text',
+        text: 'Text'
+      }, {
+        value: 'password',
+        text: 'Password'
+      }, {
+        value: 'email',
+        text: 'Email'
+      }, {
+        value: 'number',
+        text: 'Number'
+      }, {
+        value: 'url',
+        text: 'Url'
+      }, {
+        value: 'tel',
+        text: 'Tel'
+      }, {
+        value: 'date',
+        text: 'Date'
+      }, {
+        value: "time",
+        text: 'Time'
+      }, {
+        value: 'range',
+        text: 'Range'
+      }, {
+        value: 'color',
+        text: 'Color'
+      }],
+      display_name_state: null,
+      Toast: null
+    };
+  },
+  methods: {
+    editModule: function editModule() {
+      var _this = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+          var end_point = '/modules/update';
+          axios.post(end_point, _this.module).then(function (response) {
+            if (response.data.success == true) {
+              vm.module = response.data.module;
+              Fire.$emit('DoneAddingModule');
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
+    },
+    deleteModule: function deleteModule() {
+      var _this2 = this;
+
+      var vm = this;
+      vm.$swal.fire({
+        title: 'Are you sure?',
+        text: "All module data will be lost. You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#409EFF',
+        cancelButtonColor: '#F56C6C',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          axios.get('/modules/destroy/' + _this2.module.id).then(function (response) {
+            Fire.$emit('AfterModuleDelete');
+            vm.Toast.fire({
+              type: 'success',
+              title: 'Module has been deleted.'
+            });
+          })["catch"](function () {
+            vm.$swal('Failed', 'Opps, something went wrong, please try again', 'warning');
+          });
+        }
+      });
+    },
+    addField: function addField() {
+      this.module.module_fields.push({
+        id: '',
+        name: '',
+        type: null
+      });
+    },
+    removeField: function removeField(index) {
+      if (index > -1) {
+        this.module.module_fields.splice(index, 1);
+      }
     }
   }
 });
@@ -75621,7 +76361,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
+    var _this = this;
+
     console.log('Component mounted');
+    Fire.$on('UpdateRole', function (data) {
+      _this.updateRole();
+
+      console.log(data);
+    });
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -75643,7 +76390,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateRole: function updateRole() {
-      console.log(this.role);
+      var _this2 = this;
+
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          vm.display_name_state = false;
+        } else {
+          vm.display_name_state = true;
+          var end_point = '/roles/update';
+          axios.post(end_point, _this2.role).then(function (response) {
+            if (response.data.success == true) {
+              vm.role = response.data.role;
+              vm.$Progress.finish(); // vm.Toast.fire({ type: 'success', title: response.data.message });
+
+              Fire.$emit('DoneEditingRole');
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
+      });
     }
   }
 });
@@ -75665,8 +76434,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var _EditRole__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditRole */ "./resources/assets/js/components/Preferences/EditRole.vue");
 /* harmony import */ var _AddRole__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddRole */ "./resources/assets/js/components/Preferences/AddRole.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _AddModule__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddModule */ "./resources/assets/js/components/Preferences/AddModule.vue");
+/* harmony import */ var _EditModule__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditModule */ "./resources/assets/js/components/Preferences/EditModule.vue");
+/* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
 //
 //
 //
@@ -75862,6 +76634,146 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
@@ -75872,20 +76784,44 @@ __webpack_require__.r(__webpack_exports__);
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclTable"],
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclTable"],
     EditRole: _EditRole__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddRole: _AddRole__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AddModule: _AddModule__WEBPACK_IMPORTED_MODULE_5__["default"],
+    EditModule: _EditModule__WEBPACK_IMPORTED_MODULE_6__["default"],
+    ApiIntegration: _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__["default"],
     'datatable': _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
-    console.log('Component mounted');
     this.current_user = JSON.parse(this.logged_user);
     this.getRoles();
     this.getModules();
     this.getPermissions();
+    this.getDialerPermissions();
+    this.getApis();
     var vm = this;
+    Fire.$on('DoneAddingRole', function () {
+      vm.getRoles();
+      vm.getPermissions();
+      vm.getDialerPermissions();
+    });
+    Fire.$on('DoneEditingRole', function () {
+      vm.getRoles();
+      vm.getPermissions();
+      vm.getDialerPermissions();
+    });
+    Fire.$on('DoneAddingModule', function () {
+      vm.getModules();
+    });
+    Fire.$on('AfterModuleDelete', function () {
+      vm.getModules();
+      vm.showModulePreferences('add_module', 'add_module', null);
+    });
+    Fire.$on('AfterUpdatingApis', function () {
+      vm.getApis();
+    });
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -75904,17 +76840,33 @@ __webpack_require__.r(__webpack_exports__);
       },
       roles: null,
       modules: null,
+      apis: null,
+      editing_module: null,
       permissions: [],
+      dialer_permissions: null,
       current_user: {},
       add_user: false,
-      active_module: 'roles',
+      active_module_action: null,
+      active_module_name: 'roles',
       show_page_loader: false,
       role_edit: false,
       role_add: false,
-      Toast: null
+      Toast: null,
+      dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
+      dialer_selected: [],
+      dialer_allSelected: false,
+      dialer_indeterminate: false,
+      flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
+      selected: [],
+      allSelected: false,
+      indeterminate: false
     };
   },
   methods: {
+    toggleAll: function toggleAll() {},
+    dialerToggleAll: function dialerToggleAll(checked) {
+      this.dialer_selected = checked ? this.dialer_options.slice() : [];
+    },
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -75932,6 +76884,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
           vm.roles = response.data.roles;
+          vm.editRole(vm.roles[0]);
           vm.show_page_loader = false;
           vm.$Progress.finish();
         } else {
@@ -75952,12 +76905,37 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    getApis: function getApis() {
+      var vm = this;
+      var endpoint = '/apis/get-all';
+      vm.$Progress.start();
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.apis = response.data.apis;
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
     getPermissions: function getPermissions() {
       var vm = this;
       var endpoint = '/roles/get-permissions';
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
           vm.permissions = response.data.permissions;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
+    getDialerPermissions: function getDialerPermissions() {
+      var vm = this;
+      var endpoint = '/roles/get-dialer-permissions';
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.dialer_permissions = response.data.permissions;
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
@@ -75995,8 +76973,47 @@ __webpack_require__.r(__webpack_exports__);
       vm.role_add = true;
       vm.role_edit = false;
     },
-    showModulePreferences: function showModulePreferences(type) {
-      this.active_module = type;
+    updateRole: function updateRole(role) {
+      Fire.$emit('UpdateRole', {
+        'role': role,
+        'dialer_permissions': this.dialer_permissions
+      });
+    },
+    showModulePreferences: function showModulePreferences(active_module, action, in_module) {
+      Fire.$emit(action, {
+        'module': in_module
+      });
+      this.editing_module = in_module;
+      this.active_module_name = active_module;
+      this.active_module_action = action;
+    }
+  },
+  watch: {
+    selected: function selected(newVal, oldVal) {
+      // Handle changes in individual flavour checkboxes
+      if (newVal.length === 0) {
+        this.indeterminate = false;
+        this.allSelected = false;
+      } else if (newVal.length === this.flavours.length) {
+        this.indeterminate = false;
+        this.allSelected = true;
+      } else {
+        this.indeterminate = true;
+        this.allSelected = false;
+      }
+    },
+    dialer_selected: function dialer_selected(newVal, oldVal) {
+      // Handle changes in individual flavour checkboxes
+      if (newVal.length === 0) {
+        this.dialer_indeterminate = false;
+        this.dialer_allSelected = false;
+      } else if (newVal.length === this.flavours.length) {
+        this.dialer_indeterminate = false;
+        this.dialer_allSelected = true;
+      } else {
+        this.dialer_indeterminate = true;
+        this.dialer_allSelected = false;
+      }
     }
   }
 });
@@ -79620,7 +80637,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -79646,12 +80662,26 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
   mounted: function mounted() {
     var vm = this;
 
-    if (this.role_id == 4 || vm.lead_id != '') {
+    if (vm.lead_id != '') {
       vm.enqueueLead(vm.lead_id);
-    }
-
-    if (this.role_id == 1 || this.role_id == 2) {
+      vm.general = true;
+      vm.active_calls = false; // vm.addEvent(document, "mouseout", function(e) {
+      //     e = e ? e : window.event;
+      //     var from = e.relatedTarget || e.toElement;
+      //     if (!from || from.nodeName == "HTML") {
+      //         // stop your drag event here
+      //         // for now we can just use an alert
+      //         vm.completeCall();
+      //     }
+      // });
+    } else if ((this.role_id == 1 || this.role_id == 2) && vm.lead_id == '') {
       vm.active_calls = true;
+      Fire.$emit('ShowActiveCalls');
+    } else {
+      vm.general = false;
+      vm.scripts = false;
+      vm.idle = true;
+      vm.active_calls = false;
     }
 
     vm.getActiveCalls();
@@ -79914,9 +80944,19 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var date = new Date();
       this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
     },
-    preventClosing: function preventClosing() {
-      if (this.continues == false) {
-        this.$refs['final-call-step'].show();
+    preventClosing: function preventClosing(BvModalEvent) {
+      var vm = this;
+      if (BvModalEvent.trigger == 'backdrop') BvModalEvent.preventDefault();
+    },
+    mouseLeave: function mouseLeave(event) {
+      console.log(event.pageX);
+      console.log(event.pagey);
+    },
+    addEvent: function addEvent(obj, evt, fn) {
+      if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
+      } else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
       }
     },
     toggleModal: function toggleModal() {
@@ -79937,7 +80977,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         if (response.data.success) {
           vm.continues = true;
           vm.$refs['final-call-step'].hide();
-          location.reload();
         } else {
           vm.$swal('Warning', 'Please updated Notes or Callback information before continuing', 'warning');
         }
@@ -79956,14 +80995,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     enqueueLead: function enqueueLead() {
       var lead_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var vm = this;
-      var end_point_choice = '';
-
-      if (lead_id != '') {
-        end_point_choice = '/leads/get/' + lead_id;
-      } else {
-        end_point_choice = '/leads/enqueue';
-      }
-
+      var end_point_choice = '/leads/get/' + lead_id;
       vm.show_page_loader = true;
       vm.$Progress.start();
       axios.get(end_point_choice).then(function (response) {
@@ -79977,12 +81009,13 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.comment.comment_description = '';
           vm.comment.comment_type = '';
           vm.added_time = false;
-          vm.continues = false; // vm.show_page_loader = false;
-
+          vm.continues = false;
           Fire.$emit('AfterLeadEnqueue', {
             'lead_id': vm.lead_info.id,
             'contact_number': vm.lead_info.phone_number
           });
+          vm.show_page_loader = false;
+          vm.$Progress.finish();
 
           if (vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on') {
             axios.get('/calls/token').then(function (response) {
@@ -80026,9 +81059,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             })["catch"](function (error) {
               console.log(error);
             });
-          } else {
-            Fire.$emit('ShowGeneral');
-            vm.show_page_loader = true;
           }
         } else {
           vm.$Progress.fail();
@@ -130316,7 +131346,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, "\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\n    font-size: 10;\n    font-weight: 900;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+=======
 exports.push([module.i, "\nspan.days-remaining[data-v-6263b939]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\r\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n    height: 35px;\r\n    font-size: 11px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\r\n    font-size: 10;\r\n    font-weight: 900;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\n}\ntable th[data-v-6263b939]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\r\ntable td[data-v-6263b939]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+>>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
 
 // exports
 
@@ -130456,6 +131490,25 @@ exports.push([module.i, "\n*[data-v-26869335] {\r\n  will-change: height;\r\n  t
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.add-fields .btn[data-v-e8b89162]{\n    margin: 0;\n}\n.help-block[data-v-e8b89162]{\n    color: #dc3545;\n    font-size: 12px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css& ***!
@@ -130469,6 +131522,44 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, "\n.form-control[data-v-75b41319] {\n    border-radius: 25px;\n    padding: 7px;\n    height: 28px !important;\n    font-size: 9px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.form-control[data-v-390d5e68] {\n    border-radius: 25px;\n    padding: 7px;\n    height: 28px !important;\n    font-size: 9px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.add-fields .btn[data-v-37c5ed24]{\n    margin: 0;\n}\n.help-block[data-v-37c5ed24]{\n    color: #dc3545;\n    font-size: 12px;\n}\n", ""]);
 
 // exports
 
@@ -130506,7 +131597,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 187px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        border: transparent !important;\n        border-radius: 5px !important;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-d4042370]:hover{\n        background: #00344a;\n        color: #ffffff;    \n        border: transparent !important;\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-block[data-v-d4042370] {\n        display: block;\n        width: 98%;\n}\n", ""]);
+exports.push([module.i, "\n\n\t/*Right Component*/\nli.title a strong[data-v-d4042370]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n        margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n        list-style: none;\n        padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n        float: left;\n        margin-left: 10px;\n        margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n        border-radius: 20px;\n        padding: 4px 16px;\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n    ul.top-menu li.item a.active[data-v-d4042370]{\n        color: rgba(0, 0, 0, 0.5);\n\t\tborder-radius: 20px;\n        padding: 4px 16px;\n\t    background: #F98B39;\n\t    border-color: #F98B39;\n\t    color: #fff !important;\n}\n.border-bottom[data-v-d4042370] {\n\t    border-bottom: none !important;\n        margin-left: -10px !important;\n        padding: 0 0 0;\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n\t    margin: 5px 8px 8px 55px !important;\n\t    height: 29px !important;\n\t    background: #F98B39 !important;\n\t    border-color: #F98B39 !important;\n\t    color: #fff !important;\n\t    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n        border-radius: 25px;\n        padding: 7px;\n        height: 28px !important;\n        font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n        float: left;\n        flex: 0 0 24%;\n        max-width: 24%;\n        margin-right: 1%;\n        min-height: 50px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n        margin-right: 0;\n        margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n       width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n        padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        border: transparent !important;\n        border-radius: 5px !important;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-d4042370]:hover{\n        background: #00344a;\n        color: #ffffff;    \n        border: transparent !important;\n        padding: 6px 12px 6px 10px;\n        font-size: 9px;\n        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-block[data-v-d4042370] {\n        display: block;\n        width: 98%;\n}\n.card-body .form-group[data-v-d4042370]{\n        margin-left: 0%;\n}\n.pt-0[data-v-d4042370], .py-0[data-v-d4042370] {\n        padding-top: 0 !important;\n        padding-bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -221800,6 +222891,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css& ***!
@@ -221809,6 +222930,66 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=style&index=0&id=75b41319&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -247293,145 +248474,367 @@ var render = function() {
       staticStyle: { width: "fit-content" }
     },
     [
-      _c("table", { ref: "table" }, [
-        _c("thead", [
-          _c(
-            "tr",
-            _vm._l(_vm.columns, function(column, index) {
-              return _c(
-                "th",
+      _vm.show_mass_assign
+        ? _c("table", { staticClass: "tg" }, [
+            _c("tr", [
+              _c(
+                "td",
                 {
-                  key: index,
-                  class:
-                    (_vm.sortable ? "sorting " : "") +
-                    (_vm.sortColumn === index
-                      ? _vm.sortType === "desc"
-                        ? "sorting-desc"
-                        : "sorting-asc"
-                      : "") +
-                    (column.numeric ? " numeric" : ""),
-                  style: { width: column.width ? column.width : "auto" },
-                  on: {
-                    click: function($event) {
-                      return _vm.sort(index)
-                    }
-                  }
+                  staticClass: "tg-1lax",
+                  staticStyle: { "padding-right": "20px", width: "500px" }
                 },
                 [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(column.label) +
-                      "\n                "
-                  )
-                ]
-              )
-            }),
-            0
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.paginated, function(row, index) {
-            return _c(
-              "tr",
-              {
-                key: index,
-                class: _vm.onClick ? "clickable" : "",
-                on: {
-                  click: function($event) {
-                    return _vm.click(row, index)
-                  }
-                }
-              },
-              _vm._l(_vm.columns, function(column, i) {
-                return _c(
-                  "td",
-                  { key: i, class: column.numeric ? "numeric" : "" },
-                  [
-                    column.field == "full_name"
-                      ? _c("span", [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.collect(row, column.field)) +
-                              "\n                    "
-                          )
-                        ])
-                      : column.field == "status"
-                      ? _c("span", [
-                          _c("a", {
-                            class: _vm.collect(row, column.field),
-                            attrs: {
-                              href: "#",
-                              title: _vm.collect(row, column.field),
-                              disabled: ""
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.showEditModal(row.lead)
-                              }
-                            }
-                          })
-                        ])
-                      : column.field == "days_remaining"
-                      ? _c("span", { staticClass: "days-remaining" }, [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.getDaysRemaining(row.lead)) +
-                              "\n                    "
-                          )
-                        ])
-                      : column.field == "actions"
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "actions",
-                            staticStyle: { display: "block", width: "180px" }
-                          },
-                          [
-                            _c("a", {
-                              staticClass: "View",
-                              attrs: {
-                                href: "/workstation/" + row.id,
-                                title: "View"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("a", {
-                              staticClass: "Edit",
-                              attrs: { href: "#", title: "Edit" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.showEditModal(row.lead)
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.role == 1 || _vm.role == 2
-                              ? _c("a", {
-                                  staticClass: "Delete",
-                                  attrs: { href: "#", title: "Delete" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.deleteItem(row.lead.id)
-                                    }
+                  _c(
+                    "b-dropdown",
+                    {
+                      ref: "dropdown",
+                      staticClass: "m-1",
+                      staticStyle: { width: "100%" },
+                      attrs: { id: "dropdown-form1", text: "Assignees" }
+                    },
+                    [
+                      _c(
+                        "b-dropdown-form",
+                        [
+                          _c(
+                            "b-form-group",
+                            [
+                              _c(
+                                "b-form-checkbox-group",
+                                {
+                                  attrs: {
+                                    id: "checkbox-group-2",
+                                    name: "flavour-1",
+                                    stacked: ""
+                                  },
+                                  model: {
+                                    value: _vm.selected_assignees,
+                                    callback: function($$v) {
+                                      _vm.selected_assignees = $$v
+                                    },
+                                    expression: "selected_assignees"
                                   }
-                                })
-                              : _vm._e()
-                          ]
-                        )
-                      : _c("span", [
-                          _vm._v(_vm._s(_vm.collect(row, column.field)))
-                        ])
+                                },
+                                _vm._l(_vm.users.assignees, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "b-form-checkbox",
+                                    {
+                                      key: index,
+                                      staticClass: "mb-12",
+                                      attrs: { value: item.id }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(item.name + " " + item.lastname)
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "tg-1lax" },
+                [
+                  _c(
+                    "b-dropdown",
+                    {
+                      ref: "dropdown",
+                      staticClass: "m-1",
+                      staticStyle: { width: "100%" },
+                      attrs: { id: "dropdown-form2", text: "Owners" }
+                    },
+                    [
+                      _c(
+                        "b-dropdown-form",
+                        [
+                          _c(
+                            "b-form-group",
+                            [
+                              _c(
+                                "b-form-checkbox-group",
+                                {
+                                  attrs: {
+                                    id: "checkbox-group-2",
+                                    name: "flavour-1",
+                                    stacked: ""
+                                  },
+                                  model: {
+                                    value: _vm.selected_owners,
+                                    callback: function($$v) {
+                                      _vm.selected_owners = $$v
+                                    },
+                                    expression: "selected_owners"
+                                  }
+                                },
+                                _vm._l(_vm.users.lead_owners, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "b-form-checkbox",
+                                    {
+                                      key: index,
+                                      staticClass: "mb-12",
+                                      attrs: { value: item.id }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(item.name + " " + item.lastname)
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "tg-1lax" }, [
+                _c(
+                  "button",
+                  {
+                    class: { "btn orange-btn": true, "btn-orange": true },
+                    staticStyle: { width: "100%", margin: "0px" },
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        return _vm.assignTo()
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Assign\n                        "
+                    )
                   ]
                 )
-              }),
-              0
-            )
-          }),
-          0
-        )
-      ]),
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "b-form-group",
+        [
+          _c(
+            "b-form-checkbox-group",
+            {
+              attrs: { id: "checkbox-group-1", name: "flavour-1" },
+              model: {
+                value: _vm.selected,
+                callback: function($$v) {
+                  _vm.selected = $$v
+                },
+                expression: "selected"
+              }
+            },
+            [
+              _c("table", { ref: "table" }, [
+                _c("thead", [
+                  _c(
+                    "tr",
+                    _vm._l(_vm.columns, function(column, index) {
+                      return _c(
+                        "th",
+                        {
+                          key: index,
+                          class:
+                            (_vm.sortable ? "sorting " : "") +
+                            (_vm.sortColumn === index
+                              ? _vm.sortType === "desc"
+                                ? "sorting-desc"
+                                : "sorting-asc"
+                              : "") +
+                            (column.numeric ? " numeric" : ""),
+                          style: {
+                            width: column.width ? column.width : "auto"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.sort(index)
+                            }
+                          }
+                        },
+                        [
+                          index == 0
+                            ? _c("b-form-checkbox", {
+                                attrs: {
+                                  value: "select_all",
+                                  "unchecked-value": "select_none"
+                                },
+                                on: { change: _vm.selectAll }
+                              })
+                            : _vm._e(),
+                          _vm._v(
+                            "  \n                            " +
+                              _vm._s(column.label) +
+                              "\n                        "
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.paginated, function(row, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: index,
+                        class: _vm.onClick ? "clickable" : "",
+                        on: {
+                          click: function($event) {
+                            return _vm.click(row, index)
+                          }
+                        }
+                      },
+                      _vm._l(_vm.columns, function(column, i) {
+                        return _c(
+                          "td",
+                          { key: i, class: column.numeric ? "numeric" : "" },
+                          [
+                            column.field == "all"
+                              ? _c(
+                                  "span",
+                                  [
+                                    _c("b-form-checkbox", {
+                                      attrs: { value: row.lead.id },
+                                      on: { change: _vm.selectOne },
+                                      model: {
+                                        value: _vm.selected,
+                                        callback: function($$v) {
+                                          _vm.selected = $$v
+                                        },
+                                        expression: "selected"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            column.field == "full_name"
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.collect(row, column.field)) +
+                                      "\n                            "
+                                  )
+                                ])
+                              : column.field == "status"
+                              ? _c("span", [
+                                  _c("a", {
+                                    class: _vm.collect(row, column.field),
+                                    attrs: {
+                                      href: "#",
+                                      title: _vm.collect(row, column.field),
+                                      disabled: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.showEditModal(row.lead)
+                                      }
+                                    }
+                                  })
+                                ])
+                              : column.field == "days_remaining"
+                              ? _c("span", { staticClass: "days-remaining" }, [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(_vm.getDaysRemaining(row.lead)) +
+                                      "\n                            "
+                                  )
+                                ])
+                              : column.field == "actions"
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticClass: "actions",
+                                    staticStyle: {
+                                      display: "block",
+                                      width: "180px"
+                                    }
+                                  },
+                                  [
+                                    _c("a", {
+                                      staticClass: "View",
+                                      attrs: {
+                                        href: "/workstation/" + row.id,
+                                        title: "View"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("a", {
+                                      staticClass: "Edit",
+                                      attrs: { href: "#", title: "Edit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.showEditModal(row.lead)
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm.role == 1 || _vm.role == 2
+                                      ? _c("a", {
+                                          staticClass: "Delete",
+                                          attrs: { href: "#", title: "Delete" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteItem(row.lead.id)
+                                            }
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ]
+                                )
+                              : _c("span", [
+                                  _vm._v(_vm._s(_vm.collect(row, column.field)))
+                                ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  }),
+                  0
+                )
+              ])
+            ]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _vm.paginate
         ? _c("div", { staticClass: "table-footer" }, [
@@ -247540,7 +248943,8 @@ var render = function() {
               ref: "modalUpdateUser",
               attrs: {
                 id: "update-user-modal",
-                title: "Update Contact",
+                title:
+                  _vm.user.is_client == 1 ? "Update Contact" : "Update Lead",
                 size: "lg",
                 "header-text-variant": "light",
                 "header-bg-variant": "warning"
@@ -247548,631 +248952,791 @@ var render = function() {
               on: { ok: _vm.handleOk }
             },
             [
-              _c("a-card", { attrs: { title: "Lead Information" } }, [
-                _c(
-                  "form",
-                  {
-                    ref: "form",
-                    on: {
-                      submit: function($event) {
-                        $event.stopPropagation()
-                        $event.preventDefault()
-                        return _vm.handleSubmit($event)
+              _c(
+                "a-card",
+                {
+                  attrs: {
+                    title:
+                      _vm.user.is_client == 1
+                        ? "Contact Information"
+                        : "Lead Information"
+                  }
+                },
+                [
+                  _c(
+                    "form",
+                    {
+                      ref: "form",
+                      on: {
+                        submit: function($event) {
+                          $event.stopPropagation()
+                          $event.preventDefault()
+                          return _vm.handleSubmit($event)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c("div", { class: { input: true, "form-group": true } }, [
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Title\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.title,
-                              expression: "user.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "Name", name: "Name" },
-                          domProps: { value: _vm.user.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "title", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Name\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.name,
-                              expression: "user.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "Name", name: "Name" },
-                          domProps: { value: _vm.user.name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "name", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Name"),
-                                expression: "errors.has('Name')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Name")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Surname\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.surname,
-                              expression: "user.surname"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Surname",
-                            name: "Surname"
-                          },
-                          domProps: { value: _vm.user.surname },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "surname", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Surname"),
-                                expression: "errors.has('Surname')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Surname")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Account\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.account,
-                              expression: "user.account"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Account",
-                            name: "Account"
-                          },
-                          domProps: { value: _vm.user.account },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "account", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Email\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.email,
-                              expression: "user.email"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "email",
-                              expression: "'email'"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "email", name: "Email" },
-                          domProps: { value: _vm.user.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "email", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Email"),
-                                expression: "errors.has('Email')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Email")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Owner\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.user_created_id,
-                                expression: "user.user_created_id"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", id: "role", name: "Owner" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "user_created_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Lead Owner ")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.users.lead_owners, function(
-                              item,
-                              index
-                            ) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item.id } },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { class: { input: true, "form-group": true } },
+                        [
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Title\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.title,
+                                    expression: "user.title"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "Name",
+                                  name: "Name"
+                                },
+                                domProps: { value: _vm.user.title },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "title",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Name\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.name,
+                                    expression: "user.name"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "Name",
+                                  name: "Name"
+                                },
+                                domProps: { value: _vm.user.name },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Name"),
+                                      expression: "errors.has('Name')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Name")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Surname\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.surname,
+                                    expression: "user.surname"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "Surname",
+                                  name: "Surname"
+                                },
+                                domProps: { value: _vm.user.surname },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "surname",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Surname"),
+                                      expression: "errors.has('Surname')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Surname")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v(
+                                "Instagram Account\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.account,
+                                    expression: "user.account"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "Account",
+                                  name: "Account"
+                                },
+                                domProps: { value: _vm.user.account },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "account",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Email\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.email,
+                                    expression: "user.email"
+                                  },
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "email",
+                                    expression: "'email'"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "email",
+                                  name: "Email"
+                                },
+                                domProps: { value: _vm.user.email },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "email",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Email"),
+                                      expression: "errors.has('Email')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Email")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Owner\n                            "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.user_created_id,
+                                      expression: "user.user_created_id"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "role",
+                                    name: "Owner"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "user_created_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
                                 [
-                                  _vm._v(
-                                    _vm._s(item.name + " " + item.lastname)
-                                  )
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose Lead Owner ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.users.lead_owners, function(
+                                    item,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: item.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(
+                                            item.name + " " + item.lastname
+                                          )
+                                        )
+                                      ]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v(
+                                "Mobile number\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.phone_number,
+                                    expression: "user.phone_number"
+                                  },
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "min:10",
+                                    expression: "'min:10'"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "work_number",
+                                  name: "Mobile"
+                                },
+                                domProps: { value: _vm.user.phone_number },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "phone_number",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Mobile"),
+                                      expression: "errors.has('Mobile')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Mobile")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Package\n                            "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.product_id,
+                                      expression: "user.product_id"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "package",
+                                    name: "Package"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "product_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose Package")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.users.packages, function(
+                                    item,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: item.id }
+                                      },
+                                      [_vm._v(_vm._s(item.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Package"),
+                                      expression: "errors.has('Package')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Package")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v(
+                                "Assigned To\n                            "
+                              ),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.user_assigned,
+                                      expression: "user.user_assigned"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "Assignee",
+                                    name: "Assignee"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "user_assigned",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose Assignee")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.users.assignees, function(
+                                    item,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: item.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(
+                                            item.name + " " + item.lastname
+                                          )
+                                        )
+                                      ]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v(
+                                "Lead Source\n                            "
+                              ),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.source,
+                                      expression: "user.source"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "Source",
+                                    name: "Source"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "source",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose Source")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.users.sources, function(
+                                    item,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      { key: index, domProps: { value: item } },
+                                      [_vm._v(_vm._s(item.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Country\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.country,
+                                    expression: "user.country"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "Country",
+                                  name: "Country"
+                                },
+                                domProps: { value: _vm.user.country },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "country",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("City\n                            "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.city,
+                                    expression: "user.city"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "City",
+                                  name: "City"
+                                },
+                                domProps: { value: _vm.user.city },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "city",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _vm._v("Status\n                            "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.status,
+                                      expression: "user.status"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "status",
+                                    name: "Status"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "status",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose Status ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "1" } }, [
+                                    _vm._v("Active")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2" } }, [
+                                    _vm._v("Inactive")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "0" } }, [
+                                    _vm._v("Canceled")
+                                  ])
                                 ]
                               )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Mobile number\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.phone_number,
-                              expression: "user.phone_number"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "min:10",
-                              expression: "'min:10'"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "work_number",
-                            name: "Mobile"
-                          },
-                          domProps: { value: _vm.user.phone_number },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.user,
-                                "phone_number",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Mobile"),
-                                expression: "errors.has('Mobile')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Mobile")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Package\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.product_id,
-                                expression: "user.product_id"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "package",
-                              name: "Package"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "product_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Package")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.users.packages, function(item, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item.id } },
-                                [_vm._v(_vm._s(item.name))]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Package"),
-                                expression: "errors.has('Package')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Package")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Assigned To\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.user_assigned,
-                                expression: "user.user_assigned"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "Assignee",
-                              name: "Assignee"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "user_assigned",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Assignee")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.users.assignees, function(item, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item.id } },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.name + " " + item.lastname)
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Lead Source\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.source,
-                                expression: "user.source"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "Source",
-                              name: "Source"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "source",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Source")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.users.sources, function(item, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item } },
-                                [_vm._v(_vm._s(item.name))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Country\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.country,
-                              expression: "user.country"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Country",
-                            name: "Country"
-                          },
-                          domProps: { value: _vm.user.country },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "country", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("City\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.city,
-                              expression: "user.city"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "City", name: "City" },
-                          domProps: { value: _vm.user.city },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "city", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Status\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.status,
-                                expression: "user.status"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "status",
-                              name: "Status"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "status",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Status ")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Active")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Inactive")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("Canceled")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]),
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "a-card",
@@ -248224,6 +249788,76 @@ var render = function() {
                   })
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "a-card",
+                {
+                  staticClass: "uploaded-files",
+                  staticStyle: { "margin-top": "20px" },
+                  attrs: {
+                    title: "File Uploads: " + _vm.user.winsta_uploads.length
+                  }
+                },
+                _vm._l(_vm.user.winsta_uploads, function(upload, index) {
+                  return _c(
+                    "div",
+                    { key: index, staticStyle: { "margin-top": "15px" } },
+                    [
+                      _c(
+                        "a",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.downloadFile(upload.id)
+                            }
+                          }
+                        },
+                        [
+                          index % 2 == 0
+                            ? _c(
+                                "b-alert",
+                                { attrs: { variant: "success", show: "" } },
+                                [
+                                  _vm._v(
+                                    "\n                            " +
+                                      _vm._s(upload.file_name)
+                                  ),
+                                  _c(
+                                    "small",
+                                    { staticStyle: { float: "right" } },
+                                    [_c("em", [_vm._v("Click to download")])]
+                                  )
+                                ]
+                              )
+                            : _c("b-alert", { attrs: { show: "" } }, [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(upload.file_name)
+                                ),
+                                _c(
+                                  "small",
+                                  { staticStyle: { float: "right" } },
+                                  [_c("em", [_vm._v("Click to download")])]
+                                )
+                              ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("b-button", {
+                        staticClass: "Delete",
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteFile(upload.id, index)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                }),
+                0
               )
             ],
             1
@@ -248231,7 +249865,8 @@ var render = function() {
         ],
         1
       )
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -255663,6 +257298,350 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-card",
+        { attrs: { title: "Add Module" } },
+        [
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Information.")])]),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-none" } }, [
+                      _vm._v("Module Name:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        attrs: {
+                          id: "input-none",
+                          state: _vm.display_name_state,
+                          "data-vv-name": "Module Name"
+                        },
+                        model: {
+                          value: _vm.new_module.display_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.new_module, "display_name", $$v)
+                          },
+                          expression: "new_module.display_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Module Name"),
+                              expression: "errors.has('Module Name')"
+                            }
+                          ],
+                          staticClass: "help-block"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Module Name")))]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-valid" } }, [
+                      _vm._v("Module Description:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "input-valid", state: null },
+                        model: {
+                          value: _vm.new_module.description,
+                          callback: function($$v) {
+                            _vm.$set(_vm.new_module, "description", $$v)
+                          },
+                          expression: "new_module.description"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Fields.")])]),
+              _vm._v(" "),
+              _vm._l(_vm.new_module.module_fields, function(field, index) {
+                return _c(
+                  "b-row",
+                  { key: index, staticClass: "my-1 add-fields" },
+                  [
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field name:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            id: "input-none",
+                            state: null,
+                            "data-vv-name": "Field " + (index + 1) + "'s Name"
+                          },
+                          model: {
+                            value: field.name,
+                            callback: function($$v) {
+                              _vm.$set(field, "name", $$v)
+                            },
+                            expression: "field.name"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Name"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Name')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Name"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field type:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-select", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            options: _vm.types,
+                            "data-vv-name": "Field " + (index + 1) + "'s Type"
+                          },
+                          model: {
+                            value: field.type,
+                            callback: function($$v) {
+                              _vm.$set(field, "type", $$v)
+                            },
+                            expression: "field.type"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Type"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Type')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Type"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "2" } },
+                      [
+                        index + 1 < _vm.new_module.module_fields.length
+                          ? _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "danger" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeField(index)
+                                  }
+                                }
+                              },
+                              [_vm._v("-")]
+                            )
+                          : _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "success" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addField()
+                                  }
+                                }
+                              },
+                              [_vm._v("+")]
+                            )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "success" },
+                          on: {
+                            click: function($event) {
+                              return _vm.addModule()
+                            }
+                          }
+                        },
+                        [_vm._v("Add Module")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=template&id=75b41319&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/AddRole.vue?vue&type=template&id=75b41319&scoped=true& ***!
@@ -255692,7 +257671,7 @@ var render = function() {
             [
               _c("b-col", { attrs: { sm: "2" } }, [
                 _c("label", { attrs: { for: "input-none" } }, [
-                  _vm._v("Role Name:")
+                  _vm._v("Role Name")
                 ])
               ]),
               _vm._v(" "),
@@ -255826,6 +257805,555 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-card",
+        { attrs: { "no-body": "" } },
+        [
+          _c(
+            "b-tabs",
+            { attrs: { pills: "", card: "" } },
+            _vm._l(_vm.apis, function(api, index) {
+              return _c(
+                "b-tab",
+                {
+                  key: index,
+                  attrs: { title: api.name, active: index == 0 ? true : false }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-9" },
+                    [
+                      _c(
+                        "b-container",
+                        { attrs: { fluid: "" } },
+                        [
+                          _vm._l(api.attributes, function(attr, i) {
+                            return _c(
+                              "div",
+                              { key: i },
+                              [
+                                attr.key != "default_dialing_api" &&
+                                attr.key != "default_payment_api"
+                                  ? _c(
+                                      "b-row",
+                                      { staticClass: "my-1" },
+                                      [
+                                        _c("b-col", { attrs: { sm: "3" } }, [
+                                          _c(
+                                            "label",
+                                            { attrs: { for: "input-none" } },
+                                            [_vm._v(_vm._s(attr.display_name))]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-col",
+                                          { attrs: { sm: "7" } },
+                                          [
+                                            _c("b-form-input", {
+                                              attrs: {
+                                                id: "input-none",
+                                                state: null
+                                              },
+                                              model: {
+                                                value: attr.value,
+                                                callback: function($$v) {
+                                                  _vm.$set(attr, "value", $$v)
+                                                },
+                                                expression: "attr.value"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  : _c(
+                                      "b-row",
+                                      { staticClass: "my-1" },
+                                      [
+                                        _c("b-col", { attrs: { sm: "3" } }, [
+                                          _c(
+                                            "label",
+                                            { attrs: { for: "input-valid" } },
+                                            [_vm._v(_vm._s(attr.display_name))]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-col",
+                                          { attrs: { sm: "7" } },
+                                          [
+                                            _c("b-form-checkbox", {
+                                              attrs: {
+                                                id: "checkbox-1",
+                                                name: "checkbox-1",
+                                                value: "1",
+                                                "unchecked-value": "0"
+                                              },
+                                              model: {
+                                                value: attr.value,
+                                                callback: function($$v) {
+                                                  _vm.$set(attr, "value", $$v)
+                                                },
+                                                expression: "attr.value"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                              ],
+                              1
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "my-1" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "9" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: { variant: "default" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.updateDetails()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Update Details")]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            }),
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-card",
+        {
+          attrs: {
+            title:
+              _vm.module === null
+                ? "Add Module"
+                : "Update " + _vm.module.display_name
+          }
+        },
+        [
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Information.")])]),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-none" } }, [
+                      _vm._v("Module Name:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        attrs: {
+                          id: "input-none",
+                          state: _vm.display_name_state,
+                          "data-vv-name": "Module Name"
+                        },
+                        model: {
+                          value: _vm.module.display_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.module, "display_name", $$v)
+                          },
+                          expression: "module.display_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Module Name"),
+                              expression: "errors.has('Module Name')"
+                            }
+                          ],
+                          staticClass: "help-block"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Module Name")))]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c("b-col", { attrs: { sm: "2" } }, [
+                    _c("label", { attrs: { for: "input-valid" } }, [
+                      _vm._v("Module Description:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "9" } },
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "input-valid", state: null },
+                        model: {
+                          value: _vm.module.description,
+                          callback: function($$v) {
+                            _vm.$set(_vm.module, "description", $$v)
+                          },
+                          expression: "module.description"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c("b-card-text", [_c("b", [_vm._v("Module Fields.")])]),
+              _vm._v(" "),
+              _vm._l(_vm.module.module_fields, function(field, index) {
+                return _c(
+                  "b-row",
+                  { key: index, staticClass: "my-1 add-fields" },
+                  [
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field name:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            id: "input-none",
+                            state: null,
+                            "data-vv-name": "Field " + (index + 1) + "'s Name"
+                          },
+                          model: {
+                            value: field.name,
+                            callback: function($$v) {
+                              _vm.$set(field, "name", $$v)
+                            },
+                            expression: "field.name"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Name"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Name')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Name"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("b-col", { attrs: { sm: "2" } }, [
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Field type:")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "3" } },
+                      [
+                        _c("b-form-select", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          attrs: {
+                            options: _vm.types,
+                            "data-vv-name": "Field " + (index + 1) + "'s Type"
+                          },
+                          model: {
+                            value: field.type,
+                            callback: function($$v) {
+                              _vm.$set(field, "type", $$v)
+                            },
+                            expression: "field.type"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(
+                                  "Field " + (index + 1) + "'s Type"
+                                ),
+                                expression:
+                                  "errors.has('Field ' + (index + 1) +'\\'s Type')"
+                              }
+                            ],
+                            staticClass: "help-block"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.errors.first(
+                                  "Field " + (index + 1) + "'s Type"
+                                )
+                              )
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "2" } },
+                      [
+                        index + 1 < _vm.module.module_fields.length
+                          ? _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "danger" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeField(index)
+                                  }
+                                }
+                              },
+                              [_vm._v("-")]
+                            )
+                          : _c(
+                              "b-button",
+                              {
+                                attrs: { variant: "success" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addField()
+                                  }
+                                }
+                              },
+                              [_vm._v("+")]
+                            )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c(
+            "b-container",
+            { attrs: { fluid: "" } },
+            [
+              _c(
+                "b-row",
+                { staticClass: "my-1" },
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "2" } },
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "success" },
+                          on: {
+                            click: function($event) {
+                              return _vm.editModule()
+                            }
+                          }
+                        },
+                        [_vm._v("Update Module")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { sm: "2" } },
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "danger" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteModule()
+                            }
+                          }
+                        },
+                        [_vm._v("Delete Module")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditRole.vue?vue&type=template&id=81b88ba4&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditRole.vue?vue&type=template&id=81b88ba4&scoped=true& ***!
@@ -255855,7 +258383,7 @@ var render = function() {
             [
               _c("b-col", { attrs: { sm: "2" } }, [
                 _c("label", { attrs: { for: "input-none" } }, [
-                  _vm._v("Role Name:")
+                  _vm._v("Role Name")
                 ])
               ]),
               _vm._v(" "),
@@ -255947,33 +258475,6 @@ var render = function() {
               )
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            { staticClass: "my-1" },
-            [
-              _c(
-                "b-col",
-                { attrs: { sm: "9" } },
-                [
-                  _c(
-                    "b-button",
-                    {
-                      attrs: { variant: "default" },
-                      on: {
-                        click: function($event) {
-                          return _vm.updateRole()
-                        }
-                      }
-                    },
-                    [_vm._v("Update Role")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
           )
         ],
         1
@@ -256016,15 +258517,58 @@ var render = function() {
             _c(
               "a",
               {
-                class: { active: _vm.active_module === "roles" ? true : false },
+                class: {
+                  active: _vm.active_module_name === "roles" ? true : false
+                },
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
-                    return _vm.showModulePreferences("roles")
+                    return _vm.showModulePreferences("roles", "roles", null)
                   }
                 }
               },
               [_vm._v("Roles")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "item" }, [
+            _c(
+              "a",
+              {
+                class: {
+                  active: _vm.active_module_name === "dialer" ? true : false
+                },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.showModulePreferences("dialer", "dialer", null)
+                  }
+                }
+              },
+              [_vm._v("Dialer")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "item" }, [
+            _c(
+              "a",
+              {
+                class: {
+                  active:
+                    _vm.active_module_name === "api_integration" ? true : false
+                },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.showModulePreferences(
+                      "api_integration",
+                      "api_integration",
+                      null
+                    )
+                  }
+                }
+              },
+              [_vm._v("API Integration")]
             )
           ]),
           _vm._v(" "),
@@ -256034,12 +258578,16 @@ var render = function() {
                 "a",
                 {
                   class: {
-                    active: _vm.active_module === module.tag ? true : false
+                    active: _vm.active_module_name === module.tag ? true : false
                   },
                   attrs: { href: "#" },
                   on: {
                     click: function($event) {
-                      return _vm.showModulePreferences(module.tag)
+                      return _vm.showModulePreferences(
+                        module.tag,
+                        "edit_module",
+                        module
+                      )
                     }
                   }
                 },
@@ -256053,12 +258601,20 @@ var render = function() {
               "a",
               {
                 class: {
-                  active: _vm.active_module === "add_new" ? true : false
+                  active: _vm.active_module_name === "add_module" ? true : false
                 },
-                attrs: { href: "#", title: "Add new section" },
+                attrs: {
+                  role: "button",
+                  rel: "addModuleLink",
+                  title: "Add new Module"
+                },
                 on: {
                   click: function($event) {
-                    return _vm.showModulePreferences("add_new")
+                    return _vm.showModulePreferences(
+                      "add_module",
+                      "add_module",
+                      null
+                    )
                   }
                 }
               },
@@ -256080,7 +258636,7 @@ var render = function() {
           [
             _vm.show_page_loader ? _c("vcl-table") : _vm._e(),
             _vm._v(" "),
-            !_vm.show_page_loader
+            !_vm.show_page_loader && _vm.active_module_name == "roles"
               ? _c(
                   "div",
                   { staticClass: "col-lg-12  user-roles" },
@@ -256092,84 +258648,1076 @@ var render = function() {
                         _c(
                           "b-tabs",
                           { attrs: { card: "" } },
-                          _vm._l(_vm.roles, function(role, index) {
-                            return _c(
-                              "b-tab",
-                              {
-                                key: index,
-                                attrs: {
-                                  title: role.display_name,
-                                  active: index == 0 ? true : false
-                                }
-                              },
-                              [
-                                _c("div", { staticClass: "row" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-3" },
-                                    [
-                                      _c(
-                                        "b-button",
-                                        {
-                                          staticClass: "btn btn-default",
-                                          on: { click: _vm.applyPermissions }
-                                        },
-                                        [_vm._v("Apply Permissions")]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-3" },
-                                    [
-                                      _c(
-                                        "b-button",
-                                        {
-                                          staticClass: "btn btn-default",
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.editRole(role)
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Edit Role")]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-3" },
-                                    [
-                                      _c(
-                                        "b-button",
-                                        {
-                                          staticClass: "btn btn-default",
-                                          on: { click: _vm.addRole }
-                                        },
-                                        [_vm._v("Add New Role")]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _vm.role_edit
-                                  ? _c(
+                          [
+                            _vm._l(_vm.roles, function(role, index) {
+                              return _c(
+                                "b-tab",
+                                {
+                                  key: index,
+                                  attrs: {
+                                    title: role.display_name,
+                                    active: index == 0 ? true : false
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editRole(role)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
                                       "div",
-                                      { staticClass: "row" },
+                                      { staticClass: "col-lg-3" },
                                       [
-                                        _c("edit-role", {
-                                          attrs: { role: _vm.edit_role }
-                                        })
+                                        _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "btn btn-default",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updateRole(role)
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Update Role")]
+                                        )
                                       ],
                                       1
                                     )
-                                  : _vm._e(),
-                                _vm._v(" "),
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.role_edit
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "row" },
+                                        [
+                                          _c("edit-role", {
+                                            attrs: { role: _vm.edit_role }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.role_add
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "row" },
+                                        [_c("add-role")],
+                                        1
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [_c("hr")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "transition",
+                                    { attrs: { name: "fade" } },
+                                    [
+                                      !_vm.role_add
+                                        ? _c("div", { staticClass: "row" }, [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-lg-12",
+                                                attrs: { role: "tablist" }
+                                              },
+                                              [
+                                                _c("h5", [
+                                                  _vm._v("Permissions")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      [
+                                                        _c(
+                                                          "b-card",
+                                                          {
+                                                            staticClass: "mb-1",
+                                                            attrs: {
+                                                              "no-body": ""
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "b-card-header",
+                                                              {
+                                                                staticClass:
+                                                                  "p-1",
+                                                                attrs: {
+                                                                  "header-tag":
+                                                                    "header",
+                                                                  role: "tab"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "b-button",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "b-toggle",
+                                                                        rawName:
+                                                                          "v-b-toggle",
+                                                                        value:
+                                                                          "accordion-dialer",
+                                                                        expression:
+                                                                          "'accordion-dialer'"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      block: "",
+                                                                      href: "#",
+                                                                      "aria-controls":
+                                                                        "accordion-dialer",
+                                                                      variant:
+                                                                        "info"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Dialer"
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ],
+                                                              1
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "b-collapse",
+                                                              {
+                                                                attrs: {
+                                                                  id:
+                                                                    "accordion-dialer",
+                                                                  visible: true,
+                                                                  accordion:
+                                                                    "my-accordion-0",
+                                                                  role:
+                                                                    "tabpanel"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "b-card-body",
+                                                                  _vm._l(
+                                                                    _vm.dialer_permissions,
+                                                                    function(
+                                                                      permission,
+                                                                      k
+                                                                    ) {
+                                                                      return _c(
+                                                                        "div",
+                                                                        {
+                                                                          key: k
+                                                                        },
+                                                                        [
+                                                                          permission.role_id ==
+                                                                          role.id
+                                                                            ? _c(
+                                                                                "div",
+                                                                                [
+                                                                                  _c(
+                                                                                    "b-form-group",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "permisions"
+                                                                                    },
+                                                                                    [
+                                                                                      _c(
+                                                                                        "b-form-group",
+                                                                                        [
+                                                                                          _c(
+                                                                                            "b-form-checkbox",
+                                                                                            {
+                                                                                              attrs: {
+                                                                                                value:
+                                                                                                  "1",
+                                                                                                "unchecked-value":
+                                                                                                  "0"
+                                                                                              },
+                                                                                              model: {
+                                                                                                value:
+                                                                                                  permission.disabled,
+                                                                                                callback: function(
+                                                                                                  $$v
+                                                                                                ) {
+                                                                                                  _vm.$set(
+                                                                                                    permission,
+                                                                                                    "disabled",
+                                                                                                    $$v
+                                                                                                  )
+                                                                                                },
+                                                                                                expression:
+                                                                                                  "permission.disabled"
+                                                                                              }
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                _vm._s(
+                                                                                                  permission.disabled ==
+                                                                                                    1
+                                                                                                    ? "Enabled"
+                                                                                                    : "Disabled"
+                                                                                                )
+                                                                                              )
+                                                                                            ]
+                                                                                          ),
+                                                                                          _vm._v(
+                                                                                            " "
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "b-form-checkbox",
+                                                                                            {
+                                                                                              attrs: {
+                                                                                                value:
+                                                                                                  "1",
+                                                                                                "unchecked-value":
+                                                                                                  "0"
+                                                                                              },
+                                                                                              model: {
+                                                                                                value:
+                                                                                                  permission.whisper,
+                                                                                                callback: function(
+                                                                                                  $$v
+                                                                                                ) {
+                                                                                                  _vm.$set(
+                                                                                                    permission,
+                                                                                                    "whisper",
+                                                                                                    $$v
+                                                                                                  )
+                                                                                                },
+                                                                                                expression:
+                                                                                                  "permission.whisper"
+                                                                                              }
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                "Whisper "
+                                                                                              )
+                                                                                            ]
+                                                                                          ),
+                                                                                          _vm._v(
+                                                                                            " "
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "b-form-checkbox",
+                                                                                            {
+                                                                                              attrs: {
+                                                                                                value:
+                                                                                                  "1",
+                                                                                                "unchecked-value":
+                                                                                                  "0"
+                                                                                              },
+                                                                                              model: {
+                                                                                                value:
+                                                                                                  permission.barge,
+                                                                                                callback: function(
+                                                                                                  $$v
+                                                                                                ) {
+                                                                                                  _vm.$set(
+                                                                                                    permission,
+                                                                                                    "barge",
+                                                                                                    $$v
+                                                                                                  )
+                                                                                                },
+                                                                                                expression:
+                                                                                                  "permission.barge"
+                                                                                              }
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                "Barge"
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        ],
+                                                                                        1
+                                                                                      )
+                                                                                    ],
+                                                                                    1
+                                                                                  )
+                                                                                ],
+                                                                                1
+                                                                              )
+                                                                            : _vm._e()
+                                                                        ]
+                                                                      )
+                                                                    }
+                                                                  ),
+                                                                  0
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.modules,
+                                                      function(a_module, i) {
+                                                        return _c(
+                                                          "div",
+                                                          { key: i },
+                                                          [
+                                                            _c(
+                                                              "b-card",
+                                                              {
+                                                                staticClass:
+                                                                  "mb-1",
+                                                                attrs: {
+                                                                  "no-body": ""
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "b-card-header",
+                                                                  {
+                                                                    staticClass:
+                                                                      "p-1",
+                                                                    attrs: {
+                                                                      "header-tag":
+                                                                        "header",
+                                                                      role:
+                                                                        "tab"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "b-button",
+                                                                      {
+                                                                        directives: [
+                                                                          {
+                                                                            name:
+                                                                              "b-toggle",
+                                                                            rawName:
+                                                                              "v-b-toggle",
+                                                                            value:
+                                                                              "accordion-" +
+                                                                              i,
+                                                                            expression:
+                                                                              "'accordion-' + i"
+                                                                          }
+                                                                        ],
+                                                                        attrs: {
+                                                                          block:
+                                                                            "",
+                                                                          href:
+                                                                            "#",
+                                                                          "aria-controls":
+                                                                            "accordion-" +
+                                                                            i,
+                                                                          variant:
+                                                                            "info"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          _vm._s(
+                                                                            a_module.display_name
+                                                                          )
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "b-collapse",
+                                                                  {
+                                                                    attrs: {
+                                                                      id:
+                                                                        "accordion-" +
+                                                                        i,
+                                                                      visible: false,
+                                                                      accordion:
+                                                                        "my-accordion",
+                                                                      role:
+                                                                        "tabpanel"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "b-card-body",
+                                                                      _vm._l(
+                                                                        _vm.permissions,
+                                                                        function(
+                                                                          permission,
+                                                                          k
+                                                                        ) {
+                                                                          return _c(
+                                                                            "div",
+                                                                            {
+                                                                              key: k
+                                                                            },
+                                                                            [
+                                                                              permission.module_id ==
+                                                                                a_module.id &&
+                                                                              role.id ==
+                                                                                permission.role_id
+                                                                                ? _c(
+                                                                                    "b-form-group",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "permisions"
+                                                                                    },
+                                                                                    [
+                                                                                      _c(
+                                                                                        "div",
+                                                                                        [
+                                                                                          _c(
+                                                                                            "div",
+                                                                                            {
+                                                                                              staticClass:
+                                                                                                "row"
+                                                                                            },
+                                                                                            [
+                                                                                              _c(
+                                                                                                "div",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "col-lg-4"
+                                                                                                },
+                                                                                                [
+                                                                                                  _c(
+                                                                                                    "b-form-group",
+                                                                                                    {
+                                                                                                      scopedSlots: _vm._u(
+                                                                                                        [
+                                                                                                          {
+                                                                                                            key:
+                                                                                                              "label",
+                                                                                                            fn: function() {
+                                                                                                              return [
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "Set " +
+                                                                                                                        _vm._s(
+                                                                                                                          role.display_name
+                                                                                                                        ) +
+                                                                                                                        " permissions for " +
+                                                                                                                        _vm._s(
+                                                                                                                          a_module.display_name
+                                                                                                                        ) +
+                                                                                                                        ":"
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "View"
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b-form-checkbox",
+                                                                                                                  {
+                                                                                                                    attrs: {
+                                                                                                                      indeterminate:
+                                                                                                                        _vm.dialer_indeterminate,
+                                                                                                                      "aria-describedby":
+                                                                                                                        "dialer",
+                                                                                                                      "aria-controls":
+                                                                                                                        "dialer"
+                                                                                                                    },
+                                                                                                                    on: {
+                                                                                                                      change:
+                                                                                                                        _vm.toggleAll
+                                                                                                                    },
+                                                                                                                    model: {
+                                                                                                                      value:
+                                                                                                                        _vm.dialer_allSelected,
+                                                                                                                      callback: function(
+                                                                                                                        $$v
+                                                                                                                      ) {
+                                                                                                                        _vm.dialer_allSelected = $$v
+                                                                                                                      },
+                                                                                                                      expression:
+                                                                                                                        "dialer_allSelected"
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "\n                                                                                                " +
+                                                                                                                        _vm._s(
+                                                                                                                          _vm.allSelected
+                                                                                                                            ? "Un-select All"
+                                                                                                                            : "Select All"
+                                                                                                                        ) +
+                                                                                                                        "\n                                                                                                "
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                                              ]
+                                                                                                            },
+                                                                                                            proxy: true
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        null,
+                                                                                                        true
+                                                                                                      )
+                                                                                                    },
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        " "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "b-form-checkbox-group",
+                                                                                                        {
+                                                                                                          staticClass:
+                                                                                                            "ml-4",
+                                                                                                          attrs: {
+                                                                                                            id:
+                                                                                                              "dialer",
+                                                                                                            options:
+                                                                                                              _vm.dialer_options,
+                                                                                                            name:
+                                                                                                              "dialer",
+                                                                                                            "aria-label":
+                                                                                                              "Individual Options",
+                                                                                                            stacked:
+                                                                                                              ""
+                                                                                                          },
+                                                                                                          model: {
+                                                                                                            value:
+                                                                                                              _vm.dialer_selected,
+                                                                                                            callback: function(
+                                                                                                              $$v
+                                                                                                            ) {
+                                                                                                              _vm.dialer_selected = $$v
+                                                                                                            },
+                                                                                                            expression:
+                                                                                                              "dialer_selected"
+                                                                                                          }
+                                                                                                        }
+                                                                                                      )
+                                                                                                    ],
+                                                                                                    1
+                                                                                                  ),
+                                                                                                  _vm._v(
+                                                                                                    " "
+                                                                                                  ),
+                                                                                                  _c(
+                                                                                                    "div",
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_selected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            All Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_allSelected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Indeterminate: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_indeterminate
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      )
+                                                                                                    ]
+                                                                                                  )
+                                                                                                ],
+                                                                                                1
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                " "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "div",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "col-lg-4"
+                                                                                                },
+                                                                                                [
+                                                                                                  _c(
+                                                                                                    "b-form-group",
+                                                                                                    {
+                                                                                                      scopedSlots: _vm._u(
+                                                                                                        [
+                                                                                                          {
+                                                                                                            key:
+                                                                                                              "label",
+                                                                                                            fn: function() {
+                                                                                                              return [
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      " "
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "Edit"
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b-form-checkbox",
+                                                                                                                  {
+                                                                                                                    attrs: {
+                                                                                                                      indeterminate:
+                                                                                                                        _vm.dialer_indeterminate,
+                                                                                                                      "aria-describedby":
+                                                                                                                        "dialer",
+                                                                                                                      "aria-controls":
+                                                                                                                        "dialer"
+                                                                                                                    },
+                                                                                                                    on: {
+                                                                                                                      change:
+                                                                                                                        _vm.toggleAll
+                                                                                                                    },
+                                                                                                                    model: {
+                                                                                                                      value:
+                                                                                                                        _vm.dialer_allSelected,
+                                                                                                                      callback: function(
+                                                                                                                        $$v
+                                                                                                                      ) {
+                                                                                                                        _vm.dialer_allSelected = $$v
+                                                                                                                      },
+                                                                                                                      expression:
+                                                                                                                        "dialer_allSelected"
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "\n                                                                                                " +
+                                                                                                                        _vm._s(
+                                                                                                                          _vm.allSelected
+                                                                                                                            ? "Un-select All"
+                                                                                                                            : "Select All"
+                                                                                                                        ) +
+                                                                                                                        "\n                                                                                                "
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                                              ]
+                                                                                                            },
+                                                                                                            proxy: true
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        null,
+                                                                                                        true
+                                                                                                      )
+                                                                                                    },
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        " "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "b-form-checkbox-group",
+                                                                                                        {
+                                                                                                          staticClass:
+                                                                                                            "ml-4",
+                                                                                                          attrs: {
+                                                                                                            id:
+                                                                                                              "dialer",
+                                                                                                            options:
+                                                                                                              _vm.dialer_options,
+                                                                                                            name:
+                                                                                                              "dialer",
+                                                                                                            "aria-label":
+                                                                                                              "Individual Options",
+                                                                                                            stacked:
+                                                                                                              ""
+                                                                                                          },
+                                                                                                          model: {
+                                                                                                            value:
+                                                                                                              _vm.dialer_selected,
+                                                                                                            callback: function(
+                                                                                                              $$v
+                                                                                                            ) {
+                                                                                                              _vm.dialer_selected = $$v
+                                                                                                            },
+                                                                                                            expression:
+                                                                                                              "dialer_selected"
+                                                                                                          }
+                                                                                                        }
+                                                                                                      )
+                                                                                                    ],
+                                                                                                    1
+                                                                                                  ),
+                                                                                                  _vm._v(
+                                                                                                    " "
+                                                                                                  ),
+                                                                                                  _c(
+                                                                                                    "div",
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_selected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            All Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_allSelected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Indeterminate: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_indeterminate
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      )
+                                                                                                    ]
+                                                                                                  )
+                                                                                                ],
+                                                                                                1
+                                                                                              ),
+                                                                                              _vm._v(
+                                                                                                " "
+                                                                                              ),
+                                                                                              _c(
+                                                                                                "div",
+                                                                                                {
+                                                                                                  staticClass:
+                                                                                                    "col-lg-4"
+                                                                                                },
+                                                                                                [
+                                                                                                  _c(
+                                                                                                    "b-form-group",
+                                                                                                    {
+                                                                                                      scopedSlots: _vm._u(
+                                                                                                        [
+                                                                                                          {
+                                                                                                            key:
+                                                                                                              "label",
+                                                                                                            fn: function() {
+                                                                                                              return [
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      " "
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b",
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "Delete"
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "br"
+                                                                                                                ),
+                                                                                                                _vm._v(
+                                                                                                                  " "
+                                                                                                                ),
+                                                                                                                _c(
+                                                                                                                  "b-form-checkbox",
+                                                                                                                  {
+                                                                                                                    attrs: {
+                                                                                                                      indeterminate:
+                                                                                                                        _vm.dialer_indeterminate,
+                                                                                                                      "aria-describedby":
+                                                                                                                        "dialer",
+                                                                                                                      "aria-controls":
+                                                                                                                        "dialer"
+                                                                                                                    },
+                                                                                                                    on: {
+                                                                                                                      change:
+                                                                                                                        _vm.toggleAll
+                                                                                                                    },
+                                                                                                                    model: {
+                                                                                                                      value:
+                                                                                                                        _vm.dialer_allSelected,
+                                                                                                                      callback: function(
+                                                                                                                        $$v
+                                                                                                                      ) {
+                                                                                                                        _vm.dialer_allSelected = $$v
+                                                                                                                      },
+                                                                                                                      expression:
+                                                                                                                        "dialer_allSelected"
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      "\n                                                                                                " +
+                                                                                                                        _vm._s(
+                                                                                                                          _vm.allSelected
+                                                                                                                            ? "Un-select All"
+                                                                                                                            : "Select All"
+                                                                                                                        ) +
+                                                                                                                        "\n                                                                                                "
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                                              ]
+                                                                                                            },
+                                                                                                            proxy: true
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        null,
+                                                                                                        true
+                                                                                                      )
+                                                                                                    },
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        " "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "b-form-checkbox-group",
+                                                                                                        {
+                                                                                                          staticClass:
+                                                                                                            "ml-4",
+                                                                                                          attrs: {
+                                                                                                            id:
+                                                                                                              "dialer",
+                                                                                                            options:
+                                                                                                              _vm.dialer_options,
+                                                                                                            name:
+                                                                                                              "dialer",
+                                                                                                            "aria-label":
+                                                                                                              "Individual Options",
+                                                                                                            stacked:
+                                                                                                              ""
+                                                                                                          },
+                                                                                                          model: {
+                                                                                                            value:
+                                                                                                              _vm.dialer_selected,
+                                                                                                            callback: function(
+                                                                                                              $$v
+                                                                                                            ) {
+                                                                                                              _vm.dialer_selected = $$v
+                                                                                                            },
+                                                                                                            expression:
+                                                                                                              "dialer_selected"
+                                                                                                          }
+                                                                                                        }
+                                                                                                      )
+                                                                                                    ],
+                                                                                                    1
+                                                                                                  ),
+                                                                                                  _vm._v(
+                                                                                                    " "
+                                                                                                  ),
+                                                                                                  _c(
+                                                                                                    "div",
+                                                                                                    [
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_selected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            All Selected: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_allSelected
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "br"
+                                                                                                      ),
+                                                                                                      _vm._v(
+                                                                                                        "\n                                                                                            Indeterminate: "
+                                                                                                      ),
+                                                                                                      _c(
+                                                                                                        "strong",
+                                                                                                        [
+                                                                                                          _vm._v(
+                                                                                                            _vm._s(
+                                                                                                              _vm.dialer_indeterminate
+                                                                                                            )
+                                                                                                          )
+                                                                                                        ]
+                                                                                                      )
+                                                                                                    ]
+                                                                                                  )
+                                                                                                ],
+                                                                                                1
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        ]
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                : _vm._e()
+                                                                            ],
+                                                                            1
+                                                                          )
+                                                                        }
+                                                                      ),
+                                                                      0
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      }
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        : _vm._e()
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "b-tab",
+                              {
+                                attrs: { title: "+" },
+                                on: { click: _vm.addRole }
+                              },
+                              [
                                 _vm.role_add
                                   ? _c(
                                       "div",
@@ -256177,366 +259725,45 @@ var render = function() {
                                       [_c("add-role")],
                                       1
                                     )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "row" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "col-lg-12",
-                                        attrs: { role: "tablist" }
-                                      },
-                                      _vm._l(_vm.modules, function(
-                                        a_module,
-                                        i
-                                      ) {
-                                        return _c(
-                                          "div",
-                                          { key: i },
-                                          [
-                                            _c(
-                                              "b-card",
-                                              {
-                                                staticClass: "mb-1",
-                                                attrs: { "no-body": "" }
-                                              },
-                                              [
-                                                _c(
-                                                  "b-card-header",
-                                                  {
-                                                    staticClass: "p-1",
-                                                    attrs: {
-                                                      "header-tag": "header",
-                                                      role: "tab"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "b-button",
-                                                      {
-                                                        attrs: {
-                                                          block: "",
-                                                          href: "#",
-                                                          "aria-controls":
-                                                            "accordion-" + i,
-                                                          variant: "info"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            a_module.display_name
-                                                          )
-                                                        )
-                                                      ]
-                                                    )
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "b-collapse",
-                                                  {
-                                                    attrs: {
-                                                      id: "accordion-" + i,
-                                                      visible:
-                                                        a_module.id == 1
-                                                          ? true
-                                                          : false,
-                                                      accordion: "my-accordion",
-                                                      role: "tabpanel"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "b-card-body",
-                                                      [
-                                                        _c("b-card-text", [
-                                                          _vm._v("Permissions")
-                                                        ]),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.permissions,
-                                                          function(
-                                                            permission,
-                                                            k
-                                                          ) {
-                                                            return _c(
-                                                              "div",
-                                                              { key: k },
-                                                              [
-                                                                permission.module_id ==
-                                                                  a_module.id &&
-                                                                role.id ==
-                                                                  permission.role_id
-                                                                  ? _c(
-                                                                      "b-form-group",
-                                                                      {
-                                                                        staticClass:
-                                                                          "permisions"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.read,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "read",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.read"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "View"
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-group",
-                                                                          {
-                                                                            staticClass:
-                                                                              "permisions"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.read,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "read",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.read"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Name"
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.write,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "write",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.write"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Surname"
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "b-form-checkbox",
-                                                                              {
-                                                                                attrs: {
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
-                                                                                model: {
-                                                                                  value:
-                                                                                    permission.delete,
-                                                                                  callback: function(
-                                                                                    $$v
-                                                                                  ) {
-                                                                                    _vm.$set(
-                                                                                      permission,
-                                                                                      "delete",
-                                                                                      $$v
-                                                                                    )
-                                                                                  },
-                                                                                  expression:
-                                                                                    "permission.delete"
-                                                                                }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "Phone number"
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ],
-                                                                          1
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.write,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "write",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.write"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "Edit"
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " "
-                                                                        ),
-                                                                        _c(
-                                                                          "b-form-checkbox",
-                                                                          {
-                                                                            attrs: {
-                                                                              value:
-                                                                                "1",
-                                                                              "unchecked-value":
-                                                                                "0"
-                                                                            },
-                                                                            model: {
-                                                                              value:
-                                                                                permission.delete,
-                                                                              callback: function(
-                                                                                $$v
-                                                                              ) {
-                                                                                _vm.$set(
-                                                                                  permission,
-                                                                                  "delete",
-                                                                                  $$v
-                                                                                )
-                                                                              },
-                                                                              expression:
-                                                                                "permission.delete"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "Delete"
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ],
-                                                                      1
-                                                                    )
-                                                                  : _vm._e()
-                                                              ],
-                                                              1
-                                                            )
-                                                          }
-                                                        )
-                                                      ],
-                                                      2
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      }),
-                                      0
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.modules, function(a_module, i) {
-                                      return _c("b-card", {
-                                        key: i,
-                                        staticClass: "col-lg-3",
-                                        attrs: {
-                                          title: a_module.display_name,
-                                          "sub-title":
-                                            "Permisions" + a_module.id
-                                        }
-                                      })
-                                    })
-                                  ],
-                                  2
-                                )
+                                  : _vm._e()
                               ]
                             )
-                          }),
-                          1
+                          ],
+                          2
                         )
                       ],
                       1
                     )
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.show_page_loader &&
+            _vm.active_module_action == "api_integration"
+              ? _c(
+                  "div",
+                  { staticClass: "col-lg-12  user-roles" },
+                  [_c("api-integration", { attrs: { apis: _vm.apis } })],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.show_page_loader && _vm.active_module_action == "add_module"
+              ? _c(
+                  "div",
+                  { staticClass: "col-lg-12  user-roles" },
+                  [_c("add-module")],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.show_page_loader && _vm.active_module_action == "edit_module"
+              ? _c(
+                  "div",
+                  { staticClass: "col-lg-12  user-roles" },
+                  [
+                    _c("edit-module", { attrs: { module: _vm.editing_module } })
                   ],
                   1
                 )
@@ -260149,13 +263376,7 @@ var render = function() {
               "hide-header": "",
               "hide-footer": ""
             },
-            on: {
-              show: _vm.preventClosing,
-              hide: function($event) {
-                return _vm.preventClosing()
-              },
-              ok: _vm.preventClosing
-            }
+            on: { mouseleave: _vm.mouseLeave, hide: _vm.preventClosing }
           },
           [
             _c("div", { staticClass: "final-modal" }, [
@@ -292577,6 +295798,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/Preferences/AddModule.vue":
+/*!******************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/AddModule.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddModule.vue?vue&type=template&id=e8b89162&scoped=true& */ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true&");
+/* harmony import */ var _AddModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddModule.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AddModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "e8b89162",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/AddModule.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddModule.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=style&index=0&id=e8b89162&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_style_index_0_id_e8b89162_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AddModule.vue?vue&type=template&id=e8b89162&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/AddModule.vue?vue&type=template&id=e8b89162&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddModule_vue_vue_type_template_id_e8b89162_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/Preferences/AddRole.vue":
 /*!****************************************************************!*\
   !*** ./resources/assets/js/components/Preferences/AddRole.vue ***!
@@ -292659,6 +295967,180 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRole_vue_vue_type_template_id_75b41319_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRole_vue_vue_type_template_id_75b41319_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/ApiIntegration.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/ApiIntegration.vue ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true& */ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true&");
+/* harmony import */ var _ApiIntegration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApiIntegration.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ApiIntegration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "390d5e68",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/ApiIntegration.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ApiIntegration.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=style&index=0&id=390d5e68&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_style_index_0_id_390d5e68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true& ***!
+  \******************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/ApiIntegration.vue?vue&type=template&id=390d5e68&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/EditModule.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/EditModule.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& */ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&");
+/* harmony import */ var _EditModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditModule.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _EditModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "37c5ed24",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/EditModule.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditModule.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_style_index_0_id_37c5ed24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditModule_vue_vue_type_template_id_37c5ed24_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

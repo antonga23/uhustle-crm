@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/winsta-upload','UserController@uploadWinstaFile')->middleware('auth:api');
+
 Route::group(['prefix' => 'calls'], function () {
 	Route::post('/call', 'TwillioController@makeCall');
 	Route::post('/end', 'TwillioController@endCall');

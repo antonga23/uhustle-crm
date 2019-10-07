@@ -10,6 +10,7 @@ use App\Lead;
 use App\Twillio;
 use App\Product;
 use App\LeadsCallbacks;
+use App\ApiIntegration;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
@@ -20,6 +21,12 @@ use Carbon\Carbon;
 
 class TwillioController extends Controller
 {
+
+    public $twilio_number;
+    public $account_sid;
+    public $auth_token;
+    public $twiml_app_sid;
+
     /**
      * Create a new controller instance.
      *
@@ -28,6 +35,30 @@ class TwillioController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['voice', 'statusUpdate']]);
+
+        $twillio = ApiIntegration::with('attributes')->where(['name' => 'Twillio'])->first();
+
+        foreach ($twillio->attributes as $key => $value) {
+            switch($value->key){
+                case 'twilio_phone_number':
+                        $twilio_phone_number = $value->value;
+                    break;
+                case 'account_sid':
+                        $account_sid = $value->value;
+                    break;
+                case 'auth_token':
+                        $auth_token = $value->value;
+                    break;
+                case 'twiml_app_sid':
+                        $twiml_app_sid = $value->value;
+                    break;
+            }
+        }
+        $this->twilio_number = ( config('twillio.twillio_number') !== '' )? config('twillio.twillio_number') : $twilio_phone_number ;
+        $this->account_sid = ( config('twillio.twillio_account_sid') !== '' )? config('twillio.twillio_account_sid') : $account_sid ;
+        $this->auth_token = ( config('twillio.twillio_auth_token') !== '' )? config('twillio.twillio_auth_token') : $auth_token ;
+        $this->twiml_app_sid = ( config('twillio.twillio_twiml_app_sid') !== '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
+
     }
 
     /**
@@ -38,13 +69,8 @@ class TwillioController extends Controller
      */
     public function index()
     {
-        $twilio_number = config('twillio.twillio_number');
-        $account_sid = config('twillio.twillio_account_sid');
-        $auth_token = config('twillio.twillio_auth_token');
-        $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
-
-        // $twilio = new Client($account_sid, $auth_token);
-
+        $twilio = new Client($this->account_sid, $this->auth_token);
+       
         // $conferences = $twilio->conferences
         //                       ->read(array(),500);
         $conferences_arr = [];
@@ -109,11 +135,8 @@ class TwillioController extends Controller
         ];
     }
 
-    public function call(Request $request){
-        
-        // A Twilio number you own with Voice capabilities
-        $twilio_number = config('twillio.twillio_number');
-
+    public function call(Request $request)
+    {
         // Call
         $lead_id = $request->lead_id;
         // $to_number = '+27619932376';
@@ -123,7 +146,7 @@ class TwillioController extends Controller
         
         if (isset($to_number) && strlen($to_number) > 0) {
             
-            $dial = $response->dial(array('callerId' => $twilio_number));
+            $dial = $response->dial(array('callerId' => $this->twilio_number));
 
             $dial->number($to_number);
 
@@ -140,16 +163,11 @@ class TwillioController extends Controller
 
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
-        // Your Account SID and Auth Token from twilio.com/console
-        $account_sid = config('twillio.twillio_account_sid');
-        $auth_token = config('twillio.twillio_auth_token');
-        $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
-
         $identity = Auth::user()->name . Auth::user()->lastname ;
         
-        $capability = new ClientToken($account_sid, $auth_token);
+        $capability = new ClientToken($this->account_sid, $this->auth_token);
 
-        $capability->allowClientOutgoing($twiml_app_sid);
+        $capability->allowClientOutgoing($this->twiml_app_sid);
 
         //$capability->allowClientIncoming($identity);
 
@@ -161,12 +179,6 @@ class TwillioController extends Controller
     }
 
     public function voice(Request $request){
-        
-        // API info
-        $twilio_number = config('twillio.twillio_number');
-        $account_sid = config('twillio.twillio_account_sid');
-        $auth_token = config('twillio.twillio_auth_token');
-        $twiml_app_sid = config('twillio.twillio_twiml_app_sid');
 
         // Lead information needed to create the conference
         $lead_id = $request->lead_id;
@@ -203,12 +215,12 @@ class TwillioController extends Controller
         $response->header('Content-Type', 'text/xml');
 
         $client = new \GuzzleHttp\Client([
-            'auth' => [$account_sid, $auth_token],
+            'auth' => [$this->account_sid, $this->auth_token],
         ]);
 
         $form_data = [
             'To' => $to_number,
-            'From' => $twilio_number,
+            'From' => $this->twilio_number,
             'EarlyMedia' => true
         ];
 
@@ -227,10 +239,6 @@ class TwillioController extends Controller
 
         $body = json_decode($participants_response->getBody(), true);
 
-        Log::info("TWIML NGROK");
-        Log::info($response);
-        Log::info($body);
-
         return $response;
     }
 
@@ -243,11 +251,6 @@ class TwillioController extends Controller
 
         $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
 
-        Log::info("call_sid");
-        Log::info($call_sid);
-
-        Log::info("Status");
-        Log::info($call_status);
         try{
             DB::beginTransaction();
 
@@ -272,8 +275,7 @@ class TwillioController extends Controller
 
             $response = Response::make($twiml, 200);
             $response->header('Content-Type', 'text/xml');
-            Log::info("Status Update");
-            Log::info($response);
+
             return $response;
 
         }catch(\QueryException $e){
@@ -339,11 +341,7 @@ class TwillioController extends Controller
             $month = $now->month;
         }
 
-        // Your Account SID and Auth Token from twilio.com/console
-        $account_sid = config('twillio.twillio_account_sid');
-        $auth_token = config('twillio.twillio_auth_token');
-
-        $client = new Client($account_sid, $auth_token);
+        $client = new Client($this->account_sid, $this->auth_token);
 
         $twilios = Twillio::with('lead')
                     ->where(['agent_id' => $request_user['user_id']])
@@ -419,11 +417,7 @@ class TwillioController extends Controller
             $month = $now->month;
         }
 
-        // Your Account SID and Auth Token from twilio.com/console
-        $account_sid = config('twillio.twillio_account_sid');
-        $auth_token = config('twillio.twillio_auth_token');
-
-        $client = new Client($account_sid, $auth_token);
+        $client = new Client($this->account_sid, $this->auth_token);
 
         $twilios = Twillio::with('lead')
                     ->where(['agent_id' => $request_user['user_id']])

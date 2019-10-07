@@ -11,12 +11,35 @@
 |
 */
 
+use App\Lead;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home', function () {
     return redirect('/workstation');
+});
+
+Route::get('/update-leads',  function(){
+	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->orWhereIn('user_created_id', [25, 23, 16])->get();
+	$user = User::whereIn()->get();
+	try{
+		DB::beginTransaction();
+		foreach ($leads as $key => $value) {
+			Lead::find($value->id)->update([
+				'user_assigned' => 53,
+				'user_created_id' => 53,
+			]);
+		}
+		DB::commit();
+
+		echo 'Done';
+	}catch(\QueryException $e){
+		DB::rollback();
+		return array('success' =>false, 'message' => $e->getMessage());
+	}
+
 });
 
 Route::post('/api-request', 'GuzzleController@index')->name('api-request');
@@ -32,6 +55,8 @@ Route::post('/update-account','UserController@updateAccount');
 Route::get('/get-current-user','UserController@getCurrentUser');
 Route::get('/get-preferences','UserController@getPreferences');
 Route::post('/update-preferences','UserController@updatePreferences');
+Route::get('/delete-file/{id}', 'UserController@deleteFile');
+Route::get('/download-file/{id}', 'UserController@downloadFile');
 
 // App Pages Routes
 Route::get('/workstation', 'PagesController@index')->name('workstation');
@@ -118,6 +143,7 @@ Route::group(['prefix' => 'leads'], function () {
     Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
+	Route::post('mass-assign', 'LeadController@massAssign');
 });
 
  // Filters Routes 
@@ -140,6 +166,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
+	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
 	Route::put('/apply-permissions', 'RoleController@applyPermissions');
 });
 
@@ -165,7 +192,14 @@ Route::group(['prefix' => 'modules'], function () {
     Route::get('/get-all', 'ModuleController@index');
     Route::post('/add', 'ModuleController@store');
     Route::post('/update', 'ModuleController@update');
+    Route::get('/destroy/{id}', 'ModuleController@destroy');
     Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
     Route::post('/check-exist', 'ModuleController@checkExist');
+});
+
+// API Integration Routes
+Route::group(['prefix' => 'apis'], function () {
+    Route::get('/get-all', 'ApiIntegrationController@index');
+    Route::post('/update', 'ApiIntegrationController@update');
 });
 

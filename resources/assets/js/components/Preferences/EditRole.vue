@@ -11,7 +11,7 @@
         <b-container fluid>
             <b-row class="my-1">
                 <b-col sm="2">
-                <label for="input-none">Role Name:</label>
+                <label for="input-none">Role Name</label>
                 </b-col>
                 <b-col sm="9">
                 <b-form-input id="input-none" :state="null" v-model="role.display_name"></b-form-input>
@@ -36,11 +36,11 @@
                 </b-col>
             </b-row>
 
-            <b-row class="my-1">
+            <!-- <b-row class="my-1">
                 <b-col sm="9">
                     <b-button variant="default" @click="updateRole()">Update Role</b-button>
                 </b-col>
-            </b-row>
+            </b-row> -->
         </b-container>
     </div>
 </template>
@@ -51,6 +51,11 @@
         },
         mounted() {
             console.log('Component mounted');
+
+            Fire.$on('UpdateRole', (data) => {
+                this.updateRole();
+                console.log(data);
+            });
 
             this.Toast = this.$swal.mixin({
                 toast: true,
@@ -74,7 +79,33 @@
         },
         methods: {
             updateRole(){
-                console.log(this.role);
+				var vm = this;  
+				vm.$Progress.start();
+				this.$validator.validateAll().then((result) => {
+                        if(!result){
+                            vm.display_name_state = false;
+                        }else{
+                            
+                            vm.display_name_state = true;
+
+                            var end_point = '/roles/update';
+
+                            axios.post(end_point,this.role).then(function (response) {
+                                    
+                                if(response.data.success == true){
+
+                                    vm.role = response.data.role;
+                                    vm.$Progress.finish();
+                                    // vm.Toast.fire({ type: 'success', title: response.data.message });
+                                    
+                                    Fire.$emit('DoneEditingRole');
+                                }else {
+                                    vm.$Progress.fail();
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                                }
+                            });
+						}
+				});
             }
         }
     }

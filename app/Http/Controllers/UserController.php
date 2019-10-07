@@ -22,6 +22,7 @@ use App\Twillio;
 use App\UserClients;
 use App\UserLeads;
 use App\SystemSettings;
+use App\WinstaUploads;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -121,6 +122,38 @@ class UserController extends Controller
         return  $user_data;
     }
 
+    public function uploadWinstaFile(Request $request){
+        $id = Auth::user()->id;
+
+        $data = $request->all();
+
+        $winstaEmail = $data['winsta_user_email'];
+
+        $fileName = $data['file'];
+
+        $fileContents = $data['file_content'];
+
+        $client = Lead::where(['email' => $winstaEmail])->first();
+        
+        $path = '/images/winsta-uploads/' . $client->id;
+
+        $directory = '/images/winsta-uploads/' . $client->id . '/' . $fileName;
+
+        if(!Storage::exists($path)) {
+            Storage::makeDirectory($path, 0775, true, true); //creates directory
+        }
+        
+        Storage::put($directory, $fileContents);
+
+        $user = WinstaUploads::create([
+                'user_assigned_id' => $client->user_assigned,
+                'module_id' => $client->id,
+                'file_name' => $fileName,
+            ]);
+
+        return array('success' =>true, 'image-name' => $fileName);
+    }
+
     public function uploadAvatar(Request $request){
         $id = Auth::user()->id;
         if($request->hasFile('img')){
@@ -130,7 +163,6 @@ class UserController extends Controller
 
             Storage::deleteDirectory($directory);
 
-            // Storage::disk('public_uploads')->put($directory, $imageName);
             $path = request()->img->storeAs($directory, $imageName,'public_uploads');
 
             $user = User::where('id', '=', $id)->update(['avatar' => $imageName]);
@@ -139,6 +171,33 @@ class UserController extends Controller
         }else{
             return array('error' => 'Please select image to upload');
         }
+    }
+
+    public function deleteFile($id = null){
+
+        $file_info = WinstaUploads::find($id);
+
+        $directory = '/images/winsta-uploads/' . $file_info->module_id . '/' . $file_info->file_name;
+
+        Storage::delete($directory);
+
+        WinstaUploads::find($id)->delete();
+
+        return array('success' =>true, 'message' => 'File deleted successfully');
+    }
+
+    public function downloadFile($id = null){
+
+        $file_info = WinstaUploads::find($id);
+
+        $directory = '/images/winsta-uploads/' . $file_info->module_id . '/' . $file_info->file_name;
+
+        $filename = $file_info->file_name;
+
+        $headers = ['Content-Type: application/zip','Content-Disposition: attachment; filename={$filename}'];
+
+        return Storage::download($directory,$filename,$headers);
+
     }
 
     public function getCurrentUser(){

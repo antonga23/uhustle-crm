@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Auth;
 use App\Module;
+use App\ModuleCustomFields;
+use App\ModuleItem;
+use App\ModuleItemMeta;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -23,18 +28,8 @@ class ModuleController extends Controller
      */
     public function index()
     {
-         $modules = Module::get();
+         $modules = Module::with('module_fields')->get();
          return array('success' => true, 'modules' => $modules);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -45,29 +40,37 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Module  $module
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Module $module)
-    {
-        //
-    }
+        $data = $request->all();
+        $display_name = $data['display_name'];
+        $description = $data['description'];
+        $module_fields = $data['module_fields'];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Module  $module
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Module $module)
-    {
-        //
+        try{
+            DB::beginTransaction();
+
+            $module = Module::create([
+				'tag' => strtolower(str_replace(' ','_',$display_name)),
+				'display_name' => $display_name,
+				'description' => $description,
+            ]);
+
+            foreach($module_fields as $key => $value){
+                ModuleCustomFields::create([
+                    'module_id' => $module->id,
+                    'name' => $value['name'],
+                    'type' => $value['type']
+                ]);
+            }
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Module successfully created', 'module' => Module::with('module_fields')->find($module->id) );
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
     }
 
     /**
@@ -79,7 +82,41 @@ class ModuleController extends Controller
      */
     public function update(Request $request, Module $module)
     {
-        //
+        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
+
+        $data = $request->all();
+        $id = $data['id'];
+        $display_name = $data['display_name'];
+        $description = $data['description'];
+        $module_fields = $data['module_fields'];
+
+        try{
+            DB::beginTransaction();
+
+            Module::find($id)->update([
+                'tag' => strtolower(str_replace(' ','_',$display_name)),
+                'display_name' => $display_name,
+                'description' => $description,
+            ]);
+
+            $existing = ModuleCustomFields::where(['module_id' => $id])->delete();
+
+            foreach($module_fields as $key => $value){
+                
+                ModuleCustomFields::create([
+                    'module_id' => $id,
+                    'name' => $value['name'],
+                    'type' => $value['type']
+                ]);
+            }
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Module successfully updated', 'module' => Module::with('module_fields')->find($id) );
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
     }
 
     /**
@@ -88,8 +125,25 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Module $module)
+    public function destroy($id = null)
     {
-        //
+        try{
+            DB::beginTransaction();
+
+            Module::find($id)->delete();
+
+            ModuleCustomFields::where(['module_id' => $id])->delete();
+            
+            ModuleItem::where(['module_id' => $id])->delete();
+
+            ModuleItemMeta::where(['item_id' => $id])->delete();
+
+            DB::commit();
+            return array('success' => true, 'message' => 'Module successfully deleted' );
+
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
     }
 }
