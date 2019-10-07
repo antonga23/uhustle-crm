@@ -179,7 +179,7 @@ p.heading{
 	font-size: 9px;
 	display: block;
 }
-.themes label:first-child, .themes label:nth-child(2), .language label, .notifications label {
+.themes label:first-child, .themes label:nth-child(2), .language label, .notifications label, .action-btns label:first-child, .action-btns label:nth-child(2){
   margin-right: 8px;
   float:left;
 }
@@ -433,10 +433,19 @@ label.custom-control-label{
 .stats-section .commission {
   padding:25px 0;
 }
-.stats-section .calls {
+.stats-section .sales, .stats-section .calls, .search-input, .filter-search, .filter-by {
+  padding:5px 0;
+}
+.stats-section .calls, .stats-section .sales p, p.badges{
   border-bottom: 0.5px solid #e3e3e3; 
   margin-bottom: 5px; 
   padding-bottom: 2px;
+}
+.print-btn, .export-btn {
+  width: 90%;
+}
+.action-btns {
+  margin-top:17px;
 }
 /* is the notification count being used? */
 .notification-count{
@@ -1149,7 +1158,7 @@ label.custom-control-label{
 								</div>
 							</div>
 
-							<div class="row" style="padding:5px  0;">
+							<div class="row calls">
 								<div class="col-lg-12">
 									<p class="description calls">Calls</p>
 								</div>
@@ -1165,9 +1174,9 @@ label.custom-control-label{
 								</div>
 							</div>
 
-							<div class="row" style="padding:5px  0;">
+							<div class="row sales">
 								<div class="col-lg-12">
-									<p class="description" style="border-bottom: 0.5px solid #e3e3e3; margin-bottom: 5px; padding-bottom: 2px;">Sales</p>
+									<p class="description">Sales</p>
 								</div>
 								<div class="col-lg-6">
 									<p class="description">Quantity</p>
@@ -1226,7 +1235,7 @@ label.custom-control-label{
                       :popover="true" />
 										<div class="row">
 											<div class="col-lg-12">
-												<p class="description" style="border-bottom: 0.5px solid #e3e3e3; margin-bottom: 5px; padding-bottom: 2px;">Badges</p>
+												<p class="description badges">Badges</p>
 											</div>
 
 											<div class="col-lg-12">
@@ -1262,7 +1271,7 @@ label.custom-control-label{
 									<div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
 										<div class="row">
 											<div class="col-lg-12">
-												<div class="row" style="padding:5px  0;">
+												<div class="row search-input">
 													<div class="col-lg-12">
 														<div :class="{'input search': true, 'form-group' :true }">
 															<input 
@@ -1279,7 +1288,7 @@ label.custom-control-label{
 													</div>
 												</div>
 
-												<div class="row" style="padding:5px  0;">
+												<div class="row filter-search">
 													<div class="col-lg-12">
 														<p class="heading">Filter Search</p>
 													</div>
@@ -1289,8 +1298,7 @@ label.custom-control-label{
 															<button 
                                 v-on:click="fireTableEvent('Print')" 
                                 type="submit" 
-                                class="btn btn-default m-0" 
-                                style="width: 90%;"
+                                class="btn btn-default m-0 print-btn"
                               >Print</button>
 														</div>
 													</div>
@@ -1300,18 +1308,17 @@ label.custom-control-label{
 															<button 
                                 v-on:click="fireTableEvent('Export')" 
                                 type="submit" 
-                                class="btn btn-default m-0" 
-                                style="width: 90%;"
+                                class="btn btn-default m-0 export-btn"
                               >Export</button>
 														</div>
 													</div>
 												</div>
 
-												<div class="row" style="padding:5px  0;">		
+												<div class="row filter-by">		
 													<div class="col-lg-12">
 														<table class="tg">
 															<tr>
-																<td  class="tg-0las">
+																<td class="tg-0las">
                                   <p class="heading">Filter By</p>
                                 </td>
 																<td class="tg-1lax">
@@ -1422,16 +1429,16 @@ label.custom-control-label{
 														</table>
 													</div>
 
-													<div class="col-lg-12" style="margin-top:17px">
+													<div class="col-lg-12 action-btns">
 														<div :class="{'input': true, 'form-group' :true }">
-															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+															<label class="col-lg-3 control-label">
 																<button 
                                   v-on:click="filterData()" 
                                   type="submit" 
                                   class="btn btn-default w-100 m-0"
                                 >Apply</button>
 															</label>
-															<label class="col-lg-3 control-label" style="margin-right: 8px;float:left;">
+															<label class="col-lg-3 control-label">
 																<button 
                                   v-on:click="clearFilter();" 
                                   type="submit" 
