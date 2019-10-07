@@ -17,14 +17,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Rubik:300,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
       #content-wrapper{
-        padding: 0 3%;
         min-height: auto !important"
       }
       .content-wrapper, .main-footer, .main-header {
@@ -52,10 +51,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <left-nav active="{{ $active }}" logged_user="{{ json_encode(Auth::user()) }}"></left-nav>
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" id="content-wrapper" >
+  <div class="content-wrapper p-0" id="content-wrapper" >
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
+    <div class="content px-0">
+      <div class="container-fluid px-0">
         @yield('content')
         <avatar-upload auth_user="{{ Auth::user() }}"></avatar-uploadr>
       </div><!-- /.container-fluid -->

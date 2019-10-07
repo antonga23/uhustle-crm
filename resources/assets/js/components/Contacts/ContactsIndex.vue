@@ -164,10 +164,8 @@ span.right{
 }
 
 #top-section{
-    background: #fff;    
-    margin-left: -53px;
-    margin-right: -66px;
-    padding: 0px 37px;
+    background: #fff;
+    padding: 0px 3%;
 
 }
 .green{
@@ -250,7 +248,7 @@ table.listing tr  th{
 </style>
 <template>
     <div class="">
-        <div id="top-section" class="row" style="margin-top:2%;">
+        <div id="top-section" class="row mx-0" style="margin-top:2%;">
 
           <div class="filter-card"  @click="getUsers(-1)">
             <div class="card sales-amount">
