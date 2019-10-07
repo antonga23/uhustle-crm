@@ -74595,6 +74595,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -130404,7 +130411,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n  color: #1a1c43;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n  width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  width: 350px !important;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.control-sidebar-light label.custom-control-label[data-v-48ad9a74]{\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar .navbar-top-conatiner[data-v-48ad9a74] {\n  padding-left: 12px;\n  padding-right: 18px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 11px;\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\n  font-weight: 900;\n  font-size: 19px;\n  color: #1a1c43;\n\tmargin-top: -8px;\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tfont-family: 'Rubik', sans-serif;\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg); /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n  margin-bottom: 10px;\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n  width: 68%;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\n  font-size: 15px; \n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius:50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 18px 0 15px 0;\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n  border-bottom: 1px solid #f3f3f3;\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74] {\n  margin-right: 8px;\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n  color: #1a1c43 !important;\n  font-size: 12px;\n  padding: 0;\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n  margin-right: 8px;\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n  border: transparent !important;\n  border-radius: 5px !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    \n\tborder: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n  background-image: url('/images/icons/Asset 67.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n  padding: 6px 25px 6px 18px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 14px;\n  letter-spacing: 2.2px;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n  margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\n  width: 100%;\n  border-bottom: 1px solid #e3e3e3;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\n  font-size: 55px;\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 16px;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  border-radius: 25px;\n  padding: 7px;\n  height: 28px !important;\n  font-size: 9px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding:25px 0;\n}\n.stats-section .calls[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #e3e3e3; \n  margin-bottom: 5px; \n  padding-bottom: 2px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n  color: #1a1c43;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n  width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  width: 350px !important;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.control-sidebar-light label.custom-control-label[data-v-48ad9a74]{\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar .navbar-top-conatiner[data-v-48ad9a74] {\n  padding-left: 12px;\n  padding-right: 18px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 11px;\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\n  font-weight: 900;\n  font-size: 19px;\n  color: #1a1c43;\n\tmargin-top: -8px;\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tfont-family: 'Rubik', sans-serif;\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg); /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n  margin-bottom: 10px;\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n  width: 68%;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\n  font-size: 15px; \n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius:50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 18px 0 15px 0;\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n  border-bottom: 1px solid #f3f3f3;\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\n  margin-right: 8px;\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n  color: #1a1c43 !important;\n  font-size: 12px;\n  padding: 0;\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n  margin-right: 8px;\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n  border: transparent !important;\n  border-radius: 5px !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    \n\tborder: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n  background-image: url('/images/icons/Asset 67.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n  padding: 6px 25px 6px 18px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 14px;\n  letter-spacing: 2.2px;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n  margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\n  width: 100%;\n  border-bottom: 1px solid #e3e3e3;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\n  font-size: 55px;\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 16px;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  border-radius: 25px;\n  padding: 7px;\n  height: 28px !important;\n  font-size: 9px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\n  padding:5px 0;\n}\n.stats-section .calls[data-v-48ad9a74], .stats-section .sales p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\n  border-bottom: 0.5px solid #e3e3e3; \n  margin-bottom: 5px; \n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top:17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -253905,10 +253912,7 @@ var render = function() {
                                   _c("div", { staticClass: "col-lg-12" }, [
                                     _c(
                                       "div",
-                                      {
-                                        staticClass: "row",
-                                        staticStyle: { padding: "5px  0" }
-                                      },
+                                      { staticClass: "row search-input" },
                                       [
                                         _c(
                                           "div",
@@ -253973,10 +253977,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "div",
-                                      {
-                                        staticClass: "row",
-                                        staticStyle: { padding: "5px  0" }
-                                      },
+                                      { staticClass: "row filter-search" },
                                       [
                                         _vm._m(12),
                                         _vm._v(" "),
@@ -253994,8 +253995,7 @@ var render = function() {
                                                 "button",
                                                 {
                                                   staticClass:
-                                                    "btn btn-default m-0",
-                                                  staticStyle: { width: "90%" },
+                                                    "btn btn-default m-0 print-btn",
                                                   attrs: { type: "submit" },
                                                   on: {
                                                     click: function($event) {
@@ -254025,8 +254025,7 @@ var render = function() {
                                                 "button",
                                                 {
                                                   staticClass:
-                                                    "btn btn-default m-0",
-                                                  staticStyle: { width: "90%" },
+                                                    "btn btn-default m-0 export-btn",
                                                   attrs: { type: "submit" },
                                                   on: {
                                                     click: function($event) {
@@ -254046,10 +254045,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "div",
-                                      {
-                                        staticClass: "row",
-                                        staticStyle: { padding: "5px  0" }
-                                      },
+                                      { staticClass: "row filter-by" },
                                       [
                                         _c(
                                           "div",
@@ -254590,10 +254586,7 @@ var render = function() {
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-lg-12",
-                                            staticStyle: {
-                                              "margin-top": "17px"
-                                            }
+                                            staticClass: "col-lg-12 action-btns"
                                           },
                                           [
                                             _c(
@@ -254609,11 +254602,7 @@ var render = function() {
                                                   "label",
                                                   {
                                                     staticClass:
-                                                      "col-lg-3 control-label",
-                                                    staticStyle: {
-                                                      "margin-right": "8px",
-                                                      float: "left"
-                                                    }
+                                                      "col-lg-3 control-label"
                                                   },
                                                   [
                                                     _c(
@@ -254641,11 +254630,7 @@ var render = function() {
                                                   "label",
                                                   {
                                                     staticClass:
-                                                      "col-lg-3 control-label",
-                                                    staticStyle: {
-                                                      "margin-right": "8px",
-                                                      float: "left"
-                                                    }
+                                                      "col-lg-3 control-label"
                                                   },
                                                   [
                                                     _c(
@@ -254964,64 +254949,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row", staticStyle: { padding: "5px  0" } },
-      [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c("p", { staticClass: "description calls" }, [_vm._v("Calls")])
-        ]),
+    return _c("div", { staticClass: "row calls" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("p", { staticClass: "description calls" }, [_vm._v("Calls")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-6" }, [
+        _c("p", { staticClass: "description" }, [_vm._v("Leads")]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("p", { staticClass: "description" }, [_vm._v("Leads")]),
-          _vm._v(" "),
-          _c("p", [_c("span", { staticClass: "value" }, [_vm._v("125")])])
-        ]),
+        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("125")])])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-6 text-right" }, [
+        _c("p", { staticClass: "description" }, [_vm._v("Called")]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 text-right" }, [
-          _c("p", { staticClass: "description" }, [_vm._v("Called")]),
-          _vm._v(" "),
-          _c("p", [_c("span", { staticClass: "value" }, [_vm._v("25")])])
-        ])
-      ]
-    )
+        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("25")])])
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row", staticStyle: { padding: "5px  0" } },
-      [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "p",
-            {
-              staticClass: "description",
-              staticStyle: {
-                "border-bottom": "0.5px solid #e3e3e3",
-                "margin-bottom": "5px",
-                "padding-bottom": "2px"
-              }
-            },
-            [_vm._v("Sales")]
-          )
-        ]),
+    return _c("div", { staticClass: "row sales" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("p", { staticClass: "description" }, [_vm._v("Sales")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-6" }, [
+        _c("p", { staticClass: "description" }, [_vm._v("Quantity")]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("p", { staticClass: "description" }, [_vm._v("Quantity")]),
-          _vm._v(" "),
-          _c("p", [_c("span", { staticClass: "value" }, [_vm._v("54")])])
-        ]),
+        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("54")])])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-6 text-right" }, [
+        _c("p", { staticClass: "description" }, [_vm._v("Value")]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 text-right" }, [
-          _c("p", { staticClass: "description" }, [_vm._v("Value")]),
-          _vm._v(" "),
-          _c("p", [_c("span", { staticClass: "value" }, [_vm._v("$2725")])])
-        ])
-      ]
-    )
+        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("$2725")])])
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -255092,18 +255058,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12" }, [
-        _c(
-          "p",
-          {
-            staticClass: "description",
-            staticStyle: {
-              "border-bottom": "0.5px solid #e3e3e3",
-              "margin-bottom": "5px",
-              "padding-bottom": "2px"
-            }
-          },
-          [_vm._v("Badges")]
-        )
+        _c("p", { staticClass: "description badges" }, [_vm._v("Badges")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg-12" }, [
