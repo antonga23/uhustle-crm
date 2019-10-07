@@ -1,31 +1,39 @@
 
 <template>
     <div class="card material-table" style="width: fit-content;">
-        <transition name="bounce">
-            <table class="tg" v-if="show_mass_assign">
-                <tr>
-                    <td class="tg-0lax"><p class="heading" >Assigned To</p></td>
-                    <td class="tg-1lax" style="padding-right:20px">
-                        <select  id="Assignee"  name="Assignee" v-model="user_assigned"  class="form-control">
-                            <option value="">Please Choose Assignee</option>
-                            <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                        </select>
-                    </td>
-                    <td class="tg-0lax"><p class="heading" >Owner</p></td>
-                    <td class="tg-1lax">
-                        <select id="role"  name="Owner" v-model="lead_owner" class="form-control">
-                            <option value="">Please Choose Lead Owner</option>
-                            <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                        </select>
-                    </td>
-                    <td class="tg-1lax">
-                        <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
-                            Assign
-                        </button>
-                    </td>
-                </tr>
+                <table class="tg" v-if="show_mass_assign">
+                    <tr>
+                        <td class="tg-1lax" style="padding-right:20px;width:500px">
+
+                            <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
+                                <b-dropdown-form>
+                                    <b-form-group>
+                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
+                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                        </b-form-checkbox-group>
+                                    </b-form-group>
+                                </b-dropdown-form>
+                            </b-dropdown>
+                        </td>
+                        <td class="tg-1lax">
+
+                            <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
+                                <b-dropdown-form>
+                                    <b-form-group>
+                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
+                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                        </b-form-checkbox-group>
+                                    </b-form-group>
+                                </b-dropdown-form>
+                            </b-dropdown>
+                        </td>
+                        <td class="tg-1lax">
+                            <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
+                                Assign
+                            </button>
+                        </td>
+                    </tr>
             </table>
-        </transition>
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
                 <table ref="table">
@@ -268,6 +276,8 @@ export default {
             show_mass_assign: false,
             user_assigned: '',
             lead_owner: '',
+            selected_assignees: '',
+            selected_owners: '',
             user: {
                 name: '',
                 surname: '',
@@ -313,7 +323,7 @@ export default {
         },
         assignTo(){
             var vm = this;
-            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.user_assigned, 'lead_owner' : vm.lead_owner }).then(function (response) {
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.selected_assignees, 'lead_owner' : vm.selected_owners }).then(function (response) {
                     
                 if(response.data.success == true){
                     vm.Toast.fire({ type: 'success', title: response.data.message });
@@ -443,18 +453,6 @@ export default {
         },
         downloadFile(id, index){
             var vm = this;  
-            // axios({
-            //     url: '/download-file/' + id,
-            //     method: 'GET',
-            //     responseType: 'blob', // important
-            // }).then((response) => {
-            //     const url = window.URL.createObjectURL(new Blob([response.data]));
-            //     const link = document.createElement('a');
-            //     link.href = url;
-            //     link.setAttribute('download'); //or any other extension
-            //     document.body.appendChild(link);
-            //     link.click();
-            // });
             axios.get('/download-file/' + id).then(function (response) {
                 window.open('/download-file/' + id);
             });
@@ -624,6 +622,10 @@ export default {
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.dropdown-menu.show {
+    display: block;
+    width: 98%;
 }
 .orange-btn:hover {
 	background: #FF9039;

@@ -808,9 +808,29 @@ class LeadController extends Controller
     public function massAssign(Request $request){
         $data = $request->all();
         
+        $num_leads = count($data['lead_ids']);
+
+        $num_user_assigned = count($data['user_assigned']);
+
+        $num_lead_owner = count($data['lead_owner']);
+
+        $remainder = $num_leads % $num_user_assigned;
+
+        $owner_modulus = $num_leads % $num_lead_owner;
+
+        if($remainder == 0){
+            $num_in_batch = $num_leads / $num_user_assigned;
+
+            $batches = $num_leads / $num_in_batch;
+        }else{
+            for ($z =  1; $z <= $remainder; $z++) {
+                # code...
+            }
+        }
+
         try{
             DB::beginTransaction();
-            foreach ( $data['lead_ids'] as $key => $value) {
+            for ( $i = 0; $i < 5; $i++ ) {
                 if( !is_null($data['user_assigned'])){
                     $lead = Lead::find($value)->update([
                         'user_assigned' => $data['user_assigned'],
