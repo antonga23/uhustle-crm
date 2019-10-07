@@ -760,7 +760,7 @@ a.down-scroll:hover{
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div class="notes-roll">
-                                    <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                    <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;">
                                         <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
                                             <p>
                                                 <strong>{{ comment.comment_type }}</strong> 
@@ -785,14 +785,14 @@ a.down-scroll:hover{
                                     </b-button>
                                     <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" />
 
-                                    <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                    <button id="send-btn" type="submit" class="btn btn-primary w-75" @click="addComment()">
                                         Send
                                     </button>
                                 </div>            
                             </div>
-                            <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab" style="padding-top: 0 !important;"> 
-                                <div class="row" style="margin-bottom: 0;">
-                                    <div class="col-lg-4" style="padding-right: 0;">
+                            <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
+                                <div class="row mb-0">
+                                    <div class="col-lg-4 pr-0">
                                         <div class="row">
                                             <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
                                                 <label class="col-lg-12 control-label">Date of Callback
@@ -818,8 +818,8 @@ a.down-scroll:hover{
                                         <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
                                     </div>
                                 </div>
-                                <div class="row"  style="margin-bottom: 0;">
-                                    <div class="col-lg-12" style="padding-right: 0;">
+                                <div class="row mb-0">
+                                    <div class="col-lg-12 pr-0">
                                         <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 77.5%;" />
 
                                         <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()">
@@ -878,7 +878,7 @@ a.down-scroll:hover{
                             </div>
                             <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
                                 <h5 class="card-title">TODO</h5>
-                                <div style="height:245px; width:100%;overflow:hidden; color: #818284;">
+                                <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">
                                     <p class="card-text">
                                         Email client form
                                     </p>
@@ -899,7 +899,7 @@ a.down-scroll:hover{
             <div class="row">
 
                 <div class="col-lg-12 tip call-status" style="padding-top:10px;">
-                    <h1 style="text-align: center;font-size: 19px;color: #1c2331;">{{ call_status }}...</h1>
+                    <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1>
                 </div>
 
                 <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks">
@@ -1025,22 +1025,22 @@ a.down-scroll:hover{
                                 </li> 
                             </ul>
                         </div>
-                        <div class="col-lg-6" style="padding-right: 0;padding-top:2%;">
-                            <div style="width: 100%;" >
+                        <div class="col-lg-6 pr-0" style="padding-top:2%;">
+                            <div class="w-100">
                                 <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;">
-                                    <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;" disabled>
+                                    <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" class="w-100 m-0" disabled>
                                         <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
                                     </button>
-                                    <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" style="width: 100%; margin: 0px;">
+                                    <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active' : true}" class="w-100 m-0">
                                         <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time
                                     </button>
                                 </label>
-                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
-                                    <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active' : true }" style="width: 100%; margin: 0px;">
+                                <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;">
+                                    <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active' : true }" class="w-100 m-0">
                                         <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete
                                     </button>
                                 </label>
-                                <label class="col-lg-3 control-label" style="margin-right: 8px;float:left;padding-right: 0;text-align: right;">
+                                <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;">
                                     <img src="/images/icons/Asset 56.svg" alt="Icon" class="icon" style="width: 60px;margin-top: -13px;"/>
                                 </label>
                             </div>				
@@ -1122,7 +1122,7 @@ a.down-scroll:hover{
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
                                         <div class="notes-roll">
-                                            <ul class="list-group" style="height:245px; width:100%;overflow:hidden; overflow-y:scroll;">
+                                            <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;">
                                                 <li v-for="comment in comments.comments" class="list-group-item" :key="comment.id">
                                                     <p>
                                                         <strong>{{ comment.comment_type }}</strong> 
@@ -1132,7 +1132,7 @@ a.down-scroll:hover{
                                                                 <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>
                                                             </a>
                                                         </span>
-                                                        <span class="author" style="width: 25%;">
+                                                        <span class="author w-25">
                                                             {{ comment.created_at }} <br/>
                                                             <small>{{ comment.user_name }}</small>
                                                         </span>
@@ -1147,14 +1147,14 @@ a.down-scroll:hover{
                                             </b-button>
                                             <input class="comment-desc" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 66%" />
 
-                                            <button id="send-btn" type="submit" class="btn btn-primary" style="width:75px;" @click="addComment()">
+                                            <button id="send-btn" type="submit" class="btn btn-primary w-75" @click="addComment()">
                                                 Send
                                             </button>
                                         </div>            
                                     </div>
-                                    <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab" style="padding-top: 0 !important;"> 
-                                        <div class="row" style="margin-bottom: 0;">
-                                            <div class="col-lg-4" style="padding-right: 0;">
+                                    <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
+                                        <div class="row mb-0">
+                                            <div class="col-lg-4 pr-0">
                                                 <div class="row">
                                                     <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
                                                         <label class="col-lg-12 control-label">Date of Callback
@@ -1180,8 +1180,8 @@ a.down-scroll:hover{
                                                 <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
                                             </div>
                                         </div>
-                                        <div class="row"  style="margin-bottom: 0;">
-                                            <div class="col-lg-12" style="padding-right: 0;">
+                                        <div class="row mb-0">
+                                            <div class="col-lg-12 pr-0">
                                                 <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
 
                                                 <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()">
@@ -1240,7 +1240,7 @@ a.down-scroll:hover{
                                     </div>
                                     <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
                                         <h5 class="card-title">TODO</h5>
-                                        <div style="height:245px; width:100%;overflow:hidden; color: #818284;">
+                                        <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">
                                             <p class="card-text">
                                                 Email client form
                                             </p>
