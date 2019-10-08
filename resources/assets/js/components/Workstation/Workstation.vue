@@ -536,7 +536,7 @@ a.down-scroll:hover{
   height: 70vh; 
   padding-top: 6px;
   padding-right: 3%; 
-  padding-right: 6px;
+  padding-bottom: 6px;
   padding-left: 3%; 
 } 
 /*being used?*/
