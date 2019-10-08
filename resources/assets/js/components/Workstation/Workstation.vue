@@ -73,7 +73,7 @@ p.card-link{
     background-color: #f6f8f9;
     padding-left:3%;
     padding-right: 3%;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
 }
 .stats .card{ 
   border-radius: 20px;
@@ -700,7 +700,7 @@ a.down-scroll:hover{
                                             width="23"
                                         /> 
                                         <span class="left w-50">Agent Notes</span> 
-                                        <span class="right w-50">{{ comments.total_comments }}</span> 
+                                        <span class="right">{{ comments.total_comments }}</span> 
                                     </a> 
                                 </li> 
 
