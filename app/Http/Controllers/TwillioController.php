@@ -73,8 +73,8 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                              ->read(array(),1);
-                            //   ->read(array("status" => "in-progress"),500);
+                            //   ->read(array(),1);
+                              ->read(array("status" => "in-progress"),500);
               
         $conferences_arr = [];
 
