@@ -77223,8 +77223,6 @@ __webpack_require__.r(__webpack_exports__);
 
     console.log('Component mounted');
     Fire.$on('UpdateRole', function (data) {
-      _this.role = data.role;
-
       _this.updateRole();
 
       console.log(data);

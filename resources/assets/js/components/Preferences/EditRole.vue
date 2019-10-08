@@ -53,7 +53,6 @@
             console.log('Component mounted');
 
             Fire.$on('UpdateRole', (data) => {
-                this.role = data.role;
                 this.updateRole();
                 console.log(data);
             });
