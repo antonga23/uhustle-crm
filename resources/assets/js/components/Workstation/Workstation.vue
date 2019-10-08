@@ -5,23 +5,17 @@
 }
 .row{ 
   margin-bottom: 3.5vh;  
-} 
-.top-section{ 
-  list-style-type: none; 
-  padding-left: 15px; 
-} 
-.top-section li{     
-  float: left; 
-  margin-right: 52px; 
-  padding: 0 5px; 
+}
+.top-section .col-lg-3{
+  padding: 0 10px; 
   border-left: 1px solid #e3e3e3; 
-} 
-li p.bottom{
+}
+.top-section p.bottom{
   font-size: 18px; 
   font-weight: 900; 
   color: #003449; 
 } 
-li p.top{ 
+.top-section p.top{ 
   font-size: 14px; 
   color: #003449; 
 } 
@@ -550,36 +544,27 @@ a.down-scroll:hover{
                 <div class="col-lg-12 px-0"> 
                     <p class="heading px-0">Calls</p> 
                 </div> 
+
                 <div> 
                     <div class="card client"> 
                         <div class="card-body"> 
- 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname"> 
-                            Cashed Out 
-                            </p> 
-         
+                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">Cashed Out</p> 
                         </div> 
                     </div> 
                 </div> 
+
                 <div> 
                     <div class="card product"> 
                         <div class="card-body"> 
- 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname"> 
-                            Upsell 
-                            </p> 
-         
+                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">Upsell</p> 
                         </div> 
                     </div> 
                 </div> 
+
                 <div> 
                     <div class="card time"> 
                         <div class="card-body font-weight-bolder"> 
- 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname"> 
-                            Not Interested 
-                            </p> 
-         
+                            <p class="card-text" :title="lead.name + ' ' + lead.surname">Not Interested</p> 
                         </div> 
                     </div> 
                 </div> 
@@ -587,11 +572,7 @@ a.down-scroll:hover{
                 <div> 
                     <div class="card activity"> 
                         <div class="card-body"> 
- 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname"> 
-                            More Info 
-                            </p> 
-         
+                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">More Info</p> 
                         </div> 
                     </div> 
                 </div> 
@@ -601,109 +582,130 @@ a.down-scroll:hover{
  
         <!-- General Section Starts --> 
         <div class="" v-if="general == true"> 
-            <div class="row mx-0 side-indentation" style="margin-top:5%;"> 
-                <div class="top-section"> 
-                    <div> 
-                        <p class="top">Lead Source</p> 
-                        <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
-                    </div> 
-                    <div> 
-                        <p class="top">Called</p> 
-                        <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-                    </div> 
-                    <div> 
-                        <p class="top">Answers</p> 
-                        <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-                    </div> 
-                    <div> 
-                        <p class="top">Sales</p> 
-                        <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
-                    </div> 
+            <div class="row mx-0 justify-content-between top-section side-indentation" style="margin-top:5%;">
+                <div class="col-lg-3"> 
+                    <p class="top">Lead Source</p> 
+                    <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+                </div> 
+                
+                <div class="col-lg-3"> 
+                    <p class="top">Called</p> 
+                    <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+                </div> 
+
+                <div class="col-lg-3"> 
+                    <p class="top">Answers</p> 
+                    <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+                </div> 
+
+                <div class="col-lg-3"> 
+                    <p class="top">Sales</p> 
+                    <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
                 </div> 
             </div> 
-            <div class="row mx-0 side-indentation"> 
-                <div class="col-lg-3 col-md-4 col-sm-4" style="padding-right: 35px;"> 
+            <div class="row mx-0 justify-content-between side-indentation"> 
+                <div class="col-lg-3 col-md-4 col-sm-4"> 
                     <div class="card border-0 client"> 
-                    <div class="card-body"> 
-                        <h5 class="card-title"> 
-                            <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
-                            Client 
-                        </h5> 
- 
-                        <p class="card-text truncate" :title="lead.name + ' ' + lead.surname"> 
-                        {{ this.lead_info.name + ' ' + lead_info.surname }} 
-                        </p> 
- 
-                        <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
-                    </div> 
+                        <div class="card-body"> 
+                            <h5 class="card-title"> 
+                                <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+                                Client 
+                            </h5> 
+                            <p 
+                                class="card-text truncate" 
+                                :title="lead.name + ' ' + lead.surname"
+                            >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
+                            <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
+                        </div> 
                     </div> 
                 </div> 
-                <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;"> 
+                <div class="col-lg-3"> 
                     <div class="card border-0 product"> 
                     <div class="card-body"> 
                         <h5 class="card-title"> 
                             <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
                             Product 
                         </h5> 
- 
-                        <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.price "> 
-                        {{ lead_info.product.name }} 
-                        </p> 
- 
+                        <p 
+                            class="card-text" 
+                            :title="lead_info.product.description + '. ' + lead_info.product.price "
+                        >{{ lead_info.product.name }}</p> 
                         <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
                             {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
                         </p>  
                     </div> 
                     </div> 
                 </div> 
-                <div class="col-lg-3" style="padding-right: 35px;padding-left: 35px;"> 
+
+                <div class="col-lg-3"> 
                     <div class="card border-0 time"> 
-                    <div class="card-body"> 
-                        <h5 class="card-title"> 
-                            <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
-                            Time 
-                        </h5> 
- 
-                        <p class="card-text"> 
-                        11:20 
-                        </p> 
- 
-                        <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
-                    </div> 
+                        <div class="card-body"> 
+                            <h5 class="card-title"> 
+                                <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+                                Time 
+                            </h5> 
+                            <p class="card-text">11:20</p> 
+                            <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
+                        </div> 
                     </div> 
                 </div> 
-                <div class="col-lg-3"  style="padding-left: 35px;"> 
+
+                <div class="col-lg-3"> 
                     <div class="card border-0 activity"> 
                     <div class="card-body"> 
                         <h5 class="card-title"> 
                             <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
                             Activity 
                         </h5> 
- 
-                        <p class="card-text"> 
-                        Off-line 
-                        </p> 
- 
+                        <p class="card-text">Off-line</p> 
                         <p class="card-link">Online 2 Days ago</p>  
                     </div> 
                     </div> 
                 </div> 
-            </div>                     
-            <div class="row mx-0 side-indentation stats final-modal"> 
-                <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
+            </div>       
+
+            <div class="row mx-0 justify-content-between side-indentation stats final-modal"> 
+                <div class="col-lg-6"> 
                     <div class="card left mt-3 border-0 tab-card"> 
                         <div class="card-header tab-card-header"> 
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                                 <li class="nav-item left w-50"> 
-                                    <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"> 
-                                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
+                                    <a 
+                                        class="nav-link" 
+                                        id="one-tab" 
+                                        data-toggle="tab" 
+                                        href="#one" 
+                                        role="tab" 
+                                        aria-controls="One" 
+                                        aria-selected="true"
+                                    > 
+                                        <img 
+                                            src="/images/workstation/Agent_Notes_Icon@4x.png" 
+                                            alt="Icon" 
+                                            class="icon" 
+                                            width="23"/
+                                        > 
                                         <span class="left w-50">Agent Notes</span> 
                                         <span class="right w-50">{{ comments.total_comments }}</span> 
                                     </a> 
                                 </li> 
+
                                 <li class="nav-item right"> 
-                                    <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"> 
-                                        <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
+                                    <a 
+                                        class="nav-link" 
+                                        id="two-tab" 
+                                        data-toggle="tab" 
+                                        href="#two" 
+                                        role="tab" 
+                                        aria-controls="Two" 
+                                        aria-selected="false"
+                                    > 
+                                        <img 
+                                            src="/images/workstation/Schedule_Callbacks.svg" 
+                                            alt="Icon" 
+                                            class="icon" 
+                                            width="23"/
+                                        > 
                                         <span class="left">Schedule Callback</span> 
                                     </a> 
                                 </li> 
@@ -711,15 +713,29 @@ a.down-scroll:hover{
                         </div> 
  
                         <div class="tab-content" id="myTabContent"> 
-                            <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
+                            <div 
+                                class="tab-pane fade show active p-3" 
+                                id="one" role="tabpanel" 
+                                aria-labelledby="one-tab"
+                            > 
                                 <div class="notes-roll"> 
                                     <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
-                                        <li v-for="comment in comments.comments" class="list-group-item m-0 border-bottom-0" :key="comment.id"> 
+                                        <li 
+                                            v-for="comment in comments.comments" 
+                                            class="list-group-item m-0 border-bottom-0" 
+                                            :key="comment.id"
+                                        > 
                                             <p class="m-0"> 
                                                 <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
                                                 <span class="comment-notes d-block"> 
                                                     {{ comment.description }}  
-                                                    <a href="#" role="button" @click="editComment(comment)" :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"> 
+                                                    <a 
+                                                        href="#" 
+                                                        role="button"
+                                                        @click="editComment(comment)" 
+                                                        :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                                                        v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                                                    > 
                                                         <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
                                                     </a> 
                                                 </span> 
@@ -736,20 +752,38 @@ a.down-scroll:hover{
                                     <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
                                         <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/> 
                                     </b-button> 
-                                    <input class="comment-desc d-block w-75 border-0" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 69%" /> 
- 
-                                    <button id="send-btn" type="submit" class="btn btn-primary w-75" @click="addComment()"> 
-                                        Send 
-                                    </button> 
+                                    <input 
+                                        class="comment-desc d-block w-75 border-0" 
+                                        type="text" 
+                                        v-model="comment.comment_description" 
+                                        placeholder="Write comment here" 
+                                        style="width: 69%" /
+                                    > 
+                                    <button 
+                                        id="send-btn" 
+                                        type="submit" 
+                                        class="btn btn-primary w-75" 
+                                        @click="addComment()"
+                                    >Send</button> 
                                 </div>             
                             </div> 
-                            <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab">  
+                            <div 
+                                class="tab-pane fade pt-0 px-3 pb-3" 
+                                id="two" 
+                                role="tabpanel" 
+                                aria-labelledby="two-tab"
+                            >  
                                 <div class="row mx-0 mb-0"> 
                                     <div class="col-lg-4 pr-0"> 
                                         <div class="row"> 
                                             <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
                                                 <label class="col-lg-12 control-label p-0">Date of Callback 
-                                                    <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/> 
+                                                    <a-date-picker 
+                                                        v-model='selected_date' 
+                                                        format="YYYY-MM-DD" 
+                                                        :allowEmpty="false"
+                                                        @change="checkCBDate()"/
+                                                    > 
                                                 </label> 
                                             </div> 
                                         </div> 
@@ -757,27 +791,50 @@ a.down-scroll:hover{
                                         <div class="row"> 
                                             <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
                                                 <label class="col-lg-12 control-label">Time of Callback 
-                                                    <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/> 
+                                                    <a-time-picker 
+                                                        v-model='selected_time' 
+                                                        :allowEmpty="false" 
+                                                        use24Hours 
+                                                        format="hh:mm a"/
+                                                    > 
                                                 </label> 
                                             </div>   
                                         </div>                                        
                                         <div class="row"> 
                                             <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label> 
+                                                <label class="col-lg-12 control-label">
+                                                    <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                                                </label> 
                                             </div>   
                                         </div> 
                                     </div> 
                                     <div class="col-lg-8"> 
-                                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" /> 
+                                        <vc-date-picker 
+                                            v-model="dates" 
+                                            mode="multiple" 
+                                            is-inline is-expanded  
+                                            :min-date='new Date()' 
+                                            :max-date="max_date" 
+                                            color="pink" /
+                                        > 
                                     </div> 
                                 </div> 
                                 <div class="row mb-0"> 
                                     <div class="col-lg-12 pr-0"> 
-                                        <input class="comment-desc d-block w-75 border-0" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 77.5%;" /> 
- 
-                                        <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()"> 
-                                            Schedule 
-                                        </button> 
+                                        <input 
+                                            class="comment-desc d-block w-75 border-0" 
+                                            type="text" 
+                                            v-model="call_back.note" 
+                                            placeholder="Write notes here" 
+                                            style="width: 77.5%;" /
+                                        > 
+                                        <button 
+                                            id="send-btn" 
+                                            type="submit" 
+                                            class="btn btn-primary" 
+                                            style="width:100px;" 
+                                            @click="addCallback()"
+                                        >Schedule</button> 
                                     </div>   
                                 </div> 
                             </div> 
@@ -785,19 +842,35 @@ a.down-scroll:hover{
                     </div> 
                 </div> 
  
-                <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
+                <div class="col-lg-6 p-0"> 
                     <div class="card left mt-3 border-0 tab-card"> 
                         <div class="card-header tab-card-header"> 
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                                 <li class="nav-item left"> 
-                                    <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true"> 
+                                    <a 
+                                        class="nav-link" 
+                                        id="three-tab" 
+                                        data-toggle="tab" 
+                                        href="#three" 
+                                        role="tab" 
+                                        aria-controls="Three" 
+                                        aria-selected="true"
+                                    > 
                                         <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
                                         <span class="left w-50">Feedback Summary</span> 
                                         <span class="right">{{ comments.total_comments }}</span> 
                                     </a> 
                                 </li> 
                                 <li class="nav-item right"> 
-                                    <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"> 
+                                    <a 
+                                        class="nav-link" 
+                                        id="four-tab" 
+                                        data-toggle="tab" 
+                                        href="#four" 
+                                        role="tab" 
+                                        aria-controls="Four" 
+                                        aria-selected="false"
+                                    > 
                                         <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
                                         <span class="left">Email Client</span> 
                                     </a> 
@@ -806,26 +879,25 @@ a.down-scroll:hover{
                         </div> 
  
                         <div class="tab-content" id="myTabContent"> 
-                            <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
-                                 
+                            <div 
+                                class="tab-pane fade show active p-3" 
+                                id="three" 
+                                role="tabpanel" 
+                                aria-labelledby="three-tab" 
+                                style="height: 349px;"
+                            > 
                                 <div class=""> 
                                     <div class="verticalChart w-100"> 
- 
                                         <div class="singleBar" v-for="bar in comments_graph"> 
- 
                                             <div class="bar"> 
- 
-                                            <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                                                <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                                                <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                                                    <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                                                </div> 
                                             </div> 
- 
-                                            </div> 
- 
+
                                             <div class="title">{{ bar.type }}</div> 
- 
                                         </div> 
                                         <div class="clearfix"></div> 
- 
                                     </div> 
                                 </div>            
                             </div> 
@@ -846,11 +918,17 @@ a.down-scroll:hover{
  
         <!-- Dialer Section Starts --> 
         <div class="" v-if="idle == true"> 
-            <div :class="{ 'row idle-div mt-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 1%"> 
-                <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"> </div> 
+            <div 
+                :class="{ 'row idle-div mt-0' : true }" 
+                data-aos="fade-up" 
+                data-aos-duration="700" 
+                data-aos-offset="700" 
+                style="margin-top: 1%"
+            > 
+                <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"></div> 
             </div> 
+
             <div class="row"> 
- 
                 <div class="col-lg-12 tip call-status" style="padding-top:10px;"> 
                     <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1> 
                 </div> 
@@ -869,6 +947,7 @@ a.down-scroll:hover{
                     </a> 
                 </div> 
             </div> 
+
             <div class="row idle-education justify-content-center" v-if="show_edication_blocks"> 
                 <div class="col-lg-10"> 
                     <div class="col-lg-4 text-center"> 
@@ -966,39 +1045,66 @@ a.down-scroll:hover{
                 style="z-index: 999999;padding: 1rem 3rem;" 
                 hide-header 
                 hide-footer 
-                > 
+            > 
                 <div class="final-modal"> 
                     <div class="row row-a w-100 ml-0"> 
                         <div class="col-lg-6" style="padding-left: 6%;"> 
                             <ul class="navbar-nav left"> 
                                 <li class="nav-item d-none d-sm-inline-block title"> 
                                     <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort"> 
-                                        <template slot-scope="props" style="font-size: 55px;">{{ props.minutes }}:{{ props.seconds }}</template> 
+                                        <template 
+                                            slot-scope="props" 
+                                            style="font-size: 55px;"
+                                        >{{ props.minutes }}:{{ props.seconds }}</template> 
                                     </countdown> 
                                 </li>  
                             </ul> 
                         </div> 
+
                         <div class="col-lg-6 pr-0" style="padding-top:2%;"> 
                             <div class="w-100"> 
                                 <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;"> 
-                                    <button v-if="added_time" @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" class="w-100 m-0" disabled> 
+                                    <button 
+                                        v-if="added_time" 
+                                        @click="addTime"  
+                                        type="submit" 
+                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
+                                        class="w-100 m-0" 
+                                        disabled
+                                    > 
                                         <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
                                     </button> 
-                                    <button v-else @click="addTime"  type="submit" :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" class="w-100 m-0"> 
+                                    <button 
+                                        v-else @click="addTime"  
+                                        type="submit" 
+                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
+                                        class="w-100 m-0"
+                                    > 
                                         <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
                                     </button> 
                                 </label> 
                                 <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
-                                    <button @click="completeCall" type="submit" :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }" class="w-100 m-0"> 
+                                    <button 
+                                        @click="completeCall" 
+                                        type="submit" 
+                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }" 
+                                        class="w-100 m-0"
+                                    > 
                                         <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete 
                                     </button> 
                                 </label> 
                                 <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
-                                    <img src="/images/icons/Asset 56.svg" alt="Icon" class="icon" style="width: 60px;margin-top: -13px;"/> 
+                                    <img 
+                                        src="/images/icons/Asset 56.svg" 
+                                        alt="Icon" 
+                                        class="icon" 
+                                        style="width: 60px;margin-top: -13px;"/
+                                    > 
                                 </label> 
                             </div>               
                         </div> 
                     </div> 
+
                     <div class="row"> 
                         <div class="col-lg-4 col-md-4 col-sm-4"> 
                             <div class="card border-0 client"> 
@@ -1007,33 +1113,28 @@ a.down-scroll:hover{
                                     <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
                                     Client 
                                 </h5> 
- 
-                                <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname"> 
-                                {{ lead_info.name + ' ' + lead_info.surname }} 
-                                </p> 
- 
+                                <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">{{ lead_info.name + ' ' + lead_info.surname }}</p> 
                                 <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
                             </div> 
                             </div> 
                         </div> 
                         <div class="col-lg-4 col-md-4 col-sm-4"> 
                             <div class="card border-0 product"> 
-                            <div class="card-body"> 
-                                <h5 class="card-title"> 
-                                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
-                                    Product 
-                                </h5> 
- 
-                                <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                                {{ lead_info.product.name }} 
-                                </p> 
- 
-                                <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                                    {{ lead_info.product.description }} 
-                                </p>  
-                            </div> 
+                                <div class="card-body"> 
+                                    <h5 class="card-title"> 
+                                        <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+                                        Product 
+                                    </h5> 
+                                    <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                                    {{ lead_info.product.name }} 
+                                    </p> 
+                                    <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                                        {{ lead_info.product.description }} 
+                                    </p>  
+                                </div> 
                             </div> 
                         </div> 
+                    
                         <div class="col-lg-4 col-md-4 col-sm-4"> 
                             <div class="card border-0 time"> 
                             <div class="card-body"> 
@@ -1041,30 +1142,43 @@ a.down-scroll:hover{
                                     <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
                                     Time 
                                 </h5> 
- 
-                                <p class="card-text"> 
-                                11:20 AM 
-                                </p> 
- 
+                                <p class="card-text">11:20 AM</p> 
                                 <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
                             </div> 
                             </div> 
                         </div> 
-                    </div>                    
+                    </div>     
+
                     <div class="row stats final-modal"> 
                         <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
                             <div class="card left mt-3 border-0 tab-card"> 
                                 <div class="card-header tab-card-header"> 
                                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                                         <li class="nav-item left"> 
-                                            <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"> 
+                                            <a 
+                                                class="nav-link" 
+                                                id="one-tab" 
+                                                data-toggle="tab" 
+                                                href="#one" 
+                                                role="tab" 
+                                                aria-controls="One" 
+                                                aria-selected="true"
+                                            > 
                                                 <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
                                                 <span class="left w-50">Agent Notes</span> 
                                                 <span class="right w-50">{{ comments.total_comments }}</span> 
                                             </a> 
                                         </li> 
                                         <li class="nav-item right"> 
-                                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"> 
+                                            <a 
+                                                class="nav-link" 
+                                                id="two-tab" 
+                                                data-toggle="tab" 
+                                                href="#two" 
+                                                role="tab" 
+                                                aria-controls="Two" 
+                                                aria-selected="false"
+                                            > 
                                                 <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
                                                 <span class="left">Schedule Callback</span> 
                                             </a> 
@@ -1076,12 +1190,22 @@ a.down-scroll:hover{
                                     <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
                                         <div class="notes-roll"> 
                                             <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
-                                                <li v-for="comment in comments.comments" class="list-group-item m-0 border-bottom-0" :key="comment.id"> 
+                                                <li 
+                                                    v-for="comment in comments.comments" 
+                                                    class="list-group-item m-0 border-bottom-0" 
+                                                    :key="comment.id"
+                                                > 
                                                     <p class="m-0"> 
                                                         <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
                                                         <span class="comment-notes d-block" style="width: 54%;"> 
                                                             {{ comment.description }}  
-                                                            <a href="#" role="button" @click="editComment(comment)" :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"> 
+                                                            <a 
+                                                                href="#" 
+                                                                role="button"
+                                                                @click="editComment(comment)" 
+                                                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                                                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                                                            > 
                                                                 <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
                                                             </a> 
                                                         </span> 
@@ -1096,22 +1220,45 @@ a.down-scroll:hover{
  
                                         <div class="notes-capture"> 
                                             <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 27px;"/> 
+                                                <img 
+                                                    src="/images/workstation/Asset 28@4x.png" 
+                                                    alt="Icon" 
+                                                    class="icon" 
+                                                    style="width: 27px;"/
+                                                > 
                                             </b-button> 
-                                            <input class="comment-desc d-block w-75 border-0" type="text" v-model="comment.comment_description" placeholder="Write comment here" style="width: 66%" /> 
- 
-                                            <button id="send-btn" type="submit" class="btn btn-primary w-75" @click="addComment()"> 
-                                                Send 
-                                            </button> 
+                                            <input 
+                                                class="comment-desc d-block w-75 border-0" 
+                                                type="text" 
+                                                v-model="comment.comment_description" 
+                                                placeholder="Write comment here" 
+                                                style="width: 66%" 
+                                            /> 
+                                            <button 
+                                                id="send-btn" 
+                                                type="submit" 
+                                                class="btn btn-primary w-75" 
+                                                @click="addComment()"
+                                            >Send</button> 
                                         </div>             
                                     </div> 
-                                    <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab">  
+                                    <div 
+                                        class="tab-pane fade pt-0 px-3 pb-3" 
+                                        id="two" 
+                                        role="tabpanel" 
+                                        aria-labelledby="two-tab"
+                                    >  
                                         <div class="row mb-0 mx-0"> 
                                             <div class="col-lg-4 pr-0"> 
                                                 <div class="row"> 
                                                     <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
                                                         <label class="col-lg-12 control-label p-0">Date of Callback 
-                                                            <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/> 
+                                                            <a-date-picker 
+                                                                v-model='selected_date' 
+                                                                format="YYYY-MM-DD" 
+                                                                :allowEmpty="false"
+                                                                @change="checkCBDate()"
+                                                            /> 
                                                         </label> 
                                                     </div> 
                                                 </div> 
@@ -1122,24 +1269,44 @@ a.down-scroll:hover{
                                                             <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/> 
                                                         </label> 
                                                     </div>   
-                                                </div>                                        
+                                                </div>     
+
                                                 <div class="row"> 
                                                     <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                        <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label> 
+                                                        <label class="col-lg-12 control-label">
+                                                            <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                                                        </label> 
                                                     </div>   
                                                 </div> 
                                             </div> 
+                                            
                                             <div class="col-lg-8"> 
-                                                <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" /> 
+                                                <vc-date-picker 
+                                                    v-model="dates" 
+                                                    mode="multiple" 
+                                                    is-inline 
+                                                    is-expanded  
+                                                    :min-date='new Date()' 
+                                                    :max-date="max_date" color="pink" 
+                                                /> 
                                             </div> 
                                         </div> 
                                         <div class="row mb-0"> 
                                             <div class="col-lg-12 pr-0"> 
-                                                <input class="comment-desc d-block w-75 border-0" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" /> 
- 
-                                                <button id="send-btn" type="submit" class="btn btn-primary" style="width:100px;" @click="addCallback()"> 
-                                                    Schedule 
-                                                </button> 
+                                                <input 
+                                                    class="comment-desc d-block w-75 border-0" 
+                                                    type="text" 
+                                                    v-model="call_back.note" 
+                                                    placeholder="Write notes here" 
+                                                    style="width: 72.5%;" 
+                                                /> 
+                                                <button 
+                                                    id="send-btn" 
+                                                    type="submit" 
+                                                    class="btn btn-primary" 
+                                                    style="width:100px;" 
+                                                    @click="addCallback()"
+                                                >Schedule</button> 
                                             </div>   
                                         </div> 
                                     </div> 
@@ -1152,15 +1319,41 @@ a.down-scroll:hover{
                                 <div class="card-header tab-card-header"> 
                                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                                         <li class="nav-item left"> 
-                                            <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true"> 
-                                                <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
+                                            <a 
+                                                class="nav-link" 
+                                                id="three-tab" 
+                                                data-toggle="tab" 
+                                                href="#three" 
+                                                role="tab" 
+                                                aria-controls="Three" 
+                                                aria-selected="true"
+                                            > 
+                                                <img 
+                                                    src="/images/workstation/Feedback_Summary.svg" 
+                                                    alt="Icon" 
+                                                    class="icon"
+                                                    width="23"
+                                                /> 
                                                 <span class="left">Feedback Summary</span> 
                                                 <span class="right">{{ comments.total_comments }}</span> 
                                             </a> 
                                         </li> 
                                         <li class="nav-item right"> 
-                                            <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"> 
-                                                <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
+                                            <a 
+                                                class="nav-link" 
+                                                id="four-tab" 
+                                                data-toggle="tab" 
+                                                href="#four" 
+                                                role="tab" 
+                                                aria-controls="Four" 
+                                                aria-selected="false"
+                                            > 
+                                                <img 
+                                                    src="/images/workstation/Email_Client.svg" 
+                                                    alt="Icon" 
+                                                    class="icon" 
+                                                    width="23"
+                                                /> 
                                                 <span class="left">Email Client</span> 
                                             </a> 
                                         </li> 
@@ -1168,30 +1361,34 @@ a.down-scroll:hover{
                                 </div> 
  
                                 <div class="tab-content" id="myTabContent"> 
-                                    <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
-                                         
+                                    <div 
+                                        class="tab-pane fade show active p-3" 
+                                        id="three" 
+                                        role="tabpanel" 
+                                        aria-labelledby="three-tab" 
+                                        style="height: 349px;"
+                                    >
                                         <div class=""> 
                                             <div class="verticalChart"> 
- 
                                                 <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
- 
                                                     <div class="bar"> 
- 
-                                                    <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                                                        <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                                                    </div> 
- 
+                                                        <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                                                            <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                                                        </div> 
                                                     </div> 
  
                                                     <div class="title">{{ bar.type }}</div> 
- 
                                                 </div> 
                                                 <div class="clearfix"></div> 
- 
                                             </div> 
                                         </div>            
                                     </div> 
-                                    <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
+                                    <div 
+                                        class="tab-pane fade p-3" 
+                                        id="four" 
+                                        role="tabpanel" 
+                                        aria-labelledby="four-tab"
+                                    > 
                                         <h5 class="card-title">TODO</h5> 
                                         <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
                                             <p class="card-text"> 
