@@ -53,6 +53,7 @@
             console.log('Component mounted');
 
             Fire.$on('UpdateRole', (data) => {
+                this.role = data.role;
                 this.updateRole();
                 console.log(data);
             });
@@ -96,7 +97,7 @@
 
                                     vm.role = response.data.role;
                                     vm.$Progress.finish();
-                                    // vm.Toast.fire({ type: 'success', title: response.data.message });
+                                    vm.Toast.fire({ type: 'success', title: response.data.message });
                                     
                                     Fire.$emit('DoneEditingRole');
                                 }else {

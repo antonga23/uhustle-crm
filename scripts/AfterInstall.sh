@@ -21,5 +21,5 @@ sudo composer install --no-ansi --no-suggest --no-interaction --no-progress --pr
 
 php /var/www/html/artisan migrate
 # php /var/www/html/artisan db:seed
-php /var/www/html/artisan config:cache
+php /var/www/html/artisan config:clear
 

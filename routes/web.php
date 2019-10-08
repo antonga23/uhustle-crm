@@ -168,7 +168,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::post('/update', 'RoleController@update');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
-	Route::put('/apply-permissions', 'RoleController@applyPermissions');
+	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
 // Products Routes

@@ -1624,7 +1624,7 @@ a.down-scroll:hover{
                         vm.show_page_loader = false;
                         vm.$Progress.finish();
 
-                        if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 0){
+                        if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1){
                             vm.createDevice();
                         }
 

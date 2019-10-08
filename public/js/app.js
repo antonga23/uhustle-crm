@@ -77223,6 +77223,8 @@ __webpack_require__.r(__webpack_exports__);
 
     console.log('Component mounted');
     Fire.$on('UpdateRole', function (data) {
+      _this.role = data.role;
+
       _this.updateRole();
 
       console.log(data);
@@ -77261,8 +77263,11 @@ __webpack_require__.r(__webpack_exports__);
           axios.post(end_point, _this2.role).then(function (response) {
             if (response.data.success == true) {
               vm.role = response.data.role;
-              vm.$Progress.finish(); // vm.Toast.fire({ type: 'success', title: response.data.message });
-
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
               Fire.$emit('DoneEditingRole');
             } else {
               vm.$Progress.fail();
@@ -77297,117 +77302,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -77799,20 +77693,19 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    applyPermissions: function applyPermissions() {
+    applyDialerPermissions: function applyDialerPermissions() {
       var vm = this;
-      var endpoint = '/roles/apply-permissions';
+      var endpoint = '/roles/apply-dialer-permissions';
       vm.$Progress.start();
       axios.put(endpoint, {
-        'permissions': vm.permissions
+        'permissions': vm.dialer_permissions
       }).then(function (response) {
         if (response.data.success == true) {
-          vm.permissions = response.data.permissions;
-          vm.$Progress.finish();
+          vm.dialer_permissions = response.data.permissions;
           vm.Toast.fire({
-            type: 'success',
-            title: 'Permissions have been applied'
+            type: 'success'
           });
+          vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
@@ -81870,7 +81763,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.show_page_loader = false;
           vm.$Progress.finish();
 
-          if (vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 0) {
+          if (vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1) {
             vm.createDevice();
           }
         } else {
@@ -259705,6 +259598,13 @@ var render = function() {
                                                                                                 "unchecked-value":
                                                                                                   "0"
                                                                                               },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
+                                                                                              },
                                                                                               model: {
                                                                                                 value:
                                                                                                   permission.disabled,
@@ -259744,6 +259644,13 @@ var render = function() {
                                                                                                 "unchecked-value":
                                                                                                   "0"
                                                                                               },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
+                                                                                              },
                                                                                               model: {
                                                                                                 value:
                                                                                                   permission.whisper,
@@ -259777,6 +259684,13 @@ var render = function() {
                                                                                                   "1",
                                                                                                 "unchecked-value":
                                                                                                   "0"
+                                                                                              },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
                                                                                               },
                                                                                               model: {
                                                                                                 value:
@@ -259912,643 +259826,7 @@ var render = function() {
                                                                   },
                                                                   [
                                                                     _c(
-                                                                      "b-card-body",
-                                                                      _vm._l(
-                                                                        _vm.permissions,
-                                                                        function(
-                                                                          permission,
-                                                                          k
-                                                                        ) {
-                                                                          return _c(
-                                                                            "div",
-                                                                            {
-                                                                              key: k
-                                                                            },
-                                                                            [
-                                                                              permission.module_id ==
-                                                                                a_module.id &&
-                                                                              role.id ==
-                                                                                permission.role_id
-                                                                                ? _c(
-                                                                                    "b-form-group",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "permisions"
-                                                                                    },
-                                                                                    [
-                                                                                      _c(
-                                                                                        "div",
-                                                                                        [
-                                                                                          _c(
-                                                                                            "div",
-                                                                                            {
-                                                                                              staticClass:
-                                                                                                "row"
-                                                                                            },
-                                                                                            [
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Set " +
-                                                                                                                        _vm._s(
-                                                                                                                          role.display_name
-                                                                                                                        ) +
-                                                                                                                        " permissions for " +
-                                                                                                                        _vm._s(
-                                                                                                                          a_module.display_name
-                                                                                                                        ) +
-                                                                                                                        ":"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "View"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              ),
-                                                                                              _vm._v(
-                                                                                                " "
-                                                                                              ),
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      " "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Edit"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              ),
-                                                                                              _vm._v(
-                                                                                                " "
-                                                                                              ),
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      " "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Delete"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        ]
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                : _vm._e()
-                                                                            ],
-                                                                            1
-                                                                          )
-                                                                        }
-                                                                      ),
-                                                                      0
+                                                                      "b-card-body"
                                                                     )
                                                                   ],
                                                                   1
