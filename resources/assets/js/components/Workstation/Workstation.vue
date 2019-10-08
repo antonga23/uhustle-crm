@@ -704,7 +704,7 @@ a.down-scroll:hover{
                                     </a> 
                                 </li> 
 
-                                <li class="nav-item right"> 
+                                <li class="nav-item right w-50"> 
                                     <a 
                                         class="nav-link" 
                                         id="two-tab" 
@@ -863,7 +863,7 @@ a.down-scroll:hover{
                     <div class="card left mt-3 border-0 tab-card"> 
                         <div class="card-header tab-card-header border-bottom-0"> 
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
-                                <li class="nav-item left"> 
+                                <li class="nav-item left w-50"> 
                                     <a 
                                         class="nav-link" 
                                         id="three-tab" 
@@ -878,7 +878,7 @@ a.down-scroll:hover{
                                         <span class="right">{{ comments.total_comments }}</span> 
                                     </a> 
                                 </li> 
-                                <li class="nav-item right"> 
+                                <li class="nav-item right w-50"> 
                                     <a 
                                         class="nav-link" 
                                         id="four-tab" 
