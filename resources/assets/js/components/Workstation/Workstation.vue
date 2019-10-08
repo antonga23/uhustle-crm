@@ -534,8 +534,10 @@ a.down-scroll:hover{
 .scroll-hidden{ 
   overflow-y: scroll; 
   height: 70vh; 
-  padding-top: 6px; 
+  padding-top: 6px;
+  padding-right: 3%; 
   padding-right: 6px;
+  padding-left: 3%; 
 } 
 /*being used?*/
 .ant-time-picker{ 
