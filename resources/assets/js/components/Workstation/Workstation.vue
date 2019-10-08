@@ -601,7 +601,7 @@ a.down-scroll:hover{
                     <div class="card client">
                         <div class="card-body">
 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            <p class="card-text">
                             Cashed Out
                             </p>
         
@@ -612,7 +612,7 @@ a.down-scroll:hover{
                     <div class="card product">
                         <div class="card-body">
 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            <p class="card-text">
                             Upsell
                             </p>
         
@@ -623,7 +623,7 @@ a.down-scroll:hover{
                     <div class="card time">
                         <div class="card-body">
 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            <p class="card-text">
                             Not Interested
                             </p>
         
@@ -635,7 +635,7 @@ a.down-scroll:hover{
                     <div class="card activity">
                         <div class="card-body">
 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname">
+                            <p class="card-text">
                             More Info
                             </p>
         
@@ -652,7 +652,7 @@ a.down-scroll:hover{
                 <ul class="top-section">
                     <li>
                         <p class="top">Lead Source</p>
-                        <p class="bottom">{{ lead_info.lead_source.name }}</p>
+                        <p class="bottom">{{ this.lead_info.lead_source.name }}</p>
                     </li>
                     <li>
                         <p class="top">Called</p>
@@ -677,8 +677,8 @@ a.down-scroll:hover{
                             Client
                         </h5>
 
-                        <p class="card-text truncate" :title="lead.name + ' ' + lead.surname">
-                        {{ this.lead_info.name + ' ' + lead_info.surname }}
+                        <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">
+                        {{ lead_info.name + ' ' + lead_info.surname }}
                         </p>
 
                         <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p> 
@@ -1280,23 +1280,14 @@ a.down-scroll:hover{
             'notes-stats' : NotesStats 
         },
         mounted() {
-
+            console.log('Workstation Mounted');
             var vm = this;
             
             if( vm.lead_id != ''){
+                console.log('Lead Mounting' + vm.lead_id);
                 vm.enqueueLead(vm.lead_id);
                 vm.general = true;
                 vm.active_calls = false;
-
-                // vm.addEvent(document, "mouseout", function(e) {
-                //     e = e ? e : window.event;
-                //     var from = e.relatedTarget || e.toElement;
-                //     if (!from || from.nodeName == "HTML") {
-                //         // stop your drag event here
-                //         // for now we can just use an alert
-                //         vm.completeCall();
-                //     }
-                // });
             }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){
                 vm.active_calls = true;
                 Fire.$emit('ShowActiveCalls');
@@ -1368,6 +1359,7 @@ a.down-scroll:hover{
                 lead : {},
                 conferences: [],
                 lead_info : {
+                    lead_source: {},
                     product: {},
                 },
                 call_counts : {},
@@ -1496,7 +1488,7 @@ a.down-scroll:hover{
                         vm.conferences = response.data.conferences;
                         vm.show_page_loader = false;
                     });
-                }, 2000);
+                }, 5000);
             },
             checkCBDate(){
                 var now = moment(new Date()); //todays date
@@ -1632,61 +1624,64 @@ a.down-scroll:hover{
                         vm.show_page_loader = false;
                         vm.$Progress.finish();
 
-                        if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){ 
-                            axios.get('/calls/token').then(function (response) {
-                                console.log('Token',response.data.token);
-                                // Setup Twilio.Device
-                                Device.setup(response.data.token);
-            
-                                Device.on('ready',function (device) {
-                                    vm.call_status = 'Device Ready';
-
-                                    vm.$refs.callBtn.click();
-                                });
-
-                                Device.on('error',function (error) {
-                                    vm.call_status = 'Device Error: ' + error.message;
-                                });
-
-                                Device.on('connect',function (conn) {
-                                    vm.call_status = 'Successfully established call';
-                                    vm.call_back.call_sid = conn.parameters.CallSid;
-                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                                        
-                                    }).catch(function (error) {                    
-                                        console.log(error);
-                                    });
-                                });
-
-                                Device.on('incoming', function (conn) {
-                                    console.log('Incoming connection from ' + conn.parameters.From);
-                                    var archEnemyPhoneNumber = '+12099517118';
-                            
-                                    if (conn.parameters.From === archEnemyPhoneNumber) {
-                                        conn.reject();
-                                        console.log('It\'s your nemesis. Rejected call.');
-                                    } else {
-                                        // accept the incoming connection and start two-way audio
-                                        conn.accept();
-                                    }
-                                });
-
-                                Device.on('disconnect',function (conn) {
-                                    vm.call_status = 'Call Disconnected';
-                                    vm.$refs['final-call-step'].show();
-                                });
-
-                                vm.$Progress.finish();
-                                
-                            }).catch(function (error) {                    
-                                console.log(error);
-                            });
+                        if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 0){
+                            vm.createDevice();
                         }
 
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                     }
+                });
+            },
+            createDevice(){
+                var vm = this;
+                axios.get('/calls/token').then(function (response) {
+                    console.log('Token',response.data.token);
+                    // Setup Twilio.Device
+                    Device.setup(response.data.token);
+
+                    Device.on('ready',function (device) {
+                        vm.call_status = 'Device Ready';
+                        vm.$refs.callBtn.click();
+                    });
+
+                    Device.on('error',function (error) {
+                        vm.call_status = 'Device Error: ' + error.message;
+                    });
+
+                    Device.on('connect',function (conn) {
+                        vm.call_status = 'Successfully established call';
+                        vm.call_back.call_sid = conn.parameters.CallSid;
+                        axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
+                            
+                        }).catch(function (error) {                    
+                            console.log(error);
+                        });
+                    });
+
+                    Device.on('incoming', function (conn) {
+                        console.log('Incoming connection from ' + conn.parameters.From);
+                        var archEnemyPhoneNumber = '+12099517118';
+                
+                        if (conn.parameters.From === archEnemyPhoneNumber) {
+                            conn.reject();
+                            console.log('It\'s your nemesis. Rejected call.');
+                        } else {
+                            // accept the incoming connection and start two-way audio
+                            conn.accept();
+                        }
+                    });
+
+                    Device.on('disconnect',function (conn) {
+                        vm.call_status = 'Call Disconnected';
+                        vm.$refs['final-call-step'].show();
+                    });
+
+                    vm.$Progress.finish();
+                    
+                }).catch(function (error) {                    
+                    console.log(error);
                 });
             },
             startCall() {
@@ -1705,8 +1700,9 @@ a.down-scroll:hover{
                     is_client : vm.lead_info.is_client,
                     lead_owner : vm.lead_info.user_created_id,
                     lead_assignee : vm.lead_info.user_assigned,
+                    user_id : vm.user_id,
                     // phone_number : vm.lead_info.contact_number,
-                    phone_number : '+27738802485',
+                    phone_number : '+27782013556',
                 }
                 
                 Device.connect(form_data);

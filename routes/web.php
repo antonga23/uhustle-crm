@@ -80,6 +80,7 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::get('/list', 'TwillioController@index');
 	Route::get('/token', 'TwillioController@newToken');
 	Route::post('/voice', 'TwillioController@voice');
+	Route::post('/coach', 'TwillioController@joinConference');
 	Route::post('/status-update', 'TwillioController@statusUpdate');
 	Route::post('/create-call-record', 'TwillioController@createCallRecord');
 	Route::get('/get-call-history', 'TwillioController@getCallHistory');
