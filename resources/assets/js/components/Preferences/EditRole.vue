@@ -96,7 +96,7 @@
 
                                     vm.role = response.data.role;
                                     vm.$Progress.finish();
-                                    // vm.Toast.fire({ type: 'success', title: response.data.message });
+                                    vm.Toast.fire({ type: 'success', title: response.data.message });
                                     
                                     Fire.$emit('DoneEditingRole');
                                 }else {

@@ -6,6 +6,7 @@ use Auth;
 use App\Lead;
 use App\StoredFilter;
 use App\SystemSettings;
+use App\DialerPermissions;
 use App\Comment;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -31,7 +32,7 @@ class PagesController extends Controller
     */
    public function index($lead_id = null)
    {
-      $auto_dialer_settings = SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->first();
+      $auto_dialer_settings = DialerPermissions::where(['role_id' => Auth::user()->role_id])->first();
 
       if(is_null($lead_id)){
          return view('pages.workstation')
