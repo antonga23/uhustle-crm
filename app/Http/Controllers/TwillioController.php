@@ -38,7 +38,7 @@ class TwillioController extends Controller
         $this->middleware('auth', ['except' => ['voice', 'statusUpdate']]);
 
         $twillio = ApiIntegration::with('attributes')->where(['name' => 'Twillio'])->first();
-
+        
         foreach ($twillio->attributes as $key => $value) {
             switch($value->key){
                 case 'twilio_phone_number':
@@ -59,6 +59,8 @@ class TwillioController extends Controller
         $this->account_sid = ( is_null($account_sid) || $account_sid == '' )? config('twillio.twillio_account_sid') : $account_sid ;
         $this->auth_token = ( is_null($auth_token) || $auth_token == '' )? config('twillio.twillio_auth_token') : $auth_token ;
         $this->twiml_app_sid = ( is_null($twiml_app_sid) || $twiml_app_sid == '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
+
+        dd( $this->twiml_app_sid);
 
     }
 
