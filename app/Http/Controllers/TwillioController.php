@@ -55,10 +55,10 @@ class TwillioController extends Controller
                     break;
             }
         }
-        $this->twilio_number = ( config('twillio.twillio_number') !== '' )? config('twillio.twillio_number') : $twilio_phone_number ;
-        $this->account_sid = ( config('twillio.twillio_account_sid') !== '' )? config('twillio.twillio_account_sid') : $account_sid ;
-        $this->auth_token = ( config('twillio.twillio_auth_token') !== '' )? config('twillio.twillio_auth_token') : $auth_token ;
-        $this->twiml_app_sid = ( config('twillio.twillio_twiml_app_sid') !== '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
+        $this->twilio_number = ( is_null($twilio_phone_number) || $twilio_phone_number == '' )? config('twillio.twillio_number') : $twilio_phone_number ;
+        $this->account_sid = ( is_null($account_sid) || $account_sid == '' )? config('twillio.twillio_account_sid') : $account_sid ;
+        $this->auth_token = ( is_null($auth_token) || $auth_token == '' )? config('twillio.twillio_auth_token') : $auth_token ;
+        $this->twiml_app_sid = ( is_null($twiml_app_sid) || $twiml_app_sid == '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
 
     }
 
@@ -108,13 +108,6 @@ class TwillioController extends Controller
                 'auth' => [$this->account_sid, $this->auth_token],
             ]);
 
-            // $form_data = [
-            //     'To' => $to_number,
-            //     'From' => $this->twilio_number,
-            //     'EarlyMedia' => true
-            // ];
-
-            // $end_point = "https://api.twilio.com/2010-04-01/Accounts/$this->account_sid/Conferences/$conference_name/Participants";
             $end_point = "https://api.twilio.com/2010-04-01/Accounts/$this->account_sid/Conferences/$data->conference_sid/Participants.json";
 
             $participants_response = $client->request( 
@@ -241,8 +234,8 @@ class TwillioController extends Controller
 
                 $dial->conference($conference_name, [
                         'maxParticipants' => 3, 
-                        'startConferenceOnEnter' => true, 
-                        'endConferenceOnExit' => True,
+                        // 'startConferenceOnEnter' => True, 
+                        // 'endConferenceOnExit' => True,
                         'record' => 'record-from-start'
                     ]);
 
