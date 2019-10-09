@@ -6,7 +6,7 @@
     <div class="col-lg-12 mb-4 p-0">
         <div class="row mx-0">
             <div class="col-md-6 pl-0">
-                <a href="" class="btn w-100 m-0 inactiveBtn">Sign In</a>
+                <a href="/login" class="btn w-100 m-0 inactiveBtn">Sign In</a>
             </div>
             <div class="col-md-6 pr-0">
                 <a href="/register" class="btn w-100 m-0 activeBtn">Sign Up</a>

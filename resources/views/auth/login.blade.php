@@ -3,15 +3,15 @@
 @section('content')
 
 <div class="row auth-buttons login justify-content-center mx-auto">
-    <div class="col-lg-12 mb-4 p-0">
-        <div class="row mx-0">
-            <div class="col-md-6 pl-0">
-                <a href="" class="btn w-100 m-0 activeBtn">Sign In</a>
-            </div>
-            <div class="col-md-6 pr-0">
-                <a href="/register" class="btn w-100 m-0 inactiveBtn">Sign Up</a>
-            </div>
-        </div>
+    <div class="col-lg-12 mb-4 p-0 center">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img id="top-landing-logo" src="/images/SVG_Images/Logo.svg" class=" lp-logo m-0">
+        </a>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-12 mb-0 p-0 center">
+        <p class="logo-title mb-0">UHUSTLE</p>
     </div>
 </div>
 <div class="container login px-0">
@@ -20,9 +20,9 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div class="form-group row">
+                <div class="form-group row mt-4">
                     <div class="col-md-12">
-                        <input id="email" placeholder="{{ __('E-Mail Address') }}" type="email" class="form-control @error('email') is-invalid @enderror omni-shadow" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" placeholder="{{ __('Email') }}" type="email" class="form-control @error('email') is-invalid @enderror omni-shadow" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row mb-0">
                     <div class="col-md-12">
                         <input id="password" placeholder="{{ __('Password') }}" type="password" class="form-control @error('password') is-invalid @enderror omni-shadow" name="password" required autocomplete="current-password">
 
@@ -44,7 +44,12 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                @if (Route::has('password.request'))
+                            <a class="btn btn-link w-100 mx-0 mt-0 mb-3 pwd-link" href="{{ route('password.request') }}">
+                                {{ __('forgot password?') }}
+                            </a>
+                @endif
+                <!-- <div class="form-group row">
                     <div class="col-md-12">
                         <div class="form-check">
                             <input class="form-check-input omni-shadow" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -54,22 +59,18 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row mb-0">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary w-100 m-0">
+                        <button type="submit" class="btn btn-primary login-btn w-100 m-0">
                             {{ __('Login') }}
                         </button>
-
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link w-100 mx-0" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
                     </div>
                 </div>
             </form>
+            <hr class="my-4">
+            <p class="copyright">@ 2019 UHUSTLE. All rights reserve</p>
         </div>
     </div>
 </div>

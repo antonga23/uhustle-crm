@@ -27,10 +27,22 @@
     <div id="app">
         <div class="main-wrapper vh-100" id="auth">
             <div class="row justify-content-center h-100 mx-0 ">
-                <div class="col-lg-8 h-100 align-self-center left-side">
-                    <img src="/images/Sign_In/Assests/Uhustle@4x.png"/>
+                <div class="col-lg-4 h-100 align-self-center left-side">
+                    <!-- <img src="/images/Sign_In/Assests/Uhustle@4x.png"/> -->
+                    <div class="row login justify-content-center mx-auto">
+                    <div class="col-lg-12 mb-4 p-0">
+                        <div class="row mx-0">
+                            <div class="col-md-6 pl-0">
+                                <a href="/login" class="btn w-100 m-0 activeBtn">Login</a>
+                            </div>
+                            <div class="col-md-6 pr-0">
+                                <a href="/register" class="btn w-100 m-0 inactiveBtn">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 px-5 right-side">
+                </div>
+                <div class="col-lg-8 px-5 right-side">
                     <nav class="navbar navbar-expand-md navbar-light bg-white pr-0">
                         <div class="container p-0">
                             <a class="navbar-brand" href="{{ url('/') }}">
