@@ -15,157 +15,155 @@
   border-bottom: none;
 }
 .nav-sidebar > .nav-item {
-  width: 53px;
+  width: 63px;
   margin-bottom: 50%;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
   color: #ffffff;
   background-image: url('/images/icons/work station icon active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/work station icon.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
   color: #ffffff;
   background-image: url('/images/icons/dashboard icon active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/dashboard icon .svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
   color: #ffffff;
   background-image: url('/images/icons/social board icon active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/social board icon.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
   color: #ffffff;
   background-image: url('/images/icons/call history icon active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/call history icon.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
   color: #ffffff;
   background-image: url('/images/icons/education icon actove.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/education icon.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
   color: #ffffff;
   background-image: url('/images/icons/Contacts_Active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/Contacts.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
   color: #ffffff;
   background-image: url('/images/icons/Leads Active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/Leads.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
   color: #ffffff;
   background-image: url('/images/icons/User active.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/Users.svg') !important;
-  background-size: 80px;
+  background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 53px;
+  min-height: 63px;
 }
-.content-wrapper, .main-footer, .main-header {
-  transition: margin-left 0.3s ease-in-out;
-  margin-left: 53px !important;
-  z-index: 3000;
+.main-sidebar {
+  width: 63px!important;
 }
 /*Nav Ends*/
 </style>
