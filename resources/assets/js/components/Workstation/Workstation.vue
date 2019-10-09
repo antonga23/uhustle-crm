@@ -1643,11 +1643,6 @@
                     Device.on('connect',function (conn) {
                         vm.call_status = 'Successfully established call';
                         vm.call_back.call_sid = conn.parameters.CallSid;
-                        axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) {
-                            
-                        }).catch(function (error) {                    
-                            console.log(error);
-                        });
                     });
 
                     Device.on('incoming', function (conn) {
@@ -1722,15 +1717,8 @@
             endCall() { 
                 var vm = this; 
  
-                Device.disconnectAll(function (conn) { 
-                    vm.call_status = 'Call ended!'; 
- 
-                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) { 
-                          
-                    }).catch(function (error) {                     
-                        console.log(error); 
-                    }); 
-                }); 
+                Device.disconnectAll(function (conn) { }); 
+                
                 vm.idle = true; 
                 vm.show_edication_blocks = true; 
                 vm.general = false; 
