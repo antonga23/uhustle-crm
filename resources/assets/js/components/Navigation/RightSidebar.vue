@@ -1,4 +1,7 @@
 <style scoped>
+.main-sidebar {
+  right: 0!important;
+}
 p{
 	color: #9fb3bb;
 	margin: 0;
@@ -464,7 +467,7 @@ label.custom-control-label{
 </style>
 <template>
 	<div>
-		<aside class="control-sidebar control-sidebar-light border-left-0">
+		<aside class="main-sidebar control-sidebar control-sidebar-light border-left-0">
 			<!-- Control sidebar content goes here -->
 			<div class="p-3">
         <div class="row">

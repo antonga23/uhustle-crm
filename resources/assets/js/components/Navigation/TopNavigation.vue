@@ -124,6 +124,7 @@
 							<a v-if="active == 'users'" href="#" class="nav-link pl-0"><strong>Users</strong></a>
 							<a v-if="active == 'leads'" href="#" class="nav-link pl-0"><strong>Leads</strong></a>
 							<a v-if="active == 'contacts'" href="#" class="nav-link pl-0"><strong>Contacts</strong></a>
+							<a href="#" data-toggle="control-sidebar">Toggle</a>
 						</li>
 
 						<li v-if="active_calls" class="nav-item d-none d-sm-inline-block px-3">
