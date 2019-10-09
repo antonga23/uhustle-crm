@@ -65545,7 +65545,7 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"ant-design-vue@1.3.13\",\"C:\\\\xampp\\\\htdocs\\\\uhustle\"]],\"_from\":\"ant-design-vue@1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"ant-design-vue@1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"1.3.13\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_spec\":\"1.3.13\",\"_where\":\"C:\\\\xampp\\\\htdocs\\\\uhustle\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
+module.exports = {"_args":[["ant-design-vue@1.3.13","C:\\xampp\\uhustle-app"]],"_from":"ant-design-vue@1.3.13","_id":"ant-design-vue@1.3.13","_inBundle":false,"_integrity":"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==","_location":"/ant-design-vue","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"ant-design-vue@1.3.13","name":"ant-design-vue","escapedName":"ant-design-vue","rawSpec":"1.3.13","saveSpec":null,"fetchSpec":"1.3.13"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz","_spec":"1.3.13","_where":"C:\\xampp\\uhustle-app","bugs":{"url":"https://github.com/vueComponent/ant-design-vue/issues"},"dependencies":{"@ant-design/icons":"^2.1.1","@ant-design/icons-vue":"^2.0.0","add-dom-event-listener":"^1.0.2","array-tree-filter":"^2.1.0","async-validator":"^1.8.2","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-runtime":"6.x","classnames":"^2.2.5","component-classes":"^1.2.6","dom-align":"^1.7.0","dom-closest":"^0.2.0","dom-scroll-into-view":"^1.2.1","enquire.js":"^2.1.6","intersperse":"^1.0.0","is-negative-zero":"^2.0.0","ismobilejs":"^0.5.1","json2mq":"^0.2.0","lodash":"^4.17.5","moment":"^2.21.0","mutationobserver-shim":"^0.3.2","omit.js":"^1.0.0","raf":"^3.4.0","resize-observer-polyfill":"^1.5.1","shallow-equal":"^1.0.0","shallowequal":"^1.0.2","vue-ref":"^1.0.4","warning":"^3.0.0"},"description":"An enterprise-class UI design language and Vue-based implementation","devDependencies":{"@commitlint/cli":"^6.2.0","@commitlint/config-conventional":"^6.1.3","@octokit/rest":"^15.4.1","@vue/cli-plugin-eslint":"^3.0.5","@vue/server-test-utils":"1.0.0-beta.16","@vue/test-utils":"1.0.0-beta.16","acorn":"^6.0.5","autoprefixer":"^9.6.0","axios":"^0.18.0","babel-cli":"^6.26.0","babel-core":"^6.26.0","babel-eslint":"^10.0.1","babel-helper-vue-jsx-merge-props":"^2.0.3","babel-jest":"^23.6.0","babel-loader":"^7.1.2","babel-plugin-import":"^1.1.1","babel-plugin-inline-import-data-uri":"^1.0.1","babel-plugin-istanbul":"^4.1.1","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-syntax-jsx":"^6.18.0","babel-plugin-transform-class-properties":"^6.24.1","babel-plugin-transform-decorators":"^6.24.1","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-es3-member-expression-literals":"^6.22.0","babel-plugin-transform-es3-property-literals":"^6.22.0","babel-plugin-transform-object-assign":"^6.22.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"~6.23.0","babel-plugin-transform-vue-jsx":"^3.7.0","babel-polyfill":"^6.26.0","babel-preset-env":"^1.6.1","case-sensitive-paths-webpack-plugin":"^2.1.2","chalk":"^2.3.2","cheerio":"^1.0.0-rc.2","codecov":"^3.0.0","colorful":"^2.1.0","commander":"^2.15.0","compare-versions":"^3.3.0","cross-env":"^5.1.4","css-loader":"^0.28.7","deep-assign":"^2.0.0","enquire-js":"^0.2.1","eslint":"^5.8.0","eslint-config-prettier":"^3.0.1","eslint-plugin-html":"^3.2.2","eslint-plugin-vue":"^5.1.0","fetch-jsonp":"^1.1.3","fs-extra":"^7.0.0","glob":"^7.1.2","gulp":"^4.0.1","gulp-babel":"^7.0.0","gulp-strip-code":"^0.1.4","highlight.js":"^9.12.0","html-webpack-plugin":"^3.2.0","husky":"^0.14.3","istanbul-instrumenter-loader":"^3.0.0","jest":"^24.0.0","jest-serializer-vue":"^1.0.0","js-base64":"^2.4.8","jsonp":"^0.2.1","less":"^3.9.0","less-loader":"^4.1.0","less-plugin-npm-import":"^2.1.0","lint-staged":"^7.2.2","markdown-it":"^8.4.0","markdown-it-anchor":"^4.0.0","marked":"^0.3.7","merge2":"^1.2.1","mini-css-extract-plugin":"^0.5.0","minimist":"^1.2.0","mkdirp":"^0.5.1","mockdate":"^2.0.2","node-emoji":"^1.10.0","nprogress":"^0.2.0","optimize-css-assets-webpack-plugin":"^5.0.1","postcss":"^7.0.6","postcss-loader":"^3.0.0","pre-commit":"^1.2.2","prettier":"^1.15.3","querystring":"^0.2.0","raw-loader":"^1.0.0-beta.0","reqwest":"^2.0.5","rimraf":"^2.6.2","rucksack-css":"^1.0.2","selenium-server":"^3.0.1","semver":"^5.3.0","style-loader":"^0.18.2","stylelint":"^9.10.1","stylelint-config-prettier":"^4.0.0","stylelint-config-standard":"^18.2.0","through2":"^2.0.3","uglifyjs-webpack-plugin":"^2.1.1","url-loader":"^1.1.2","vue":"^2.5.16","vue-antd-md-loader":"^1.1.0","vue-clipboard2":"0.0.8","vue-eslint-parser":"^5.0.0","vue-i18n":"^8.3.2","vue-infinite-scroll":"^2.0.2","vue-jest":"^2.5.0","vue-loader":"^15.5.1","vue-router":"^3.0.1","vue-server-renderer":"^2.5.16","vue-template-compiler":"^2.5.16","vue-virtual-scroller":"^0.12.0","vuex":"^3.1.0","webpack":"^4.28.4","webpack-cli":"^3.2.1","webpack-dev-server":"^3.1.14","webpack-merge":"^4.1.1","webpackbar":"^3.1.5"},"files":["dist","lib","es","types","scripts"],"homepage":"https://vue.ant.design/","keywords":["ant","design","antd","vue","vueComponent","component","components","ui","framework","frontend"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"ant-design-vue","peerDependencies":{"vue":">=2.5.0","vue-template-compiler":">=2.5.0"},"pre-commit":["lint","prettier"],"repository":{"type":"git","url":"git+https://github.com/vueComponent/ant-design-vue.git"},"scripts":{"codecov":"codecov","commitmsg":"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS","compile":"node antd-tools/cli/run.js compile","copy":"node scripts/run.js copy-html","dev":"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001","dist":"node antd-tools/cli/run.js dist","lint":"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components","lint:style":"stylelint \"{site,components}/**/*.less\" --syntax less","postinstall":"node scripts/postinstall || echo \"ignore\"","pre-publish":"node ./scripts/prepub","prepublish":"node antd-tools/cli/run.js guard","prettier":"node ./scripts/prettier.js","pub":"node antd-tools/cli/run.js pub","pub-with-ci":"node antd-tools/cli/run.js pub-with-ci","site":"node scripts/run.js _site","start":"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot","test":"cross-env NODE_ENV=test jest --config .jest.js"},"sideEffects":["site/*","components/style.js","components/**/style/*","*.vue","*.md","dist/*","es/**/style/*","lib/**/style/*","*.less"],"title":"Ant Design Vue","typings":"types/index.d.ts","version":"1.3.13"};
 
 /***/ }),
 
@@ -69450,12 +69450,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
-//
-//
-=======
->>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
 
 
 
@@ -70242,32 +70237,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -70418,6 +70387,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
+
+var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -70525,7 +70498,8 @@ __webpack_require__.r(__webpack_exports__);
       this.handleSubmit();
     },
     coachActions: function coachActions(action, conference) {
-      this.$swal.fire({
+      var vm = this;
+      vm.$swal.fire({
         title: 'Are you sure?',
         text: "Proceed with action: " + action,
         type: 'warning',
@@ -70534,14 +70508,79 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonColor: '#F56C6C',
         confirmButtonText: 'Yes!'
       }).then(function (result) {
-        if (result.value) {// axios.get('/shop/delete-product/'+id).then((response) =>{
-          //     Fire.$emit('AfterRequest');
-          //     this.$swal.fire('Deleted!','Product has been deleted.', 'success');
-          // }).catch(() => {
-          //     this.$swal('Failed', 'Opps, something went wrong, please try again','warning');
-          // });
+        if (result.value) {
+          vm.createDevice(action, conference);
         }
       });
+    },
+    createDevice: function createDevice(action, conference) {
+      var vm = this;
+      axios.get('/calls/token').then(function (response) {
+        console.log('Token', response.data.token); // Setup Twilio.Device
+
+        Device.destroy();
+        Device.setup(response.data.token, {
+          debug: true,
+          region: "ie1"
+        });
+        Device.on('ready', function (device) {
+          console.log('Device Ready');
+          var audioCtx = new AudioContext();
+          audioCtx.resume();
+          Fire.$emit('InitiateCallJoin');
+          var form_data = {
+            'action': action,
+            'conference': conference.friendlyName,
+            'coaching_sid': conference.coaching_sid
+          };
+          console.log('Form Data');
+          console.log(form_data);
+          Device.connect(form_data);
+        });
+        Device.on('error', function (error) {
+          console.log('Device Error: ' + error.message);
+        });
+        Device.on('connect', function (conn) {
+          console.log('Successfully established call'); // vm.call_back.call_sid = conn.parameters.CallSid;
+        });
+        Device.on('incoming', function (conn) {
+          console.log('Incoming connection from ' + conn.parameters.From);
+          var archEnemyPhoneNumber = '+12099517118';
+
+          if (conn.parameters.From === archEnemyPhoneNumber) {
+            conn.reject();
+            console.log('It\'s your nemesis. Rejected call.');
+          } else {
+            // accept the incoming connection and start two-way audio
+            conn.accept();
+          }
+        });
+        Device.on('disconnect', function (conn) {
+          console.log('Call Disconnected');
+        });
+        vm.$Progress.finish();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    startCall: function startCall() {
+      var vm = this;
+      this.idle = true;
+      this.show_edication_blocks = true;
+      this.general = false;
+      var audioCtx = new AudioContext();
+      audioCtx.resume();
+      Fire.$emit('InitiateCall');
+      var form_data = {
+        lead_id: vm.lead_info.id,
+        is_client: vm.lead_info.is_client,
+        lead_owner: vm.lead_info.user_created_id,
+        lead_assignee: vm.lead_info.user_assigned,
+        user_id: vm.user_id,
+        // phone_number : vm.lead_info.contact_number,
+        phone_number: '+27782013556'
+      };
+      Device.connect(form_data);
     },
     handleSubmit: function handleSubmit() {
       var vm = this;
@@ -75330,20 +75369,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-<<<<<<< HEAD
-  mounted: function mounted() {
-    this.current_user = JSON.parse(this.logged_user);
-    var d = new Date();
-    this.month = d.getMonth() + 1;
-    this.Toast = this.$swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-  },
-=======
->>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
   props: ['active', 'logged_user'],
   components: {},
   data: function data() {
@@ -75377,7 +75402,6 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('AfterLeadEnqueue', function (data) {
       vm.lead_id = data.lead_id;
       vm.phone_number = data.contact_number;
-      vm.general_active = true;
     });
     Fire.$on('InitiateCall', function () {
       vm.dialer_active = true;
@@ -75394,21 +75418,11 @@ __webpack_require__.r(__webpack_exports__);
       vm.dialer_active = false;
       vm.active_calls_active = false;
     });
-    Fire.$on('ShowActiveCalls', function () {
-      vm.active_calls = true;
-      vm.showActiveCalls();
-    });
   },
   mounted: function mounted() {
     this.current_user = JSON.parse(this.logged_user);
     var d = new Date();
     this.month = d.getMonth() + 1;
-
-    if (this.active == 'workstation' && (this.current_user.role_id == 1 || this.current_user.role_id == 2 || this.current_user.role_id == 3)) {
-      this.active_calls = true;
-      this.showActiveCalls();
-    }
-
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -76403,8 +76417,11 @@ __webpack_require__.r(__webpack_exports__);
           axios.post(end_point, _this2.role).then(function (response) {
             if (response.data.success == true) {
               vm.role = response.data.role;
-              vm.$Progress.finish(); // vm.Toast.fire({ type: 'success', title: response.data.message });
-
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
               Fire.$emit('DoneEditingRole');
             } else {
               vm.$Progress.fail();
@@ -76439,117 +76456,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -76941,20 +76847,19 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    applyPermissions: function applyPermissions() {
+    applyDialerPermissions: function applyDialerPermissions() {
       var vm = this;
-      var endpoint = '/roles/apply-permissions';
+      var endpoint = '/roles/apply-dialer-permissions';
       vm.$Progress.start();
       axios.put(endpoint, {
-        'permissions': vm.permissions
+        'permissions': vm.dialer_permissions
       }).then(function (response) {
         if (response.data.success == true) {
-          vm.permissions = response.data.permissions;
-          vm.$Progress.finish();
+          vm.dialer_permissions = response.data.permissions;
           vm.Toast.fire({
-            type: 'success',
-            title: 'Permissions have been applied'
+            type: 'success'
           });
+          vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
@@ -79377,16 +79282,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../DataTables/CallLogsDataTable */ "./resources/assets/js/components/DataTables/CallLogsDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_7__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -80660,20 +80559,14 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     'notes-stats': _NotesStats_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   mounted: function mounted() {
+    console.log('Workstation Mounted');
     var vm = this;
 
     if (vm.lead_id != '') {
+      console.log('Lead Mounting' + vm.lead_id);
       vm.enqueueLead(vm.lead_id);
       vm.general = true;
-      vm.active_calls = false; // vm.addEvent(document, "mouseout", function(e) {
-      //     e = e ? e : window.event;
-      //     var from = e.relatedTarget || e.toElement;
-      //     if (!from || from.nodeName == "HTML") {
-      //         // stop your drag event here
-      //         // for now we can just use an alert
-      //         vm.completeCall();
-      //     }
-      // });
+      vm.active_calls = false;
     } else if ((this.role_id == 1 || this.role_id == 2) && vm.lead_id == '') {
       vm.active_calls = true;
       Fire.$emit('ShowActiveCalls');
@@ -80735,6 +80628,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       lead: {},
       conferences: [],
       lead_info: {
+        lead_source: {},
         product: {}
       },
       call_counts: {},
@@ -80883,7 +80777,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       Toast: null
     };
   },
-  methods: {
+  methods: (_methods = {
     getActiveCalls: function getActiveCalls() {
       var vm = this;
       vm.show_page_loader = true;
@@ -80892,7 +80786,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.conferences = response.data.conferences;
           vm.show_page_loader = false;
         });
-      }, 2000);
+      }, 5000);
     },
     checkCBDate: function checkCBDate() {
       var now = moment(new Date()); //todays date
@@ -81017,53 +80911,57 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.show_page_loader = false;
           vm.$Progress.finish();
 
-          if (vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on') {
-            axios.get('/calls/token').then(function (response) {
-              console.log('Token', response.data.token); // Setup Twilio.Device
-
-              Device.setup(response.data.token);
-              Device.on('ready', function (device) {
-                vm.call_status = 'Device Ready';
-                vm.$refs.callBtn.click();
-              });
-              Device.on('error', function (error) {
-                vm.call_status = 'Device Error: ' + error.message;
-              });
-              Device.on('connect', function (conn) {
-                vm.call_status = 'Successfully established call';
-                vm.call_back.call_sid = conn.parameters.CallSid;
-                axios.post('/calls/create-call-record', {
-                  'lead_id': vm.lead_info.id,
-                  'call_sid': conn.parameters.CallSid
-                }).then(function (response) {})["catch"](function (error) {
-                  console.log(error);
-                });
-              });
-              Device.on('incoming', function (conn) {
-                console.log('Incoming connection from ' + conn.parameters.From);
-                var archEnemyPhoneNumber = '+12099517118';
-
-                if (conn.parameters.From === archEnemyPhoneNumber) {
-                  conn.reject();
-                  console.log('It\'s your nemesis. Rejected call.');
-                } else {
-                  // accept the incoming connection and start two-way audio
-                  conn.accept();
-                }
-              });
-              Device.on('disconnect', function (conn) {
-                vm.call_status = 'Call Disconnected';
-                vm.$refs['final-call-step'].show();
-              });
-              vm.$Progress.finish();
-            })["catch"](function (error) {
-              console.log(error);
-            });
+          if (vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1) {
+            vm.createDevice();
           }
         } else {
           vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
         }
+      });
+    },
+    createDevice: function createDevice() {
+      var vm = this;
+      axios.get('/calls/token').then(function (response) {
+        console.log('Token', response.data.token); // Setup Twilio.Device
+
+        Device.setup(response.data.token);
+        Device.on('ready', function (device) {
+          vm.call_status = 'Device Ready';
+          vm.$refs.callBtn.click();
+        });
+        Device.on('error', function (error) {
+          vm.call_status = 'Device Error: ' + error.message;
+        });
+        Device.on('connect', function (conn) {
+          vm.call_status = 'Successfully established call';
+          vm.call_back.call_sid = conn.parameters.CallSid;
+          axios.post('/calls/create-call-record', {
+            'lead_id': vm.lead_info.id,
+            'call_sid': conn.parameters.CallSid
+          }).then(function (response) {})["catch"](function (error) {
+            console.log(error);
+          });
+        });
+        Device.on('incoming', function (conn) {
+          console.log('Incoming connection from ' + conn.parameters.From);
+          var archEnemyPhoneNumber = '+12099517118';
+
+          if (conn.parameters.From === archEnemyPhoneNumber) {
+            conn.reject();
+            console.log('It\'s your nemesis. Rejected call.');
+          } else {
+            // accept the incoming connection and start two-way audio
+            conn.accept();
+          }
+        });
+        Device.on('disconnect', function (conn) {
+          vm.call_status = 'Call Disconnected';
+          vm.$refs['final-call-step'].show();
+        });
+        vm.$Progress.finish();
+      })["catch"](function (error) {
+        console.log(error);
       });
     },
     startCall: function startCall() {
@@ -81079,133 +80977,144 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         is_client: vm.lead_info.is_client,
         lead_owner: vm.lead_info.user_created_id,
         lead_assignee: vm.lead_info.user_assigned,
+        user_id: vm.user_id,
         // phone_number : vm.lead_info.contact_number,
-        phone_number: '+27738802485'
+        phone_number: '+27782013556'
       };
       Device.connect(form_data);
-    },
-    endCall: function endCall() {
-      var vm = this;
-      Device.disconnectAll(function (conn) {
-        vm.call_status = 'Call ended!';
-        axios.post('/calls/create-call-record', {
-          'lead_id': vm.lead_info.id,
-          'call_sid': conn.parameters.CallSid
-        }).then(function (response) {})["catch"](function (error) {
-          console.log(error);
-        });
-      });
-      vm.idle = true;
-      vm.show_edication_blocks = true;
-      vm.general = false;
-      vm.minimized = false;
-      this.$refs['final-call-step'].show();
-    },
-    getStatus: function getStatus(call_sid) {
-      var vm = this;
-      axios.post('/calls/get-call-status').then(function (response) {
-        if (response.data.success == true) {
-          vm.call_status = response.data.call_status;
-        } else {
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-        }
-      });
-    },
-    addComment: function addComment() {
-      var vm = this;
-
-      if (vm.comment.comment_type == '') {
-        vm.$swal('Please note', 'Please choose a lead status to proceed [+]', 'warning');
-        vm.choose_comment_type = true;
-        return false;
-      }
-
-      var form_data = {
-        id: this.lead_info.id,
-        type: 'lead',
-        comment_id: this.comment.id,
-        comment_type: this.comment.comment_type,
-        description: this.comment.comment_description
-      };
-
-      if (vm.edit_comment == true) {
-        var endpoint = '/comments/update';
-      } else {
-        var endpoint = '/comments/add';
-      }
-
-      vm.$Progress.start();
-      axios.post(endpoint, form_data).then(function (response) {
-        if (response.data.success == true) {
-          vm.enqueueLead(vm.lead_info.id);
-          vm.Toast.fire({
-            type: 'success',
-            title: response.data.message
-          });
-          vm.edit_comment = false;
-          vm.continues = true;
-          vm.$Progress.finish();
-        } else {
-          vm.$Progress.fail();
-
-          if (response.data.message == 'Please edit existing comment.') {
-            vm.edit_comment = true;
-          }
-
-          vm.$swal('Failed', response.data.message, 'warning');
-        }
-      });
-    },
-    editComment: function editComment(in_comment) {
-      this.edit_comment = true;
-      this.comment.id = in_comment.id;
-      this.comment.comment_description = in_comment.description;
-      this.comment.comment_type = in_comment.comment_type;
-    },
-    getComments: function getComments() {
-      var vm = this;
-
-      if (vm.comment.comment_type == '') {
-        vm.$swal('Please note', 'Please choose your comment type to process', 'warning');
-        return false;
-      }
-
-      axios.post('/comments/get/lead/' + this.lead_info.id).then(function (response) {
-        if (response.data.success == true) {
-          vm.comments.comments = response.data.comments;
-          vm.comments.comments_graph = response.data.comments_graph;
-          vm.comment.comment_description = '';
-          vm.comment.comment_type = '';
-        } else {
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-        }
-      });
-    },
-    minizeCallProgress: function minizeCallProgress() {
-      this.minimized = true;
-      $('.call-progress-div').toggleClass('collapsed');
-    },
-    getDaysAgo: function getDaysAgo(second_date) {
-      var date_string = '';
-      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-
-      var firstDate = new Date();
-      var secondDate = new Date(second_date);
-      var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
-
-      if (diffDays <= 1) {
-        date_string = 'Today';
-      } else if (diffDays > 1 && diffDays <= 7) {
-        date_string = diffDays + ' Days ago';
-      } else if (diffDays == 7) {
-        date_string = '1 Week ago';
-      } else if (diffDays >= 7) {
-        date_string = second_date;
-      }
-
-      return date_string;
     }
-  }
+  }, _defineProperty(_methods, "startCall", function startCall() {
+    var vm = this;
+    this.idle = true;
+    this.show_edication_blocks = true;
+    this.general = false;
+    var audioCtx = new AudioContext();
+    audioCtx.resume();
+    Fire.$emit('InitiateCall');
+    var form_data = {
+      lead_id: vm.lead_info.id,
+      is_client: vm.lead_info.is_client,
+      lead_owner: vm.lead_info.user_created_id,
+      lead_assignee: vm.lead_info.user_assigned,
+      // phone_number : vm.lead_info.contact_number, 
+      phone_number: '+27738802485'
+    };
+    Device.connect(form_data);
+  }), _defineProperty(_methods, "endCall", function endCall() {
+    var vm = this;
+    Device.disconnectAll(function (conn) {
+      vm.call_status = 'Call ended!';
+      axios.post('/calls/create-call-record', {
+        'lead_id': vm.lead_info.id,
+        'call_sid': conn.parameters.CallSid
+      }).then(function (response) {})["catch"](function (error) {
+        console.log(error);
+      });
+    });
+    vm.idle = true;
+    vm.show_edication_blocks = true;
+    vm.general = false;
+    vm.minimized = false;
+    this.$refs['final-call-step'].show();
+  }), _defineProperty(_methods, "getStatus", function getStatus(call_sid) {
+    var vm = this;
+    axios.post('/calls/get-call-status').then(function (response) {
+      if (response.data.success == true) {
+        vm.call_status = response.data.call_status;
+      } else {
+        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+      }
+    });
+  }), _defineProperty(_methods, "addComment", function addComment() {
+    var vm = this;
+
+    if (vm.comment.comment_type == '') {
+      vm.$swal('Please note', 'Please choose a lead status to proceed [+]', 'warning');
+      vm.choose_comment_type = true;
+      return false;
+    }
+
+    var form_data = {
+      id: this.lead_info.id,
+      type: 'lead',
+      comment_id: this.comment.id,
+      comment_type: this.comment.comment_type,
+      description: this.comment.comment_description
+    };
+
+    if (vm.edit_comment == true) {
+      var endpoint = '/comments/update';
+    } else {
+      var endpoint = '/comments/add';
+    }
+
+    vm.$Progress.start();
+    axios.post(endpoint, form_data).then(function (response) {
+      if (response.data.success == true) {
+        vm.enqueueLead(vm.lead_info.id);
+        vm.Toast.fire({
+          type: 'success',
+          title: response.data.message
+        });
+        vm.edit_comment = false;
+        vm.continues = true;
+        vm.$Progress.finish();
+      } else {
+        vm.$Progress.fail();
+
+        if (response.data.message == 'Please edit existing comment.') {
+          vm.edit_comment = true;
+        }
+
+        vm.$swal('Failed', response.data.message, 'warning');
+      }
+    });
+  }), _defineProperty(_methods, "editComment", function editComment(in_comment) {
+    this.edit_comment = true;
+    this.comment.id = in_comment.id;
+    this.comment.comment_description = in_comment.description;
+    this.comment.comment_type = in_comment.comment_type;
+  }), _defineProperty(_methods, "getComments", function getComments() {
+    var vm = this;
+
+    if (vm.comment.comment_type == '') {
+      vm.$swal('Please note', 'Please choose your comment type to process', 'warning');
+      return false;
+    }
+
+    axios.post('/comments/get/lead/' + this.lead_info.id).then(function (response) {
+      if (response.data.success == true) {
+        vm.comments.comments = response.data.comments;
+        vm.comments.comments_graph = response.data.comments_graph;
+        vm.comment.comment_description = '';
+        vm.comment.comment_type = '';
+      } else {
+        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+      }
+    });
+  }), _defineProperty(_methods, "minizeCallProgress", function minizeCallProgress() {
+    this.minimized = true;
+    $('.call-progress-div').toggleClass('collapsed');
+  }), _defineProperty(_methods, "getDaysAgo", function getDaysAgo(second_date) {
+    var date_string = '';
+    var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds 
+
+    var firstDate = new Date();
+    var secondDate = new Date(second_date);
+    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+
+    if (diffDays <= 1) {
+      date_string = 'Today';
+    } else if (diffDays > 1 && diffDays <= 7) {
+      date_string = diffDays + ' Days ago';
+    } else if (diffDays == 7) {
+      date_string = '1 Week ago';
+    } else if (diffDays >= 7) {
+      date_string = second_date;
+    }
+
+    return date_string;
+  }), _methods)
 });
 
 /***/ }),
@@ -131308,7 +131217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-2c246ed2]{\n   margin-bottom: 3%;\n}\n.top-section[data-v-2c246ed2]{\n    list-style: none;\n}\n.top-section .col-4[data-v-2c246ed2]{    \n    font-family: 'Rubik', sans-serif;\n    float: left;\n    border-right: 1px solid #e3e3e3;\n}\n.col-4 p.bottom[data-v-2c246ed2]{\n    font-size: 19px;\n    font-weight: 900;\n    font-family: 'Montserrat', sans-serif;\n}\n.card[data-v-2c246ed2]{\n    border-radius: 27px;\n}\n.card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.client[data-v-2c246ed2]{\n}\n.product[data-v-2c246ed2]{\n}\n.time[data-v-2c246ed2]{\n}\n.activity[data-v-2c246ed2]{\n}\nh5[data-v-2c246ed2]{\n    color: #fff;\n}\nh5 .icon[data-v-2c246ed2]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-2c246ed2]{\n    font-size: 40px;\n    color: #333333;\n    font-weight: bolder;\n    line-height: 1em;\n    margin-bottom: 10px!important;\n}\n@media screen and (min-width: 1389px) and (max-width:1596px) {\np.card-text[data-v-2c246ed2] {\n        font-size: 30px;\n}\n}\n@media screen and (max-width: 1388px) {\np.card-text[data-v-2c246ed2] {\n        font-size: 20px;\n}\n}\np.card-text span[data-v-2c246ed2]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-2c246ed2]{\n    font-size: 12px;\n    color: #333333;\n    font-family: 'Rubik', sans-serif;\n}\n.stats .card[data-v-2c246ed2]{\n    border-radius: 20px;\n}\n.stats .card h5[data-v-2c246ed2]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-2c246ed2]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-2c246ed2] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-2c246ed2]{\n    float: right;\n}\n.truncate[data-v-2c246ed2] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-2c246ed2]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-2c246ed2]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-2c246ed2]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-2c246ed2]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-2c246ed2]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-2c246ed2]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-2c246ed2], .show > .btn-secondary.dropdown-toggle[data-v-2c246ed2] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-2c246ed2]{\n    height: 318px !important;\n}\n#top-section[data-v-2c246ed2]{\n    background: #7fd0ac; \n    margin-top:2%;   \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 55px 3% 45px;\n}\n.green[data-v-2c246ed2]{\n    color:#00a25a !important;\n}\n.red[data-v-2c246ed2]{\n    color:red !important;\n}\n.card-text-small[data-v-2c246ed2]{\n    color: #8d999f;\n    font-size: 13px;\n    font-family: 'Rubik', sans-serif;\n    margin-bottom: 25px;\n    word-break: keep-all;\n}\n.call-stats h1[data-v-2c246ed2] {\n    padding-top: 35px;\n    color: #fff;\n    font-size: 65px;\n    font-weight: 900;\n}\n@media screen and (min-width: 1496px) and (max-width:1675px) {\n.call-stats h1[data-v-2c246ed2] {\n        font-size: 55px;\n}\n}\n@media screen and (min-width: 1317px) and (max-width:1495px) {\n.call-stats h1[data-v-2c246ed2] {\n        font-size: 45px;\n}\n.call-stats p[data-v-2c246ed2] {\n        font-size: 15px;\n}\n}\n@media screen and (max-width:1316px) {\n.call-stats h1[data-v-2c246ed2] {\n        font-size: 35px;\n}\n}\n.call-stats p[data-v-2c246ed2]{\n    color: #fff;\n    font-size: 20px;\n    font-family: 'Rubik', sans-serif;\n    letter-spacing: 1px;\n    word-break: keep-all;\n}\n.badges .col-sm-3[data-v-2c246ed2]{\n    border-right: 1px solid #e6e6e7;\n}\n.badges .col-sm-3[data-v-2c246ed2]:last-child {\n    border-right: 0;\n}\n.description[data-v-2c246ed2]{\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif;\n    letter-spacing: 1px;\n    color: #7f99a4;\n}\n.row.stats[data-v-2c246ed2] {\n    padding-left: 3%;\n    padding-right: 3%;\n}\n.notes-roll[data-v-2c246ed2] {\n    height:345px;\n}\n.stats .margin-4[data-v-2c246ed2] {\n    margin-bottom: 4%;\n}\n.card .card-body .row .col-4 .top[data-v-2c246ed2] {\n    font-size: 12px;\n    color: #9fb3bb;\n}\n.margin-5[data-v-2c246ed2] {\n    margin-bottom: 5%;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-2c246ed2]{\n  margin-bottom: 3%;\n}\n.top-section[data-v-2c246ed2]{\n  list-style: none;\n}\n.top-section .col-4[data-v-2c246ed2]{    \n  font-family: 'Rubik', sans-serif;\n  float: left;\n  border-right: 1px solid #e3e3e3;\n}\n.col-4 p.bottom[data-v-2c246ed2]{\n  font-size: 19px;\n  font-weight: 900;\n  font-family: 'Montserrat', sans-serif;\n}\n.card[data-v-2c246ed2]{\n  border-radius: 27px;\n}\n.card-title[data-v-2c246ed2] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.client[data-v-2c246ed2]{\n}\n.product[data-v-2c246ed2]{\n}\n.time[data-v-2c246ed2]{\n}\n.activity[data-v-2c246ed2]{\n}\nh5[data-v-2c246ed2]{\n  color: #fff;\n}\nh5 .icon[data-v-2c246ed2]{\n  width: 15px;\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-2c246ed2]{\n  font-size: 40px;\n  color: #333333;\n  font-weight: bolder;\n  line-height: 1em;\n  margin-bottom: 10px!important;\n}\n@media screen and (min-width: 1389px) and (max-width:1596px) {\np.card-text[data-v-2c246ed2] {\n    font-size: 30px;\n}\n}\n@media screen and (max-width: 1388px) {\np.card-text[data-v-2c246ed2] {\n    font-size: 20px;\n}\n}\np.card-text span[data-v-2c246ed2]{\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-2c246ed2]{\n  font-size: 12px;\n  color: #333333;\n  font-family: 'Rubik', sans-serif;\n}\n.stats .card[data-v-2c246ed2]{\n  border-radius: 20px;\n}\n.stats .card h5[data-v-2c246ed2]{\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-2c246ed2]{\n  width: 25px;\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-2c246ed2] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-2c246ed2]{\n  float: right;\n}\n.truncate[data-v-2c246ed2] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-2c246ed2]{\n  margin: 0;\n}\n.list-group-item p strong[data-v-2c246ed2]{\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-2c246ed2]{\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-2c246ed2]{\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-2c246ed2]{\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-2c246ed2] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-2c246ed2]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-2c246ed2], .show > .btn-secondary.dropdown-toggle[data-v-2c246ed2] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-2c246ed2]{\n  height: 318px !important;\n}\n#top-section[data-v-2c246ed2]{\n  background: #7fd0ac; \n  margin-top:2%;   \n  margin-left: -53px;\n  margin-right: -66px;\n  padding: 55px 3% 45px;\n}\n.green[data-v-2c246ed2]{\n  color:#00a25a !important;\n}\n.red[data-v-2c246ed2]{\n  color:red !important;\n}\n.card-text-small[data-v-2c246ed2]{\n  color: #8d999f;\n  font-size: 13px;\n  font-family: 'Rubik', sans-serif;\n  margin-bottom: 25px;\n  word-break: keep-all;\n}\n.call-stats h1[data-v-2c246ed2] {\n  padding-top: 35px;\n  color: #fff;\n  font-size: 65px;\n  font-weight: 900;\n}\n@media screen and (min-width: 1496px) and (max-width:1675px) {\n.call-stats h1[data-v-2c246ed2] {\n    font-size: 55px;\n}\n}\n@media screen and (min-width: 1317px) and (max-width:1495px) {\n.call-stats h1[data-v-2c246ed2] {\n    font-size: 45px;\n}\n.call-stats p[data-v-2c246ed2] {\n    font-size: 15px;\n}\n}\n@media screen and (max-width:1316px) {\n.call-stats h1[data-v-2c246ed2] {\n    font-size: 35px;\n}\n}\n.call-stats p[data-v-2c246ed2]{\n  color: #fff;\n  font-size: 20px;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n  word-break: keep-all;\n}\n.badges .col-sm-3[data-v-2c246ed2]{\n  border-right: 1px solid #e6e6e7;\n}\n.badges .col-sm-3[data-v-2c246ed2]:last-child {\n  border-right: 0;\n}\n.description[data-v-2c246ed2]{\n  font-size: 10px;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n  color: #7f99a4;\n}\n.row.stats[data-v-2c246ed2] {\n  padding-left: 3%;\n  padding-right: 3%;\n}\n.notes-roll[data-v-2c246ed2] {\n  height:345px;\n}\n.stats .margin-4[data-v-2c246ed2] {\n  margin-bottom: 4%;\n}\n.card .card-body .row .col-4 .top[data-v-2c246ed2] {\n  font-size: 12px;\n  color: #9fb3bb;\n}\n.margin-5[data-v-2c246ed2] {\n  margin-bottom: 5%;\n}\n", ""]);
 
 // exports
 
@@ -131346,11 +131255,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\n    font-size: 10;\n    font-weight: 900;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n}\n", ""]);
-=======
-exports.push([module.i, "\nspan.days-remaining[data-v-6263b939]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\r\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n    height: 35px;\r\n    font-size: 11px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\r\n    font-size: 10;\r\n    font-weight: 900;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\n}\ntable th[data-v-6263b939]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\r\ntable td[data-v-6263b939]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
->>>>>>> f38a1038bbfe89008e2c24eb16a930f64e7546e5
+exports.push([module.i, "\n.btn-orange[data-v-6263b939] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\r\n    display: block;\r\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\r\n    width: 98%;\r\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\r\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\r\n    position: relative;\r\n    padding: 0.75rem 1.25rem;\r\n    margin-bottom: 1rem;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    width: 100%;\r\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\r\n    display: flex;\r\n    width: 90%;\r\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\r\n.uploaded-files .Delete[data-v-6263b939]:active{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\r\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n    height: 35px;\r\n    font-size: 11px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-6263b939] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-6263b939] {\r\n    font-size: 10;\r\n    font-weight: 900;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\n}\ntable th[data-v-6263b939]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\r\ntable td[data-v-6263b939]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -131445,7 +131350,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\np[data-v-48ad9a74]{\n\tcolor: #9fb3bb;\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\n  color: #1a1c43;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n  width: 52%;\n}\nh3 img[data-v-48ad9a74]{\n\tfloat:right;\n\tcursor: pointer;\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  width: 350px !important;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.control-sidebar-light label.custom-control-label[data-v-48ad9a74]{\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar .navbar-top-conatiner[data-v-48ad9a74] {\n  padding-left: 12px;\n  padding-right: 18px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 11px;\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover{\n\tcolor: #3b3b3b;\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\n\tbackground: #e3e3e3;\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n\tborder-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\n  font-weight: 900;\n  font-size: 19px;\n  color: #1a1c43;\n\tmargin-top: -8px;\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\n\tfont-size: 10px;\n\tfont-family: 'Rubik', sans-serif;\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg); /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\n  border-bottom: 1px solid #e3e3e3;\n  margin-bottom: 10px;\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\n  width: 68%;\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\n  font-size: 15px; \n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius:50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 18px 0 15px 0;\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\n.notifications .row[data-v-48ad9a74]{\n  border-bottom: 1px solid #f3f3f3;\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\n\tfont-size: 9px;\n\tdisplay: block;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\n  margin-right: 8px;\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\nlabel.custom-control-label[data-v-48ad9a74]{\n\tfont-weight: 100;\n  color: #1a1c43 !important;\n  font-size: 12px;\n  padding: 0;\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\n  margin-right: 8px;\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n  border: transparent !important;\n  border-radius: 5px !important;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    \n\tborder: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\n\tbackground: #00344a;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\n\tbackground: red;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n\tbackground: blue;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 6px 12px 6px 10px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Dot.png') !important;\n  background-size: 12px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\n  background-image: url('/images/icons/Asset 67.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\n  padding: 6px 25px 6px 18px;\n  font-size: 9px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\n.notifications .card h3 a[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 16px;\n  letter-spacing: 2.2px;\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\n  color: #00344a;\n  font-size: 14px;\n  letter-spacing: 2.2px;\n}\n.small-avatar img[data-v-48ad9a74]{\n\twidth: 28px;\n  margin-top: 2px;\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\n  width: 100%;\n  border-bottom: 1px solid #e3e3e3;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\n  font-size: 55px;\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\n  border-bottom: none;\n\tbackground: #fff;\n  padding: 6px 12px;\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 16px;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  border-radius: 25px;\n  padding: 7px;\n  height: 28px !important;\n  font-size: 9px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\n  padding:5px 0;\n}\n.stats-section .calls[data-v-48ad9a74], .stats-section .sales p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\n  border-bottom: 0.5px solid #e3e3e3; \n  margin-bottom: 5px; \n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top:17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\r\n  width: 52%;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.control-sidebar[data-v-48ad9a74] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  width: 350px !important;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.control-sidebar-light label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar .navbar-top-conatiner[data-v-48ad9a74] {\r\n  padding-left: 12px;\r\n  padding-right: 18px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 11px;\r\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #e3e3e3;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 19px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\r\n  font-size: 15px; \r\n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 18px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 28px;\r\n  margin-top: 2px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 25px;\r\n  padding: 7px;\r\n  height: 28px !important;\r\n  font-size: 9px;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls[data-v-48ad9a74], .stats-section .sales p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #e3e3e3; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -131673,7 +131578,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{\n       margin-bottom: 3.5vh;\n}\n.top-section[data-v-f3210f20]{\n        list-style-type: none;\n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{    \n        float: left;\n        margin-right: 52px;\n        padding: 0 5px;\n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{\n        margin-bottom: 0;\n        font-size: 18px;\n        font-weight: 900;\n        color: #003449;\n}\nli p.top[data-v-f3210f20]{\n        font-size: 14px;\n        color: #003449;\n}\n.card[data-v-f3210f20]{\n        border-radius: 27px;\n        border: none;\n}\n.card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{\n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{\n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{\n        width: 15px;\n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{\n        font-size: 23px;\n        color: #fff;\n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{\n        font-size: 16px;\n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{\n        border-radius: 20px;\n}\n.stats .col-lg-6[data-v-f3210f20]{\n        padding: 0;\n}\n.stats .card h5[data-v-f3210f20]{\n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{\n        width: 25px;\n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {\n        margin-bottom: 0.75rem;\n        padding-bottom: 0.75rem;\n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{\n        float: right;\n}\n.truncate[data-v-f3210f20] {\n        width: 250px;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n        margin: 0;\n        padding: 0 1.25rem !important;\n        border-left: 1px solid rgba(0, 0, 0, 0.125);\n        border-right: 1px solid rgba(0, 0, 0, 0.125);\n        border-top: 1px solid rgba(0, 0, 0, 0.125);\n        border-bottom:none;\n}\n.list-group-item[data-v-f3210f20]:last-child{\n        border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.list-group-item p[data-v-f3210f20]{\n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{\n        font-size: 18px;\n        margin-right: 30px;\n        display: block;\n        float: left;\n        width: 12%;\n        margin-top: 11px;\n        color: #003449;    \n        letter-spacing: 2.2px;\n        font-weight: bold;\n        font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{    \n        display: block;\n        float: left;\n        margin-top: 11px;\n        width: 57%;\n        font-size: 10px;\n        color: #7f99a4;\n}\n.author[data-v-f3210f20]{    \n        float: right;\n        margin-top: 11px;\n        font-size: 10px;\n        text-align: left;\n        width: 22%;\n        display: block;\n        color: #7f99a4;\n}\n.choose-comment-type[data-v-f3210f20]{\n        float: left;\n        display: block;\n        height: 50px;\n        width: 50px;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{\n        display: block;\n        height: 50px;\n        width: 75%;\n        padding: 11px;\n        margin: 10px 10px 10px 0;\n        background: #f6f8f9;\n        border-radius: 9px;\n        border: none;\n        cursor: pointer;\n        float: left;\n}\n#send-btn[data-v-f3210f20]{\n        height: 50px;\n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {\n        color: #fff;\n        background-color: #f6f8f9;\n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{\n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{\n        margin-left: -54px;\n        margin-right: -65px;\n        padding: 3% 34px 0;\n        background-image: url(/images/call/Call_Background.svg) !important;\n        background-size: cover;\n        background-repeat: no-repeat;\n        margin-bottom: 0;\n        max-height:120vh;\n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{\n        padding: 7px;\n        background-image: url(/images/call/Call_Logo.svg) !important;\n        background-size: 75%;\n        background-position: center;\n        background-repeat: no-repeat;\n        height: 186px;\n}\n.tip[data-v-f3210f20]{\n        margin-bottom: 40px;\n        background-size: 20%;\n        background-repeat: no-repeat;\n        background-position: center 1px;\n        margin-bottom: 40px;\n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{\n        border-bottom: 1px solid #fff;\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{\n        color: #fff;\n        font-size: 1.6rem;\n        letter-spacing: 6px;\n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{\n        margin-bottom: 10px;    \n        color: #fff;\n        margin: 0;\n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/1@4x.png') !important;\n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{\n    \tbackground-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  width: 100%;\n  background-image: url('/images/graph_grid.png') !important;\n  background-repeat: repeat-x;\n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {\n    width: 14%;\n    float: left;\n    margin-left: 6.5%;\n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {\n  position: relative;\n  height: 220px;\n  background: rgba(255, 255, 255, 0.2);\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  background: #89cff0;\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {\n  position: absolute;\n  font-size: 12px;\n  bottom: 0;\n  width: 100%;\n  height: 20px;\n  color: #003449;\n  display: none;\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {\n    margin-top: 5px;\n    text-align: center;\n    color: #003449;\n    font-size: 18px;\n    font-weight: 900;\n    letter-spacing: 2.2px;\n    font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{\n  max-height:880.84px;\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {\n  max-height:35px;\n  overflow:hidden;\n  padding:0px;\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{    \n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -38px;\n    right: -62px;\n    color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{\n    position: relative;\n    text-align: right;\n    width: 100%;\n    top: -1px;\n    right: 14px;\n    color: #fff;\n}\np.minimize a[data-v-f3210f20],\np.maximize a[data-v-f3210f20]{\n   color: #fff; \n   font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{\n    font-size: 17px;\n    border-bottom: 1px solid #003449;\n    margin-bottom: 18px;\n    color: #003449;\n    letter-spacing: 1.42px;\n    padding-right: 0;\n    padding-left: 0;\n    padding-bottom: 9px;\n}\n.scripts .row[data-v-f3210f20]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.scripts .col-lg-12[data-v-f3210f20]{\n    padding-right: 0;\n    padding-left: 0;\n}\n.scripts .card[data-v-f3210f20] {\n    margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] {\n    flex: 1 1 auto;\n    padding: 3.25rem;\n    text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {\n    color: #fff;\n    font-weight: bolder;\n    border-bottom: 1px solid #fff;\n    padding-bottom: 5px;\n    font-size: 32px;\n    letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{\n    margin-top: 0;\n    margin-left: -54px;\n    margin-right: -65px;\n    padding: 3% 6%;\n    /* background-image: url('/images/call/Call_Background.svg') !important; */\n    background-size: 100%;\n    background-repeat: no-repeat;\n    transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{    \n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 100%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{\n    padding: 7px;\n    background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important;\n    background-size: 33%;\n    background-position: center;\n    background-repeat: no-repeat;\n    height: 133px;\n}\n.idle-footer[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{\n    margin: 0 auto;\n    text-align: center;\n    font-size: 12px;\n    color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{\n    display: block;\n    transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{\n    margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{\n    max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{\n    color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{\n    float: left;\n    display: block;\n    border-radius: 25px;\n    box-shadow: 0px 1px 6px 0px #4a4a4a;\n    margin: 0 10px 19px 10px;\n    max-width: 30.333333%;\n    padding: 25px;\n    text-align: center;\n}\n.btn-active[data-v-f3210f20]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] {\n\tbackground: #ffffff;\n\tcolor: #00344a;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] {\n    border-radius: 50%;\n    -webkit-animation: pulse-data-v-f3210f20 2s infinite;\n            animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n.pulse[data-v-f3210f20] {\n    -webkit-animation: pulse-data-v-f3210f20 2s infinite;\n            animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% {\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% {\n      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% {\n      -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% {\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% {\n      box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% {\n      box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{\n    padding: 1rem;\n}\n.final-modal[data-v-f3210f20]{\n    padding: 0 1rem 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n    width: 100%;\n    border-bottom: 1px solid #e3e3e3;\n    margin-left: 0;\n}\n.final-modal label button img[data-v-f3210f20]{\n    width: 20px;\n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{\n    font-size: 55px;\n    color: #FF933A;\n}\n.final-modal .card-header-tabs[data-v-f3210f20]{\n    border-bottom: 1px solid #dee2e6;\n}\n.final-modal .card-header[data-v-f3210f20]{    \n    border-top-left-radius: 19px;\n    border-top-right-radius: 19px;\n    padding: 0 11px 11px;\n    border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{\n    border-bottom: none;\n    background: #fff;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{\n    border-top-left-radius: 19px;\n    width: 50%;\n    border-right: 1px solid #e3e3e3;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 19px;\n    border-top-right-radius: 0px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 20px;\n    border-top-right-radius: 0px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{\n    border-top-right-radius: 19px;\n    border-top-left-radius: 0px;\n    width: 50%;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n.tab-pane[data-v-f3210f20]{\n     height: 348px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{\n    font-size: 14px;\n    padding-left: 10px;\n}\n#two .row[data-v-f3210f20]{\n    margin-bottom: 0;\n    margin-left: 0;\n    margin-right: 0;\n}\n#two label[data-v-f3210f20]{\n    color: rgb(129, 130, 132);\n    font-size: 13px;\n    padding: 0;\n    font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] {\n    border-style: none !important;\n    border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] {\n    border-radius: 5px !important;\n}\n.ant-time-picker[data-v-f3210f20]{\n    width: 100% !important;\n}\n.scroll-hidden[data-v-f3210f20]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{ \n       margin-bottom: 3.5vh;\n}\n.top-section[data-v-f3210f20]{ \n        list-style-type: none; \n        padding-left: 15px;\n}\n.top-section li[data-v-f3210f20]{     \n        float: left; \n        margin-right: 52px; \n        padding: 0 5px; \n        border-left: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-f3210f20]{ \n        margin-bottom: 0; \n        font-size: 18px; \n        font-weight: 900; \n        color: #003449;\n}\nli p.top[data-v-f3210f20]{ \n        font-size: 14px; \n        color: #003449;\n}\n.card[data-v-f3210f20]{ \n        border-radius: 27px; \n        border: none;\n}\n.card-title[data-v-f3210f20] { \n        margin-bottom: 0.75rem; \n        padding-bottom: 0.75rem; \n        border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{ \n        background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \n        background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \n        background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \n        background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \n        color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \n        width: 15px; \n        margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \n        font-size: 23px; \n        color: #fff; \n        font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{ \n        font-size: 16px; \n        color: #fff;\n}\n.stats .card[data-v-f3210f20]{ \n        border-radius: 20px;\n}\n.stats .col-lg-6[data-v-f3210f20]{ \n        padding: 0;\n}\n.stats .card h5[data-v-f3210f20]{ \n        color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \n        width: 25px; \n        margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n        margin-bottom: 0.75rem; \n        padding-bottom: 0.75rem; \n        border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-f3210f20]{ \n        float: right;\n}\n.truncate[data-v-f3210f20] { \n        width: 250px; \n        white-space: nowrap; \n        overflow: hidden; \n        text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{ \n        margin: 0; \n        padding: 0 1.25rem !important; \n        border-left: 1px solid rgba(0, 0, 0, 0.125); \n        border-right: 1px solid rgba(0, 0, 0, 0.125); \n        border-top: 1px solid rgba(0, 0, 0, 0.125); \n        border-bottom:none;\n}\n.list-group-item[data-v-f3210f20]:last-child{ \n        border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.list-group-item p[data-v-f3210f20]{ \n        margin: 0;\n}\n.list-group-item p strong[data-v-f3210f20]{ \n        font-size: 18px; \n        margin-right: 30px; \n        display: block; \n        float: left; \n        width: 12%; \n        margin-top: 11px; \n        color: #003449;     \n        letter-spacing: 2.2px; \n        font-weight: bold; \n        font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{     \n        display: block; \n        float: left; \n        margin-top: 11px; \n        width: 57%; \n        font-size: 10px; \n        color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \n        float: right; \n        margin-top: 11px; \n        font-size: 10px; \n        text-align: left; \n        width: 22%; \n        display: block; \n        color: #7f99a4;\n}\n.choose-comment-type[data-v-f3210f20]{ \n        float: left; \n        display: block; \n        height: 50px; \n        width: 50px; \n        padding: 11px; \n        margin: 10px 10px 10px 0; \n        background: #f6f8f9; \n        border-radius: 9px; \n        cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \n        display: block; \n        height: 50px; \n        width: 75%; \n        padding: 11px; \n        margin: 10px 10px 10px 0; \n        background: #f6f8f9; \n        border-radius: 9px; \n        border: none; \n        cursor: pointer; \n        float: left;\n}\n#send-btn[data-v-f3210f20]{ \n        height: 50px; \n        margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] { \n        color: #fff; \n        background-color: #f6f8f9; \n        border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n        color: #fff; \n        background-color: #f6f8f9; \n        border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \n        height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \n        margin-left: -54px; \n        margin-right: -65px; \n        padding: 3% 34px 0; \n        background-image: url(/images/call/Call_Background.svg) !important; \n        background-size: cover; \n        background-repeat: no-repeat; \n        margin-bottom: 0; \n        max-height:120vh; \n        transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \n        padding: 7px; \n        background-image: url(/images/call/Call_Logo.svg) !important; \n        background-size: 75%; \n        background-position: center; \n        background-repeat: no-repeat; \n        height: 186px;\n}\n.tip[data-v-f3210f20]{ \n        margin-bottom: 40px; \n        background-size: 20%; \n        background-repeat: no-repeat; \n        background-position: center 1px; \n        margin-bottom: 40px; \n        padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \n        border-bottom: 1px solid #fff; \n        margin-bottom: 10px;     \n        color: #fff; \n        margin: 0; \n        letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n        margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \n        color: #fff; \n        font-size: 1.6rem; \n        letter-spacing: 6px; \n        margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n        margin-bottom: 10px;     \n        color: #fff; \n        margin: 0; \n        letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \n        background-image: url('/images/call/1@4x.png') !important; \n        background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \n        background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \n        background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \n        background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \n        background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \n        background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] { \n  width: 100%; \n  background-image: url('/images/graph_grid.png') !important; \n  background-repeat: repeat-x; \n    padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n    width: 14%; \n    float: left; \n    margin-left: 6.5%; \n    margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  width: 100%; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0; \n  width: 100%; \n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n    margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{\n    max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{\n    color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{\n    float: left;\n    display: block;\n    border-radius: 25px;\n    box-shadow: 0px 1px 6px 0px #4a4a4a;\n    margin: 0 10px 19px 10px;\n    max-width: 30.333333%;\n    padding: 25px;\n    text-align: center;\n}\n.btn-active[data-v-f3210f20]:hover{\n\tbackground: #00344a;\n\tcolor: #ffffff;    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] {\n\tbackground: #ffffff;\n\tcolor: #00344a;\n    border: none !important;\n    border: none !important;\n    padding: 6px 25px 6px 18px;\n    font-size: 12px;\n    font-weight: 700;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] {\n    border-radius: 50%;\n    -webkit-animation: pulse-data-v-f3210f20 2s infinite;\n            animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n.pulse[data-v-f3210f20] {\n    -webkit-animation: pulse-data-v-f3210f20 2s infinite;\n            animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% {\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% {\n      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% {\n      -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% {\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% {\n      box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% {\n      box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{\n    padding: 1rem;\n}\n.final-modal[data-v-f3210f20]{\n    padding: 0 1rem 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n    width: 100%;\n    border-bottom: 1px solid #e3e3e3;\n    margin-left: 0;\n}\n.final-modal label button img[data-v-f3210f20]{\n    width: 20px;\n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{\n    font-size: 55px;\n    color: #FF933A;\n}\n.final-modal .card-header-tabs[data-v-f3210f20]{\n    border-bottom: 1px solid #dee2e6;\n}\n.final-modal .card-header[data-v-f3210f20]{    \n    border-top-left-radius: 19px;\n    border-top-right-radius: 19px;\n    padding: 0 11px 11px;\n    border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{\n    border-bottom: none;\n    background: #fff;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{\n    border-top-left-radius: 19px;\n    width: 50%;\n    border-right: 1px solid #e3e3e3;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 19px;\n    border-top-right-radius: 0px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 20px;\n    border-top-right-radius: 0px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{\n    border-top-right-radius: 19px;\n    border-top-left-radius: 0px;\n    width: 50%;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    padding: 16px;\n    font-size: 16px;\n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover {\n    border: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 20px;\n    background: #fff;\n    padding: 16px;\n    font-size: 16px;\n}\n.tab-pane[data-v-f3210f20]{\n     height: 348px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{\n    font-size: 14px;\n    padding-left: 10px;\n}\n#two .row[data-v-f3210f20]{\n    margin-bottom: 0;\n    margin-left: 0;\n    margin-right: 0;\n}\n#two label[data-v-f3210f20]{\n    color: rgb(129, 130, 132);\n    font-size: 13px;\n    padding: 0;\n    font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] {\n    border-style: none !important;\n    border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] {\n    border-radius: 5px !important;\n}\n.ant-time-picker[data-v-f3210f20]{\n    width: 100% !important;\n}\n.scroll-hidden[data-v-f3210f20]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\n", ""]);
 
 // exports
 
@@ -232130,7 +232035,7 @@ exports.default = WSTransport;
 /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"twilio-client@1.7.5\",\"C:\\\\xampp\\\\htdocs\\\\uhustle\"]],\"_from\":\"twilio-client@1.7.5\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"twilio-client@1.7.5\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"1.7.5\",\"saveSpec\":null,\"fetchSpec\":\"1.7.5\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_spec\":\"1.7.5\",\"_where\":\"C:\\\\xampp\\\\htdocs\\\\uhustle\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
+module.exports = {"_args":[["twilio-client@1.7.5","C:\\xampp\\uhustle-app"]],"_from":"twilio-client@1.7.5","_id":"twilio-client@1.7.5","_inBundle":false,"_integrity":"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==","_location":"/twilio-client","_phantomChildren":{"async-limiter":"1.0.0"},"_requested":{"type":"version","registry":true,"raw":"twilio-client@1.7.5","name":"twilio-client","escapedName":"twilio-client","rawSpec":"1.7.5","saveSpec":null,"fetchSpec":"1.7.5"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz","_spec":"1.7.5","_where":"C:\\xampp\\uhustle-app","browser":{"xmlhttprequest":"./browser/xmlhttprequest.js","ws":"./browser/ws.js"},"bugs":{"url":"https://github.com/twilio/twilio-client.js/issues"},"dependencies":{"@twilio/audioplayer":"1.0.4","backoff":"2.5.0","rtcpeerconnection-shim":"1.2.8","ws":"6.1.3","xmlhttprequest":"1.8.0"},"description":"Javascript SDK for Twilio Client","devDependencies":{"@types/mocha":"5.0.0","@types/node":"9.6.5","@types/sinon":"5.0.1","@types/ws":"4.0.2","babel-cli":"6.26.0","babel-eslint":"8.2.2","babel-plugin-envify":"1.2.1","babel-plugin-transform-class-properties":"6.24.1","babel-plugin-transform-inline-environment-variables":"0.4.3","babel-preset-es2015":"6.24.1","browserify":"16.2.2","buffer":"5.2.0","chromedriver":"2.31.0","envify":"2.0.1","es-check":"2.0.3","eslint":"4.19.1","eslint-plugin-babel":"4.1.2","express":"4.14.1","geckodriver":"1.8.1","js-yaml":"3.13.1","jsdoc":"3.5.5","jsonwebtoken":"7.4.3","karma":"3.0.0","karma-chrome-launcher":"2.2.0","karma-firefox-launcher":"1.1.0","karma-mocha":"1.3.0","karma-safaritechpreview-launcher":"0.0.6","karma-spec-reporter":"0.0.32","karma-typescript":"3.0.13","karma-typescript-es6-transform":"1.0.4","lodash":"4.17.11","mocha":"3.5.0","npm-run-all":"4.1.2","nyc":"10.1.2","pre-commit":"1.2.2","querystring":"0.2.0","release-tool":"0.2.2","selenium-webdriver":"3.5.0","sinon":"4.0.0","travis-multirunner":"4.5.0","ts-node":"6.0.0","tslint":"5.9.1","twilio":"3.17.0","typedoc":"github:ryan-rowland/typedoc#twilio","typedoc-plugin-as-member-of":"1.0.2","typedoc-plugin-external-module-name":"1.1.3","typedoc-plugin-internal-external":"1.0.10","typedoc-twilio-theme":"1.0.0","typescript":"2.8.1","uglify-js":"3.3.11","vinyl-fs":"3.0.2","vinyl-source-stream":"2.0.0"},"homepage":"https://github.com/twilio/twilio-client.js#readme","keywords":["twilio","client","voice","voip"],"license":"Apache-2.0","main":"./es5/twilio.js","name":"twilio-client","pre-commit":["lint","test:unit","docs:ts"],"repository":{"type":"git","url":"git+ssh://git@github.com/twilio/twilio-client.js.git"},"scripts":{"build":"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min","build:dev":"ENV=dev npm run build","build:dist":"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js","build:dist-min":"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \"/^! twilio-client.js/\" -b beautify=false,ascii_only=true","build:es5":"rimraf ./es5 && babel lib -d es5","build:release":"npm-run-all lint build test:unit test:integration test:webpack test:es5 status","build:ts":"tsc","clean":"rimraf ./coverage ./dist ./es5","coverage":"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts","coverage:check":"nyc check-coverage --lines 60 --branches 60 --functions 60","docs:clean":"rimraf ./docs","docs:js":"jsdoc -r -d dist/docs/js lib/twilio","docs:json":"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected","docs:ts":"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default","extension":"browserify -t brfs extension/token/index.js > extension/token.js","lint":"npm-run-all lint:js lint:ts","lint:js":"eslint lib","lint:ts":"tslint -c tslint.json --project tsconfig.json -t stylish","release":"release","start":"node server.js","status":"git status","test":"npm-run-all test:unit test:frameworks","test:es5":"es-check es5 \"./es5/**/*.js\" ./dist/*.js","test:framework:no-framework":"mocha tests/framework/no-framework.js","test:framework:react":"npm-run-all test:framework:react:*","test:framework:react:build":"cd ./tests/framework/react && npm run build","test:framework:react:install":"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install","test:framework:react:run":"mocha ./tests/framework/react.js","test:frameworks":"npm-run-all test:framework:no-framework test:framework:react","test:integration":"karma start karma.conf.ts","test:selenium":"mocha tests/browser/index.js","test:unit":"nyc mocha -r ts-node/register ./tests/index.ts","test:webpack":"cd ./tests/webpack && npm install && npm test"},"version":"1.7.5"};
 
 /***/ }),
 
@@ -247940,21 +247845,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
+    return _c("div", [
       _c("div", { staticClass: "row mx-0", attrs: { id: "top-section" } }, [
         _c("div", { staticClass: "col-lg-2 px-2" }, [
           _c("div", { staticClass: "card border-0 client" }, [
             _c("div", { staticClass: "card-body text-center" }, [
-              _c("p", { staticClass: "card-text m-0" }, [
-                _vm._v("\n              11 \n            ")
-              ]),
+              _c("p", { staticClass: "card-text m-0" }, [_vm._v("11")]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                  Calls made\n            ")
+                _vm._v("Calls made")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link green" }, [
-                _vm._v("\n                14%\n            ")
+                _vm._v("\n              14%\n          ")
               ])
             ])
           ])
@@ -247963,16 +247866,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-2 px-2" }, [
           _c("div", { staticClass: "card border-0 client" }, [
             _c("div", { staticClass: "card-body text-center" }, [
-              _c("p", { staticClass: "card-text m-0" }, [
-                _vm._v("\n              5 \n            ")
-              ]),
+              _c("p", { staticClass: "card-text m-0" }, [_vm._v("5")]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                  Sales Quantity\n            ")
+                _vm._v("Sales Quantity")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link green" }, [
-                _vm._v("\n                3%\n            ")
+                _vm._v("\n              3%\n          ")
               ])
             ])
           ])
@@ -247981,16 +247882,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-2 px-2" }, [
           _c("div", { staticClass: "card border-0 client" }, [
             _c("div", { staticClass: "card-body text-center" }, [
-              _c("p", { staticClass: "card-text m-0" }, [
-                _vm._v("\n              $365 \n            ")
-              ]),
+              _c("p", { staticClass: "card-text m-0" }, [_vm._v("$365")]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                  Sales amount\n            ")
+                _vm._v("Sales amount")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link green" }, [
-                _vm._v("\n                11%\n            ")
+                _vm._v("\n              11%\n          ")
               ])
             ])
           ])
@@ -247999,16 +247898,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-2 px-2" }, [
           _c("div", { staticClass: "card border-0 client" }, [
             _c("div", { staticClass: "card-body text-center" }, [
-              _c("p", { staticClass: "card-text m-0" }, [
-                _vm._v("\n              45% \n            ")
-              ]),
+              _c("p", { staticClass: "card-text m-0" }, [_vm._v("45%")]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                  Conversion Ratio\n            ")
+                _vm._v("Conversion Ratio")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link down" }, [
-                _vm._v("\n                33%\n            ")
+                _vm._v("\n              33%\n          ")
               ])
             ])
           ])
@@ -248017,28 +247914,24 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-2 px-2" }, [
           _c("div", { staticClass: "card border-0 client" }, [
             _c("div", { staticClass: "card-body text-center" }, [
-              _c("p", { staticClass: "card-text m-0" }, [
-                _vm._v("\n              $3000 \n            ")
-              ]),
+              _c("p", { staticClass: "card-text m-0" }, [_vm._v("$3000")]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text-small" }, [
-                _vm._v("\n                Commission\n            ")
+                _vm._v("Commission")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-link down" }, [
-                _vm._v("\n                33%\n            ")
+                _vm._v("\n              33%\n          ")
               ])
             ])
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-lg-2 text-center px-2 call-stats" }, [
-          _c("h1", { staticClass: "card-text mb-0" }, [
-            _vm._v("\n              11 / 10\n        ")
-          ]),
+          _c("h1", { staticClass: "card-text mb-0" }, [_vm._v("11 / 10")]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text-small" }, [
-            _vm._v("\n              Missed Target\n        ")
+            _vm._v("Missed Target  ")
           ])
         ])
       ]),
@@ -248442,7 +248335,17 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div")
+    _c("div", [
+      _c("input", {
+        ref: "callJoinBtn",
+        attrs: { type: "hidden" },
+        on: {
+          click: function($event) {
+            return _vm.startCall()
+          }
+        }
+      })
+    ])
   ])
 }
 var staticRenderFns = []
@@ -258841,6 +258744,13 @@ var render = function() {
                                                                                                 "unchecked-value":
                                                                                                   "0"
                                                                                               },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
+                                                                                              },
                                                                                               model: {
                                                                                                 value:
                                                                                                   permission.disabled,
@@ -258880,6 +258790,13 @@ var render = function() {
                                                                                                 "unchecked-value":
                                                                                                   "0"
                                                                                               },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
+                                                                                              },
                                                                                               model: {
                                                                                                 value:
                                                                                                   permission.whisper,
@@ -258913,6 +258830,13 @@ var render = function() {
                                                                                                   "1",
                                                                                                 "unchecked-value":
                                                                                                   "0"
+                                                                                              },
+                                                                                              on: {
+                                                                                                change: function(
+                                                                                                  $event
+                                                                                                ) {
+                                                                                                  return _vm.applyDialerPermissions()
+                                                                                                }
                                                                                               },
                                                                                               model: {
                                                                                                 value:
@@ -259048,643 +258972,7 @@ var render = function() {
                                                                   },
                                                                   [
                                                                     _c(
-                                                                      "b-card-body",
-                                                                      _vm._l(
-                                                                        _vm.permissions,
-                                                                        function(
-                                                                          permission,
-                                                                          k
-                                                                        ) {
-                                                                          return _c(
-                                                                            "div",
-                                                                            {
-                                                                              key: k
-                                                                            },
-                                                                            [
-                                                                              permission.module_id ==
-                                                                                a_module.id &&
-                                                                              role.id ==
-                                                                                permission.role_id
-                                                                                ? _c(
-                                                                                    "b-form-group",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "permisions"
-                                                                                    },
-                                                                                    [
-                                                                                      _c(
-                                                                                        "div",
-                                                                                        [
-                                                                                          _c(
-                                                                                            "div",
-                                                                                            {
-                                                                                              staticClass:
-                                                                                                "row"
-                                                                                            },
-                                                                                            [
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Set " +
-                                                                                                                        _vm._s(
-                                                                                                                          role.display_name
-                                                                                                                        ) +
-                                                                                                                        " permissions for " +
-                                                                                                                        _vm._s(
-                                                                                                                          a_module.display_name
-                                                                                                                        ) +
-                                                                                                                        ":"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "View"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              ),
-                                                                                              _vm._v(
-                                                                                                " "
-                                                                                              ),
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      " "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Edit"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              ),
-                                                                                              _vm._v(
-                                                                                                " "
-                                                                                              ),
-                                                                                              _c(
-                                                                                                "div",
-                                                                                                {
-                                                                                                  staticClass:
-                                                                                                    "col-lg-4"
-                                                                                                },
-                                                                                                [
-                                                                                                  _c(
-                                                                                                    "b-form-group",
-                                                                                                    {
-                                                                                                      scopedSlots: _vm._u(
-                                                                                                        [
-                                                                                                          {
-                                                                                                            key:
-                                                                                                              "label",
-                                                                                                            fn: function() {
-                                                                                                              return [
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      " "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b",
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "Delete"
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "br"
-                                                                                                                ),
-                                                                                                                _vm._v(
-                                                                                                                  " "
-                                                                                                                ),
-                                                                                                                _c(
-                                                                                                                  "b-form-checkbox",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      indeterminate:
-                                                                                                                        _vm.dialer_indeterminate,
-                                                                                                                      "aria-describedby":
-                                                                                                                        "dialer",
-                                                                                                                      "aria-controls":
-                                                                                                                        "dialer"
-                                                                                                                    },
-                                                                                                                    on: {
-                                                                                                                      change:
-                                                                                                                        _vm.toggleAll
-                                                                                                                    },
-                                                                                                                    model: {
-                                                                                                                      value:
-                                                                                                                        _vm.dialer_allSelected,
-                                                                                                                      callback: function(
-                                                                                                                        $$v
-                                                                                                                      ) {
-                                                                                                                        _vm.dialer_allSelected = $$v
-                                                                                                                      },
-                                                                                                                      expression:
-                                                                                                                        "dialer_allSelected"
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      "\n                                                                                                " +
-                                                                                                                        _vm._s(
-                                                                                                                          _vm.allSelected
-                                                                                                                            ? "Un-select All"
-                                                                                                                            : "Select All"
-                                                                                                                        ) +
-                                                                                                                        "\n                                                                                                "
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              ]
-                                                                                                            },
-                                                                                                            proxy: true
-                                                                                                          }
-                                                                                                        ],
-                                                                                                        null,
-                                                                                                        true
-                                                                                                      )
-                                                                                                    },
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        " "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "b-form-checkbox-group",
-                                                                                                        {
-                                                                                                          staticClass:
-                                                                                                            "ml-4",
-                                                                                                          attrs: {
-                                                                                                            id:
-                                                                                                              "dialer",
-                                                                                                            options:
-                                                                                                              _vm.dialer_options,
-                                                                                                            name:
-                                                                                                              "dialer",
-                                                                                                            "aria-label":
-                                                                                                              "Individual Options",
-                                                                                                            stacked:
-                                                                                                              ""
-                                                                                                          },
-                                                                                                          model: {
-                                                                                                            value:
-                                                                                                              _vm.dialer_selected,
-                                                                                                            callback: function(
-                                                                                                              $$v
-                                                                                                            ) {
-                                                                                                              _vm.dialer_selected = $$v
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                              "dialer_selected"
-                                                                                                          }
-                                                                                                        }
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    1
-                                                                                                  ),
-                                                                                                  _vm._v(
-                                                                                                    " "
-                                                                                                  ),
-                                                                                                  _c(
-                                                                                                    "div",
-                                                                                                    [
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_selected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            All Selected: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_allSelected
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "br"
-                                                                                                      ),
-                                                                                                      _vm._v(
-                                                                                                        "\n                                                                                            Indeterminate: "
-                                                                                                      ),
-                                                                                                      _c(
-                                                                                                        "strong",
-                                                                                                        [
-                                                                                                          _vm._v(
-                                                                                                            _vm._s(
-                                                                                                              _vm.dialer_indeterminate
-                                                                                                            )
-                                                                                                          )
-                                                                                                        ]
-                                                                                                      )
-                                                                                                    ]
-                                                                                                  )
-                                                                                                ],
-                                                                                                1
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        ]
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                : _vm._e()
-                                                                            ],
-                                                                            1
-                                                                          )
-                                                                        }
-                                                                      ),
-                                                                      0
+                                                                      "b-card-body"
                                                                     )
                                                                   ],
                                                                   1
@@ -262201,81 +261489,13 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "card client" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Cashed Out\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]),
+              _vm._m(1),
               _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "card product" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Upsell\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]),
+              _vm._m(2),
               _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "card time" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Not Interested\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]),
+              _vm._m(3),
               _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "card activity" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        More Info\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ])
+              _vm._m(4)
             ]
           )
         ])
@@ -262292,7 +261512,7 @@ var render = function() {
                   _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
                   _vm._v(" "),
                   _c("p", { staticClass: "bottom" }, [
-                    _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                    _vm._v(_vm._s(this.lead_info.lead_source.name))
                   ])
                 ]),
                 _vm._v(" "),
@@ -262333,19 +261553,22 @@ var render = function() {
               [
                 _c("div", { staticClass: "card client" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _vm._m(1),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c(
                       "p",
                       {
                         staticClass: "card-text truncate",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                        attrs: {
+                          title:
+                            _vm.lead_info.name + " " + _vm.lead_info.surname
+                        }
                       },
                       [
                         _vm._v(
                           "\n                    " +
                             _vm._s(
-                              this.lead_info.name + " " + _vm.lead_info.surname
+                              _vm.lead_info.name + " " + _vm.lead_info.surname
                             ) +
                             "\n                    "
                         )
@@ -262375,7 +261598,7 @@ var render = function() {
               [
                 _c("div", { staticClass: "card product" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _vm._m(2),
+                    _vm._m(6),
                     _vm._v(" "),
                     _c(
                       "p",
@@ -262421,6 +261644,77 @@ var render = function() {
                             "\n                    "
                         )
                       ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-link truncate" }, [
+                      _vm._v(
+                        _vm._s(_vm.lead_info.country) +
+                          " | " +
+                          _vm._s(_vm.lead_info.gender) +
+                          " | " +
+                          _vm._s(_vm.lead_info.age)
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-lg-3",
+                staticStyle: { "padding-right": "35px", "padding-left": "35px" }
+              },
+              [
+                _c("div", { staticClass: "card product" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        attrs: {
+                          title:
+                            _vm.lead_info.product.description +
+                            ". " +
+                            _vm.lead_info.product.price
+                        }
+                      },
+                      [
+                        _vm._v(
+                          " \n                    " +
+                            _vm._s(_vm.lead_info.product.name) +
+                            " \n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-link truncate",
+                        attrs: {
+                          title:
+                            _vm.lead_info.product.description +
+                            ". " +
+                            _vm.lead_info.product.currency +
+                            _vm.lead_info.product.price
+                        }
+                      },
+                      [
+                        _vm._v(
+                          " \n                        " +
+                            _vm._s(
+                              _vm.lead_info.product.description +
+                                ". " +
+                                _vm.lead_info.product.currency +
+                                _vm.lead_info.product.price
+                            ) +
+                            " \n                    "
+                        )
+                      ]
                     )
                   ])
                 ])
@@ -262436,11 +261730,11 @@ var render = function() {
               [
                 _c("div", { staticClass: "card time" }, [
                   _c("div", { staticClass: "card-body" }, [
-                    _vm._m(3),
+                    _vm._m(8),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
                       _vm._v(
-                        "\n                    11:20\n                    "
+                        " \n                    11:20 \n                    "
                       )
                     ]),
                     _vm._v(" "),
@@ -262456,7 +261750,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(4)
+            _vm._m(9)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row stats final-modal" }, [
@@ -262512,7 +261806,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(5)
+                        _vm._m(10)
                       ]
                     )
                   ]),
@@ -262564,9 +261858,9 @@ var render = function() {
                                         { staticClass: "comment-notes" },
                                         [
                                           _vm._v(
-                                            "\n                                                " +
+                                            " \n                                                " +
                                               _vm._s(comment.description) +
-                                              " \n                                                "
+                                              "  \n                                                "
                                           ),
                                           comment.user_id == _vm.user_id &&
                                           _vm.getDaysAgo(comment.created_at) ==
@@ -262609,7 +261903,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "author" }, [
                                         _vm._v(
-                                          "\n                                                " +
+                                          " \n                                                " +
                                             _vm._s(comment.created_at) +
                                             " "
                                         ),
@@ -262704,7 +261998,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    Send\n                                "
+                                    " \n                                    Send \n                                "
                                   )
                                 ]
                               )
@@ -262745,7 +262039,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "Date of Callback\n                                                "
+                                          "Date of Callback \n                                                "
                                         ),
                                         _c("a-date-picker", {
                                           attrs: {
@@ -262790,7 +262084,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "Time of Callback\n                                                "
+                                          "Time of Callback \n                                                "
                                         ),
                                         _c("a-time-picker", {
                                           attrs: {
@@ -262922,7 +262216,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                        Schedule\n                                    "
+                                    " \n                                        Schedule \n                                    "
                                   )
                                 ]
                               )
@@ -262988,7 +262282,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(6)
+                        _vm._m(11)
                       ]
                     )
                   ]),
@@ -263064,7 +262358,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(7)
+                      _vm._m(12)
                     ]
                   )
                 ])
@@ -263176,7 +262470,7 @@ var render = function() {
             ? _c(
                 "div",
                 { staticClass: "row idle-education justify-content-center" },
-                [_vm._m(8)]
+                [_vm._m(13)]
               )
             : _vm._e()
         ])
@@ -263456,7 +262750,7 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(
-                                    "More Time\n                                "
+                                    "More Time \n                                "
                                   )
                                 ]
                               )
@@ -263477,7 +262771,7 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(
-                                    "More Time\n                                "
+                                    "More Time \n                                "
                                   )
                                 ]
                               )
@@ -263508,7 +262802,7 @@ var render = function() {
                                 }
                               }),
                               _vm._v(
-                                "Complete\n                                "
+                                "Complete \n                                "
                               )
                             ]
                           )
@@ -263553,7 +262847,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(
-                          "\n                                Client\n                            "
+                          " \n                                Client \n                            "
                         )
                       ]),
                       _vm._v(" "),
@@ -263568,11 +262862,11 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            " +
+                            " \n                            " +
                               _vm._s(
                                 _vm.lead_info.name + " " + _vm.lead_info.surname
                               ) +
-                              "\n                            "
+                              " \n                            "
                           )
                         ]
                       ),
@@ -263602,7 +262896,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(
-                          "\n                                Product\n                            "
+                          " \n                                Product \n                            "
                         )
                       ]),
                       _vm._v(" "),
@@ -263620,9 +262914,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            " +
+                            " \n                            " +
                               _vm._s(_vm.lead_info.product.name) +
-                              "\n                            "
+                              " \n                            "
                           )
                         ]
                       ),
@@ -263641,9 +262935,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                " +
+                            " \n                                " +
                               _vm._s(_vm.lead_info.product.description) +
-                              "\n                            "
+                              " \n                            "
                           )
                         ]
                       )
@@ -263663,13 +262957,13 @@ var render = function() {
                           }
                         }),
                         _vm._v(
-                          "\n                                Time\n                            "
+                          " \n                                Time \n                            "
                         )
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "card-text" }, [
                         _vm._v(
-                          "\n                            11:20 AM\n                            "
+                          " \n                            11:20 AM \n                            "
                         )
                       ]),
                       _vm._v(" "),
@@ -263831,9 +263125,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                                        " +
+                                                " \n                                                        " +
                                                   _vm._s(comment.description) +
-                                                  " \n                                                        "
+                                                  "  \n                                                        "
                                               ),
                                               comment.user_id == _vm.user_id &&
                                               _vm.getDaysAgo(
@@ -263882,7 +263176,7 @@ var render = function() {
                                             { staticClass: "author w-25" },
                                             [
                                               _vm._v(
-                                                "\n                                                        " +
+                                                " \n                                                        " +
                                                   _vm._s(comment.created_at) +
                                                   " "
                                               ),
@@ -263981,13 +263275,413 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                            Send\n                                        "
+                                        " \n                                            Send \n                                        "
                                       )
                                     ]
                                   )
                                 ],
                                 1
                               )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade pt-0 px-3 pb-3",
+                              attrs: {
+                                id: "two",
+                                role: "tabpanel",
+                                "aria-labelledby": "two-tab"
+                              }
+                            },
+                            [
+                              _c("div", { staticClass: "row mb-0" }, [
+                                _c("div", { staticClass: "col-lg-4 pr-0" }, [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-12 control-label"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Date of Callback \n                                                        "
+                                            ),
+                                            _c("a-date-picker", {
+                                              attrs: {
+                                                format: "YYYY-MM-DD",
+                                                allowEmpty: false
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.checkCBDate()
+                                                }
+                                              },
+                                              model: {
+                                                value: _vm.selected_date,
+                                                callback: function($$v) {
+                                                  _vm.selected_date = $$v
+                                                },
+                                                expression: "selected_date"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-12 control-label"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Time of Callback \n                                                        "
+                                            ),
+                                            _c("a-time-picker", {
+                                              attrs: {
+                                                allowEmpty: false,
+                                                use24Hours: "",
+                                                format: "hh:mm a"
+                                              },
+                                              model: {
+                                                value: _vm.selected_time,
+                                                callback: function($$v) {
+                                                  _vm.selected_time = $$v
+                                                },
+                                                expression: "selected_time"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          input: true,
+                                          "form-group": true,
+                                          "has-error": _vm.errors.has("Name")
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-lg-12 control-label"
+                                          },
+                                          [
+                                            _c("strong", [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.selected_date.format(
+                                                    "DD-MM-YYYY"
+                                                  ) +
+                                                    " @" +
+                                                    _vm.selected_time.format(
+                                                      "hh:mm a"
+                                                    )
+                                                )
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-lg-8" },
+                                  [
+                                    _c("vc-date-picker", {
+                                      attrs: {
+                                        mode: "multiple",
+                                        "is-inline": "",
+                                        "is-expanded": "",
+                                        "min-date": new Date(),
+                                        "max-date": _vm.max_date,
+                                        color: "pink"
+                                      },
+                                      model: {
+                                        value: _vm.dates,
+                                        callback: function($$v) {
+                                          _vm.dates = $$v
+                                        },
+                                        expression: "dates"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row mb-0" }, [
+                                _c("div", { staticClass: "col-lg-12 pr-0" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.call_back.note,
+                                        expression: "call_back.note"
+                                      }
+                                    ],
+                                    staticClass: "comment-desc",
+                                    staticStyle: { width: "72.5%" },
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Write notes here"
+                                    },
+                                    domProps: { value: _vm.call_back.note },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.call_back,
+                                          "note",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      staticStyle: { width: "100px" },
+                                      attrs: { id: "send-btn", type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.addCallback()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        " \n                                                Schedule \n                                            "
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-left": "3%" }
+                  },
+                  [
+                    _c("div", { staticClass: "card left mt-3 tab-card" }, [
+                      _c(
+                        "div",
+                        { staticClass: "card-header tab-card-header" },
+                        [
+                          _c(
+                            "ul",
+                            {
+                              staticClass: "nav nav-tabs card-header-tabs",
+                              attrs: { id: "myTab", role: "tablist" }
+                            },
+                            [
+                              _c("li", { staticClass: "nav-item left" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "three-tab",
+                                      "data-toggle": "tab",
+                                      href: "#three",
+                                      role: "tab",
+                                      "aria-controls": "Three",
+                                      "aria-selected": "true"
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/workstation/Feedback_Summary.svg",
+                                        alt: "Icon",
+                                        width: "23"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Feedback Summary")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "right" }, [
+                                      _vm._v(
+                                        _vm._s(_vm.comments.total_comments)
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "nav-item right" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "four-tab",
+                                      "data-toggle": "tab",
+                                      href: "#four",
+                                      role: "tab",
+                                      "aria-controls": "Four",
+                                      "aria-selected": "false"
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/workstation/Email_Client.svg",
+                                        alt: "Icon",
+                                        width: "23"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "left" }, [
+                                      _vm._v("Email Client")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-content",
+                          attrs: { id: "myTabContent" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade show active p-3",
+                              staticStyle: { height: "349px" },
+                              attrs: {
+                                id: "three",
+                                role: "tabpanel",
+                                "aria-labelledby": "three-tab"
+                              }
+                            },
+                            [
+                              _c("div", {}, [
+                                _c(
+                                  "div",
+                                  { staticClass: "verticalChart" },
+                                  [
+                                    _vm._l(_vm.comments_graph, function(
+                                      bar,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          staticClass: "singleBar"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "bar" }, [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "value",
+                                                style:
+                                                  "height: " +
+                                                  bar.percentage +
+                                                  "%;"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticStyle: {
+                                                      color:
+                                                        "rgb(45, 137, 239)",
+                                                      display: "inline"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        bar.percentage + "%"
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "title" }, [
+                                            _vm._v(_vm._s(bar.type))
+                                          ])
+                                        ]
+                                      )
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "clearfix" })
+                                  ],
+                                  2
+                                )
+                              ])
                             ]
                           ),
                           _vm._v(" "),
@@ -264463,6 +264157,68 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "card client" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(
+              "\n                        Cashed Out\n                        "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "card product" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("\n                        Upsell\n                        ")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "card time" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(
+              "\n                        Not Interested\n                        "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "card activity" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(
+              "\n                        More Info\n                        "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
@@ -264490,9 +264246,21 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
+        attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
+      }),
+      _vm._v(" \n                        Product \n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
         attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v("\n                        Time\n                    ")
+      _vm._v(" \n                        Time \n                    ")
     ])
   },
   function() {
@@ -264510,11 +264278,13 @@ var staticRenderFns = [
                 staticClass: "icon",
                 attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
               }),
-              _vm._v("\n                        Activity\n                    ")
+              _vm._v(
+                " \n                        Activity \n                    "
+              )
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v("\n                    Off-line\n                    ")
+              _vm._v(" \n                    Off-line \n                    ")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-link" }, [_vm._v("Online 2 Days ago")])
@@ -264615,7 +264385,7 @@ var staticRenderFns = [
           [
             _c("p", { staticClass: "card-text" }, [
               _vm._v(
-                "\n                                    Email client form\n                                "
+                " \n                                    Email client form \n                                "
               )
             ])
           ]
@@ -296736,8 +296506,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\uhustle\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\uhustle\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
