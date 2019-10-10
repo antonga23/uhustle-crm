@@ -3,10 +3,10 @@
   margin-bottom: 3.5vh;  
 }
 .top-section {
-    padding-top: 90px;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 80px;
+  padding-top: 90px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 80px;
 }
 .top-section .col-lg-3{
   padding: 0 10px; 
@@ -58,22 +58,22 @@ p.card-link{
   color: #fff; 
 } 
 .client-details {
-    background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);
-    padding-left:3%;
-    padding-right: 3%;
-    padding-bottom: 50px;
+  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);
+  padding-left:3%;
+  padding-right: 3%;
+  padding-bottom: 50px;
 }
 .client-details .card {
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
 }
 .client-details .card-body {
-    padding: 1.75rem;
+  padding: 1.75rem;
 }
 .stats.final-modal {
-    background-color: #f6f8f9;
-    padding-left:3%;
-    padding-right: 3%;
-    padding-bottom: 3%;
+  background-color: #f6f8f9;
+  padding-left:3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
 }
 .stats .card{ 
   border-radius: 20px;
@@ -428,10 +428,10 @@ a.down-scroll:hover{
     -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
   } 
   70% { 
-      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
   } 
   100% { 
-      -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1); 
+    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1); 
   } 
 } 
 @keyframes pulse { 
@@ -440,12 +440,12 @@ a.down-scroll:hover{
     box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
   } 
   70% { 
-      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
-      box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
   } 
   100% { 
-      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
-      box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
   } 
 } 
 .tab-content{ 
@@ -467,7 +467,6 @@ a.down-scroll:hover{
   border-top-right-radius: 19px; 
   padding: 0 11px 11px; 
   border-color: transparent; 
-
 } 
 .final-modal .card-header a[aria-selected="true"]{ 
   border-bottom: none; 
@@ -545,1322 +544,1412 @@ a.down-scroll:hover{
 } 
 </style> 
 <template> 
-    <div class=""> 
-        <!-- Scripts Section Starts --> 
-        <div class="scripts" v-if="scripts == true"> 
-            <div :class="{ 'row mx-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%"> 
- 
-                <div class="col-lg-12 px-0"> 
-                    <p class="heading px-0">Calls</p> 
-                </div> 
+  <div class=""> 
+    <!-- Scripts Section Starts --> 
+    <div class="scripts" v-if="scripts == true"> 
+        <div :class="{ 'row mx-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%"> 
 
-                <div> 
-                    <div class="card client"> 
-                        <div class="card-body"> 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">Cashed Out</p> 
-                        </div> 
-                    </div> 
-                </div> 
+            <div class="col-lg-12 px-0"> 
+                <p class="heading px-0">Calls</p> 
+            </div> 
 
-                <div> 
-                    <div class="card product"> 
-                        <div class="card-body"> 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">Upsell</p> 
-                        </div> 
-                    </div> 
-                </div> 
-
-                <div> 
-                    <div class="card time"> 
-                        <div class="card-body font-weight-bolder"> 
-                            <p class="card-text" :title="lead.name + ' ' + lead.surname">Not Interested</p> 
-                        </div> 
-                    </div> 
-                </div> 
- 
-                <div> 
-                    <div class="card activity"> 
-                        <div class="card-body"> 
-                            <p class="card-text font-weight-bolder" :title="lead.name + ' ' + lead.surname">More Info</p> 
-                        </div> 
+            <div> 
+                <div class="card client"> 
+                    <div class="card-body"> 
+                        <p class="card-text font-weight-bolder">Cashed Out</p> 
                     </div> 
                 </div> 
             </div> 
-        </div>   
-        <!-- Scripts Section ends --> 
- 
-        <!-- General Section Starts --> 
-        <div class="" v-if="general == true"> 
-            <div class="row mx-0 justify-content-between top-section">
-                <div class="col-lg-3"> 
-                    <p class="top">Lead Source</p> 
-                    <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
-                </div> 
-                
-                <div class="col-lg-3"> 
-                    <p class="top">Called</p> 
-                    <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-                </div> 
 
-                <div class="col-lg-3"> 
-                    <p class="top">Answers</p> 
-                    <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-                </div> 
-
-                <div class="col-lg-3"> 
-                    <p class="top">Sales</p> 
-                    <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
-                </div> 
-            </div> 
-            <div class="row mx-0 mb-0 justify-content-between client-details"> 
-                <div class="col-lg-3 col-md-4 col-sm-4 pl-0"> 
-                    <div class="card border-0 client"> 
-                        <div class="card-body"> 
-                            <h5 class="card-title"> 
-                                <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
-                                Client 
-                            </h5> 
-                            <p 
-                                class="card-text truncate" 
-                                :title="lead.name + ' ' + lead.surname"
-                            >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
-                            <div class="truncate w-100">
-                                <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
-                                <p class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
-                                <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
-                            </div> 
-                        </div> 
+            <div> 
+                <div class="card product"> 
+                    <div class="card-body"> 
+                        <p class="card-text font-weight-bolder">Upsell</p> 
                     </div> 
                 </div> 
-                <div class="col-lg-3"> 
-                    <div class="card border-0 product"> 
+            </div> 
+
+            <div> 
+                <div class="card time"> 
+                    <div class="card-body font-weight-bolder"> 
+                        <p class="card-text">Not Interested</p> 
+                    </div> 
+                </div> 
+            </div> 
+
+            <div> 
+                <div class="card activity"> 
+                    <div class="card-body"> 
+                        <p class="card-text font-weight-bolder">More Info</p> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div>   
+    <!-- Scripts Section ends --> 
+
+    <!-- General Section Starts --> 
+    <div class="" v-if="general == true"> 
+        <div class="row mx-0 justify-content-between top-section">
+            <div class="col-lg-3"> 
+                <p class="top">Lead Source</p> 
+                <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+            </div> 
+            
+            <div class="col-lg-3"> 
+                <p class="top">Called</p> 
+                <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+            </div> 
+
+            <div class="col-lg-3"> 
+                <p class="top">Answers</p> 
+                <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+            </div> 
+
+            <div class="col-lg-3"> 
+                <p class="top">Sales</p> 
+                <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
+            </div> 
+        </div> 
+        <div class="row mx-0 mb-0 justify-content-between client-details"> 
+            <div class="col-lg-3 col-md-4 col-sm-4 pl-0"> 
+                <div class="card border-0 client"> 
                     <div class="card-body"> 
                         <h5 class="card-title"> 
-                            <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
-                            Product 
+                            <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+                            Client 
                         </h5> 
                         <p 
-                            class="card-text" 
-                            :title="lead_info.product.description + '. ' + lead_info.product.price "
-                        >{{ lead_info.product.name }}</p> 
-                        <p class="card-link truncate w-100" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                            {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
-                        </p>  
-                    </div> 
-                    </div> 
-                </div> 
-
-                <div class="col-lg-3"> 
-                    <div class="card border-0 time"> 
-                        <div class="card-body"> 
-                            <h5 class="card-title"> 
-                                <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
-                                Time 
-                            </h5> 
-                            <p class="card-text">11:20</p>
-                            <div class="truncate"> 
-                                <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-                                <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
-                            </div>
+                            class="card-text truncate" 
+                            :title="lead.name + ' ' + lead.surname"
+                        >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
+                        <div class="truncate w-100">
+                            <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
+                            <p class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
+                            <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
                         </div> 
                     </div> 
                 </div> 
+            </div> 
+            <div class="col-lg-3"> 
+                <div class="card border-0 product"> 
+                <div class="card-body"> 
+                    <h5 class="card-title"> 
+                        <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+                        Product 
+                    </h5> 
+                    <p 
+                        class="card-text" 
+                        :title="lead_info.product.description + '. ' + lead_info.product.price "
+                    >{{ lead_info.product.name }}</p> 
+                    <p class="card-link truncate w-100" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                        {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
+                    </p>  
+                </div> 
+                </div> 
+            </div> 
 
-                <div class="col-lg-3 pr-0"> 
-                    <div class="card border-0 activity"> 
+            <div class="col-lg-3"> 
+                <div class="card border-0 time"> 
                     <div class="card-body"> 
                         <h5 class="card-title"> 
-                            <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
-                            Activity 
+                            <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+                            Time 
                         </h5> 
-                        <p class="card-text">Off-line</p> 
-                        <p class="card-link">Online 2 Days ago</p>  
-                    </div> 
-                    </div> 
-                </div> 
-            </div>       
-
-            <div class="row mx-0 mb-0 justify-content-between side-indentation stats final-modal"> 
-                <div class="col-lg-6 pl-0 pr-4"> 
-                    <div class="card left mt-3 border-0 tab-card"> 
-                        <div class="card-header tab-card-header border-bottom-0"> 
-                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
-                                <li class="nav-item left w-50"> 
-                                    <a 
-                                        class="nav-link" 
-                                        id="one-tab" 
-                                        data-toggle="tab" 
-                                        href="#one" 
-                                        role="tab" 
-                                        aria-controls="One" 
-                                        aria-selected="true"
-                                    > 
-                                        <img 
-                                            src="/images/workstation/Agent_Notes_Icon@4x.png" 
-                                            alt="Icon" 
-                                            class="icon" 
-                                            width="23"
-                                        /> 
-                                        <span class="left w-50">Agent Notes</span> 
-                                        <span class="right">{{ comments.total_comments }}</span> 
-                                    </a> 
-                                </li> 
-
-                                <li class="nav-item right w-50"> 
-                                    <a 
-                                        class="nav-link" 
-                                        id="two-tab" 
-                                        data-toggle="tab" 
-                                        href="#two" 
-                                        role="tab" 
-                                        aria-controls="Two" 
-                                        aria-selected="false"
-                                    > 
-                                        <img 
-                                            src="/images/workstation/Schedule_Callbacks.svg" 
-                                            alt="Icon" 
-                                            class="icon" 
-                                            width="23"
-                                        /> 
-                                        <span class="left">Schedule Callback</span> 
-                                    </a> 
-                                </li> 
-                            </ul> 
-                        </div> 
- 
-                        <div class="tab-content" id="myTabContent"> 
-                            <div 
-                                class="tab-pane fade show active p-3" 
-                                id="one" role="tabpanel" 
-                                aria-labelledby="one-tab"
-                            > 
-                                <div class="notes-roll"> 
-                                    <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
-                                        <li 
-                                            v-for="comment in comments.comments" 
-                                            class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
-                                            :key="comment.id"
-                                        > 
-                                            <p class="m-0"> 
-                                                <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                                                <span class="comment-notes d-block"> 
-                                                    {{ comment.description }}  
-                                                    <a 
-                                                        href="#" 
-                                                        role="button"
-                                                        @click="editComment(comment)" 
-                                                        :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
-                                                        v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
-                                                    > 
-                                                        <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
-                                                    </a> 
-                                                </span> 
-                                                <span class="author d-block"> 
-                                                    {{ comment.created_at }} <br/> 
-                                                    <small>{{ comment.user_name }}</small> 
-                                                </span> 
-                                            </p> 
-                                        </li> 
-                                    </ul> 
-                                </div> 
- 
-                                <div class="d-flex notes-capture"> 
-                                    <div class="flex-shrink-1">
-                                        <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                                            <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
-                                        </b-button>
-                                    </div>
-                                    <div class="flex-grow-1 mr-2"> 
-                                        <input 
-                                            class="comment-desc d-block w-100 border-0" 
-                                            type="text" 
-                                            v-model="comment.comment_description" 
-                                            placeholder="Write comment here"
-                                        /> 
-                                    </div>
-                                    <div class="flex-shrink-1">
-                                        <button 
-                                            id="send-btn" 
-                                            type="submit" 
-                                            class="btn btn-primary" 
-                                            @click="addComment()"
-                                        >Send</button>
-                                    </div> 
-                                </div>             
-                            </div> 
-                            <div 
-                                class="tab-pane fade pt-0 px-3 pb-3" 
-                                id="two" 
-                                role="tabpanel" 
-                                aria-labelledby="two-tab"
-                            >  
-                                <div class="row mx-0 mb-0"> 
-                                    <div class="col-lg-4 pr-0"> 
-                                        <div class="row"> 
-                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                <label class="col-lg-12 control-label p-0">Date of Callback 
-                                                    <a-date-picker 
-                                                        v-model='selected_date' 
-                                                        format="YYYY-MM-DD" 
-                                                        :allowEmpty="false"
-                                                        @change="checkCBDate()"
-                                                    /> 
-                                                </label> 
-                                            </div> 
-                                        </div> 
-                                         
-                                        <div class="row"> 
-                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                <label class="col-lg-12 control-label pl-0">Time of Callback 
-                                                    <a-time-picker 
-                                                        v-model='selected_time' 
-                                                        :allowEmpty="false" 
-                                                        use24Hours 
-                                                        format="hh:mm a"
-                                                    /> 
-                                                </label> 
-                                            </div>   
-                                        </div>                                        
-                                        <div class="row"> 
-                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                <label class="col-lg-12 control-label pr-0">
-                                                    <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
-                                                </label> 
-                                            </div>   
-                                        </div> 
-                                    </div> 
-                                    <div class="col-lg-8"> 
-                                        <vc-date-picker 
-                                            v-model="dates" 
-                                            mode="multiple" 
-                                            is-inline is-expanded  
-                                            :min-date='new Date()' 
-                                            :max-date="max_date" 
-                                            color="pink" 
-                                        /> 
-                                    </div> 
-                                </div> 
-                                <div class="row mb-0"> 
-                                    <div class="col-lg-12 pr-0"> 
-                                        <input 
-                                            class="comment-desc d-block w-75 border-0" 
-                                            type="text" 
-                                            v-model="call_back.note" 
-                                            placeholder="Write notes here"
-                                        /> 
-                                        <button 
-                                            id="send-btn" 
-                                            type="submit" 
-                                            class="btn btn-primary"
-                                            @click="addCallback()"
-                                        >Schedule</button> 
-                                    </div>   
-                                </div> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
- 
-                <div class="col-lg-6 pr-0 pl-4"> 
-                    <div class="card left mt-3 border-0 tab-card"> 
-                        <div class="card-header tab-card-header border-bottom-0"> 
-                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
-                                <li class="nav-item left w-50"> 
-                                    <a 
-                                        class="nav-link" 
-                                        id="three-tab" 
-                                        data-toggle="tab" 
-                                        href="#three" 
-                                        role="tab" 
-                                        aria-controls="Three" 
-                                        aria-selected="true"
-                                    > 
-                                        <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
-                                        <span class="left w-50">Feedback Summary</span> 
-                                        <span class="right">{{ comments.total_comments }}</span> 
-                                    </a> 
-                                </li> 
-                                <li class="nav-item right w-50"> 
-                                    <a 
-                                        class="nav-link" 
-                                        id="four-tab" 
-                                        data-toggle="tab" 
-                                        href="#four" 
-                                        role="tab" 
-                                        aria-controls="Four" 
-                                        aria-selected="false"
-                                    > 
-                                        <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
-                                        <span class="left">Email Client</span> 
-                                    </a> 
-                                </li> 
-                            </ul> 
-                        </div> 
- 
-                        <div class="tab-content" id="myTabContent"> 
-                            <div 
-                                class="tab-pane fade show active p-3" 
-                                id="three" 
-                                role="tabpanel" 
-                                aria-labelledby="three-tab" 
-                                style="height: 349px;"
-                            > 
-                                <div class=""> 
-                                    <div class="verticalChart w-100"> 
-                                        <div class="singleBar" v-for="bar in comments_graph"> 
-                                            <div class="bar"> 
-                                                <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                                                    <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                                                </div> 
-                                            </div> 
-
-                                            <div class="title">{{ bar.type }}</div> 
-                                        </div> 
-                                        <div class="clearfix"></div> 
-                                    </div> 
-                                </div>            
-                            </div> 
-                            <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
-                                <h5 class="card-title">TODO</h5> 
-                                <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
-                                    <p class="card-text"> 
-                                        Email client form 
-                                    </p> 
-                                </div> 
-                            </div> 
-                        </div> 
+                        <p class="card-text">11:20</p>
+                        <div class="truncate"> 
+                            <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+                            <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+                        </div>
                     </div> 
                 </div> 
             </div> 
-        </div> 
-        <!-- General Section Ends --> 
- 
-        <!-- Dialer Section Starts --> 
-        <div class="" v-if="idle == true"> 
-            <div 
-                :class="{ 'row idle-div mt-0' : true }" 
-                data-aos="fade-up" 
-                data-aos-duration="700" 
-                data-aos-offset="700" 
-                style="margin-top: 1%"
-            > 
-                <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"></div> 
-            </div> 
 
-            <div class="row"> 
-                <div class="col-lg-12 tip call-status" style="padding-top:10px;"> 
-                    <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1> 
+            <div class="col-lg-3 pr-0"> 
+                <div class="card border-0 activity"> 
+                <div class="card-body"> 
+                    <h5 class="card-title"> 
+                        <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+                        Activity 
+                    </h5> 
+                    <p class="card-text">Off-line</p> 
+                    <p class="card-link">Online 2 Days ago</p>  
                 </div> 
- 
-                <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks"> 
-                    <p>Show Education</p> 
-                    <a href="#" class="down-scroll d-block" @click="show_edication_blocks = true;"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 120.png" alt="Scroll Down" /> 
-                    </a> 
-                </div> 
- 
-                <div class="col-lg-3 col-md-3 idle-footer"  v-if="show_edication_blocks"> 
-                    <p>Hide Education</p> 
-                    <a href="#" class="down-scroll d-block" @click="show_edication_blocks = false;"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 119.png" alt="Scroll Down" /> 
-                    </a> 
                 </div> 
             </div> 
+        </div>       
 
-            <div class="row idle-education justify-content-center" v-if="show_edication_blocks"> 
-                <div class="col-lg-10"> 
-                    <div class="col-lg-4 text-center"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
-                        <p>Education</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                    <div class="col-lg-4"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
-                        <p>Clients</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                    <div class="col-lg-4"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
-                        <p>Commission</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                    <div class="col-lg-4"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
-                        <p>Upselling</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                    <div class="col-lg-4"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
-                        <p>Breaking the Ice</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                    <div class="col-lg-4"> 
-                        <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
-                        <p>Callbacks</p> 
-                        <a href="#" class="down-scroll d-block"> 
-                            <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-                        </a> 
-                    </div> 
-                </div> 
-            </div> 
-        </div> 
-        <!-- Dialer Section Ends --> 
- 
-        <!-- Active calls Section Starts --> 
-        <div class="" v-if="active_calls == true"> 
-            <div class="row stats scroll-hidden w-100 mx-0" style="margin-top: 6%"> 
-                <div class="col-lg-12"> 
-                    <vcl-table v-if="show_page_loader === true"></vcl-table> 
-                    <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable> 
-                </div> 
-            </div> 
-        </div> 
-        <!-- Active calls Section Ends --> 
- 
-        <!-- Modals Section Starts --> 
-        <div> 
-            <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal"> 
-                <div class="d-block"> 
-                    <div class="row"> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio> 
-                        </div> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio> 
-                        </div> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio> 
-                        </div> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio> 
-                        </div> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio> 
-                        </div> 
-                        <div class="col-lg-6"> 
-                            <b-form-radio v-model="comment.comment_type" name="some-radios" value="PTP">Promise To Pay</b-form-radio> 
-                        </div> 
-                    </div> 
-                </div> 
-            </b-modal> 
- 
-            <b-modal 
-                id="modal-prevent-closing" 
-                size="xl" 
-                ref="final-call-step" 
-                title="" 
-                v-on:mouseleave="mouseLeave" 
-                @hide="preventClosing" 
-                style="z-index: 999999;padding: 1rem 3rem;" 
-                hide-header 
-                hide-footer 
-            > 
-                <div class="final-modal"> 
-                    <div class="row row-a w-100 ml-0"> 
-                        <div class="col-lg-6" style="padding-left: 6%;"> 
-                            <ul class="navbar-nav left"> 
-                                <li class="nav-item d-none d-sm-inline-block title"> 
-                                    <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort"> 
-                                        <template 
-                                            slot-scope="props" 
-                                            style="font-size: 55px;"
-                                        >{{ props.minutes }}:{{ props.seconds }}</template> 
-                                    </countdown> 
-                                </li>  
-                            </ul> 
-                        </div> 
-
-                        <div class="col-lg-6 pr-0" style="padding-top:2%;"> 
-                            <div class="w-100"> 
-                                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;"> 
-                                    <button 
-                                        v-if="added_time" 
-                                        @click="addTime"  
-                                        type="submit" 
-                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
-                                        class="w-100 m-0" 
-                                        disabled
-                                    > 
-                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
-                                    </button> 
-                                    <button 
-                                        v-else @click="addTime"  
-                                        type="submit" 
-                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
-                                        class="w-100 m-0"
-                                    > 
-                                        <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
-                                    </button> 
-                                </label> 
-                                <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
-                                    <button 
-                                        @click="completeCall" 
-                                        type="submit" 
-                                        :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }" 
-                                        class="w-100 m-0"
-                                    > 
-                                        <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete 
-                                    </button> 
-                                </label> 
-                                <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
+        <div class="row mx-0 mb-0 justify-content-between side-indentation stats final-modal"> 
+            <div class="col-lg-6 pl-0 pr-4"> 
+                <div class="card left mt-3 border-0 tab-card"> 
+                    <div class="card-header tab-card-header border-bottom-0"> 
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+                            <li class="nav-item left w-50"> 
+                                <a 
+                                    class="nav-link" 
+                                    id="one-tab" 
+                                    data-toggle="tab" 
+                                    href="#one" 
+                                    role="tab" 
+                                    aria-controls="One" 
+                                    aria-selected="true"
+                                > 
                                     <img 
-                                        src="/images/icons/Asset 56.svg" 
+                                        src="/images/workstation/Agent_Notes_Icon@4x.png" 
                                         alt="Icon" 
                                         class="icon" 
-                                        style="width: 60px;margin-top: -13px;"/
-                                    > 
-                                </label> 
-                            </div>               
-                        </div> 
+                                        width="23"
+                                    /> 
+                                    <span class="left w-50">Agent Notes</span> 
+                                    <span class="right">{{ comments.total_comments }}</span> 
+                                </a> 
+                            </li> 
+
+                            <li class="nav-item right w-50"> 
+                                <a 
+                                    class="nav-link" 
+                                    id="two-tab" 
+                                    data-toggle="tab" 
+                                    href="#two" 
+                                    role="tab" 
+                                    aria-controls="Two" 
+                                    aria-selected="false"
+                                > 
+                                    <img 
+                                        src="/images/workstation/Schedule_Callbacks.svg" 
+                                        alt="Icon" 
+                                        class="icon" 
+                                        width="23"
+                                    /> 
+                                    <span class="left">Schedule Callback</span> 
+                                </a> 
+                            </li> 
+                        </ul> 
                     </div> 
 
-                    <div class="row"> 
-                        <div class="col-lg-4 col-md-4 col-sm-4 pl-0"> 
-                            <div class="card border-0 client"> 
-                            <div class="card-body"> 
-                                <h5 class="card-title"> 
-                                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
-                                    Client 
-                                </h5> 
-                                <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">{{ lead_info.name + ' ' + lead_info.surname }}</p> 
-                                <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
-                            </div> 
-                            </div> 
-                        </div> 
-                        <div class="col-lg-4 col-md-4 col-sm-4"> 
-                            <div class="card border-0 product"> 
-                                <div class="card-body"> 
-                                    <h5 class="card-title"> 
-                                        <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
-                                        Product 
-                                    </h5> 
-                                    <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                                    {{ lead_info.product.name }} 
-                                    </p> 
-                                    <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                                        {{ lead_info.product.description }} 
-                                    </p>  
-                                </div> 
-                            </div> 
-                        </div> 
-                    
-                        <div class="col-lg-4 col-md-4 col-sm-4"> 
-                            <div class="card border-0 time"> 
-                            <div class="card-body"> 
-                                <h5 class="card-title"> 
-                                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
-                                    Time 
-                                </h5> 
-                                <p class="card-text">11:20 AM</p> 
-                                <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
-                            </div> 
-                            </div> 
-                        </div> 
-                    </div>     
-
-                    <div class="row stats final-modal"> 
-                        <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
-                            <div class="card left mt-3 border-0 tab-card"> 
-                                <div class="card-header tab-card-header"> 
-                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
-                                        <li class="nav-item left"> 
-                                            <a 
-                                                class="nav-link" 
-                                                id="one-tab" 
-                                                data-toggle="tab" 
-                                                href="#one" 
-                                                role="tab" 
-                                                aria-controls="One" 
-                                                aria-selected="true"
-                                            > 
-                                                <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
-                                                <span class="left w-50">Agent Notes</span> 
-                                                <span class="right w-50">{{ comments.total_comments }}</span> 
-                                            </a> 
-                                        </li> 
-                                        <li class="nav-item right"> 
-                                            <a 
-                                                class="nav-link" 
-                                                id="two-tab" 
-                                                data-toggle="tab" 
-                                                href="#two" 
-                                                role="tab" 
-                                                aria-controls="Two" 
-                                                aria-selected="false"
-                                            > 
-                                                <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
-                                                <span class="left">Schedule Callback</span> 
-                                            </a> 
-                                        </li> 
-                                    </ul> 
-                                </div> 
- 
-                                <div class="tab-content" id="myTabContent"> 
-                                    <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
-                                        <div class="notes-roll"> 
-                                            <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
-                                                <li 
-                                                    v-for="comment in comments.comments" 
-                                                    class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
-                                                    :key="comment.id"
-                                                > 
-                                                    <p class="m-0"> 
-                                                        <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                                                        <span class="comment-notes d-block" style="width: 54%;"> 
-                                                            {{ comment.description }}  
-                                                            <a 
-                                                                href="#" 
-                                                                role="button"
-                                                                @click="editComment(comment)" 
-                                                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
-                                                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
-                                                            > 
-                                                                <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
-                                                            </a> 
-                                                        </span> 
-                                                        <span class="author d-block w-25"> 
-                                                            {{ comment.created_at }} <br/> 
-                                                            <small>{{ comment.user_name }}</small> 
-                                                        </span> 
-                                                    </p> 
-                                                </li> 
-                                            </ul> 
-                                        </div> 
- 
-                                        <div class="d-flex notes-capture"> 
-                                            <div class="flex-shrink-1">
-                                                <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                                                    <img 
-                                                        src="/images/workstation/Asset 28@4x.png" 
-                                                        alt="Icon" 
-                                                        class="icon w-100"
-                                                    > 
-                                                </b-button>
-                                            </div>
-                                            <div class="flex-grow-1 mr-2"> 
-                                                <input 
-                                                    class="comment-desc d-block w-100 border-0" 
-                                                    type="text" 
-                                                    v-model="comment.comment_description" 
-                                                    placeholder="Write comment here"
-                                                />
-                                            </div>
-                                            <div class="flex-shrink-1"> 
-                                                <button 
-                                                    id="send-btn" 
-                                                    type="submit" 
-                                                    class="btn btn-primary" 
-                                                    @click="addComment()"
-                                                >Send</button>
-                                            </div> 
-                                        </div>             
-                                    </div> 
-                                    <div 
-                                        class="tab-pane fade pt-0 px-3 pb-3" 
-                                        id="two" 
-                                        role="tabpanel" 
-                                        aria-labelledby="two-tab"
-                                    >  
-                                        <div class="row mb-0 mx-0"> 
-                                            <div class="col-lg-4 pr-0"> 
-                                                <div class="row"> 
-                                                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                        <label class="col-lg-12 control-label p-0">Date of Callback 
-                                                            <a-date-picker 
-                                                                v-model='selected_date' 
-                                                                format="YYYY-MM-DD" 
-                                                                :allowEmpty="false"
-                                                                @change="checkCBDate()"
-                                                            /> 
-                                                        </label> 
-                                                    </div> 
-                                                </div> 
-                                                 
-                                                <div class="row"> 
-                                                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                        <label class="col-lg-12 control-label pl-0">Time of Callback 
-                                                            <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/> 
-                                                        </label> 
-                                                    </div>   
-                                                </div>     
-
-                                                <div class="row"> 
-                                                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                                                        <label class="col-lg-12 control-label pl-0">
-                                                            <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
-                                                        </label> 
-                                                    </div>   
-                                                </div> 
-                                            </div> 
-                                            
-                                            <div class="col-lg-8"> 
-                                                <vc-date-picker 
-                                                    v-model="dates" 
-                                                    mode="multiple" 
-                                                    is-inline 
-                                                    is-expanded  
-                                                    :min-date='new Date()' 
-                                                    :max-date="max_date" color="pink" 
-                                                /> 
-                                            </div> 
-                                        </div> 
-                                        <div class="row mb-0"> 
-                                            <div class="col-lg-12 pr-0"> 
-                                                <input 
-                                                    class="comment-desc d-block w-75 border-0" 
-                                                    type="text" 
-                                                    v-model="call_back.note" 
-                                                    placeholder="Write notes here" 
-                                                    style="width: 72.5%;" 
-                                                /> 
-                                                <button 
-                                                    id="send-btn" 
-                                                    type="submit" 
-                                                    class="btn btn-primary" 
-                                                    style="width:100px;" 
-                                                    @click="addCallback()"
-                                                >Schedule</button> 
-                                            </div>   
-                                        </div> 
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div> 
- 
-                        <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
-                            <div class="card left mt-3 border-0 tab-card"> 
-                                <div class="card-header tab-card-header"> 
-                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
-                                        <li class="nav-item left"> 
-                                            <a 
-                                                class="nav-link" 
-                                                id="three-tab" 
-                                                data-toggle="tab" 
-                                                href="#three" 
-                                                role="tab" 
-                                                aria-controls="Three" 
-                                                aria-selected="true"
-                                            > 
-                                                <img 
-                                                    src="/images/workstation/Feedback_Summary.svg" 
-                                                    alt="Icon" 
-                                                    class="icon"
-                                                    width="23"
-                                                /> 
-                                                <span class="left">Feedback Summary</span> 
-                                                <span class="right">{{ comments.total_comments }}</span> 
-                                            </a> 
-                                        </li> 
-                                        <li class="nav-item right"> 
-                                            <a 
-                                                class="nav-link" 
-                                                id="four-tab" 
-                                                data-toggle="tab" 
-                                                href="#four" 
-                                                role="tab" 
-                                                aria-controls="Four" 
-                                                aria-selected="false"
-                                            > 
-                                                <img 
-                                                    src="/images/workstation/Email_Client.svg" 
-                                                    alt="Icon" 
-                                                    class="icon" 
-                                                    width="23"
-                                                /> 
-                                                <span class="left">Email Client</span> 
-                                            </a> 
-                                        </li> 
-                                    </ul> 
-                                </div> 
- 
-                                <div class="tab-content" id="myTabContent"> 
-                                    <div 
-                                        class="tab-pane fade show active p-3" 
-                                        id="three" 
-                                        role="tabpanel" 
-                                        aria-labelledby="three-tab" 
-                                        style="height: 349px;"
-                                    >
-                                        <div class=""> 
-                                            <div class="verticalChart"> 
-                                                <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
-                                                    <div class="bar"> 
-                                                        <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                                                            <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                                                        </div> 
-                                                    </div> 
- 
-                                                    <div class="title">{{ bar.type }}</div> 
-                                                </div> 
-                                                <div class="clearfix"></div> 
-                                            </div> 
-                                        </div>            
-                                    </div> 
-                                    <div 
-                                        class="tab-pane fade p-3" 
-                                        id="four" 
-                                        role="tabpanel" 
-                                        aria-labelledby="four-tab"
+                    <div class="tab-content" id="myTabContent"> 
+                        <div 
+                            class="tab-pane fade show active p-3" 
+                            id="one" role="tabpanel" 
+                            aria-labelledby="one-tab"
+                        > 
+                            <div class="notes-roll"> 
+                                <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
+                                    <li 
+                                        v-for="comment in comments.comments" 
+                                        class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                                        :key="comment.id"
                                     > 
-                                        <h5 class="card-title">TODO</h5> 
-                                        <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
-                                            <p class="card-text"> 
-                                                Email client form 
-                                            </p> 
+                                        <p class="m-0"> 
+                                            <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
+                                            <span class="comment-notes d-block"> 
+                                                {{ comment.description }}  
+                                                <a 
+                                                    href="#" 
+                                                    role="button"
+                                                    @click="editComment(comment)" 
+                                                    :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                                                    v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                                                > 
+                                                    <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
+                                                </a> 
+                                            </span> 
+                                            <span class="author d-block"> 
+                                                {{ comment.created_at }} <br/> 
+                                                <small>{{ comment.user_name }}</small> 
+                                            </span> 
+                                        </p> 
+                                    </li> 
+                                </ul> 
+                            </div> 
+
+                            <div class="d-flex notes-capture"> 
+                                <div class="flex-shrink-1">
+                                    <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
+                                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
+                                    </b-button>
+                                </div>
+                                <div class="flex-grow-1 mr-2"> 
+                                    <input 
+                                        class="comment-desc d-block w-100 border-0" 
+                                        type="text" 
+                                        v-model="comment.comment_description" 
+                                        placeholder="Write comment here"
+                                    /> 
+                                </div>
+                                <div class="flex-shrink-1">
+                                    <button 
+                                        id="send-btn" 
+                                        type="submit" 
+                                        class="btn btn-primary" 
+                                        @click="addComment()"
+                                    >Send</button>
+                                </div> 
+                            </div>             
+                        </div> 
+                        <div 
+                            class="tab-pane fade pt-0 px-3 pb-3" 
+                            id="two" 
+                            role="tabpanel" 
+                            aria-labelledby="two-tab"
+                        >  
+                            <div class="row mx-0 mb-0"> 
+                                <div class="col-lg-4 pr-0"> 
+                                    <div class="row"> 
+                                        <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                                            <label class="col-lg-12 control-label p-0">Date of Callback 
+                                                <a-date-picker 
+                                                    v-model='selected_date' 
+                                                    format="YYYY-MM-DD" 
+                                                    :allowEmpty="false"
+                                                    @change="checkCBDate()"
+                                                /> 
+                                            </label> 
                                         </div> 
                                     </div> 
+                                      
+                                    <div class="row"> 
+                                        <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                                            <label class="col-lg-12 control-label pl-0">Time of Callback 
+                                                <a-time-picker 
+                                                    v-model='selected_time' 
+                                                    :allowEmpty="false" 
+                                                    use24Hours 
+                                                    format="hh:mm a"
+                                                /> 
+                                            </label> 
+                                        </div>   
+                                    </div>                                        
+                                    <div class="row"> 
+                                        <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                                            <label class="col-lg-12 control-label pr-0">
+                                                <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                                            </label> 
+                                        </div>   
+                                    </div> 
                                 </div> 
+                                <div class="col-lg-8"> 
+                                    <vc-date-picker 
+                                        v-model="dates" 
+                                        mode="multiple" 
+                                        is-inline is-expanded  
+                                        :min-date='new Date()' 
+                                        :max-date="max_date" 
+                                        color="pink" 
+                                    /> 
+                                </div> 
+                            </div> 
+                            <div class="row mb-0"> 
+                                <div class="col-lg-12 pr-0"> 
+                                    <input 
+                                        class="comment-desc d-block w-75 border-0" 
+                                        type="text" 
+                                        v-model="call_back.note" 
+                                        placeholder="Write notes here"
+                                    /> 
+                                    <button 
+                                        id="send-btn" 
+                                        type="submit" 
+                                        class="btn btn-primary"
+                                        @click="addCallback()"
+                                    >Schedule</button> 
+                                </div>   
                             </div> 
                         </div> 
                     </div> 
                 </div> 
-            </b-modal> 
+            </div> 
+
+            <div class="col-lg-6 pr-0 pl-4"> 
+                <div class="card left mt-3 border-0 tab-card"> 
+                    <div class="card-header tab-card-header border-bottom-0"> 
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+                            <li class="nav-item left w-50"> 
+                                <a 
+                                    class="nav-link" 
+                                    id="three-tab" 
+                                    data-toggle="tab" 
+                                    href="#three" 
+                                    role="tab" 
+                                    aria-controls="Three" 
+                                    aria-selected="true"
+                                > 
+                                    <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
+                                    <span class="left w-50">Feedback Summary</span> 
+                                    <span class="right">{{ comments.total_comments }}</span> 
+                                </a> 
+                            </li> 
+                            <li class="nav-item right w-50"> 
+                                <a 
+                                    class="nav-link" 
+                                    id="four-tab" 
+                                    data-toggle="tab" 
+                                    href="#four" 
+                                    role="tab" 
+                                    aria-controls="Four" 
+                                    aria-selected="false"
+                                > 
+                                    <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
+                                    <span class="left">Email Client</span> 
+                                </a> 
+                            </li> 
+                        </ul> 
+                    </div> 
+
+                    <div class="tab-content" id="myTabContent"> 
+                        <div 
+                            class="tab-pane fade show active p-3" 
+                            id="three" 
+                            role="tabpanel" 
+                            aria-labelledby="three-tab" 
+                            style="height: 349px;"
+                        > 
+                            <div class=""> 
+                                <div class="verticalChart w-100"> 
+                                    <div class="singleBar" v-for="bar in comments_graph"> 
+                                        <div class="bar"> 
+                                            <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                                                <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                                            </div> 
+                                        </div> 
+
+                                        <div class="title">{{ bar.type }}</div> 
+                                    </div> 
+                                    <div class="clearfix"></div> 
+                                </div> 
+                            </div>            
+                        </div> 
+                        <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
+                            <h5 class="card-title">TODO</h5> 
+                            <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
+                                <p class="card-text"> 
+                                    Email client form 
+                                </p> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
         </div> 
-         
-         <input type="hidden"  @click="startCall()" ref="callBtn" /> 
     </div> 
-</template> 
- 
-<script> 
-    import { setupCalendar, Calendar} from 'v-calendar' 
-    import { DatePicker,TimePicker  } from 'ant-design-vue'; 
-    import { Bar } from 'vue-chartjs'; 
-    import { BarChart } from 'vue-morris'; 
-    import NotesStats from './NotesStats.vue'; 
-    import FlipCountdown from 'vue2-flip-countdown'; 
-    import DataTable from '../DataTables/CallLogsDataTable'; 
-    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading'; 
-    const Device = require('twilio-client').Device; 
-    export default { 
-        extends: Bar, 
-        components: {  
-            BarChart, 
-            FlipCountdown, 
-            VclFacebook, 
-            VclInstagram, 
-            VclTable, 
-            'datatable' : DataTable, 
-            'notes-stats' : NotesStats  
-        }, 
-        mounted() { 
- 
-            var vm = this; 
-             
-            if( vm.lead_id != ''){ 
-                vm.enqueueLead(vm.lead_id); 
-                vm.general = true; 
-                vm.active_calls = false; 
- 
-                // vm.addEvent(document, "mouseout", function(e) { 
-                //     e = e ? e : window.event; 
-                //     var from = e.relatedTarget || e.toElement; 
-                //     if (!from || from.nodeName == "HTML") { 
-                //         // stop your drag event here 
-                //         // for now we can just use an alert 
-                //         vm.completeCall(); 
-                //     } 
-                // }); 
-            }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){ 
-                vm.active_calls = true; 
-                Fire.$emit('ShowActiveCalls'); 
-            }else{ 
-                vm.general = false; 
-                vm.scripts = false; 
-                vm.idle = true; 
-                vm.active_calls = false; 
-            } 
-             
-            vm.getActiveCalls(); 
- 
-            vm.prepDates(); 
- 
-            vm.dialer_settings = JSON.parse(vm.auto_dialer_settings); 
- 
-            Fire.$on('CallStarted', function(){ 
-                vm.general = false; 
-                vm.idle = true; 
-                vm.scripts = false; 
-                vm.active_calls = false; 
-                vm.startCall(); 
-            }); 
- 
-            Fire.$on('CallEnded', function(){ 
-                vm.endCall(); 
-            }); 
- 
-            Fire.$on( 'ShowScripts', function(){ 
-                vm.scripts = true; 
-                vm.general = false; 
-                vm.idle = false; 
-                vm.active_calls = false; 
-            }); 
- 
-            Fire.$on('ShowGeneral', function(){ 
-                vm.general = true; 
-                vm.scripts = false; 
-                vm.idle = false; 
-                vm.active_calls = false; 
-            }); 
- 
-            Fire.$on('ShowActiveCalls', function(){ 
-                vm.general = false; 
-                vm.scripts = false; 
-                vm.idle = false; 
-                vm.active_calls = true; 
-            }); 
- 
-            Fire.$on( 'ShowDialer', function(){ 
-                vm.general = false; 
-                vm.scripts = false; 
-                vm.idle = true; 
-                vm.active_calls = false; 
-            }); 
- 
-            this.Toast = this.$swal.mixin({ 
-                toast: true, 
-                position: 'top-end', 
-                showConfirmButton: false, 
-                timer: 3000 
-            }); 
-        }, 
-        created: function () { 
-        }, 
-        props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'], 
-        data: function(){ 
-            return { 
-                lead : {}, 
-                conferences: [], 
-                lead_info : { 
-                    product: {}, 
-                }, 
-                call_counts : {}, 
-                product : {}, 
-                comments : {}, 
-                comments_graph : {}, 
-                notes_data: [], 
-                minimized: false, 
-                scripts: false, 
-                general: false, 
-                active_calls: false, 
-                calling: false, 
-                show_edication_blocks: false, 
-                idle: false, 
-                added_time: false, 
-                choose_comment_type: false, 
-                edit_comment: false, 
-                continues: false, 
-                show_page_loader: false, 
-                call_status: '', 
-                call_sid: '', 
-                handle: '', 
-                set_time: 2  * 60 * 1000, 
-                comment:{ 
-                    id: '', 
-                    comment_description :'', 
-                    comment_type :'' 
-                }, 
-                call_back:{ 
-                    id: '', 
-                    note :'', 
-                    date :'', 
-                    time :'', 
-                    user_id: this.user_id, 
-                    lead_id: '', 
-                    call_sid: this.call_sid 
-                }, 
-                date_span: '', 
-                max_date: '', 
-                selected_date: moment(), 
-                selected_time:  moment(), 
-                dates: [], 
-                dialer_settings: [], 
-                columns:[ 
-                    { 
-                        label: 'CALLER',  // Column name 
-                        field: 'lead_caller',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'TYPE',  // Column name 
-                        field: 'lead_type',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'NAME',  // Column name 
-                        field: 'lead_name',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'OWNER',  // Column name 
-                        field: 'lead_owner',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'ASSIGNEE',  // Column name 
-                        field: 'lead_assignee',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'MOBILE #',  // Column name 
-                        field: 'lead_mobile',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'PACKAGE',  // Column name 
-                        field: 'lead_product',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true, 
-                        exportable: true 
-                    }, 
-                    { 
-                        label: 'CALL START',  // Column name 
-                        field: 'dateCreated',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:true 
-                    }, 
-                    { 
-                        label: 'STATUS',  // Column name 
-                        field: 'status',  // Field name from row 
-                        numeric: true, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:false 
-                    }, 
-                    { 
-                        label: 'ACTIONS',  // Column name 
-                        field: 'actions',  // Field name from row 
-                        numeric: false, // Affects sorting 
-                        html: false,    // Escapes output if false. 
-                        sortable:false 
-                    }, 
-                ], 
-                Toast: null 
-            } 
-        }, 
-        methods: { 
-            getActiveCalls(){ 
-                var vm = this; 
-                vm.show_page_loader = true; 
-                setInterval(function(){  
-                    axios.get('/calls/list').then(function (response) {  
-                        vm.conferences = response.data.conferences; 
-                        vm.show_page_loader = false; 
-                    }); 
-                }, 2000); 
-            }, 
-            checkCBDate(){ 
-                var now = moment(new Date()); //todays date 
-                 
-                var end = this.selected_date; // another date 
- 
-                var duration = moment.duration(end.diff(now)); 
- 
-                var days = Math.round( duration.asDays() ); 
- 
-                if(days < 1 || days >= this.date_span){ 
-                    this.$swal('Oops', 'Please select a date between the highlighted range.','warning'); 
-                }else{ 
-                    return true; 
-                } 
-            }, 
-            addCallback(){ 
-                var vm = this; 
- 
-                if(!this.checkCBDate() || this.call_back.note == ''){ 
-                    this.$swal('Oops', 'Please make sure to fill in the Date, Time and Note of the Callback properly.','warning'); 
-                }else{ 
-                    vm.call_back.date = vm.selected_date.format('YYYY-MM-DD'); 
-                    vm.call_back.time = vm.selected_time.format('hh:mm'); 
-                    vm.call_back.user_id = vm.user_id; 
-                    vm.call_back.lead_id = vm.lead_info.id; 
- 
-                    this.$validator.validateAll().then((result) => { 
-                        if(!result){ 
-                        }else{ 
-                             
-                            axios.post('/leads/setcallback', vm.call_back).then(function (response) { 
-                                 
-                                if(response.data.success == true){ 
-                                    Fire.$emit('AfterCallBackSet'); 
-                                    vm.enqueueLead(response.data.lead.id); 
-                                    vm.$swal('Success', 'Callback captured successfully','success'); 
-                                    vm.continues = true; 
- 
-                                }else{ 
-                                    vm.$Progress.fail(); 
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning'); 
-                                } 
- 
-                            }); 
-                        } 
-                    }); 
-                } 
-                 
-            }, 
-            prepDates(){ 
-                this.date_span = 7; 
-                this.dates = [ 
-                    { start: new Date(), span: this.date_span} 
-                ]; 
-                var date = new Date(); 
-                this.max_date = date.setDate(date.getDate() + (this.date_span - 1)); 
-            }, 
-            preventClosing(BvModalEvent){ 
-                var vm = this; 
-                if(BvModalEvent.trigger == 'backdrop') 
-                    BvModalEvent.preventDefault(); 
-            }, 
-            mouseLeave(event){ 
-                console.log(event.pageX);  
-                console.log(event.pagey); 
-            }, 
-            addEvent(obj, evt, fn) { 
-                if (obj.addEventListener) { 
-                    obj.addEventListener(evt, fn, false); 
-                } 
-                else if (obj.attachEvent) { 
-                    obj.attachEvent("on" + evt, fn); 
-                } 
-            }, 
-            toggleModal() { 
-                // We pass the ID of the button that we want to return focus to 
-                // when the modal has hidden 
-                this.$refs['my-modal'].toggle('#toggle-btn') 
-            }, 
-            resetModal() { 
-                this.comment.comment_description = ''; 
-                this.comment.comment_type = ''; 
-            }, 
-            completeCall(){ 
-                var vm = this; 
-                axios.post('/comments/check-exist', { 'lead_id' : vm.lead_info.id, 'source_type' : "App\\Lead" }).then(function (response) { 
-                    if(response.data.success){ 
-                        vm.continues = true; 
-                        vm.$refs['final-call-step'].hide(); 
-                    }else{ 
-                        vm.$swal('Warning','Please updated Notes or Callback information before continuing','warning'); 
-                    } 
-                }).catch(function (error) {                     
-                    console.log(error); 
-                }); 
-                 
-            }, 
-            handleCountdownProgress(data) { 
-                this.set_time = data.totalMilliseconds; 
-            }, 
-            handleAbort(data) { 
-            }, 
-            addTime(){ 
-                this.set_time = 2  * 60 * 1000; 
-                this.added_time = true; 
-            }, 
-            enqueueLead(lead_id = ''){ 
-                var vm = this; 
- 
-                var end_point_choice = '/leads/get/' + lead_id; 
-               
-                vm.show_page_loader = true; 
- 
-                vm.$Progress.start(); 
- 
-                axios.get(end_point_choice).then(function (response) { 
-                     
-                    if(response.data.success == true){ 
-                        vm.lead = response.data; 
-                        vm.lead_info = response.data.lead; 
-                        vm.call_counts = response.data.call_counts; 
-                        vm.product = response.data.product; 
-                        vm.comments = response.data.comments; 
-                        vm.comments_graph = response.data.comments.comments_graph; 
-                        vm.comment.comment_description = ''; 
-                        vm.comment.comment_type = ''; 
-                        vm.added_time = false; 
-                        vm.continues = false; 
-                         
-                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number }); 
- 
-                        vm.show_page_loader = false; 
-                        vm.$Progress.finish(); 
- 
-                        if(vm.role_id == vm.dialer_settings.applies_to_role && vm.dialer_settings.value == 'on'){  
-                            axios.get('/calls/token').then(function (response) { 
-                                console.log('Token',response.data.token); 
-                                // Setup Twilio.Device 
-                                Device.setup(response.data.token); 
-             
-                                Device.on('ready',function (device) { 
-                                    vm.call_status = 'Device Ready'; 
- 
-                                    vm.$refs.callBtn.click(); 
-                                }); 
- 
-                                Device.on('error',function (error) { 
-                                    vm.call_status = 'Device Error: ' + error.message; 
-                                }); 
- 
-                                Device.on('connect',function (conn) { 
-                                    vm.call_status = 'Successfully established call'; 
-                                    vm.call_back.call_sid = conn.parameters.CallSid; 
-                                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) { 
-                                         
-                                    }).catch(function (error) {                     
-                                        console.log(error); 
-                                    }); 
-                                }); 
- 
-                                Device.on('incoming', function (conn) { 
-                                    console.log('Incoming connection from ' + conn.parameters.From); 
-                                    var archEnemyPhoneNumber = '+12099517118'; 
-                             
-                                    if (conn.parameters.From === archEnemyPhoneNumber) { 
-                                        conn.reject(); 
-                                        console.log('It\'s your nemesis. Rejected call.'); 
-                                    } else { 
-                                        // accept the incoming connection and start two-way audio 
-                                        conn.accept(); 
-                                    } 
-                                }); 
- 
-                                Device.on('disconnect',function (conn) { 
-                                    vm.call_status = 'Call Disconnected'; 
-                                    vm.$refs['final-call-step'].show(); 
-                                }); 
- 
-                                vm.$Progress.finish(); 
-                                 
-                            }).catch(function (error) {                     
-                                console.log(error); 
-                            }); 
-                        } 
- 
-                    }else{ 
-                        vm.$Progress.fail(); 
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning'); 
-                    } 
-                }); 
+    <!-- General Section Ends --> 
+
+    <!-- Dialer Section Starts --> 
+    <div class="" v-if="idle == true"> 
+        <div 
+            :class="{ 'row idle-div mt-0' : true }" 
+            data-aos="fade-up" 
+            data-aos-duration="700" 
+            data-aos-offset="700" 
+            style="margin-top: 1%"
+        > 
+            <div :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"></div> 
+        </div> 
+
+        <div class="row"> 
+            <div class="col-lg-12 tip call-status" style="padding-top:10px;"> 
+                <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1> 
+            </div> 
+
+            <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks"> 
+                <p>Show Education</p> 
+                <a href="#" class="down-scroll d-block" @click="show_edication_blocks = true;"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 120.png" alt="Scroll Down" /> 
+                </a> 
+            </div> 
+
+            <div class="col-lg-3 col-md-3 idle-footer"  v-if="show_edication_blocks"> 
+                <p>Hide Education</p> 
+                <a href="#" class="down-scroll d-block" @click="show_edication_blocks = false;"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 119.png" alt="Scroll Down" /> 
+                </a> 
+            </div> 
+        </div> 
+
+        <div class="row idle-education justify-content-center" v-if="show_edication_blocks"> 
+            <div class="col-lg-10"> 
+                <div class="col-lg-4 text-center"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
+                    <p>Education</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+                <div class="col-lg-4"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
+                    <p>Clients</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+                <div class="col-lg-4"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
+                    <p>Commission</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+                <div class="col-lg-4"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
+                    <p>Upselling</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+                <div class="col-lg-4"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
+                    <p>Breaking the Ice</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+                <div class="col-lg-4"> 
+                    <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
+                    <p>Callbacks</p> 
+                    <a href="#" class="down-scroll d-block"> 
+                        <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
+                    </a> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    <!-- Dialer Section Ends --> 
+
+    <!-- Active calls Section Starts --> 
+    <div class="" v-if="active_calls == true"> 
+        <div class="row stats scroll-hidden w-100 mx-0" style="margin-top: 6%"> 
+            <div class="col-lg-12"> 
+                <vcl-table v-if="show_page_loader === true"></vcl-table> 
+                <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable> 
+            </div> 
+        </div> 
+    </div> 
+    <!-- Active calls Section Ends --> 
+
+    <!-- Modals Section Starts --> 
+    <div> 
+      <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal"> 
+        <div class="d-block"> 
+          <div class="row"> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio> 
+            </div> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio> 
+            </div> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio> 
+            </div> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio> 
+            </div> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio> 
+            </div> 
+            <div class="col-lg-6"> 
+              <b-form-radio v-model="comment.comment_type" name="some-radios" value="PTP">Promise To Pay</b-form-radio> 
+            </div> 
+          </div> 
+        </div> 
+      </b-modal> 
+
+      <b-modal 
+          id="modal-prevent-closing" 
+          size="xl" 
+          ref="final-call-step" 
+          title="" 
+          v-on:mouseleave="mouseLeave" 
+          @hide="preventClosing" 
+          style="z-index: 999999;padding: 1rem 3rem;" 
+          hide-header 
+          hide-footer 
+      > 
+        <div class="final-modal"> 
+          <div class="row row-a w-100 ml-0"> 
+            <div class="col-lg-6" style="padding-left: 6%;"> 
+              <ul class="navbar-nav left"> 
+                <li class="nav-item d-none d-sm-inline-block title"> 
+                  <countdown :time="set_time" @progress="handleCountdownProgress" @abort="handleAbort"> 
+                    <template 
+                      slot-scope="props" 
+                      style="font-size: 55px;"
+                    >{{ props.minutes }}:{{ props.seconds }}</template> 
+                  </countdown> 
+                </li>  
+              </ul> 
+            </div> 
+
+            <div class="col-lg-6 pr-0" style="padding-top:2%;"> 
+              <div class="w-100"> 
+                <label class="col-lg-4 control-label" style="margin-right: 8px;float:left;"> 
+                  <button 
+                    v-if="added_time" 
+                    @click="addTime"  
+                    type="submit" 
+                    :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
+                    class="w-100 m-0" 
+                    disabled
+                  > 
+                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
+                  </button> 
+                  <button 
+                    v-else @click="addTime"  
+                    type="submit" 
+                    :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}" 
+                    class="w-100 m-0"
+                  > 
+                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time 
+                  </button> 
+                </label> 
+                <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
+                  <button 
+                    @click="completeCall" 
+                    type="submit" 
+                    :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }" 
+                    class="w-100 m-0"
+                  > 
+                    <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete 
+                  </button> 
+                </label> 
+                <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;"> 
+                  <img 
+                    src="/images/icons/Asset 56.svg" 
+                    alt="Icon" 
+                    class="icon" 
+                    style="width: 60px;margin-top: -13px;"
+                  /> 
+                </label> 
+              </div>               
+            </div> 
+          </div> 
+
+          <div class="row"> 
+            <div class="col-lg-4 col-md-4 col-sm-4 pl-0"> 
+              <div class="card border-0 client"> 
+                <div class="card-body"> 
+                  <h5 class="card-title"> 
+                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+                    Client 
+                  </h5> 
+                  <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">{{ lead_info.name + ' ' + lead_info.surname }}</p> 
+                  <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
+                </div> 
+              </div> 
+            </div> 
+            
+            <div class="col-lg-4 col-md-4 col-sm-4"> 
+              <div class="card border-0 product"> 
+                <div class="card-body"> 
+                  <h5 class="card-title"> 
+                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+                    Product 
+                  </h5> 
+                  <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                  {{ lead_info.product.name }} 
+                  </p> 
+                  <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                    {{ lead_info.product.description }} 
+                  </p>  
+                </div> 
+              </div> 
+            </div> 
+        
+            <div class="col-lg-4 col-md-4 col-sm-4"> 
+              <div class="card border-0 time"> 
+                <div class="card-body"> 
+                  <h5 class="card-title"> 
+                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+                    Time 
+                  </h5> 
+                  <p class="card-text">11:20 AM</p> 
+                  <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
+                </div> 
+              </div> 
+            </div> 
+          </div>     
+
+          <div class="row stats final-modal"> 
+            <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
+              <div class="card left mt-3 border-0 tab-card"> 
+                <div class="card-header tab-card-header"> 
+                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+                    <li class="nav-item left"> 
+                      <a 
+                        class="nav-link" 
+                        id="one-tab" 
+                        data-toggle="tab" 
+                        href="#one" 
+                        role="tab" 
+                        aria-controls="One" 
+                        aria-selected="true"
+                      > 
+                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
+                        <span class="left w-50">Agent Notes</span> 
+                        <span class="right w-50">{{ comments.total_comments }}</span> 
+                      </a> 
+                    </li> 
+                    <li class="nav-item right"> 
+                      <a 
+                        class="nav-link" 
+                        id="two-tab" 
+                        data-toggle="tab" 
+                        href="#two" 
+                        role="tab" 
+                        aria-controls="Two" 
+                        aria-selected="false"
+                      > 
+                        <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
+                        <span class="left">Schedule Callback</span> 
+                      </a> 
+                    </li> 
+                  </ul> 
+                </div> 
+
+                <div class="tab-content" id="myTabContent"> 
+                  <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
+                    <div class="notes-roll"> 
+                      <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
+                        <li 
+                          v-for="comment in comments.comments" 
+                          class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                          :key="comment.id"
+                        > 
+                          <p class="m-0"> 
+                            <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
+                            <span class="comment-notes d-block" style="width: 54%;"> 
+                              {{ comment.description }}  
+                              <a 
+                                href="#" 
+                                role="button"
+                                @click="editComment(comment)" 
+                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                              > 
+                                <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
+                              </a> 
+                            </span> 
+                            <span class="author d-block w-25"> 
+                              {{ comment.created_at }} <br/> 
+                              <small>{{ comment.user_name }}</small> 
+                            </span> 
+                          </p> 
+                        </li> 
+                      </ul> 
+                    </div> 
+
+                    <div class="d-flex notes-capture"> 
+                      <div class="flex-shrink-1">
+                        <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
+                          <img 
+                            src="/images/workstation/Asset 28@4x.png" 
+                            alt="Icon" 
+                            class="icon w-100"
+                          > 
+                        </b-button>
+                      </div>
+                      <div class="flex-grow-1 mr-2"> 
+                        <input 
+                          class="comment-desc d-block w-100 border-0" 
+                          type="text" 
+                          v-model="comment.comment_description" 
+                          placeholder="Write comment here"
+                        />
+                      </div>
+                      <div class="flex-shrink-1"> 
+                        <button 
+                          id="send-btn" 
+                          type="submit" 
+                          class="btn btn-primary" 
+                          @click="addComment()"
+                        >Send</button>
+                      </div> 
+                    </div>             
+                  </div> 
+                  <div 
+                    class="tab-pane fade pt-0 px-3 pb-3" 
+                    id="two" 
+                    role="tabpanel" 
+                    aria-labelledby="two-tab"
+                  >  
+                    <div class="row mb-0 mx-0"> 
+                      <div class="col-lg-4 pr-0"> 
+                        <div class="row"> 
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                            <label class="col-lg-12 control-label p-0">Date of Callback 
+                              <a-date-picker 
+                                v-model='selected_date' 
+                                format="YYYY-MM-DD" 
+                                :allowEmpty="false"
+                                @change="checkCBDate()"
+                              /> 
+                            </label> 
+                          </div> 
+                        </div> 
+                          
+                        <div class="row"> 
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                            <label class="col-lg-12 control-label pl-0">Time of Callback 
+                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/> 
+                            </label> 
+                          </div>   
+                        </div>     
+
+                        <div class="row"> 
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                            <label class="col-lg-12 control-label pl-0">
+                              <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                            </label> 
+                          </div>   
+                        </div> 
+                      </div> 
+                      
+                      <div class="col-lg-8"> 
+                        <vc-date-picker 
+                          v-model="dates" 
+                          mode="multiple" 
+                          is-inline 
+                          is-expanded  
+                          :min-date='new Date()' 
+                          :max-date="max_date" color="pink" 
+                        /> 
+                      </div> 
+                    </div> 
+                    <div class="row mb-0"> 
+                      <div class="col-lg-12 pr-0"> 
+                        <input 
+                          class="comment-desc d-block w-75 border-0" 
+                          type="text" 
+                          v-model="call_back.note" 
+                          placeholder="Write notes here" 
+                          style="width: 72.5%;" 
+                        /> 
+                        <button 
+                          id="send-btn" 
+                          type="submit" 
+                          class="btn btn-primary" 
+                          style="width:100px;" 
+                          @click="addCallback()"
+                        >Schedule</button> 
+                      </div>   
+                    </div> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+
+            <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
+              <div class="card left mt-3 border-0 tab-card"> 
+                <div class="card-header tab-card-header"> 
+                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+                    <li class="nav-item left"> 
+                      <a 
+                        class="nav-link" 
+                        id="three-tab" 
+                        data-toggle="tab" 
+                        href="#three" 
+                        role="tab" 
+                        aria-controls="Three" 
+                        aria-selected="true"
+                      > 
+                        <img 
+                          src="/images/workstation/Feedback_Summary.svg" 
+                          alt="Icon" 
+                          class="icon"
+                          width="23"
+                        /> 
+                        <span class="left">Feedback Summary</span> 
+                        <span class="right">{{ comments.total_comments }}</span> 
+                      </a> 
+                    </li> 
+                    <li class="nav-item right"> 
+                      <a 
+                        class="nav-link" 
+                        id="four-tab" 
+                        data-toggle="tab" 
+                        href="#four" 
+                        role="tab" 
+                        aria-controls="Four" 
+                        aria-selected="false"
+                      > 
+                        <img 
+                          src="/images/workstation/Email_Client.svg" 
+                          alt="Icon" 
+                          class="icon" 
+                          width="23"
+                        /> 
+                        <span class="left">Email Client</span> 
+                      </a> 
+                    </li> 
+                  </ul> 
+                </div> 
+
+                <div class="tab-content" id="myTabContent"> 
+                  <div 
+                    class="tab-pane fade show active p-3" 
+                    id="three" 
+                    role="tabpanel" 
+                    aria-labelledby="three-tab" 
+                    style="height: 349px;"
+                  >
+                      <div class=""> 
+                        <div class="verticalChart"> 
+                          <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
+                            <div class="bar"> 
+                              <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                                <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                              </div> 
+                            </div> 
+
+                            <div class="title">{{ bar.type }}</div> 
+                          </div> 
+                          <div class="clearfix"></div> 
+                      </div> 
+                    </div>            
+                  </div>
+                  <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
+                    <div class="row mb-0">
+                      <div class="col-lg-4 pr-0">
+                        <div class="row">
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                            <label class="col-lg-12 control-label">Date of Callback
+                              <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/>
+                            </label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                            <label class="col-lg-12 control-label">Time of Callback
+                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>
+                            </label>
+                          </div>  
+                        </div>                                       
+                        <div class="row">
+                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
+                            <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-lg-8">
+                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
+                      </div>
+                    </div>
+                    <div class="row mb-0">
+                      <div class="col-lg-12 pr-0">
+                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
+                        <button 
+                          id="send-btn" 
+                          type="submit" 
+                          class="btn btn-primary" 
+                          style="width:100px;" 
+                          @click="addCallback()"
+                        >Schedule</button>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" style="padding-left: 3%;">
+              <div class="card left mt-3 tab-card">
+                <div class="card-header tab-card-header">
+                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                    <li class="nav-item left">
+                      <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
+                        <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/>
+                        <span class="left">Feedback Summary</span>
+                        <span class="right">{{ comments.total_comments }}</span>
+                      </a>
+                    </li>
+                    <li class="nav-item right">
+                      <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
+                        <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
+                        <span class="left">Email Client</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
+                    <div class="">
+                      <div class="verticalChart">
+                        <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
+                          <div class="bar">
+                            <div class="value" :style="'height: ' + bar.percentage + '%;'">
+                              <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
+                            </div>
+                          </div>
+
+                          <div class="title">{{ bar.type }}</div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>           
+                  </div>
+                  <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+                    <h5 class="card-title">TODO</h5>
+                    <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">
+                      <p class="card-text">Email client form</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </b-modal>
+    </div>
+    
+    <input type="hidden"  @click="startCall()" ref="callBtn" />
+  </div>
+</template>
+
+<script>
+    import { setupCalendar, Calendar} from 'v-calendar'
+    import { DatePicker,TimePicker  } from 'ant-design-vue';
+    import { Bar } from 'vue-chartjs';
+    import { BarChart } from 'vue-morris';
+    import NotesStats from './NotesStats.vue';
+    import FlipCountdown from 'vue2-flip-countdown';
+    import DataTable from '../DataTables/CallLogsDataTable';
+    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
+    const Device = require('twilio-client').Device;
+    export default {
+        extends: Bar,
+        components: { 
+            BarChart,
+            FlipCountdown,
+            VclFacebook,
+            VclInstagram,
+            VclTable,
+            'datatable' : DataTable,
+            'notes-stats' : NotesStats 
+        },
+        mounted() {
+            console.log('Workstation Mounted');
+            var vm = this;
+            
+            if( vm.lead_id != ''){
+                console.log('Lead Mounting' + vm.lead_id);
+                vm.enqueueLead(vm.lead_id);
+                vm.general = true;
+                vm.active_calls = false;
+            }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){
+                vm.active_calls = true;
+                Fire.$emit('ShowActiveCalls');
+            }else{
+                vm.general = false;
+                vm.scripts = false;
+                vm.idle = true;
+                vm.active_calls = false;
+            }
+            
+            vm.getActiveCalls();
+
+            vm.prepDates();
+
+            vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
+
+            Fire.$on('CallStarted', function(){
+                vm.general = false;
+                vm.idle = true;
+                vm.scripts = false;
+                vm.active_calls = false;
+                vm.startCall();
+            });
+
+            Fire.$on('CallEnded', function(){
+                vm.endCall();
+            });
+
+            Fire.$on( 'ShowScripts', function(){
+                vm.scripts = true;
+                vm.general = false;
+                vm.idle = false;
+                vm.active_calls = false;
+            });
+
+            Fire.$on('ShowGeneral', function(){
+                vm.general = true;
+                vm.scripts = false;
+                vm.idle = false;
+                vm.active_calls = false;
+            });
+
+            Fire.$on('ShowActiveCalls', function(){
+                vm.general = false;
+                vm.scripts = false;
+                vm.idle = false;
+                vm.active_calls = true;
+            });
+
+            Fire.$on( 'ShowDialer', function(){
+                vm.general = false;
+                vm.scripts = false;
+                vm.idle = true;
+                vm.active_calls = false;
+            });
+
+            this.Toast = this.$swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        },
+        created: function () {
+        },
+        props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'],
+        data: function(){
+            return {
+                lead : {},
+                conferences: [],
+                lead_info : {
+                    lead_source: {},
+                    product: {},
+                },
+                call_counts : {},
+                product : {},
+                comments : {},
+                comments_graph : {},
+                notes_data: [],
+                minimized: false,
+                scripts: false,
+                general: false,
+                active_calls: false,
+                calling: false,
+                show_edication_blocks: false,
+                idle: false,
+                added_time: false,
+                choose_comment_type: false,
+                edit_comment: false,
+                continues: false,
+                show_page_loader: false,
+                call_status: '',
+                call_sid: '',
+                handle: '',
+                set_time: 2  * 60 * 1000,
+                comment:{
+                    id: '',
+                    comment_description :'',
+                    comment_type :''
+                },
+                call_back:{
+                    id: '',
+                    note :'',
+                    date :'',
+                    time :'',
+                    user_id: this.user_id,
+                    lead_id: '',
+                    call_sid: this.call_sid
+                },
+                date_span: '',
+                max_date: '',
+                selected_date: moment(),
+                selected_time:  moment(),
+                dates: [],
+                dialer_settings: [],
+                columns:[
+                    {
+                        label: 'CALLER',  // Column name
+                        field: 'lead_caller',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TYPE',  // Column name
+                        field: 'lead_type',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'NAME',  // Column name
+                        field: 'lead_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'lead_owner',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'lead_assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'lead_mobile',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'lead_product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'CALL START',  // Column name
+                        field: 'dateCreated',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                    {
+                        label: 'ACTIONS',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                ],
+                Toast: null
+            }
+        },
+        methods: {
+            getActiveCalls(){
+                var vm = this;
+                vm.show_page_loader = true;
+                setInterval(function(){ 
+                    axios.get('/calls/list').then(function (response) { 
+                        vm.conferences = response.data.conferences;
+                        vm.show_page_loader = false;
+                    });
+                }, 5000);
+            },
+            checkCBDate(){
+                var now = moment(new Date()); //todays date
+                
+                var end = this.selected_date; // another date
+
+                var duration = moment.duration(end.diff(now));
+
+                var days = Math.round( duration.asDays() );
+
+                if(days < 1 || days >= this.date_span){
+                    this.$swal('Oops', 'Please select a date between the highlighted range.','warning');
+                }else{
+                    return true;
+                }
+            },
+            addCallback(){
+                var vm = this;
+
+                if(!this.checkCBDate() || this.call_back.note == ''){
+                    this.$swal('Oops', 'Please make sure to fill in the Date, Time and Note of the Callback properly.','warning');
+                }else{
+                    vm.call_back.date = vm.selected_date.format('YYYY-MM-DD');
+                    vm.call_back.time = vm.selected_time.format('hh:mm');
+                    vm.call_back.user_id = vm.user_id;
+                    vm.call_back.lead_id = vm.lead_info.id;
+
+                    this.$validator.validateAll().then((result) => {
+                        if(!result){
+                        }else{
+                            
+                            axios.post('/leads/setcallback', vm.call_back).then(function (response) {
+                                
+                                if(response.data.success == true){
+                                    Fire.$emit('AfterCallBackSet');
+                                    vm.enqueueLead(response.data.lead.id);
+                                    vm.$swal('Success', 'Callback captured successfully','success');
+                                    vm.continues = true;
+
+                                }else{
+                                    vm.$Progress.fail();
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                                }
+
+                            });
+                        }
+                    });
+                }
+                
+            },
+            prepDates(){
+                this.date_span = 7;
+                this.dates = [
+                    { start: new Date(), span: this.date_span}
+                ];
+                var date = new Date();
+                this.max_date = date.setDate(date.getDate() + (this.date_span - 1));
+            },
+            preventClosing(BvModalEvent){
+                var vm = this;
+                if(BvModalEvent.trigger == 'backdrop')
+                    BvModalEvent.preventDefault();
+            },
+            mouseLeave(event){
+                console.log(event.pageX); 
+                console.log(event.pagey);
+            },
+            addEvent(obj, evt, fn) {
+                if (obj.addEventListener) {
+                    obj.addEventListener(evt, fn, false);
+                }
+                else if (obj.attachEvent) {
+                    obj.attachEvent("on" + evt, fn);
+                }
+            },
+            toggleModal() {
+                // We pass the ID of the button that we want to return focus to
+                // when the modal has hidden
+                this.$refs['my-modal'].toggle('#toggle-btn')
+            },
+            resetModal() {
+                this.comment.comment_description = '';
+                this.comment.comment_type = '';
+            },
+            completeCall(){
+                var vm = this;
+                axios.post('/comments/check-exist', { 'lead_id' : vm.lead_info.id, 'source_type' : "App\\Lead" }).then(function (response) {
+                    if(response.data.success){
+                        vm.continues = true;
+                        vm.$refs['final-call-step'].hide();
+                    }else{
+                        vm.$swal('Warning','Please updated Notes or Callback information before continuing','warning');
+                    }
+                }).catch(function (error) {                    
+                    console.log(error);
+                });
+                
+            },
+            handleCountdownProgress(data) {
+                this.set_time = data.totalMilliseconds;
+            },
+            handleAbort(data) {
+            },
+            addTime(){
+                this.set_time = 2  * 60 * 1000;
+                this.added_time = true;
+            },
+            enqueueLead(lead_id = ''){
+                var vm = this;
+
+                var end_point_choice = '/leads/get/' + lead_id;
+              
+                vm.show_page_loader = true;
+
+                vm.$Progress.start();
+
+                axios.get(end_point_choice).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.lead = response.data;
+                        vm.lead_info = response.data.lead;
+                        vm.call_counts = response.data.call_counts;
+                        vm.product = response.data.product;
+                        vm.comments = response.data.comments;
+                        vm.comments_graph = response.data.comments.comments_graph;
+                        vm.comment.comment_description = '';
+                        vm.comment.comment_type = '';
+                        vm.added_time = false;
+                        vm.continues = false;
+                        
+                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
+
+                        vm.show_page_loader = false;
+                        vm.$Progress.finish();
+
+                        if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1){
+                            vm.createDevice();
+                        }
+
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    }
+                });
+            },
+            createDevice(){
+                var vm = this;
+                axios.get('/calls/token').then(function (response) {
+                    console.log('Token',response.data.token);
+                    // Setup Twilio.Device
+                    Device.setup(response.data.token);
+
+                    Device.on('ready',function (device) {
+                        vm.call_status = 'Device Ready';
+                        vm.$refs.callBtn.click();
+                    });
+
+                    Device.on('error',function (error) {
+                        vm.call_status = 'Device Error: ' + error.message;
+                    });
+
+                    Device.on('connect',function (conn) {
+                        vm.call_status = 'Successfully established call';
+                        vm.call_back.call_sid = conn.parameters.CallSid;
+                    });
+
+                    Device.on('incoming', function (conn) {
+                        console.log('Incoming connection from ' + conn.parameters.From);
+                        var archEnemyPhoneNumber = '+12099517118';
+                
+                        if (conn.parameters.From === archEnemyPhoneNumber) {
+                            conn.reject();
+                            console.log('It\'s your nemesis. Rejected call.');
+                        } else {
+                            // accept the incoming connection and start two-way audio
+                            conn.accept();
+                        }
+                    });
+
+                    Device.on('disconnect',function (conn) {
+                        vm.call_status = 'Call Disconnected';
+                        vm.$refs['final-call-step'].show();
+                    });
+
+                    vm.$Progress.finish();
+                    
+                }).catch(function (error) {                    
+                    console.log(error);
+                });
+            },
+            startCall() {
+                var vm = this;
+                this.idle = true;
+                this.show_edication_blocks = true;
+                this.general = false;
+                var audioCtx = new AudioContext();
+                
+                audioCtx.resume();
+
+                Fire.$emit('InitiateCall');
+
+                var form_data = {
+                    lead_id : vm.lead_info.id,
+                    is_client : vm.lead_info.is_client,
+                    lead_owner : vm.lead_info.user_created_id,
+                    lead_assignee : vm.lead_info.user_assigned,
+                    user_id : vm.user_id,
+                    // phone_number : vm.lead_info.contact_number,
+                    phone_number : '+27782013556',
+                }
+                
+                Device.connect(form_data);
             }, 
             startCall() { 
                 var vm = this; 
@@ -1887,15 +1976,8 @@ a.down-scroll:hover{
             endCall() { 
                 var vm = this; 
  
-                Device.disconnectAll(function (conn) { 
-                    vm.call_status = 'Call ended!'; 
- 
-                    axios.post('/calls/create-call-record', {'lead_id' : vm.lead_info.id, 'call_sid' : conn.parameters.CallSid}).then(function (response) { 
-                          
-                    }).catch(function (error) {                     
-                        console.log(error); 
-                    }); 
-                }); 
+                Device.disconnectAll(function (conn) { }); 
+                
                 vm.idle = true; 
                 vm.show_edication_blocks = true; 
                 vm.general = false; 

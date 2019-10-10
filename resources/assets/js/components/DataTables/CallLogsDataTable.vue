@@ -63,12 +63,14 @@
         </div>
         <!-- Modal Start Summary-->
         <div>
+             <input type="hidden"  @click="startCall()" ref="callJoinBtn" />
         </div>
         <!-- Modal -->
     </div>
 </template>
 <script>
 import Fuse from 'fuse.js';
+const Device = require('twilio-client').Device;
 export default {
     props: {
         role: '',
@@ -174,7 +176,8 @@ export default {
             this.handleSubmit()
         },
         coachActions(action, conference){
-            this.$swal.fire({
+            var vm = this;
+            vm.$swal.fire({
                 title: 'Are you sure?',
                 text: "Proceed with action: " + action,
                 type: 'warning',
@@ -184,14 +187,91 @@ export default {
                 confirmButtonText: 'Yes!'
             }).then((result) => {
                 if (result.value) {
-                    // axios.get('/shop/delete-product/'+id).then((response) =>{
-                    //     Fire.$emit('AfterRequest');
-                    //     this.$swal.fire('Deleted!','Product has been deleted.', 'success');
-                    // }).catch(() => {
-                    //     this.$swal('Failed', 'Opps, something went wrong, please try again','warning');
-                    // });
+                    vm.createDevice(action, conference);
                 }
             });
+        },
+        createDevice(action, conference){
+            var vm = this;
+            axios.get('/calls/token').then(function (response) {
+                console.log('Token',response.data.token);
+                // Setup Twilio.Device
+                Device.destroy();
+                Device.setup(response.data.token,{ debug: true, region: "ie1" });
+
+                Device.on('ready',function (device) {
+                    console.log('Device Ready');
+                    var audioCtx = new AudioContext();
+                    
+                    audioCtx.resume();
+
+                    Fire.$emit('InitiateCallJoin');
+
+                    var form_data = {
+                        'action' : action,
+                        'conference' : conference.friendlyName,
+                        'coaching_sid' : conference.coaching_sid,
+                    }
+                    console.log('Form Data');
+                    console.log(form_data);
+                    Device.connect(form_data);
+                });
+
+                Device.on('error',function (error) {
+                    console.log('Device Error: ' + error.message);
+                });
+
+                Device.on('connect',function (conn) {
+                    console.log('Successfully established call');
+                    // vm.call_back.call_sid = conn.parameters.CallSid;
+                });
+
+                Device.on('incoming', function (conn) {
+                    console.log('Incoming connection from ' + conn.parameters.From);
+                    var archEnemyPhoneNumber = '+12099517118';
+            
+                    if (conn.parameters.From === archEnemyPhoneNumber) {
+                        conn.reject();
+                        console.log('It\'s your nemesis. Rejected call.');
+                    } else {
+                        // accept the incoming connection and start two-way audio
+                        conn.accept();
+                    }
+                });
+
+                Device.on('disconnect',function (conn) {
+                    console.log('Call Disconnected');
+                });
+
+
+                vm.$Progress.finish();
+                
+            }).catch(function (error) {                    
+                console.log(error);
+            });
+        },
+        startCall() {
+            var vm = this;
+            this.idle = true;
+            this.show_edication_blocks = true;
+            this.general = false;
+            var audioCtx = new AudioContext();
+            
+            audioCtx.resume();
+
+            Fire.$emit('InitiateCall');
+
+            var form_data = {
+                lead_id : vm.lead_info.id,
+                is_client : vm.lead_info.is_client,
+                lead_owner : vm.lead_info.user_created_id,
+                lead_assignee : vm.lead_info.user_assigned,
+                user_id : vm.user_id,
+                // phone_number : vm.lead_info.contact_number,
+                phone_number : '+27782013556',
+            }
+            
+            Device.connect(form_data);
         },
         handleSubmit(){
             var vm = this;  

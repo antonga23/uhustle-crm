@@ -139,13 +139,12 @@
                         <b-card no-body>
                             <b-tabs card>
                                 <b-tab :title="role.display_name" @click="editRole(role)" v-for="(role,index) in roles" :key="index" :active="(index == 0)? true : false">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <b-button class="btn btn-default" @click="updateRole(role)">Update Role</b-button>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row" v-if="role_edit">
-                                        <edit-role :role="edit_role" />
+                                        <edit-role :role="role" />
+                                    </div>
+                                    <div class="row">
+                                        <b-button class="btn btn-default" @click="updateRole(role)">Update {{ role.display_name }}</b-button>
                                     </div>
                                     <div class="row" v-if="role_add">
                                         <add-role/>
@@ -161,18 +160,24 @@
                                                     <div>
                                                         <b-card no-body class="mb-1">
                                                             <b-card-header header-tag="header" class="p-1" role="tab">
-                                                                <b-button block href="#" v-b-toggle="'accordion-dialer'"  :aria-controls="'accordion-dialer'" variant="info">Dialer</b-button>
+                                                                <b-button block href="#" v-b-toggle="'accordion-0'"  :aria-controls="'accordion-0'" variant="info">Dialer</b-button>
                                                             </b-card-header>
-                                                            <b-collapse :id="'accordion-dialer'" :visible="true" accordion="my-accordion-0" role="tabpanel">
+                                                            <b-collapse :id="'accordion-0'" visible accordion="my-accordion" role="tabpanel">
                                                                 <b-card-body>
                                                                     <div v-for="(permission,k) in dialer_permissions" :key="k">
                                                                         <div v-if="permission.role_id == role.id">
                                                                             <b-form-group  class="permisions">
-                                                                                <b-form-group>
-                                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.disabled">{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</b-form-checkbox>
-                                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.whisper">Whisper </b-form-checkbox>
-                                                                                    <b-form-checkbox value="1" unchecked-value="0" v-model="permission.barge">Barge</b-form-checkbox>
-                                                                                </b-form-group>                                                                                
+                                                                              <a-row >
+                                                                                <a-col :span="8">
+                                                                                    <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.disabled" @change="applyDialerPermissions()">{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</b-form-checkbox>
+                                                                                </a-col>
+                                                                                <a-col :span="8">    
+                                                                                    <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.whisper" @change="applyDialerPermissions()">Whisper </b-form-checkbox>
+                                                                                </a-col>
+                                                                                <a-col :span="8">    
+                                                                                    <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.barge" @change="applyDialerPermissions()">Barge</b-form-checkbox>
+                                                                                </a-col>
+                                                                              </a-row>
                                                                             </b-form-group>
                                                                         </div> 
                                                                     </div>
@@ -183,122 +188,24 @@
                                                     <div v-for="(a_module, i) in modules" :key="i">
                                                         <b-card no-body class="mb-1">
                                                             <b-card-header header-tag="header" class="p-1" role="tab">
-                                                                <b-button block href="#" v-b-toggle="'accordion-' + i"  :aria-controls="'accordion-' + i" variant="info">{{ a_module.display_name }}</b-button>
+                                                                <b-button block href="#" v-b-toggle="'accordion-' + (i+1)"  :aria-controls="'accordion-' + (i+1)" variant="info">{{ a_module.display_name }}</b-button>
                                                             </b-card-header>
-                                                            <b-collapse :id="'accordion-' + i" :visible="false" accordion="my-accordion" role="tabpanel">
-                                                                <b-card-body>
-                                                                    <div v-for="(permission,k) in permissions" :key="k">
-                                                                        <b-form-group  class="permisions" v-if="permission.module_id == a_module.id && role.id == permission.role_id"> 
-                                                                            <div>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-4">
-                                                                                        <b-form-group>
-                                                                                            <template v-slot:label>
-                                                                                                <b>Set {{ role.display_name }} permissions for {{ a_module.display_name}}:</b><br>
-                                                                                                <br>
-                                                                                                <b>View</b><br>
-                                                                                                <b-form-checkbox
-                                                                                                v-model="dialer_allSelected"
-                                                                                                :indeterminate="dialer_indeterminate"
-                                                                                                aria-describedby="dialer"
-                                                                                                aria-controls="dialer"
-                                                                                                @change="toggleAll"
-                                                                                                >
-                                                                                                {{ allSelected ? 'Un-select All' : 'Select All' }}
-                                                                                                </b-form-checkbox>
-                                                                                            </template>
-
-                                                                                            <b-form-checkbox-group
-                                                                                                id="dialer"
-                                                                                                v-model="dialer_selected"
-                                                                                                :options="dialer_options"
-                                                                                                name="dialer"
-                                                                                                class="ml-4"
-                                                                                                aria-label="Individual Options"
-                                                                                                stacked
-                                                                                            ></b-form-checkbox-group>
-                                                                                        </b-form-group>
-
-                                                                                        <div>
-                                                                                            Selected: <strong>{{ dialer_selected }}</strong><br>
-                                                                                            All Selected: <strong>{{ dialer_allSelected }}</strong><br>
-                                                                                            Indeterminate: <strong>{{ dialer_indeterminate }}</strong>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-4">
-                                                                                        <b-form-group>
-                                                                                            <template v-slot:label>
-                                                                                                <b>&nbsp;</b><br>
-                                                                                                <br>
-                                                                                                <b>Edit</b><br>
-                                                                                                <b-form-checkbox
-                                                                                                v-model="dialer_allSelected"
-                                                                                                :indeterminate="dialer_indeterminate"
-                                                                                                aria-describedby="dialer"
-                                                                                                aria-controls="dialer"
-                                                                                                @change="toggleAll"
-                                                                                                >
-                                                                                                {{ allSelected ? 'Un-select All' : 'Select All' }}
-                                                                                                </b-form-checkbox>
-                                                                                            </template>
-
-                                                                                            <b-form-checkbox-group
-                                                                                                id="dialer"
-                                                                                                v-model="dialer_selected"
-                                                                                                :options="dialer_options"
-                                                                                                name="dialer"
-                                                                                                class="ml-4"
-                                                                                                aria-label="Individual Options"
-                                                                                                stacked
-                                                                                            ></b-form-checkbox-group>
-                                                                                        </b-form-group>
-
-                                                                                        <div>
-                                                                                            Selected: <strong>{{ dialer_selected }}</strong><br>
-                                                                                            All Selected: <strong>{{ dialer_allSelected }}</strong><br>
-                                                                                            Indeterminate: <strong>{{ dialer_indeterminate }}</strong>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-4">
-                                                                                        <b-form-group>
-                                                                                            <template v-slot:label>
-                                                                                                <b>&nbsp;</b><br>
-                                                                                                <br>
-                                                                                                <b>Delete</b><br>
-                                                                                                <b-form-checkbox
-                                                                                                v-model="dialer_allSelected"
-                                                                                                :indeterminate="dialer_indeterminate"
-                                                                                                aria-describedby="dialer"
-                                                                                                aria-controls="dialer"
-                                                                                                @change="toggleAll"
-                                                                                                >
-                                                                                                {{ allSelected ? 'Un-select All' : 'Select All' }}
-                                                                                                </b-form-checkbox>
-                                                                                            </template>
-
-                                                                                            <b-form-checkbox-group
-                                                                                                id="dialer"
-                                                                                                v-model="dialer_selected"
-                                                                                                :options="dialer_options"
-                                                                                                name="dialer"
-                                                                                                class="ml-4"
-                                                                                                aria-label="Individual Options"
-                                                                                                stacked
-                                                                                            ></b-form-checkbox-group>
-                                                                                        </b-form-group>
-
-                                                                                        <div>
-                                                                                            Selected: <strong>{{ dialer_selected }}</strong><br>
-                                                                                            All Selected: <strong>{{ dialer_allSelected }}</strong><br>
-                                                                                            Indeterminate: <strong>{{ dialer_indeterminate }}</strong>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>  
-                                                                        </b-form-group>
-                                                                    </div>
-
-                                                                </b-card-body>
+                                                            <b-collapse :id="'accordion-' + (i+1)" accordion="my-accordion" role="tabpanel">
+                                                                <div v-for="(permission, k) in permissions" :key="k" >
+                                                                  <b-card-body v-if="permission.module_id == a_module.id && permission.role_id == role.id">
+                                                                      <a-row >
+                                                                          <a-col :span="8">
+                                                                            <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.read" @change="updatePermmissions()">Read </b-form-checkbox>
+                                                                          </a-col>
+                                                                          <a-col :span="8">
+                                                                            <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.write" @change="updatePermmissions()">Edit </b-form-checkbox>
+                                                                          </a-col>
+                                                                          <a-col :span="8">
+                                                                            <b-form-checkbox inline value="1" unchecked-value="0" v-model="permission.delete" @change="updatePermmissions()">Delete </b-form-checkbox>
+                                                                          </a-col>
+                                                                      </a-row>
+                                                                  </b-card-body>
+                                                                </div>
                                                             </b-collapse>
                                                         </b-card>
                                                     </div>
@@ -396,7 +303,7 @@
                 timer: 3000
             });
         },
-        created: function () {
+        computed: {
         },
         props: ['logged_user'],
         data: function(){
@@ -523,17 +430,17 @@
                     }
                 });
             },
-            applyPermissions(){
+            applyDialerPermissions(){
                 var vm = this;
-                var endpoint = '/roles/apply-permissions';
+                var endpoint = '/roles/apply-dialer-permissions';
 
                 vm.$Progress.start();
 
-                axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
+                axios.put(endpoint, {'permissions':vm.dialer_permissions}).then(function (response) {
                     if(response.data.success == true){
-                        vm.permissions = response.data.permissions;
+                        vm.dialer_permissions = response.data.permissions;
+                        vm.Toast.fire({ type: 'success'});
                         vm.$Progress.finish();
-                        vm.Toast.fire({ type: 'success', title: 'Permissions have been applied' });
                     }else{
                         vm.$Progress.fail();
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
@@ -553,8 +460,7 @@
             },
             updateRole(role){
                 Fire.$emit('UpdateRole', { 
-                    'role' : role, 
-                    'dialer_permissions' : this.dialer_permissions,
+                    'role' : role,
                 });
             },
             showModulePreferences(active_module, action, in_module){
@@ -562,6 +468,23 @@
                 this.editing_module = in_module;
                 this.active_module_name = active_module;
                 this.active_module_action = action;
+            },
+            updatePermmissions(){
+                var vm = this;
+                var endpoint = '/roles/update-permissions';
+
+                vm.$Progress.start();
+
+                axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
+                    if(response.data.success == true){
+                        vm.permissions = response.data.permissions;
+                        vm.Toast.fire({ type: 'success'});
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
             }
         },
         watch: {

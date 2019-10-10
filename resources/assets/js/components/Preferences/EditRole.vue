@@ -14,7 +14,7 @@
                 <label for="input-none">Role Name</label>
                 </b-col>
                 <b-col sm="9">
-                <b-form-input id="input-none" :state="null" v-model="role.display_name"></b-form-input>
+                <b-form-input id="input-none" :state="null" v-model="edit_role.display_name"></b-form-input>
                 </b-col>
             </b-row>
 
@@ -23,7 +23,7 @@
                 <label for="input-valid">Role Description</label>
                 </b-col>
                 <b-col sm="9">
-                <b-form-input id="input-valid" :state="null" v-model="role.description"></b-form-input>
+                <b-form-input id="input-valid" :state="null" v-model="edit_role.description"></b-form-input>
                 </b-col>
             </b-row>
 
@@ -32,7 +32,8 @@
                     <label for="input-invalid">Role Status</label>
                 </b-col>
                 <b-col sm="9">
-                    <b-form-select v-model="role.status" :options="[{ value: '', text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
+                    <a-switch v-model="edit_role.status"/>
+                    <!-- <b-form-select v-model="edit_role.status" :options="[{ value: null, text: 'Please Select' },{ value: '1', text: 'Active' },{ value: '0', text: 'Disaled' }]" class="form-control"></b-form-select> -->
                 </b-col>
             </b-row>
 
@@ -52,9 +53,10 @@
         mounted() {
             console.log('Component mounted');
 
+            this.edit_role = this.role;
+
             Fire.$on('UpdateRole', (data) => {
                 this.updateRole();
-                console.log(data);
             });
 
             this.Toast = this.$swal.mixin({
@@ -65,47 +67,48 @@
             });
         },
         created: function () {
+            this.edit_role = this.role;
         },
         props: ['role'],
         data: function(){
             return {
+
+                status : 1,
                 edit_role: {
-                    display_name : '',
-                    description : '',
-                    status : '',
+                    status : 1
                 },
                 Toast: null,
             }
         },
         methods: {
             updateRole(){
-				var vm = this;  
-				vm.$Progress.start();
-				this.$validator.validateAll().then((result) => {
-                        if(!result){
-                            vm.display_name_state = false;
-                        }else{
-                            
-                            vm.display_name_state = true;
+              var vm = this;  
+              vm.$Progress.start();
+              this.$validator.validateAll().then((result) => {
+                    if(!result){
+                        vm.display_name_state = false;
+                    }else{
+                        
+                        vm.display_name_state = true;
 
-                            var end_point = '/roles/update';
+                        var end_point = '/roles/update';
 
-                            axios.post(end_point,this.role).then(function (response) {
-                                    
-                                if(response.data.success == true){
+                        axios.post(end_point,vm.edit_role).then(function (response) {
+                                
+                            if(response.data.success == true){
 
-                                    vm.role = response.data.role;
-                                    vm.$Progress.finish();
-                                    // vm.Toast.fire({ type: 'success', title: response.data.message });
-                                    
-                                    Fire.$emit('DoneEditingRole');
-                                }else {
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                                }
-                            });
-						}
-				});
+                                vm.edit_role = response.data.role;
+                                vm.$Progress.finish();
+                                vm.Toast.fire({ type: 'success', title: response.data.message });
+                                
+                                Fire.$emit('DoneEditingRole');
+                            }else {
+                                vm.$Progress.fail();
+                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                            }
+                        });
+                  }
+              });
             }
         }
     }

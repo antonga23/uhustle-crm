@@ -131,30 +131,27 @@ class RoleController extends Controller
         return array('success' => true, 'permissions' => $permissions);
     }
 
-    public function applyPermissions(Request $request){
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
+    public function applyDialerPermissions(Request $request){
 
         $data = $request->all();
 
         $permissions = $data['permissions'];
-            
+         
         try{
             DB::beginTransaction();
 
             foreach($permissions as $key => $permission){
-                Permissions::find($permission['id'])->update([
-                    "module_id" => $permission['module_id'],
+                DialerPermissions::find($permission['id'])->update([
                     "role_id" => $permission['role_id'],
-                    "read" => $permission['read'],
-                    "write" => $permission['write'],
-                    "delete" => $permission['delete'],
-                    "status" => $permission['status'],
+                    "disabled" => $permission['disabled'],
+                    "barge" => $permission['barge'],
+                    "whisper" => $permission['whisper'],
                 ]);
             }
 
             DB::commit();
 
-            $permissions = Permissions::get();
+            $permissions = DialerPermissions::get();
 
             return array('success' => true, 'permissions' => $permissions);
 
@@ -164,4 +161,33 @@ class RoleController extends Controller
         }
     }
 
+    public function applyPermissions(Request $request){
+
+      $data = $request->all();
+
+      $permissions = $data['permissions'];
+       
+      try{
+          DB::beginTransaction();
+
+          foreach($permissions as $key => $permission){
+              Permissions::find($permission['id'])->update([
+                  "write" => $permission['write'],
+                  "delete" => $permission['delete'],
+                  "read" => $permission['read']
+              ]);
+          }
+
+          DB::commit();
+
+          $permissions = Permissions::get();
+
+          return array('success' => true, 'permissions' => $permissions);
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+
+    }
 }
