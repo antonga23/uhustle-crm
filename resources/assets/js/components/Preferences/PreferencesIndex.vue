@@ -144,7 +144,7 @@
                                         <edit-role :role="role" />
                                     </div>
                                     <div class="row">
-                                        <b-button class="btn btn-default" @click="updateRole(role)">Update {{ role.display_name }}</b-button>
+                                        <b-button class="btn btn-defat" @click="updateRole(role)">Update {{ role.display_name }}</b-button>
                                     </div>
                                     <div class="row" v-if="role_add">
                                         <add-role/>

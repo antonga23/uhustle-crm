@@ -1,4 +1,26 @@
 <style scoped>
+.main-sidebar {
+  right: 0!important;
+  left: auto;
+}
+.main-sidebar, .main-sidebar:before {
+  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
+  width: 417px!important;
+}
+.sidebar-collapse .main-sidebar, .sidebar-collapse .main-sidebar:before {
+  margin-left: 0!important;
+  margin-right: -292px!important;
+}
+
+@media (max-width: 991.98px) {
+  .main-sidebar, .main-sidebar:before {
+    margin-left: -0!important;
+    margin-left: -292px!important;
+  }
+  .sidebar-open .main-sidebar, .sidebar-open .main-sidebar:before {
+    margin-right: 0!important;
+  }
+}
 p{
 	color: #9fb3bb;
 	margin: 0;
@@ -14,33 +36,27 @@ h3{
   font-size: 16px;
   letter-spacing: 2.2px;
   font-weight: 600;
-  width: 52%;
 }
 h3 img{
 	float:right;
 	cursor: pointer;
-	margin-top: -7px;
+	margin-top: -7px; 
 }
-.control-sidebar {
+.main-sidebar {
   position: absolute;
   top: 0;
   right: 0 !important;
   bottom: 0;
   z-index: 830;
-  width: 350px !important;
   transition: right 0.3s ease-in-out;
   box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
 	-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
 	-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
 }
-.control-sidebar-light label.custom-control-label{
+.main label.custom-control-label{
   color: inherit;
   font-weight: 200;
   padding-top: 3px;
-}
-.navbar .navbar-top-conatiner {
-  padding-left: 12px;
-  padding-right: 18px;
 }
 .navbar-light .navbar-nav .nav-link.icon {
   color: rgba(0, 0, 0, 0.5);
@@ -167,7 +183,7 @@ p.heading{
   width: 27%;
 }
 .personal-info button.btn-info {
-  margin: 18px 0 15px 0;
+  margin: 5px 0 15px 0;
   font-size: 9px;
 }
 .settings .row,
@@ -178,6 +194,9 @@ p.heading{
 .settings .row p.description{
 	font-size: 9px;
 	display: block;
+}
+.custom-checkbox .custom-control-label {
+  padding-top: 5px;
 }
 .themes label:first-child, .themes label:nth-child(2), .language label, .notifications label, .action-btns label:first-child, .action-btns label:nth-child(2){
   margin-right: 8px;
@@ -332,6 +351,9 @@ label.custom-control-label{
   font-size: 14px;
   letter-spacing: 2.2px;
 }
+.personal-info .row.mx-0.border-left {
+  border-color: #cdcdcf
+}
 .small-avatar img{
 	width: 28px;
   margin-top: 2px;
@@ -422,10 +444,10 @@ label.custom-control-label{
 	font-size: 9px;
 } 
 .form-control {
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 7px;
-  height: 28px !important;
   font-size: 9px;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;
 }
 .stats-section {
   margin-top: 35px;
@@ -436,7 +458,7 @@ label.custom-control-label{
 .stats-section .sales, .stats-section .calls, .search-input, .filter-search, .filter-by {
   padding:5px 0;
 }
-.stats-section .calls, .stats-section .sales p, p.badges{
+.stats-section .calls .col-lg-12 p, .stats-section .sales .col-lg-12 p, p.badges{
   border-bottom: 0.5px solid #e3e3e3; 
   margin-bottom: 5px; 
   padding-bottom: 2px;
@@ -459,1047 +481,1098 @@ label.custom-control-label{
 </style>
 <template>
 	<div>
-		<aside class="control-sidebar control-sidebar-light border-left-0">
+    <aside class="main-sidebar sidebar-light-primary h-100">
 			<!-- Control sidebar content goes here -->
-			<div class="p-3">
-        <div class="row">
-          <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100">
-            <div class="w-100 navbar-top-conatiner">
-              <div class="collapse navbar-collapse w-100">
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav pull-left">
-                  <li class="nav-item">
-                    <a 
-                      class="nav-link icon p-0" 
-                      href="#" 
-                      @click="showNotifications()"
-                    >
-                      <img 
-					  	          v-if="notifications_on == true" 
-						            src="/images/icons/Notification_active.svg"
-                        alt="Notification Bell" 
-                        width="50"
-                      >
-                      <img 
-                        v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
-                        src="/images/icons/Notification.svg" 
-                        alt="Notification Bell" 
-                        width="50"
-                      >
-                      <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
-                        src="/images/icons/Notification_new.svg" 
-                        alt="Notification Bell" 
-                        width="50"
-                      >
-                    </a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a 
-                      class="nav-link icon pt-0 pr-0" 
-                      href="#" 
-                      @click="showSettings()"
-                    >
-                      <img 
-                        v-if="settings_on == false" 
-                        src="/images/icons/Asset 62.svg" 
-                        alt="Settings Cog" 
-                        width="50"
-                      >
-                      <img 
-                        v-else src="/images/icons/Asset 63.svg" 
-                        alt="Settings Cog" 
-                        width="50"
-                      >
-                    </a>
-                  </li>
-                </ul>
-
-                <ul class="navbar-nav pull-right text-right">
-                  <li  
-                    class="nav-item name-li" 
-                    v-if="user.nickname != null && user.nickname != ''"
+			<section class="sidebar p-3 h-100">
+        <div class="sidebar-menu" data-widget="tree">
+          <a href="#" data-toggle="push-menu">Toggle</a>
+          <div class="open-sidenav">
+            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100">
+              <!-- Right Side Of Navbar -->
+              <ul class="navbar-nav pull-left">
+                <li class="nav-item">
+                  <a 
+                    class="nav-link icon p-0" 
+                    href="#" 
+                    @click="showNotifications()"
                   >
-                    <a 
-                      class="nav-link name" 
-                      href="#" 
-                      @click="showSettings()"
-                    >{{ user.nickname }}</a>
-                  </li>
-
-                  <li class="nav-item name-li" v-else>
-                    <a 
-                      class="nav-link name" 
-                      href="#" 
-                      @click="showSettings()"
-                    >{{ user.name }}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a 
-                      class="nav-link icon pt-0 small-avatar" 
-                      href="#" 
-                      @click="showSettings()"
+                    <img 
+                      v-if="notifications_on == true" 
+                      src="/images/icons/Notification_active.svg"
+                      alt="Notification Bell" 
+                      width="50"
                     >
-                      <img 
-                        v-if="user.avatar != '' && user.avatar != null" 
-                        :src="avatarUrl + user.id + '/' + user.avatar"
-                      >
-                      <img v-else :src="noImageUrl" >
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-				</div>
+                    <img 
+                      v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
+                      src="/images/icons/Notification.svg" 
+                      alt="Notification Bell" 
+                      width="50"
+                    >
+                    <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
+                      src="/images/icons/Notification_new.svg" 
+                      alt="Notification Bell" 
+                      width="50"
+                    >
+                  </a>
+                </li>
 
-				<div v-if="settings_on == true" class="settings">
-					<div class="row mx-0">
-						<h2>Settings</h2>
-					</div>
+                <li class="nav-item">
+                  <a 
+                    class="nav-link icon pt-0 pr-0" 
+                    href="#" 
+                    @click="showSettings()"
+                  >
+                    <img 
+                      v-if="settings_on == false" 
+                      src="/images/icons/Asset 62.svg" 
+                      alt="Settings Cog" 
+                      width="50"
+                    >
+                    <img 
+                      v-else src="/images/icons/Asset 63.svg" 
+                      alt="Settings Cog" 
+                      width="50"
+                    >
+                  </a>
+                </li>
+              </ul>
 
-					<div class="row">
-						<h3 class="d-block">
-							Profile 
-							<img 
-                @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;" 
-                v-if="profile_on == false" 
-                src="/images/icons/settings edit buttin@4x.png" 
-                alt="Profile Edit Off" 
-                width="30"
-              >
-							<img 
-                @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;" 
-                v-else 
-                src="/images/icons/settings edit button hover@4x.png" 
-                alt="Profile Edit Off" 
-                width="30"
-              >
-						</h3>
-						<p class="description d-block w-100" title="Personal Information">Personal Information</p>
-            <transition-expand>
-              <div v-if="expanded == true && profile_on == true" class="w-100 personal-info">
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-                  <label class="col-lg-12 control-label text-center p-0 w100" style="float:left;">
+              <ul class="navbar-nav pull-right text-right">
+                <li  
+                  class="nav-item name-li" 
+                  v-if="user.nickname != null && user.nickname != ''"
+                >
+                  <a 
+                    class="nav-link name" 
+                    href="#" 
+                    @click="showSettings()"
+                  >{{ user.nickname }}</a>
+                </li>
+
+                <li class="nav-item name-li" v-else>
+                  <a 
+                    class="nav-link name" 
+                    href="#" 
+                    @click="showSettings()"
+                  >{{ user.name }}</a>
+                </li>
+                <li class="nav-item">
+                  <a 
+                    class="nav-link icon pt-0 small-avatar" 
+                    href="#" 
+                    @click="showSettings()"
+                  >
                     <img 
                       v-if="user.avatar != '' && user.avatar != null" 
                       :src="avatarUrl + user.id + '/' + user.avatar"
                     >
+                    <img v-else :src="noImageUrl" >
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <div v-if="settings_on == true" class="settings">
+              <div class="row mx-0">
+                <h2>Settings</h2>
+              </div>
+
+              <div class="row mx-0">
+                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+                  <div class="col-auto">
+                    <h3 class="d-block">Profile</h3>
+                  </div>
+                  <div class="col-auto">
                     <img 
+                      @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;" 
+                      v-if="profile_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Profile Edit Off" 
+                      width="30"
+                    >
+                    <img 
+                      @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;" 
                       v-else 
-                      :src="noImageUrl"
+                      src="/images/icons/settings edit button hover@4x.png" 
+                      alt="Profile Edit Off" 
+                      width="30"
                     >
-                    <div>
-                      <button
-                        class="btn btn-info" 
-                        type="button" 
-                        @click="showUploader"
-                      >Choose Image</button>
+                  </div>
+                </div>
+                <transition-expand>
+                  <div v-if="expanded == true && profile_on == true" class="w-100 personal-info">
+                    <p class="description d-block w-100" title="Personal Information">Personal Information</p>
+                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
+                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
+                        <label class="row justify-space-between align-items-center border-bottom-0 control-label text-center p-0 w-100">
+                          <div class="col-lg-6 pl-0 description">Profile Picture</div>
+                          <div class="col-lg-6 pr-0">
+                            <img 
+                              v-if="user.avatar != '' && user.avatar != null" 
+                              :src="avatarUrl + user.id + '/' + user.avatar"
+                            >
+                            <img 
+                              v-else 
+                              :src="noImageUrl"
+                            >
+                            <button
+                              class="btn btn-info" 
+                              type="button" 
+                              @click="showUploader"
+                            >Choose Image</button>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Name') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Name
+                          <input 
+                            type="text" 
+                            id="email"  
+                            name="Name" 
+                            v-model="user.name" 
+                            v-validate="'required'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Name')" 
+                            class="help-block"
+                          >{{ errors.first('Name') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Surname
+                          <input 
+                            type="text" 
+                            id="email"  
+                            name="Surname" 
+                            v-model="user.lastname" 
+                            v-validate="'required'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Surname')" 
+                            class="help-block"
+                          >{{ errors.first('Surname') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Prefered Nickname
+                          <input 
+                            type="text" 
+                            id="nickname"  
+                            name="Nickname" 
+                            v-model="user.nickname" 
+                            v-validate="'required'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Nickname')" 
+                            class="help-block"
+                          >{{ errors.first('Nickname') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Email') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Email
+                          <input 
+                            type="text" 
+                            id="email"  
+                            name="Email" 
+                            v-model="user.email" 
+                            v-validate="'required|email'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Email')" 
+                            class="help-block"
+                          >{{ errors.first('Email') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Work Tel') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Work Telephone
+                          <input 
+                            type="text" 
+                            id="work_number"  
+                            name="Work Tel" 
+                            v-model="user.work_number" 
+                            v-validate="'required|numeric|min:10'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Work Telephone')" 
+                            class="help-block"
+                          >{{ errors.first('Work Tel') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Cell Number') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-2">Cellphone number
+                          <input 
+                            type="text" 
+                            id="personal_number"  
+                            name="Cell Number" 
+                            v-model="user.personal_number" 
+                            v-validate="'required|numeric|min:10'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Cell Number')" 
+                            class="help-block"
+                          >{{ errors.first('Cell Number') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100 mb-0' :true, 'has-error': errors.has('Address') }">
+                        <label class="col-lg-12 control-label w-100 p-0 mb-0">Address
+                          <textarea 
+                            id="address"  
+                            name="Address" 
+                            v-model="user.address" 
+                            v-validate="'required'" 
+                            class="form-control border-0"
+                          ></textarea>
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Address')" 
+                            class="help-block"
+                          >{{ errors.first('Address') }}</span>
+                        </label>
+                      </div>
                     </div>
-                  </label>
-                </div>
 
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
-                  <label class="col-lg-12 control-label w-100 p-0">
-                    Name
-                    <input 
-                      type="text" 
-                      id="email"  
-                      name="Name" 
-                      v-model="user.name" 
-                      v-validate="'required'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Name')" 
-                      class="help-block"
-                    >{{ errors.first('Name') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Surname') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Surname
-                    <input 
-                      type="text" 
-                      id="email"  
-                      name="Surname" 
-                      v-model="user.lastname" 
-                      v-validate="'required'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Surname')" 
-                      class="help-block"
-                    >{{ errors.first('Surname') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Surname') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Prefered Nickname
-                    <input 
-                      type="text" 
-                      id="nickname"  
-                      name="Nickname" 
-                      v-model="user.nickname" 
-                      v-validate="'required'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Nickname')" 
-                      class="help-block"
-                    >{{ errors.first('Nickname') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Email') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Email
-                    <input 
-                      type="text" 
-                      id="email"  
-                      name="Email" 
-                      v-model="user.email" 
-                      v-validate="'required|email'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Email')" 
-                      class="help-block"
-                    >{{ errors.first('Email') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Work Tel') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Work Telephone
-                    <input 
-                      type="text" 
-                      id="work_number"  
-                      name="Work Tel" 
-                      v-model="user.work_number" 
-                      v-validate="'required|numeric|min:10'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Work Telephone')" 
-                      class="help-block"
-                    >{{ errors.first('Work Tel') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Cell Number') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Cellphone number
-                    <input 
-                      type="text" 
-                      id="personal_number"  
-                      name="Cell Number" 
-                      v-model="user.personal_number" 
-                      v-validate="'required|numeric|min:10'" 
-                      class="form-control"
-                    >
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Cell Number')" 
-                      class="help-block"
-                    >{{ errors.first('Cell Number') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-                  <label class="col-lg-12 control-label w-100 p-0">Address
-                    <textarea 
-                      id="address"  
-                      name="Address" 
-                      v-model="user.address" 
-                      v-validate="'required'" 
-                      class="form-control"
-                    ></textarea>
-                    <span 
-                      id="error" 
-                      v-show="errors.has('Address')" 
-                      class="help-block"
-                    >{{ errors.first('Address') }}</span>
-                  </label>
-                </div>
-
-                <div :class="{'input': true, 'form-group' :true }">
-                  <button 
-                    type="submit" 
-                    class="btn btn-primary update-user w-100" 
-                    @click="updateUser('profile')"
-                  >Update</button>
-                </div>
+                    <div :class="{'input': true, 'form-group' :true }" class="ml-4">
+                      <button 
+                        type="submit" 
+                        class="btn btn-primary update-user w-100" 
+                        @click="updateUser('profile')"
+                      >Update</button>
+                    </div>
+                  </div>
+                </transition-expand>
               </div>
-            </transition-expand>
-					</div>
 
-					<div class="row">
-						<h3 class="d-block">
-							Account 
-							<img 
-                @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;" 
-                v-if="account_on == false" 
-                src="/images/icons/settings edit buttin@4x.png" 
-                alt="Account Edit Off" 
-                width="30"
-              >
-							<img 
-                @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;" 
-                v-else 
-                src="/images/icons/settings edit button hover@4x.png" 
-                alt="Account Edit Off" 
-                width="30"
-                >
-						</h3>
-						<p class="description" title="Personal Information">Account Information</p>
-					  <transition-expand>
-							<div v-if="expanded == true && account_on == true" class="w-100 account-info">
-								<div :class="{'input': true, 'form-group' :true }">
-									<label class="col-lg-12 control-label w-100 p-0">
-										Notifications
-										<b-form-checkbox
-											id="checkbox-1"
-											v-model="user.notifications"
-											name="checkbox-1"
-											value="1"
-											unchecked-value="0"
-											@change="updateNotifications"
-										>
-										Notifications
-										</b-form-checkbox> 
-									</label>
-								</div>
-
-								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Old Password') }">
-									<label class="col-lg-12 control-label w-100 p-0">Old Password
-										<input 
-                      type="password" 
-                      id="email"  
-                      name="Old Password" 
-                      v-model="user.old_password" 
-                      v-validate="'required|min:6'" 
-                      class="form-control"
+              <div class="row mx-0">
+                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+                  <div class="col-auto">
+                    <h3 class="d-block">Account</h3>
+                  </div>
+                  <div class="col-auto">
+                    <img 
+                      @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;" 
+                      v-if="account_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
                     >
-										<span 
-                      id="error" 
-                      v-show="errors.has('Old Password')" 
-                      class="help-block"
-                    >{{ errors.first('Old Password') }}</span>
-									</label>
-								</div>
-
-								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('New Password') }">
-									<label class="col-lg-12 control-label w-100 p-0">New Password
-										<input 
-                      type="password" 
-                      id="password" 
-                      ref="password" 
-                      name="New Password" 
-                      v-model="user.password" 
-                      v-validate="'required|min:6'" 
-                      class="form-control"
+                    <img 
+                      @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;" 
+                      v-else 
+                      src="/images/icons/settings edit button hover@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
                     >
-										<span 
-                      id="error" 
-                      v-show="errors.has('New Password')" 
-                      class="help-block"
-                    >{{ errors.first('New Password') }}</span>
-									</label>
-								</div>
+                  </div>
+                </div>
+                <transition-expand>
+                  <div v-if="expanded == true && account_on == true" class="w-100 account-info">
+                    <p class="description d-block w-100" title="Personal Information">Account Information</p>
+                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
+                      <div :class="{'input': true, 'form-group w-100' :true }">
+                        <label class="col-lg-12 control-label w-100 p-0">
+                          <b-form-checkbox
+                            id="checkbox-1"
+                            v-model="user.notifications"
+                            name="checkbox-1"
+                            value="1"
+                            unchecked-value="0"
+                            @change="updateNotifications"
+                          >Notifications</b-form-checkbox> 
+                        </label>
+                      </div>
 
-								<div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Password Confirm') }">
-									<label class="col-lg-12 control-label w-100 p-0">Confirm New Password
-										<input 
-                      type="password" 
-                      id="password_confirm"  
-                      name="Password Confirm" 
-                      v-model="user.password_confirmation" 
-                      v-validate="'required|min:6|confirmed:password'" 
-                      class="form-control"
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Old Password') }">
+                        <label class="col-lg-12 control-label w-100 p-0">Old Password
+                          <input 
+                            type="password" 
+                            id="email"  
+                            name="Old Password" 
+                            v-model="user.old_password" 
+                            v-validate="'required|min:6'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Old Password')" 
+                            class="help-block"
+                          >{{ errors.first('Old Password') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('New Password') }">
+                        <label class="col-lg-12 control-label w-100 p-0">New Password
+                          <input 
+                            type="password" 
+                            id="password" 
+                            ref="password" 
+                            name="New Password" 
+                            v-model="user.password" 
+                            v-validate="'required|min:6'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('New Password')" 
+                            class="help-block"
+                          >{{ errors.first('New Password') }}</span>
+                        </label>
+                      </div>
+
+                      <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Password Confirm') }">
+                        <label class="col-lg-12 control-label w-100 p-0">Confirm New Password
+                          <input 
+                            type="password" 
+                            id="password_confirm"  
+                            name="Password Confirm" 
+                            v-model="user.password_confirmation" 
+                            v-validate="'required|min:6|confirmed:password'" 
+                            class="form-control border-0"
+                          >
+                          <span 
+                            id="error" 
+                            v-show="errors.has('Password Confirm')" 
+                            class="help-block"
+                          >{{ errors.first('Password Confirm') }}</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div :class="{'input': true, 'form-group' :true }" class="ml-4">
+                      <button 
+                        type="submit" 
+                        class="btn btn-primary update-user w-100" 
+                        @click="updateUser('account')"
+                      >Update</button>
+                    </div>
+                  </div>
+                </transition-expand>
+              </div>
+
+              <div class="row border-bottom-0 mx-0 preferences">
+                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+                  <div class="col-auto">
+                    <h3 class="d-block">Preferences</h3>
+                  </div>
+                  <div class="col-auto"> 
+                    <img 
+                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false" 
+                      v-if="system_settings_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
                     >
-										<span 
-                      id="error" 
-                      v-show="errors.has('Password Confirm')" 
-                      class="help-block"
-                    >{{ errors.first('Password Confirm') }}</span>
-									</label>
-								</div>
-
-								<div :class="{'input': true, 'form-group' :true }">
-									<button 
-                    type="submit" 
-                    class="btn btn-primary update-user w-100" 
-                    @click="updateUser('account')"
-                  >Update</button>
-								</div>
-							</div>
-					  </transition-expand>
-					</div>
-
-					<div class="row preferences">
-						<h3 class="d-block">
-							Preferences 
-							<img 
-                @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false" 
-                v-if="system_settings_on == false" 
-                src="/images/icons/settings edit buttin@4x.png" 
-                alt="Account Edit Off" 
-                width="30"
-              >
-							<img 
-                @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false" 
-                v-else 
-                src="/images/icons/settings edit button hover@4x.png" 
-                alt="Account Edit Off"
-                width="30"
-              >
-						</h3>
-						<p class="description" title="Personal Information">General System Preferences</p>
-					  <transition-expand>
-							<div 
-                v-if="expanded == true && system_settings_on == true" 
-                class="w-100 general-system-prefs"
-              >
-								<div class="row" v-if="user.role_id == 1">
-									<h3 class="d-block">
-										Settings 
-									</h3>
-									<div 
-                    :class="{'input': true, 'form-group' :true }" 
-                    v-for="(setting, index) in system_preferences" 
-                    :key="index"
-                  >
-										<div v-if="setting.setting == 'auto_dialer'">
-											<label class="col-lg-5 control-label w-100 p-0">
-												Auto Dialing
-												<select 
-                          id="auto_dialler" 
-                          v-model="system_settings.auto_dialer.value" 
-                          class="form-control" 
-                          v-on:change="applySetting()"
+                    <img 
+                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false" 
+                      v-else 
+                      src="/images/icons/settings edit button hover@4x.png" 
+                      alt="Account Edit Off"
+                      width="30"
+                    >
+                  </div>
+                </div>
+                <transition-expand>
+                  <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
+                    <p class="description" title="Personal Information">General System Preferences</p>
+                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
+                      <div class="row border-bottom-0 mx-0" v-if="user.role_id == 1">
+                        <h3 class="d-block">
+                          Settings 
+                        </h3>
+                        <div 
+                          :class="{'input': true, 'form-group' :true }" 
+                          v-for="(setting, index) in system_preferences" 
+                          :key="index"
                         >
-													<option value="on">On</option>
-													<option value="off">Off</option>
-												</select>
-											</label>
-											<label class="col-lg-6 control-label w-100 p-0">
-												Apply To
-												<select 
-                          id="auto_dialler" 
-                          v-model="system_settings.auto_dialer.applies_to" 
-                          class="form-control" 
-                          v-on:change="applySetting()"
-                        >
-													<option 
-                            :value="role.id" 
-                            v-for="(role, index) in roles" 
-                            :key="index"
-                          >{{ role.display_name }}</option>
-													<option value="-1">Everyone</option>
-												</select>
-											</label>
-										</div>
-									</div>
-								</div>
-
-								<div class="row" v-if="preferences.length > 0">
-									<h3 class="d-block">
-										Themes 
-									</h3>
-									<div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
-										<div v-if="setting.setting == 'theme' && setting.system_setting != 1">
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
-                          type="submit" 
-                          :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" 
-                          class="w-100 m-0"
-                        >
-													Orange
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
-                          type="submit" 
-                          :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" 
-                          class="w-100 m-0"
-                        >
-													Blue
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'theme', value  : 'red'})" 
-                          type="submit" 
-                          :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" 
-                          class="w-100 m-0"
-                        >
-													Red
-												</button>
-											</label>
-										</div>
-									</div>
-								</div>
-
-								<div class="row" v-else>
-									<h3 class="d-block">
-										Themes 
-									</h3>
-									<div class="w-100">
-										<div>
-											<label class="col-lg-3 control-label w-100 p-0 themes">
-												<button 
-                          v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
-                          type="submit" 
-                          :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" 
-                          class="w-100 m-0"
-                        >
-													Orange
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
-                          type="submit" 
-                          :class="{ 'btn blue-btn': true, 'btn-default' : true }" 
-                          class="w-100 m-0"
-                        >
-													Blue
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'theme', value  : 'red'})" 
-                          type="submit" 
-                          :class="{ 'btn red-btn': true, 'btn-default' :  true }" 
-                          class="w-100 m-0"
-                        >
-													Red
-												</button>
-											</label>
-										</div>
-									</div>
-								</div>
-
-								<div class="row" v-if="preferences.length > 0">
-									<h3 class="d-block">
-										Language 
-									</h3>
-									<div v-for="(setting, index) in preferences" :key="index" class="w-100 language">
-										<div v-if="setting.setting == 'language' && setting.system_setting != 1">
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'language', value : 'english'})" 
-                          type="submit" 
-                          :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" 
-                          class="w-100 m-0"
-                        >
-													English
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'language', value :'spanish'})" 
-                          type="submit" 
-                          :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" 
-                          class="w-100 m-0"
-                        >
-													Spanish
-												</button>
-											</label>
-										</div>
-									</div>
-								</div>
-
-								<div class="row" v-else>
-									<h3 class="d-block">
-										Language 
-									</h3>
-									<div class="w-100">
-										<div>
-											<label class="col-lg-3 control-label w-100 p-0 language">
-												<button 
-                          v-on:click="applySetting({type : 'language', value : 'english'})" 
-                          type="submit" 
-                          :class="{ 'btn' : true, 'btn-active' :  true }" 
-                          class="w-100 m-0"
-                        >
-													English
-												</button>
-											</label>
-											<label class="col-lg-3 control-label w-100 p-0">
-												<button 
-                          v-on:click="applySetting({type : 'language', value :'spanish'})" 
-                          type="submit" 
-                          :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" 
-                          class="w-100 m-0"
-                        >
-													Spanish
-												</button>
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-					  </transition-expand>
-					</div>
-
-					<div class="row logout-wrapper border-bottom-0"  v-if="profile_on == false">
-						<a href="/logout" id="logout" class="w-100 d-block"></a>
-						<h3 class="d-block w-100 text-center">
-							Logout 
-						</h3>
-					</div>
-				</div>
-
-				<div v-if="notifications_on == true" class="notifications">
-					<div class="row mx-0">
-						<h2 class="w-100">
-							Notifications 
-						</h2>
-						<div class="w-100">
-							<label class="col-lg-3 control-label w-100 p-0">
-								<button 
-                  @click="showCallbacks"  
-                  type="submit" 
-                  :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" 
-                  class="w-100 m-0"
-                >Callbacks</button>
-							</label>
-							<label @click="showMessages" class="col-lg-3 control-label w-100 p-0">
-								<button 
-                  type="submit" 
-                  :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" 
-                  class="w-100 m-0"
-                >Messages</button>
-							</label>
-						</div>
-					</div>
-
-					<div v-if="callbacks_on == true && messages_on == false" class="row">
-						<div v-if="call_backs.length > 0">
-							<div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
-								<div class="card-body">
-									<h3 class="d-block d-block w-100">
-										<a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-									</h3>
-									<p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
-								</div>
-							</div>
-						</div>
-
-						<div v-else>
-							<div class="card">
-								<div class="card-body">
-									<p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
-								</div>
-							</div>
-            </div>
-					</div>
-
-					<div v-if="callbacks_on == false && messages_on == true" class="row">
-            <div class="card">
-              <div class="card-body">
-								<h3 class="d-block">Steve Hughes</h3>
-								<p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-body">
-								<h3 class="d-block">
-									Steve Hughes 
-								</h3>
-								<p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-body">
-								<h3 class="d-block">Steve Hughes</h3>
-								<p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-body">
-								<h3 class="d-block">Steve Hughes</h3>
-								<p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-              </div>
-            </div>
-					</div>
-				</div>
-
-				<div v-if="notifications_on == false && settings_on == false">
-					<div class="row p-0 stats-section">
-						<div class="col-lg-12">
-							<div class="row p-0">
-								<div class="col-lg-12">
-									<p class="monthly-target">Monthly Target <span class="value float-right">65%</span></p>
-									<div class="progress-bar w-100">
-										<span class="tank" :style="'width:' + 65 + '%'"></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="row commission">
-								<div class="col-lg-6">
-									<p class="description">Commission</p>
-									<p><span class="value">$1523</span></p>
-								</div>
-
-								<div class="col-lg-6 text-right">
-									<p class="description">Con. Ratio</p>
-									<p><span class="value">40%</span></p>
-								</div>
-							</div>
-
-							<div class="row calls">
-								<div class="col-lg-12">
-									<p class="description calls">Calls</p>
-								</div>
-
-								<div class="col-lg-6">
-									<p class="description">Leads</p>
-									<p><span class="value">125</span></p>
-								</div>
-
-								<div class="col-lg-6 text-right">
-									<p class="description">Called</p>
-									<p><span class="value">25</span></p>
-								</div>
-							</div>
-
-							<div class="row sales">
-								<div class="col-lg-12">
-									<p class="description">Sales</p>
-								</div>
-								<div class="col-lg-6">
-									<p class="description">Quantity</p>
-									<p><span class="value">54</span></p>
-								</div>
-								<div class="col-lg-6 text-right">
-									<p class="description">Value</p>
-									<p><span class="value">$2725</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-lg-12 final-modal border-0">
-							<div class="card left mt-3 tab-card border-0 shadow-none">
-								<div class="card-header tab-card-header border-bottom-0">
-									<ul class="nav nav-tabs card-header-tabs border-bottom-0 mb-0" id="myTab" role="tablist">
-										<li class="nav-item left w-50">
-											<a 
-                        class="nav-link active" 
-                        id="calendar-tab" 
-                        data-toggle="tab" 
-                        href="#calendar" 
-                        role="tab" 
-                        aria-controls="Calendar" 
-                        aria-selected="true"
-                      >
-												<span class="left description">Callback Calendar</span>
-											</a>
-										</li>
-
-										<li class="nav-item right w-50">
-											<a 
-                        class="nav-link" 
-                        id="search-panel-tab" 
-                        data-toggle="tab" 
-                        href="#search-panel" 
-                        role="tab" 
-                        aria-controls="Search" 
-                        aria-selected="false"
-                      >
-												<span class="left description">Search</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-
-								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active p-3" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-										<vc-calendar 
-                      class="border-0" 
-                      :attributes='attrs' 
-                      title-position="right" 
-                      is-expanded 
-                      :popover="true" />
-										<div class="row">
-											<div class="col-lg-12">
-												<p class="description badges">Badges</p>
-											</div>
-
-											<div class="col-lg-12">
-												<div class="row justify-content-between align-items-end">
-													<div class="position d-none">
-														<span>12<sup>th</sup></span>
-													</div>
-
-													<div class="col-sm-3 badge-1 px-2">
-														<img src="/images/icons/Colonel@4x.png" alt="Badge" class="w-100">
-														<p class="description text-center">Colonel</p>
-													</div>
-
-													<div class="col-sm-3 badge-2 px-2">
-														<img src="/images/icons/Corporal@4x.png" alt="Badge" class="w-100">
-														<p class="description text-center">Corporal</p>
-													</div>
-
-													<div class="col-sm-3 badge-3 px-2">
-														<img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-														<p class="description text-center">Captain</p>
-													</div>
-
-													<div class="col-sm-3 badge-4 px-2">
-														<img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-														<p class="description text-center">Captain</p>
-													</div>
-												</div>
-											</div>
-										</div>          
-									</div>
-
-									<div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="row search-input">
-													<div class="col-lg-12">
-														<div :class="{'input search': true, 'form-group' :true }">
-															<input 
-                                v-on:keyup="fireSearchEvent('Search')" 
-                                placeholder="Search:" 
-                                type="search" 
-                                id="search" 
-                                ref="search" 
-                                name="Search" 
-                                v-model="filter.search" 
-                                class="form-control"
+                          <div v-if="setting.setting == 'auto_dialer'">
+                            <label class="col-lg-5 control-label w-100 p-0">
+                              Auto Dialing
+                              <select 
+                                id="auto_dialler" 
+                                v-model="system_settings.auto_dialer.value" 
+                                class="form-control border-0" 
+                                v-on:change="applySetting()"
                               >
-														</div>
-													</div>
-												</div>
+                                <option value="on">On</option>
+                                <option value="off">Off</option>
+                              </select>
+                            </label>
+                            <label class="col-lg-6 control-label w-100 p-0">
+                              Apply To
+                              <select 
+                                id="auto_dialler" 
+                                v-model="system_settings.auto_dialer.applies_to" 
+                                class="form-control border-0" 
+                                v-on:change="applySetting()"
+                              >
+                                <option 
+                                  :value="role.id" 
+                                  v-for="(role, index) in roles" 
+                                  :key="index"
+                                >{{ role.display_name }}</option>
+                                <option value="-1">Everyone</option>
+                              </select>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
-												<div class="row filter-search">
-													<div class="col-lg-12">
-														<p class="heading">Filter Search</p>
-													</div>
-
-													<div class="col-lg-6">
-														<div :class="{'input': true, 'form-group' :true }">
-															<button 
-                                v-on:click="fireTableEvent('Print')" 
+                      <div class="row border-bottom-0 mx-0" v-if="preferences.length > 0">
+                        <h3 class="d-block">
+                          Themes 
+                        </h3>
+                        <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
+                          <div v-if="setting.setting == 'theme' && setting.system_setting != 1">
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
                                 type="submit" 
-                                class="btn btn-default m-0 print-btn"
-                              >Print</button>
-														</div>
-													</div>
-
-													<div class="col-lg-6">
-														<div :class="{'input': true, 'form-group' :true }">
-															<button 
-                                v-on:click="fireTableEvent('Export')" 
+                                :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" 
+                                class="w-100 m-0"
+                              >
+                                Orange
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
                                 type="submit" 
-                                class="btn btn-default m-0 export-btn"
-                              >Export</button>
-														</div>
-													</div>
-												</div>
+                                :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" 
+                                class="w-100 m-0"
+                              >
+                                Blue
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'red'})" 
+                                type="submit" 
+                                :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" 
+                                class="w-100 m-0"
+                              >
+                                Red
+                              </button>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
-												<div class="row filter-by">		
-													<div class="col-lg-12">
-														<table class="tg">
-															<tr>
-																<td class="tg-0las">
-                                  <p class="heading">Filter By</p>
-                                </td>
-																<td class="tg-1lax">
-																</td>
-															</tr>
+                      <div class="row border-bottom-0 mx-0" v-else>
+                        <h3 class="d-block">
+                          Themes 
+                        </h3>
+                        <div class="w-100">
+                          <div>
+                            <label class="col-lg-3 control-label w-100 p-0 themes">
+                              <button 
+                                v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
+                                type="submit" 
+                                :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" 
+                                class="w-100 m-0"
+                              >
+                                Orange
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
+                                type="submit" 
+                                :class="{ 'btn blue-btn': true, 'btn-default' : true }" 
+                                class="w-100 m-0"
+                              >
+                                Blue
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'red'})" 
+                                type="submit" 
+                                :class="{ 'btn red-btn': true, 'btn-default' :  true }" 
+                                class="w-100 m-0"
+                              >
+                                Red
+                              </button>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
-															<tr>
-																<td class="tg-0lax"><p class="heading">Owner</p></td>
-																<td class="tg-1lax">
-																	<select 
-                                    v-on:change="filterData()" 
-                                    type="text" 
-                                    id="role" 
-                                    name="Owner" 
-                                    v-model="filter.user_created_id" 
-                                    class="form-control"
+                      <div class="row border-bottom-0 mx-0" v-if="preferences.length > 0">
+                        <h3 class="d-block">
+                          Language 
+                        </h3>
+                        <div v-for="(setting, index) in preferences" :key="index" class="w-100 language">
+                          <div v-if="setting.setting == 'language' && setting.system_setting != 1">
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'language', value : 'english'})" 
+                                type="submit" 
+                                :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" 
+                                class="w-100 m-0"
+                              >
+                                English
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'language', value :'spanish'})" 
+                                type="submit" 
+                                :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" 
+                                class="w-100 m-0"
+                              >
+                                Spanish
+                              </button>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row border-bottom-0 mx-0" v-else>
+                        <h3 class="d-block">
+                          Language 
+                        </h3>
+                        <div class="w-100">
+                          <div>
+                            <label class="col-lg-3 control-label w-100 p-0 language">
+                              <button 
+                                v-on:click="applySetting({type : 'language', value : 'english'})" 
+                                type="submit" 
+                                :class="{ 'btn' : true, 'btn-active' :  true }" 
+                                class="w-100 m-0"
+                              >
+                                English
+                              </button>
+                            </label>
+                            <label class="col-lg-3 control-label w-100 p-0">
+                              <button 
+                                v-on:click="applySetting({type : 'language', value :'spanish'})" 
+                                type="submit" 
+                                :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" 
+                                class="w-100 m-0"
+                              >
+                                Spanish
+                              </button>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </transition-expand>
+              </div>
+
+              <div class="row logout-wrapper border-bottom-0"  v-if="profile_on == false">
+                <a href="/logout" id="logout" class="w-100 d-block"></a>
+                <h3 class="d-block w-100 text-center">
+                  Logout 
+                </h3>
+              </div>
+            </div>
+
+            <div v-if="notifications_on == true" class="notifications">
+              <div class="row mx-0">
+                <h2 class="w-100">
+                  Notifications 
+                </h2>
+                <div class="w-100">
+                  <label class="col-lg-3 control-label w-100 p-0">
+                    <button 
+                      @click="showCallbacks"  
+                      type="submit" 
+                      :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" 
+                      class="w-100 m-0"
+                    >Callbacks</button>
+                  </label>
+                  <label @click="showMessages" class="col-lg-3 control-label w-100 p-0">
+                    <button 
+                      type="submit" 
+                      :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" 
+                      class="w-100 m-0"
+                    >Messages</button>
+                  </label>
+                </div>
+              </div>
+
+              <div v-if="callbacks_on == true && messages_on == false" class="row">
+                <div v-if="call_backs.length > 0">
+                  <div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
+                    <div class="card-body">
+                      <h3 class="d-block d-block w-100">
+                        <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
+                      </h3>
+                      <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-else>
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div v-if="callbacks_on == false && messages_on == true" class="row">
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="d-block">Steve Hughes</h3>
+                    <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="d-block">
+                      Steve Hughes 
+                    </h3>
+                    <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="d-block">Steve Hughes</h3>
+                    <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="d-block">Steve Hughes</h3>
+                    <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="notifications_on == false && settings_on == false">
+              <div class="row p-0 stats-section">
+                <div class="col-lg-12">
+                  <div class="row p-0">
+                    <div class="col-lg-12">
+                      <p class="monthly-target">Monthly Target <span class="value float-right">65%</span></p>
+                      <div class="progress-bar w-100">
+                        <span class="tank" :style="'width:' + 65 + '%'"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row commission">
+                    <div class="col-lg-6">
+                      <p class="description">Commission</p>
+                      <p><span class="value">$1523</span></p>
+                    </div>
+
+                    <div class="col-lg-6 text-right">
+                      <p class="description">Con. Ratio</p>
+                      <p><span class="value">40%</span></p>
+                    </div>
+                  </div>
+
+                  <div class="row calls">
+                    <div class="col-lg-12">
+                      <p class="description">Calls</p>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <p class="description">Leads</p>
+                      <p><span class="value">125</span></p>
+                    </div>
+
+                    <div class="col-lg-6 text-right">
+                      <p class="description">Called</p>
+                      <p><span class="value">25</span></p>
+                    </div>
+                  </div>
+
+                  <div class="row sales">
+                    <div class="col-lg-12">
+                      <p class="description">Sales</p>
+                    </div>
+                    <div class="col-lg-6">
+                      <p class="description">Quantity</p>
+                      <p><span class="value">54</span></p>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                      <p class="description">Value</p>
+                      <p><span class="value">$2725</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12 final-modal border-0">
+                  <div class="card left mt-3 tab-card border-0 shadow-none">
+                    <div class="card-header tab-card-header border-bottom-0">
+                      <ul class="nav nav-tabs card-header-tabs border-bottom-0 mb-0" id="myTab" role="tablist">
+                        <li class="nav-item left w-50">
+                          <a 
+                            class="nav-link active border-0" 
+                            id="calendar-tab" 
+                            data-toggle="tab" 
+                            href="#calendar" 
+                            role="tab" 
+                            aria-controls="Calendar" 
+                            aria-selected="true"
+                          >
+                            <span class="left description">Callback Calendar</span>
+                          </a>
+                        </li>
+
+                        <li class="nav-item right w-50">
+                          <a 
+                            class="nav-link" 
+                            id="search-panel-tab" 
+                            data-toggle="tab" 
+                            href="#search-panel" 
+                            role="tab" 
+                            aria-controls="Search" 
+                            aria-selected="false"
+                          >
+                            <span class="left description">Search</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active p-3" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
+                        <vc-calendar 
+                          class="border-0" 
+                          :attributes='attrs' 
+                          title-position="right" 
+                          is-expanded 
+                          :popover="true" />
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <p class="description badges">Badges</p>
+                          </div>
+
+                          <div class="col-lg-12">
+                            <div class="row justify-content-between align-items-end">
+                              <div class="position d-none">
+                                <span>12<sup>th</sup></span>
+                              </div>
+
+                              <div class="col-sm-3 badge-1 px-2">
+                                <img src="/images/icons/Colonel@4x.png" alt="Badge" class="w-100">
+                                <p class="description text-center">Colonel</p>
+                              </div>
+
+                              <div class="col-sm-3 badge-2 px-2">
+                                <img src="/images/icons/Corporal@4x.png" alt="Badge" class="w-100">
+                                <p class="description text-center">Corporal</p>
+                              </div>
+
+                              <div class="col-sm-3 badge-3 px-2">
+                                <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
+                                <p class="description text-center">Captain</p>
+                              </div>
+
+                              <div class="col-sm-3 badge-4 px-2">
+                                <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
+                                <p class="description text-center">Captain</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>          
+                      </div>
+
+                      <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="row search-input">
+                              <div class="col-lg-12">
+                                <div :class="{'input search': true, 'form-group' :true }">
+                                  <input 
+                                    v-on:keyup="fireSearchEvent('Search')" 
+                                    placeholder="Search:" 
+                                    type="search" 
+                                    id="search" 
+                                    ref="search" 
+                                    name="Search" 
+                                    v-model="filter.search" 
+                                    class="form-control border-0"
                                   >
-																		<option value="">All </option>
-																		<option 
-                                      :value="item.id" 
-                                      v-for="(item,index) in lead_owners" 
-                                      :key="index"
-                                    >{{ item.name + ' ' + item.lastname }}</option>
-																	</select>
-																</td>
-															</tr>
+                                </div>
+                              </div>
+                            </div>
 
-															<tr>
-																<td class="tg-0lax"><p class="heading">Assigned To</p></td>
-																<td class="tg-1lax">
-																	<select 
-                                    v-on:change="filterData()" 
-                                    type="text" 
-                                    id="Assignee" 
-                                    name="Assignee" 
-                                    v-model="filter.user_assigned" 
-                                    class="form-control"
-                                  >
-																		<option value="">All</option>
-																		<option 
-                                      :value="item.id" 
-                                      v-for="(item,index) in assignees" 
-                                      :key="index"
-                                    >{{ item.name + ' ' + item.lastname }}</option>
-																	</select>
-																</td>
-															</tr>
+                            <div class="row filter-search">
+                              <div class="col-lg-12">
+                                <p class="heading">Filter Search</p>
+                              </div>
 
-															<tr>
-																<td class="tg-0lax"><p class="heading" >Lead Source</p></td>
-																<td class="tg-1lax">
-																	<select 
-                                    type="text" 
-                                    v-on:change="filterData()"  
-                                    id="Source" 
-                                    name="Source" 
-                                    v-model="filter.source"  
-                                    class="form-control"
-                                  >
-																		<option value="">All</option>
-																		<option 
-                                      :value="item.id" 
-                                      v-for="(item,index) in sources" 
-                                      :key="index"
-                                    >{{ item.name}}</option>
-																	</select>
-																</td>
-															</tr>
+                              <div class="col-lg-6">
+                                <div :class="{'input': true, 'form-group' :true }">
+                                  <button 
+                                    v-on:click="fireTableEvent('Print')" 
+                                    type="submit" 
+                                    class="btn btn-default m-0 print-btn"
+                                  >Print</button>
+                                </div>
+                              </div>
 
-															<tr>
-																<td class="tg-0lax"><p class="heading" >Package</p></td>
-																<td class="tg-1lax">
-																	<select 
-                                    type="text" 
-                                    v-on:change="filterData()"  
-                                    id="package"  
-                                    name="Package" 
-                                    v-model="filter.product_id"   
-                                    class="form-control"
-                                  >
-																		<option value="">All</option>
-																		<option 
-                                      :value="item.id" 
-                                      v-for="(item,index) in packages" 
-                                      :key="index"
-                                    >{{ item.name }}</option>
-																	</select>
-																</td>
-															</tr>
+                              <div class="col-lg-6">
+                                <div :class="{'input': true, 'form-group' :true }">
+                                  <button 
+                                    v-on:click="fireTableEvent('Export')" 
+                                    type="submit" 
+                                    class="btn btn-default m-0 export-btn"
+                                  >Export</button>
+                                </div>
+                              </div>
+                            </div>
 
-															<tr>
-																<td class="tg-0lax"><p class="heading">Status</p></td>
-																<td class="tg-1lax">
-																	<select type="text" 
-                                    v-on:change="filterData()"  
-                                    id="role"  
-                                    name="Status" 
-                                    v-model="filter.status"  
-                                    class="form-control"
-                                  >
-																		<option value="">All</option>
-																		<option value="1">Active</option>
-																		<option value="2">Inactive</option>
-																		<option value="0">Canceled</option>
-																	</select>
-																</td>
-															</tr>
-														</table>
-													</div>
+                            <div class="row filter-by">		
+                              <div class="col-lg-12">
+                                <table class="tg">
+                                  <tr>
+                                    <td class="tg-0las">
+                                      <p class="heading">Filter By</p>
+                                    </td>
+                                    <td class="tg-1lax">
+                                    </td>
+                                  </tr>
 
-													<div class="col-lg-12 action-btns">
-														<div :class="{'input': true, 'form-group' :true }">
-															<label class="col-lg-3 control-label">
-																<button 
-                                  v-on:click="filterData()" 
-                                  type="submit" 
-                                  class="btn btn-default w-100 m-0"
-                                >Apply</button>
-															</label>
-															<label class="col-lg-3 control-label">
-																<button 
-                                  v-on:click="clearFilter();" 
-                                  type="submit" 
-                                  class="btn btn-default w-100 m-0"
-                                >Clear</button>
-															</label>
-															<div>
-																<table class="tg">
-																	<tr>
-																		<td class="tg-0lax"><p class="heading" >Save Search:</p></td>
-																		<td class="tg-1lax">
-																			<input 
-                                        type="title" 
-                                        id="title" 
-                                        placeholder="Filter Title" 
-                                        ref="title" 
-                                        name="Filter Title" 
-                                        v-model="filter.title" 
-                                        v-validate="'required'" 
-                                        class="form-control"
+                                  <tr>
+                                    <td class="tg-0lax"><p class="heading">Owner</p></td>
+                                    <td class="tg-1lax">
+                                      <select 
+                                        v-on:change="filterData()" 
+                                        type="text" 
+                                        id="role" 
+                                        name="Owner" 
+                                        v-model="filter.user_created_id" 
+                                        class="form-control border-0"
                                       >
-																			<span 
-                                        id="error" 
-                                        v-show="errors.has('Filter Title')" 
-                                        class="help-block"
-                                      >{{ errors.first('Filter Title') }}</span>
-																		</td>
-																		<td>
-																			<button 
-                                        v-on:click="saveFilter" 
-                                        type="submit" 
-                                        :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" 
-                                        class="w-100 m-0"
-                                      >Save</button>
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                                        <option value="">All </option>
+                                        <option 
+                                          :value="item.id" 
+                                          v-for="(item,index) in lead_owners" 
+                                          :key="index"
+                                        >{{ item.name + ' ' + item.lastname }}</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class="tg-0lax"><p class="heading">Assigned To</p></td>
+                                    <td class="tg-1lax">
+                                      <select 
+                                        v-on:change="filterData()" 
+                                        type="text" 
+                                        id="Assignee" 
+                                        name="Assignee" 
+                                        v-model="filter.user_assigned" 
+                                        class="form-control border-0"
+                                      >
+                                        <option value="">All</option>
+                                        <option 
+                                          :value="item.id" 
+                                          v-for="(item,index) in assignees" 
+                                          :key="index"
+                                        >{{ item.name + ' ' + item.lastname }}</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class="tg-0lax"><p class="heading" >Lead Source</p></td>
+                                    <td class="tg-1lax">
+                                      <select 
+                                        type="text" 
+                                        v-on:change="filterData()"  
+                                        id="Source" 
+                                        name="Source" 
+                                        v-model="filter.source"  
+                                        class="form-control border-0"
+                                      >
+                                        <option value="">All</option>
+                                        <option 
+                                          :value="item.id" 
+                                          v-for="(item,index) in sources" 
+                                          :key="index"
+                                        >{{ item.name}}</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class="tg-0lax"><p class="heading" >Package</p></td>
+                                    <td class="tg-1lax">
+                                      <select 
+                                        type="text" 
+                                        v-on:change="filterData()"  
+                                        id="package"  
+                                        name="Package" 
+                                        v-model="filter.product_id"   
+                                        class="form-control border-0"
+                                      >
+                                        <option value="">All</option>
+                                        <option 
+                                          :value="item.id" 
+                                          v-for="(item,index) in packages" 
+                                          :key="index"
+                                        >{{ item.name }}</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class="tg-0lax"><p class="heading">Status</p></td>
+                                    <td class="tg-1lax">
+                                      <select type="text" 
+                                        v-on:change="filterData()"  
+                                        id="role"  
+                                        name="Status" 
+                                        v-model="filter.status"  
+                                        class="form-control border-0"
+                                      >
+                                        <option value="">All</option>
+                                        <option value="1">Active</option>
+                                        <option value="2">Inactive</option>
+                                        <option value="0">Canceled</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+
+                              <div class="col-lg-12 action-btns">
+                                <div :class="{'input': true, 'form-group' :true }">
+                                  <label class="col-lg-3 control-label">
+                                    <button 
+                                      v-on:click="filterData()" 
+                                      type="submit" 
+                                      class="btn btn-default w-100 m-0"
+                                    >Apply</button>
+                                  </label>
+                                  <label class="col-lg-3 control-label">
+                                    <button 
+                                      v-on:click="clearFilter();" 
+                                      type="submit" 
+                                      class="btn btn-default w-100 m-0"
+                                    >Clear</button>
+                                  </label>
+                                  <div>
+                                    <table class="tg">
+                                      <tr>
+                                        <td class="tg-0lax"><p class="heading" >Save Search:</p></td>
+                                        <td class="tg-1lax">
+                                          <input 
+                                            type="title" 
+                                            id="title" 
+                                            placeholder="Filter Title" 
+                                            ref="title" 
+                                            name="Filter Title" 
+                                            v-model="filter.title" 
+                                            v-validate="'required'" 
+                                            class="form-control border-0"
+                                          >
+                                          <span 
+                                            id="error" 
+                                            v-show="errors.has('Filter Title')" 
+                                            class="help-block"
+                                          >{{ errors.first('Filter Title') }}</span>
+                                        </td>
+                                        <td>
+                                          <button 
+                                            v-on:click="saveFilter" 
+                                            type="submit" 
+                                            :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" 
+                                            class="w-100 m-0"
+                                          >Save</button>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="closed-sidenav pr-3 d-none">
+            <div class="row justify-content-center border-top pt-5 pb-4">
+              <p class="monthly-target d-block pb-3">Monthly Target</p>
+              <vue-circle
+                ref="myprogress"
+                :progress="p"
+                :size="65"
+                :reverse="false"
+                line-cap="round"
+                :fill="fill"
+                empty-fill="rgba(0, 0, 0, .1)"
+                :animation-start-value="0.0"
+                :start-angle="0"
+                insert-mode="append"
+                :animation="{ duration: 1200, easing: 'easeOutBounce' }"
+                :thickness="5"
+                :show-percent="true"
+                @vue-circle-progress="progress"
+                @vue-circle-end="progress_end"
+              >
+              </vue-circle>
+            </div>
+
+            <div class="row justify-content-center px-4">
+              <p class="description d-block pb-2">Commission</p>
+              <p class="value d-block">$1523</p>
+            </div>
+
+            <div class="row justify-content-center border-bottom pb-5 pt-4">
+              <div class="col-12 px-0 text-center">
+                <p class="description d-block pb-2">Con. Ratio</p>
+              </div>
+              <div class="col-12 px-0 text-center">
+                <p class="value d-block">40%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+			</section>
 		</aside>
 	</div>
 </template>
 
 <script>
 	import { setupCalendar, Calendar} from 'v-calendar'
-	import TransitionHeight from '../Plugins/TransitionExpand.vue';
+  import TransitionHeight from '../Plugins/TransitionExpand.vue';
+  import VueCircle from 'vue2-circle-progress'
 	export default {
     props: ['auth_user','active'],
     components: {
-      'transition-expand' : TransitionHeight
+      'transition-expand' : TransitionHeight,
+      VueCircle
     },
     data: function(){
       return {
@@ -1557,7 +1630,9 @@ label.custom-control-label{
           language : 'english'
         },
         avatarUrl: '/images/avatars/',
-          noImageUrl: '/images/icons/user_icon@4x.png',
+        noImageUrl: '/images/icons/user_icon@4x.png',
+        fill : { gradient: ["#a1ed1c", "#62d37e"] },
+        p:65
       }
     },
 
@@ -1825,7 +1900,17 @@ label.custom-control-label{
       
 			fireSearchEvent(){
 				Fire.$emit('Search',{'search_term' : this.filter.search});
-			}
+      },
+
+      progress(event,progress,stepValue){
+        console.log(stepValue);
+        if (stepValue > 30) {
+          this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e");
+        }
+      },
+      progress_end(event){
+        console.log("Circle progress end");
+      }
     },
 
 		computed: {}

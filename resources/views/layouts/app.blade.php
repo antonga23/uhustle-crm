@@ -28,9 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
       .content-wrapper, .main-footer, .main-header {
           transition: margin-left 0.3s ease-in-out;
-          margin-left: 54px !important;
           z-index: 1000  !important;
-          margin-right: 352px;
       }
       .main-sidebar {
         z-index: 1000;

@@ -370,4 +370,33 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #333; 
 }
-  
+
+@media (min-width: 768px) {
+  .sidebar-collapse .content-wrapper,
+  .sidebar-collapse .main-footer,
+  .sidebar-collapse .main-header {
+    transition: margin-right 0.3s ease-in-out;
+    margin-left: 63px!important; 
+    margin-right: 125px;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    transition: margin-right 0.3s ease-in-out;
+    margin-left: 63px!important; 
+    margin-right: 417px;
+  }
+}
+
+.sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
+  transition: display 0.3s ease-in-out;
+  max-width: 90px;
+  display: block!important;
+}
+.sidebar-collapse .main-sidebar .sidebar .sidebar-menu .open-sidenav {
+  transition: display 0.5s ease-in-out;
+  display: none!important;
+}
