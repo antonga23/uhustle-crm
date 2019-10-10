@@ -7,13 +7,14 @@
         <div class="row mx-0">
             <div class="col-md-6 pl-0">
                 <a href="/login" class="btn w-100 m-0 inactiveBtn">Sign In</a>
-            </div>
+            </div>   
             <div class="col-md-6 pr-0">
                 <a href="/register" class="btn w-100 m-0 activeBtn">Sign Up</a>
             </div>
         </div>
     </div>
 </div>
+
 <div class="container register px-0">
     <div class="row justify-content-center">
         <div class="col-lg-12">

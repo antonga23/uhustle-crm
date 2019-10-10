@@ -32,7 +32,7 @@
       max-width: 100%;
     }
 .left-side{
-    background-image: url('/images/Sign_In/Assests/Login.svg');
+    background-image: url('/images/Sign_In/Assests/Left-Background.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top;
@@ -84,7 +84,34 @@
 .login-btn {
   border-radius: 12px !important;
   font-family: 'Lato light', sans-serif !important;
+}
+.outer-login-container {
+  position: relative;
+  height: 100% !important;
+} 
+.inner-login-container {
+  position: absolute;
+  top: 65%;
+  -ms-transform: translateY(-50%);
+  /* transform: translateY(-50%); */
+  right: 0;
+}
+.mt-20 {
+  margin-top: 0 !important;
+}
+@media screen and (min-width: 2024px) {
+  .mt-20 {
+    margin-top: 20% !important;
+  }
+}
 
+@media screen and (max-width: 992px) {
+.outer-login-container {
+  height: 25% !important;
+}
+  .inner-login-container {
+    top: 3% !important;
+  }
 }
 #auth .card{
     border: none !important;
@@ -238,12 +265,28 @@
 /*end auth nav styling*/
 /*auth buttons styling*/
 .activeBtn{
-  border-bottom: 1px solid #faba00!important;
-  border-radius: 0!important;
-  color: #013449!important;
+  /* border-bottom: 1px solid #fff!important; */
+  color: #F28821!important;
+  font-size: 28px !important;
+  font-family: 'Lato Light', sans-serif !important;
+  background-image: url('/images/Sign_In/Assests/White-space.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  position: relative;
+  left: 30%;
+  height: 84px;
+}
+ .btn:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 .inactiveBtn{
-  color: rgba(1,52,73,0.5)!important;
+  color: #F2F2F2!important;
+  font-size: 28px !important;
+  font-family: 'Lato Light', sans-serif !important;
+  position: relative;
+  left: 30%;
+  height: 84px;
 }
 /*end auth buttons styling*/
 
@@ -321,6 +364,12 @@
 }
 .center {
   text-align: center;
+}
+.right {
+  text-align: right !important;
+}
+.left {
+  text-align: left !important
 }
 .stepper-step-center {
   text-align: center;
