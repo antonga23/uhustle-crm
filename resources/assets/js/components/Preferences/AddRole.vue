@@ -32,7 +32,7 @@
                     <label for="input-invalid">Role Status</label>
                 </b-col>
                 <b-col sm="9">
-                    <b-form-select v-model="role.status" :options="[{ value: '', text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
+                    <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
                 </b-col>
             </b-row>
 
@@ -64,10 +64,12 @@
         props: [],
         data: function(){
             return {
+
+                    status : null,
                 role: {
                     display_name : '',
                     description : '',
-                    status : '',
+                    status : null,
                 },
                 Toast: null,
             }

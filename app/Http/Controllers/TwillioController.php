@@ -229,7 +229,7 @@ class TwillioController extends Controller
 
                 $conference_name = $prefix.$lead_id . '-' . $caller_id;
                 
-                $dial = $twiml->dial('',['from' => 'client:Agent']);
+                $dial = $twiml->dial('');
 
                 $dial->conference($conference_name, [
                         'maxParticipants' => 3, 
@@ -340,46 +340,6 @@ class TwillioController extends Controller
         } 
 
 
-    }
-
-    public function createCallRecord(Request $request){
-
-        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
-
-        $lead_id = $request->lead_id;
-        $call_sid = $request->call_sid;
-
-        $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
-
-        try{
-            DB::beginTransaction();
-
-            if($call_exist){
-
-                Twillio::where(['call_sid' => $call_sid])->update([ 
-                    'lead_id' => $lead_id,
-                ]);
-
-            }else{
-
-                Twillio::create([
-                    'agent_name' => $request_user['name'],
-                    'agent_id' => $request_user['user_id'],
-                    'lead_id' => $lead_id,
-                    'call_sid' => $call_sid
-                ]);
-
-            }
-
-            DB::commit();
-
-            header('Content-Type: application/json');
-            return json_encode(['call_sid' => $call_sid]);
-
-        }catch(\QueryException $e){
-            DB::rollback();
-            return array('success' =>false, 'message' => $e->getMessage());
-        } 
     }
 
     public function getCallHistory($month = ''){

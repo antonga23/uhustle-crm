@@ -82,7 +82,6 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::post('/voice', 'TwillioController@voice');
 	Route::post('/coach', 'TwillioController@joinConference');
 	Route::post('/status-update', 'TwillioController@statusUpdate');
-	Route::post('/create-call-record', 'TwillioController@createCallRecord');
 	Route::get('/get-call-history', 'TwillioController@getCallHistory');
 	Route::get('/get-call-history/{month}', 'TwillioController@getCallHistory');
 	Route::get('/get-dashboard', 'TwillioController@getDashboard');
@@ -167,6 +166,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
+	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });

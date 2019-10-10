@@ -28,9 +28,4 @@ class Permissions extends Model implements Auditable
             'permissions',
         ];
     }   
-
-    public function attributes()
-    {
-        return $this->hasMany(PermissionAttributes::class, 'permission_id', 'id');
-    }
 }
