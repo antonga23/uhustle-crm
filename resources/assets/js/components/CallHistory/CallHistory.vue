@@ -1,8 +1,6 @@
 <style scoped>
 #top-section{
-  background: #f0f1f1;
-  margin-top: 2%;
-  padding: 20px 20px 20px 3%;
+  padding: 20px 3%;
 }
 .row.stats {
   padding: 0 3%
@@ -296,7 +294,7 @@ table.listing tr  th{
         <div class="card mb-0 sales-amount">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0">
-              <p class="card-text-small text-left">Sales Amount</p>
+              <p class="card-text-small text-left">Amount</p>
             </div>
             <div class="col px-0">
               <p class="card-text text-right">${{ call_log.sum_sales }}</p>
@@ -310,7 +308,7 @@ table.listing tr  th{
             <div class="col pl-0">
               <p class="card-text-small text-left">Callbacks</p>
             </div>
-            <div class="col pr-0">
+            <div class="col px-0">
               <p class="card-text text-right">{{ call_log.sum_call_back }}</p>
             </div>
           </div>
@@ -320,7 +318,7 @@ table.listing tr  th{
         <div class="card mb-0 ave-time">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0">
-              <p class="card-text-small text-left">Ave. Time</p>
+              <p class="card-text-small text-left">Av. Time</p>
             </div>
             <div class="col px-0">
               <p class="card-text text-right">{{ secondsToMinues(call_log.avg_time) }}</p>
@@ -340,22 +338,17 @@ table.listing tr  th{
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col pr-0">
         <div class="card mb-0 mon-target">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0">
-              <p class="card-text-small text-left">Monthly Target</p>
+              <p class="card-text-small text-left">Target</p>
             </div>
-            <div class="col">
+            <div class="col px-0">
               <p class="card-text text-right">42</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-auto pr-0">
-        <b-button class="rounded-circle m-0"> 
-          <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 16px;"/> 
-        </b-button>
       </div>
     </div>
     <div class="row stats mx-0">
@@ -394,7 +387,7 @@ table.listing tr  th{
             </div>
             <div class="col-lg-auto pr-0">
               <b-button class="rounded-circle m-0"> 
-                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 8px;"/> 
+                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 15px;"/> 
               </b-button>
             </div>
           </div>

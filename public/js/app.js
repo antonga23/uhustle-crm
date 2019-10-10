@@ -69008,13 +69008,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -131347,7 +131340,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#top-section[data-v-507c5f96]{\r\n  background: #f0f1f1;\r\n  margin-top: 2%;\r\n  padding: 20px 20px 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\r\n  padding: 0 3%\n}\n.row[data-v-507c5f96]{\r\n  margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\r\n  list-style: none;\n}\n.top-section li[data-v-507c5f96]{\r\n  margin-right: 52px;\r\n  padding: 6px 83px 3px 15px;\r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\r\n  margin-bottom: 0;\r\n  font-size: 19px;\r\n  font-weight: 900;\n}\n.card[data-v-507c5f96]{\r\n  border-radius: 10px;\r\n  border: none;\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.1)!important;\n}\n.ca\r\n.card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n  color: #fff;\n}\n.sales[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(65,197,231,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n  color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n  color: #fff;\n}\n.call-backs[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n  color: #fff;\n}\n.ave-time[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(222,137,180,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n  color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n  color: #fff;\n}\n.mon-target[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(75,189,149,1) 0%, rgba(32,190,198 ,1) 100% ) ;\r\n  color: #fff;\n}\nh5[data-v-507c5f96]{\r\n  color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\r\n  width: 15px;\r\n  margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96]{\r\n  color: #fff;\r\n  width: 100%;\r\n  margin-right: 0;\r\n  text-align: right;\r\n  float: left;\r\n  margin-bottom: 0;\r\n  word-break:keep-all;\n}\np.card-text[data-v-507c5f96]{\r\n  font-size: 16px;\r\n  color: #fff;\r\n  font-weight: bolder;\r\n  margin: 0;\r\n  width: 100%;\r\n  float: right;\n}\np.card-text span[data-v-507c5f96]{\r\n  font-size: 19px;\r\n  color: #333333;\r\n  font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\r\n  font-size: 22px;\r\n  color: #333333;\n}\n.stats .card[data-v-507c5f96]{\r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\r\n  width: 25px;\r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\r\n  float: right;\n}\n.truncate[data-v-507c5f96] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\r\n  margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\r\n  font-size: 25px;\r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\r\n  float: left;\r\n  display: block;\r\n  height: 50px;\r\n  width: 50px;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\r\n  display: block;\r\n  height: 50px;\r\n  width: 75%;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  border: none;\r\n  cursor: pointer;\r\n  float: left;\n}\n#send-btn[data-v-507c5f96]{\r\n  height: 50px;\r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\r\n  height: 318px !important;\n}\n.green[data-v-507c5f96]{\r\n  color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\r\n  color:red !important;\n}\n.card-text-small[data-v-507c5f96]{\r\n  margin-top: -7px;\r\n  color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\r\n  width: 12%;\n}\n.badge img[data-v-507c5f96]{\r\n  width: 100%;\n}\n.headings[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\r\n  font-weight: 700;\r\n  color: #9c9c9c;\r\n  font-size: 14px;\r\n  text-transform: capitalize;\n}\nul.items[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\r\n  float:left;\r\n  font-weight: 700;\r\n  color:#003449;    \r\n  width: 14%;\r\n  text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover{\r\n  text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\r\n  width: 30px;\r\n  margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96]{\r\n  overflow-y: scroll;\r\n  height: 70vh;\r\n  padding-top: 6px;\r\n  padding-right: 6px;\r\n  width: 104%;\n}\ntable.listing[data-v-507c5f96]{\r\n  width: 100%;\n}\ntable.listing tr  th[data-v-507c5f96]{ \r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96]{\r\n  padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96]{\r\n  padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\r\n  font-size: 36px;\r\n  line-height: 1em;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 40px;\r\n  height: 40px;\r\n  padding: 2px 5px 5px;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 30px;\r\n  height: 30px;\r\n  padding: 0 0 3px 0;\r\n  box-shadow: 0 0 3px 0 rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n#top-section[data-v-507c5f96]{\r\n  padding: 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\r\n  padding: 0 3%\n}\n.row[data-v-507c5f96]{\r\n  margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\r\n  list-style: none;\n}\n.top-section li[data-v-507c5f96]{\r\n  margin-right: 52px;\r\n  padding: 6px 83px 3px 15px;\r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\r\n  margin-bottom: 0;\r\n  font-size: 19px;\r\n  font-weight: 900;\n}\n.card[data-v-507c5f96]{\r\n  border-radius: 10px;\r\n  border: none;\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.1)!important;\n}\n.ca\r\n.card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n  color: #fff;\n}\n.sales[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(65,197,231,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n  color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n  color: #fff;\n}\n.call-backs[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n  color: #fff;\n}\n.ave-time[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(222,137,180,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n  color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n  color: #fff;\n}\n.mon-target[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(75,189,149,1) 0%, rgba(32,190,198 ,1) 100% ) ;\r\n  color: #fff;\n}\nh5[data-v-507c5f96]{\r\n  color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\r\n  width: 15px;\r\n  margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96]{\r\n  color: #fff;\r\n  width: 100%;\r\n  margin-right: 0;\r\n  text-align: right;\r\n  float: left;\r\n  margin-bottom: 0;\r\n  word-break:keep-all;\n}\np.card-text[data-v-507c5f96]{\r\n  font-size: 16px;\r\n  color: #fff;\r\n  font-weight: bolder;\r\n  margin: 0;\r\n  width: 100%;\r\n  float: right;\n}\np.card-text span[data-v-507c5f96]{\r\n  font-size: 19px;\r\n  color: #333333;\r\n  font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\r\n  font-size: 22px;\r\n  color: #333333;\n}\n.stats .card[data-v-507c5f96]{\r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\r\n  width: 25px;\r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\r\n  float: right;\n}\n.truncate[data-v-507c5f96] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\r\n  margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\r\n  font-size: 25px;\r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\r\n  float: left;\r\n  display: block;\r\n  height: 50px;\r\n  width: 50px;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\r\n  display: block;\r\n  height: 50px;\r\n  width: 75%;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  border: none;\r\n  cursor: pointer;\r\n  float: left;\n}\n#send-btn[data-v-507c5f96]{\r\n  height: 50px;\r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\r\n  height: 318px !important;\n}\n.green[data-v-507c5f96]{\r\n  color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\r\n  color:red !important;\n}\n.card-text-small[data-v-507c5f96]{\r\n  margin-top: -7px;\r\n  color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\r\n  width: 12%;\n}\n.badge img[data-v-507c5f96]{\r\n  width: 100%;\n}\n.headings[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\r\n  font-weight: 700;\r\n  color: #9c9c9c;\r\n  font-size: 14px;\r\n  text-transform: capitalize;\n}\nul.items[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\r\n  float:left;\r\n  font-weight: 700;\r\n  color:#003449;    \r\n  width: 14%;\r\n  text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover{\r\n  text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\r\n  width: 30px;\r\n  margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96]{\r\n  overflow-y: scroll;\r\n  height: 70vh;\r\n  padding-top: 6px;\r\n  padding-right: 6px;\r\n  width: 104%;\n}\ntable.listing[data-v-507c5f96]{\r\n  width: 100%;\n}\ntable.listing tr  th[data-v-507c5f96]{ \r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96]{\r\n  padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96]{\r\n  padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\r\n  font-size: 36px;\r\n  line-height: 1em;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 40px;\r\n  height: 40px;\r\n  padding: 2px 5px 5px;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 30px;\r\n  height: 30px;\r\n  padding: 0 0 3px 0;\r\n  box-shadow: 0 0 3px 0 rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -246840,7 +246833,7 @@ var render = function() {
               [
                 _vm._m(3),
                 _vm._v(" "),
-                _c("div", { staticClass: "col pr-0" }, [
+                _c("div", { staticClass: "col px-0" }, [
                   _c("p", { staticClass: "card-text text-right" }, [
                     _vm._v(_vm._s(_vm.call_log.sum_call_back))
                   ])
@@ -246892,25 +246885,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(6),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-lg-auto pr-0" },
-          [
-            _c("b-button", { staticClass: "rounded-circle m-0" }, [
-              _c("img", {
-                staticClass: "icon",
-                staticStyle: { width: "16px" },
-                attrs: {
-                  src: "/images/workstation/Asset 28@4x.png",
-                  alt: "Icon"
-                }
-              })
-            ])
-          ],
-          1
-        )
+        _vm._m(6)
       ]
     ),
     _vm._v(" "),
@@ -246948,7 +246923,7 @@ var render = function() {
                   _c("b-button", { staticClass: "rounded-circle m-0" }, [
                     _c("img", {
                       staticClass: "icon",
-                      staticStyle: { width: "8px" },
+                      staticStyle: { width: "15px" },
                       attrs: {
                         src: "/images/workstation/Asset 28@4x.png",
                         alt: "Icon"
@@ -247063,9 +247038,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col pl-0" }, [
-      _c("p", { staticClass: "card-text-small text-left" }, [
-        _vm._v("Sales Amount")
-      ])
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Amount")])
     ])
   },
   function() {
@@ -247084,7 +247057,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col pl-0" }, [
       _c("p", { staticClass: "card-text-small text-left" }, [
-        _vm._v("Ave. Time")
+        _vm._v("Av. Time")
       ])
     ])
   },
@@ -247102,7 +247075,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
+    return _c("div", { staticClass: "col pr-0" }, [
       _c("div", { staticClass: "card mb-0 mon-target" }, [
         _c(
           "div",
@@ -247113,11 +247086,11 @@ var staticRenderFns = [
           [
             _c("div", { staticClass: "col pl-0" }, [
               _c("p", { staticClass: "card-text-small text-left" }, [
-                _vm._v("Monthly Target")
+                _vm._v("Target")
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "col px-0" }, [
               _c("p", { staticClass: "card-text text-right" }, [_vm._v("42")])
             ])
           ]
