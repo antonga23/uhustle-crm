@@ -68978,6 +68978,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -75253,6 +75290,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -102225,7 +102278,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -131294,7 +131347,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-507c5f96]{\n   margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\n    list-style: none;\n}\n.top-section li[data-v-507c5f96]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96]{\n    border-radius: 10px;\n    border: none;\n}\n.card-body[data-v-507c5f96]{\n    text-align: center;\n}\n.ca\n.card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-507c5f96]{\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: 0;\n}\np.card-text[data-v-507c5f96]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-507c5f96]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\n    height: 318px !important;\n}\n#top-section[data-v-507c5f96]{\n    background: #fff;\n    margin-top: 2%;\n    padding: 0px 3%;\n}\n.green[data-v-507c5f96]{\n    color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\n    color:red !important;\n}.card-text-small[data-v-507c5f96]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\n    width: 12%;\n}\n.badge img[data-v-507c5f96]{\n    width: 100%;\n}\nul.headings[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9c9c9c;\n    /* padding: 0 104px 0 0; */\n    width: 14%;\n    text-align: left;\n    font-size: 14px;\n    text-transform: capitalize;\n}\nul.items[data-v-507c5f96]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover{\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-507c5f96]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-507c5f96]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96]{\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96]{\n    padding-bottom: 18px;\n}\n.card .card-text.text-center[data-v-507c5f96] {\n    font-size: 36px;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text.text-center[data-v-507c5f96] {\n        font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text.text-center[data-v-507c5f96] {\n        font-size: 16px;\n}\n}\n.card .card-text-small.text-left[data-v-507c5f96] {\n    word-break: keep-all;\n}\n\n", ""]);
+exports.push([module.i, "\n#top-section[data-v-507c5f96]{\r\n  background: #f0f1f1;\r\n  margin-top: 2%;\r\n  padding: 20px 20px 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\r\n  padding: 0 3%\n}\n.row[data-v-507c5f96]{\r\n  margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96]{\r\n  list-style: none;\n}\n.top-section li[data-v-507c5f96]{\r\n  margin-right: 52px;\r\n  padding: 6px 83px 3px 15px;\r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96]{\r\n  margin-bottom: 0;\r\n  font-size: 19px;\r\n  font-weight: 900;\n}\n.card[data-v-507c5f96]{\r\n  border-radius: 10px;\r\n  border: none;\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.1)!important;\n}\n.ca\r\n.card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n  color: #fff;\n}\n.sales[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(65,197,231,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n  color: #fff;\n}\n.sales-amount[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n  color: #fff;\n}\n.call-backs[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n  color: #fff;\n}\n.ave-time[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(222,137,180,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n  color: #fff;\n}\n.con-ratio[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n  color: #fff;\n}\n.mon-target[data-v-507c5f96]{\r\n  background: linear-gradient(to right, rgba(75,189,149,1) 0%, rgba(32,190,198 ,1) 100% ) ;\r\n  color: #fff;\n}\nh5[data-v-507c5f96]{\r\n  color: #fff;\n}\nh5 .icon[data-v-507c5f96]{\r\n  width: 15px;\r\n  margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96]{\r\n  color: #fff;\r\n  width: 100%;\r\n  margin-right: 0;\r\n  text-align: right;\r\n  float: left;\r\n  margin-bottom: 0;\r\n  word-break:keep-all;\n}\np.card-text[data-v-507c5f96]{\r\n  font-size: 16px;\r\n  color: #fff;\r\n  font-weight: bolder;\r\n  margin: 0;\r\n  width: 100%;\r\n  float: right;\n}\np.card-text span[data-v-507c5f96]{\r\n  font-size: 19px;\r\n  color: #333333;\r\n  font-weight: bolder;\n}\np.card-link[data-v-507c5f96]{\r\n  font-size: 22px;\r\n  color: #333333;\n}\n.stats .card[data-v-507c5f96]{\r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96]{\r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96]{\r\n  width: 25px;\r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96]{\r\n  float: right;\n}\n.truncate[data-v-507c5f96] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96]{\r\n  margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96]{\r\n  font-size: 25px;\r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96]{\r\n  float: left;\r\n  display: block;\r\n  height: 50px;\r\n  width: 50px;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  cursor: pointer;\n}\n.comment-desc[data-v-507c5f96]{\r\n  display: block;\r\n  height: 50px;\r\n  width: 75%;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  border: none;\r\n  cursor: pointer;\r\n  float: left;\n}\n#send-btn[data-v-507c5f96]{\r\n  height: 50px;\r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96], .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96]{\r\n  height: 318px !important;\n}\n.green[data-v-507c5f96]{\r\n  color:#00a25a !important;\n}\n.red[data-v-507c5f96]{\r\n  color:red !important;\n}\n.card-text-small[data-v-507c5f96]{\r\n  margin-top: -7px;\r\n  color: #3b3b3b;\n}\n.badge[data-v-507c5f96]{\r\n  width: 12%;\n}\n.badge img[data-v-507c5f96]{\r\n  width: 100%;\n}\n.headings[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\r\n  font-weight: 700;\r\n  color: #9c9c9c;\r\n  font-size: 14px;\r\n  text-transform: capitalize;\n}\nul.items[data-v-507c5f96]{\r\n  list-style: none;\r\n  padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\r\n  float:left;\r\n  font-weight: 700;\r\n  color:#003449;    \r\n  width: 14%;\r\n  text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover{\r\n  text-decoration: none;\n}\n.form-control[data-v-507c5f96]{\r\n  width: 30px;\r\n  margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96]{\r\n  overflow-y: scroll;\r\n  height: 70vh;\r\n  padding-top: 6px;\r\n  padding-right: 6px;\r\n  width: 104%;\n}\ntable.listing[data-v-507c5f96]{\r\n  width: 100%;\n}\ntable.listing tr  th[data-v-507c5f96]{ \r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96]{\r\n  padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96]{\r\n  padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\r\n  font-size: 36px;\r\n  line-height: 1em;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\r\n    font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 40px;\r\n  height: 40px;\r\n  padding: 2px 5px 5px;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\r\n  width: 30px;\r\n  height: 30px;\r\n  padding: 0 0 3px 0;\r\n  box-shadow: 0 0 3px 0 rgba(0,0,0,0.1)!important;\r\n  background-color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -131484,7 +131537,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\t/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n\t\tpadding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n\t\tline-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n\t  letter-spacing: 4.2px;\n}\na.top-link[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n    height: 30px !important;\n    padding: 2px 17px 6px !important;\n\t\tfont-family: 'Rubik', sans-serif;\n\t\tletter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n\t\tborder-radius: 26px;\n    height: 30px !important;\n    background: #F98B39 !important;\n    border-color: #F98B39 !important;\n    color: #fff !important;\n    padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n    border-radius: 26px;\n    margin: 5px 8px 8px 55px !important;\n    height: 30px !important;\n    background: #F98B39 !important;\n    border-color: #F98B39 !important;\n    color: #fff !important;\n    padding: 2px 17px 6px !important;\n}\nselect.month-selector[data-v-6ec57eb6] {\n\t\tmargin-left: 0!important;\n\t\tmargin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\n    width: 43px;\n    margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n    background-repeat: no-repeat;\n    color: black;\n    background-size: 59px !important;\n    background-repeat: no-repeat !important;\n    background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\n    background-image: url('/images/icons/Asset 60.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\n    background-image: url('/images/icons/Asset 61.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n    background-image: url('/images/icons/Asset 55.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n    background-image: url('/images/icons/Asset 56.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n    background-image: url('/images/icons/Asset 57.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n    background-image: url('/images/icons/Asset 59.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n    background-image: url('/images/icons/Asset 58.svg') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n    background-image: url('/images/workstation/Asset 28@4x.png') !important;\n    background-size: contain;\n    background-repeat: no-repeat;\n\tbackground-color: transparent;\n\tborder: none;\n\tpadding: 14px;\n\tmargin-top: 5px;\n\tmargin-left: 20px;\n}\n.callIcons button.status[data-v-6ec57eb6], .callIcons button.call[data-v-6ec57eb6] {\n\t\tpadding: 31px;\n\t\tmargin-top: -11px;\n\t\tmargin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\n\t\tbackground: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n\t/*is error being used?*/\n.error[data-v-6ec57eb6]{\n\t\tcolor:#F98B39;\n}\n\t/*End Right Component*/\n", ""]);
+exports.push([module.i, "\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003449;\r\n  font-size: 25px;\r\n  letter-spacing: 4.2px;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  border-radius: 26px;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 2px 17px 6px !important;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 59.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 58.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], .callIcons button.call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -246706,124 +246759,217 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c("div", { staticClass: "row mx-0", attrs: { id: "top-section" } }, [
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card calls" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("Calls")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              " +
-                  _vm._s(_vm.call_log.total_calls) +
-                  " \n            "
-              )
-            ])
+    _c(
+      "div",
+      {
+        staticClass: "row align-items-center justify-content-between mx-0",
+        attrs: { id: "top-section" }
+      },
+      [
+        _c("div", { staticClass: "col pl-0" }, [
+          _c("div", { staticClass: "card mb-0 calls" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "col pr-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v(_vm._s(_vm.call_log.total_calls) + " ")
+                  ])
+                ])
+              ]
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card sales" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("\n                  Sales\n            ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              " +
-                  _vm._s(_vm.call_log.total_sales) +
-                  " \n            "
-              )
-            ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-0 sales" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "col pr-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v(_vm._s(_vm.call_log.total_sales))
+                  ])
+                ])
+              ]
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card sales-amount" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("\n                  Sales Amount\n            ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              $" +
-                  _vm._s(_vm.call_log.sum_sales) +
-                  " \n            "
-              )
-            ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-0 sales-amount" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "col px-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v("$" + _vm._s(_vm.call_log.sum_sales))
+                  ])
+                ])
+              ]
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card call-backs" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("\n                  Callbacks\n            ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              " +
-                  _vm._s(_vm.call_log.sum_call_back) +
-                  "\n            "
-              )
-            ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-0 call-backs" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "col pr-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v(_vm._s(_vm.call_log.sum_call_back))
+                  ])
+                ])
+              ]
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card ave-time" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("\n                  Ave. Time\n            ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              " +
-                  _vm._s(_vm.secondsToMinues(_vm.call_log.avg_time)) +
-                  " \n            "
-              )
-            ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-0 ave-time" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("div", { staticClass: "col px-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v(_vm._s(_vm.secondsToMinues(_vm.call_log.avg_time)))
+                  ])
+                ])
+              ]
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }, [
-        _c("div", { staticClass: "card con-ratio" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text-small text-left" }, [
-              _vm._v("\n                  Conversion Ratio\n            ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text text-center" }, [
-              _vm._v(
-                "\n              " +
-                  _vm._s(_vm.call_log.con_ratio) +
-                  " \n            "
-              )
-            ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card mb-0 con-ratio" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body row align-items-center justify-content-between mx-0 p-3"
+              },
+              [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "col pr-0" }, [
+                  _c("p", { staticClass: "card-text text-right" }, [
+                    _vm._v(_vm._s(_vm.call_log.con_ratio))
+                  ])
+                ])
+              ]
+            )
           ])
+        ]),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-lg-auto pr-0" },
+          [
+            _c("b-button", { staticClass: "rounded-circle m-0" }, [
+              _c("img", {
+                staticClass: "icon",
+                staticStyle: { width: "16px" },
+                attrs: {
+                  src: "/images/workstation/Asset 28@4x.png",
+                  alt: "Icon"
+                }
+              })
+            ])
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row stats mx-0" }, [
+      _c("div", { staticClass: "col-lg-12 px-0" }, [
+        _c("div", { staticClass: "card-body padding-bottom-18" }, [
+          _c(
+            "div",
+            { staticClass: "row justify-content-between mx-0 headings" },
+            [
+              _vm._m(7),
+              _vm._v(" "),
+              _vm._m(8),
+              _vm._v(" "),
+              _vm._m(9),
+              _vm._v(" "),
+              _vm._m(10),
+              _vm._v(" "),
+              _vm._m(11),
+              _vm._v(" "),
+              _vm._m(12),
+              _vm._v(" "),
+              _vm._m(13),
+              _vm._v(" "),
+              _vm._m(14),
+              _vm._v(" "),
+              _vm._m(15),
+              _vm._v(" "),
+              _vm._m(16),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-auto pr-0" },
+                [
+                  _c("b-button", { staticClass: "rounded-circle m-0" }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      staticStyle: { width: "8px" },
+                      attrs: {
+                        src: "/images/workstation/Asset 28@4x.png",
+                        alt: "Icon"
+                      }
+                    })
+                  ])
+                ],
+                1
+              )
+            ]
+          )
         ])
       ])
     ]),
-    _vm._v(" "),
-    _vm._m(0),
     _vm._v(" "),
     _vm.call_log.call_history.length > 0
       ? _c(
           "div",
           {
             class: {
-              "row stats": true,
+              "row stats mx-0": true,
               "scroll-hidden": _vm.call_log.call_history.length > 8
             }
           },
@@ -246892,7 +247038,7 @@ var render = function() {
           }),
           0
         )
-      : _c("div", { staticClass: "row stats" }, [_vm._m(1)])
+      : _c("div", { staticClass: "row stats mx-0" }, [_vm._m(17)])
   ])
 }
 var staticRenderFns = [
@@ -246900,28 +247046,145 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row stats mx-0" }, [
-      _c("div", { staticClass: "col-lg-12" }, [
-        _c("div", { staticClass: "left text-left" }, [
-          _c("div", { staticClass: "card-body padding-bottom-18" }, [
-            _c("ul", { staticClass: "headings" }, [
-              _c("li", [_vm._v("NAME")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("COUNTRY")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("SOURCE")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("CALLED")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("TALKED")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("DATE")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("CALL BACK")])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Calls")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Sales")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Sales Amount")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Callbacks")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Ave. Time")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Con. Ratio")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "card mb-0 mon-target" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "card-body row align-items-center justify-content-between mx-0 p-3"
+          },
+          [
+            _c("div", { staticClass: "col pl-0" }, [
+              _c("p", { staticClass: "card-text-small text-left" }, [
+                _vm._v("Monthly Target")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("p", { staticClass: "card-text text-right" }, [_vm._v("42")])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [_c("p", [_vm._v("LEAD")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("AGENT")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("SOURCE")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("CALLED")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("TALKED")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("DATE")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("TIME ZONE")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("ENGLISH")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("CALLBACK")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-auto" }, [
+      _c("p", [_vm._v("STATUS")])
     ])
   },
   function() {
@@ -257833,10 +258096,14 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
+          _vm.active == "call-history"
+            ? _c("div", { staticClass: "col-auto px-0" }, [_vm._m(0)])
+            : _vm._e(),
+          _vm._v(" "),
           _vm.active == "workstation"
             ? _c("div", { staticClass: "col-auto px-0" }, [
                 _c("ul", { staticClass: "navbar-nav callIcons" }, [
-                  _vm._m(0),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
                     "li",
@@ -257881,6 +258148,20 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navbar-nav callIcons" }, [
+      _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
+        _c("a", { staticClass: "nav-link search p-0", attrs: { href: "#" } })
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
+        _c("a", { staticClass: "nav-link filter p-0", attrs: { href: "#" } })
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
