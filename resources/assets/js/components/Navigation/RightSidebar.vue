@@ -580,7 +580,7 @@ label.custom-control-label{
               <div class="row mx-0">
                 <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
                   <div class="col-auto">
-                    <h3 class="d-block">Profile</h3>
+                    <h3 class="d-block">Profile </h3>
                   </div>
                   <div class="col-auto">
                     <img 
