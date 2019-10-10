@@ -80924,6 +80924,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -262903,14 +262906,14 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          " \n                      " +
+                          " \n              " +
                             _vm._s(
                               _vm.lead_info.product.description +
                                 ". " +
                                 _vm.lead_info.product.currency +
                                 _vm.lead_info.product.price
                             ) +
-                            " \n                  "
+                            " \n            "
                         )
                       ]
                     )
@@ -263068,9 +263071,9 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            " \n                                              " +
+                                            " \n                        " +
                                               _vm._s(comment.description) +
-                                              "  \n                                              "
+                                              "  \n                        "
                                           ),
                                           comment.user_id == _vm.user_id &&
                                           _vm.getDaysAgo(comment.created_at) ==
@@ -263116,7 +263119,7 @@ var render = function() {
                                         { staticClass: "author d-block" },
                                         [
                                           _vm._v(
-                                            " \n                                              " +
+                                            " \n                        " +
                                               _vm._s(comment.created_at) +
                                               " "
                                           ),
@@ -263255,7 +263258,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "Date of Callback \n                                              "
+                                          "Date of Callback \n                        "
                                         ),
                                         _c("a-date-picker", {
                                           attrs: {
@@ -263301,7 +263304,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "Time of Callback \n                                              "
+                                          "Time of Callback \n                        "
                                         ),
                                         _c("a-time-picker", {
                                           attrs: {
@@ -265472,7 +265475,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n                          Client \n                      ")
+      _vm._v(" \n              Client \n            ")
     ])
   },
   function() {
@@ -265484,7 +265487,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n                      Product \n                  ")
+      _vm._v(" \n              Product \n            ")
     ])
   },
   function() {
@@ -265496,7 +265499,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n                          Time \n                      ")
+      _vm._v(" \n              Time \n            ")
     ])
   },
   function() {
@@ -265511,7 +265514,7 @@ var staticRenderFns = [
               staticClass: "icon",
               attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
             }),
-            _vm._v(" \n                      Activity \n                  ")
+            _vm._v(" \n              Activity \n            ")
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [_vm._v("Off-line")]),
@@ -265610,13 +265613,7 @@ var staticRenderFns = [
               color: "#818284"
             }
           },
-          [
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(
-                " \n                                  Email client form \n                              "
-              )
-            ])
-          ]
+          [_c("p", { staticClass: "card-text" }, [_vm._v("Email client form")])]
         )
       ]
     )
