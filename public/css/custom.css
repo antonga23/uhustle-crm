@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
+.hide {
+  display:none !important;
+}
 .logo{
     margin: 2% 0% 2% 4%;
 }
@@ -36,6 +40,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top;
+    min-height: 900px !important;
+    background-color: #F38912 !important;
 }
 .left-side img {
   max-width:70%;
@@ -81,7 +87,7 @@
 .btn-default {
     border: 2px solid rgba(0, 0, 0, 0.125)  !important;
 }
-.login-btn {
+.submit-btn {
   border-radius: 12px !important;
   font-family: 'Lato light', sans-serif !important;
 }
@@ -91,7 +97,7 @@
 } 
 .inner-login-container {
   position: absolute;
-  top: 65%;
+  top: 47%;
   -ms-transform: translateY(-50%);
   /* transform: translateY(-50%); */
   right: 0;
@@ -99,7 +105,7 @@
 .mt-20 {
   margin-top: 0 !important;
 }
-@media screen and (min-width: 2024px) {
+@media screen and (min-width: 2000px) {
   .mt-20 {
     margin-top: 20% !important;
   }
@@ -267,8 +273,8 @@
 .activeBtn{
   /* border-bottom: 1px solid #fff!important; */
   color: #F28821!important;
-  font-size: 28px !important;
-  font-family: 'Lato Light', sans-serif !important;
+  font-size: 26px !important;
+  font-family: 'Rubik', sans-serif !important;
   background-image: url('/images/Sign_In/Assests/White-space.svg');
   background-repeat: no-repeat;
   background-position: 50%;
@@ -282,8 +288,8 @@
 }
 .inactiveBtn{
   color: #F2F2F2!important;
-  font-size: 28px !important;
-  font-family: 'Lato Light', sans-serif !important;
+  font-size: 26px !important;
+  font-family: 'Rubik', sans-serif !important;
   position: relative;
   left: 30%;
   height: 84px;
@@ -392,12 +398,13 @@
   border:1px solid rgba(250,138,1,1)!important;
   background: #fff;
 }
-.setup-content input, .setup-content select, .setup-content textarea, .login input {
+.setup-content input, .setup-content select, .setup-content textarea, .login input, .terms-text, ::placeholder {
   font-size:15px!important;
   font-weight: 400;
   border-radius: 10px;
   font-family: 'Lato', sans-serif;
   color: #003B53 !important;
+  letter-spacing: 1px !important;
 }
 
 .omni-shadow {
@@ -415,6 +422,23 @@
   margin-top: 10%;
   font-family: 'Cormorant', serif;
 }
+
+.terms {
+  color: #F28821 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size:15px!important;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 400 !important;
+}
+.custom-checkbox .custom-control-label::before {
+  background-color: white !important;
+  border-radius: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #F38912 !important;
+}
+
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{

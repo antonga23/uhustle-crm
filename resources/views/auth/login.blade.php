@@ -78,7 +78,7 @@
                                             </div> -->
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-primary login-btn w-100 m-0">
+                                                    <button type="submit" class="btn btn-primary submit-btn w-100 m-0">
                                                         {{ __('Login') }}
                                                     </button>
                                                 </div>
