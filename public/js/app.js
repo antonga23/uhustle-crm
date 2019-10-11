@@ -73315,20 +73315,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -253534,15 +253520,17 @@ var render = function() {
                 _c("a", {
                   staticClass: "w-100 m-0 p-0 rounded-0",
                   class: {
-                    "nav-link dashboard": true,
+                    "nav-link workstation": true,
                     "active shadow-none":
-                      _vm.active == "dashboard" ? true : false
+                      _vm.active == "workstation" ? true : false
                   },
-                  attrs: { href: "/dashboard", title: "Dashboard" }
+                  attrs: {
+                    href: "/workstation",
+                    title: "Workstation",
+                    id: "workstation"
+                  }
                 })
               ]),
-              _vm._v(" "),
-              _vm._m(1),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _c("a", {
@@ -253677,22 +253665,6 @@ var staticRenderFns = [
         })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _vm._v(
-        ' \n<<<<<<< HEAD\n                class="w-100 m-0 p-0 rounded-0">'
-      ),
-      _vm._v(
-        '\n=======\n                class="w-100 m-0 p-0 rounded-0"\n              >\n                '
-      ),
-      _c("span", [_vm._v("Dashboard")]),
-      _vm._v(" "),
-      _vm._v("\n>>>>>>> 0de4fd098b9132a755a9f19c3c05cdcde20fc4aa\n            ")
-    ])
   }
 ]
 render._withStripped = true
