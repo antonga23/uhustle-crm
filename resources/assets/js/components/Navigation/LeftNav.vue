@@ -215,7 +215,7 @@
             </li>
             <li class="nav-item">
               <a 
-                href="/leads" 
+                href="/leads"
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
