@@ -85,7 +85,7 @@ Vue.component('call-history', require('./components/CallHistory/CallHistory.vue'
 Vue.component('social-board', require('./components/SocialBoard/SocialBoard.vue').default);
 Vue.component('avatar-upload', require('./components/Plugins/AvatarUpload.vue').default);
 Vue.component('users', require('./components/Users/UsersIndex.vue').default);
-Vue.component('leads', require('./components/Leads/LeadsIndex.vue').default);
+Vue.component('modules', require('./components/Modules/ModulesIndex.vue').default);
 Vue.component('contacts', require('./components/Contacts/ContactsIndex.vue').default);
 Vue.component('preferences', require('./components/Preferences/PreferencesIndex.vue').default);
 Vue.component('transactions', require('./components/Transactions/TransactionsIndex.vue').default);

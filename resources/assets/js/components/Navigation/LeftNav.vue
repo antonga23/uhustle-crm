@@ -182,21 +182,20 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
+            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a 
+                href="/dashboard" 
+                title="Dashboard" 
+                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
+                class="w-100 m-0 p-0 rounded-0"></a>
+            </li>
             <li class="nav-item">
               <a 
                 href="/workstation" 
                 title="Workstation" 
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
-            </li>
-            <li class="nav-item">
-              <a 
-                href="/dashboard" 
-                title="Dashboard" 
-                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
             </li>
             <li class="nav-item">
@@ -208,26 +207,26 @@
             </li>
             <li class="nav-item">
               <a 
-                href="/contacts" 
+                href="/modules/contacts" 
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
             </li>
             <li class="nav-item">
               <a 
-                href="/leads" 
+                href="/modules/leads" 
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
             </li>
-            <li class="nav-item" v-if="current_user.role_id == 1">
+            <li class="nav-item" v-if="current_user.role_id == 1" style="display:none">
               <a 
                 href="/transactions" 
                 title="Transactions" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" style="display:none">
               <a 
                 href="/social-board" 
                 title="Social Board" 
@@ -248,7 +247,7 @@
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" style="display:none">
               <a 
                 href="/education" 
                 title="Education" 

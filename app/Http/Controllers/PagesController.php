@@ -77,7 +77,7 @@ class PagesController extends Controller
       return view('pages.transactions')->with(['active'=> 'transactions']);
    }
 
-   public function leads()
+   public function loadModulePage($type = null)
    {
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
@@ -118,42 +118,11 @@ class PagesController extends Controller
          array_push($data, $temp);
       }
       
-      return view('pages.leads')->with([
+      return view('pages.modules')->with([
          'active'=> 'leads',
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);
-   }
-
-   public function getFilterCounts($filter = [], $type = null){
-      $sql = '';
-      foreach($filter as $key => $value){
-         if($key == 'search'){
-            $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
-         }
-         if($key == 'user_created_id' && !is_null($value)){
-            $sql .= " AND user_created_id = '$value' ";
-         }
-         if($key == 'user_assigned' && !is_null($value)){
-            $sql .= " AND user_assigned = '$value' ";
-         }
-         if($key == 'source' && !is_null($value)){
-            $sql .= " AND source = '$value' ";
-         }
-         if($key == 'product_id' && !is_null($value)){
-            $sql .= " AND product_id = '$value' ";
-         }
-         if($key == 'status' && !is_null($value)){
-            $sql .= " AND status = '$value' ";
-         }
-      }
-
-      $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
-            ->whereRaw($sql)
-            ->where(['is_client' => $type])
-            ->orderBy('updated_at', 'DESC')
-            ->count();
-      return $counts;
    }
 
    public function contacts()
@@ -204,4 +173,34 @@ class PagesController extends Controller
       ]);
    }
 
+  public function getFilterCounts($filter = [], $type = null){
+    $sql = '';
+    foreach($filter as $key => $value){
+      if($key == 'search'){
+          $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
+      }
+      if($key == 'user_created_id' && !is_null($value)){
+          $sql .= " AND user_created_id = '$value' ";
+      }
+      if($key == 'user_assigned' && !is_null($value)){
+          $sql .= " AND user_assigned = '$value' ";
+      }
+      if($key == 'source' && !is_null($value)){
+          $sql .= " AND source = '$value' ";
+      }
+      if($key == 'product_id' && !is_null($value)){
+          $sql .= " AND product_id = '$value' ";
+      }
+      if($key == 'status' && !is_null($value)){
+          $sql .= " AND status = '$value' ";
+      }
+    }
+
+    $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
+          ->whereRaw($sql)
+          ->where(['is_client' => $type])
+          ->orderBy('updated_at', 'DESC')
+          ->count();
+    return $counts;
+  }
 }
