@@ -165,6 +165,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-active', 'RoleController@getActive');
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
+	Route::post('/delete', 'RoleController@destroy');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
 	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');

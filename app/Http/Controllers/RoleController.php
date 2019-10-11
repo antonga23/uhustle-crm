@@ -121,6 +121,14 @@ class RoleController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+      $role = $request->role;
+      
+      Role::find($role['id'])->delete();
+      
+      return array('success' => true, 'message' => 'User role has been delete.');
+    }
+
     public function getPermissions(){
         $permissions = Permissions::get();
         return array('success' => true, 'permissions' => $permissions);
@@ -188,6 +196,5 @@ class RoleController extends Controller
           DB::rollback();
           return array('success' =>false, 'message' => $e->getMessage());
       }
-
     }
 }

@@ -76671,10 +76671,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
-    console.log('Module Component mounted');
+    this.getRoles();
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -76686,6 +76700,7 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   data: function data() {
     return {
+      roles: [],
       new_module: {
         display_name: null,
         description: null,
@@ -76734,6 +76749,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    getRoles: function getRoles() {
+      var vm = this;
+      var endpoint = '/roles/get-all';
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.roles = response.data.roles;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
     addModule: function addModule() {
       var _this = this;
 
@@ -76747,7 +76773,7 @@ __webpack_require__.r(__webpack_exports__);
           var end_point = '/modules/add';
           axios.post(end_point, _this.new_module).then(function (response) {
             if (response.data.success == true) {
-              vm.new_module = response.data.module;
+              vm.new_module = response.data.module[0];
               Fire.$emit('DoneAddingModule');
               vm.$Progress.finish();
               vm.Toast.fire({
@@ -77097,11 +77123,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
-    console.log('Module Component mounted');
-    this.Toast = this.$swal.mixin({
+    var vm = this;
+    vm.module = vm.in_module;
+    vm.getRoles();
+    Fire.$on('edit_module', function (data) {
+      vm.module = data.module;
+    });
+    vm.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
       showConfirmButton: false,
@@ -77109,9 +77153,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['module'],
+  props: ['in_module'],
   data: function data() {
     return {
+      roles: [],
       types: [{
         value: null,
         text: 'Please select'
@@ -77146,11 +77191,23 @@ __webpack_require__.r(__webpack_exports__);
         value: 'color',
         text: 'Color'
       }],
+      module: {},
       display_name_state: null,
       Toast: null
     };
   },
   methods: {
+    getRoles: function getRoles() {
+      var vm = this;
+      var endpoint = '/roles/get-all';
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.roles = response.data.roles;
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
+    },
     editModule: function editModule() {
       var _this = this;
 
@@ -77164,7 +77221,7 @@ __webpack_require__.r(__webpack_exports__);
           var end_point = '/modules/update';
           axios.post(end_point, _this.module).then(function (response) {
             if (response.data.success == true) {
-              vm.module = response.data.module;
+              vm.module = response.data.module[0];
               Fire.$emit('DoneAddingModule');
               vm.$Progress.finish();
               vm.Toast.fire({
@@ -77231,13 +77288,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -77361,6 +77411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+//
 //
 //
 //
@@ -77804,6 +77855,39 @@ __webpack_require__.r(__webpack_exports__);
     updateRole: function updateRole(role) {
       Fire.$emit('UpdateRole', {
         'role': role
+      });
+    },
+    deleteRole: function deleteRole(role) {
+      var vm = this;
+      vm.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#409EFF',
+        cancelButtonColor: '#F56C6C',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          vm.$Progress.start();
+          var end_point = '/roles/delete';
+          console.log(role);
+          axios.post(end_point, {
+            'role': role
+          }).then(function (response) {
+            if (response.data.success == true) {
+              vm.$Progress.finish();
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('DoneEditingRole');
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+            }
+          });
+        }
       });
     },
     showModulePreferences: function showModulePreferences(active_module, action, in_module) {
@@ -132334,7 +132418,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.add-fields .btn[data-v-e8b89162]{\n    margin: 0;\n}\n.help-block[data-v-e8b89162]{\n    color: #dc3545;\n    font-size: 12px;\n}\n", ""]);
+exports.push([module.i, "\n.add-fields .btn[data-v-e8b89162]{\n    margin: 0;\n}\n.help-block[data-v-e8b89162]{\n    color: #dc3545;\n    font-size: 12px;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n", ""]);
 
 // exports
 
@@ -132391,7 +132475,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.add-fields .btn[data-v-37c5ed24]{\n    margin: 0;\n}\n.help-block[data-v-37c5ed24]{\n    color: #dc3545;\n    font-size: 12px;\n}\n", ""]);
+exports.push([module.i, "\n.add-fields .btn[data-v-37c5ed24]{\n    margin: 0;\n}\n.help-block[data-v-37c5ed24]{\n    color: #dc3545;\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.scrollable[data-v-37c5ed24]{\n  height: 789px;\n  overflow: overlay;\n}\n", ""]);
 
 // exports
 
@@ -258828,7 +258912,7 @@ var render = function() {
         [
           _c(
             "b-container",
-            { attrs: { fluid: "" } },
+            { staticClass: "b-container", attrs: { fluid: "" } },
             [
               _c("b-card-text", [_c("b", [_vm._v("Module Information.")])]),
               _vm._v(" "),
@@ -258836,17 +258920,15 @@ var render = function() {
                 "b-row",
                 { staticClass: "my-1" },
                 [
-                  _c("b-col", { attrs: { sm: "2" } }, [
-                    _c("label", { attrs: { for: "input-none" } }, [
-                      _vm._v("Module Name:")
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "b-col",
                     { attrs: { sm: "9" } },
                     [
-                      _c("b-form-input", {
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Module Name:")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-input", {
                         directives: [
                           {
                             name: "validate",
@@ -258857,7 +258939,6 @@ var render = function() {
                         ],
                         attrs: {
                           id: "input-none",
-                          state: _vm.display_name_state,
                           "data-vv-name": "Module Name"
                         },
                         model: {
@@ -258895,18 +258976,16 @@ var render = function() {
                 "b-row",
                 { staticClass: "my-1" },
                 [
-                  _c("b-col", { attrs: { sm: "2" } }, [
-                    _c("label", { attrs: { for: "input-valid" } }, [
-                      _vm._v("Module Description:")
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "b-col",
                     { attrs: { sm: "9" } },
                     [
-                      _c("b-form-input", {
-                        attrs: { id: "input-valid", state: null },
+                      _c("label", { attrs: { for: "input-valid" } }, [
+                        _vm._v("Module Description:")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-input", {
+                        attrs: { id: "input-valid" },
                         model: {
                           value: _vm.new_module.description,
                           callback: function($$v) {
@@ -258927,7 +259006,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-container",
-            { attrs: { fluid: "" } },
+            { staticClass: "b-container scrollable", attrs: { fluid: "" } },
             [
               _c("b-card-text", [_c("b", [_vm._v("Module Fields.")])]),
               _vm._v(" "),
@@ -258936,17 +259015,15 @@ var render = function() {
                   "b-row",
                   { key: index, staticClass: "my-1 add-fields" },
                   [
-                    _c("b-col", { attrs: { sm: "2" } }, [
-                      _c("label", { attrs: { for: "input-none" } }, [
-                        _vm._v("Field name:")
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "b-col",
-                      { attrs: { sm: "3" } },
+                      { attrs: { sm: "2" } },
                       [
-                        _c("b-form-input", {
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Field name:")
+                        ]),
+                        _vm._v(" "),
+                        _c("a-input", {
                           directives: [
                             {
                               name: "validate",
@@ -258956,8 +259033,6 @@ var render = function() {
                             }
                           ],
                           attrs: {
-                            id: "input-none",
-                            state: null,
                             "data-vv-name": "Field " + (index + 1) + "'s Name"
                           },
                           model: {
@@ -258999,37 +259074,36 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("b-col", { attrs: { sm: "2" } }, [
-                      _c("label", { attrs: { for: "input-none" } }, [
-                        _vm._v("Field type:")
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "b-col",
-                      { attrs: { sm: "3" } },
+                      { attrs: { sm: "2" } },
                       [
-                        _c("b-form-select", {
-                          directives: [
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Field type:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: { placeholder: "Please select" },
+                            model: {
+                              value: field.type,
+                              callback: function($$v) {
+                                _vm.$set(field, "type", $$v)
+                              },
+                              expression: "field.type"
                             }
-                          ],
-                          attrs: {
-                            options: _vm.types,
-                            "data-vv-name": "Field " + (index + 1) + "'s Type"
                           },
-                          model: {
-                            value: field.type,
-                            callback: function($$v) {
-                              _vm.$set(field, "type", $$v)
-                            },
-                            expression: "field.type"
-                          }
-                        }),
+                          _vm._l(_vm.types, function(type, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: type.value } },
+                              [_vm._v(_vm._s(type.value))]
+                            )
+                          }),
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "span",
@@ -259065,6 +259139,87 @@ var render = function() {
                       "b-col",
                       { attrs: { sm: "2" } },
                       [
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Can Read:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: {
+                              mode: "multiple",
+                              placeholder: "Please select multiple"
+                            },
+                            model: {
+                              value: field.can_read,
+                              callback: function($$v) {
+                                _vm.$set(field, "can_read", $$v)
+                              },
+                              expression: "field.can_read"
+                            }
+                          },
+                          _vm._l(_vm.roles, function(role, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: role.id } },
+                              [_vm._v(_vm._s(role.display_name))]
+                            )
+                          }),
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "2" } },
+                      [
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Can Edit:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: {
+                              mode: "multiple",
+                              placeholder: "Please select multiple"
+                            },
+                            model: {
+                              value: field.can_edit,
+                              callback: function($$v) {
+                                _vm.$set(field, "can_edit", $$v)
+                              },
+                              expression: "field.can_edit"
+                            }
+                          },
+                          _vm._l(_vm.roles, function(role, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: role.id } },
+                              [_vm._v(_vm._s(role.display_name))]
+                            )
+                          }),
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      {
+                        staticStyle: { "padding-top": "21px" },
+                        attrs: { sm: "1" }
+                      },
+                      [
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v(" ")
+                        ]),
+                        _vm._v(" "),
                         index + 1 < _vm.new_module.module_fields.length
                           ? _c(
                               "b-button",
@@ -259518,7 +259673,7 @@ var render = function() {
         [
           _c(
             "b-container",
-            { attrs: { fluid: "" } },
+            { staticClass: "b-container", attrs: { fluid: "" } },
             [
               _c("b-card-text", [_c("b", [_vm._v("Module Information.")])]),
               _vm._v(" "),
@@ -259526,17 +259681,15 @@ var render = function() {
                 "b-row",
                 { staticClass: "my-1" },
                 [
-                  _c("b-col", { attrs: { sm: "2" } }, [
-                    _c("label", { attrs: { for: "input-none" } }, [
-                      _vm._v("Module Name:")
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "b-col",
                     { attrs: { sm: "9" } },
                     [
-                      _c("b-form-input", {
+                      _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Module Name:")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-input", {
                         directives: [
                           {
                             name: "validate",
@@ -259547,7 +259700,6 @@ var render = function() {
                         ],
                         attrs: {
                           id: "input-none",
-                          state: _vm.display_name_state,
                           "data-vv-name": "Module Name"
                         },
                         model: {
@@ -259585,18 +259737,16 @@ var render = function() {
                 "b-row",
                 { staticClass: "my-1" },
                 [
-                  _c("b-col", { attrs: { sm: "2" } }, [
-                    _c("label", { attrs: { for: "input-valid" } }, [
-                      _vm._v("Module Description:")
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "b-col",
                     { attrs: { sm: "9" } },
                     [
-                      _c("b-form-input", {
-                        attrs: { id: "input-valid", state: null },
+                      _c("label", { attrs: { for: "input-valid" } }, [
+                        _vm._v("Module Description:")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-input", {
+                        attrs: { id: "input-valid" },
                         model: {
                           value: _vm.module.description,
                           callback: function($$v) {
@@ -259617,7 +259767,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-container",
-            { attrs: { fluid: "" } },
+            { staticClass: "b-container scrollable", attrs: { fluid: "" } },
             [
               _c("b-card-text", [_c("b", [_vm._v("Module Fields.")])]),
               _vm._v(" "),
@@ -259626,17 +259776,15 @@ var render = function() {
                   "b-row",
                   { key: index, staticClass: "my-1 add-fields" },
                   [
-                    _c("b-col", { attrs: { sm: "2" } }, [
-                      _c("label", { attrs: { for: "input-none" } }, [
-                        _vm._v("Field name:")
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "b-col",
                       { attrs: { sm: "3" } },
                       [
-                        _c("b-form-input", {
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Field name:")
+                        ]),
+                        _vm._v(" "),
+                        _c("a-input", {
                           directives: [
                             {
                               name: "validate",
@@ -259647,15 +259795,14 @@ var render = function() {
                           ],
                           attrs: {
                             id: "input-none",
-                            state: null,
                             "data-vv-name": "Field " + (index + 1) + "'s Name"
                           },
                           model: {
-                            value: field.name,
+                            value: field.display_name,
                             callback: function($$v) {
-                              _vm.$set(field, "name", $$v)
+                              _vm.$set(field, "display_name", $$v)
                             },
-                            expression: "field.name"
+                            expression: "field.display_name"
                           }
                         }),
                         _vm._v(" "),
@@ -259689,37 +259836,36 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("b-col", { attrs: { sm: "2" } }, [
-                      _c("label", { attrs: { for: "input-none" } }, [
-                        _vm._v("Field type:")
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "b-col",
                       { attrs: { sm: "3" } },
                       [
-                        _c("b-form-select", {
-                          directives: [
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Field type:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: { placeholder: "Please select" },
+                            model: {
+                              value: field.type,
+                              callback: function($$v) {
+                                _vm.$set(field, "type", $$v)
+                              },
+                              expression: "field.type"
                             }
-                          ],
-                          attrs: {
-                            options: _vm.types,
-                            "data-vv-name": "Field " + (index + 1) + "'s Type"
                           },
-                          model: {
-                            value: field.type,
-                            callback: function($$v) {
-                              _vm.$set(field, "type", $$v)
-                            },
-                            expression: "field.type"
-                          }
-                        }),
+                          _vm._l(_vm.types, function(type, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: type.value } },
+                              [_vm._v(_vm._s(type.value))]
+                            )
+                          }),
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
                           "span",
@@ -259754,6 +259900,83 @@ var render = function() {
                     _c(
                       "b-col",
                       { attrs: { sm: "2" } },
+                      [
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Can Read:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: {
+                              mode: "multiple",
+                              placeholder: "Please select multiple"
+                            },
+                            model: {
+                              value: field.can_read,
+                              callback: function($$v) {
+                                _vm.$set(field, "can_read", $$v)
+                              },
+                              expression: "field.can_read"
+                            }
+                          },
+                          _vm._l(_vm.roles, function(role, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: role.id } },
+                              [_vm._v(_vm._s(role.display_name))]
+                            )
+                          }),
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      { attrs: { sm: "2" } },
+                      [
+                        _c("label", { attrs: { for: "input-none" } }, [
+                          _vm._v("Can Edit:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: {
+                              mode: "multiple",
+                              placeholder: "Please select multiple"
+                            },
+                            model: {
+                              value: field.can_edit,
+                              callback: function($$v) {
+                                _vm.$set(field, "can_edit", $$v)
+                              },
+                              expression: "field.can_edit"
+                            }
+                          },
+                          _vm._l(_vm.roles, function(role, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: role.id } },
+                              [_vm._v(_vm._s(role.display_name))]
+                            )
+                          }),
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-col",
+                      {
+                        staticStyle: { "padding-top": "21px" },
+                        attrs: { sm: "2" }
+                      },
                       [
                         index + 1 < _vm.module.module_fields.length
                           ? _c(
@@ -260183,7 +260406,7 @@ var render = function() {
                                       _c(
                                         "b-button",
                                         {
-                                          staticClass: "btn btn-defat",
+                                          staticClass: "btn btn-success",
                                           on: {
                                             click: function($event) {
                                               return _vm.updateRole(role)
@@ -260193,6 +260416,24 @@ var render = function() {
                                         [
                                           _vm._v(
                                             "Update " +
+                                              _vm._s(role.display_name)
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-button",
+                                        {
+                                          staticClass: "btn btn-danger",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteRole(role)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Delete " +
                                               _vm._s(role.display_name)
                                           )
                                         ]
@@ -260877,7 +261118,9 @@ var render = function() {
                   "div",
                   { staticClass: "col-lg-12  user-roles" },
                   [
-                    _c("edit-module", { attrs: { module: _vm.editing_module } })
+                    _c("edit-module", {
+                      attrs: { in_module: _vm.editing_module }
+                    })
                   ],
                   1
                 )
