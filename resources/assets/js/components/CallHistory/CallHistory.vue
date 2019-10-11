@@ -1,4 +1,10 @@
 <style scoped>
+.is-hidden {
+  display: none;
+}
+.is-active {
+  display: block;
+}
 #top-section{
   padding: 20px 3%;
 }
@@ -59,6 +65,12 @@ li p.bottom{
 .mon-target{
   background: linear-gradient(to right, rgba(75,189,149,1) 0%, rgba(32,190,198 ,1) 100% ) ;
   color: #fff;
+}
+.add-new-top-section {
+  width: 100px;
+  float: right;
+  border-radius: 50%;
+   background-color: #EBEFF3;
 }
 h5{
   color: #fff;
@@ -173,6 +185,9 @@ span.right{
 .red{
   color:red !important;
 }
+.grey-bg-color {
+  background-color: #EBEFF3;
+}
 .card-text-small{
   margin-top: -7px;
   color: #3b3b3b;
@@ -265,7 +280,7 @@ table.listing tr  th{
 </style>
 <template>
   <div class="">
-    <div id="top-section" class="row align-items-center justify-content-between mx-0">
+    <div id="top-section" class="row align-items-center grey-bg-color justify-content-between mx-0">
       <div class="col pl-0">
         <div class="card mb-0 calls">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
@@ -339,7 +354,21 @@ table.listing tr  th{
         </div>
       </div>
       <div class="col pr-0">
-        <div class="card mb-0 mon-target">
+        <div class="mb-0 add-new-top-section">
+          <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+            <div class="col pl-0 dropdown">
+             <b-button class="rounded-circle m-0"> 
+                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 20px;"/> 
+              </b-button>
+              <div id="dropDownMenu" class="is-hidden">
+                <span>Menu Item1</span>
+                <span>Menu Item2</span>
+                <span>Menu Item3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card mb-0 mon-target">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0">
               <p class="card-text-small text-left">Target</p>
@@ -348,7 +377,7 @@ table.listing tr  th{
               <p class="card-text text-right">42</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row stats mx-0">
@@ -470,6 +499,9 @@ table.listing tr  th{
             }
         },
         methods: {
+          // dropDownAdd(event) {
+          //   event.currentTarget.classList.toggle('is-active')
+          // },
             secondsToMinues(time){
                 var minutes = Math.floor(time / 60);
                 var seconds = time - minutes * 60;
