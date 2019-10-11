@@ -209,11 +209,25 @@
             </li>
             <li class="nav-item">
               <a 
+                href="/dashboard" 
+                title="Dashboard" 
+                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
+                class="w-100 m-0 p-0 rounded-0"></a>
+            </li>
+            <li class="nav-item">
+              <a 
                 href="/workstation" 
                 title="Workstation" 
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
+<<<<<<< HEAD
                 class="w-100 m-0 p-0 rounded-0"></a>
+=======
+                class="w-100 m-0 p-0 rounded-0"
+              >
+                <span>Dashboard</span>  
+              </a>
+>>>>>>> 0de4fd098b9132a755a9f19c3c05cdcde20fc4aa
             </li>
             <li class="nav-item">
               <a 
