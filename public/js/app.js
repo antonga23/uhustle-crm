@@ -248026,7 +248026,7 @@ var render = function() {
                   [
                     _c("div", { class: { input: true, "form-group": true } }, [
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Title\n                            "),
+                        _vm._v("Title\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248051,7 +248051,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Name\n                            "),
+                        _vm._v("Name\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248093,7 +248093,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Surname\n                            "),
+                        _vm._v("Surname\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248139,7 +248139,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Account\n                            "),
+                        _vm._v("Account\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248168,7 +248168,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Email\n                            "),
+                        _vm._v("Email\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248220,7 +248220,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v("Owner\n                            "),
+                              _vm._v("Owner\n                        "),
                               _c(
                                 "select",
                                 {
@@ -248279,7 +248279,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v("Owner\n                            "),
+                              _vm._v("Owner\n                        "),
                               _c(
                                 "select",
                                 {
@@ -248351,7 +248351,7 @@ var render = function() {
                           ),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Mobile number\n                            "),
+                        _vm._v("Mobile number\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248407,7 +248407,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Package\n                            "),
+                        _vm._v("Package\n                        "),
                         _c(
                           "select",
                           {
@@ -248484,9 +248484,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v(
-                                "Assigned To\n                            "
-                              ),
+                              _vm._v("Assigned To\n                        "),
                               _c(
                                 "select",
                                 {
@@ -248556,9 +248554,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v(
-                                "Assigned To\n                            "
-                              ),
+                              _vm._v("Assigned To\n                        "),
                               _c(
                                 "select",
                                 {
@@ -248630,7 +248626,7 @@ var render = function() {
                           ),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Lead Source\n                            "),
+                        _vm._v("Lead Source\n                        "),
                         _c(
                           "select",
                           {
@@ -248686,7 +248682,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Country\n                            "),
+                        _vm._v("Country\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248715,7 +248711,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("City\n                            "),
+                        _vm._v("City\n                        "),
                         _c("input", {
                           directives: [
                             {
@@ -248740,7 +248736,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Status\n                            "),
+                        _vm._v("Status\n                        "),
                         _c(
                           "select",
                           {
@@ -248812,7 +248808,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                            Add Contact\n                        "
+                              "\n                        Add Contact\n                    "
                             )
                           ]
                         )
