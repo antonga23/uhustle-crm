@@ -476,12 +476,18 @@ a.down-scroll:hover{
   border-bottom: none; 
   background: #fff; 
 } 
+.nav.nav-tabs.card-header-tabs li a {
+  box-shadow: inset 5px -5px 10px rgba(0,0,0,0.05);
+  border: 0;
+  background-color: #fff;
+}
+.nav.nav-tabs.card-header-tabs li a.active{
+  box-shadow: none!important;
+}
 .final-modal .card ul li.left{ 
-  border-top-left-radius: 19px;
-  border-right: 1px solid #e3e3e3; 
+  border-top-left-radius: 19px; 
 } 
-.final-modal .card ul li.left .nav-link { 
-  border: 1px solid transparent; 
+.final-modal .card ul li.left .nav-link {
   border-top-left-radius: 19px; 
   border-top-right-radius: 0px; 
   padding: 16px; 
@@ -499,16 +505,14 @@ a.down-scroll:hover{
   border-top-right-radius: 19px; 
   border-top-left-radius: 0px;
 } 
-.final-modal .card ul li.right .nav-link { 
-  border: 1px solid transparent; 
+.final-modal .card ul li.right .nav-link {
   border-top-left-radius: 0px; 
   border-top-right-radius: 20px; 
   padding: 16px; 
   font-size: 16px; 
   color: #818284; 
 } 
-.final-modal .card ul li.right .nav-link:hover { 
-  border: 1px solid transparent; 
+.final-modal .card ul li.right .nav-link:hover {
   border-top-left-radius: 0px; 
   border-top-right-radius: 20px; 
   background: #fff; 
