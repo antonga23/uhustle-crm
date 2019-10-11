@@ -2,15 +2,19 @@
 .row{ 
   margin-bottom: 3.5vh;  
 }
-.top-section {
+.general-section-stats .agent-stats-1 {
   padding-top: 90px;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 80px;
 }
-.top-section .col-lg-3{
+.general-section-stats .agent-stats-2 {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 50px;
+}
+.top-section .col-auto{
   padding: 0 10px; 
-  border-left: 1px solid #003449; 
+  border-left: 1px solid #003549; 
 }
 .top-section p.bottom{
   font-size: 18px; 
@@ -61,13 +65,13 @@ p.card-link{
   background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);
   padding-left:3%;
   padding-right: 3%;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 .client-details .card {
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 9px rgba(160, 124, 124, 0.15);
 }
 .client-details .card-body {
-  padding: 1.75rem;
+  padding: 1.25rem;
 }
 .stats.final-modal {
   background-color: #f6f8f9;
@@ -588,26 +592,78 @@ a.down-scroll:hover{
     <!-- Scripts Section ends --> 
 
     <!-- General Section Starts --> 
-    <div class="" v-if="general == true"> 
-      <div class="row mx-0 justify-content-between top-section">
-        <div class="col-lg-3"> 
+    <div class="general-section-stats" v-if="general == true"> 
+      <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">
+        <div class="col-auto"> 
           <p class="top">Lead Source</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
         
-        <div class="col-lg-3"> 
+        <div class="col-auto"> 
+          <p class="top">Online</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Contact OWner</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Invested</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
+        </div>
+        
+        <div class="col-auto"> 
           <p class="top">Called</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-lg-3"> 
+        <div class="col-auto"> 
           <p class="top">Answers</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-lg-3"> 
+        <div class="col-auto"> 
           <p class="top">Sales</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+        </div> 
+      </div>
+
+      <div class="row pt-4 mx-0 justify-content-between top-section agent-stats-2">
+        <div class="col-auto"> 
+          <p class="top">Email</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+        </div> 
+        
+        <div class="col-auto"> 
+          <p class="top">Phone</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Online Funds</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Invested</p> 
           <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
+        </div>
+        
+        <div class="col-auto"> 
+          <p class="top">Negotiation</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Avg. Call length</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
+
+        <div class="col-auto"> 
+          <p class="top">Sales</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
       </div> 
       
@@ -620,13 +676,13 @@ a.down-scroll:hover{
                 Client 
               </h5> 
               <p 
-                class="card-text truncate" 
-                :title="lead.name + ' ' + lead.surname"
+                class="card-text truncate mb-3" 
+                :title="lead_info.name + ' ' + lead_info.surname"
               >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
               <div class="truncate w-100">
-                <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
-                <p class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
-                <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
+                <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
+                <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
+                <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
               </div> 
             </div> 
           </div> 
@@ -640,10 +696,10 @@ a.down-scroll:hover{
                 Product 
               </h5> 
               <p 
-                class="card-text" 
+                class="card-text truncate mb-3" 
                 :title="lead_info.product.description + '. ' + lead_info.product.price "
               >{{ lead_info.product.name }}</p> 
-              <p class="card-link truncate w-100" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+              <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
                 {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
               </p>  
             </div> 
@@ -657,7 +713,7 @@ a.down-scroll:hover{
                 <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
                 Time 
               </h5> 
-              <p class="card-text">11:20</p>
+              <p class="card-text mb-3">11:20</p>
               <div class="truncate"> 
                 <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
                 <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
@@ -673,8 +729,8 @@ a.down-scroll:hover{
                 <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
                 Activity 
               </h5> 
-              <p class="card-text">Off-line</p> 
-              <p class="card-link">Online 2 Days ago</p>  
+              <p class="card-text mb-3">Off-line</p> 
+              <p class="card-link mb-0">Online 2 Days ago</p>  
             </div> 
           </div> 
         </div> 
@@ -901,29 +957,30 @@ a.down-scroll:hover{
             </div> 
 
             <div class="tab-content" id="myTabContent"> 
-            <div 
-              class="tab-pane fade show active p-3" 
-              id="three" 
-              role="tabpanel" 
-              aria-labelledby="three-tab" 
-              style="height: 349px;"
-            > 
-              <div class=""> 
-                <div class="verticalChart w-100"> 
-                  <div class="singleBar" v-for="bar in comments_graph"> 
-                    <div class="bar"> 
-                      <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                        <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+              <div 
+                class="tab-pane fade show active p-3" 
+                id="three" 
+                role="tabpanel" 
+                aria-labelledby="three-tab" 
+                style="height: 349px;"
+              > 
+                <div class=""> 
+                  <div class="verticalChart w-100"> 
+                    <div class="singleBar" v-for="bar in comments_graph"> 
+                      <div class="bar"> 
+                        <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                          <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
+                        </div> 
                       </div> 
-                    </div> 
 
-                      <div class="title">{{ bar.type }}</div> 
-                    </div> 
+                      <div class="title">{{ bar.type }}</div>
 
-                    <div class="clearfix"></div> 
-                  </div> 
-                </div>            
-              </div> 
+                      <div class="clearfix"></div> 
+                    </div> 
+                  </div>            
+                </div>
+              </div>  
+
               <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
                 <h5 class="card-title">TODO</h5> 
                 <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
@@ -978,6 +1035,7 @@ a.down-scroll:hover{
               <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
             </a> 
           </div> 
+
           <div class="col-lg-4"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Clients</p> 
@@ -985,6 +1043,7 @@ a.down-scroll:hover{
               <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
             </a> 
           </div> 
+
           <div class="col-lg-4"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Commission</p> 
@@ -992,6 +1051,7 @@ a.down-scroll:hover{
               <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
             </a> 
           </div> 
+
           <div class="col-lg-4"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Upselling</p> 
@@ -999,6 +1059,7 @@ a.down-scroll:hover{
                 <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
             </a> 
           </div> 
+
           <div class="col-lg-4"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Breaking the Ice</p> 
@@ -1006,6 +1067,7 @@ a.down-scroll:hover{
               <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
             </a> 
           </div> 
+          
           <div class="col-lg-4"> 
             <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
             <p>Callbacks</p> 
@@ -1057,15 +1119,15 @@ a.down-scroll:hover{
       </b-modal> 
 
       <b-modal 
-          id="modal-prevent-closing" 
-          size="xl" 
-          ref="final-call-step" 
-          title="" 
-          v-on:mouseleave="mouseLeave" 
-          @hide="preventClosing" 
-          style="z-index: 999999;padding: 1rem 3rem;" 
-          hide-header 
-          hide-footer 
+        id="modal-prevent-closing" 
+        size="xl" 
+        ref="final-call-step" 
+        title="" 
+        v-on:mouseleave="mouseLeave" 
+        @hide="preventClosing" 
+        style="z-index: 999999;padding: 1rem 3rem;" 
+        hide-header 
+        hide-footer 
       > 
         <div class="final-modal"> 
           <div class="row row-a w-100 ml-0"> 
@@ -1126,7 +1188,7 @@ a.down-scroll:hover{
             </div> 
           </div> 
 
-          <div class="row"> 
+          <div class="row mx-0 mb-0 justify-content-between"> 
             <div class="col-lg-4 col-md-4 col-sm-4 pl-0"> 
               <div class="card border-0 client"> 
                 <div class="card-body"> 
@@ -1134,8 +1196,14 @@ a.down-scroll:hover{
                     <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
                     Client 
                   </h5> 
-                  <p class="card-text truncate" :title="lead_info.name + ' ' + lead_info.surname">{{ lead_info.name + ' ' + lead_info.surname }}</p> 
-                  <p class="card-link truncate">{{ lead_info.country }} | {{ lead_info.gender }} | {{ lead_info.age }}</p>  
+                  <p class="card-text truncate mb-3" 
+                    :title="lead_info.name + ' ' + lead_info.surname"
+                  >{{ lead_info.name + ' ' + lead_info.surname }}</p> 
+                  <div class="truncate w-100">
+                    <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
+                    <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
+                    <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
+                  </div>
                 </div> 
               </div> 
             </div> 
@@ -1147,10 +1215,10 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
                     Product 
                   </h5> 
-                  <p class="card-text" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                  {{ lead_info.product.name }} 
+                  <p class="card-text truncate mb-3" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                    {{ lead_info.product.name }} 
                   </p> 
-                  <p class="card-link truncate" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
+                  <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
                     {{ lead_info.product.description }} 
                   </p>  
                 </div> 
@@ -1164,8 +1232,10 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
                     Time 
                   </h5> 
-                  <p class="card-text">11:20 AM</p> 
-                  <p class="card-link truncate">{{ lead_info.city }} | {{ lead_info.country }}</p>  
+                  <div class="truncate mb-3"> 
+                    <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+                    <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+                  </div>  
                 </div> 
               </div> 
             </div> 
@@ -1250,6 +1320,7 @@ a.down-scroll:hover{
                           > 
                         </b-button>
                       </div>
+
                       <div class="flex-grow-1 mr-2"> 
                         <input 
                           class="comment-desc d-block w-100 border-0" 
@@ -1258,6 +1329,7 @@ a.down-scroll:hover{
                           placeholder="Write comment here"
                         />
                       </div>
+
                       <div class="flex-shrink-1"> 
                         <button 
                           id="send-btn" 
@@ -1268,6 +1340,7 @@ a.down-scroll:hover{
                       </div> 
                     </div>             
                   </div> 
+
                   <div 
                     class="tab-pane fade pt-0 px-3 pb-3" 
                     id="two" 
@@ -1317,6 +1390,7 @@ a.down-scroll:hover{
                         /> 
                       </div> 
                     </div> 
+
                     <div class="row mb-0"> 
                       <div class="col-lg-12 pr-0"> 
                         <input 
@@ -1394,21 +1468,21 @@ a.down-scroll:hover{
                     aria-labelledby="three-tab" 
                     style="height: 349px;"
                   >
-                      <div class=""> 
-                        <div class="verticalChart"> 
-                          <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
-                            <div class="bar"> 
-                              <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                                <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                              </div> 
-                            </div> 
-
-                            <div class="title">{{ bar.type }}</div> 
+                    <div class="verticalChart"> 
+                      <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
+                        <div class="bar"> 
+                          <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
+                            <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
                           </div> 
-                          <div class="clearfix"></div> 
+                        </div> 
+
+                        <div class="title">{{ bar.type }}</div> 
                       </div> 
+
+                      <div class="clearfix"></div> 
                     </div>            
                   </div>
+
                   <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
                     <div class="row mb-0">
                       <div class="col-lg-4 pr-0">
@@ -1426,17 +1500,20 @@ a.down-scroll:hover{
                               <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>
                             </label>
                           </div>  
-                        </div>                                       
+                        </div>     
+
                         <div class="row">
                           <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">
                             <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>
                           </div>  
                         </div>
                       </div>
+
                       <div class="col-lg-8">
                         <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
                       </div>
                     </div>
+
                     <div class="row mb-0">
                       <div class="col-lg-12 pr-0">
                         <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
@@ -1465,6 +1542,7 @@ a.down-scroll:hover{
                         <span class="right">{{ comments.total_comments }}</span>
                       </a>
                     </li>
+
                     <li class="nav-item right">
                       <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
                         <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
@@ -1492,6 +1570,7 @@ a.down-scroll:hover{
                       </div>
                     </div>           
                   </div>
+
                   <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
                     <h5 class="card-title">TODO</h5>
                     <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">

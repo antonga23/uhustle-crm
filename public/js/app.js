@@ -80927,6 +80927,85 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -131955,7 +132034,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.top-section[data-v-f3210f20] {\r\n  padding-top: 90px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 80px;\n}\n.top-section .col-lg-3[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid #003449;\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  color: #003449;\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  color: #003449;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 27px;\n}\n.card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 23px; \r\n  color: #fff; \r\n  font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 50px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.75rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 20px;\r\n  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.choose-comment-type[data-v-f3210f20]{ \r\n  float: left;\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 10px 0px; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer; \r\n  float: left;\n}\n#send-btn[data-v-f3210f20]{ \r\n  height: 50px; \r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{ \r\n  border-top-left-radius: 19px;\r\n  border-right: 1px solid #e3e3e3;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 0px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\r\n  border-top-left-radius: 20px; \r\n  border-top-right-radius: 0px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{ \r\n  border-top-right-radius: 19px; \r\n  border-top-left-radius: 0px;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.tab-pane[data-v-f3210f20]{ \r\n  height: 348px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n} \r\n/*being used?*/\n.ant-time-picker[data-v-f3210f20]{ \r\n  width: 100% !important;\n} \r\n", ""]);
+exports.push([module.i, "\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-top: 90px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 50px;\n}\n.top-section .col-auto[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid #003549;\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  color: #003449;\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  color: #003449;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 27px;\n}\n.card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 23px; \r\n  color: #fff; \r\n  font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 9px rgba(160, 124, 124, 0.15);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 20px;\r\n  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.choose-comment-type[data-v-f3210f20]{ \r\n  float: left;\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 10px 0px; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer; \r\n  float: left;\n}\n#send-btn[data-v-f3210f20]{ \r\n  height: 50px; \r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{ \r\n  border-top-left-radius: 19px;\r\n  border-right: 1px solid #e3e3e3;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 0px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\r\n  border-top-left-radius: 20px; \r\n  border-top-right-radius: 0px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{ \r\n  border-top-right-radius: 19px; \r\n  border-top-left-radius: 0px;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover { \r\n  border: 1px solid transparent; \r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.tab-pane[data-v-f3210f20]{ \r\n  height: 348px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n} \r\n/*being used?*/\n.ant-time-picker[data-v-f3210f20]{ \r\n  width: 100% !important;\n} \r\n", ""]);
 
 // exports
 
@@ -262778,12 +262857,15 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.general == true
-      ? _c("div", {}, [
+      ? _c("div", { staticClass: "general-section-stats" }, [
           _c(
             "div",
-            { staticClass: "row mx-0 justify-content-between top-section" },
+            {
+              staticClass:
+                "row mx-0 pb-4 justify-content-between top-section agent-stats-1"
+            },
             [
-              _c("div", { staticClass: "col-lg-3" }, [
+              _c("div", { staticClass: "col-auto" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
@@ -262791,7 +262873,31 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-3" }, [
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Online")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Contact OWner")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Invested")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count_sales))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Called")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
@@ -262799,7 +262905,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-3" }, [
+              _c("div", { staticClass: "col-auto" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
@@ -262807,11 +262913,76 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-3" }, [
+              _c("div", { staticClass: "col-auto" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "row pt-4 mx-0 justify-content-between top-section agent-stats-2"
+            },
+            [
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Email")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Phone")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Online Funds")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Invested")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count_sales))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Negotiation")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Avg. Call length")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bottom mb-0" }, [
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
                 ])
               ])
             ]
@@ -262832,8 +263003,11 @@ var render = function() {
                     _c(
                       "p",
                       {
-                        staticClass: "card-text truncate",
-                        attrs: { title: _vm.lead.name + " " + _vm.lead.surname }
+                        staticClass: "card-text truncate mb-3",
+                        attrs: {
+                          title:
+                            _vm.lead_info.name + " " + _vm.lead_info.surname
+                        }
                       },
                       [
                         _vm._v(
@@ -262845,29 +263019,37 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "truncate w-100" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass:
-                            "card-link d-inline border-right border-white pb-3 pr-3"
-                        },
-                        [_vm._v(_vm._s(_vm.lead_info.country))]
-                      ),
+                      _vm.lead_info.country
+                        ? _c(
+                            "p",
+                            {
+                              staticClass:
+                                "card-link d-inline border-right border-white pb-3 pr-3"
+                            },
+                            [_vm._v(_vm._s(_vm.lead_info.country))]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass:
-                            "card-link d-inline border-right border-white ml-0 pb-3 px-3"
-                        },
-                        [_vm._v(_vm._s(_vm.lead_info.gender))]
-                      ),
+                      _vm.lead_info.gender
+                        ? _c(
+                            "p",
+                            {
+                              staticClass:
+                                "card-link d-inline border-right border-white ml-0 pb-3 px-3"
+                            },
+                            [_vm._v(_vm._s(_vm.lead_info.gender))]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "card-link d-inline ml-0 pb-3 pl-3" },
-                        [_vm._v(_vm._s(_vm.lead_info.age))]
-                      )
+                      _vm.lead_info.age
+                        ? _c(
+                            "p",
+                            {
+                              staticClass: "card-link d-inline ml-0 pb-3 pl-3"
+                            },
+                            [_vm._v(_vm._s(_vm.lead_info.age))]
+                          )
+                        : _vm._e()
                     ])
                   ])
                 ])
@@ -262881,7 +263063,7 @@ var render = function() {
                     _c(
                       "p",
                       {
-                        staticClass: "card-text",
+                        staticClass: "card-text truncate mb-3",
                         attrs: {
                           title:
                             _vm.lead_info.product.description +
@@ -262895,7 +263077,7 @@ var render = function() {
                     _c(
                       "p",
                       {
-                        staticClass: "card-link truncate w-100",
+                        staticClass: "card-link truncate w-100 mb-0",
                         attrs: {
                           title:
                             _vm.lead_info.product.description +
@@ -262926,7 +263108,9 @@ var render = function() {
                   _c("div", { staticClass: "card-body" }, [
                     _vm._m(7),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [_vm._v("11:20")]),
+                    _c("p", { staticClass: "card-text mb-3" }, [
+                      _vm._v("11:20")
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "truncate" }, [
                       _c(
@@ -263525,51 +263709,39 @@ var render = function() {
                             _c(
                               "div",
                               { staticClass: "verticalChart w-100" },
-                              [
-                                _vm._l(_vm.comments_graph, function(bar) {
-                                  return _c(
-                                    "div",
-                                    { staticClass: "singleBar" },
-                                    [
-                                      _c("div", { staticClass: "bar" }, [
+                              _vm._l(_vm.comments_graph, function(bar) {
+                                return _c("div", { staticClass: "singleBar" }, [
+                                  _c("div", { staticClass: "bar" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "value w-100",
+                                        style:
+                                          "height: " + bar.percentage + "%;"
+                                      },
+                                      [
                                         _c(
-                                          "div",
+                                          "span",
                                           {
-                                            staticClass: "value w-100",
-                                            style:
-                                              "height: " + bar.percentage + "%;"
+                                            staticStyle: {
+                                              color: "rgb(45, 137, 239)"
+                                            },
+                                            attrs: { clas: "w-100 d-inline" }
                                           },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticStyle: {
-                                                  color: "rgb(45, 137, 239)"
-                                                },
-                                                attrs: {
-                                                  clas: "w-100 d-inline"
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(bar.percentage + "%")
-                                                )
-                                              ]
-                                            )
-                                          ]
+                                          [_vm._v(_vm._s(bar.percentage + "%"))]
                                         )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "title" }, [
-                                        _vm._v(_vm._s(bar.type))
-                                      ])
-                                    ]
-                                  )
-                                }),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "clearfix" })
-                              ],
-                              2
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "title" }, [
+                                    _vm._v(_vm._s(bar.type))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "clearfix" })
+                                ])
+                              }),
+                              0
                             )
                           ])
                         ]
@@ -264054,142 +264226,188 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4 pl-0" }, [
-                  _c("div", { staticClass: "card border-0 client" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/workstation/D_A@4x.png",
-                            alt: "Icon"
-                          }
-                        }),
-                        _vm._v(" \n                  Client \n                ")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text truncate",
-                          attrs: {
-                            title:
-                              _vm.lead_info.name + " " + _vm.lead_info.surname
-                          }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(
-                              _vm.lead_info.name + " " + _vm.lead_info.surname
+              _c(
+                "div",
+                { staticClass: "row mx-0 mb-0 justify-content-between" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-4 col-md-4 col-sm-4 pl-0" },
+                    [
+                      _c("div", { staticClass: "card border-0 client" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _c("img", {
+                              staticClass: "icon",
+                              attrs: {
+                                src: "/images/workstation/D_A@4x.png",
+                                alt: "Icon"
+                              }
+                            }),
+                            _vm._v(
+                              " \n                  Client \n                "
                             )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "card-text truncate mb-3",
+                              attrs: {
+                                title:
+                                  _vm.lead_info.name +
+                                  " " +
+                                  _vm.lead_info.surname
+                              }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.lead_info.name +
+                                    " " +
+                                    _vm.lead_info.surname
+                                )
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "truncate w-100" }, [
+                            _vm.lead_info.country
+                              ? _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "card-link d-inline border-right border-white pb-3 pr-3"
+                                  },
+                                  [_vm._v(_vm._s(_vm.lead_info.country))]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.lead_info.gender
+                              ? _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "card-link d-inline border-right border-white ml-0 pb-3 px-3"
+                                  },
+                                  [_vm._v(_vm._s(_vm.lead_info.gender))]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.lead_info.age
+                              ? _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "card-link d-inline ml-0 pb-3 pl-3"
+                                  },
+                                  [_vm._v(_vm._s(_vm.lead_info.age))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "card border-0 product" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/images/workstation/Stock_Icon@4x.png",
+                              alt: "Icon"
+                            }
+                          }),
+                          _vm._v(
+                            " \n                  Product \n                "
                           )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-link truncate" }, [
-                        _vm._v(
-                          _vm._s(_vm.lead_info.country) +
-                            " | " +
-                            _vm._s(_vm.lead_info.gender) +
-                            " | " +
-                            _vm._s(_vm.lead_info.age)
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "card-text truncate mb-3",
+                            attrs: {
+                              title:
+                                _vm.lead_info.product.description +
+                                ". " +
+                                _vm.lead_info.product.currency +
+                                _vm.lead_info.product.price
+                            }
+                          },
+                          [
+                            _vm._v(
+                              " \n                  " +
+                                _vm._s(_vm.lead_info.product.name) +
+                                " \n                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "card-link truncate w-100 mb-0",
+                            attrs: {
+                              title:
+                                _vm.lead_info.product.description +
+                                ". " +
+                                _vm.lead_info.product.currency +
+                                _vm.lead_info.product.price
+                            }
+                          },
+                          [
+                            _vm._v(
+                              " \n                  " +
+                                _vm._s(_vm.lead_info.product.description) +
+                                " \n                "
+                            )
+                          ]
                         )
                       ])
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                  _c("div", { staticClass: "card border-0 product" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/workstation/Stock_Icon@4x.png",
-                            alt: "Icon"
-                          }
-                        }),
-                        _vm._v(
-                          " \n                  Product \n                "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-text",
-                          attrs: {
-                            title:
-                              _vm.lead_info.product.description +
-                              ". " +
-                              _vm.lead_info.product.currency +
-                              _vm.lead_info.product.price
-                          }
-                        },
-                        [
-                          _vm._v(
-                            " \n                " +
-                              _vm._s(_vm.lead_info.product.name) +
-                              " \n                "
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "card border-0 time" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/images/workstation/Time_Icon@4x.png",
+                              alt: "Icon"
+                            }
+                          }),
+                          _vm._v(" \n                  Time \n                ")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "truncate mb-3" }, [
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "card-link d-inline border-right border-white pb-3 pr-3"
+                            },
+                            [_vm._v(_vm._s(_vm.lead_info.city))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "card-link d-inline ml-0 pb-3 pl-3"
+                            },
+                            [_vm._v(_vm._s(_vm.lead_info.country))]
                           )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        {
-                          staticClass: "card-link truncate",
-                          attrs: {
-                            title:
-                              _vm.lead_info.product.description +
-                              ". " +
-                              _vm.lead_info.product.currency +
-                              _vm.lead_info.product.price
-                          }
-                        },
-                        [
-                          _vm._v(
-                            " \n                  " +
-                              _vm._s(_vm.lead_info.product.description) +
-                              " \n                "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                  _c("div", { staticClass: "card border-0 time" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/workstation/Time_Icon@4x.png",
-                            alt: "Icon"
-                          }
-                        }),
-                        _vm._v(" \n                  Time \n                ")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v("11:20 AM")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-link truncate" }, [
-                        _vm._v(
-                          _vm._s(_vm.lead_info.city) +
-                            " | " +
-                            _vm._s(_vm.lead_info.country)
-                        )
+                        ])
                       ])
                     ])
                   ])
-                ])
-              ]),
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "row stats final-modal" }, [
                 _c(
@@ -264880,69 +265098,64 @@ var render = function() {
                                 }
                               },
                               [
-                                _c("div", {}, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "verticalChart" },
-                                    [
-                                      _vm._l(_vm.comments_graph, function(
-                                        bar,
-                                        index
-                                      ) {
-                                        return _c(
-                                          "div",
-                                          {
-                                            key: index,
-                                            staticClass: "singleBar"
-                                          },
-                                          [
-                                            _c("div", { staticClass: "bar" }, [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass: "value w-100",
-                                                  style:
-                                                    "height: " +
-                                                    bar.percentage +
-                                                    "%;"
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "w-100 d-inline",
-                                                      staticStyle: {
-                                                        color:
-                                                          "rgb(45, 137, 239)"
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          bar.percentage + "%"
-                                                        )
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "verticalChart" },
+                                  [
+                                    _vm._l(_vm.comments_graph, function(
+                                      bar,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: index,
+                                          staticClass: "singleBar"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "bar" }, [
                                             _c(
                                               "div",
-                                              { staticClass: "title" },
-                                              [_vm._v(_vm._s(bar.type))]
+                                              {
+                                                staticClass: "value w-100",
+                                                style:
+                                                  "height: " +
+                                                  bar.percentage +
+                                                  "%;"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "w-100 d-inline",
+                                                    staticStyle: {
+                                                      color: "rgb(45, 137, 239)"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        bar.percentage + "%"
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
                                             )
-                                          ]
-                                        )
-                                      }),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "clearfix" })
-                                    ],
-                                    2
-                                  )
-                                ])
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "title" }, [
+                                            _vm._v(_vm._s(bar.type))
+                                          ])
+                                        ]
+                                      )
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "clearfix" })
+                                  ],
+                                  2
+                                )
                               ]
                             ),
                             _vm._v(" "),
@@ -265517,9 +265730,11 @@ var staticRenderFns = [
             _vm._v(" \n              Activity \n            ")
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [_vm._v("Off-line")]),
+          _c("p", { staticClass: "card-text mb-3" }, [_vm._v("Off-line")]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-link" }, [_vm._v("Online 2 Days ago")])
+          _c("p", { staticClass: "card-link mb-0" }, [
+            _vm._v("Online 2 Days ago")
+          ])
         ])
       ])
     ])
