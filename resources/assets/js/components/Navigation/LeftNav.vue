@@ -203,6 +203,13 @@
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a 
+                href="/dashboard" 
+                title="Dashboard" 
+                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
+                class="w-100 m-0 p-0 rounded-0"></a>
+            </li>
+            <li class="nav-item">
+              <a 
                 href="/workstation" 
                 title="Workstation" 
                 id="workstation" 
@@ -211,13 +218,6 @@
               >
                 <span>Dashboard</span>  
               </a>
-            </li>
-            <li class="nav-item">
-              <a 
-                href="/dashboard" 
-                title="Dashboard" 
-                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
             </li>
             <li class="nav-item">
               <a 
