@@ -73299,6 +73299,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -73335,1054 +73355,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Plugins/TransitionExpand.vue */ "./resources/assets/js/components/Plugins/TransitionExpand.vue");
 /* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-circle-progress */ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js");
 /* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -132472,7 +131444,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\r\n  margin-bottom: 50%;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/work station icon active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/work station icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/dashboard icon active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/dashboard icon .svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/social board icon active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/social board icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/call history icon active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/call history icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/education icon actove.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/education icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/Contacts_Active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/Contacts.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/Leads Active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/Leads.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/User active.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/Users.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 63px;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\r\n  background-size:64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -132491,7 +131463,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -292px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -292px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main-sidebar[data-v-48ad9a74] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar .navbar-top-conatiner[data-v-48ad9a74] {\r\n  padding-left: 12px;\r\n  padding-right: 18px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 11px;\r\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #e3e3e3;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 19px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\r\n  font-size: 15px; \r\n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdcdcf\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 28px;\r\n  margin-top: 2px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 10px;\r\n  padding: 7px;\r\n  font-size: 9px;\r\n  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #e3e3e3; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -292px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -292px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main-sidebar[data-v-48ad9a74] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 11px;\r\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #e3e3e3;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 19px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\r\n  font-size: 15px; \r\n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdcdcf\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 28px;\r\n  margin-top: 2px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 10px;\r\n  padding: 7px;\r\n  font-size: 9px;\r\n  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #e3e3e3; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -254079,28 +253051,33 @@ var render = function() {
           _c(
             "ul",
             {
-              staticClass: "nav nav-pills nav-sidebar flex-column",
+              staticClass:
+                "nav nav-pills nav-sidebar sidebar-menu flex-column tree",
               attrs: {
-                "data-widget": "treeview",
+                "data-widget": "tree",
                 role: "menu",
                 "data-accordion": "false"
               }
             },
             [
               _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link workstation": true,
-                    "active shadow-none":
-                      _vm.active == "workstation" ? true : false
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link workstation": true,
+                      "active shadow-none":
+                        _vm.active == "workstation" ? true : false
+                    },
+                    attrs: {
+                      href: "/workstation",
+                      title: "Workstation",
+                      id: "workstation"
+                    }
                   },
-                  attrs: {
-                    href: "/workstation",
-                    title: "Workstation",
-                    id: "workstation"
-                  }
-                })
+                  [_c("span", [_vm._v("Dashboard")])]
+                )
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
@@ -254112,18 +253089,6 @@ var render = function() {
                       _vm.active == "dashboard" ? true : false
                   },
                   attrs: { href: "/dashboard", title: "Dashboard" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link call-history": true,
-                    "active shadow-none":
-                      _vm.active == "call-history" ? true : false
-                  },
-                  attrs: { href: "/call-history", title: "Call History" }
                 })
               ]),
               _vm._v(" "),
@@ -254150,12 +253115,24 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", {
+                  staticClass: "w-100 m-0 p-0 rounded-0",
+                  class: {
+                    "nav-link call-history": true,
+                    "active shadow-none":
+                      _vm.active == "call-history" ? true : false
+                  },
+                  attrs: { href: "/call-history", title: "Call History" }
+                })
+              ]),
+              _vm._v(" "),
               _vm.current_user.role_id == 1
                 ? _c("li", { staticClass: "nav-item" }, [
                     _c("a", {
                       staticClass: "w-100 m-0 p-0 rounded-0",
                       class: {
-                        "nav-link leads": true,
+                        "nav-link transactions": true,
                         "active shadow-none":
                           _vm.active == "transactions" ? true : false
                       },
@@ -254173,6 +253150,22 @@ var render = function() {
                       _vm.active == "social-board" ? true : false
                   },
                   attrs: { href: "/social-board", title: "Social Board" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", {
+                  staticClass: "w-100 m-0 p-0 rounded-0",
+                  class: {
+                    "nav-link education": true,
+                    "active shadow-none":
+                      _vm.active == "education" ? true : false
+                  },
+                  attrs: {
+                    href: "/education",
+                    title: "Education",
+                    disabled: ""
+                  }
                 })
               ]),
               _vm._v(" "),
@@ -254195,7 +253188,7 @@ var render = function() {
                     _c("a", {
                       staticClass: "w-100 m-0 p-0 rounded-0",
                       class: {
-                        "nav-link users": true,
+                        "nav-link preferences": true,
                         "active shadow-none":
                           _vm.active == "preferences" ? true : false
                       },
@@ -254205,23 +253198,7 @@ var render = function() {
                       }
                     })
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link education": true,
-                    "active shadow-none":
-                      _vm.active == "education" ? true : false
-                  },
-                  attrs: {
-                    href: "/education",
-                    title: "Education",
-                    disabled: ""
-                  }
-                })
-              ])
+                : _vm._e()
             ]
           )
         ])
@@ -254236,7 +253213,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "a",
-      { staticClass: "brand-link", attrs: { href: "/workstation" } },
+      { staticClass: "brand-link mt-3", attrs: { href: "/workstation" } },
       [
         _c("img", {
           staticClass: "logo",
