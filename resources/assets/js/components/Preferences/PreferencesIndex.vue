@@ -129,12 +129,12 @@
                     <a role="button" rel="addModuleLink" @click="showModulePreferences('add_module','add_module', null);" :class="{ 'active' : ( active_module_name ===  'add_module')? true : false }" title="Add new Module">+ Add New</a>
                 </li>
             </ul>
-		</div>
+		    </div>
         <hr style="margin-bottom: 2%;">
         <div>
             <div class="row stats scroll-hidden">
                 <div class="col-lg-12">
-                    <vcl-table v-if="show_page_loader" ></vcl-table>
+                    <vcl-table v-if="show_page_loader" > </vcl-table>
                     <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_name == 'roles'">
                         <b-card no-body>
                             <b-tabs card>
@@ -144,7 +144,8 @@
                                         <edit-role :role="role" />
                                     </div>
                                     <div class="row">
-                                        <b-button class="btn btn-default" @click="updateRole(role)">Update {{ role.display_name }}</b-button>
+                                        <b-button class="btn btn-success" @click="updateRole(role)">Update {{ role.display_name }}</b-button>
+                                        <b-button class="btn btn-danger" @click="deleteRole(role)">Delete {{ role.display_name }}</b-button>
                                     </div>
                                     <div class="row" v-if="role_add">
                                         <add-role/>
@@ -229,7 +230,7 @@
                         <add-module/>
                     </div>
                     <div class="col-lg-12  user-roles" v-if="!show_page_loader && active_module_action == 'edit_module'">
-                        <edit-module :module="editing_module"/>
+                        <edit-module :in_module="editing_module"/>
                     </div>
                 </div>
             </div>
@@ -463,8 +464,41 @@
                     'role' : role,
                 });
             },
+            deleteRole(role){
+              var vm = this;  
+              vm.$swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#409EFF',
+                  cancelButtonColor: '#F56C6C',
+                  confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                  if (result.value) {  
+                    vm.$Progress.start();
+
+                    var end_point = '/roles/delete';
+                    console.log(role);
+                    axios.post(end_point,{ 'role' : role }).then(function (response) {
+                            
+                        if(response.data.success == true){
+                            vm.$Progress.finish();
+                            vm.Toast.fire({ type: 'success', title: response.data.message });
+                            
+                            Fire.$emit('DoneEditingRole');
+                        }else {
+                            vm.$Progress.fail();
+                            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                        }
+                    });
+                    }
+                });
+            },
             showModulePreferences(active_module, action, in_module){
+              
                 Fire.$emit(action, { 'module' : in_module });
+                
                 this.editing_module = in_module;
                 this.active_module_name = active_module;
                 this.active_module_action = action;

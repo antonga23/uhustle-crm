@@ -33,15 +33,8 @@
                 </b-col>
                 <b-col sm="9">
                     <a-switch v-model="edit_role.status"/>
-                    <!-- <b-form-select v-model="edit_role.status" :options="[{ value: null, text: 'Please Select' },{ value: '1', text: 'Active' },{ value: '0', text: 'Disaled' }]" class="form-control"></b-form-select> -->
                 </b-col>
             </b-row>
-
-            <!-- <b-row class="my-1">
-                <b-col sm="9">
-                    <b-button variant="default" @click="updateRole()">Update Role</b-button>
-                </b-col>
-            </b-row> -->
         </b-container>
     </div>
 </template>

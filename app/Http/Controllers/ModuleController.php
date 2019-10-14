@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Auth;
+use App\Role;
 use App\Module;
 use App\ModuleCustomFields;
 use App\ModuleItem;
@@ -29,7 +30,52 @@ class ModuleController extends Controller
     public function index()
     {
          $modules = Module::with('module_fields')->get();
-         return array('success' => true, 'modules' => $modules);
+        
+
+
+        //  $holder = [];
+        //  foreach ($modules as $i => $module) {
+        //    $data = new \StdClass();
+
+        //    $data->id = $module->id;
+        //    $data->tag = $module->tag;
+        //    $data->description = $module->description;
+        //    $data->display_name = $module->display_name;
+
+        //    $field_holder = [];
+        //    foreach ($module->module_fields as $j => $field) {
+        //       $field_data = new \StdClass();
+        //       $field_data->id = $field->id;
+        //       $field_data->module_id = $field->module_id;
+        //       $field_data->name = $field->name;
+        //       $field_data->display_name = $field->display_name;
+        //       $field_data->type = $field->type;
+
+        //       $can_edit_roles = Role::whereIn('id', explode(',',$field->can_edit))->get();
+
+        //       $can_edit = [];
+        //       foreach ($can_edit_roles as $k => $can_edit_role) {
+        //         array_push($can_edit, $can_edit_role->id);
+        //       }
+
+        //       $can_read_roles = Role::whereIn('id', explode(',',$field->can_read))->get();
+
+        //       $can_read = [];
+        //       foreach ($can_read_roles as $k => $can_read_role) {
+        //         array_push($can_read, $can_read_role);
+        //       }
+
+        //       $field_data->can_edit = $can_edit;
+        //       $field_data->can_read = $can_read;
+        //       array_push($field_holder, $field_data);
+        //    }
+
+        //    $data->module_fields = $field_holder;
+
+        //    array_push($holder, $data);
+        //  }
+
+         return array('success' => true, 'modules' => $this->compactModules($modules) );
     }
 
     /**
@@ -51,21 +97,31 @@ class ModuleController extends Controller
             DB::beginTransaction();
 
             $module = Module::create([
-				'tag' => strtolower(str_replace(' ','_',$display_name)),
-				'display_name' => $display_name,
-				'description' => $description,
+              'tag' => strtolower(str_replace(' ','_',$display_name)),
+              'display_name' => $display_name,
+              'description' => $description,
             ]);
 
             foreach($module_fields as $key => $value){
+                
+                $can_read = ( !is_null($value['can_read']) || $value['can_read'] !== '' )? implode(',',$value['can_read']) : null ;
+                $can_edit = ( !is_null($value['can_edit']) || $value['can_edit'] !== '' )? implode(',',$value['can_edit']) : null ;
+
                 ModuleCustomFields::create([
                     'module_id' => $module->id,
-                    'name' => $value['name'],
-                    'type' => $value['type']
+                    'name' => strtolower( str_replace(' ','_',$value['name'] ) ) ,
+                    'display_name' => ucwords( str_replace('-',' ',$value['name'] ) ) ,
+                    'type' => $value['type'],
+                    'can_read' => $can_read,
+                    'can_edit' => $can_edit
                 ]);
             }
-
             DB::commit();
-            return array('success' => true, 'message' => 'Module successfully created', 'module' => Module::with('module_fields')->find($module->id) );
+
+            $module = Module::with('module_fields')->where(['id' => $module->id])->get();
+
+            
+            return array('success' => true, 'message' => 'Module successfully created', 'module' => $this->compactModules($module));
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -94,29 +150,85 @@ class ModuleController extends Controller
             DB::beginTransaction();
 
             Module::find($id)->update([
-                'tag' => strtolower(str_replace(' ','_',$display_name)),
-                'display_name' => $display_name,
-                'description' => $description,
+              'tag' => strtolower(str_replace(' ','_',$display_name)),
+              'display_name' => $display_name,
+              'description' => $description,
             ]);
 
             $existing = ModuleCustomFields::where(['module_id' => $id])->delete();
 
             foreach($module_fields as $key => $value){
                 
+                $can_read = ( is_null($value['can_read']) )? null : implode(',',$value['can_read']) ;
+                $can_edit = ( is_null($value['can_edit']) )? null : implode(',',$value['can_edit']) ;
+                
                 ModuleCustomFields::create([
                     'module_id' => $id,
-                    'name' => $value['name'],
-                    'type' => $value['type']
+                    'name' => strtolower( str_replace(' ','_',$value['name'] ) ) ,
+                    'display_name' => ucwords( str_replace('-',' ',$value['name'] ) ) ,
+                    'type' => $value['type'],
+                    'can_read' => $can_read,
+                    'can_edit' => $can_edit
                 ]);
             }
-
+            
             DB::commit();
-            return array('success' => true, 'message' => 'Module successfully updated', 'module' => Module::with('module_fields')->find($id) );
+
+            $module = Module::with('module_fields')->where(['id' => $id])->get();
+
+            return array('success' => true, 'message' => 'Module successfully updated', 'module' => $this->compactModules($module) );
 
         }catch(\QueryException $e){
             DB::rollback();
             return array('success' =>false, 'message' => $e->getMessage());
         }
+    }
+
+    public function compactModules($modules = null){
+
+      $holder = [];
+      foreach ($modules as $i => $module) {
+        $data = new \StdClass();
+
+        $data->id = $module->id;
+        $data->tag = $module->tag;
+        $data->description = $module->description;
+        $data->display_name = $module->display_name;
+
+        $field_holder = [];
+        foreach ($module->module_fields as $j => $field) {
+           $field_data = new \StdClass();
+           $field_data->id = $field->id;
+           $field_data->module_id = $field->module_id;
+           $field_data->name = $field->name;
+           $field_data->display_name = $field->display_name;
+           $field_data->type = $field->type;
+
+           $can_edit_roles = Role::whereIn('id', explode(',',$field->can_edit))->get();
+
+           $can_edit = [];
+           foreach ($can_edit_roles as $k => $can_edit_role) {
+             array_push($can_edit, $can_edit_role->id);
+           }
+
+           $can_read_roles = Role::whereIn('id', explode(',',$field->can_read))->get();
+
+           $can_read = [];
+           foreach ($can_read_roles as $k => $can_read_role) {
+             array_push($can_read, $can_read_role->id);
+           }
+
+           $field_data->can_edit = $can_edit;
+           $field_data->can_read = $can_read;
+           array_push($field_holder, $field_data);
+        }
+
+        $data->module_fields = $field_holder;
+
+        array_push($holder, $data);
+      }
+      
+      return $holder;
     }
 
     /**

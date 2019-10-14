@@ -477,6 +477,13 @@ label.custom-control-label{
   font-size: 9px;
   color: #003449;
 }
+
+.to-do-list .card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.to-do-list .card ul li {
+  list-style: none;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -1264,35 +1271,30 @@ label.custom-control-label{
                           title-position="right" 
                           is-expanded 
                           :popover="true" />
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <p class="description badges">Badges</p>
-                          </div>
 
-                          <div class="col-lg-12">
-                            <div class="row justify-content-between align-items-end">
-                              <div class="position d-none">
-                                <span>12<sup>th</sup></span>
+                        <div class="to-do-list">
+                          <div class="card mx-0">
+                            <div  class="row mx-0 justify-content-between">
+                              <div class="col-auto">
+                                <p class="text-uppercase">To do list</p>
                               </div>
-
-                              <div class="col-sm-3 badge-1 px-2">
-                                <img src="/images/icons/Colonel@4x.png" alt="Badge" class="w-100">
-                                <p class="description text-center">Colonel</p>
+                              <div class="col-auto">
+                                <button>+</button>
                               </div>
+                            </div>
 
-                              <div class="col-sm-3 badge-2 px-2">
-                                <img src="/images/icons/Corporal@4x.png" alt="Badge" class="w-100">
-                                <p class="description text-center">Corporal</p>
-                              </div>
-
-                              <div class="col-sm-3 badge-3 px-2">
-                                <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-                                <p class="description text-center">Captain</p>
-                              </div>
-
-                              <div class="col-sm-3 badge-4 px-2">
-                                <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-                                <p class="description text-center">Captain</p>
+                            <div cass="row mx-0 justify-content-between">
+                              <div class="col-lg-12">
+                                <p>1 Completed</p>
+      
+                                <ul>
+                                  <li>
+                                    <label>
+                                      <input type="checkbox">
+                                      <input type="text" value="To Do List">
+                                    </label>
+                                  </li>
+                                </ul>
                               </div>
                             </div>
                           </div>

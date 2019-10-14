@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+.hide {
+  display:none !important;
+}
 .logo{
     margin: 2% 0% 2% 4%;
 }
@@ -30,10 +36,12 @@
       max-width: 100%;
     }
 .left-side{
-    background-image: url('/images/Sign_In/Assests/uhustle-login_background.jpg');
+    background-image: url('/images/Sign_In/Assests/Left-Background.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left top;
+    min-height: 900px !important;
+    background-color: #F38912 !important;
 }
 .left-side img {
   max-width:70%;
@@ -42,8 +50,15 @@
   top: 39%;
   left: 15%;
 }
-#top-landing-logo {
+/* #top-landing-logo {
     width: 30%;
+} */
+.lp-logo {
+  width: 217px !important;
+}
+.logo-title {
+  color: #F38912;
+  font-size: 77px;
 }
 #navbarSupportedContent{
     border-bottom: 1px solid #f4f4f4;
@@ -71,6 +86,38 @@
 }
 .btn-default {
     border: 2px solid rgba(0, 0, 0, 0.125)  !important;
+}
+.submit-btn {
+  border-radius: 12px !important;
+  font-family: 'Lato light', sans-serif !important;
+}
+.outer-login-container {
+  position: relative;
+  height: 100% !important;
+} 
+.inner-login-container {
+  position: absolute;
+  top: 47%;
+  -ms-transform: translateY(-50%);
+  /* transform: translateY(-50%); */
+  right: 0;
+}
+.mt-20 {
+  margin-top: 0 !important;
+}
+@media screen and (min-width: 2000px) {
+  .mt-20 {
+    margin-top: 20% !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+.outer-login-container {
+  height: 25% !important;
+}
+  .inner-login-container {
+    top: 3% !important;
+  }
 }
 #auth .card{
     border: none !important;
@@ -224,12 +271,28 @@
 /*end auth nav styling*/
 /*auth buttons styling*/
 .activeBtn{
-  border-bottom: 1px solid #faba00!important;
-  border-radius: 0!important;
-  color: #013449!important;
+  /* border-bottom: 1px solid #fff!important; */
+  color: #F28821!important;
+  font-size: 26px !important;
+  font-family: 'Rubik', sans-serif !important;
+  background-image: url('/images/Sign_In/Assests/White-space.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  position: relative;
+  left: 30%;
+  height: 84px;
+}
+ .btn:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 .inactiveBtn{
-  color: rgba(1,52,73,0.5)!important;
+  color: #F2F2F2!important;
+  font-size: 26px !important;
+  font-family: 'Rubik', sans-serif !important;
+  position: relative;
+  left: 30%;
+  height: 84px;
 }
 /*end auth buttons styling*/
 
@@ -239,14 +302,25 @@
 }
 .login .btn-primary{
   font-family: 'Cormorant', serif;
+    text-transform: uppercase;
 }
-@media screen and (min-width: 1440px) {
+.pwd-link {
+  color: #F38912 !important;
+  text-align: right !important;
+  text-decoration: underline !important;
+}
+.copyright {
+  font-family: 'Lato Light', sans-serif !important;
+  color: #003B53 !important;
+  font-size: 15px;
+}
+/* @media screen and (min-width: 1440px) {
   .right-side .col-10 .auth-buttons.login{
     margin-top:65%;
   }
-}
+} */
 .right-side .col-10 .login, .right-side .col-10 .register{
-  max-width:310px;
+  max-width:50%;
 }
 /*register right sidebar*/
 .right-side .col-10 .auth-buttons.register{
@@ -294,6 +368,15 @@
   display: table-cell;
   position: relative;
 }
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right !important;
+}
+.left {
+  text-align: left !important
+}
 .stepper-step-center {
   text-align: center;
 }
@@ -315,10 +398,15 @@
   border:1px solid rgba(250,138,1,1)!important;
   background: #fff;
 }
-.setup-content input, .setup-content select, .setup-content textarea, .login input {
-  font-size:12px!important;
-  font-weight: 300;
+.setup-content input, .setup-content select, .setup-content textarea, .login input, .terms-text, ::placeholder {
+  font-size:15px!important;
+  font-weight: 400;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  color: #003B53 !important;
+  letter-spacing: 1px !important;
 }
+
 .omni-shadow {
   box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;
   border: 1px solid #eee!important;
@@ -334,26 +422,44 @@
   margin-top: 10%;
   font-family: 'Cormorant', serif;
 }
+
+.terms {
+  color: #F28821 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size:15px!important;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 400 !important;
+}
+.custom-checkbox .custom-control-label::before {
+  background-color: white !important;
+  border-radius: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #F38912 !important;
+}
+
 /*end Register Stepper*/
 /*vc calendar styling*/
+.vc-day .vc-h-full {
+  padding:0.5em;
+}
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{
 	color: #1c2331;
 	font-size: 10px;
-	font-weight: 700;
 	font-family: Montserrat, sans-serif;
 }
 .vc-day-content.vc-font-medium{
-	font-weight: 700;
 	font-family: Montserrat, sans-serif;
 }
 .vc-day-content.vc-font-medium:not(.vc-text-white){
   color: #1c2331;
 }
 .vc-rounded-full {
-	border-radius: 5px!important;
+	border-radius: 50%!important;
 }
 .vc-bg-blue-600 {
-	background-color: #ef5480!important;
+	background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;
 }
 
 ::-webkit-scrollbar {
