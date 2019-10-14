@@ -24,7 +24,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
   color: #ffffff;
@@ -33,7 +33,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
@@ -42,7 +42,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
   color: #ffffff;
@@ -51,7 +51,7 @@
   background-size:64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
@@ -60,7 +60,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
   color: #ffffff;
@@ -69,7 +69,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
@@ -78,7 +78,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
   color: #ffffff;
@@ -87,7 +87,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
@@ -96,7 +96,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
   color: #ffffff;
@@ -105,7 +105,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
@@ -114,7 +114,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
   color: #ffffff;
@@ -123,7 +123,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
@@ -132,7 +132,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
   color: #ffffff;
@@ -141,7 +141,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
@@ -150,7 +150,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
   color: #ffffff;
@@ -159,7 +159,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
@@ -168,7 +168,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
   color: #ffffff;
@@ -177,7 +177,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
@@ -186,7 +186,7 @@
   background-size: 90px;
   background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
   color: #ffffff;
@@ -195,7 +195,7 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height: 70px;
 }
 .main-sidebar {
   width: 63px!important;
@@ -211,7 +211,8 @@
   background: #fff;
   color: #000;
   font-size: 18px;
-  letter-spacing:2px;
+  letter-spacing:0.05em;
+  color: #003549;
   border-radius: 0 50rem 50rem 0;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
   padding: 18px 0;

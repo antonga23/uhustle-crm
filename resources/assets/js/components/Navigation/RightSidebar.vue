@@ -60,12 +60,18 @@ h3 img{
   font-weight: 200;
   padding-top: 3px;
 }
+.open-sidenav .navbar {
+  border-bottom: 1px solid #cdccce;
+}
 .navbar-light .navbar-nav .nav-link.icon {
   color: rgba(0, 0, 0, 0.5);
 }
 .navbar-light .navbar-nav .nav-link.name {
-  font-size: 11px;
+  font-size: 22px;
+  color:#1e2331;
+	font-family: 'Rubik', sans-serif;
   padding-top: 6px;
+  letter-spacing: 0.05em;
 }
 .help-block{
 	color: red;
@@ -110,13 +116,13 @@ h3 img{
 	display: block !important;
 }
 .collapse{
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #cdccce;
 }
 .p-3{
   padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;
 }
 .progress-bar{
-	background: #e3e3e3;
+	background: #f7f6fb;
 	border-radius: 5px;
 }
 .tank{
@@ -126,21 +132,19 @@ h3 img{
   height: 8px;
   transition: all 0.5s ease 0s;
 }
-.monthly-target{
-	font-size: 10px;
-	letter-spacing: 1px;
-}
 .value{
   font-weight: 900;
-  font-size: 19px;
+  font-size: 24px;
   color: #1a1c43;
 	margin-top: -8px;
-	letter-spacing: 1px;
+  letter-spacing: 0.1em;
+  font-family: Montserrat !important;
 }
 .description{
-	font-size: 10px;
+	font-size: 13px;
 	font-family: 'Rubik', sans-serif;
-	letter-spacing: 1px;
+  letter-spacing: 0.05em;
+  color: #1e2331;
 }
 .position{
   display: block;
@@ -159,7 +163,7 @@ h3 img{
   transform: rotate(0deg); /* Standard syntax */
 }
 p.heading{
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #cdccce;
   margin-bottom: 10px;
 	font-weight: 900;
 }
@@ -172,10 +176,6 @@ p.heading{
 }
 .navbar ul.pull-right li.name-li{
 	width: 79%;
-}
-.navbar .pull-right li a.name {
-  font-size: 15px; 
-  font-weight: 700;
 }
 .personal-info, .account-info, .general-system-prefs, .notifications .w-100 {
   margin-top: 20px;
@@ -357,8 +357,7 @@ label.custom-control-label{
   border-color: #cdcdcf
 }
 .small-avatar img{
-	width: 28px;
-  margin-top: 2px;
+	width: 46px;
 	border-radius:50%;
 }
 .update-user{
@@ -369,7 +368,7 @@ label.custom-control-label{
 }
 .final-modal .row-a{
   width: 100%;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #cdccce;
   margin-left: 0;
 }
 .final-modal label button img{
@@ -461,7 +460,7 @@ label.custom-control-label{
   padding:5px 0;
 }
 .stats-section .calls .col-lg-12 p, .stats-section .sales .col-lg-12 p, p.badges{
-  border-bottom: 0.5px solid #e3e3e3; 
+  border-bottom: 0.5px solid #cdccce; 
   margin-bottom: 5px; 
   padding-bottom: 2px;
 }
@@ -487,6 +486,7 @@ label.custom-control-label{
 .to-do-list .card {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 15px;
+  padding:20px;
 }
 .to-do-list .card ul li {
   list-style: none;
@@ -542,14 +542,14 @@ label.custom-control-label{
     <aside class="main-sidebar sidebar-light-primary h-100">
 			<!-- Control sidebar content goes here -->
 			<section class="sidebar p-3 h-100">
+        <a href="#" data-toggle="push-menu" class="menu-toggle">
+          <img 
+            src="/images/icons/4x/Asset 31@4x.png"
+            alt="toggle-menu" 
+            width="40"
+          >
+        </a>
         <div class="sidebar-menu" data-widget="tree">
-          <a href="#" data-toggle="push-menu" class="menu-toggle">
-            <img 
-              src="/images/icons/4x/Asset 31@4x.png"
-              alt="toggle-menu" 
-              width="40"
-            >
-          </a>
           <div class="open-sidenav">
             <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100">
               <!-- Right Side Of Navbar -->
@@ -1234,7 +1234,7 @@ label.custom-control-label{
                 <div class="col-lg-12">
                   <div class="row p-0">
                     <div class="col-lg-12">
-                      <p class="monthly-target">Monthly Target <span class="value float-right">65%</span></p>
+                      <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
                       <div class="progress-bar w-100">
                         <span class="tank" :style="'width:' + 65 + '%'"></span>
                       </div>
@@ -1330,7 +1330,7 @@ label.custom-control-label{
                           :popover="true" />
 
                         <div class="to-do-list">
-                          <div class="card border-0 mx-0 mb-0 p-3">
+                          <div class="card border-0 mx-0 mb-0">
                             <div  class="row mx-0 justify-content-between align-items-center">
                               <div class="col-auto pl-0">
                                 <p class="text-uppercase mb-1">To do list</p>
