@@ -1,4 +1,25 @@
 <style scoped>
+.horizontal-scroll::-webkit-scrollbar {
+  width: 5px !important;
+  height: 3px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  border-radius: 0 !important;
+}
+ 
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #B3B3B3 !important; 
+  border-radius: 5px !important;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #B3B3B3 !important; 
+}
+.dropdown-menu {
+  border-radius: 5px;
+  box-shadow: -4px -3px 5px 0px rgba(179,179,179,0.24);
+}
 .is-hidden {
   display: none;
 }
@@ -31,6 +52,7 @@ li p.bottom{
   border-radius: 10px;
   border: none;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1)!important;
+  min-width: 200px;
 }
 .ca
 .card-title {
@@ -85,7 +107,7 @@ h5 .icon{
   margin-right: 0;
   text-align: right;
   float: left;
-  margin-bottom: 0;
+  margin-bottom: -10px;
   word-break:keep-all;
 }
 p.card-text{
@@ -95,6 +117,8 @@ p.card-text{
   margin: 0;
   width: 100%;
   float: right;
+  font-family: Montserrat bold, sans-serif;
+  letter-spacing: 1.2px;
 }
 p.card-text span{
   font-size: 19px;
@@ -191,6 +215,8 @@ span.right{
 .card-text-small{
   margin-top: -7px;
   color: #3b3b3b;
+  font-family: 'Rubik', sans-serif !important;
+  letter-spacing: 1.2px;
 }
 .badge{
   width: 12%;
@@ -207,6 +233,7 @@ span.right{
   color: #9c9c9c;
   font-size: 14px;
   text-transform: capitalize;
+  text-align: left;
 }
 ul.items{
   list-style: none;
@@ -253,6 +280,10 @@ table.listing tr  th{
   font-size: 36px;
   line-height: 1em;
 } 
+.horizontal-scroll {
+     overflow: auto;
+    flex-wrap: nowrap;
+}
 @media screen and (min-width: 1353px) and (max-width:1543px) {
   .card .card-text {
     font-size: 26px;
@@ -280,7 +311,7 @@ table.listing tr  th{
 </style>
 <template>
   <div class="">
-    <div id="top-section" class="row align-items-center grey-bg-color justify-content-between mx-0">
+    <div id="top-section" class="row align-items-center grey-bg-color horizontal-scroll justify-content-between mx-0">
       <div class="col pl-0">
         <div class="card mb-0 calls">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
@@ -357,36 +388,22 @@ table.listing tr  th{
         <div class="mb-0 add-new-top-section">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0 dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle rounded-circle m-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+            <b-button class="rounded-circle m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                 <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 20px;"/> 
-              </button>
-              <p>hello</p>
+              </b-button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="#">Calls</a>
+                <a class="dropdown-item" href="#">Sales</a>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="card mb-0 mon-target">
-          <div class="card-body row align-items-center justify-content-between mx-0 p-3">
-            <div class="col pl-0">
-              <p class="card-text-small text-left">Target</p>
-            </div>
-            <div class="col px-0">
-              <p class="card-text text-right">42</p>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="row stats mx-0">
       <div class="col-lg-12 px-0">
         <div class="card-body padding-bottom-18">
-          <div class="row justify-content-between mx-0 headings">
+          <div class="row justify-content-between mx-0 px-0 headings">
             <div class="col pl-0">
               <p>LEAD</p>
             </div>
@@ -411,16 +428,20 @@ table.listing tr  th{
             <div class="col">
               <p>ENGLISH</p>
             </div>
-            <div class="col">
+            <!-- <div class="col">
               <p>CALLBACK</p>
             </div>
             <div class="col-lg-auto">
               <p>STATUS</p>
-            </div>
+            </div> -->
             <div class="col-lg-auto pr-0">
-              <b-button class="rounded-circle m-0"> 
+             <b-button class="rounded-circle m-0" title="Add more fields" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                 <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 15px;"/> 
               </b-button>
+              <div class="dropdown-menu pl-0 headings">
+                <p class="dropdown-item pb-2 col">CALLBACK</p>
+                <p class="dropdown-item pb-2 col">STATUS</p>
+              </div>
             </div>
           </div>
         </div>
