@@ -357,13 +357,16 @@ table.listing tr  th{
         <div class="mb-0 add-new-top-section">
           <div class="card-body row align-items-center justify-content-between mx-0 p-3">
             <div class="col pl-0 dropdown">
-             <b-button class="rounded-circle m-0"> 
+            <button class="btn btn-outline-secondary dropdown-toggle rounded-circle m-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                 <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 20px;"/> 
-              </b-button>
-              <div id="dropDownMenu" class="is-hidden">
-                <span>Menu Item1</span>
-                <span>Menu Item2</span>
-                <span>Menu Item3</span>
+              </button>
+              <p>hello</p>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
               </div>
             </div>
           </div>
@@ -499,9 +502,6 @@ table.listing tr  th{
             }
         },
         methods: {
-          // dropDownAdd(event) {
-          //   event.currentTarget.classList.toggle('is-active')
-          // },
             secondsToMinues(time){
                 var minutes = Math.floor(time / 60);
                 var seconds = time - minutes * 60;
