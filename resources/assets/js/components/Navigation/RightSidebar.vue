@@ -2,6 +2,16 @@
 .main-sidebar {
   right: 0!important;
   left: auto;
+  overflow:visible;
+  position: absolute;
+  top: 0;
+  right: 0 !important;
+  bottom: 0;
+  z-index: 830;
+  transition: right 0.3s ease-in-out;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 .main-sidebar, .main-sidebar:before {
   transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
@@ -20,6 +30,9 @@
   .sidebar-open .main-sidebar, .sidebar-open .main-sidebar:before {
     margin-right: 0!important;
   }
+}
+.sidebar {
+  overflow:visible;
 }
 p{
 	color: #9fb3bb;
@@ -41,17 +54,6 @@ h3 img{
 	float:right;
 	cursor: pointer;
 	margin-top: -7px; 
-}
-.main-sidebar {
-  position: absolute;
-  top: 0;
-  right: 0 !important;
-  bottom: 0;
-  z-index: 830;
-  transition: right 0.3s ease-in-out;
-  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
-	-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
-	-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
 }
 .main label.custom-control-label{
   color: inherit;
@@ -477,7 +479,11 @@ label.custom-control-label{
   font-size: 9px;
   color: #003449;
 }
-
+.menu-toggle {
+  position: absolute;
+  right: 417px;
+  overflow:visible;
+}
 .to-do-list .card {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 15px;
@@ -537,7 +543,13 @@ label.custom-control-label{
 			<!-- Control sidebar content goes here -->
 			<section class="sidebar p-3 h-100">
         <div class="sidebar-menu" data-widget="tree">
-          <a href="#" data-toggle="push-menu">Toggle</a>
+          <a href="#" data-toggle="push-menu" class="menu-toggle">
+            <img 
+              src="/images/icons/4x/Asset 31@4x.png"
+              alt="toggle-menu" 
+              width="40"
+            >
+          </a>
           <div class="open-sidenav">
             <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100">
               <!-- Right Side Of Navbar -->
@@ -1163,7 +1175,7 @@ label.custom-control-label{
                 </div>
               </div>
 
-              <div v-if="callbacks_on == true && messages_on == false" class="row">
+              <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
                 <div v-if="call_backs.length > 0">
                   <div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
                     <div class="card-body">
@@ -1184,8 +1196,8 @@ label.custom-control-label{
                 </div>
               </div>
 
-              <div v-if="callbacks_on == false && messages_on == true" class="row">
-                <div class="card">
+              <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
+                <div class="card w-100">
                   <div class="card-body">
                     <h3 class="d-block">Steve Hughes</h3>
                     <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>

@@ -6,9 +6,9 @@
 }
 .sidebar-dark-primary {
   background-color: #fff;
-  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
-  -webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
-  -moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 [class*="sidebar-dark"] .brand-link {
   color: rgba(255, 255, 255, 0.8);
@@ -84,6 +84,24 @@
   color: #ffffff;
   background-color: #fff;
   background-image: url('/images/icons/SVG/Call History Icon.svg') !important;
+  background-size: 64px;
+  background-repeat: no-repeat;
+  background-position: 3px;
+  min-height: 75px;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
+  color: #ffffff;
+  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;
+  background-size: 90px;
+  background-repeat: no-repeat;
+  background-position: -10px;
+  min-height: 75px;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
+  color: #ffffff;
+  background-color: #fff;
+  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
@@ -181,6 +199,33 @@
 }
 .main-sidebar {
   width: 63px!important;
+  overflow:visible;
+}
+#sidebar, .nav.nav-pills.nav-sidebar.flex-column, .nav.nav-pills a.nav-link {
+  overflow: visible!important;
+}
+.nav-link span{
+  position: relative;
+  left: -200px!important;
+  top: 26px;
+  background: #fff;
+  color: #000;
+  font-size: 18px;
+  letter-spacing:2px;
+  border-radius: 0 50rem 50rem 0;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  padding: 18px 0;
+  width: 0;
+  overflow:hidden;
+  z-index:-1;
+  transition-delay: 2s;
+  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;
+}
+.nav-link:hover span{
+  width: auto; 
+  overflow:visible;
+  padding: 18px 35px 18px 40px;
+  left: 44px!important;
 }
 /*Nav Ends*/
 </style>
@@ -205,72 +250,101 @@
                 href="/dashboard" 
                 title="Dashboard" 
                 :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Dashboard</span>
+              </a>
             </li>
+
             <li class="nav-item">
               <a 
                 href="/workstation" 
                 title="Workstation" 
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Workstation</span>
+              </a>
             </li>
+
             <li class="nav-item">
               <a 
                 href="/contacts" 
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Contacts</span>
+              </a>
             </li>
+
             <li class="nav-item">
               <a 
                 href="/modules/leads" 
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Leads</span>
+              </a>
             </li>
+
             <li class="nav-item">
               <a 
                 href="/call-history" 
                 title="Call History" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Call History</span>
+              </a>
             </li>
+
             <li class="nav-item" v-if="current_user.role_id == 1">
               <a 
                 href="/transactions" 
                 title="Transactions" 
                 :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Transactions</span>
+              </a>
             </li>
-            <li class="nav-item" style="display:none">
+
+            <!-- <li class="nav-item">
               <a 
                 href="/social-board" 
                 title="Social Board" 
                 :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
-            </li>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Social Board</span>
+              </a>
+            </li> -->
+
             <li class="nav-item">
               <a 
                 href="/education" 
                 title="Education" 
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0" 
-                disabled></a>
+                disabled>
+                <span>Education</span>
+              </a>
             </li>
+
             <li class="nav-item" v-if="current_user.role_id == 1">
               <a 
                 href="/users" 
                 title="Users" 
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Users</span>
+              </a>
             </li>
+
             <li class="nav-item"  v-if="current_user.role_id == 1">
               <a 
                 href="/preferences" 
                 title="System Preferences" 
                 :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0"></a>
+                class="w-100 m-0 p-0 rounded-0">
+                <span>System Preferences</span>
+              </a>
             </li>
           </ul>
         </nav>

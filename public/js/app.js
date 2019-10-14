@@ -73377,6 +73377,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -73413,6 +73487,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Plugins/TransitionExpand.vue */ "./resources/assets/js/components/Plugins/TransitionExpand.vue");
 /* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-circle-progress */ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js");
 /* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -75376,6 +75466,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -132014,7 +132107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n  -moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\r\n  background-size:64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\r\n  background-size:64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -200px!important;\r\n  top: 26px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 18px;\r\n  letter-spacing:2px;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -132033,7 +132126,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -292px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -292px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main-sidebar[data-v-48ad9a74] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-webkit-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\r\n\t-moz-box-shadow: 0 -4px 15px rgba(220, 220, 220, 0.7);\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 11px;\r\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #e3e3e3;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 19px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\r\n  font-size: 15px; \r\n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdcdcf\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 28px;\r\n  margin-top: 2px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 10px;\r\n  padding: 7px;\r\n  font-size: 9px;\r\n  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #e3e3e3; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.to-do-list .card[data-v-48ad9a74] {\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.to-do-list .card ul li[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.to-do-list .col-auto p[data-v-48ad9a74]{\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #1c2331;\n}\n.to-do-list .col-auto button[data-v-48ad9a74] {\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  line-height: 1em;\n}\n.to-do-list .col-auto button img[data-v-48ad9a74] {\r\n  margin:6px;\n}\n.to-do-list ul li[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.to-do-list .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.to-do-list .custom-control-label[data-v-48ad9a74]::after, .to-do-list .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.5rem;\r\n  left: 0.2rem;\n}\n.to-do-list input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: rgba(28, 35, 49, 0.5);\r\n  font-weight: 700;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.to-do-list input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -292px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -292px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 11px;\r\n  padding-top: 6px;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #e3e3e3;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.monthly-target[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tletter-spacing: 1px;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 19px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n\tletter-spacing: 1px;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 10px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n\tletter-spacing: 1px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.navbar .pull-right li a.name[data-v-48ad9a74] {\r\n  font-size: 15px; \r\n  font-weight: 700;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdcdcf\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 28px;\r\n  margin-top: 2px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #e3e3e3;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 10px;\r\n  padding: 7px;\r\n  font-size: 9px;\r\n  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #e3e3e3; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\n}\n.to-do-list .card[data-v-48ad9a74] {\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n  border-radius: 15px;\n}\n.to-do-list .card ul li[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.to-do-list .col-auto p[data-v-48ad9a74]{\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #1c2331;\n}\n.to-do-list .col-auto button[data-v-48ad9a74] {\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  line-height: 1em;\n}\n.to-do-list .col-auto button img[data-v-48ad9a74] {\r\n  margin:6px;\n}\n.to-do-list .col-lg-12 p.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdcdd0;\n}\n.to-do-list ul li[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.to-do-list .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.to-do-list .custom-control-label[data-v-48ad9a74]::after, .to-do-list .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.6rem;\r\n  left: 0.2rem;\n}\n.to-do-list input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: rgba(28, 35, 49, 0.5);\r\n  font-weight: 700;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.to-do-list input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -132052,7 +132145,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003449;\r\n  font-size: 25px;\r\n  letter-spacing: 4.2px;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  border-radius: 26px;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 2px 17px 6px !important;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 59.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 58.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], .callIcons button.call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 42px;\r\n  letter-spacing: 4.2px;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 59.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 58.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], .callIcons button.call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -253837,142 +253930,162 @@ var render = function() {
             },
             [
               _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link dashboard": true,
-                    "active shadow-none":
-                      _vm.active == "dashboard" ? true : false
-                  },
-                  attrs: { href: "/dashboard", title: "Dashboard" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link workstation": true,
-                    "active shadow-none":
-                      _vm.active == "workstation" ? true : false
-                  },
-                  attrs: {
-                    href: "/workstation",
-                    title: "Workstation",
-                    id: "workstation"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link contacts": true,
-                    "active shadow-none":
-                      _vm.active == "contacts" ? true : false
-                  },
-                  attrs: { href: "/contacts", title: "Contacts" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link leads": true,
-                    "active shadow-none": _vm.active == "leads" ? true : false
-                  },
-                  attrs: { href: "/modules/leads", title: "Leads" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link call-history": true,
-                    "active shadow-none":
-                      _vm.active == "call-history" ? true : false
-                  },
-                  attrs: { href: "/call-history", title: "Call History" }
-                })
-              ]),
-              _vm._v(" "),
-              _vm.current_user.role_id == 1
-                ? _c("li", { staticClass: "nav-item" }, [
-                    _c("a", {
-                      staticClass: "w-100 m-0 p-0 rounded-0",
-                      class: {
-                        "nav-link transactions": true,
-                        "active shadow-none":
-                          _vm.active == "transactions" ? true : false
-                      },
-                      attrs: { href: "/transactions", title: "Transactions" }
-                    })
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item", staticStyle: { display: "none" } },
-                [
-                  _c("a", {
+                _c(
+                  "a",
+                  {
                     staticClass: "w-100 m-0 p-0 rounded-0",
                     class: {
-                      "nav-link social-board": true,
+                      "nav-link dashboard": true,
                       "active shadow-none":
-                        _vm.active == "social-board" ? true : false
+                        _vm.active == "dashboard" ? true : false
                     },
-                    attrs: { href: "/social-board", title: "Social Board" }
-                  })
-                ]
-              ),
+                    attrs: { href: "/dashboard", title: "Dashboard" }
+                  },
+                  [_c("span", [_vm._v("Dashboard")])]
+                )
+              ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
-                _c("a", {
-                  staticClass: "w-100 m-0 p-0 rounded-0",
-                  class: {
-                    "nav-link education": true,
-                    "active shadow-none":
-                      _vm.active == "education" ? true : false
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link workstation": true,
+                      "active shadow-none":
+                        _vm.active == "workstation" ? true : false
+                    },
+                    attrs: {
+                      href: "/workstation",
+                      title: "Workstation",
+                      id: "workstation"
+                    }
                   },
-                  attrs: {
-                    href: "/education",
-                    title: "Education",
-                    disabled: ""
-                  }
-                })
+                  [_c("span", [_vm._v("Workstation")])]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link contacts": true,
+                      "active shadow-none":
+                        _vm.active == "contacts" ? true : false
+                    },
+                    attrs: { href: "/contacts", title: "Contacts" }
+                  },
+                  [_c("span", [_vm._v("Contacts")])]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link leads": true,
+                      "active shadow-none": _vm.active == "leads" ? true : false
+                    },
+                    attrs: { href: "/modules/leads", title: "Leads" }
+                  },
+                  [_c("span", [_vm._v("Leads")])]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link call-history": true,
+                      "active shadow-none":
+                        _vm.active == "call-history" ? true : false
+                    },
+                    attrs: { href: "/call-history", title: "Call History" }
+                  },
+                  [_c("span", [_vm._v("Call History")])]
+                )
               ]),
               _vm._v(" "),
               _vm.current_user.role_id == 1
                 ? _c("li", { staticClass: "nav-item" }, [
-                    _c("a", {
-                      staticClass: "w-100 m-0 p-0 rounded-0",
-                      class: {
-                        "nav-link users": true,
-                        "active shadow-none":
-                          _vm.active == "users" ? true : false
+                    _c(
+                      "a",
+                      {
+                        staticClass: "w-100 m-0 p-0 rounded-0",
+                        class: {
+                          "nav-link transactions": true,
+                          "active shadow-none":
+                            _vm.active == "transactions" ? true : false
+                        },
+                        attrs: { href: "/transactions", title: "Transactions" }
                       },
-                      attrs: { href: "/users", title: "Users" }
-                    })
+                      [_c("span", [_vm._v("Transactions")])]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "w-100 m-0 p-0 rounded-0",
+                    class: {
+                      "nav-link education": true,
+                      "active shadow-none":
+                        _vm.active == "education" ? true : false
+                    },
+                    attrs: {
+                      href: "/education",
+                      title: "Education",
+                      disabled: ""
+                    }
+                  },
+                  [_c("span", [_vm._v("Education")])]
+                )
+              ]),
+              _vm._v(" "),
+              _vm.current_user.role_id == 1
+                ? _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "w-100 m-0 p-0 rounded-0",
+                        class: {
+                          "nav-link users": true,
+                          "active shadow-none":
+                            _vm.active == "users" ? true : false
+                        },
+                        attrs: { href: "/users", title: "Users" }
+                      },
+                      [_c("span", [_vm._v("Users")])]
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.current_user.role_id == 1
                 ? _c("li", { staticClass: "nav-item" }, [
-                    _c("a", {
-                      staticClass: "w-100 m-0 p-0 rounded-0",
-                      class: {
-                        "nav-link preferences": true,
-                        "active shadow-none":
-                          _vm.active == "preferences" ? true : false
+                    _c(
+                      "a",
+                      {
+                        staticClass: "w-100 m-0 p-0 rounded-0",
+                        class: {
+                          "nav-link preferences": true,
+                          "active shadow-none":
+                            _vm.active == "preferences" ? true : false
+                        },
+                        attrs: {
+                          href: "/preferences",
+                          title: "System Preferences"
+                        }
                       },
-                      attrs: {
-                        href: "/preferences",
-                        title: "System Preferences"
-                      }
-                    })
+                      [_c("span", [_vm._v("System Preferences")])]
+                    )
                   ])
                 : _vm._e()
             ]
@@ -254027,9 +254140,7 @@ var render = function() {
           "div",
           { staticClass: "sidebar-menu", attrs: { "data-widget": "tree" } },
           [
-            _c("a", { attrs: { href: "#", "data-toggle": "push-menu" } }, [
-              _vm._v("Toggle")
-            ]),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "open-sidenav" }, [
               _c(
@@ -254189,7 +254300,7 @@ var render = function() {
               _vm._v(" "),
               _vm.settings_on == true
                 ? _c("div", { staticClass: "settings" }, [
-                    _vm._m(0),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -254202,7 +254313,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
                           },
                           [
-                            _vm._m(1),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.profile_on == false
@@ -255043,7 +255154,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
                           },
                           [
-                            _vm._m(2),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.account_on == false
@@ -255482,7 +255593,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
                           },
                           [
-                            _vm._m(3),
+                            _vm._m(4),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -256542,7 +256653,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm.callbacks_on == true && _vm.messages_on == false
-                      ? _c("div", { staticClass: "row" }, [
+                      ? _c("div", { staticClass: "row mx-0" }, [
                           _vm.call_backs.length > 0
                             ? _c(
                                 "div",
@@ -256607,19 +256718,19 @@ var render = function() {
                                 }),
                                 0
                               )
-                            : _c("div", [_vm._m(4)])
+                            : _c("div", [_vm._m(5)])
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.callbacks_on == false && _vm.messages_on == true
-                      ? _c("div", { staticClass: "row" }, [
-                          _vm._m(5),
-                          _vm._v(" "),
+                      ? _c("div", { staticClass: "row mx-0" }, [
                           _vm._m(6),
                           _vm._v(" "),
                           _vm._m(7),
                           _vm._v(" "),
-                          _vm._m(8)
+                          _vm._m(8),
+                          _vm._v(" "),
+                          _vm._m(9)
                         ])
                       : _vm._e()
                   ])
@@ -256631,7 +256742,7 @@ var render = function() {
                       _c("div", { staticClass: "col-lg-12" }, [
                         _c("div", { staticClass: "row p-0" }, [
                           _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(9),
+                            _vm._m(10),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress-bar w-100" }, [
                               _c("span", {
@@ -256642,11 +256753,11 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(10),
-                        _vm._v(" "),
                         _vm._m(11),
                         _vm._v(" "),
-                        _vm._m(12)
+                        _vm._m(12),
+                        _vm._v(" "),
+                        _vm._m(13)
                       ])
                     ]),
                     _vm._v(" "),
@@ -256662,7 +256773,7 @@ var render = function() {
                                 "card left mt-3 tab-card border-0 shadow-none"
                             },
                             [
-                              _vm._m(13),
+                              _vm._m(14),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -256708,7 +256819,7 @@ var render = function() {
                                                   "row mx-0 justify-content-between align-items-center"
                                               },
                                               [
-                                                _vm._m(14),
+                                                _vm._m(15),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -256740,7 +256851,7 @@ var render = function() {
                                               ]
                                             ),
                                             _vm._v(" "),
-                                            _vm._m(15)
+                                            _vm._m(16)
                                           ]
                                         )
                                       ])
@@ -256849,7 +256960,7 @@ var render = function() {
                                                 staticClass: "row filter-search"
                                               },
                                               [
-                                                _vm._m(16),
+                                                _vm._m(17),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -256941,10 +257052,10 @@ var render = function() {
                                                       "table",
                                                       { staticClass: "tg" },
                                                       [
-                                                        _vm._m(17),
+                                                        _vm._m(18),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(18),
+                                                          _vm._m(19),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257076,7 +257187,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(19),
+                                                          _vm._m(20),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257209,7 +257320,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(20),
+                                                          _vm._m(21),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257340,7 +257451,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(21),
+                                                          _vm._m(22),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257471,7 +257582,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(22),
+                                                          _vm._m(23),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257702,7 +257813,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _c("tr", [
-                                                                _vm._m(23),
+                                                                _vm._m(24),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "td",
@@ -257906,9 +258017,9 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(24),
+              _vm._m(25),
               _vm._v(" "),
-              _vm._m(25)
+              _vm._m(26)
             ])
           ]
         )
@@ -257917,6 +258028,27 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "menu-toggle",
+        attrs: { href: "#", "data-toggle": "push-menu" }
+      },
+      [
+        _c("img", {
+          attrs: {
+            src: "/images/icons/4x/Asset 31@4x.png",
+            alt: "toggle-menu",
+            width: "40"
+          }
+        })
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -257970,7 +258102,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
+    return _c("div", { staticClass: "card w-100" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h3", { staticClass: "d-block" }, [_vm._v("Steve Hughes")]),
         _vm._v(" "),
@@ -258183,7 +258315,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto pl-0" }, [
-      _c("p", { staticClass: "text-uppercase" }, [_vm._v("To do list")])
+      _c("p", { staticClass: "text-uppercase mb-1" }, [_vm._v("To do list")])
     ])
   },
   function() {
@@ -258192,7 +258324,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { cass: "row mx-0 justify-content-between" } }, [
       _c("div", { staticClass: "col-lg-12 px-0" }, [
-        _c("p", { staticClass: "border-bottom" }, [_vm._v("1 Completed")]),
+        _c("p", { staticClass: "border-bottom pb-1" }, [_vm._v("1 Completed")]),
         _vm._v(" "),
         _c("ul", { staticClass: "pl-0" }, [
           _c(
@@ -258356,341 +258488,372 @@ var render = function() {
           "main-header navbar navbar-expand navbar-white navbar-light border-bottom-0"
       },
       [
-        _c("div", { staticClass: "row w-100 justify-content-between" }, [
-          _c("div", { staticClass: "col-auto" }, [
-            _c("ul", { staticClass: "navbar-nav left align-items-center" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item d-none d-sm-inline-block title pr-3" },
-                [
-                  _vm.active == "workstation"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Workstation")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "dashboard"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Dashboard")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "call-history"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Call History")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "social-board"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Social Board")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "users"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Users")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "leads"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Leads")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.active == "contacts"
-                    ? _c(
-                        "a",
-                        { staticClass: "nav-link pl-0", attrs: { href: "#" } },
-                        [_c("strong", [_vm._v("Contacts")])]
-                      )
-                    : _vm._e()
-                ]
-              ),
-              _vm._v(" "),
-              _vm.active_calls
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          ref: "ActiveCallsBtn",
-                          class: {
-                            "nav-link top-link d-block text-center": true,
-                            active: _vm.active_calls_active
+        _c(
+          "div",
+          {
+            staticClass: "row w-100 justify-content-between align-items-center"
+          },
+          [
+            _c("div", { staticClass: "col-auto" }, [
+              _c("ul", { staticClass: "navbar-nav left align-items-center" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "nav-item d-none d-sm-inline-block title pr-3"
+                  },
+                  [
+                    _vm.active == "workstation"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
                           },
-                          attrs: { role: "button" },
+                          [_c("strong", [_vm._v("Workstation")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "dashboard"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Dashboard")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "call-history"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Call History")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "social-board"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Social Board")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "users"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Users")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "leads"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Leads")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "contacts"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Contacts")])]
+                        )
+                      : _vm._e()
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.active_calls
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block px-3" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            ref: "ActiveCallsBtn",
+                            class: {
+                              "nav-link top-link d-block text-center": true,
+                              active: _vm.active_calls_active
+                            },
+                            attrs: { role: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showActiveCalls()
+                              }
+                            }
+                          },
+                          [_vm._v("Active Calls")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.active == "workstation" && _vm.lead_id !== ""
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block px-3" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            class: {
+                              "nav-link top-link d-block text-center": true,
+                              active: _vm.general_active
+                            },
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showGeneral()
+                              }
+                            }
+                          },
+                          [_vm._v("General")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.active == "workstation"
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block px-3" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            class: {
+                              "nav-link top-link d-block text-center": true,
+                              active: _vm.scripts_active
+                            },
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showScripts()
+                              }
+                            }
+                          },
+                          [_vm._v("Scripts")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.active == "workstation"
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block px-3" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            class: {
+                              "nav-link top-link d-block text-center": true,
+                              active: _vm.dialer_active
+                            },
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showDialer()
+                              }
+                            }
+                          },
+                          [_vm._v("Dialer")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.active == "dashboard" ||
+                _vm.active == "call-history" ||
+                _vm.active == "social-board"
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block px-3" },
+                      [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.month,
+                                expression: "month"
+                              }
+                            ],
+                            staticClass: "form-control month-selector m-0",
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.month = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                _vm.topMonthFilterChange
+                              ]
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("January " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("February " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("March " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("April " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "5" } }, [
+                              _vm._v("May " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "6" } }, [
+                              _vm._v("June " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v("July " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "8" } }, [
+                              _vm._v("August " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "9" } }, [
+                              _vm._v("September " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v("October " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "11" } }, [
+                              _vm._v("November " + _vm._s(_vm.getFullYear()))
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "13" } }, [
+                              _vm._v("December " + _vm._s(_vm.getFullYear()))
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.active == "users" ||
+                _vm.active == "leads" ||
+                _vm.active == "contacts"
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-none d-sm-inline-block pl-3" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            class: {
+                              "nav-link top-link d-block text-center": true,
+                              active: _vm.adding_user
+                            },
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.addNew()
+                              }
+                            }
+                          },
+                          [_vm._v("Add New")]
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.active == "call-history"
+              ? _c("div", { staticClass: "col-auto px-0" }, [_vm._m(0)])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.active == "workstation"
+              ? _c("div", { staticClass: "col-auto px-0" }, [
+                  _c("ul", { staticClass: "navbar-nav callIcons" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        class: {
+                          "nav-item d-sm-inline-block": true,
+                          idle: _vm.is_idle,
+                          "on-call": _vm.is_oncall,
+                          offline: _vm.is_offline
+                        }
+                      },
+                      [
+                        _c("button", {
+                          staticClass:
+                            "nav-link border-0 bg-transparent status",
+                          attrs: { id: "toggle-btn" },
                           on: {
                             click: function($event) {
-                              return _vm.showActiveCalls()
+                              return _vm.switchState()
                             }
                           }
-                        },
-                        [_vm._v("Active Calls")]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "workstation" && _vm.lead_id !== ""
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          class: {
-                            "nav-link top-link d-block text-center": true,
-                            active: _vm.general_active
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showGeneral()
-                            }
-                          }
-                        },
-                        [_vm._v("General")]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "workstation"
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          class: {
-                            "nav-link top-link d-block text-center": true,
-                            active: _vm.scripts_active
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showScripts()
-                            }
-                          }
-                        },
-                        [_vm._v("Scripts")]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "workstation"
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          class: {
-                            "nav-link top-link d-block text-center": true,
-                            active: _vm.dialer_active
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showDialer()
-                            }
-                          }
-                        },
-                        [_vm._v("Dialer")]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "dashboard" ||
-              _vm.active == "call-history" ||
-              _vm.active == "social-board"
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                    [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.month,
-                              expression: "month"
-                            }
-                          ],
-                          staticClass: "form-control month-selector",
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.month = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              },
-                              _vm.topMonthFilterChange
-                            ]
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("January " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "2" } }, [
-                            _vm._v("February " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "3" } }, [
-                            _vm._v("March " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "4" } }, [
-                            _vm._v("April " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "5" } }, [
-                            _vm._v("May " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "6" } }, [
-                            _vm._v("June " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "7" } }, [
-                            _vm._v("July " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "8" } }, [
-                            _vm._v("August " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "9" } }, [
-                            _vm._v("September " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "10" } }, [
-                            _vm._v("October " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "11" } }, [
-                            _vm._v("November " + _vm._s(_vm.getFullYear()))
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "13" } }, [
-                            _vm._v("December " + _vm._s(_vm.getFullYear()))
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "users" ||
-              _vm.active == "leads" ||
-              _vm.active == "contacts"
-                ? _c(
-                    "li",
-                    { staticClass: "nav-item d-none d-sm-inline-block pl-3" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          class: {
-                            "nav-link top-link d-block text-center": true,
-                            active: _vm.adding_user
-                          },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.addNew()
-                            }
-                          }
-                        },
-                        [_vm._v("Add New")]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.active == "call-history"
-            ? _c("div", { staticClass: "col-auto px-0" }, [_vm._m(0)])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.active == "workstation"
-            ? _c("div", { staticClass: "col-auto px-0" }, [
-                _c("ul", { staticClass: "navbar-nav callIcons" }, [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    {
-                      class: {
-                        "nav-item d-sm-inline-block": true,
-                        idle: _vm.is_idle,
-                        "on-call": _vm.is_oncall,
-                        offline: _vm.is_offline
-                      }
-                    },
-                    [
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
                       _c("button", {
-                        staticClass: "nav-link border-0 bg-transparent status",
-                        attrs: { id: "toggle-btn" },
+                        staticClass: "nav-link border-0 bg-transparent call",
+                        attrs: { id: "show-btn" },
                         on: {
                           click: function($event) {
-                            return _vm.switchState()
+                            return _vm.endCall()
                           }
                         }
                       })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
-                    _c("button", {
-                      staticClass: "nav-link border-0 bg-transparent call",
-                      attrs: { id: "show-btn" },
-                      on: {
-                        click: function($event) {
-                          return _vm.endCall()
-                        }
-                      }
-                    })
+                    ])
                   ])
                 ])
-              ])
-            : _vm._e()
-        ])
+              : _vm._e()
+          ]
+        )
       ]
     )
   ])
