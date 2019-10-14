@@ -480,9 +480,54 @@ label.custom-control-label{
 
 .to-do-list .card {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
 }
 .to-do-list .card ul li {
   list-style: none;
+}
+.to-do-list .col-auto p{
+  font-size: 21px;
+  font-family: 'Rubik', sans-serif;
+  color: #1c2331;
+}
+.to-do-list .col-auto button {
+  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;
+  line-height: 1em;
+}
+.to-do-list .col-auto button img {
+  margin:6px;
+}
+.to-do-list .col-lg-12 p.border-bottom {
+  border-color: #cdcdd0;
+}
+.to-do-list ul li {
+  box-shadow: 0 0 7px rgba(0,0,0,0.05);
+}
+.to-do-list .custom-checkbox .custom-control-label::before {
+  border-radius: 50%!important;
+  border:1px solid #ff8033;
+  box-shadow: none;
+}
+.to-do-list .custom-control-label::after, .to-do-list .custom-control-label::before {
+  width: 20px;
+  height: 20px;
+  top: 0.6rem;
+  left: 0.2rem;
+}
+.to-do-list input.list-input {
+  font-size: 21px;
+  font-family: 'Rubik', sans-serif;
+  color: rgba(28, 35, 49, 0.5);
+  font-weight: 700;
+  padding-left: 40px!important;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: none;
+  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;
+  border-radius: 50%!important;
+}
+.to-do-list input.list-input:focus{
+  border: 1px solid rgba(28, 35, 49, 0.5);
 }
 /*End Right Component*/
 </style>
@@ -1273,25 +1318,27 @@ label.custom-control-label{
                           :popover="true" />
 
                         <div class="to-do-list">
-                          <div class="card mx-0">
-                            <div  class="row mx-0 justify-content-between">
-                              <div class="col-auto">
-                                <p class="text-uppercase">To do list</p>
+                          <div class="card border-0 mx-0 mb-0 p-3">
+                            <div  class="row mx-0 justify-content-between align-items-center">
+                              <div class="col-auto pl-0">
+                                <p class="text-uppercase mb-1">To do list</p>
                               </div>
-                              <div class="col-auto">
-                                <button>+</button>
+                              <div class="col-auto pr-0">
+                                <b-button class="rounded-circle border-0 m-0 p-1"> 
+                                  <img src="/images/icons/Asset 29@4x.png" alt="Icon" width="10" class="icon"/> 
+                                </b-button>
                               </div>
                             </div>
 
                             <div cass="row mx-0 justify-content-between">
-                              <div class="col-lg-12">
-                                <p>1 Completed</p>
+                              <div class="col-lg-12 px-0">
+                                <p class="border-bottom pb-1">1 Completed</p>
       
-                                <ul>
-                                  <li>
-                                    <label>
-                                      <input type="checkbox">
-                                      <input type="text" value="To Do List">
+                                <ul class="pl-0">
+                                  <li class="my-2 p-2 align-items-center custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                                    <label class="custom-control-label mx-0" for="customControlAutosizing">
+                                      <input type="text" value="1. To Do List" class="w-100 border-0 list-input">
                                     </label>
                                   </li>
                                 </ul>
