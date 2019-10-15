@@ -139,7 +139,7 @@
         margin: 0;
         width: 100%;
         float: right;
-        font-family: Montserrat bold, sans-serif;
+        font-family: 'Montserrat bold', sans-serif;
         letter-spacing: 1.2px;
     }
     
@@ -470,7 +470,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row stats mx-0">
             <div class="col-lg-12 px-0">
                 <div class="card-body padding-bottom-18">
@@ -500,11 +499,11 @@
                             <p>ENGLISH</p>
                         </div>
                         <!-- <div class="col">
-              <p>CALLBACK</p>
-            </div>
-            <div class="col-lg-auto">
-              <p>STATUS</p>
-            </div> -->
+                        <p>CALLBACK</p>
+                      </div>
+                      <div class="col-lg-auto">
+                        <p>STATUS</p>
+                      </div> -->
                         <div class="col-lg-auto pr-0">
                             <b-button class="rounded-circle m-0" title="Add more fields" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 15px;" />

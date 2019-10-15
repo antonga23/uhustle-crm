@@ -1,4 +1,9 @@
 <style scoped>
+.horizontal-scroll::-webkit-scrollbar-thumb {
+        background: #B3B3B3 !important;
+        border-radius: 5px !important;
+    }
+    
 .row{
     margin-bottom: 1%; 
 }
@@ -258,7 +263,8 @@ ul.items li a:hover{
     height: 70vh;
     padding-top: 6px;
     padding-right: 6px;
-    width: 104%;
+    width: 100%;
+    margin-left: -4px !important;
 }
 table.listing{
     width: 100%;
@@ -366,7 +372,7 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats scroll-hidden">
+            <div class="row stats scroll-hidden horizontal-scroll">
                 <div class="col-lg-12">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
                     <datatable v-if="!show_page_loader" id="datatable" :rows="users.all_users" :columns="columns" :role="current_user.role_id" :users="users"  title=""></datatable>
