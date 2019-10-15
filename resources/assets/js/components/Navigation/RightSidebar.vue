@@ -19,13 +19,13 @@
 }
 .sidebar-collapse .main-sidebar, .sidebar-collapse .main-sidebar:before {
   margin-left: 0!important;
-  margin-right: -292px!important;
+  margin-right: -208px!important;
 }
 
 @media (max-width: 991.98px) {
   .main-sidebar, .main-sidebar:before {
     margin-left: -0!important;
-    margin-left: -292px!important;
+    margin-left: -208px!important;
   }
   .sidebar-open .main-sidebar, .sidebar-open .main-sidebar:before {
     margin-right: 0!important;
@@ -46,9 +46,9 @@ h2{
 }
 h3{
   color: #1a1c43;
-  font-size: 16px;
-  letter-spacing: 2.2px;
-  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
 }
 h3 img{
 	float:right;
@@ -167,17 +167,10 @@ p.heading{
   margin-bottom: 10px;
 	font-weight: 900;
 }
-.navbar ul.pull-left{
-	width: 35%;
-}
-.navbar ul.pull-right{
-  width: 68%;
+.navbar ul{
 	margin-bottom: 10px;
 }
-.navbar ul.pull-right li.name-li{
-	width: 79%;
-}
-.personal-info, .account-info, .general-system-prefs, .notifications .w-100 {
+.personal-info, .general-system-prefs, .notifications .w-100 {
   margin-top: 20px;
 }
 .personal-info img {
@@ -188,9 +181,9 @@ p.heading{
   margin: 5px 0 15px 0;
   font-size: 9px;
 }
-.settings .row,
-.notifications .row{
-  border-bottom: 1px solid #f3f3f3;
+.settings .row.border-bottom,
+.notifications .row.border-bottom{
+  border-color: #cdccce;
   padding: 21px 0px 16px 0;
 }
 .settings .row p.description{
@@ -204,21 +197,16 @@ p.heading{
   margin-right: 8px;
   float:left;
 }
-label.control-label,
-label.custom-control-label{
-	font-weight: 100;
-  color: #1a1c43 !important;
-  font-size: 12px;
-  padding: 0;
-  width: 100%;
-}
 .control-label{
-  margin-right: 8px;
-  float: left;
+  color:#989899;
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-align: left;
 }
 .btn-default{
 	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+  font-size: 13px;
   border: transparent !important;
   border-radius: 5px !important;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -230,7 +218,7 @@ label.custom-control-label{
 	color: #ffffff;    
 	border: transparent !important;
 	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+  font-size: 13px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -240,67 +228,77 @@ label.custom-control-label{
 	color: #ffffff;
   border: transparent !important;
 	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+  font-size: 13px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
+.themes .btn-default, .language .btn-default, .language .btn-active{
+  border-radius: 50rem!important;
+  padding: 10px 20px!important;
+}
 .btn-orange {
-	background: #FF9039;
+	background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;
 	color: #ffffff;
   border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 .orange-btn:hover {
-	background: #FF9039;
+	background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;
 	color: #ffffff;
   border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
-.red-btn:hover {
-	background: red;
-	color: #ffffff;
-  border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
-.blue-btn:hover {
-	background: blue;
-	color: #ffffff;
-  border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
-.btn-red {
-	background: red;
-	color: #ffffff;
-  border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 .btn-blue {
-	background: blue;
+	background: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;
 	color: #ffffff;
   border: transparent !important;
-	padding: 6px 12px 6px 10px;
-  font-size: 9px;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.blue-btn:hover {
+	background: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;
+	color: #ffffff;
+  border: transparent !important;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.btn-dark {
+	background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;
+	color: #ffffff;
+  border: transparent !important;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.dark-btn:hover {
+  background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;
+	color: #ffffff;
+  border: transparent !important;
+	padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 50rem!important;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -353,8 +351,14 @@ label.custom-control-label{
   font-size: 14px;
   letter-spacing: 2.2px;
 }
-.personal-info .row.mx-0.border-left {
-  border-color: #cdcdcf
+.personal-info .row.mx-0.border-left, .account-info .row.mx-0.border-left{
+  border-color: #cdccce
+}
+.settings .title {
+  color:#7f8080;
+  padding-bottom:16px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
 }
 .small-avatar img{
 	width: 46px;
@@ -445,10 +449,10 @@ label.custom-control-label{
 	font-size: 9px;
 } 
 .form-control {
-  border-radius: 10px;
-  padding: 7px;
-  font-size: 9px;
-  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;
+  padding: 10px 20px!important;
+  font-size: 16px;
+  box-shadow: 0px 0 5px rgba(0,0,0,0.05)!important;
+  color: #003549;
 }
 .stats-section {
   margin-top: 35px;
@@ -482,6 +486,12 @@ label.custom-control-label{
   position: absolute;
   right: 417px;
   overflow:visible;
+  background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;
+  background-size: 140px;
+  background-repeat: no-repeat;
+  background-position: -15px;
+  height: 120px;
+  width:80px;
 }
 .to-do-list .card {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -535,6 +545,25 @@ label.custom-control-label{
 .to-do-list input.list-input:focus{
   border: 1px solid rgba(28, 35, 49, 0.5);
 }
+.nav-tabs .nav-item {
+  width:50%;
+}
+.btn-default.cancel-user {
+  border-radius: 50rem !important;
+  font-size: 13px;
+  color: #989899;
+  text-transform: uppercase;
+  padding:10px 20px;
+  letter-spacing: 0.05em;
+}
+.btn-primary.update-user {
+  font-size: 13px;
+  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;
+  font-weight:700;
+  text-transform: uppercase;
+  padding:10px 20px;
+  letter-spacing: 0.05em;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -542,18 +571,16 @@ label.custom-control-label{
     <aside class="main-sidebar sidebar-light-primary h-100">
 			<!-- Control sidebar content goes here -->
 			<section class="sidebar p-3 h-100">
-        <a href="#" data-toggle="push-menu" class="menu-toggle">
-          <img 
-            src="/images/icons/4x/Asset 31@4x.png"
-            alt="toggle-menu" 
-            width="40"
-          >
+        <a href="#" 
+          data-toggle="push-menu"
+          class="menu-toggle"
+        >
         </a>
         <div class="sidebar-menu" data-widget="tree">
           <div class="open-sidenav">
-            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100">
+            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
               <!-- Right Side Of Navbar -->
-              <ul class="navbar-nav pull-left">
+              <ul class="navbar-nav col-auto">
                 <li class="nav-item">
                   <a 
                     class="nav-link icon p-0" 
@@ -568,7 +595,7 @@ label.custom-control-label{
                     >
                     <img 
                       v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
-                      src="/images/icons/Notification.svg" 
+                      src="/images/icons/right-sidebar/Notifications Icon.svg" 
                       alt="Notification Bell" 
                       width="50"
                     >
@@ -588,12 +615,12 @@ label.custom-control-label{
                   >
                     <img 
                       v-if="settings_on == false" 
-                      src="/images/icons/Asset 62.svg" 
+                      src="/images/icons/right-sidebar/Settings Icon.svg" 
                       alt="Settings Cog" 
                       width="50"
                     >
                     <img 
-                      v-else src="/images/icons/Asset 63.svg" 
+                      v-else src="/images/icons/right-sidebar/Settings Icon Active.svg" 
                       alt="Settings Cog" 
                       width="50"
                     >
@@ -601,63 +628,61 @@ label.custom-control-label{
                 </li>
               </ul>
 
-              <ul class="navbar-nav pull-right text-right">
-                <li  
-                  class="nav-item name-li" 
-                  v-if="user.nickname != null && user.nickname != ''"
-                >
-                  <a 
-                    class="nav-link name" 
-                    href="#" 
-                    @click="showSettings()"
-                  >{{ user.nickname }}</a>
-                </li>
-
-                <li class="nav-item name-li" v-else>
-                  <a 
-                    class="nav-link name" 
-                    href="#" 
-                    @click="showSettings()"
-                  >{{ user.name }}</a>
-                </li>
-                <li class="nav-item">
-                  <a 
-                    class="nav-link icon pt-0 small-avatar" 
-                    href="#" 
-                    @click="showSettings()"
+              <ul class="navbar-nav col-auto text-right pr-0">
+                <div class="row mx-0 justify-content-end">
+                  <li  
+                    class="nav-item name-li col-auto px-0" 
+                    v-if="user.nickname != null && user.nickname != ''"
                   >
-                    <img 
-                      v-if="user.avatar != '' && user.avatar != null" 
-                      :src="avatarUrl + user.id + '/' + user.avatar"
+                    <a 
+                      class="nav-link name" 
+                      href="#" 
+                      @click="showSettings()"
+                    >{{ user.nickname }}</a>
+                  </li>
+
+                  <li class="nav-item name-li col-auto px-0" v-else>
+                    <a 
+                      class="nav-link name" 
+                      href="#" 
+                      @click="showSettings()"
+                    >{{ user.name }}</a>
+                  </li>
+                  <li class="nav-item col-auto pr-0">
+                    <a 
+                      class="nav-link icon pt-0 small-avatar" 
+                      href="#" 
+                      @click="showSettings()"
                     >
-                    <img v-else :src="noImageUrl" >
-                  </a>
-                </li>
+                      <img 
+                        v-if="user.avatar != '' && user.avatar != null" 
+                        :src="avatarUrl + user.id + '/' + user.avatar"
+                      >
+                      <img v-else :src="noImageUrl" >
+                    </a>
+                  </li>
+                </div>
               </ul>
             </nav>
 
             <div v-if="settings_on == true" class="settings">
-              <div class="row mx-0">
-                <h2>Settings</h2>
-              </div>
-
-              <div class="row mx-0">
-                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+              <div class="row mx-0 border-bottom">
+                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                   <div class="col-auto">
-                    <h3 class="d-block">Profile </h3>
+                    <h3 class="d-block mb-0">Profile </h3>
                   </div>
                   <div class="col-auto">
                     <img 
-                      @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;" 
+                      @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;language_settings_on = false;" 
                       v-if="profile_on == false" 
                       src="/images/icons/settings edit buttin@4x.png" 
                       alt="Profile Edit Off" 
                       width="30"
                     >
                     <img 
-                      @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;" 
+                      @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;language_settings_on = false;" 
                       v-else 
-                      src="/images/icons/settings edit button hover@4x.png" 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
                       alt="Profile Edit Off" 
                       width="30"
                     >
@@ -665,11 +690,11 @@ label.custom-control-label{
                 </div>
                 <transition-expand>
                   <div v-if="expanded == true && profile_on == true" class="w-100 personal-info">
-                    <p class="description d-block w-100" title="Personal Information">Personal Information</p>
-                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
+                    <p class="d-block w-100 title" title="Personal Information">Personal Information</p>
+                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
                       <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-                        <label class="row justify-space-between align-items-center border-bottom-0 control-label text-center p-0 w-100">
-                          <div class="col-lg-6 pl-0 description">Profile Picture</div>
+                        <label class="row justify-space-between align-items-center control-label text-center p-0 w-100 mx-0">
+                          <div class="col-lg-6 pl-0 text-left">Profile Picture</div>
                           <div class="col-lg-6 pr-0">
                             <img 
                               v-if="user.avatar != '' && user.avatar != null" 
@@ -696,7 +721,7 @@ label.custom-control-label{
                             name="Name" 
                             v-model="user.name" 
                             v-validate="'required'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -714,7 +739,7 @@ label.custom-control-label{
                             name="Surname" 
                             v-model="user.lastname" 
                             v-validate="'required'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -732,7 +757,7 @@ label.custom-control-label{
                             name="Nickname" 
                             v-model="user.nickname" 
                             v-validate="'required'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -750,7 +775,7 @@ label.custom-control-label{
                             name="Email" 
                             v-model="user.email" 
                             v-validate="'required|email'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -768,7 +793,7 @@ label.custom-control-label{
                             name="Work Tel" 
                             v-model="user.work_number" 
                             v-validate="'required|numeric|min:10'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -786,7 +811,7 @@ label.custom-control-label{
                             name="Cell Number" 
                             v-model="user.personal_number" 
                             v-validate="'required|numeric|min:10'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -814,43 +839,52 @@ label.custom-control-label{
                       </div>
                     </div>
 
-                    <div :class="{'input': true, 'form-group' :true }" class="ml-4">
-                      <button 
-                        type="submit" 
-                        class="btn btn-primary update-user w-100" 
-                        @click="updateUser('profile')"
-                      >Update</button>
+                    <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end">
+                      <div class="col-auto pl-0 pr-2">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default cancel-user w-100 m-0" 
+                          @click="updateUser('profile')"
+                        >Cancel</button>
+                      </div>
+                      <div class="col-auto pr-0 pl-2">
+                        <button 
+                          type="submit" 
+                          class="btn btn-primary update-user w-100 rounded-pill m-0" 
+                          @click="updateUser('profile')"
+                        >Update</button>
+                      </div>
                     </div>
                   </div>
                 </transition-expand>
               </div>
 
-              <div class="row mx-0">
-                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+              <div class="row mx-0 border-bottom account-info">
+                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                   <div class="col-auto">
-                    <h3 class="d-block">Account</h3>
+                    <h3 class="d-block mb-0">Account</h3>
                   </div>
                   <div class="col-auto">
                     <img 
-                      @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;" 
+                      @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;" 
                       v-if="account_on == false" 
                       src="/images/icons/settings edit buttin@4x.png" 
                       alt="Account Edit Off" 
                       width="30"
                     >
                     <img 
-                      @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;" 
+                      @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;language_settings_on = false;" 
                       v-else 
-                      src="/images/icons/settings edit button hover@4x.png" 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
                       alt="Account Edit Off" 
                       width="30"
                     >
                   </div>
                 </div>
                 <transition-expand>
-                  <div v-if="expanded == true && account_on == true" class="w-100 account-info">
-                    <p class="description d-block w-100" title="Personal Information">Account Information</p>
-                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
+                  <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
+                    <p class="d-block w-100 title" title="Personal Information">Account Information</p>
+                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
                       <div :class="{'input': true, 'form-group w-100' :true }">
                         <label class="col-lg-12 control-label w-100 p-0">
                           <b-form-checkbox
@@ -872,7 +906,7 @@ label.custom-control-label{
                             name="Old Password" 
                             v-model="user.old_password" 
                             v-validate="'required|min:6'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -891,7 +925,7 @@ label.custom-control-label{
                             name="New Password" 
                             v-model="user.password" 
                             v-validate="'required|min:6'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -909,7 +943,7 @@ label.custom-control-label{
                             name="Password Confirm" 
                             v-model="user.password_confirmation" 
                             v-validate="'required|min:6|confirmed:password'" 
-                            class="form-control border-0"
+                            class="form-control border-0 rounded-pill"
                           >
                           <span 
                             id="error" 
@@ -920,34 +954,43 @@ label.custom-control-label{
                       </div>
                     </div>
 
-                    <div :class="{'input': true, 'form-group' :true }" class="ml-4">
-                      <button 
-                        type="submit" 
-                        class="btn btn-primary update-user w-100" 
-                        @click="updateUser('account')"
-                      >Update</button>
+                    <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end">
+                      <div class="col-auto pl-0 pr-2">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default cancel-user w-100 m-0" 
+                          @click="updateUser('account')"
+                        >Cancel</button>
+                      </div>
+                      <div class="col-6 pr-0 pl-2">
+                        <button 
+                          type="submit" 
+                          class="btn btn-primary update-user w-100 rounded-pill m-0" 
+                          @click="updateUser('account')"
+                        >Update</button>
+                      </div>
                     </div>
                   </div>
                 </transition-expand>
               </div>
 
-              <div class="row border-bottom-0 mx-0 preferences">
-                <div class="row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0">
+              <div class="row mx-0 preferences border-bottom">
+                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                   <div class="col-auto">
-                    <h3 class="d-block">Preferences</h3>
+                    <h3 class="d-block mb-0">Preferences</h3>
                   </div>
                   <div class="col-auto"> 
                     <img 
-                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false" 
+                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" 
                       v-if="system_settings_on == false" 
                       src="/images/icons/settings edit buttin@4x.png" 
                       alt="Account Edit Off" 
                       width="30"
                     >
                     <img 
-                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false" 
+                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" 
                       v-else 
-                      src="/images/icons/settings edit button hover@4x.png" 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
                       alt="Account Edit Off"
                       width="30"
                     >
@@ -955,9 +998,9 @@ label.custom-control-label{
                 </div>
                 <transition-expand>
                   <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
-                    <p class="description" title="Personal Information">General System Preferences</p>
-                    <div class="row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4">
-                      <div class="row border-bottom-0 mx-0" v-if="user.role_id == 1">
+                    <p class="d-block w-100 title" title="Personal Information">General System Preferences</p>
+                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
+                      <div class="row mx-0" v-if="user.role_id == 1">
                         <h3 class="d-block">
                           Settings 
                         </h3>
@@ -972,7 +1015,7 @@ label.custom-control-label{
                               <select 
                                 id="auto_dialler" 
                                 v-model="system_settings.auto_dialer.value" 
-                                class="form-control border-0" 
+                                class="form-control border-0 rounded-pill" 
                                 v-on:change="applySetting()"
                               >
                                 <option value="on">On</option>
@@ -984,7 +1027,7 @@ label.custom-control-label{
                               <select 
                                 id="auto_dialler" 
                                 v-model="system_settings.auto_dialer.applies_to" 
-                                class="form-control border-0" 
+                                class="form-control border-0 rounded-pill" 
                                 v-on:change="applySetting()"
                               >
                                 <option 
@@ -999,140 +1042,80 @@ label.custom-control-label{
                         </div>
                       </div>
 
-                      <div class="row border-bottom-0 mx-0" v-if="preferences.length > 0">
+                      <div class="row mx-0" v-if="preferences.length > 0">
                         <h3 class="d-block">
                           Themes 
                         </h3>
                         <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
-                          <div v-if="setting.setting == 'theme' && setting.system_setting != 1">
-                            <label class="col-lg-3 control-label w-100 p-0">
+                          <div v-if="setting.setting == 'theme' && setting.system_setting != 1" class="row mx-0">
+                            <label class="col-auto control-label p-0">
                               <button 
                                 v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
                                 type="submit" 
                                 :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" 
-                                class="w-100 m-0"
+                                class="m-0 rounded-pill"
                               >
                                 Orange
                               </button>
                             </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
+                            <label class="col-auto control-label p-0">
                               <button 
                                 v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
                                 type="submit" 
                                 :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" 
-                                class="w-100 m-0"
+                                class="m-0 rounded-pill"
                               >
                                 Blue
                               </button>
                             </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
+                            <label class="col-auto control-label p-0">
                               <button 
-                                v-on:click="applySetting({type : 'theme', value  : 'red'})" 
+                                v-on:click="applySetting({type : 'theme', value  : 'dark'})" 
                                 type="submit" 
-                                :class="{ 'btn red-btn': true, 'btn-red' : (setting.value == 'red')? true : false , 'btn-default' : (setting.value != 'red')? true : false  }" 
-                                class="w-100 m-0"
+                                :class="{ 'btn dark-btn': true, 'btn-dark' : (setting.value == 'dark')? true : false , 'btn-default' : (setting.value != 'dark')? true : false  }" 
+                                class="m-0 rounded-pill"
                               >
-                                Red
+                                Dark
                               </button>
                             </label>
                           </div>
                         </div>
                       </div>
 
-                      <div class="row border-bottom-0 mx-0" v-else>
+                      <div class="row mx-0" v-else>
                         <h3 class="d-block">
                           Themes 
                         </h3>
-                        <div class="w-100">
-                          <div>
-                            <label class="col-lg-3 control-label w-100 p-0 themes">
+                        <div class="w-100 themes">
+                          <div class="row mx-0">
+                            <label class="col-auto control-label py-0 pr-2 pl-0">
                               <button 
                                 v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
                                 type="submit" 
                                 :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" 
-                                class="w-100 m-0"
+                                class="m-0 rounded-pill"
                               >
                                 Orange
                               </button>
                             </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
+                            <label class="col-auto control-label py-0 px-2">
                               <button 
                                 v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
                                 type="submit" 
                                 :class="{ 'btn blue-btn': true, 'btn-default' : true }" 
-                                class="w-100 m-0"
+                                class="m-0 rounded-pill"
                               >
                                 Blue
                               </button>
                             </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
+                            <label class="col-auto control-label py-0 pr-0 pl-2">
                               <button 
-                                v-on:click="applySetting({type : 'theme', value  : 'red'})" 
+                                v-on:click="applySetting({type : 'theme', value  : 'dark'})" 
                                 type="submit" 
-                                :class="{ 'btn red-btn': true, 'btn-default' :  true }" 
-                                class="w-100 m-0"
+                                :class="{ 'btn dark-btn': true, 'btn-default' :  true }" 
+                                class="m-0 rounded-pill"
                               >
-                                Red
-                              </button>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row border-bottom-0 mx-0" v-if="preferences.length > 0">
-                        <h3 class="d-block">
-                          Language 
-                        </h3>
-                        <div v-for="(setting, index) in preferences" :key="index" class="w-100 language">
-                          <div v-if="setting.setting == 'language' && setting.system_setting != 1">
-                            <label class="col-lg-3 control-label w-100 p-0">
-                              <button 
-                                v-on:click="applySetting({type : 'language', value : 'english'})" 
-                                type="submit" 
-                                :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" 
-                                class="w-100 m-0"
-                              >
-                                English
-                              </button>
-                            </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
-                              <button 
-                                v-on:click="applySetting({type : 'language', value :'spanish'})" 
-                                type="submit" 
-                                :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" 
-                                class="w-100 m-0"
-                              >
-                                Spanish
-                              </button>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row border-bottom-0 mx-0" v-else>
-                        <h3 class="d-block">
-                          Language 
-                        </h3>
-                        <div class="w-100">
-                          <div>
-                            <label class="col-lg-3 control-label w-100 p-0 language">
-                              <button 
-                                v-on:click="applySetting({type : 'language', value : 'english'})" 
-                                type="submit" 
-                                :class="{ 'btn' : true, 'btn-active' :  true }" 
-                                class="w-100 m-0"
-                              >
-                                English
-                              </button>
-                            </label>
-                            <label class="col-lg-3 control-label w-100 p-0">
-                              <button 
-                                v-on:click="applySetting({type : 'language', value :'spanish'})" 
-                                type="submit" 
-                                :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" 
-                                class="w-100 m-0"
-                              >
-                                Spanish
+                                Dark
                               </button>
                             </label>
                           </div>
@@ -1143,7 +1126,78 @@ label.custom-control-label{
                 </transition-expand>
               </div>
 
-              <div class="row logout-wrapper border-bottom-0"  v-if="profile_on == false">
+              <div class="row mx-0 language border-bottom">
+                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
+                  <div class="col-auto">
+                    <h3 class="d-block mb-0">Language</h3>
+                  </div>
+                  <div class="col-auto"> 
+                    <img 
+                      @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;" 
+                      v-if="system_settings_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
+                    >
+                    <img 
+                      @click="expanded = false;language_settings_on = false;account_on = false;profile_on = false;system_settings_on = false;" 
+                      v-else 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
+                      alt="Account Edit Off"
+                      width="30"
+                    >
+                  </div>
+                </div>
+                <transition-expand>
+                  <div v-if="expanded == true && language_settings_on == true" class="w-100 general-system-prefs">
+                    <div v-if="preferences.length > 0">
+                      <div v-for="(setting, index) in preferences" :key="index" class="w-100 language">
+                        <div v-if="setting.setting == 'language' && setting.system_setting != 1" class="row mx-0" >
+                          <label class="col-auto control-label p-0">
+                            <button 
+                              v-on:click="applySetting({type : 'language', value : 'english'})" 
+                              type="submit" 
+                              :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" 
+                              class="m-0"
+                            >English</button>
+                          </label>
+                          <label class="col-auto control-label p-0">
+                            <button 
+                              v-on:click="applySetting({type : 'language', value :'spanish'})" 
+                              type="submit" 
+                              :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" 
+                              class="m-0"
+                            >Spanish</button>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mx-0" v-else>
+                      <label class="col-auto control-label py-0 pl-0 pr-2 language">
+                        <button 
+                          v-on:click="applySetting({type : 'language', value : 'english'})" 
+                          type="submit" 
+                          :class="{ 'btn' : true, 'btn-active' :  true }" 
+                          class="m-0"
+                        >English</button>
+                      </label>
+                      <label class="col-auto control-label py-0 pr-0 pl-2">
+                        <button 
+                          v-on:click="applySetting({type : 'language', value :'spanish'})" 
+                          type="submit" 
+                          :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" 
+                          class="m-0"
+                        >
+                          Spanish
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </transition-expand>
+              </div>
+
+              <div class="row logout-wrapper"  v-if="profile_on == false">
                 <a href="/logout" id="logout" class="w-100 d-block"></a>
                 <h3 class="d-block w-100 text-center">
                   Logout 
@@ -1288,8 +1342,8 @@ label.custom-control-label{
               <div class="row">
                 <div class="col-lg-12 final-modal border-0">
                   <div class="card left mt-3 tab-card border-0 shadow-none">
-                    <div class="card-header tab-card-header border-bottom-0">
-                      <ul class="nav nav-tabs card-header-tabs border-bottom-0 mb-0" id="myTab" role="tablist">
+                    <div class="card-header tab-card-header">
+                      <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
                         <li class="nav-item left w-50">
                           <a 
                             class="nav-link active border-0" 
@@ -1583,41 +1637,83 @@ label.custom-control-label{
           </div>
 
           <div class="closed-sidenav pr-3 d-none">
-            <div class="row justify-content-center border-top pt-5 pb-4">
-              <p class="monthly-target d-block pb-3">Monthly Target</p>
-              <vue-circle
-                ref="myprogress"
-                :progress="p"
-                :size="65"
-                :reverse="false"
-                line-cap="round"
-                :fill="fill"
-                empty-fill="rgba(0, 0, 0, .1)"
-                :animation-start-value="0.0"
-                :start-angle="0"
-                insert-mode="append"
-                :animation="{ duration: 1200, easing: 'easeOutBounce' }"
-                :thickness="5"
-                :show-percent="true"
-                @vue-circle-progress="progress"
-                @vue-circle-end="progress_end"
-              >
-              </vue-circle>
-            </div>
+            <ul class="navbar-nav row mx-0">
+              <li class="nav-item col-auto pl-0">
+                <a 
+                  class="nav-link icon p-0" 
+                  href="#" 
+                  @click="showNotifications()"
+                >
+                  <img 
+                    v-if="notifications_on == true" 
+                    src="/images/icons/Notification_active.svg"
+                    alt="Notification Bell" 
+                    width="50"
+                  >
+                  <img 
+                    v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
+                    src="/images/icons/Notification.svg" 
+                    alt="Notification Bell" 
+                    width="50"
+                  >
+                  <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
+                    src="/images/icons/Notification_new.svg" 
+                    alt="Notification Bell" 
+                    width="50"
+                  >
+                </a>
+              </li>
 
-            <div class="row justify-content-center px-4">
-              <p class="description d-block pb-2">Commission</p>
-              <p class="value d-block">$1523</p>
-            </div>
+              <li class="nav-item col-auto pr-0">
+                <a 
+                  class="nav-link icon pt-0 pr-0" 
+                  href="#" 
+                  @click="showSettings()"
+                >
+                  <img 
+                    v-if="settings_on == false" 
+                    src="/images/icons/Asset 62.svg" 
+                    alt="Settings Cog" 
+                    width="50"
+                  >
+                  <img 
+                    v-else src="/images/icons/Asset 63.svg" 
+                    alt="Settings Cog" 
+                    width="50"
+                  >
+                </a>
+              </li>
 
-            <div class="row justify-content-center border-bottom pb-5 pt-4">
-              <div class="col-12 px-0 text-center">
-                <p class="description d-block pb-2">Con. Ratio</p>
-              </div>
-              <div class="col-12 px-0 text-center">
-                <p class="value d-block">40%</p>
-              </div>
-            </div>
+              <li class="nav-item col-auto pr-0">
+                <a 
+                  class="nav-link icon pt-0 small-avatar" 
+                  href="#" 
+                  @click="showSettings()"
+                >
+                  <img 
+                    v-if="user.avatar != '' && user.avatar != null" 
+                    :src="avatarUrl + user.id + '/' + user.avatar"
+                  >
+                  <img v-else :src="noImageUrl" >
+                </a>
+              </li>
+            </ul>
+
+            <p>Filter</p>
+            <b-tabs content-class="mt-3">
+              <b-tab title="Saved" active>
+                
+              </b-tab>
+
+              <b-tab title="New">
+                <ul class="pl-0">
+                  <li class="my-2 p-2 custom-control custom-checkbox rounded-pill">
+                    <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                    <label class="custom-control-label mx-0" for="customControlAutosizing">Name</label>
+                  </li>
+                </ul>
+              </b-tab>
+            </b-tabs>
           </div>
         </div>
 			</section>
@@ -1643,6 +1739,7 @@ label.custom-control-label{
         status : 'active',
         notifications_on: false,
         settings_on: false,
+        language_settings_on: false,
         system_settings_on: false,
         profile_on: false,
         account_on: false,

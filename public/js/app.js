@@ -73380,78 +73380,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -75115,6 +75043,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -75132,6 +75156,7 @@ __webpack_require__.r(__webpack_exports__);
       status: 'active',
       notifications_on: false,
       settings_on: false,
+      language_settings_on: false,
       system_settings_on: false,
       profile_on: false,
       account_on: false,
@@ -102887,7 +102912,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -132108,7 +132133,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\r\n  background-size:64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  color: #ffffff;\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\r\n  background-size: 90px;\r\n  background-repeat: no-repeat;\r\n  background-position: -10px;\r\n  min-height: 70px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  color: #ffffff;\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 70px;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -200px!important;\r\n  top: 26px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 18px;\r\n  letter-spacing:0.05em;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-size: 90px;\r\n  background-position: -10px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -200px!important;\r\n  top: 26px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 18px;\r\n  letter-spacing:0.05em;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -132127,7 +132152,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -292px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -292px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 22px;\r\n  color:#1e2331;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  padding-top: 6px;\r\n  letter-spacing: 0.05em;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #f7f6fb;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 24px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 13px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\r\n  color: #1e2331;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul.pull-left[data-v-48ad9a74]{\r\n\twidth: 35%;\n}\n.navbar ul.pull-right[data-v-48ad9a74]{\r\n  width: 68%;\r\n\tmargin-bottom: 10px;\n}\n.navbar ul.pull-right li.name-li[data-v-48ad9a74]{\r\n\twidth: 79%;\n}\n.personal-info[data-v-48ad9a74], .account-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row[data-v-48ad9a74],\r\n.notifications .row[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #f3f3f3;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\nlabel.control-label[data-v-48ad9a74],\r\nlabel.custom-control-label[data-v-48ad9a74]{\r\n\tfont-weight: 100;\r\n  color: #1a1c43 !important;\r\n  font-size: 12px;\r\n  padding: 0;\r\n  width: 100%;\n}\n.control-label[data-v-48ad9a74]{\r\n  margin-right: 8px;\r\n  float: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.red-btn[data-v-48ad9a74]:hover {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-red[data-v-48ad9a74] {\r\n\tbackground: red;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: blue;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdcdcf\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 46px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  border-radius: 10px;\r\n  padding: 7px;\r\n  font-size: 9px;\r\n  box-shadow: 0px 1px 6px rgba(0,0,0,0.1)!important;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #cdccce; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\n}\n.to-do-list .card[data-v-48ad9a74] {\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n  border-radius: 15px;\r\n  padding:20px;\n}\n.to-do-list .card ul li[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.to-do-list .col-auto p[data-v-48ad9a74]{\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #1c2331;\n}\n.to-do-list .col-auto button[data-v-48ad9a74] {\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  line-height: 1em;\n}\n.to-do-list .col-auto button img[data-v-48ad9a74] {\r\n  margin:6px;\n}\n.to-do-list .col-lg-12 p.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdcdd0;\n}\n.to-do-list ul li[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.to-do-list .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.to-do-list .custom-control-label[data-v-48ad9a74]::after, .to-do-list .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.6rem;\r\n  left: 0.2rem;\n}\n.to-do-list input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: rgba(28, 35, 49, 0.5);\r\n  font-weight: 700;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.to-do-list input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 24px;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 22px;\r\n  color:#1e2331;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  padding-top: 6px;\r\n  letter-spacing: 0.05em;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #f7f6fb;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 24px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 13px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\r\n  color: #1e2331;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul[data-v-48ad9a74]{\r\n\tmargin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74]{\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\n.control-label[data-v-48ad9a74]{\r\n  color:#989899;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.themes .btn-default[data-v-48ad9a74], .language .btn-default[data-v-48ad9a74], .language .btn-active[data-v-48ad9a74]{\r\n  border-radius: 50rem!important;\r\n  padding: 10px 20px!important;\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], .account-info .row.mx-0.border-left[data-v-48ad9a74]{\r\n  border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\r\n  color:#7f8080;\r\n  padding-bottom:16px;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 46px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 20px!important;\r\n  font-size: 16px;\r\n  box-shadow: 0px 0 5px rgba(0,0,0,0.05)!important;\r\n  color: #003549;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #cdccce; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\r\n  background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\r\n  background-size: 140px;\r\n  background-repeat: no-repeat;\r\n  background-position: -15px;\r\n  height: 120px;\r\n  width:80px;\n}\n.to-do-list .card[data-v-48ad9a74] {\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n  border-radius: 15px;\r\n  padding:20px;\n}\n.to-do-list .card ul li[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.to-do-list .col-auto p[data-v-48ad9a74]{\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #1c2331;\n}\n.to-do-list .col-auto button[data-v-48ad9a74] {\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  line-height: 1em;\n}\n.to-do-list .col-auto button img[data-v-48ad9a74] {\r\n  margin:6px;\n}\n.to-do-list .col-lg-12 p.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdcdd0;\n}\n.to-do-list ul li[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.to-do-list .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.to-do-list .custom-control-label[data-v-48ad9a74]::after, .to-do-list .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.6rem;\r\n  left: 0.2rem;\n}\n.to-do-list input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: rgba(28, 35, 49, 0.5);\r\n  font-weight: 700;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.to-do-list input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width:50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 13px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.btn-primary.update-user[data-v-48ad9a74] {\r\n  font-size: 13px;\r\n  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n  font-weight:700;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -254137,7 +254162,10 @@ var render = function() {
   return _c("div", [
     _c("aside", { staticClass: "main-sidebar sidebar-light-primary h-100" }, [
       _c("section", { staticClass: "sidebar p-3 h-100" }, [
-        _vm._m(0),
+        _c("a", {
+          staticClass: "menu-toggle",
+          attrs: { href: "#", "data-toggle": "push-menu" }
+        }),
         _vm._v(" "),
         _c(
           "div",
@@ -254148,10 +254176,10 @@ var render = function() {
                 "nav",
                 {
                   staticClass:
-                    "navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100"
+                    "navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between"
                 },
                 [
-                  _c("ul", { staticClass: "navbar-nav pull-left" }, [
+                  _c("ul", { staticClass: "navbar-nav col-auto" }, [
                     _c("li", { staticClass: "nav-item" }, [
                       _c(
                         "a",
@@ -254178,7 +254206,8 @@ var render = function() {
                               _vm.call_backs.length == 0
                             ? _c("img", {
                                 attrs: {
-                                  src: "/images/icons/Notification.svg",
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications Icon.svg",
                                   alt: "Notification Bell",
                                   width: "50"
                                 }
@@ -254214,14 +254243,16 @@ var render = function() {
                           _vm.settings_on == false
                             ? _c("img", {
                                 attrs: {
-                                  src: "/images/icons/Asset 62.svg",
+                                  src:
+                                    "/images/icons/right-sidebar/Settings Icon.svg",
                                   alt: "Settings Cog",
                                   width: "50"
                                 }
                               })
                             : _c("img", {
                                 attrs: {
-                                  src: "/images/icons/Asset 63.svg",
+                                  src:
+                                    "/images/icons/right-sidebar/Settings Icon Active.svg",
                                   alt: "Settings Cog",
                                   width: "50"
                                 }
@@ -254233,14 +254264,61 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "ul",
-                    { staticClass: "navbar-nav pull-right text-right" },
+                    { staticClass: "navbar-nav col-auto text-right pr-0" },
                     [
-                      _vm.user.nickname != null && _vm.user.nickname != ""
-                        ? _c("li", { staticClass: "nav-item name-li" }, [
+                      _c(
+                        "div",
+                        { staticClass: "row mx-0 justify-content-end" },
+                        [
+                          _vm.user.nickname != null && _vm.user.nickname != ""
+                            ? _c(
+                                "li",
+                                {
+                                  staticClass: "nav-item name-li col-auto px-0"
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link name",
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.showSettings()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(_vm.user.nickname))]
+                                  )
+                                ]
+                              )
+                            : _c(
+                                "li",
+                                {
+                                  staticClass: "nav-item name-li col-auto px-0"
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "nav-link name",
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.showSettings()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(_vm.user.name))]
+                                  )
+                                ]
+                              ),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "nav-item col-auto pr-0" }, [
                             _c(
                               "a",
                               {
-                                staticClass: "nav-link name",
+                                staticClass: "nav-link icon pt-0 small-avatar",
                                 attrs: { href: "#" },
                                 on: {
                                   click: function($event) {
@@ -254248,52 +254326,25 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v(_vm._s(_vm.user.nickname))]
+                              [
+                                _vm.user.avatar != "" && _vm.user.avatar != null
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          _vm.avatarUrl +
+                                          _vm.user.id +
+                                          "/" +
+                                          _vm.user.avatar
+                                      }
+                                    })
+                                  : _c("img", {
+                                      attrs: { src: _vm.noImageUrl }
+                                    })
+                              ]
                             )
                           ])
-                        : _c("li", { staticClass: "nav-item name-li" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link name",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.showSettings()
-                                  }
-                                }
-                              },
-                              [_vm._v(_vm._s(_vm.user.name))]
-                            )
-                          ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link icon pt-0 small-avatar",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.showSettings()
-                              }
-                            }
-                          },
-                          [
-                            _vm.user.avatar != "" && _vm.user.avatar != null
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      _vm.avatarUrl +
-                                      _vm.user.id +
-                                      "/" +
-                                      _vm.user.avatar
-                                  }
-                                })
-                              : _c("img", { attrs: { src: _vm.noImageUrl } })
-                          ]
-                        )
-                      ])
+                        ]
+                      )
                     ]
                   )
                 ]
@@ -254301,20 +254352,18 @@ var render = function() {
               _vm._v(" "),
               _vm.settings_on == true
                 ? _c("div", { staticClass: "settings" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "row mx-0" },
+                      { staticClass: "row mx-0 border-bottom" },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
+                              "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(2),
+                            _vm._m(0),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.profile_on == false
@@ -254331,13 +254380,14 @@ var render = function() {
                                         _vm.profile_on = true
                                         _vm.account_on = false
                                         _vm.system_settings_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
                                 : _c("img", {
                                     attrs: {
                                       src:
-                                        "/images/icons/settings edit button hover@4x.png",
+                                        "/images/icons/right-sidebar/Close Edit Icon.svg",
                                       alt: "Profile Edit Off",
                                       width: "30"
                                     },
@@ -254347,6 +254397,7 @@ var render = function() {
                                         _vm.profile_on = false
                                         _vm.account_on = false
                                         _vm.system_settings_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
@@ -254363,7 +254414,7 @@ var render = function() {
                                   _c(
                                     "p",
                                     {
-                                      staticClass: "description d-block w-100",
+                                      staticClass: "d-block w-100 title",
                                       attrs: { title: "Personal Information" }
                                     },
                                     [_vm._v("Personal Information")]
@@ -254373,7 +254424,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4"
+                                        "row mx-0 border-left mb-4 pb-0 pl-4"
                                     },
                                     [
                                       _c(
@@ -254392,14 +254443,14 @@ var render = function() {
                                             "label",
                                             {
                                               staticClass:
-                                                "row justify-space-between align-items-center border-bottom-0 control-label text-center p-0 w-100"
+                                                "row justify-space-between align-items-center control-label text-center p-0 w-100 mx-0"
                                             },
                                             [
                                               _c(
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "col-lg-6 pl-0 description"
+                                                    "col-lg-6 pl-0 text-left"
                                                 },
                                                 [_vm._v("Profile Picture")]
                                               ),
@@ -254482,7 +254533,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "email",
@@ -254575,7 +254626,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "email",
@@ -254670,7 +254721,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "nickname",
@@ -254764,7 +254815,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "email",
@@ -254860,7 +254911,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "work_number",
@@ -254959,7 +255010,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "form-control border-0",
+                                                  "form-control border-0 rounded-pill",
                                                 attrs: {
                                                   type: "text",
                                                   id: "personal_number",
@@ -255116,23 +255167,55 @@ var render = function() {
                                   _c(
                                     "div",
                                     {
-                                      staticClass: "ml-4",
+                                      staticClass:
+                                        "row mx-0 pl-4 justify-content-end",
                                       class: { input: true, "form-group": true }
                                     },
                                     [
                                       _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "btn btn-primary update-user w-100",
-                                          attrs: { type: "submit" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.updateUser("profile")
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Update")]
+                                        "div",
+                                        { staticClass: "col-auto pl-0 pr-2" },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-default cancel-user w-100 m-0",
+                                              attrs: { type: "submit" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.updateUser(
+                                                    "profile"
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Cancel")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-auto pr-0 pl-2" },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary update-user w-100 rounded-pill m-0",
+                                              attrs: { type: "submit" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.updateUser(
+                                                    "profile"
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Update")]
+                                          )
+                                        ]
                                       )
                                     ]
                                   )
@@ -255146,16 +255229,16 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "row mx-0" },
+                      { staticClass: "row mx-0 border-bottom account-info" },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
+                              "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(3),
+                            _vm._m(1),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.account_on == false
@@ -255172,13 +255255,14 @@ var render = function() {
                                         _vm.account_on = true
                                         _vm.profile_on = false
                                         _vm.system_settings_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
                                 : _c("img", {
                                     attrs: {
                                       src:
-                                        "/images/icons/settings edit button hover@4x.png",
+                                        "/images/icons/right-sidebar/Close Edit Icon.svg",
                                       alt: "Account Edit Off",
                                       width: "30"
                                     },
@@ -255188,6 +255272,7 @@ var render = function() {
                                         _vm.account_on = false
                                         _vm.profile_on = false
                                         _vm.system_settings_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
@@ -255197,11 +255282,11 @@ var render = function() {
                         _vm._v(" "),
                         _c("transition-expand", [
                           _vm.expanded == true && _vm.account_on == true
-                            ? _c("div", { staticClass: "w-100 account-info" }, [
+                            ? _c("div", { staticClass: "w-100 mt-3" }, [
                                 _c(
                                   "p",
                                   {
-                                    staticClass: "description d-block w-100",
+                                    staticClass: "d-block w-100 title",
                                     attrs: { title: "Personal Information" }
                                   },
                                   [_vm._v("Account Information")]
@@ -255211,7 +255296,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4"
+                                      "row mx-0 border-left mb-4 pb-0 pl-4"
                                   },
                                   [
                                     _c(
@@ -255303,7 +255388,7 @@ var render = function() {
                                                 }
                                               ],
                                               staticClass:
-                                                "form-control border-0",
+                                                "form-control border-0 rounded-pill",
                                               attrs: {
                                                 type: "password",
                                                 id: "email",
@@ -255397,7 +255482,7 @@ var render = function() {
                                               ],
                                               ref: "password",
                                               staticClass:
-                                                "form-control border-0",
+                                                "form-control border-0 rounded-pill",
                                               attrs: {
                                                 type: "password",
                                                 id: "password",
@@ -255495,7 +255580,7 @@ var render = function() {
                                                 }
                                               ],
                                               staticClass:
-                                                "form-control border-0",
+                                                "form-control border-0 rounded-pill",
                                               attrs: {
                                                 type: "password",
                                                 id: "password_confirm",
@@ -255556,23 +255641,51 @@ var render = function() {
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "ml-4",
+                                    staticClass:
+                                      "row mx-0 pl-4 justify-content-end",
                                     class: { input: true, "form-group": true }
                                   },
                                   [
                                     _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-primary update-user w-100",
-                                        attrs: { type: "submit" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.updateUser("account")
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Update")]
+                                      "div",
+                                      { staticClass: "col-auto pl-0 pr-2" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-default cancel-user w-100 m-0",
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updateUser("account")
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Cancel")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-6 pr-0 pl-2" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-primary update-user w-100 rounded-pill m-0",
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updateUser("account")
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Update")]
+                                        )
+                                      ]
                                     )
                                   ]
                                 )
@@ -255585,16 +255698,16 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "row border-bottom-0 mx-0 preferences" },
+                      { staticClass: "row mx-0 preferences border-bottom" },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "row mx-0 justify-content-between align-items-center w-100 border-bottom-0 mx-0 p-0"
+                              "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(4),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -255611,13 +255724,14 @@ var render = function() {
                                         _vm.system_settings_on = true
                                         _vm.account_on = false
                                         _vm.profile_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
                                 : _c("img", {
                                     attrs: {
                                       src:
-                                        "/images/icons/settings edit button hover@4x.png",
+                                        "/images/icons/right-sidebar/Close Edit Icon.svg",
                                       alt: "Account Edit Off",
                                       width: "30"
                                     },
@@ -255627,6 +255741,7 @@ var render = function() {
                                         _vm.system_settings_on = false
                                         _vm.account_on = false
                                         _vm.profile_on = false
+                                        _vm.language_settings_on = false
                                       }
                                     }
                                   })
@@ -255643,7 +255758,7 @@ var render = function() {
                                   _c(
                                     "p",
                                     {
-                                      staticClass: "description",
+                                      staticClass: "d-block w-100 title",
                                       attrs: { title: "Personal Information" }
                                     },
                                     [_vm._v("General System Preferences")]
@@ -255653,16 +255768,13 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "row mx-0 border-left border-bottom-0 mb-4 pb-0 pl-4"
+                                        "row mx-0 border-left mb-4 pb-0 pl-4"
                                     },
                                     [
                                       _vm.user.role_id == 1
                                         ? _c(
                                             "div",
-                                            {
-                                              staticClass:
-                                                "row border-bottom-0 mx-0"
-                                            },
+                                            { staticClass: "row mx-0" },
                                             [
                                               _c(
                                                 "h3",
@@ -255719,7 +255831,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control border-0",
+                                                                      "form-control border-0 rounded-pill",
                                                                     attrs: {
                                                                       id:
                                                                         "auto_dialler"
@@ -255836,7 +255948,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control border-0",
+                                                                      "form-control border-0 rounded-pill",
                                                                     attrs: {
                                                                       id:
                                                                         "auto_dialler"
@@ -255949,10 +256061,7 @@ var render = function() {
                                       _vm.preferences.length > 0
                                         ? _c(
                                             "div",
-                                            {
-                                              staticClass:
-                                                "row border-bottom-0 mx-0"
-                                            },
+                                            { staticClass: "row mx-0" },
                                             [
                                               _c(
                                                 "h3",
@@ -255978,166 +256087,173 @@ var render = function() {
                                                     setting.setting ==
                                                       "theme" &&
                                                     setting.system_setting != 1
-                                                      ? _c("div", [
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-3 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "w-100 m-0",
-                                                                  class: {
-                                                                    "btn orange-btn": true,
-                                                                    "btn-orange":
-                                                                      setting.value ==
-                                                                      "orange"
-                                                                        ? true
-                                                                        : false,
-                                                                    "btn-default":
-                                                                      setting.value !=
-                                                                      "orange"
-                                                                        ? true
-                                                                        : false
-                                                                  },
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.applySetting(
-                                                                        {
-                                                                          type:
-                                                                            "theme",
-                                                                          value:
-                                                                            "orange"
-                                                                        }
-                                                                      )
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "row mx-0"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "col-auto control-label p-0"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "m-0 rounded-pill",
+                                                                    class: {
+                                                                      "btn orange-btn": true,
+                                                                      "btn-orange":
+                                                                        setting.value ==
+                                                                        "orange"
+                                                                          ? true
+                                                                          : false,
+                                                                      "btn-default":
+                                                                        setting.value !=
+                                                                        "orange"
+                                                                          ? true
+                                                                          : false
+                                                                    },
+                                                                    attrs: {
+                                                                      type:
+                                                                        "submit"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.applySetting(
+                                                                          {
+                                                                            type:
+                                                                              "theme",
+                                                                            value:
+                                                                              "orange"
+                                                                          }
+                                                                        )
+                                                                      }
                                                                     }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                Orange\n                              "
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-3 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "w-100 m-0",
-                                                                  class: {
-                                                                    "btn blue-btn": true,
-                                                                    "btn-blue":
-                                                                      setting.value ==
-                                                                      "blue"
-                                                                        ? true
-                                                                        : false,
-                                                                    "btn-default":
-                                                                      setting.value !=
-                                                                      "blue"
-                                                                        ? true
-                                                                        : false
                                                                   },
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.applySetting(
-                                                                        {
-                                                                          type:
-                                                                            "theme",
-                                                                          value:
-                                                                            "blue"
-                                                                        }
-                                                                      )
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                Orange\n                              "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "col-auto control-label p-0"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "m-0 rounded-pill",
+                                                                    class: {
+                                                                      "btn blue-btn": true,
+                                                                      "btn-blue":
+                                                                        setting.value ==
+                                                                        "blue"
+                                                                          ? true
+                                                                          : false,
+                                                                      "btn-default":
+                                                                        setting.value !=
+                                                                        "blue"
+                                                                          ? true
+                                                                          : false
+                                                                    },
+                                                                    attrs: {
+                                                                      type:
+                                                                        "submit"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.applySetting(
+                                                                          {
+                                                                            type:
+                                                                              "theme",
+                                                                            value:
+                                                                              "blue"
+                                                                          }
+                                                                        )
+                                                                      }
                                                                     }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                Blue\n                              "
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-3 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "w-100 m-0",
-                                                                  class: {
-                                                                    "btn red-btn": true,
-                                                                    "btn-red":
-                                                                      setting.value ==
-                                                                      "red"
-                                                                        ? true
-                                                                        : false,
-                                                                    "btn-default":
-                                                                      setting.value !=
-                                                                      "red"
-                                                                        ? true
-                                                                        : false
                                                                   },
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.applySetting(
-                                                                        {
-                                                                          type:
-                                                                            "theme",
-                                                                          value:
-                                                                            "red"
-                                                                        }
-                                                                      )
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                Blue\n                              "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                staticClass:
+                                                                  "col-auto control-label p-0"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "m-0 rounded-pill",
+                                                                    class: {
+                                                                      "btn dark-btn": true,
+                                                                      "btn-dark":
+                                                                        setting.value ==
+                                                                        "dark"
+                                                                          ? true
+                                                                          : false,
+                                                                      "btn-default":
+                                                                        setting.value !=
+                                                                        "dark"
+                                                                          ? true
+                                                                          : false
+                                                                    },
+                                                                    attrs: {
+                                                                      type:
+                                                                        "submit"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.applySetting(
+                                                                          {
+                                                                            type:
+                                                                              "theme",
+                                                                            value:
+                                                                              "dark"
+                                                                          }
+                                                                        )
+                                                                      }
                                                                     }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                Red\n                              "
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ])
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                Dark\n                              "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
                                                       : _vm._e()
                                                   ]
                                                 )
@@ -256147,10 +256263,7 @@ var render = function() {
                                           )
                                         : _c(
                                             "div",
-                                            {
-                                              staticClass:
-                                                "row border-bottom-0 mx-0"
-                                            },
+                                            { staticClass: "row mx-0" },
                                             [
                                               _c(
                                                 "h3",
@@ -256164,398 +256277,142 @@ var render = function() {
                                               _vm._v(" "),
                                               _c(
                                                 "div",
-                                                { staticClass: "w-100" },
+                                                { staticClass: "w-100 themes" },
                                                 [
-                                                  _c("div", [
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass:
-                                                          "col-lg-3 control-label w-100 p-0 themes"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "w-100 m-0",
-                                                            class: {
-                                                              "btn orange-btn": true,
-                                                              "btn-orange": true
-                                                            },
-                                                            attrs: {
-                                                              type: "submit"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.applySetting(
-                                                                  {
-                                                                    type:
-                                                                      "theme",
-                                                                    value:
-                                                                      "orange"
-                                                                  }
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                Orange\n                              "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass:
-                                                          "col-lg-3 control-label w-100 p-0"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "w-100 m-0",
-                                                            class: {
-                                                              "btn blue-btn": true,
-                                                              "btn-default": true
-                                                            },
-                                                            attrs: {
-                                                              type: "submit"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.applySetting(
-                                                                  {
-                                                                    type:
-                                                                      "theme",
-                                                                    value:
-                                                                      "blue"
-                                                                  }
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                Blue\n                              "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass:
-                                                          "col-lg-3 control-label w-100 p-0"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "w-100 m-0",
-                                                            class: {
-                                                              "btn red-btn": true,
-                                                              "btn-default": true
-                                                            },
-                                                            attrs: {
-                                                              type: "submit"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.applySetting(
-                                                                  {
-                                                                    type:
-                                                                      "theme",
-                                                                    value: "red"
-                                                                  }
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                Red\n                              "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]
-                                          ),
-                                      _vm._v(" "),
-                                      _vm.preferences.length > 0
-                                        ? _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "row border-bottom-0 mx-0"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                { staticClass: "d-block" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                          Language \n                        "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(_vm.preferences, function(
-                                                setting,
-                                                index
-                                              ) {
-                                                return _c(
-                                                  "div",
-                                                  {
-                                                    key: index,
-                                                    staticClass:
-                                                      "w-100 language"
-                                                  },
-                                                  [
-                                                    setting.setting ==
-                                                      "language" &&
-                                                    setting.system_setting != 1
-                                                      ? _c("div", [
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "row mx-0" },
+                                                    [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-auto control-label py-0 pr-2 pl-0"
+                                                        },
+                                                        [
                                                           _c(
-                                                            "label",
+                                                            "button",
                                                             {
                                                               staticClass:
-                                                                "col-lg-3 control-label w-100 p-0"
+                                                                "m-0 rounded-pill",
+                                                              class: {
+                                                                "btn orange-btn": true,
+                                                                "btn-orange": true
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.applySetting(
+                                                                    {
+                                                                      type:
+                                                                        "theme",
+                                                                      value:
+                                                                        "orange"
+                                                                    }
+                                                                  )
+                                                                }
+                                                              }
                                                             },
                                                             [
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "w-100 m-0",
-                                                                  class: {
-                                                                    btn: true,
-                                                                    "btn-active":
-                                                                      setting.value ==
-                                                                      "english"
-                                                                        ? true
-                                                                        : false,
-                                                                    "btn-default":
-                                                                      setting.value !=
-                                                                      "english"
-                                                                        ? true
-                                                                        : false
-                                                                  },
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.applySetting(
-                                                                        {
-                                                                          type:
-                                                                            "language",
-                                                                          value:
-                                                                            "english"
-                                                                        }
-                                                                      )
-                                                                    }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                English\n                              "
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-3 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "w-100 m-0",
-                                                                  class: {
-                                                                    btn: true,
-                                                                    "btn-active":
-                                                                      setting.value ==
-                                                                      "spanish"
-                                                                        ? true
-                                                                        : false,
-                                                                    "btn-default":
-                                                                      setting.value !=
-                                                                      "spanish"
-                                                                        ? true
-                                                                        : false
-                                                                  },
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.applySetting(
-                                                                        {
-                                                                          type:
-                                                                            "language",
-                                                                          value:
-                                                                            "spanish"
-                                                                        }
-                                                                      )
-                                                                    }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                Spanish\n                              "
-                                                                  )
-                                                                ]
+                                                              _vm._v(
+                                                                "\n                                Orange\n                              "
                                                               )
                                                             ]
                                                           )
-                                                        ])
-                                                      : _vm._e()
-                                                  ]
-                                                )
-                                              })
-                                            ],
-                                            2
-                                          )
-                                        : _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "row border-bottom-0 mx-0"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                { staticClass: "d-block" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                          Language \n                        "
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-auto control-label py-0 px-2"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "m-0 rounded-pill",
+                                                              class: {
+                                                                "btn blue-btn": true,
+                                                                "btn-default": true
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.applySetting(
+                                                                    {
+                                                                      type:
+                                                                        "theme",
+                                                                      value:
+                                                                        "blue"
+                                                                    }
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                Blue\n                              "
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-auto control-label py-0 pr-0 pl-2"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "m-0 rounded-pill",
+                                                              class: {
+                                                                "btn dark-btn": true,
+                                                                "btn-default": true
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.applySetting(
+                                                                    {
+                                                                      type:
+                                                                        "theme",
+                                                                      value:
+                                                                        "dark"
+                                                                    }
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                Dark\n                              "
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
                                                   )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "w-100" },
-                                                [
-                                                  _c("div", [
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass:
-                                                          "col-lg-3 control-label w-100 p-0 language"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "w-100 m-0",
-                                                            class: {
-                                                              btn: true,
-                                                              "btn-active": true
-                                                            },
-                                                            attrs: {
-                                                              type: "submit"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.applySetting(
-                                                                  {
-                                                                    type:
-                                                                      "language",
-                                                                    value:
-                                                                      "english"
-                                                                  }
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                English\n                              "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass:
-                                                          "col-lg-3 control-label w-100 p-0"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "w-100 m-0",
-                                                            class: {
-                                                              btn: true,
-                                                              "btn-active": false,
-                                                              "btn-default": true
-                                                            },
-                                                            attrs: {
-                                                              type: "submit"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.applySetting(
-                                                                  {
-                                                                    type:
-                                                                      "language",
-                                                                    value:
-                                                                      "spanish"
-                                                                  }
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                Spanish\n                              "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
                                                 ]
                                               )
                                             ]
@@ -256570,27 +256427,280 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _vm.profile_on == false
-                      ? _c(
+                    _c(
+                      "div",
+                      { staticClass: "row mx-0 language border-bottom" },
+                      [
+                        _c(
                           "div",
-                          { staticClass: "row logout-wrapper border-bottom-0" },
+                          {
+                            staticClass:
+                              "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
+                          },
                           [
-                            _c("a", {
-                              staticClass: "w-100 d-block",
-                              attrs: { href: "/logout", id: "logout" }
-                            }),
+                            _vm._m(3),
                             _vm._v(" "),
-                            _c(
-                              "h3",
-                              { staticClass: "d-block w-100 text-center" },
-                              [
-                                _vm._v(
-                                  "\n                  Logout \n                "
-                                )
-                              ]
-                            )
+                            _c("div", { staticClass: "col-auto" }, [
+                              _vm.system_settings_on == false
+                                ? _c("img", {
+                                    attrs: {
+                                      src:
+                                        "/images/icons/settings edit buttin@4x.png",
+                                      alt: "Account Edit Off",
+                                      width: "30"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.expanded = true
+                                        _vm.language_settings_on = true
+                                        _vm.account_on = false
+                                        _vm.profile_on = false
+                                        _vm.system_settings_on = false
+                                      }
+                                    }
+                                  })
+                                : _c("img", {
+                                    attrs: {
+                                      src:
+                                        "/images/icons/right-sidebar/Close Edit Icon.svg",
+                                      alt: "Account Edit Off",
+                                      width: "30"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.expanded = false
+                                        _vm.language_settings_on = false
+                                        _vm.account_on = false
+                                        _vm.profile_on = false
+                                        _vm.system_settings_on = false
+                                      }
+                                    }
+                                  })
+                            ])
                           ]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("transition-expand", [
+                          _vm.expanded == true &&
+                          _vm.language_settings_on == true
+                            ? _c(
+                                "div",
+                                { staticClass: "w-100 general-system-prefs" },
+                                [
+                                  _vm.preferences.length > 0
+                                    ? _c(
+                                        "div",
+                                        _vm._l(_vm.preferences, function(
+                                          setting,
+                                          index
+                                        ) {
+                                          return _c(
+                                            "div",
+                                            {
+                                              key: index,
+                                              staticClass: "w-100 language"
+                                            },
+                                            [
+                                              setting.setting == "language" &&
+                                              setting.system_setting != 1
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "row mx-0" },
+                                                    [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-auto control-label p-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "m-0",
+                                                              class: {
+                                                                btn: true,
+                                                                "btn-active":
+                                                                  setting.value ==
+                                                                  "english"
+                                                                    ? true
+                                                                    : false,
+                                                                "btn-default":
+                                                                  setting.value !=
+                                                                  "english"
+                                                                    ? true
+                                                                    : false
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.applySetting(
+                                                                    {
+                                                                      type:
+                                                                        "language",
+                                                                      value:
+                                                                        "english"
+                                                                    }
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [_vm._v("English")]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "col-auto control-label p-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "m-0",
+                                                              class: {
+                                                                btn: true,
+                                                                "btn-active":
+                                                                  setting.value ==
+                                                                  "spanish"
+                                                                    ? true
+                                                                    : false,
+                                                                "btn-default":
+                                                                  setting.value !=
+                                                                  "spanish"
+                                                                    ? true
+                                                                    : false
+                                                              },
+                                                              attrs: {
+                                                                type: "submit"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.applySetting(
+                                                                    {
+                                                                      type:
+                                                                        "language",
+                                                                      value:
+                                                                        "spanish"
+                                                                    }
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [_vm._v("Spanish")]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            ]
+                                          )
+                                        }),
+                                        0
+                                      )
+                                    : _c("div", { staticClass: "row mx-0" }, [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-auto control-label py-0 pl-0 pr-2 language"
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass: "m-0",
+                                                class: {
+                                                  btn: true,
+                                                  "btn-active": true
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "language",
+                                                      value: "english"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [_vm._v("English")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "col-auto control-label py-0 pr-0 pl-2"
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass: "m-0",
+                                                class: {
+                                                  btn: true,
+                                                  "btn-active": false,
+                                                  "btn-default": true
+                                                },
+                                                attrs: { type: "submit" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.applySetting({
+                                                      type: "language",
+                                                      value: "spanish"
+                                                    })
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                          Spanish\n                        "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.profile_on == false
+                      ? _c("div", { staticClass: "row logout-wrapper" }, [
+                          _c("a", {
+                            staticClass: "w-100 d-block",
+                            attrs: { href: "/logout", id: "logout" }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h3",
+                            { staticClass: "d-block w-100 text-center" },
+                            [
+                              _vm._v(
+                                "\n                  Logout \n                "
+                              )
+                            ]
+                          )
+                        ])
                       : _vm._e()
                   ])
                 : _vm._e(),
@@ -256719,19 +256829,19 @@ var render = function() {
                                 }),
                                 0
                               )
-                            : _c("div", [_vm._m(5)])
+                            : _c("div", [_vm._m(4)])
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.callbacks_on == false && _vm.messages_on == true
                       ? _c("div", { staticClass: "row mx-0" }, [
+                          _vm._m(5),
+                          _vm._v(" "),
                           _vm._m(6),
                           _vm._v(" "),
                           _vm._m(7),
                           _vm._v(" "),
-                          _vm._m(8),
-                          _vm._v(" "),
-                          _vm._m(9)
+                          _vm._m(8)
                         ])
                       : _vm._e()
                   ])
@@ -256743,7 +256853,7 @@ var render = function() {
                       _c("div", { staticClass: "col-lg-12" }, [
                         _c("div", { staticClass: "row p-0" }, [
                           _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(10),
+                            _vm._m(9),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress-bar w-100" }, [
                               _c("span", {
@@ -256754,11 +256864,11 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
+                        _vm._m(10),
+                        _vm._v(" "),
                         _vm._m(11),
                         _vm._v(" "),
-                        _vm._m(12),
-                        _vm._v(" "),
-                        _vm._m(13)
+                        _vm._m(12)
                       ])
                     ]),
                     _vm._v(" "),
@@ -256774,7 +256884,7 @@ var render = function() {
                                 "card left mt-3 tab-card border-0 shadow-none"
                             },
                             [
-                              _vm._m(14),
+                              _vm._m(13),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -256820,7 +256930,7 @@ var render = function() {
                                                   "row mx-0 justify-content-between align-items-center"
                                               },
                                               [
-                                                _vm._m(15),
+                                                _vm._m(14),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -256852,7 +256962,7 @@ var render = function() {
                                               ]
                                             ),
                                             _vm._v(" "),
-                                            _vm._m(16)
+                                            _vm._m(15)
                                           ]
                                         )
                                       ])
@@ -256961,7 +257071,7 @@ var render = function() {
                                                 staticClass: "row filter-search"
                                               },
                                               [
-                                                _vm._m(17),
+                                                _vm._m(16),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -257053,10 +257163,10 @@ var render = function() {
                                                       "table",
                                                       { staticClass: "tg" },
                                                       [
-                                                        _vm._m(18),
+                                                        _vm._m(17),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(19),
+                                                          _vm._m(18),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257188,7 +257298,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(20),
+                                                          _vm._m(19),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257321,7 +257431,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(21),
+                                                          _vm._m(20),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257452,7 +257562,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(22),
+                                                          _vm._m(21),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257583,7 +257693,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(23),
+                                                          _vm._m(22),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257814,7 +257924,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _c("tr", [
-                                                                _vm._m(24),
+                                                                _vm._m(23),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "td",
@@ -257982,46 +258092,161 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "closed-sidenav pr-3 d-none" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "row justify-content-center border-top pt-5 pb-4"
-                },
-                [
-                  _c("p", { staticClass: "monthly-target d-block pb-3" }, [
-                    _vm._v("Monthly Target")
+            _c(
+              "div",
+              { staticClass: "closed-sidenav pr-3 d-none" },
+              [
+                _c("ul", { staticClass: "navbar-nav row mx-0" }, [
+                  _c("li", { staticClass: "nav-item col-auto pl-0" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link icon p-0",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.showNotifications()
+                          }
+                        }
+                      },
+                      [
+                        _vm.notifications_on == true
+                          ? _c("img", {
+                              attrs: {
+                                src: "/images/icons/Notification_active.svg",
+                                alt: "Notification Bell",
+                                width: "50"
+                              }
+                            })
+                          : _vm.notifications_on == false &&
+                            _vm.unread_messages == 0 &&
+                            _vm.call_backs.length == 0
+                          ? _c("img", {
+                              attrs: {
+                                src: "/images/icons/Notification.svg",
+                                alt: "Notification Bell",
+                                width: "50"
+                              }
+                            })
+                          : (_vm.notifications_on == false &&
+                              _vm.unread_messages >= 1) ||
+                            _vm.call_backs.length > 0
+                          ? _c("img", {
+                              attrs: {
+                                src: "/images/icons/Notification_new.svg",
+                                alt: "Notification Bell",
+                                width: "50"
+                              }
+                            })
+                          : _vm._e()
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("vue-circle", {
-                    ref: "myprogress",
-                    attrs: {
-                      progress: _vm.p,
-                      size: 65,
-                      reverse: false,
-                      "line-cap": "round",
-                      fill: _vm.fill,
-                      "empty-fill": "rgba(0, 0, 0, .1)",
-                      "animation-start-value": 0.0,
-                      "start-angle": 0,
-                      "insert-mode": "append",
-                      animation: { duration: 1200, easing: "easeOutBounce" },
-                      thickness: 5,
-                      "show-percent": true
-                    },
-                    on: {
-                      "vue-circle-progress": _vm.progress,
-                      "vue-circle-end": _vm.progress_end
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(25),
-              _vm._v(" "),
-              _vm._m(26)
-            ])
+                  _c("li", { staticClass: "nav-item col-auto pr-0" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link icon pt-0 pr-0",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.showSettings()
+                          }
+                        }
+                      },
+                      [
+                        _vm.settings_on == false
+                          ? _c("img", {
+                              attrs: {
+                                src: "/images/icons/Asset 62.svg",
+                                alt: "Settings Cog",
+                                width: "50"
+                              }
+                            })
+                          : _c("img", {
+                              attrs: {
+                                src: "/images/icons/Asset 63.svg",
+                                alt: "Settings Cog",
+                                width: "50"
+                              }
+                            })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item col-auto pr-0" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link icon pt-0 small-avatar",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.showSettings()
+                          }
+                        }
+                      },
+                      [
+                        _vm.user.avatar != "" && _vm.user.avatar != null
+                          ? _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.avatarUrl +
+                                  _vm.user.id +
+                                  "/" +
+                                  _vm.user.avatar
+                              }
+                            })
+                          : _c("img", { attrs: { src: _vm.noImageUrl } })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Filter")]),
+                _vm._v(" "),
+                _c(
+                  "b-tabs",
+                  { attrs: { "content-class": "mt-3" } },
+                  [
+                    _c("b-tab", { attrs: { title: "Saved", active: "" } }),
+                    _vm._v(" "),
+                    _c("b-tab", { attrs: { title: "New" } }, [
+                      _c("ul", { staticClass: "pl-0" }, [
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "my-2 p-2 custom-control custom-checkbox rounded-pill"
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input mx-0",
+                              attrs: {
+                                type: "checkbox",
+                                id: "customControlAutosizing"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label mx-0",
+                                attrs: { for: "customControlAutosizing" }
+                              },
+                              [_vm._v("Name")]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ]
         )
       ])
@@ -258033,29 +258258,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "menu-toggle",
-        attrs: { href: "#", "data-toggle": "push-menu" }
-      },
-      [
-        _c("img", {
-          attrs: {
-            src: "/images/icons/4x/Asset 31@4x.png",
-            alt: "toggle-menu",
-            width: "40"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0" }, [
-      _c("h2", [_vm._v("Settings")])
+    return _c("div", { staticClass: "col-auto" }, [
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Profile ")])
     ])
   },
   function() {
@@ -258063,7 +258267,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
-      _c("h3", { staticClass: "d-block" }, [_vm._v("Profile ")])
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Account")])
     ])
   },
   function() {
@@ -258071,7 +258275,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
-      _c("h3", { staticClass: "d-block" }, [_vm._v("Account")])
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Preferences")])
     ])
   },
   function() {
@@ -258079,7 +258283,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
-      _c("h3", { staticClass: "d-block" }, [_vm._v("Preferences")])
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Language")])
     ])
   },
   function() {
@@ -258252,64 +258456,60 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card-header tab-card-header border-bottom-0" },
-      [
-        _c(
-          "ul",
-          {
-            staticClass: "nav nav-tabs card-header-tabs border-bottom-0 mb-0",
-            attrs: { id: "myTab", role: "tablist" }
-          },
-          [
-            _c("li", { staticClass: "nav-item left w-50" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link active border-0",
-                  attrs: {
-                    id: "calendar-tab",
-                    "data-toggle": "tab",
-                    href: "#calendar",
-                    role: "tab",
-                    "aria-controls": "Calendar",
-                    "aria-selected": "true"
-                  }
-                },
-                [
-                  _c("span", { staticClass: "left description" }, [
-                    _vm._v("Callback Calendar")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item right w-50" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  attrs: {
-                    id: "search-panel-tab",
-                    "data-toggle": "tab",
-                    href: "#search-panel",
-                    role: "tab",
-                    "aria-controls": "Search",
-                    "aria-selected": "false"
-                  }
-                },
-                [
-                  _c("span", { staticClass: "left description" }, [
-                    _vm._v("Search")
-                  ])
-                ]
-              )
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "card-header tab-card-header" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs card-header-tabs mb-0",
+          attrs: { id: "myTab", role: "tablist" }
+        },
+        [
+          _c("li", { staticClass: "nav-item left w-50" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active border-0",
+                attrs: {
+                  id: "calendar-tab",
+                  "data-toggle": "tab",
+                  href: "#calendar",
+                  role: "tab",
+                  "aria-controls": "Calendar",
+                  "aria-selected": "true"
+                }
+              },
+              [
+                _c("span", { staticClass: "left description" }, [
+                  _vm._v("Callback Calendar")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item right w-50" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "search-panel-tab",
+                  "data-toggle": "tab",
+                  href: "#search-panel",
+                  role: "tab",
+                  "aria-controls": "Search",
+                  "aria-selected": "false"
+                }
+              },
+              [
+                _c("span", { staticClass: "left description" }, [
+                  _vm._v("Search")
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -258426,38 +258626,6 @@ var staticRenderFns = [
     return _c("td", { staticClass: "tg-0lax" }, [
       _c("p", { staticClass: "heading" }, [_vm._v("Save Search:")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center px-4" }, [
-      _c("p", { staticClass: "description d-block pb-2" }, [
-        _vm._v("Commission")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "value d-block" }, [_vm._v("$1523")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center border-bottom pb-5 pt-4" },
-      [
-        _c("div", { staticClass: "col-12 px-0 text-center" }, [
-          _c("p", { staticClass: "description d-block pb-2" }, [
-            _vm._v("Con. Ratio")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 px-0 text-center" }, [
-          _c("p", { staticClass: "value d-block" }, [_vm._v("40%")])
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true

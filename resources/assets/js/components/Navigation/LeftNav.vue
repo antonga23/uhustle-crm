@@ -18,184 +18,112 @@
   width: 63px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
-  color: #ffffff;
-  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
   background-size: 90px;
-  background-repeat: no-repeat;
   background-position: -10px;
-  min-height: 70px;
 }
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
-  color: #ffffff;
-  background-color: #fff;
-  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 70px;
+  min-height: 75px;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
+  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
+  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;
-  background-size:64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Call History Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Training Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
-  color: #ffffff;
-  background-color: #fff;
-  background-image: url('/images/icons/SVG/Contacts icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
+  background-image: url('/images/icons/SVG/Contacts icon.svg') !important
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Leads Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/Users Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  color: #ffffff;
   background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;
-  background-size: 90px;
-  background-repeat: no-repeat;
-  background-position: -10px;
-  min-height: 70px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  color: #ffffff;
-  background-color: #fff;
   background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;
-  background-size: 64px;
-  background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 70px;
 }
 .main-sidebar {
   width: 63px!important;
