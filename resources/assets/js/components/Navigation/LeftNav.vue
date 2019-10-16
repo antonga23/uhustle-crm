@@ -217,7 +217,7 @@
             </li>
             <li class="nav-item">
               <a 
-                href="/contacts" 
+                href="/modules/contacts" 
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0"></a>

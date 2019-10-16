@@ -81435,12 +81435,16 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     getActiveCalls: function getActiveCalls() {
       var vm = this;
       vm.show_page_loader = true;
-      setInterval(function () {
-        axios.get('/calls/list').then(function (response) {
-          vm.conferences = response.data.conferences;
-          vm.show_page_loader = false;
-        });
-      }, 5000);
+      axios.get('/calls/list').then(function (response) {
+        vm.conferences = response.data.conferences;
+        vm.show_page_loader = false;
+        console.log(vm.conferences);
+      }); // setInterval(function(){ 
+      //     axios.get('/calls/list').then(function (response) { 
+      //         vm.conferences = response.data.conferences;
+      //         vm.show_page_loader = false;
+      //     });
+      // }, 5000);
     },
     checkCBDate: function checkCBDate() {
       var now = moment(new Date()); //todays date
@@ -253829,7 +253833,7 @@ var render = function() {
                     "active shadow-none":
                       _vm.active == "contacts" ? true : false
                   },
-                  attrs: { href: "/contacts", title: "Contacts" }
+                  attrs: { href: "/modules/contacts", title: "Contacts" }
                 })
               ]),
               _vm._v(" "),
