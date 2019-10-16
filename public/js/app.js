@@ -75139,6 +75139,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -132152,7 +132216,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 24px;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 22px;\r\n  color:#1e2331;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  padding-top: 6px;\r\n  letter-spacing: 0.05em;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #f7f6fb;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 24px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 13px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\r\n  color: #1e2331;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul[data-v-48ad9a74]{\r\n\tmargin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74]{\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\n.control-label[data-v-48ad9a74]{\r\n  color:#989899;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.themes .btn-default[data-v-48ad9a74], .language .btn-default[data-v-48ad9a74], .language .btn-active[data-v-48ad9a74]{\r\n  border-radius: 50rem!important;\r\n  padding: 10px 20px!important;\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], .account-info .row.mx-0.border-left[data-v-48ad9a74]{\r\n  border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\r\n  color:#7f8080;\r\n  padding-bottom:16px;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 46px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 20px!important;\r\n  font-size: 16px;\r\n  box-shadow: 0px 0 5px rgba(0,0,0,0.05)!important;\r\n  color: #003549;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #cdccce; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\r\n  background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\r\n  background-size: 140px;\r\n  background-repeat: no-repeat;\r\n  background-position: -15px;\r\n  height: 120px;\r\n  width:80px;\n}\n.to-do-list .card[data-v-48ad9a74] {\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n  border-radius: 15px;\r\n  padding:20px;\n}\n.to-do-list .card ul li[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.to-do-list .col-auto p[data-v-48ad9a74]{\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #1c2331;\n}\n.to-do-list .col-auto button[data-v-48ad9a74] {\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  line-height: 1em;\n}\n.to-do-list .col-auto button img[data-v-48ad9a74] {\r\n  margin:6px;\n}\n.to-do-list .col-lg-12 p.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdcdd0;\n}\n.to-do-list ul li[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.to-do-list .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.to-do-list .custom-control-label[data-v-48ad9a74]::after, .to-do-list .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.6rem;\r\n  left: 0.2rem;\n}\n.to-do-list input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: rgba(28, 35, 49, 0.5);\r\n  font-weight: 700;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.to-do-list input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width:50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 13px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.btn-primary.update-user[data-v-48ad9a74] {\r\n  font-size: 13px;\r\n  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n  font-weight:700;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 24px;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 22px;\r\n  color:#1e2331;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  padding-top: 6px;\r\n  letter-spacing: 0.05em;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #f7f6fb;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 24px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 13px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\r\n  color: #1e2331;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul[data-v-48ad9a74]{\r\n\tmargin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74]{\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\n.control-label[data-v-48ad9a74]{\r\n  color:#989899;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.themes .btn-default[data-v-48ad9a74], .language .btn-default[data-v-48ad9a74], .language .btn-active[data-v-48ad9a74]{\r\n  border-radius: 50rem!important;\r\n  padding: 10px 20px!important;\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], .account-info .row.mx-0.border-left[data-v-48ad9a74]{\r\n  border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\r\n  color:#7f8080;\r\n  padding-bottom:16px;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 46px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 20px!important;\r\n  font-size: 16px;\r\n  box-shadow: 0px 0 5px rgba(0,0,0,0.05)!important;\r\n  color: #003549;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 35px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #cdccce; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\r\n  background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\r\n  background-size: 140px;\r\n  background-repeat: no-repeat;\r\n  background-position: -15px;\r\n  height: 120px;\r\n  width:80px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\r\n  background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n  border-radius: 25px;\n}\n.reminders .tabs[data-v-48ad9a74], .filter-content .tabs[data-v-48ad9a74] {\r\n  width: 100%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74]{\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after, .reminders .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 0.6rem;\r\n  left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\r\n  font-size: 21px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #7f8080;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width:50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 13px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.btn-primary.update-user[data-v-48ad9a74] {\r\n  font-size: 13px;\r\n  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n  font-weight:700;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.inactive-icon[data-v-48ad9a74] {\r\n  padding: 11px;\r\n  border-radius: 50rem;\r\n  box-shadow: none;\r\n  transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover{\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.filter-heading[data-v-48ad9a74] {\r\n  font-size: 19px;\n}\n.row.filter-content[data-v-48ad9a74] {\r\n  margin-left:-27px;\r\n  margin-right:-27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74]{\r\n  border-radius: 14px;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 16px;\r\n  padding-left:28px;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\r\n  border:0;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\r\n  font-size: 13px;\r\n  border-radius: 14px;\r\n  padding:10px;\n}\n.row.filter-content .search-text[data-v-48ad9a74] {\r\n  border:0;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\r\n  font-size: 13px;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-weight: 300;\r\n  font-style: italic;\r\n  border-radius: 14px;\r\n  padding:10px;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -254184,7 +254248,7 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link icon p-0",
+                          staticClass: "nav-link icon p-0 mr-2",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -254196,7 +254260,8 @@ var render = function() {
                           _vm.notifications_on == true
                             ? _c("img", {
                                 attrs: {
-                                  src: "/images/icons/Notification_active.svg",
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications_Active.svg",
                                   alt: "Notification Bell",
                                   width: "50"
                                 }
@@ -254205,9 +254270,10 @@ var render = function() {
                               _vm.unread_messages == 0 &&
                               _vm.call_backs.length == 0
                             ? _c("img", {
+                                staticClass: "inactive-icon",
                                 attrs: {
                                   src:
-                                    "/images/icons/right-sidebar/Notifications Icon.svg",
+                                    "/images/icons/right-sidebar/Notification.svg",
                                   alt: "Notification Bell",
                                   width: "50"
                                 }
@@ -254216,8 +254282,10 @@ var render = function() {
                                 _vm.unread_messages >= 1) ||
                               _vm.call_backs.length > 0
                             ? _c("img", {
+                                staticClass: "inactive-icon",
                                 attrs: {
-                                  src: "/images/icons/Notification_new.svg",
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications_red.svg",
                                   alt: "Notification Bell",
                                   width: "50"
                                 }
@@ -254231,7 +254299,7 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "nav-link icon pt-0 pr-0",
+                          staticClass: "nav-link icon p-0",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -254242,9 +254310,10 @@ var render = function() {
                         [
                           _vm.settings_on == false
                             ? _c("img", {
+                                staticClass: "inactive-icon",
                                 attrs: {
                                   src:
-                                    "/images/icons/right-sidebar/Settings Icon.svg",
+                                    "/images/icons/right-sidebar/Setting.svg",
                                   alt: "Settings Cog",
                                   width: "50"
                                 }
@@ -254252,7 +254321,7 @@ var render = function() {
                             : _c("img", {
                                 attrs: {
                                   src:
-                                    "/images/icons/right-sidebar/Settings Icon Active.svg",
+                                    "/images/icons/right-sidebar/Settings_Active.svg",
                                   alt: "Settings Cog",
                                   width: "50"
                                 }
@@ -255696,6 +255765,358 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
+                    _vm.user.role_id == 1
+                      ? _c(
+                          "div",
+                          { staticClass: "row mx-0 preferences border-bottom" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
+                              },
+                              [
+                                _vm._m(2),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-auto" }, [
+                                  _vm.system_settings_on == false
+                                    ? _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/images/icons/settings edit buttin@4x.png",
+                                          alt: "Account Edit Off",
+                                          width: "30"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.expanded = true
+                                            _vm.system_settings_on = true
+                                            _vm.account_on = false
+                                            _vm.profile_on = false
+                                            _vm.language_settings_on = false
+                                          }
+                                        }
+                                      })
+                                    : _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/images/icons/right-sidebar/Close Edit Icon.svg",
+                                          alt: "Account Edit Off",
+                                          width: "30"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.expanded = false
+                                            _vm.system_settings_on = false
+                                            _vm.account_on = false
+                                            _vm.profile_on = false
+                                            _vm.language_settings_on = false
+                                          }
+                                        }
+                                      })
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("transition-expand", [
+                              _vm.expanded == true &&
+                              _vm.system_settings_on == true
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass: "w-100 general-system-prefs"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "row mx-0 mb-4 pb-0 pl-4"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row mx-0" },
+                                            _vm._l(
+                                              _vm.system_preferences,
+                                              function(setting, index) {
+                                                return _c(
+                                                  "div",
+                                                  {
+                                                    key: index,
+                                                    class: {
+                                                      input: true,
+                                                      "form-group": true
+                                                    }
+                                                  },
+                                                  [
+                                                    setting.setting ==
+                                                    "auto_dialer"
+                                                      ? _c("div", [
+                                                          _c(
+                                                            "label",
+                                                            {
+                                                              staticClass:
+                                                                "col-lg-5 control-label w-100 p-0"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                              Auto Dialing\n                              "
+                                                              ),
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm
+                                                                          .system_settings
+                                                                          .auto_dialer
+                                                                          .value,
+                                                                      expression:
+                                                                        "system_settings.auto_dialer.value"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control border-0 rounded-pill",
+                                                                  attrs: {
+                                                                    id:
+                                                                      "auto_dialler"
+                                                                  },
+                                                                  on: {
+                                                                    change: [
+                                                                      function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          _vm
+                                                                            .system_settings
+                                                                            .auto_dialer,
+                                                                          "value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      },
+                                                                      function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.applySetting()
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "on"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "On"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "off"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "Off"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "label",
+                                                            {
+                                                              staticClass:
+                                                                "col-lg-6 control-label w-100 p-0"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                              Apply To\n                              "
+                                                              ),
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm
+                                                                          .system_settings
+                                                                          .auto_dialer
+                                                                          .applies_to,
+                                                                      expression:
+                                                                        "system_settings.auto_dialer.applies_to"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control border-0 rounded-pill",
+                                                                  attrs: {
+                                                                    id:
+                                                                      "auto_dialler"
+                                                                  },
+                                                                  on: {
+                                                                    change: [
+                                                                      function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          _vm
+                                                                            .system_settings
+                                                                            .auto_dialer,
+                                                                          "applies_to",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      },
+                                                                      function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.applySetting()
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._l(
+                                                                    _vm.roles,
+                                                                    function(
+                                                                      role,
+                                                                      index
+                                                                    ) {
+                                                                      return _c(
+                                                                        "option",
+                                                                        {
+                                                                          key: index,
+                                                                          domProps: {
+                                                                            value:
+                                                                              role.id
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            _vm._s(
+                                                                              role.display_name
+                                                                            )
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    }
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "-1"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "Everyone"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ],
+                                                                2
+                                                              )
+                                                            ]
+                                                          )
+                                                        ])
+                                                      : _vm._e()
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                            0
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "row mx-0 preferences border-bottom" },
@@ -255707,7 +256128,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(2),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -255756,525 +256177,203 @@ var render = function() {
                                 { staticClass: "w-100 general-system-prefs" },
                                 [
                                   _c(
-                                    "p",
-                                    {
-                                      staticClass: "d-block w-100 title",
-                                      attrs: { title: "Personal Information" }
-                                    },
-                                    [_vm._v("General System Preferences")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
                                     "div",
-                                    {
-                                      staticClass:
-                                        "row mx-0 border-left mb-4 pb-0 pl-4"
-                                    },
+                                    { staticClass: "row mx-0 mb-4 pb-0 pl-4" },
                                     [
-                                      _vm.user.role_id == 1
-                                        ? _c(
-                                            "div",
-                                            { staticClass: "row mx-0" },
-                                            [
-                                              _c(
-                                                "h3",
-                                                { staticClass: "d-block" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                          Settings \n                        "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(
-                                                _vm.system_preferences,
-                                                function(setting, index) {
-                                                  return _c(
-                                                    "div",
-                                                    {
-                                                      key: index,
-                                                      class: {
-                                                        input: true,
-                                                        "form-group": true
-                                                      }
-                                                    },
-                                                    [
-                                                      setting.setting ==
-                                                      "auto_dialer"
-                                                        ? _c("div", [
-                                                            _c(
-                                                              "label",
-                                                              {
-                                                                staticClass:
-                                                                  "col-lg-5 control-label w-100 p-0"
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "\n                              Auto Dialing\n                              "
-                                                                ),
-                                                                _c(
-                                                                  "select",
-                                                                  {
-                                                                    directives: [
-                                                                      {
-                                                                        name:
-                                                                          "model",
-                                                                        rawName:
-                                                                          "v-model",
-                                                                        value:
-                                                                          _vm
-                                                                            .system_settings
-                                                                            .auto_dialer
-                                                                            .value,
-                                                                        expression:
-                                                                          "system_settings.auto_dialer.value"
-                                                                      }
-                                                                    ],
-                                                                    staticClass:
-                                                                      "form-control border-0 rounded-pill",
-                                                                    attrs: {
-                                                                      id:
-                                                                        "auto_dialler"
-                                                                    },
-                                                                    on: {
-                                                                      change: [
-                                                                        function(
-                                                                          $event
-                                                                        ) {
-                                                                          var $$selectedVal = Array.prototype.filter
-                                                                            .call(
-                                                                              $event
-                                                                                .target
-                                                                                .options,
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                return o.selected
-                                                                              }
-                                                                            )
-                                                                            .map(
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                var val =
-                                                                                  "_value" in
-                                                                                  o
-                                                                                    ? o._value
-                                                                                    : o.value
-                                                                                return val
-                                                                              }
-                                                                            )
-                                                                          _vm.$set(
-                                                                            _vm
-                                                                              .system_settings
-                                                                              .auto_dialer,
-                                                                            "value",
-                                                                            $event
-                                                                              .target
-                                                                              .multiple
-                                                                              ? $$selectedVal
-                                                                              : $$selectedVal[0]
-                                                                          )
-                                                                        },
-                                                                        function(
-                                                                          $event
-                                                                        ) {
-                                                                          return _vm.applySetting()
-                                                                        }
-                                                                      ]
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "option",
-                                                                      {
-                                                                        attrs: {
-                                                                          value:
-                                                                            "on"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "On"
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "option",
-                                                                      {
-                                                                        attrs: {
-                                                                          value:
-                                                                            "off"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Off"
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "label",
-                                                              {
-                                                                staticClass:
-                                                                  "col-lg-6 control-label w-100 p-0"
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "\n                              Apply To\n                              "
-                                                                ),
-                                                                _c(
-                                                                  "select",
-                                                                  {
-                                                                    directives: [
-                                                                      {
-                                                                        name:
-                                                                          "model",
-                                                                        rawName:
-                                                                          "v-model",
-                                                                        value:
-                                                                          _vm
-                                                                            .system_settings
-                                                                            .auto_dialer
-                                                                            .applies_to,
-                                                                        expression:
-                                                                          "system_settings.auto_dialer.applies_to"
-                                                                      }
-                                                                    ],
-                                                                    staticClass:
-                                                                      "form-control border-0 rounded-pill",
-                                                                    attrs: {
-                                                                      id:
-                                                                        "auto_dialler"
-                                                                    },
-                                                                    on: {
-                                                                      change: [
-                                                                        function(
-                                                                          $event
-                                                                        ) {
-                                                                          var $$selectedVal = Array.prototype.filter
-                                                                            .call(
-                                                                              $event
-                                                                                .target
-                                                                                .options,
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                return o.selected
-                                                                              }
-                                                                            )
-                                                                            .map(
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                var val =
-                                                                                  "_value" in
-                                                                                  o
-                                                                                    ? o._value
-                                                                                    : o.value
-                                                                                return val
-                                                                              }
-                                                                            )
-                                                                          _vm.$set(
-                                                                            _vm
-                                                                              .system_settings
-                                                                              .auto_dialer,
-                                                                            "applies_to",
-                                                                            $event
-                                                                              .target
-                                                                              .multiple
-                                                                              ? $$selectedVal
-                                                                              : $$selectedVal[0]
-                                                                          )
-                                                                        },
-                                                                        function(
-                                                                          $event
-                                                                        ) {
-                                                                          return _vm.applySetting()
-                                                                        }
-                                                                      ]
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._l(
-                                                                      _vm.roles,
-                                                                      function(
-                                                                        role,
-                                                                        index
-                                                                      ) {
-                                                                        return _c(
-                                                                          "option",
-                                                                          {
-                                                                            key: index,
-                                                                            domProps: {
-                                                                              value:
-                                                                                role.id
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              _vm._s(
-                                                                                role.display_name
-                                                                              )
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "option",
-                                                                      {
-                                                                        attrs: {
-                                                                          value:
-                                                                            "-1"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Everyone"
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ],
-                                                                  2
-                                                                )
-                                                              ]
-                                                            )
-                                                          ])
-                                                        : _vm._e()
-                                                    ]
-                                                  )
-                                                }
-                                              )
-                                            ],
-                                            2
-                                          )
-                                        : _vm._e(),
-                                      _vm._v(" "),
                                       _vm.preferences.length > 0
                                         ? _c(
                                             "div",
                                             { staticClass: "row mx-0" },
-                                            [
-                                              _c(
-                                                "h3",
-                                                { staticClass: "d-block" },
+                                            _vm._l(_vm.preferences, function(
+                                              setting,
+                                              index
+                                            ) {
+                                              return _c(
+                                                "div",
+                                                {
+                                                  key: index,
+                                                  staticClass: "w-100 themes"
+                                                },
                                                 [
-                                                  _vm._v(
-                                                    "\n                          Themes \n                        "
-                                                  )
+                                                  setting.setting == "theme" &&
+                                                  setting.system_setting != 1
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "row mx-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "label",
+                                                            {
+                                                              staticClass:
+                                                                "col-auto control-label p-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "m-0 rounded-pill",
+                                                                  class: {
+                                                                    "btn orange-btn": true,
+                                                                    "btn-orange":
+                                                                      setting.value ==
+                                                                      "orange"
+                                                                        ? true
+                                                                        : false,
+                                                                    "btn-default":
+                                                                      setting.value !=
+                                                                      "orange"
+                                                                        ? true
+                                                                        : false
+                                                                  },
+                                                                  attrs: {
+                                                                    type:
+                                                                      "submit"
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.applySetting(
+                                                                        {
+                                                                          type:
+                                                                            "theme",
+                                                                          value:
+                                                                            "orange"
+                                                                        }
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                Orange\n                              "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "label",
+                                                            {
+                                                              staticClass:
+                                                                "col-auto control-label p-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "m-0 rounded-pill",
+                                                                  class: {
+                                                                    "btn blue-btn": true,
+                                                                    "btn-blue":
+                                                                      setting.value ==
+                                                                      "blue"
+                                                                        ? true
+                                                                        : false,
+                                                                    "btn-default":
+                                                                      setting.value !=
+                                                                      "blue"
+                                                                        ? true
+                                                                        : false
+                                                                  },
+                                                                  attrs: {
+                                                                    type:
+                                                                      "submit"
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.applySetting(
+                                                                        {
+                                                                          type:
+                                                                            "theme",
+                                                                          value:
+                                                                            "blue"
+                                                                        }
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                Blue\n                              "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "label",
+                                                            {
+                                                              staticClass:
+                                                                "col-auto control-label p-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "m-0 rounded-pill",
+                                                                  class: {
+                                                                    "btn dark-btn": true,
+                                                                    "btn-dark":
+                                                                      setting.value ==
+                                                                      "dark"
+                                                                        ? true
+                                                                        : false,
+                                                                    "btn-default":
+                                                                      setting.value !=
+                                                                      "dark"
+                                                                        ? true
+                                                                        : false
+                                                                  },
+                                                                  attrs: {
+                                                                    type:
+                                                                      "submit"
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.applySetting(
+                                                                        {
+                                                                          type:
+                                                                            "theme",
+                                                                          value:
+                                                                            "dark"
+                                                                        }
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                Dark\n                              "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
                                                 ]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(_vm.preferences, function(
-                                                setting,
-                                                index
-                                              ) {
-                                                return _c(
-                                                  "div",
-                                                  {
-                                                    key: index,
-                                                    staticClass: "w-100 themes"
-                                                  },
-                                                  [
-                                                    setting.setting ==
-                                                      "theme" &&
-                                                    setting.system_setting != 1
-                                                      ? _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "row mx-0"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "label",
-                                                              {
-                                                                staticClass:
-                                                                  "col-auto control-label p-0"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "button",
-                                                                  {
-                                                                    staticClass:
-                                                                      "m-0 rounded-pill",
-                                                                    class: {
-                                                                      "btn orange-btn": true,
-                                                                      "btn-orange":
-                                                                        setting.value ==
-                                                                        "orange"
-                                                                          ? true
-                                                                          : false,
-                                                                      "btn-default":
-                                                                        setting.value !=
-                                                                        "orange"
-                                                                          ? true
-                                                                          : false
-                                                                    },
-                                                                    attrs: {
-                                                                      type:
-                                                                        "submit"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.applySetting(
-                                                                          {
-                                                                            type:
-                                                                              "theme",
-                                                                            value:
-                                                                              "orange"
-                                                                          }
-                                                                        )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "\n                                Orange\n                              "
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "label",
-                                                              {
-                                                                staticClass:
-                                                                  "col-auto control-label p-0"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "button",
-                                                                  {
-                                                                    staticClass:
-                                                                      "m-0 rounded-pill",
-                                                                    class: {
-                                                                      "btn blue-btn": true,
-                                                                      "btn-blue":
-                                                                        setting.value ==
-                                                                        "blue"
-                                                                          ? true
-                                                                          : false,
-                                                                      "btn-default":
-                                                                        setting.value !=
-                                                                        "blue"
-                                                                          ? true
-                                                                          : false
-                                                                    },
-                                                                    attrs: {
-                                                                      type:
-                                                                        "submit"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.applySetting(
-                                                                          {
-                                                                            type:
-                                                                              "theme",
-                                                                            value:
-                                                                              "blue"
-                                                                          }
-                                                                        )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "\n                                Blue\n                              "
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "label",
-                                                              {
-                                                                staticClass:
-                                                                  "col-auto control-label p-0"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "button",
-                                                                  {
-                                                                    staticClass:
-                                                                      "m-0 rounded-pill",
-                                                                    class: {
-                                                                      "btn dark-btn": true,
-                                                                      "btn-dark":
-                                                                        setting.value ==
-                                                                        "dark"
-                                                                          ? true
-                                                                          : false,
-                                                                      "btn-default":
-                                                                        setting.value !=
-                                                                        "dark"
-                                                                          ? true
-                                                                          : false
-                                                                    },
-                                                                    attrs: {
-                                                                      type:
-                                                                        "submit"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.applySetting(
-                                                                          {
-                                                                            type:
-                                                                              "theme",
-                                                                            value:
-                                                                              "dark"
-                                                                          }
-                                                                        )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "\n                                Dark\n                              "
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        )
-                                                      : _vm._e()
-                                                  ]
-                                                )
-                                              })
-                                            ],
-                                            2
+                                              )
+                                            }),
+                                            0
                                           )
                                         : _c(
                                             "div",
                                             { staticClass: "row mx-0" },
                                             [
-                                              _c(
-                                                "h3",
-                                                { staticClass: "d-block" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                          Themes \n                        "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
                                               _c(
                                                 "div",
                                                 { staticClass: "w-100 themes" },
@@ -256438,7 +256537,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(3),
+                            _vm._m(4),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -256829,19 +256928,19 @@ var render = function() {
                                 }),
                                 0
                               )
-                            : _c("div", [_vm._m(4)])
+                            : _c("div", [_vm._m(5)])
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.callbacks_on == false && _vm.messages_on == true
                       ? _c("div", { staticClass: "row mx-0" }, [
-                          _vm._m(5),
-                          _vm._v(" "),
                           _vm._m(6),
                           _vm._v(" "),
                           _vm._m(7),
                           _vm._v(" "),
-                          _vm._m(8)
+                          _vm._m(8),
+                          _vm._v(" "),
+                          _vm._m(9)
                         ])
                       : _vm._e()
                   ])
@@ -256853,7 +256952,7 @@ var render = function() {
                       _c("div", { staticClass: "col-lg-12" }, [
                         _c("div", { staticClass: "row p-0" }, [
                           _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(9),
+                            _vm._m(10),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress-bar w-100" }, [
                               _c("span", {
@@ -256864,11 +256963,11 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(10),
-                        _vm._v(" "),
                         _vm._m(11),
                         _vm._v(" "),
-                        _vm._m(12)
+                        _vm._m(12),
+                        _vm._v(" "),
+                        _vm._m(13)
                       ])
                     ]),
                     _vm._v(" "),
@@ -256884,7 +256983,7 @@ var render = function() {
                                 "card left mt-3 tab-card border-0 shadow-none"
                             },
                             [
-                              _vm._m(13),
+                              _vm._m(14),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -256913,59 +257012,7 @@ var render = function() {
                                           "is-expanded": "",
                                           popover: true
                                         }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "to-do-list" }, [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "card border-0 mx-0 mb-0"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "row mx-0 justify-content-between align-items-center"
-                                              },
-                                              [
-                                                _vm._m(14),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass: "col-auto pr-0"
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "b-button",
-                                                      {
-                                                        staticClass:
-                                                          "rounded-circle border-0 m-0 p-1"
-                                                      },
-                                                      [
-                                                        _c("img", {
-                                                          staticClass: "icon",
-                                                          attrs: {
-                                                            src:
-                                                              "/images/icons/Asset 29@4x.png",
-                                                            alt: "Icon",
-                                                            width: "10"
-                                                          }
-                                                        })
-                                                      ]
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._m(15)
-                                          ]
-                                        )
-                                      ])
+                                      })
                                     ],
                                     1
                                   ),
@@ -257071,7 +257118,7 @@ var render = function() {
                                                 staticClass: "row filter-search"
                                               },
                                               [
-                                                _vm._m(16),
+                                                _vm._m(15),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -257163,10 +257210,10 @@ var render = function() {
                                                       "table",
                                                       { staticClass: "tg" },
                                                       [
-                                                        _vm._m(17),
+                                                        _vm._m(16),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(18),
+                                                          _vm._m(17),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257298,7 +257345,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(19),
+                                                          _vm._m(18),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257431,7 +257478,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(20),
+                                                          _vm._m(19),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257562,7 +257609,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(21),
+                                                          _vm._m(20),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257693,7 +257740,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(22),
+                                                          _vm._m(21),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -257924,7 +257971,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _c("tr", [
-                                                                _vm._m(23),
+                                                                _vm._m(22),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "td",
@@ -258087,99 +258134,198 @@ var render = function() {
                           )
                         ]
                       )
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row mx-0 mb-4 reminders" },
+                      [
+                        _c(
+                          "b-tabs",
+                          { attrs: { "content-class": "mt-3" } },
+                          [
+                            _c(
+                              "b-tab",
+                              { attrs: { title: "Callbacks", active: "" } },
+                              [
+                                _c("ul", { staticClass: "pl-0" }, [
+                                  _c(
+                                    "li",
+                                    {
+                                      staticClass:
+                                        "my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          type: "checkbox",
+                                          id: "customControlAutosizing"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0",
+                                          attrs: {
+                                            for: "customControlAutosizing"
+                                          }
+                                        },
+                                        [_vm._v("Callback Justine")]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("b-tab", { attrs: { title: "Reminders" } }, [
+                              _c("ul", { staticClass: "pl-0" }, [
+                                _c(
+                                  "li",
+                                  {
+                                    staticClass:
+                                      "my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"
+                                  },
+                                  [
+                                    _c("input", {
+                                      staticClass: "custom-control-input mx-0",
+                                      attrs: {
+                                        type: "checkbox",
+                                        id: "customControlAutosizing"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "custom-control-label mx-0",
+                                        attrs: {
+                                          for: "customControlAutosizing"
+                                        }
+                                      },
+                                      [
+                                        _c("input", {
+                                          staticClass:
+                                            "w-100 border-0 list-input",
+                                          attrs: {
+                                            type: "text",
+                                            value: "1. To Do List"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
                   ])
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "closed-sidenav pr-3 d-none" },
-              [
-                _c("ul", { staticClass: "navbar-nav row mx-0" }, [
-                  _c("li", { staticClass: "nav-item col-auto pl-0" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon p-0",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showNotifications()
-                          }
-                        }
-                      },
-                      [
-                        _vm.notifications_on == true
-                          ? _c("img", {
-                              attrs: {
-                                src: "/images/icons/Notification_active.svg",
-                                alt: "Notification Bell",
-                                width: "50"
+            _c("div", { staticClass: "closed-sidenav pr-3 d-none" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "row mx-0 align-items-center border-bottom justify-content-between pb-2"
+                },
+                [
+                  _c("div", { staticClass: "col pl-0" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "nav-item col-auto px-0" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link icon p-0",
+                            attrs: { href: "#", "data-toggle": "push-menu" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showNotifications()
                               }
-                            })
-                          : _vm.notifications_on == false &&
-                            _vm.unread_messages == 0 &&
-                            _vm.call_backs.length == 0
-                          ? _c("img", {
-                              attrs: {
-                                src: "/images/icons/Notification.svg",
-                                alt: "Notification Bell",
-                                width: "50"
+                            }
+                          },
+                          [
+                            _vm.notifications_on == true
+                              ? _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/icons/right-sidebar/Notifications_Active.svg",
+                                    alt: "Notification Bell",
+                                    width: "50"
+                                  }
+                                })
+                              : _vm.notifications_on == false &&
+                                _vm.unread_messages == 0 &&
+                                _vm.call_backs.length == 0
+                              ? _c("img", {
+                                  staticClass: "inactive-icon",
+                                  attrs: {
+                                    src:
+                                      "/images/icons/right-sidebar/Notification.svg",
+                                    alt: "Notification Bell",
+                                    width: "50"
+                                  }
+                                })
+                              : (_vm.notifications_on == false &&
+                                  _vm.unread_messages >= 1) ||
+                                _vm.call_backs.length > 0
+                              ? _c("img", {
+                                  staticClass: "inactive-icon",
+                                  attrs: {
+                                    src:
+                                      "/images/icons/right-sidebar/Notifications_red.svg",
+                                    alt: "Notification Bell",
+                                    width: "50"
+                                  }
+                                })
+                              : _vm._e()
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "nav-item col-auto px-0" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link icon p-0",
+                            attrs: { href: "#", "data-toggle": "push-menu" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showSettings()
                               }
-                            })
-                          : (_vm.notifications_on == false &&
-                              _vm.unread_messages >= 1) ||
-                            _vm.call_backs.length > 0
-                          ? _c("img", {
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "inactive-icon",
                               attrs: {
-                                src: "/images/icons/Notification_new.svg",
-                                alt: "Notification Bell",
-                                width: "50"
-                              }
-                            })
-                          : _vm._e()
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item col-auto pr-0" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon pt-0 pr-0",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showSettings()
-                          }
-                        }
-                      },
-                      [
-                        _vm.settings_on == false
-                          ? _c("img", {
-                              attrs: {
-                                src: "/images/icons/Asset 62.svg",
+                                src: "/images/icons/right-sidebar/Setting.svg",
                                 alt: "Settings Cog",
                                 width: "50"
                               }
                             })
-                          : _c("img", {
-                              attrs: {
-                                src: "/images/icons/Asset 63.svg",
-                                alt: "Settings Cog",
-                                width: "50"
-                              }
-                            })
-                      ]
-                    )
+                          ]
+                        )
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item col-auto pr-0" }, [
+                  _c("div", { staticClass: "nav-item col-auto pr-0" }, [
                     _c(
                       "a",
                       {
-                        staticClass: "nav-link icon pt-0 small-avatar",
+                        staticClass: "nav-link icon p-0 small-avatar",
                         attrs: { href: "#" },
                         on: {
                           click: function($event) {
@@ -258202,51 +258348,120 @@ var render = function() {
                       ]
                     )
                   ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Filter")]),
-                _vm._v(" "),
-                _c(
-                  "b-tabs",
-                  { attrs: { "content-class": "mt-3" } },
-                  [
-                    _c("b-tab", { attrs: { title: "Saved", active: "" } }),
-                    _vm._v(" "),
-                    _c("b-tab", { attrs: { title: "New" } }, [
-                      _c("ul", { staticClass: "pl-0" }, [
-                        _c(
-                          "li",
-                          {
-                            staticClass:
-                              "my-2 p-2 custom-control custom-checkbox rounded-pill"
-                          },
-                          [
-                            _c("input", {
-                              staticClass: "custom-control-input mx-0",
-                              attrs: {
-                                type: "checkbox",
-                                id: "customControlAutosizing"
-                              }
-                            }),
-                            _vm._v(" "),
+                ]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "filter-heading mt-2 mb-3" }, [
+                _vm._v("Filter")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row filter-content" },
+                [
+                  _c(
+                    "b-tabs",
+                    { attrs: { "content-class": "mt-3" } },
+                    [
+                      _c("b-tab", { attrs: { title: "New" } }, [
+                        _c("div", { staticClass: "filter-group" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "my-2 p-2 custom-control custom-checkbox"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "custom-control-input mx-0",
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "customControlAutosizing"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label mx-0 pt-0",
+                                  attrs: { for: "customControlAutosizing" }
+                                },
+                                [_vm._v("Name")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ml-3 pt-2" }, [
                             _c(
-                              "label",
-                              {
-                                staticClass: "custom-control-label mx-0",
-                                attrs: { for: "customControlAutosizing" }
-                              },
-                              [_vm._v("Name")]
-                            )
-                          ]
-                        )
+                              "select",
+                              { staticClass: "search-criteria w-100 mb-2" },
+                              [
+                                _c("option", { attrs: { selected: "" } }, [
+                                  _vm._v("is equal to")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("contains")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "2" } }, [
+                                  _vm._v("does not contain")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "3" } }, [
+                                  _vm._v("begins with")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "3" } }, [
+                                  _vm._v("ends with")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "search-text w-100 mt-2",
+                              attrs: { type: "text", placeholder: "Search..." }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("b-tab", { attrs: { title: "Saved", active: "" } }, [
+                        _c("div", { staticClass: "saved-group" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "my-2 p-2 custom-control custom-checkbox"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "custom-control-input mx-0",
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "customControlAutosizing"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "custom-control-label mx-0 pt-0",
+                                  attrs: { for: "customControlAutosizing" }
+                                },
+                                [_vm._v("Name")]
+                              )
+                            ]
+                          )
+                        ])
                       ])
-                    ])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ])
           ]
         )
       ])
@@ -258275,7 +258490,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
-      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Preferences")])
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Settings")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-auto" }, [
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Themes")])
     ])
   },
   function() {
@@ -258509,54 +258732,6 @@ var staticRenderFns = [
           ])
         ]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto pl-0" }, [
-      _c("p", { staticClass: "text-uppercase mb-1" }, [_vm._v("To do list")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { cass: "row mx-0 justify-content-between" } }, [
-      _c("div", { staticClass: "col-lg-12 px-0" }, [
-        _c("p", { staticClass: "border-bottom pb-1" }, [_vm._v("1 Completed")]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "pl-0" }, [
-          _c(
-            "li",
-            {
-              staticClass:
-                "my-2 p-2 align-items-center custom-control custom-checkbox"
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input mx-0",
-                attrs: { type: "checkbox", id: "customControlAutosizing" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label mx-0",
-                  attrs: { for: "customControlAutosizing" }
-                },
-                [
-                  _c("input", {
-                    staticClass: "w-100 border-0 list-input",
-                    attrs: { type: "text", value: "1. To Do List" }
-                  })
-                ]
-              )
-            ]
-          )
-        ])
-      ])
     ])
   },
   function() {

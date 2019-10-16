@@ -493,48 +493,34 @@ p.heading{
   height: 120px;
   width:80px;
 }
-.to-do-list .card {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 15px;
-  padding:20px;
+.sidebar-collapse .menu-toggle {
+  background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;
 }
-.to-do-list .card ul li {
-  list-style: none;
+.reminders {
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  border-radius: 25px;
 }
-.to-do-list .col-auto p{
-  font-size: 21px;
-  font-family: 'Rubik', sans-serif;
-  color: #1c2331;
+.reminders .tabs, .filter-content .tabs {
+  width: 100%;
 }
-.to-do-list .col-auto button {
-  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;
-  line-height: 1em;
-}
-.to-do-list .col-auto button img {
-  margin:6px;
-}
-.to-do-list .col-lg-12 p.border-bottom {
-  border-color: #cdcdd0;
-}
-.to-do-list ul li {
+.reminders li.custom-control.custom-checkbox{
   box-shadow: 0 0 7px rgba(0,0,0,0.05);
 }
-.to-do-list .custom-checkbox .custom-control-label::before {
+.reminders .custom-checkbox .custom-control-label::before {
   border-radius: 50%!important;
   border:1px solid #ff8033;
   box-shadow: none;
 }
-.to-do-list .custom-control-label::after, .to-do-list .custom-control-label::before {
+.reminders .custom-control-label::after, .reminders .custom-control-label::before {
   width: 20px;
   height: 20px;
   top: 0.6rem;
   left: 0.2rem;
 }
-.to-do-list input.list-input {
+.reminders input.list-input {
   font-size: 21px;
   font-family: 'Rubik', sans-serif;
-  color: rgba(28, 35, 49, 0.5);
-  font-weight: 700;
+  color: #7f8080;
   padding-left: 40px!important;
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -542,7 +528,7 @@ p.heading{
   background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;
   border-radius: 50%!important;
 }
-.to-do-list input.list-input:focus{
+.reminders input.list-input:focus{
   border: 1px solid rgba(28, 35, 49, 0.5);
 }
 .nav-tabs .nav-item {
@@ -564,6 +550,47 @@ p.heading{
   padding:10px 20px;
   letter-spacing: 0.05em;
 }
+.inactive-icon {
+  padding: 11px;
+  border-radius: 50rem;
+  box-shadow: none;
+  transition: box-shadow .5s ease;
+}
+.inactive-icon:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.filter-heading {
+  font-size: 19px;
+}
+.row.filter-content {
+  margin-left:-27px;
+  margin-right:-27px;
+}
+.row.filter-content .custom-control.custom-checkbox{
+  border-radius: 14px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.05);
+}
+.row.filter-content .custom-control.custom-checkbox .custom-control-label {
+  font-size: 16px;
+  padding-left:28px;
+}
+.row.filter-content .search-criteria {
+  border:0;
+  box-shadow: 0 0 7px rgba(0,0,0,0.05);
+  font-size: 13px;
+  border-radius: 14px;
+  padding:10px;
+}
+.row.filter-content .search-text {
+  border:0;
+  box-shadow: 0 0 7px rgba(0,0,0,0.05);
+  font-size: 13px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  border-radius: 14px;
+  padding:10px;
+}
 /*End Right Component*/
 </style>
 <template>
@@ -583,44 +610,48 @@ p.heading{
               <ul class="navbar-nav col-auto">
                 <li class="nav-item">
                   <a 
-                    class="nav-link icon p-0" 
+                    class="nav-link icon p-0 mr-2" 
                     href="#" 
                     @click="showNotifications()"
                   >
                     <img 
                       v-if="notifications_on == true" 
-                      src="/images/icons/Notification_active.svg"
+                      src="/images/icons/right-sidebar/Notifications_Active.svg"
                       alt="Notification Bell" 
                       width="50"
                     >
                     <img 
                       v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
-                      src="/images/icons/right-sidebar/Notifications Icon.svg" 
+                      src="/images/icons/right-sidebar/Notification.svg" 
                       alt="Notification Bell" 
                       width="50"
+                      class="inactive-icon"
                     >
                     <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
-                      src="/images/icons/Notification_new.svg" 
+                      src="/images/icons/right-sidebar/Notifications_red.svg" 
                       alt="Notification Bell" 
                       width="50"
+                      class="inactive-icon"
                     >
                   </a>
                 </li>
 
                 <li class="nav-item">
                   <a 
-                    class="nav-link icon pt-0 pr-0" 
+                    class="nav-link icon p-0" 
                     href="#" 
                     @click="showSettings()"
                   >
                     <img 
                       v-if="settings_on == false" 
-                      src="/images/icons/right-sidebar/Settings Icon.svg" 
+                      src="/images/icons/right-sidebar/Setting.svg" 
                       alt="Settings Cog" 
                       width="50"
+                      class="inactive-icon"
                     >
                     <img 
-                      v-else src="/images/icons/right-sidebar/Settings Icon Active.svg" 
+                      v-else 
+                      src="/images/icons/right-sidebar/Settings_Active.svg" 
                       alt="Settings Cog" 
                       width="50"
                     >
@@ -974,10 +1005,10 @@ p.heading{
                 </transition-expand>
               </div>
 
-              <div class="row mx-0 preferences border-bottom">
+              <div class="row mx-0 preferences border-bottom" v-if="user.role_id == 1">
                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                   <div class="col-auto">
-                    <h3 class="d-block mb-0">Preferences</h3>
+                    <h3 class="d-block mb-0">Settings</h3>
                   </div>
                   <div class="col-auto"> 
                     <img 
@@ -998,12 +1029,8 @@ p.heading{
                 </div>
                 <transition-expand>
                   <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
-                    <p class="d-block w-100 title" title="Personal Information">General System Preferences</p>
-                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                      <div class="row mx-0" v-if="user.role_id == 1">
-                        <h3 class="d-block">
-                          Settings 
-                        </h3>
+                    <div class="row mx-0 mb-4 pb-0 pl-4">
+                      <div class="row mx-0">
                         <div 
                           :class="{'input': true, 'form-group' :true }" 
                           v-for="(setting, index) in system_preferences" 
@@ -1041,11 +1068,37 @@ p.heading{
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </transition-expand>
+              </div>
 
+              <div class="row mx-0 preferences border-bottom">
+                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
+                  <div class="col-auto">
+                    <h3 class="d-block mb-0">Themes</h3>
+                  </div>
+                  <div class="col-auto"> 
+                    <img 
+                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-if="system_settings_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
+                    >
+                    <img 
+                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-else 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
+                      alt="Account Edit Off"
+                      width="30"
+                    >
+                  </div>
+                </div>
+                <transition-expand>
+                  <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
+                    <div class="row mx-0 mb-4 pb-0 pl-4">
                       <div class="row mx-0" v-if="preferences.length > 0">
-                        <h3 class="d-block">
-                          Themes 
-                        </h3>
                         <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
                           <div v-if="setting.setting == 'theme' && setting.system_setting != 1" class="row mx-0">
                             <label class="col-auto control-label p-0">
@@ -1083,9 +1136,6 @@ p.heading{
                       </div>
 
                       <div class="row mx-0" v-else>
-                        <h3 class="d-block">
-                          Themes 
-                        </h3>
                         <div class="w-100 themes">
                           <div class="row mx-0">
                             <label class="col-auto control-label py-0 pr-2 pl-0">
@@ -1381,37 +1431,7 @@ p.heading{
                           :attributes='attrs' 
                           title-position="right" 
                           is-expanded 
-                          :popover="true" />
-
-                        <div class="to-do-list">
-                          <div class="card border-0 mx-0 mb-0">
-                            <div  class="row mx-0 justify-content-between align-items-center">
-                              <div class="col-auto pl-0">
-                                <p class="text-uppercase mb-1">To do list</p>
-                              </div>
-                              <div class="col-auto pr-0">
-                                <b-button class="rounded-circle border-0 m-0 p-1"> 
-                                  <img src="/images/icons/Asset 29@4x.png" alt="Icon" width="10" class="icon"/> 
-                                </b-button>
-                              </div>
-                            </div>
-
-                            <div cass="row mx-0 justify-content-between">
-                              <div class="col-lg-12 px-0">
-                                <p class="border-bottom pb-1">1 Completed</p>
-      
-                                <ul class="pl-0">
-                                  <li class="my-2 p-2 align-items-center custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                    <label class="custom-control-label mx-0" for="customControlAutosizing">
-                                      <input type="text" value="1. To Do List" class="w-100 border-0 list-input">
-                                    </label>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>          
+                          :popover="true" />          
                       </div>
 
                       <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
@@ -1633,60 +1653,87 @@ p.heading{
                   </div>
                 </div>
               </div>
+
+              <div class="row mx-0 mb-4 reminders">
+                <b-tabs content-class="mt-3">
+                  <b-tab title="Callbacks" active>
+                    <ul class="pl-0">
+                      <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                        <label class="custom-control-label mx-0" for="customControlAutosizing">Callback Justine</label>
+                      </li>
+                    </ul>
+                  </b-tab>
+
+                  <b-tab title="Reminders">
+                    <ul class="pl-0">
+                      <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                        <label class="custom-control-label mx-0" for="customControlAutosizing">
+                          <input type="text" value="1. To Do List" class="w-100 border-0 list-input">
+                        </label>
+                      </li>
+                    </ul>
+                  </b-tab>
+                </b-tabs>
+              </div>
             </div>
           </div>
 
           <div class="closed-sidenav pr-3 d-none">
-            <ul class="navbar-nav row mx-0">
-              <li class="nav-item col-auto pl-0">
-                <a 
-                  class="nav-link icon p-0" 
-                  href="#" 
-                  @click="showNotifications()"
-                >
-                  <img 
-                    v-if="notifications_on == true" 
-                    src="/images/icons/Notification_active.svg"
-                    alt="Notification Bell" 
-                    width="50"
-                  >
-                  <img 
-                    v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
-                    src="/images/icons/Notification.svg" 
-                    alt="Notification Bell" 
-                    width="50"
-                  >
-                  <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
-                    src="/images/icons/Notification_new.svg" 
-                    alt="Notification Bell" 
-                    width="50"
-                  >
-                </a>
-              </li>
+            <div class="row mx-0 align-items-center border-bottom justify-content-between pb-2">
+              <div class="col pl-0">
+                <div class="row">
+                  <div class="nav-item col-auto px-0">
+                    <a 
+                      class="nav-link icon p-0" 
+                      href="#" 
+                      data-toggle="push-menu"
+                      @click="showNotifications()"
+                    >
+                      <img 
+                        v-if="notifications_on == true" 
+                        src="/images/icons/right-sidebar/Notifications_Active.svg"
+                        alt="Notification Bell" 
+                        width="50"
+                      >
+                      <img 
+                        v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" 
+                        src="/images/icons/right-sidebar/Notification.svg" 
+                        alt="Notification Bell" 
+                        width="50"
+                        class="inactive-icon"
+                      >
+                      <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" 
+                        src="/images/icons/right-sidebar/Notifications_red.svg" 
+                        alt="Notification Bell" 
+                        width="50"
+                        class="inactive-icon"
+                      >
+                    </a>
+                  </div>
 
-              <li class="nav-item col-auto pr-0">
-                <a 
-                  class="nav-link icon pt-0 pr-0" 
-                  href="#" 
-                  @click="showSettings()"
-                >
-                  <img 
-                    v-if="settings_on == false" 
-                    src="/images/icons/Asset 62.svg" 
-                    alt="Settings Cog" 
-                    width="50"
-                  >
-                  <img 
-                    v-else src="/images/icons/Asset 63.svg" 
-                    alt="Settings Cog" 
-                    width="50"
-                  >
-                </a>
-              </li>
+                  <div class="nav-item col-auto px-0">
+                    <a 
+                      class="nav-link icon p-0" 
+                      href="#" 
+                      data-toggle="push-menu"
+                      @click="showSettings()"
+                    >
+                      <img
+                        src="/images/icons/right-sidebar/Setting.svg" 
+                        alt="Settings Cog" 
+                        width="50"
+                        class="inactive-icon"
+                      >
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-              <li class="nav-item col-auto pr-0">
+              <div class="nav-item col-auto pr-0">
                 <a 
-                  class="nav-link icon pt-0 small-avatar" 
+                  class="nav-link icon p-0 small-avatar" 
                   href="#" 
                   @click="showSettings()"
                 >
@@ -1696,24 +1743,41 @@ p.heading{
                   >
                   <img v-else :src="noImageUrl" >
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
 
-            <p>Filter</p>
-            <b-tabs content-class="mt-3">
-              <b-tab title="Saved" active>
-                
-              </b-tab>
+            <p class="filter-heading mt-2 mb-3">Filter</p>
+            <div class="row filter-content">
+              <b-tabs content-class="mt-3">
+                <b-tab title="New">
+                  <div class="filter-group">
+                    <div class="my-2 p-2 custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                      <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                    </div>
+                    <div class="ml-3 pt-2">
+                      <select class="search-criteria w-100 mb-2">
+                        <option selected>is equal to</option>
+                        <option value="1">contains</option>
+                        <option value="2">does not contain</option>
+                        <option value="3">begins with</option>
+                        <option value="3">ends with</option>
+                      </select>
+                      <input class="search-text w-100 mt-2" type="text" placeholder="Search...">
+                    </div>
+                  </div>
+                </b-tab>
 
-              <b-tab title="New">
-                <ul class="pl-0">
-                  <li class="my-2 p-2 custom-control custom-checkbox rounded-pill">
-                    <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                    <label class="custom-control-label mx-0" for="customControlAutosizing">Name</label>
-                  </li>
-                </ul>
-              </b-tab>
-            </b-tabs>
+                <b-tab title="Saved" active>
+                  <div class="saved-group">
+                    <div class="my-2 p-2 custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
+                      <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                    </div>
+                  </div>
+                </b-tab>
+              </b-tabs>
+            </div>
           </div>
         </div>
 			</section>
