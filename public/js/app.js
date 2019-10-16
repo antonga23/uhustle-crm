@@ -68580,6 +68580,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
 /* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/CallLogsDataTable */ "./resources/assets/js/components/DataTables/CallLogsDataTable.vue");
 //
 //
 //
@@ -69071,76 +69072,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
-    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"]
+    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
+    DataTable: _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
     console.log('Component mounted');
     this.getCallLog();
+    this.getActiveCalls();
     var vm = this;
     Fire.$on('TopMonthFilterChange', function (data) {
       vm.getCallLog(data.month);
@@ -69156,6 +69100,7 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   data: function data() {
     return {
+      conferences: [],
       call_log: {
         total_calls: '',
         total_sales: '',
@@ -69165,10 +69110,126 @@ __webpack_require__.r(__webpack_exports__);
         sum_call_back: '',
         avg_time: ''
       },
+      columns: [{
+        label: 'CALLER',
+        // Column name
+        field: 'lead_caller',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'TYPE',
+        // Column name
+        field: 'lead_type',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'NAME',
+        // Column name
+        field: 'lead_name',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'OWNER',
+        // Column name
+        field: 'lead_owner',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'ASSIGNEE',
+        // Column name
+        field: 'lead_assignee',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'MOBILE #',
+        // Column name
+        field: 'lead_mobile',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'PACKAGE',
+        // Column name
+        field: 'lead_product',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true,
+        exportable: true
+      }, {
+        label: 'CALL START',
+        // Column name
+        field: 'dateCreated',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true
+      }, {
+        label: 'STATUS',
+        // Column name
+        field: 'status',
+        // Field name from row
+        numeric: true,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: false
+      }, {
+        label: '',
+        // Column name
+        field: 'actions',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: false
+      }],
       Toast: null
     };
   },
   methods: {
+    getActiveCalls: function getActiveCalls() {
+      var vm = this;
+      vm.show_page_loader = true;
+      axios.get('/calls/list').then(function (response) {
+        vm.conferences = response.data.conferences;
+        vm.show_page_loader = false;
+        console.log(vm.conferences);
+      }); // setInterval(function(){ 
+      //     axios.get('/calls/list').then(function (response) { 
+      //         vm.conferences = response.data.conferences;
+      //         vm.show_page_loader = false;
+      //     });
+      // }, 5000);
+    },
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -70477,6 +70538,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuse.js */ "./node_modules/fuse.js/src/fuse.js");
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuse_js__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -131920,7 +131988,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\n    padding: 0 3%\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 1%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)!important;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    width: 100px;\n    float: right;\n    border-radius: 50%;\n    background-color: #EBEFF3;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\n    padding: 0 3%\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 3%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    width: 100px;\n    float: right;\n    border-radius: 50%;\n    background-color: #EBEFF3;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -131977,7 +132045,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ntable tr td a.Canceled[data-v-ccb78764]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Talking.svg');\r\n    background-size: 75%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\r\n    background-image: url('/images/icons/No Talking.svg');\r\n    background-size: 90%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\r\ntable tr td a.View[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\r\ntable tr td a.Delete[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\r\ntable tr td a.Edit[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\r\ntable tr td a.Whisper[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\r\ntable tr td a.Barge[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}Barge\r\n.control-label[data-v-ccb78764]{\r\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\r\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\r\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\r\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\r\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\r\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\r\n    height: 35px;\r\n    font-size: 13px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-ccb78764] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-ccb78764]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-ccb78764] {\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\n}\ntable th[data-v-ccb78764]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\r\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\r\ntable th.sorting-asc[data-v-ccb78764]:after,\r\ntable th.sorting-desc[data-v-ccb78764]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\r\ntable td[data-v-ccb78764]:last-child {\r\n    padding-right: 14px;\r\n    padding-left: 11px;\r\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\r\ntable td[data-v-ccb78764]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\n.no-box-shadow[data-v-ccb78764] {\n      box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}Barge\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\ntable td[data-v-ccb78764]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -247522,141 +247590,26 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "row stats mx-0" }, [
-      _c("div", { staticClass: "col-lg-12 px-0" }, [
-        _c("div", { staticClass: "card-body padding-bottom-18" }, [
-          _c(
-            "div",
-            { staticClass: "row justify-content-between mx-0 px-0 headings" },
-            [
-              _vm._m(7),
-              _vm._v(" "),
-              _vm._m(8),
-              _vm._v(" "),
-              _vm._m(9),
-              _vm._v(" "),
-              _vm._m(10),
-              _vm._v(" "),
-              _vm._m(11),
-              _vm._v(" "),
-              _vm._m(12),
-              _vm._v(" "),
-              _vm._m(13),
-              _vm._v(" "),
-              _vm._m(14),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-auto pr-0" },
-                [
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "rounded-circle m-0",
-                      attrs: {
-                        title: "Add more fields",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "icon",
-                        staticStyle: { width: "15px" },
-                        attrs: {
-                          src: "/images/workstation/Asset 28@4x.png",
-                          alt: "Icon"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(15)
-                ],
-                1
-              )
-            ]
-          )
+    _vm.conferences.length > 0
+      ? _c("div", { staticClass: "row stats mt-4 mx-0" }, [
+          _c("div", { staticClass: "col-lg-12 px-0" }, [
+            _c(
+              "div",
+              { staticClass: "card-body padding-bottom-18" },
+              [
+                _c("data-table", {
+                  attrs: {
+                    id: "datatable",
+                    rows: _vm.conferences,
+                    columns: _vm.columns
+                  }
+                })
+              ],
+              1
+            )
+          ])
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.call_log.call_history.length > 0
-      ? _c(
-          "div",
-          {
-            class: {
-              "row stats mx-0": true,
-              "scroll-hidden": _vm.call_log.call_history.length > 8
-            }
-          },
-          _vm._l(_vm.call_log.call_history, function(item, index) {
-            return _c("div", { key: index, staticClass: "col-lg-12" }, [
-              _c("div", { staticClass: "card left text-left" }, [
-                _c("div", { staticClass: "card-body padding-bottom-12" }, [
-                  _c("ul", { staticClass: "items" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v(_vm._s(item.lead_name))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        directives: [
-                          {
-                            name: "b-tooltip",
-                            rawName: "v-b-tooltip.hover",
-                            modifiers: { hover: true }
-                          }
-                        ],
-                        staticClass: "truncate",
-                        attrs: { title: item.lead_country }
-                      },
-                      [_vm._v(_vm._s(item.lead_country))]
-                    ),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-left": "17px" } }, [
-                      _vm._v(_vm._s(item.lead.source))
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-left": "30px" } }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-left": "32px" } }, [
-                      _vm._v(_vm._s(_vm.secondsToMinues(item.call_duration)))
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-left": "11px" } }, [
-                      _vm._v(_vm._s(item.call_date_created))
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticStyle: { "padding-left": "22px" } }, [
-                      item.has_call_back == 1
-                        ? _c("input", {
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "checkbox",
-                              checked: "",
-                              disabled: ""
-                            }
-                          })
-                        : _c("input", {
-                            staticClass: "form-control",
-                            attrs: { type: "checkbox", disabled: "" }
-                          })
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          }),
-          0
-        )
-      : _c("div", { staticClass: "row stats mx-0" }, [_vm._m(16)])
+      : _c("div", { staticClass: "row stats mt-4 mx-0" }, [_vm._m(7)])
   ])
 }
 var staticRenderFns = [
@@ -247734,64 +247687,6 @@ var staticRenderFns = [
       _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
         _vm._v("Sales")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col pl-0" }, [_c("p", [_vm._v("LEAD")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("AGENT")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("SOURCE")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("CALLED")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("TALKED")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("DATE")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("TIME ZONE")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [_c("p", [_vm._v("ENGLISH")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown-menu pl-0 headings" }, [
-      _c("p", { staticClass: "dropdown-item pb-2 col" }, [_vm._v("CALLBACK")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "dropdown-item pb-2 col" }, [_vm._v("STATUS")])
     ])
   },
   function() {
@@ -249115,41 +249010,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card material-table" }, [
+  return _c("div", { staticClass: "card no-box-shadow material-table" }, [
     _c("table", { ref: "table" }, [
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.columns, function(column, index) {
-            return _c(
-              "th",
-              {
-                key: index,
-                class:
-                  (column.sortable ? "sorting " : "") +
-                  (_vm.sortColumn === index
-                    ? _vm.sortType === "desc"
-                      ? "sorting-desc"
-                      : "sorting-asc"
-                    : "") +
-                  (column.numeric ? " numeric" : ""),
-                style: { width: column.width ? column.width : "auto" },
-                on: {
-                  click: function($event) {
-                    return _vm.sort(index)
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(column.label) +
-                    "\n                "
-                )
-              ]
-            )
-          }),
-          0
+          [
+            _vm._l(_vm.columns, function(column, index) {
+              return column.field != "actions"
+                ? _c(
+                    "th",
+                    {
+                      key: index,
+                      class:
+                        (column.sortable ? "sorting " : "") +
+                        (_vm.sortColumn === index
+                          ? _vm.sortType === "desc"
+                            ? "sorting-desc"
+                            : "sorting-asc"
+                          : "") +
+                        (column.numeric ? " numeric" : ""),
+                      style: { width: column.width ? column.width : "auto" },
+                      on: {
+                        click: function($event) {
+                          return _vm.sort(index)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(column.label) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            }),
+            _vm._v(" "),
+            _vm._l(_vm.columns, function(column, index) {
+              return column.field == "actions"
+                ? _c(
+                    "th",
+                    {
+                      key: index,
+                      class:
+                        (column.sortable ? "sorting " : "") +
+                        (_vm.sortColumn === index
+                          ? _vm.sortType === "desc"
+                            ? "sorting-desc"
+                            : "sorting-asc"
+                          : "") +
+                        (column.numeric ? " numeric" : ""),
+                      style: {
+                        width: column.width ? column.width : "auto",
+                        "add-sign": true
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.sort(index)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Putt image style\n                "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            })
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -249185,25 +249117,9 @@ var render = function() {
                     : column.field == "actions" &&
                       (_vm.role == 1 || _vm.role == 2)
                     ? _c("span", { staticClass: "actions" }, [
-                        _c("a", {
-                          staticClass: "Whisper",
-                          attrs: { href: "#", title: "Whisper" },
-                          on: {
-                            click: function($event) {
-                              return _vm.coachActions("Whisper", row)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("a", {
-                          staticClass: "Barge",
-                          attrs: { href: "#", title: "Barge" },
-                          on: {
-                            click: function($event) {
-                              return _vm.coachActions("Barge", row)
-                            }
-                          }
-                        })
+                        _vm._v(
+                          "\n                        &npsp;\n                    "
+                        )
                       ])
                     : _c("span", [
                         _vm._v(_vm._s(_vm.collect(row, column.field)))

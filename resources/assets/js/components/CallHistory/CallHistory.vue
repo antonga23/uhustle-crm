@@ -39,7 +39,7 @@
     }
     
     .row {
-        margin-bottom: 1%;
+        margin-bottom: 3%;
     }
     
     .top-section {
@@ -61,10 +61,10 @@
     .card {
         border-radius: 10px;
         border: none;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)!important;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;
         min-width: 200px;
     }
-    
+ 
     .ca .card-title {
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
@@ -470,74 +470,14 @@
                 </div>
             </div>
         </div>
-        <div class="row stats mx-0">
+        <div class="row stats mt-4 mx-0" v-if="conferences.length > 0">
             <div class="col-lg-12 px-0">
                 <div class="card-body padding-bottom-18">
-                    <div class="row justify-content-between mx-0 px-0 headings">
-                        <div class="col pl-0">
-                            <p>LEAD</p>
-                        </div>
-                        <div class="col">
-                            <p>AGENT</p>
-                        </div>
-                        <div class="col">
-                            <p>SOURCE</p>
-                        </div>
-                        <div class="col">
-                            <p>CALLED</p>
-                        </div>
-                        <div class="col">
-                            <p>TALKED</p>
-                        </div>
-                        <div class="col">
-                            <p>DATE</p>
-                        </div>
-                        <div class="col">
-                            <p>TIME ZONE</p>
-                        </div>
-                        <div class="col">
-                            <p>ENGLISH</p>
-                        </div>
-                        <!-- <div class="col">
-                        <p>CALLBACK</p>
-                      </div>
-                      <div class="col-lg-auto">
-                        <p>STATUS</p>
-                      </div> -->
-                        <div class="col-lg-auto pr-0">
-                            <b-button class="rounded-circle m-0" title="Add more fields" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 15px;" />
-                            </b-button>
-                            <div class="dropdown-menu pl-0 headings">
-                                <p class="dropdown-item pb-2 col">CALLBACK</p>
-                                <p class="dropdown-item pb-2 col">STATUS</p>
-                            </div>
-                        </div>
-                    </div>
+                    <data-table  id="datatable" :rows="conferences" :columns="columns"></data-table>
                 </div>
             </div>
         </div>
-        <div :class="{ 'row stats mx-0': true, 'scroll-hidden' : call_log.call_history.length > 8 }" v-if="call_log.call_history.length > 0">
-            <div class="col-lg-12" v-for="(item,index) in call_log.call_history" :key="index">
-                <div class="card left text-left">
-                    <div class="card-body padding-bottom-12">
-                        <ul class="items">
-                            <li><a href="#">{{ item.lead_name }}</a></li>
-                            <li class="truncate" v-b-tooltip.hover :title="item.lead_country">{{ item.lead_country }}</li>
-                            <li style="padding-left: 17px;">{{ item.lead.source }}</li>
-                            <li style="padding-left: 30px;">1</li>
-                            <li style="padding-left: 32px;">{{ secondsToMinues(item.call_duration) }}</li>
-                            <li style="padding-left: 11px;">{{ item.call_date_created }}</li>
-                            <li style="padding-left: 22px;">
-                                <input v-if="item.has_call_back == 1" type="checkbox" class="form-control" checked disabled>
-                                <input v-else type="checkbox" class="form-control" disabled>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row stats mx-0" v-else>
+        <div class="row stats mt-4 mx-0" v-else>
             <div class="card left w-100">
                 <div class="card-body padding-bottom-12">
                     <ul class="items">
@@ -554,19 +494,26 @@
         Bar
     }
     from 'vue-chartjs';
+
     import {
         BarChart
     }
     from 'vue-morris';
+    
+    import DataTable from '../DataTables/CallLogsDataTable';
+
     export default {
         extends: Bar,
         components: {
             BarChart,
+            DataTable
         },
         mounted() {
             console.log('Component mounted');
 
             this.getCallLog();
+
+            this.getActiveCalls();
 
             var vm = this;
 
@@ -585,6 +532,7 @@
         props: [],
         data: function() {
             return {
+                conferences: [],
                 call_log: {
                     total_calls: '',
                     total_sales: '',
@@ -594,10 +542,98 @@
                     sum_call_back: '',
                     avg_time: '',
                 },
+                columns:[
+                    {
+                        label: 'CALLER',  // Column name
+                        field: 'lead_caller',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'TYPE',  // Column name
+                        field: 'lead_type',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'NAME',  // Column name
+                        field: 'lead_name',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'OWNER',  // Column name
+                        field: 'lead_owner',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'ASSIGNEE',  // Column name
+                        field: 'lead_assignee',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'MOBILE #',  // Column name
+                        field: 'lead_mobile',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'PACKAGE',  // Column name
+                        field: 'lead_product',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true,
+                        exportable: true
+                    },
+                    {
+                        label: 'CALL START',  // Column name
+                        field: 'dateCreated',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    },
+                    {
+                        label: 'STATUS',  // Column name
+                        field: 'status',  // Field name from row
+                        numeric: true, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                    {
+                        label: '',  // Column name
+                        field: 'actions',  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:false
+                    },
+                ],
                 Toast: null
             }
         },
         methods: {
+            getActiveCalls(){
+                var vm = this;
+                vm.show_page_loader = true;
+                axios.get('/calls/list').then(function (response) { 
+                    vm.conferences = response.data.conferences;
+                    vm.show_page_loader = false;
+                    console.log(vm.conferences);
+                });
+                // setInterval(function(){ 
+                //     axios.get('/calls/list').then(function (response) { 
+                //         vm.conferences = response.data.conferences;
+                //         vm.show_page_loader = false;
+                //     });
+                // }, 5000);
+            },
             secondsToMinues(time) {
                     var minutes = Math.floor(time / 60);
                     var seconds = time - minutes * 60;
