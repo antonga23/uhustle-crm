@@ -1,6 +1,6 @@
 
 <template>
-    <div class="card material-table" style="width: fit-content;">
+    <div class="card no-box-shadow material-table" style="width: fit-content;">
                 <table class="tg" v-if="show_mass_assign">
                     <tr>
                         <td class="tg-1lax" style="padding-right:20px;width:500px">
@@ -612,7 +612,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.no-box-shadow {
+    box-shadow: none !important;
+}
 .btn-orange {
 	background: #FF9039;
 	color: #ffffff;
@@ -954,7 +956,7 @@ table th {
     cursor: pointer;
     white-space: nowrap;
     padding: 0;
-    height: 56px;
+    /* height: 56px; */
     /* padding-left: 14px; */
     vertical-align: middle;
     outline: none !important;

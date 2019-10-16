@@ -5,7 +5,7 @@
     }
   .horizontal-scroll::-webkit-scrollbar {
         width: 5px !important;
-        height: 3px;
+        height: 5px;
     }
 .row{
     margin-bottom: 1%; 
