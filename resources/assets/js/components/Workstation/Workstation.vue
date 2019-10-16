@@ -1818,12 +1818,17 @@ a.down-scroll:hover{
             getActiveCalls(){
                 var vm = this;
                 vm.show_page_loader = true;
-                setInterval(function(){ 
-                    axios.get('/calls/list').then(function (response) { 
-                        vm.conferences = response.data.conferences;
-                        vm.show_page_loader = false;
-                    });
-                }, 5000);
+                axios.get('/calls/list').then(function (response) { 
+                    vm.conferences = response.data.conferences;
+                    vm.show_page_loader = false;
+                    console.log(vm.conferences);
+                });
+                // setInterval(function(){ 
+                //     axios.get('/calls/list').then(function (response) { 
+                //         vm.conferences = response.data.conferences;
+                //         vm.show_page_loader = false;
+                //     });
+                // }, 5000);
             },
             checkCBDate(){
                 var now = moment(new Date()); //todays date

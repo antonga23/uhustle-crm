@@ -72,9 +72,9 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                            //   ->read(array(),1);
-                              ->read(array("status" => "in-progress"),500);
-              
+                              ->read(array(),5);
+                              // ->read(array("status" => "in-progress"),500);
+        
         $conferences_arr = [];
 
         foreach ($conferences as $record) {
@@ -96,8 +96,8 @@ class TwillioController extends Controller
             $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
             $data->lead_mobile = $lead->phone_number;
             $data->lead_country = $lead->country;
-            $data->lead_owner = ucwords($lead->creator->name . ' ' . $lead->creator->lastname);
-            $data->lead_assignee = ucwords($lead->user->name . ' ' . $lead->user->lastname);
+            $data->lead_owner = ucwords($lead->creator['name'] . ' ' . $lead->creator['lastname']);
+            $data->lead_assignee = ucwords($lead->user['name']  . ' ' . $lead->user['lastname']);
             $data->lead_caller = ucwords($caller['name'] . ' ' . $caller['lastname']);
             $data->lead_product = $lead->product['name'];
             $data->conference_sid = $record->sid;
@@ -126,10 +126,10 @@ class TwillioController extends Controller
             $coaching_sid = $this->getAgentToCoach($participants);
 
             $data->coaching_sid = $coaching_sid;
-
+            
             array_push($conferences_arr, $data);
         }
-
+        
         return ['conferences' => $conferences_arr];
     }
 
