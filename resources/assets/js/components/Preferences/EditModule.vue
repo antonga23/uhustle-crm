@@ -42,10 +42,18 @@
                         <a-input id="input-none" v-model="field.display_name" v-validate="'required'" :data-vv-name="'Field ' + (index + 1) +'\'s Name'"></a-input>
                         <span v-show="errors.has('Field ' + (index + 1) +'\'s Name')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
                     </b-col>
-                    <b-col sm="3">
+                    <b-col sm="2">
                         <label for="input-none">Field type:</label>
                         <a-select v-model="field.type" placeholder="Please select" style="width: 100%">
-                          <a-select-option  :value="type.value" v-for="(type, index) in types" :key="index">{{ type.value }}</a-select-option>
+                          <a-select-option  :value="type.value" v-for="(type, index) in types" :key="index">{{ type.text }}</a-select-option>
+                        </a-select>
+                        <span v-show="errors.has('Field ' + (index + 1) +'\'s Type')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                    </b-col>
+                    <b-col sm="1">
+                        <label for="input-none">Required:</label>
+                        <a-select v-model="field.required" placeholder="Please select" style="width: 100%">
+                          <a-select-option value="1">Yes</a-select-option>
+                          <a-select-option value="0">No</a-select-option>
                         </a-select>
                         <span v-show="errors.has('Field ' + (index + 1) +'\'s Type')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
                     </b-col>
@@ -89,11 +97,11 @@
         mounted() {
             var vm = this;
             vm.module = vm.in_module;
-            vm.getRoles();
-
             Fire.$on('edit_module', function(data){
               vm.module = data.module;
-            })
+            });
+
+            vm.getRoles();
 
             vm.Toast = vm.$swal.mixin({
                 toast: true,
@@ -119,6 +127,8 @@
                     { value : 'tel', text : 'Tel'},
                     { value : 'date', text : 'Date'},
                     { value : `time`, text : 'Time'},
+                    { value : `user_select`, text : 'User Select'},
+                    { value : `role_select`, text : 'Role Select'},
                     { value : 'range', text : 'Range'},
                     { value : 'color', text : 'Color'}
                 ],

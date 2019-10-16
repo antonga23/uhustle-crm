@@ -196,6 +196,9 @@ Route::group(['prefix' => 'modules'], function () {
   Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
   Route::post('/check-exist', 'ModuleController@checkExist');
 
+  // Items
+  Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
+
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');
 });
