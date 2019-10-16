@@ -786,7 +786,6 @@ tr.clickable {
 
 table {
     /* table-layout: fixed; */
-    border-collapse: separate;
     border-spacing: 0 6px;
 }
 
@@ -922,9 +921,12 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 11px;
-    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    color: #003449;
     display: table-cell;
+    font-family: 'Rubik', sans-serif !important;
+    padding: 25px 0px 25px 0px;
+    min-width: 150px;
 }
 
 table tr td a i {
@@ -934,27 +936,34 @@ table tr td a i {
 
 table tr {
     font-size: 12px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #B3B3B3;
+    padding-left: 0;
+    width: auto;
+    white-space: nowrap; 
+
 }
 
 table thead tr:first-child {
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);
+   border-bottom: 0 !important;
 }
 
 table th {
-    font-size: 10;
-    font-weight: 900;
-    color: #003449;
+   font-size: 12px;
+    font-weight: 600;
+    color: #A6A6A6;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0 0 3px 0;
-    height: 30px;
-    padding-left: 14px;
+    padding: 0;
+    height: 56px;
+    /* padding-left: 14px; */
     vertical-align: middle;
     outline: none !important;
     overflow: hidden;
     text-overflow: ellipsis;
     background-size: 11px 12px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-family: 'Montserrat bold', sans-serif;
 }
 
 table th:hover {
