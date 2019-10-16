@@ -254387,7 +254387,8 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                staticClass: "nav-link icon pt-0 small-avatar",
+                                staticClass:
+                                  "nav-link icon pt-0 px-0 small-avatar",
                                 attrs: { href: "#" },
                                 on: {
                                   click: function($event) {

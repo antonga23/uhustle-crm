@@ -681,7 +681,7 @@ p.heading{
                   </li>
                   <li class="nav-item col-auto pr-0">
                     <a 
-                      class="nav-link icon pt-0 small-avatar" 
+                      class="nav-link icon pt-0 px-0 small-avatar" 
                       href="#" 
                       @click="showSettings()"
                     >
