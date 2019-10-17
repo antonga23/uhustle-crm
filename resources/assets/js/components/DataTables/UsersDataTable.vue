@@ -1,5 +1,5 @@
 <template>
-    <div class="card material-table">
+    <div class="card no-box-shadow material-table">
         <table ref="table">
             <thead>
                 <tr>
@@ -478,6 +478,9 @@ export default {
 }
 </script>
 <style scoped>
+.no-box-shadow {
+    box-shadow: none !important;
+}
 .ant-list-item {
     align-items: center;
     display: flex;
@@ -741,7 +744,7 @@ table th {
     cursor: pointer;
     white-space: nowrap;
     padding: 0;
-    height: 56px;
+    /* height: 56px; */
     /* padding-left: 14px; */
     vertical-align: middle;
     outline: none !important;
