@@ -245,7 +245,7 @@
               </a>
             </li> -->
 
-            <li class="nav-item">
+            <li class="nav-item" style="display:none;">
               <a 
                 href="/education" 
                 title="Education" 
