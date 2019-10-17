@@ -1,4 +1,12 @@
 <style scoped>
+.horizontal-scroll::-webkit-scrollbar-thumb {
+        background: #B3B3B3 !important;
+        border-radius: 5px !important;
+    }
+  .horizontal-scroll::-webkit-scrollbar {
+        width: 5px !important;
+        height: 5px;
+    }
 .row{
     margin-bottom: 1%; 
 }
@@ -216,7 +224,7 @@ ul.items li a:hover{
     height: 70vh;
     padding-top: 6px;
     padding-right: 6px;
-    width: 104%;
+    width: 100%;
 }
 table.listing{
     width: 100%;
@@ -230,6 +238,9 @@ table.listing tr  th{
 #top-section .filter-stub{
     cursor: pointer;
     margin-right: 15px;
+}
+.plr-3 {
+    padding: 23px 4% 0;
 }
 .control-label{
     float: left;
@@ -249,7 +260,7 @@ table.listing tr  th{
 }
 </style>
 <template>
-    <div class="">
+    <div class="plr-3">
         <div id="top-section" class="row" style="margin-top:2%;">
 
           <div class="filter-card"  @click="getUsers(-1)">
@@ -287,8 +298,8 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats scroll-hidden">
-                <div class="col-lg-12">
+            <div class="row stats ml-1 scroll-hidden horizontal-scroll">
+                <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
                     <datatable v-if="!show_page_loader" id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
                 </div>
