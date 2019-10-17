@@ -476,6 +476,21 @@
                     <data-table  id="datatable" :rows="conferences" :columns="columns"></data-table>
                 </div>
             </div>
+            <!-- <div class="col-lg-1 px-0">
+                <div class="padding-bottom-18">
+                   <div class="col pl-0 dropdown">
+                        <a class="m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/images/icons/add_Button.svg" alt="Icon" class="icon" style="width: 15px;" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Calls</a>
+                            <a class="dropdown-item" href="#">Sales</a>
+                            <a class="dropdown-item" href="#">Calls</a>
+                            <a class="dropdown-item" href="#">Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div class="row stats mt-4 mx-0" v-else>
             <div class="card left w-100">
