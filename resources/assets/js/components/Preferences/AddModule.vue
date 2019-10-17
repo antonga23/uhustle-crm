@@ -42,10 +42,18 @@
                         <a-input v-model="field.name" v-validate="'required'" :data-vv-name="'Field ' + (index + 1) +'\'s Name'" />
                         <span v-show="errors.has('Field ' + (index + 1) +'\'s Name')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
                     </b-col>
-                    <b-col sm="2">
+                    <b-col sm="1">
                         <label for="input-none">Field type:</label>
                         <a-select v-model="field.type" placeholder="Please select" style="width: 100%">
-                          <a-select-option  :value="type.value" v-for="(type, index) in types" :key="index">{{ type.value }}</a-select-option>
+                          <a-select-option :value="type.value" v-for="(type, index) in types" :key="index">{{ type.text }}</a-select-option>
+                        </a-select>
+                        <span v-show="errors.has('Field ' + (index + 1) +'\'s Type')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                    </b-col>
+                    <b-col sm="1">
+                        <label for="input-none">Required:</label>
+                        <a-select v-model="field.required" placeholder="Please select" style="width: 100%">
+                          <a-select-option  value="1">Yes</a-select-option>
+                          <a-select-option  value="0">No</a-select-option>
                         </a-select>
                         <span v-show="errors.has('Field ' + (index + 1) +'\'s Type')" class="help-block">{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
                     </b-col>
@@ -121,6 +129,8 @@
                     { value : 'tel', text : 'Tel'},
                     { value : 'date', text : 'Date'},
                     { value : `time`, text : 'Time'},
+                    { value : `user_select`, text : 'User Select'},
+                    { value : `role_select`, text : 'Role Select'},
                     { value : 'range', text : 'Range'},
                     { value : 'color', text : 'Color'}
                 ],

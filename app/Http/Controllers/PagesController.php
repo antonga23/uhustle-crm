@@ -8,6 +8,9 @@ use App\StoredFilter;
 use App\SystemSettings;
 use App\DialerPermissions;
 use App\Comment;
+use App\Module;
+use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -79,6 +82,12 @@ class PagesController extends Controller
 
    public function loadModulePage($type = null)
    {
+      $module = Module::with('module_fields')->where(['tag' => $type])->first();
+
+      $active_users = User::where(['activated' => 1])->get();
+
+      $active_roles = Role::where(['status' => 1])->get();
+
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
       $data = [];
@@ -119,7 +128,10 @@ class PagesController extends Controller
       }
       
       return view('pages.modules')->with([
-         'active'=> 'leads',
+         'active'=> $type,
+         'module' => $module,
+         'active_users' => json_encode($active_users),
+         'active_roles' => json_encode($active_roles),
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);

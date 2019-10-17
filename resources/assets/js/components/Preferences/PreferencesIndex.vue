@@ -116,7 +116,7 @@
                 <li class="item">
                     <a href="#" @click="showModulePreferences('roles', 'roles', null);" :class="{ 'active' : ( active_module_name ===  'roles')? true : false }">Roles</a>
                 </li>
-                <li class="item">
+                <li class="item" style="display_none">
                     <a href="#" @click="showModulePreferences('dialer', 'dialer', null);" :class="{ 'active' : ( active_module_name ===  'dialer')? true : false }">Dialer</a>
                 </li>
                 <li class="item">
@@ -496,9 +496,7 @@
                 });
             },
             showModulePreferences(active_module, action, in_module){
-              
                 Fire.$emit(action, { 'module' : in_module });
-                
                 this.editing_module = in_module;
                 this.active_module_name = active_module;
                 this.active_module_action = action;

@@ -31,50 +31,6 @@ class ModuleController extends Controller
     {
          $modules = Module::with('module_fields')->get();
         
-
-
-        //  $holder = [];
-        //  foreach ($modules as $i => $module) {
-        //    $data = new \StdClass();
-
-        //    $data->id = $module->id;
-        //    $data->tag = $module->tag;
-        //    $data->description = $module->description;
-        //    $data->display_name = $module->display_name;
-
-        //    $field_holder = [];
-        //    foreach ($module->module_fields as $j => $field) {
-        //       $field_data = new \StdClass();
-        //       $field_data->id = $field->id;
-        //       $field_data->module_id = $field->module_id;
-        //       $field_data->name = $field->name;
-        //       $field_data->display_name = $field->display_name;
-        //       $field_data->type = $field->type;
-
-        //       $can_edit_roles = Role::whereIn('id', explode(',',$field->can_edit))->get();
-
-        //       $can_edit = [];
-        //       foreach ($can_edit_roles as $k => $can_edit_role) {
-        //         array_push($can_edit, $can_edit_role->id);
-        //       }
-
-        //       $can_read_roles = Role::whereIn('id', explode(',',$field->can_read))->get();
-
-        //       $can_read = [];
-        //       foreach ($can_read_roles as $k => $can_read_role) {
-        //         array_push($can_read, $can_read_role);
-        //       }
-
-        //       $field_data->can_edit = $can_edit;
-        //       $field_data->can_read = $can_read;
-        //       array_push($field_holder, $field_data);
-        //    }
-
-        //    $data->module_fields = $field_holder;
-
-        //    array_push($holder, $data);
-        //  }
-
          return array('success' => true, 'modules' => $this->compactModules($modules) );
     }
 
@@ -104,14 +60,16 @@ class ModuleController extends Controller
 
             foreach($module_fields as $key => $value){
                 
-                $can_read = ( !is_null($value['can_read']) || $value['can_read'] !== '' )? implode(',',$value['can_read']) : null ;
-                $can_edit = ( !is_null($value['can_edit']) || $value['can_edit'] !== '' )? implode(',',$value['can_edit']) : null ;
+                $can_read = ( !isset($value['can_read']) || is_null($value['can_read']) )? null : implode(',',$value['can_read']) ;
+                $can_edit = ( !isset($value['can_edit']) || is_null($value['can_edit']) )? null : implode(',',$value['can_edit']) ;
+                $required = ( !isset($value['required']) || is_null($value['required']) )? null : $value['required'] ;
 
                 ModuleCustomFields::create([
                     'module_id' => $module->id,
-                    'name' => strtolower( str_replace(' ','_',$value['name'] ) ) ,
-                    'display_name' => ucwords( str_replace('-',' ',$value['name'] ) ) ,
+                    'name' => strtolower( str_replace(' ','_',$value['display_name'] ) ) ,
+                    'display_name' => ucwords( str_replace('_',' ',$value['display_name'] ) ) ,
                     'type' => $value['type'],
+                    'required' => $required,
                     'can_read' => $can_read,
                     'can_edit' => $can_edit
                 ]);
@@ -159,14 +117,16 @@ class ModuleController extends Controller
 
             foreach($module_fields as $key => $value){
                 
-                $can_read = ( is_null($value['can_read']) )? null : implode(',',$value['can_read']) ;
-                $can_edit = ( is_null($value['can_edit']) )? null : implode(',',$value['can_edit']) ;
+                $can_read = ( !isset($value['can_read']) || is_null($value['can_read']) )? null : implode(',',$value['can_read']) ;
+                $can_edit = ( !isset($value['can_edit']) || is_null($value['can_edit']) )? null : implode(',',$value['can_edit']) ;
+                $required = ( !isset($value['required']) || is_null($value['required']) )? null : $value['required'] ;
                 
                 ModuleCustomFields::create([
                     'module_id' => $id,
-                    'name' => strtolower( str_replace(' ','_',$value['name'] ) ) ,
-                    'display_name' => ucwords( str_replace('-',' ',$value['name'] ) ) ,
+                    'name' => strtolower( str_replace(' ','_',$value['display_name'] ) ) ,
+                    'display_name' => ucwords( str_replace('_',' ',$value['display_name'] ) ) ,
                     'type' => $value['type'],
+                    'required' => $required,
                     'can_read' => $can_read,
                     'can_edit' => $can_edit
                 ]);
@@ -257,5 +217,33 @@ class ModuleController extends Controller
             DB::rollback();
             return array('success' =>false, 'message' => $e->getMessage());
         }
+    }
+
+    public function addItem(Request $request){
+
+      $item = $request->item;
+
+      try{
+        DB::beginTransaction();
+
+        ModuleItem::create([
+          'module_id' => $item['id']
+        ]);
+
+        foreach($item['module_fields'] as $key => $value){
+          ModuleItemMeta::create([
+            'item_id' => $value['module_id'],
+            'custom_field_id' => $value['id'],
+            'custom_field_value' => isset($value['value'])? $value['value'] : null,
+          ]);
+        }
+
+        DB::commit();
+        return array('success' => true, 'message' => 'Item successfully added.' );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
     }
 }

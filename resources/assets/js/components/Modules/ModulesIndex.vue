@@ -1,4 +1,12 @@
 <style scoped>
+.horizontal-scroll::-webkit-scrollbar-thumb {
+        background: #B3B3B3 !important;
+        border-radius: 5px !important;
+    }
+  .horizontal-scroll::-webkit-scrollbar {
+        width: 5px !important;
+        height: 5px;
+    }
 .row{
     margin-bottom: 1%; 
 }
@@ -216,7 +224,7 @@ ul.items li a:hover{
     height: 70vh;
     padding-top: 6px;
     padding-right: 6px;
-    width: 104%;
+    width: 100%;
 }
 table.listing{
     width: 100%;
@@ -230,6 +238,9 @@ table.listing tr  th{
 #top-section .filter-stub{
     cursor: pointer;
     margin-right: 15px;
+}
+.plr-3 {
+    padding: 23px 4% 0;
 }
 .control-label{
     float: left;
@@ -249,7 +260,7 @@ table.listing tr  th{
 }
 </style>
 <template>
-    <div class="">
+    <div class="plr-3">
         <div id="top-section" class="row" style="margin-top:2%;">
 
           <div class="filter-card"  @click="getUsers(-1)">
@@ -287,99 +298,15 @@ table.listing tr  th{
         </div>
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats scroll-hidden">
-                <div class="col-lg-12">
+            <div class="row stats ml-1 scroll-hidden horizontal-scroll">
+                <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
                     <datatable v-if="!show_page_loader" id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
                 </div>
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
-                <div class="w-100" style="margin-top: 20px;">
-                    <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label" v-if="current_user.role_id == 4">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option value="2" selected>Winsta IO</option>
-                                </select>
-                            </label>
-
-                            <label class="col-lg-4 control-label" v-else>Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label"  v-if="current_user.role_id == 4">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="current_user.id" selected="selected">{{ current_user.name + ' ' + current_user.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label" v-else>Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
-                                </select>
-                            </label>
-                        <label class="col-lg-12 control-label">
-                            <button type="submit" class="btn btn-primary update-user" @click="createUser()">
-                                Add Contact
-                            </button>
-                        </label>
-                    </div>
-                </div>
-            </a-card>
+            <add-module-item :module="module" :active_users="JSON.parse(active_users)" :active_roles="JSON.parse(active_roles)" />
         </div>
     </div>
 </template>
@@ -387,6 +314,7 @@ table.listing tr  th{
 <script>
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
+    import AddModuleItem from '../Modules/AddModuleItem';
     import DataTable from '../DataTables/ListingDataTable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
@@ -396,33 +324,33 @@ table.listing tr  th{
             VclFacebook,
             VclInstagram,
             VclTable,
+            AddModuleItem,
             'datatable' : DataTable
         },
         mounted() {
             console.log('Component mounted');
 
             var vm = this;
-
-            vm.current_user = JSON.parse(vm.logged_user);
+            
             vm.filter_data = JSON.parse(vm.custom_filters);
 
             vm.getUsers(-1);
 
-			Fire.$on('SaveFilter', function(data){
-                console.log('in filters', data);
-				vm.filter_data = data.filters;
+            Fire.$on('SaveFilter', function(data){
+                      console.log('in filters', data);
+              vm.filter_data = data.filters;
             });
-            
-			Fire.$on('AddingUser', function(data){
-				vm.add_user = !vm.add_user;
-            });
-
-			Fire.$on('FilterData', function(data){
-				vm.applyFilter(data);
+              
+            Fire.$on('AddingUser', function(data){
+              vm.add_user = !vm.add_user;
             });
 
-			Fire.$on('ReloadLeads', function(data){
-				vm.getUsers(-1);
+            Fire.$on('FilterData', function(data){
+              vm.applyFilter(data);
+            });
+
+            Fire.$on('ReloadLeads', function(data){
+              vm.getUsers(-1);
             });
 
             vm.Toast = vm.$swal.mixin({
@@ -434,7 +362,7 @@ table.listing tr  th{
         },
         created: function () {
         },
-        props: ['logged_user', 'contacts', 'custom_filters'],
+        props: ['module', 'active', 'custom_filters', 'user_id','active_users','active_roles'],
         data: function(){
             return {
                 users : {
@@ -447,7 +375,7 @@ table.listing tr  th{
                     assignees: [],
                     lead_owners: [],
                 },
-				user: {
+				        user: {
                     name: '',
                     surname: '',
                     account: '',
@@ -591,9 +519,9 @@ table.listing tr  th{
                 return finalTime;
             },
             str_pad_left(string,pad,length) {
-                    return (new Array(length+1).join(pad)+string).slice(-length);
+                return (new Array(length+1).join(pad)+string).slice(-length);
             },
-            getUsers(role ){
+            getUsers(role){
                 var vm = this;
 
                 if(role == -1){
@@ -653,9 +581,9 @@ table.listing tr  th{
                 });
             },			
             createUser(){
-				var vm = this;  
-				vm.$Progress.start();
-				this.$validator.validateAll().then((result) => {
+                var vm = this;  
+                vm.$Progress.start();
+                this.$validator.validateAll().then((result) => {
                         if(!result){
                         }else{
                             
@@ -677,8 +605,8 @@ table.listing tr  th{
                                     vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
                                 }
                             });
-						}
-				});
+                    }
+                });
             },
             applyFilter(filter){
                 var vm = this;

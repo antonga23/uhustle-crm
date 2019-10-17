@@ -278,6 +278,9 @@ table.listing tr  th{
 #top-section .col-lg-2{
     cursor: pointer;
 }
+.plr-3 {
+    padding: 23px 4% 0;
+}
 .control-label{
     float: left;
     height: 77px;
@@ -291,7 +294,7 @@ table.listing tr  th{
 }
 </style>
 <template>
-    <div class="">
+    <div class="plr-3">
         <div id="top-section" class="row" style="margin-top:2%;">
           <div class="col-lg-2" @click="getUsers()">
             <div class="card call-backs">
