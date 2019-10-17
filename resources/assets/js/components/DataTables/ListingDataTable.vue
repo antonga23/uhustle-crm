@@ -1,39 +1,39 @@
 
 <template>
     <div class="card no-box-shadow material-table" style="width: fit-content;">
-                <table class="tg" v-if="show_mass_assign">
-                    <tr>
-                        <td class="tg-1lax" style="padding-right:20px;width:500px">
+        <!-- <table class="tg" v-if="show_mass_assign">
+            <tr>
+                <td class="tg-1lax" style="padding-right:20px;width:500px">
 
-                            <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
-                                <b-dropdown-form>
-                                    <b-form-group>
-                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
-                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                        </b-form-checkbox-group>
-                                    </b-form-group>
-                                </b-dropdown-form>
-                            </b-dropdown>
-                        </td>
-                        <td class="tg-1lax">
+                    <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
+                        <b-dropdown-form>
+                            <b-form-group>
+                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
+                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                </b-form-checkbox-group>
+                            </b-form-group>
+                        </b-dropdown-form>
+                    </b-dropdown>
+                </td>
+                <td class="tg-1lax">
 
-                            <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
-                                <b-dropdown-form>
-                                    <b-form-group>
-                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
-                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                        </b-form-checkbox-group>
-                                    </b-form-group>
-                                </b-dropdown-form>
-                            </b-dropdown>
-                        </td>
-                        <td class="tg-1lax">
-                            <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
-                                Assign
-                            </button>
-                        </td>
-                    </tr>
-            </table>
+                    <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
+                        <b-dropdown-form>
+                            <b-form-group>
+                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
+                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                </b-form-checkbox-group>
+                            </b-form-group>
+                        </b-dropdown-form>
+                    </b-dropdown>
+                </td>
+                <td class="tg-1lax">
+                    <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
+                        Assign
+                    </button>
+                </td>
+            </tr>
+    </table> -->
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
                 <table ref="table">
@@ -53,23 +53,29 @@
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                             <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
                                 <span v-if="column.field == 'all'">
-                                    <b-form-checkbox :value="row.lead.id" v-model="selected" @change="selectOne"></b-form-checkbox>
+                                    <b-form-checkbox :value="row.item.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
-                                <span v-if="column.field == 'full_name'">
-                                    {{ collect(row, column.field) }}
+                                <span v-else-if="column.field == 'owner'">
+                                    {{ row.item.owner.name + ' ' + row.item.owner.lastname }}
+                                </span>
+                                <span v-else-if="column.field == 'assignee'">
+                                    {{ row.item.assignee.name + ' ' + row.item.assignee.lastname }}
+                                </span>
+                                <span v-else-if="column.field == 'product'">
+                                    {{ row.item.product.name }}
                                 </span>
                                 <span v-else-if="column.field == 'status'">
-                                    <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  :title="collect(row, column.field)" disabled></a>
+                                    <a href="#"  @click="showEdit(row.item)" :class="collect(row.item, column.field)"  :title="collect(row.item, column.field)" disabled></a>
                                 </span>
                                 <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
-                                    {{ getDaysRemaining(row.lead) }}
+                                    {{ getDaysRemaining(row.item) }}
                                 </span>
                                 <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
-                                    <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
-                                    <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                                    <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
+                                    <a  class="View" :href="'/workstation/' + row.item.id" title="View"></a>
+                                    <a  class="Edit" href="#" @click="showEdit(row.item)" title="Edit"></a>
+                                    <a  class="Delete" href="#" @click="deleteItem(row.item.id)" title="Delete" v-if="role == 1 || role == 2"></a>
                                 </span>
-                                <span v-else>{{ collect(row, column.field) }}</span>
+                                <span v-else>{{ collect(row.item, column.field) }}</span>
                             </td>
                         </tr>
                     </tbody>
@@ -113,13 +119,13 @@
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            :title="(user.is_client == 1)? 'Update Contact' : 'Update Lead'"
+            :title="'Update Item'"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
             @ok="handleOk"
             >
-                <a-card :title="(user.is_client == 1)? 'Contact Information' : 'Lead Information'">
+                <a-card :title="'Update Item'">
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -134,40 +140,15 @@
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Instagram Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
+                                <input type="text" id="Account"  name="Account" v-model="user.instagram_account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
                                 <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
                             <label class="col-lg-4 control-label">Mobile number
                                 <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
                             </label>
                             <label class="col-lg-4 control-label">Country
                                 <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
@@ -175,38 +156,42 @@
                             <label class="col-lg-4 control-label">City
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
+                            <label class="col-lg-4 control-label">Package
+                                <select type="text" id="package"  name="Package" v-model="user.product"   class="form-control">
+                                    <option value="">- Please Choose Package</option>
+                                    <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+                                </select>
+                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Owner
+                                <select type="text" id="role"  name="Owner" v-model="user.owner" class="form-control">
+                                    <option value="">- Please Choose Lead Owner </option>
+                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Assigned To
+                                <select type="text" id="Assignee"  name="Assignee" v-model="user.assignee"  class="form-control">
+                                    <option value="">- Please Choose Assignee</option>
+                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Lead Source
+                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
+                                    <option value="">- Please Choose Source</option>
+                                    <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+                                </select>
+                            </label>
                             <label class="col-lg-4 control-label">Status
                                 <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Canceled">Canceled</option>
+                                    <option value="Disabled">Disabled</option>
                                 </select>
                             </label>
                         </div>
                     </form>
-                </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-                <a-card :title="'File Uploads: ' + user.winsta_uploads.length" style="margin-top:20px" class="uploaded-files">
-                    <div v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
-                        <a @click="downloadFile(upload.id)">
-                            <b-alert v-if="index % 2 == 0" variant="success" show>
-                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
-                            </b-alert>
-                            <b-alert v-else show>
-                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
-                            </b-alert>
-                        </a>
-                        <b-button class="Delete" @click="deleteFile(upload.id, index)"></b-button>
-                    </div>
                 </a-card>
             </b-modal>
         </div>
@@ -220,6 +205,10 @@ export default {
         role: '',
         title: {},
         users: null,
+        active_users : null,
+        active_roles : null,
+        sources : null,
+        packages : null,
         columns: {
             required: true
         },
@@ -359,10 +348,9 @@ export default {
                 return '-'
             }
         },
-        showEditModal(user){
+        showEdit(module_item){
             var vm = this;
-            this.user = user;
-            this.user.source = user.lead_source;
+            this.user = module_item;
             this.$bvModal.show('update-user-modal');
         },
         handleOk(bvModalEvt) {
@@ -412,10 +400,12 @@ export default {
             }).then((result) => {
                 if (result.value) {
                     vm.$Progress.start();
-                    axios.get('/leads/delete/' + id).then(function (response) {
+                    axios.get('/modules/delete-item/' + id).then(function (response) {
                         if(response.data.success == true){
                             vm.Toast.fire({ type: 'success', title: response.data.message });
-                            Fire.$emit('ReloadLeads');
+                            
+                            Fire.$emit('ReloadLeads', {'id' : id});
+
                             vm.$Progress.finish();
                         }else{
                             vm.$Progress.fail();
