@@ -1,37 +1,54 @@
 <style scoped>
+#workstation .general-section-stats,
+#workstation .scripts {
+  height:100vh;
+  overflow-y: scroll;
+}
 .row{ 
   margin-bottom: 3.5vh;  
 }
 .general-section-stats .agent-stats-1 {
-  padding-top: 90px;
+  padding-top: 69px;
   padding-left: 5%;
   padding-right: 5%;
 }
 .general-section-stats .agent-stats-2 {
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
-.top-section .col-auto{
+.scripts {
+  padding-left: 3%;
+  padding-right:3%;
+}
+.top-section .col{
   padding: 0 10px; 
-  border-left: 1px solid #003549; 
+  border-left: 1px solid rgba(0,52,73,1); 
 }
 .top-section p.bottom{
-  font-size: 18px; 
-  font-weight: 900; 
-  color: #003449; 
+  font-size: 19px; 
+  font-weight: 700; 
+  letter-spacing: 0.05em;
+  color: rgba(30,34,83,1); 
 } 
 .top-section p.top{ 
-  font-size: 14px; 
-  color: #003449; 
+  font-size: 13px; 
+  color: rgba(78,77,77,1);
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif; 
+  padding-bottom:20px;
+  margin-bottom:0;
 } 
 .card{ 
-  border-radius: 27px;
+  border-radius: 25px;
 } 
-.card-title { 
+.client-details .card-title { 
   margin-bottom: 0.75rem; 
-  padding-bottom: 0.75rem; 
+  padding-bottom: 0.5rem; 
   border-bottom: 1px solid #fff; 
+  font-size:14px;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 0.05em;
 } 
 .client{ 
   background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ; 
@@ -39,10 +56,10 @@
 .product{ 
   background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ; 
 } 
-.time{ 
+.activity{ 
   background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ; 
 } 
-.activity{ 
+.time{ 
   background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ; 
 } 
 h5{ 
@@ -53,9 +70,10 @@ h5 .icon{
   margin: -5px 15px 0 0; 
 } 
 p.card-text{ 
-  font-size: 23px; 
+  font-size: 32px; 
   color: #fff; 
   font-weight: bolder; 
+  line-height:1em;
 } 
 p.card-link{ 
   font-size: 16px; 
@@ -68,7 +86,8 @@ p.card-link{
   padding-bottom: 30px;
 }
 .client-details .card {
-  box-shadow: 0px 0px 9px rgba(160, 124, 124, 0.15);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .client-details .card-body {
   padding: 1.25rem;
@@ -80,8 +99,9 @@ p.card-link{
   padding-bottom: 3%;
 }
 .stats .card{ 
-  border-radius: 20px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.15); 
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
 } 
 .stats .card h5{ 
   color: #818284; 
@@ -132,29 +152,36 @@ span.right{
   width: 22%;
   color: #7f99a4; 
 } 
-.choose-comment-type{ 
-  float: left;
+.notes-capture {
+  background: #f4f4f4;
+  border-radius: 50rem;
+}
+.choose-comment-type{
   height: 50px; 
   width: 50px; 
   padding: 11px; 
-  margin: 10px 10px 10px 0; 
-  background: #f6f8f9; 
-  border-radius: 9px; 
+  margin: 0 10px 0 0; 
+  background: #f4f4f4; 
+  border-radius: 50rem!important; 
   cursor: pointer; 
 } 
 
 .comment-desc{ 
   height: 50px;
   padding: 11px; 
-  margin: 10px 0px; 
-  background: #f6f8f9; 
+  margin: 0; 
   border-radius: 9px; 
+  background: #f4f4f4;
   cursor: pointer; 
   float: left; 
 } 
 #send-btn{ 
   height: 50px; 
-  margin: 10px 0px 10px 0; 
+  margin: 0; 
+  font-weight:700;
+  text-transform: uppercase;
+  font-size:10px;
+  letter-spacing:0.05em;
 } 
 .btn-secondary { 
   color: #fff; 
@@ -321,7 +348,8 @@ p.maximize a{
   padding-bottom: 9px; 
 }
 .scripts .card { 
-  margin-right: 23px; 
+  border:0;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
 } 
 .scripts .card-body { 
   flex: 1 1 auto; 
@@ -477,51 +505,63 @@ a.down-scroll:hover{
   background: #fff; 
 } 
 .nav.nav-tabs.card-header-tabs li a {
-  box-shadow: inset 5px -5px 10px rgba(0,0,0,0.05);
   border: 0;
   background-color: #fff;
+  color:#7f8080;
+  letter-spacing:0.05em;
+  text-align:center;
+  padding-top:0;
+  padding-bottom:0;
 }
-.nav.nav-tabs.card-header-tabs li a.active{
-  box-shadow: none!important;
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
-.final-modal .card ul li.left{ 
-  border-top-left-radius: 19px; 
-} 
-.final-modal .card ul li.left .nav-link {
-  border-top-left-radius: 19px; 
-  border-top-right-radius: 0px; 
-  padding: 16px; 
-  font-size: 16px; 
-  color: #818284; 
-} 
-.final-modal .card ul li.left .nav-link:hover {
-  border-top-left-radius: 20px; 
-  border-top-right-radius: 0px; 
-  background: #fff; 
-  padding: 16px; 
-  font-size: 16px; 
-} 
-.final-modal .card ul li.right{ 
-  border-top-right-radius: 19px; 
-  border-top-left-radius: 0px;
-} 
-.final-modal .card ul li.right .nav-link {
-  border-top-left-radius: 0px; 
-  border-top-right-radius: 20px; 
-  padding: 16px; 
-  font-size: 16px; 
-  color: #818284; 
-} 
-.final-modal .card ul li.right .nav-link:hover {
-  border-top-left-radius: 0px; 
-  border-top-right-radius: 20px; 
-  background: #fff; 
-  padding: 16px; 
-  font-size: 16px; 
-} 
-.tab-pane{ 
-  height: 348px; 
-} 
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
+  box-shadow: inset -7px -10px 10px #f5f5f5;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius:0;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{
+  box-shadow: -10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
+  box-shadow: inset 7px -10px 10px #f5f5f5;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-top-left-radius:0;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"]{
+  box-shadow: inset -7px -10px 10px #f5f5f5;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"]{
+  box-shadow: inset 7px -10px 10px #f5f5f5;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.activities .card-header, .deals .card-header{
+  background: #fff;
+}
+.activities .card-header-tabs, .deals .card-header-tabs {
+  box-shadow: inset 0 -10px 10px #f5f5f5;
+}
 .nav-tabs .nav-link span{ 
   font-size: 14px; 
   padding-left: 10px; 
@@ -552,7 +592,7 @@ a.down-scroll:hover{
 } 
 </style> 
 <template> 
-  <div class=""> 
+  <div id="workstation"> 
     <!-- Scripts Section Starts --> 
     <div class="scripts" v-if="scripts == true"> 
       <div :class="{ 'row mx-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%"> 
@@ -560,37 +600,39 @@ a.down-scroll:hover{
           <p class="heading px-0">Calls</p> 
         </div> 
 
-        <div> 
-          <div class="card client"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">Cashed Out</p> 
+        <div class="row mx-0 justify-content-between"> 
+          <div class="col-auto pl-0">
+            <div class="card client"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">Cashed Out</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card product"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">Upsell</p> 
+          <div class="col-auto"> 
+            <div class="card product"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">Upsell</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card time"> 
-            <div class="card-body font-weight-bolder"> 
-              <p class="card-text">Not Interested</p> 
+          <div class="col-auto"> 
+            <div class="card time"> 
+              <div class="card-body font-weight-bolder"> 
+                <p class="card-text">Not Interested</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card activity"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">More Info</p> 
+          <div class="col-auto pr-0"> 
+            <div class="card activity"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">More Info</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
+        </div>
       </div> 
     </div>   
     <!-- Scripts Section ends --> 
@@ -598,151 +640,143 @@ a.down-scroll:hover{
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">
-        <div class="col-auto"> 
-          <p class="top">Lead Source</p> 
+        <div class="col"> 
+          <p class="top">First Name</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
         
-        <div class="col-auto"> 
-          <p class="top">Online</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        <div class="col"> 
+          <p class="top">Last Name</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.surname }}</p> 
         </div> 
 
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Contact OWner</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Invested</p> 
+        <div class="col"> 
+          <p class="top">Contact Source</p> 
           <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
         </div>
         
-        <div class="col-auto"> 
-          <p class="top">Called</p> 
+        <div class="col"> 
+          <p class="top">Successful</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Answers</p> 
+        <div class="col"> 
+          <p class="top">Due</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Sales</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+        <div class="col"> 
+          <p class="top">Area</p> 
+          <p class="bottom mb-0">{{ lead_info.city }}</p> 
         </div> 
       </div>
 
       <div class="row pt-4 mx-0 justify-content-between top-section agent-stats-2">
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Email</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.phone }}</p> 
         </div> 
         
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Phone</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Online Funds</p> 
+        <div class="col"> 
+          <p class="top">Contact Status</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Invested</p> 
+        <div class="col"> 
+          <p class="top">Last Answer</p> 
           <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
         </div>
-        
-        <div class="col-auto"> 
-          <p class="top">Negotiation</p> 
+
+        <div class="col"> 
+          <p class="top">Best Time</p>
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Avg. Call length</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col-auto"> 
-          <p class="top">Sales</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
+        <div class="col"> 
+          <p class="top">Client ID</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
       </div> 
-      
-      <div class="row mx-0 mb-0 justify-content-between client-details"> 
-        <div class="col-lg-3 col-md-4 col-sm-4 pl-0"> 
-          <div class="card border-0 client"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
-                Client 
-              </h5> 
-              <p 
-                class="card-text truncate mb-3" 
-                :title="lead_info.name + ' ' + lead_info.surname"
-              >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
-              <div class="truncate w-100">
-                <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
-                <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
-                <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
-              </div> 
+
+      <div class="card-deck client-details mx-0"> 
+        <div class="card border-0 mb-0 ml-0 client"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+              Client 
+            </h5> 
+            <p 
+              class="card-text truncate mb-2" 
+              :title="lead_info.name + ' ' + lead_info.surname"
+            >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
+            <div class="truncate w-100">
+              <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
+              <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
+              <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
             </div> 
           </div> 
         </div>
 
-        <div class="col-lg-3"> 
-          <div class="card border-0 product"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
-                Product 
-              </h5> 
-              <p 
-                class="card-text truncate mb-3" 
-                :title="lead_info.product.description + '. ' + lead_info.product.price "
-              >{{ lead_info.product.name }}</p> 
-              <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
-              </p>  
-            </div> 
+        <div class="card border-0 product mb-0"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+              Product 
+            </h5> 
+            <p 
+              class="card-text truncate mb-2" 
+              :title="lead_info.product.description + '. ' + lead_info.product.price "
+            >{{ lead_info.product.name }}</p> 
+            <p 
+              class="card-link truncate w-100 mb-0" 
+              :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+            >{{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}</p>  
+          </div> 
+        </div>
+
+        <div class="card border-0 mb-0 activity"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+              Activity 
+            </h5> 
+            <p class="card-text mb-2">Off-line</p> 
+            <p class="card-link mb-0">Online 2 Days ago</p>  
           </div> 
         </div> 
 
-        <div class="col-lg-3"> 
-          <div class="card border-0 time"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
-                Time 
-              </h5> 
-              <p class="card-text mb-3">11:20</p>
-              <div class="truncate"> 
-                <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-                <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
-              </div>
-            </div> 
-          </div> 
-        </div> 
-
-        <div class="col-lg-3 pr-0"> 
-          <div class="card border-0 activity"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
-                Activity 
-              </h5> 
-              <p class="card-text mb-3">Off-line</p> 
-              <p class="card-link mb-0">Online 2 Days ago</p>  
-            </div> 
+        <div class="card border-0 mb-0 mr-0 time"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+              Time 
+            </h5> 
+            <p class="card-text mb-2">11:20</p>
+            <div class="truncate"> 
+              <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+              <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+            </div>
           </div> 
         </div> 
       </div>       
 
-      <div class="row mx-0 mb-0 justify-content-between side-indentation stats final-modal"> 
-        <div class="col-lg-6 pl-0 pr-4"> 
-          <div class="card left mt-3 border-0 tab-card"> 
+      <div class="side-indentation stats final-modal">
+        <div class="card-deck mx-0 mb-0"> 
+          <div class="card left mt-3 border-0 mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -756,13 +790,12 @@ a.down-scroll:hover{
                     aria-selected="true"
                   > 
                     <img 
-                      src="/images/workstation/Agent_Notes_Icon@4x.png" 
+                      src="/images/icons/workstation/Agent_Notes.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="23"
+                      width="60"
                     /> 
-                    <span class="left w-50">Agent Notes</span> 
-                    <span class="right">{{ comments.total_comments }}</span> 
+                    <span>Agent Notes</span>
                   </a> 
                 </li> 
 
@@ -777,12 +810,12 @@ a.down-scroll:hover{
                     aria-selected="false"
                   > 
                     <img 
-                      src="/images/workstation/Schedule_Callbacks.svg" 
+                      src="/images/icons/workstation/Schedual_Callback.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="23"
+                      width="60"
                     /> 
-                    <span class="left">Schedule Callback</span> 
+                    <span>Schedule Callback</span> 
                   </a> 
                 </li> 
               </ul> 
@@ -791,7 +824,8 @@ a.down-scroll:hover{
             <div class="tab-content" id="myTabContent"> 
               <div 
                 class="tab-pane fade show active p-3" 
-                id="one" role="tabpanel" 
+                id="one" 
+                role="tabpanel" 
                 aria-labelledby="one-tab"
               > 
                 <div class="notes-roll"> 
@@ -844,7 +878,7 @@ a.down-scroll:hover{
                       type="submit" 
                       class="btn btn-primary" 
                       @click="addComment()"
-                    >Send</button>
+                    >Submit</button>
                   </div> 
                 </div>             
               </div>
@@ -916,16 +950,14 @@ a.down-scroll:hover{
                       type="submit" 
                       class="btn btn-primary"
                       @click="addCallback()"
-                    >Schedule</button> 
+                    >Submit</button> 
                   </div>   
                 </div> 
               </div> 
             </div> 
-          </div> 
-        </div> 
-
-        <div class="col-lg-6 pr-0 pl-4"> 
-          <div class="card left mt-3 border-0 tab-card"> 
+          </div>
+ 
+          <div class="card left mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -938,9 +970,8 @@ a.down-scroll:hover{
                     aria-controls="Three" 
                     aria-selected="true"
                   > 
-                    <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
+                    <img src="/images/icons/workstation/Feedback_summary.svg" alt="Icon" class="icon" width="60"/> 
                     <span class="left w-50">Feedback Summary</span> 
-                    <span class="right">{{ comments.total_comments }}</span> 
                   </a> 
                 </li> 
                 <li class="nav-item right w-50"> 
@@ -953,7 +984,7 @@ a.down-scroll:hover{
                     aria-controls="Four" 
                     aria-selected="false"
                   > 
-                    <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
+                    <img src="/images/icons/workstation/Email_Client.svg" alt="Icon" class="icon" width="60"/> 
                     <span class="left">Email Client</span> 
                   </a> 
                 </li> 
@@ -966,7 +997,6 @@ a.down-scroll:hover{
                 id="three" 
                 role="tabpanel" 
                 aria-labelledby="three-tab" 
-                style="height: 349px;"
               > 
                 <div class=""> 
                   <div class="verticalChart w-100"> 
@@ -992,9 +1022,158 @@ a.down-scroll:hover{
                 </div> 
               </div> 
             </div> 
-          </div> 
-        </div> 
-      </div> 
+          </div>
+        </div>
+
+        <!-- Activities Starts -->
+        <div class="row mx-0 mb-0 activities"> 
+          <div class="col-lg-12 px-0"> 
+            <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
+                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="one-tab" 
+                      data-toggle="tab" 
+                      href="#one" 
+                      role="tab" 
+                      aria-controls="Five" 
+                      aria-selected="true"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Open Activities.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Open Activities</span> 
+                    </a> 
+                  </li> 
+
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="two-tab" 
+                      data-toggle="tab" 
+                      href="#two" 
+                      role="tab" 
+                      aria-controls="Six" 
+                      aria-selected="false"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Closed_activites.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Closed Activities</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
+
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active p-3" 
+                  id="one" role="tabpanel" 
+                  aria-labelledby="one-tab"
+                > 
+                  <b-table hover :items="activityItems">
+                    <template v-slot:cell(statusColor)="data">
+                      <p :style="{color: statusColor}">hi</p>
+                    </template>
+                  </b-table>             
+                </div>
+
+                <div 
+                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  id="two" 
+                  role="tabpanel" 
+                  aria-labelledby="two-tab"
+                >  
+                  <b-table hover :items="activityItems">
+                    <template v-slot:cell(statusColor)="data">
+                      <p :style="{color: statusColor}">hi</p>
+                    </template>
+                  </b-table>
+                </div> 
+              </div> 
+            </div> 
+          </div>  
+        </div>
+
+        <!-- Deals Starts -->
+        <div class="row mx-0 mb-0 deals"> 
+          <div class="col-lg-12 px-0"> 
+            <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
+                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="one-tab" 
+                      data-toggle="tab" 
+                      href="#one" 
+                      role="tab" 
+                      aria-controls="Five" 
+                      aria-selected="true"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Deals.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Deals</span> 
+                    </a> 
+                  </li> 
+
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="two-tab" 
+                      data-toggle="tab" 
+                      href="#two" 
+                      role="tab" 
+                      aria-controls="Six" 
+                      aria-selected="false"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Create_a_deal.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Create a Deal</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
+
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active p-3" 
+                  id="one" role="tabpanel" 
+                  aria-labelledby="one-tab"
+                > 
+                  <b-table hover :items="dealItems"></b-table>        
+                </div>
+
+                <div 
+                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  id="two" 
+                  role="tabpanel" 
+                  aria-labelledby="two-tab"
+                >  
+                  <b-table hover :items="dealItems"></b-table>
+                </div> 
+              </div> 
+            </div> 
+          </div>  
+        </div>
+        <!-- Deals Ends -->
+      </div>
     </div> 
     <!-- General Section Ends --> 
 
@@ -1040,7 +1219,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Clients</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1048,7 +1227,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Commission</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1056,7 +1235,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Upselling</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1064,7 +1243,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Breaking the Ice</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1072,7 +1251,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
           
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
             <p>Callbacks</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1131,8 +1310,7 @@ a.down-scroll:hover{
         @hide="preventClosing" 
         style="z-index: 999999;padding: 1rem 3rem;" 
         hide-header 
-        hide-footer 
-      > 
+        hide-footer> 
         <div class="final-modal"> 
           <div class="row row-a w-100 ml-0"> 
             <div class="col-lg-6" style="padding-left: 6%;"> 
@@ -1200,7 +1378,7 @@ a.down-scroll:hover{
                     <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
                     Client 
                   </h5> 
-                  <p class="card-text truncate mb-3" 
+                  <p class="card-text truncate mb-2" 
                     :title="lead_info.name + ' ' + lead_info.surname"
                   >{{ lead_info.name + ' ' + lead_info.surname }}</p> 
                   <div class="truncate w-100">
@@ -1219,12 +1397,14 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
                     Product 
                   </h5> 
-                  <p class="card-text truncate mb-3" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                    {{ lead_info.product.name }} 
-                  </p> 
-                  <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                    {{ lead_info.product.description }} 
-                  </p>  
+                  <p 
+                    class="card-text truncate mb-2" 
+                    :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+                  >{{ lead_info.product.name }}</p> 
+                  <p 
+                  class="card-link truncate w-100 mb-0" 
+                  :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+                  >{{ lead_info.product.description }}</p>  
                 </div> 
               </div> 
             </div> 
@@ -1236,9 +1416,10 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
                     Time 
                   </h5> 
-                  <div class="truncate mb-3"> 
-                    <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-                    <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+                  <p class="card-text mb-2">11:20</p>
+                  <div class="truncate mb-2"> 
+                    <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+                    <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
                   </div>  
                 </div> 
               </div> 
@@ -1260,9 +1441,8 @@ a.down-scroll:hover{
                         aria-controls="One" 
                         aria-selected="true"
                       > 
-                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
-                        <span class="left w-50">Agent Notes</span> 
-                        <span class="right w-50">{{ comments.total_comments }}</span> 
+                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="60"/> 
+                        <span>Agent Notes</span>  
                       </a> 
                     </li> 
                     <li class="nav-item right"> 
@@ -1275,8 +1455,8 @@ a.down-scroll:hover{
                         aria-controls="Two" 
                         aria-selected="false"
                       > 
-                        <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
-                        <span class="left">Schedule Callback</span> 
+                        <img src="/images/icons/workstation/Schedual_Callback.svg" alt="Icon" class="icon" width="60"/> 
+                        <span>Schedule Callback</span> 
                       </a> 
                     </li> 
                   </ul> 
@@ -1340,7 +1520,7 @@ a.down-scroll:hover{
                           type="submit" 
                           class="btn btn-primary" 
                           @click="addComment()"
-                        >Send</button>
+                        >Submit</button>
                       </div> 
                     </div>             
                   </div> 
@@ -1410,7 +1590,7 @@ a.down-scroll:hover{
                           class="btn btn-primary" 
                           style="width:100px;" 
                           @click="addCallback()"
-                        >Schedule</button> 
+                        >Submit</button> 
                       </div>   
                     </div> 
                   </div> 
@@ -1690,129 +1870,139 @@ a.down-scroll:hover{
         },
         props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'],
         data: function(){
-            return {
-                lead : {},
-                conferences: [],
-                lead_info : {
-                    lead_source: {},
-                    product: {},
-                },
-                call_counts : {},
-                product : {},
-                comments : {},
-                comments_graph : {},
-                notes_data: [],
-                minimized: false,
-                scripts: false,
-                general: false,
-                active_calls: false,
-                calling: false,
-                show_edication_blocks: false,
-                idle: false,
-                added_time: false,
-                choose_comment_type: false,
-                edit_comment: false,
-                continues: false,
-                show_page_loader: false,
-                call_status: '',
-                call_sid: '',
-                handle: '',
-                set_time: 2  * 60 * 1000,
-                comment:{
-                    id: '',
-                    comment_description :'',
-                    comment_type :''
-                },
-                call_back:{
-                    id: '',
-                    note :'',
-                    date :'',
-                    time :'',
-                    user_id: this.user_id,
-                    lead_id: '',
-                    call_sid: this.call_sid
-                },
-                date_span: '',
-                max_date: '',
-                selected_date: moment(),
-                selected_time:  moment(),
-                dates: [],
-                dialer_settings: [],
-                columns:[
-                    {
-                        label: 'CALLER',  // Column name
-                        field: 'lead_caller',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'TYPE',  // Column name
-                        field: 'lead_type',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'NAME',  // Column name
-                        field: 'lead_name',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'OWNER',  // Column name
-                        field: 'lead_owner',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ASSIGNEE',  // Column name
-                        field: 'lead_assignee',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'MOBILE #',  // Column name
-                        field: 'lead_mobile',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'PACKAGE',  // Column name
-                        field: 'lead_product',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true,
-                        exportable: true
-                    },
-                    {
-                        label: 'CALL START',  // Column name
-                        field: 'dateCreated',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'STATUS',  // Column name
-                        field: 'status',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    },
-                    {
-                        label: 'ACTIONS',  // Column name
-                        field: 'actions',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    },
-                ],
-                Toast: null
-            }
+          return {
+            lead : {},
+            conferences: [],
+            lead_info : {
+                lead_source: {},
+                product: {},
+            },
+            call_counts : {},
+            product : {},
+            comments : {},
+            comments_graph : {},
+            notes_data: [],
+            minimized: false,
+            scripts: false,
+            general: false,
+            active_calls: false,
+            calling: false,
+            show_edication_blocks: false,
+            idle: false,
+            added_time: false,
+            choose_comment_type: false,
+            edit_comment: false,
+            continues: false,
+            show_page_loader: false,
+            call_status: '',
+            call_sid: '',
+            handle: '',
+            set_time: 2  * 60 * 1000,
+            comment:{
+                id: '',
+                comment_description :'',
+                comment_type :''
+            },
+            call_back:{
+                id: '',
+                note :'',
+                date :'',
+                time :'',
+                user_id: this.user_id,
+                lead_id: '',
+                call_sid: this.call_sid
+            },
+            date_span: '',
+            max_date: '',
+            selected_date: moment(),
+            selected_time:  moment(),
+            dates: [],
+            dialer_settings: [],
+            columns:[
+              {
+                label: 'CALLER',  // Column name
+                field: 'lead_caller',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'TYPE',  // Column name
+                field: 'lead_type',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'NAME',  // Column name
+                field: 'lead_name',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'OWNER',  // Column name
+                field: 'lead_owner',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'ASSIGNEE',  // Column name
+                field: 'lead_assignee',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'MOBILE #',  // Column name
+                field: 'lead_mobile',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'PACKAGE',  // Column name
+                field: 'lead_product',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true,
+                exportable: true
+              },
+              {
+                label: 'CALL START',  // Column name
+                field: 'dateCreated',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'STATUS',  // Column name
+                field: 'status',  // Field name from row
+                numeric: true, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:false
+              },
+              {
+                label: 'ACTIONS',  // Column name
+                field: 'actions',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:false
+              }
+            ],
+            Toast: null,
+            activityItems: [
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+            ],
+            dealItems: [
+              { dealName: '#f42222', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+              { dealName: '#00d58e', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+              { dealName: '#ff8c37', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+            ]
+          }
         },
         methods: {
             getActiveCalls(){
