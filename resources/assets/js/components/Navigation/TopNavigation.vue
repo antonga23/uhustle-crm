@@ -7,8 +7,8 @@
   line-height: 20px;
 }
 li.title a strong{
-  color: #003449;
-  font-size: 25px;
+  color: #003549;
+  font-size: 42px;
   letter-spacing: 4.2px;
 }
 a.top-link{    
@@ -27,13 +27,16 @@ a.active{
   padding: 4px 17px 6px !important;
 }
 select{
+  font-family: 'Rubik', sans-serif;
   border-radius: 26px;
+  border:0;
   margin: 5px 8px 8px 55px !important;
   height: 30px !important;
-  background: #F98B39 !important;
-  border-color: #F98B39 !important;
-  color: #fff !important;
-  padding: 2px 17px 6px !important;
+  background: #fff !important;
+  color: #003549 !important;
+  padding: 0 16px 0 !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
 }
 select.month-selector {
   margin-left: 0!important;
@@ -118,7 +121,7 @@ select.month-selector {
 	<div>
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0">
 			<!-- Left navbar links -->
-			<div class="row w-100 justify-content-between">
+			<div class="row w-100 justify-content-between align-items-center">
 				<div class="col-auto">
 					<ul class="navbar-nav left align-items-center">
 						<li class="nav-item d-none d-sm-inline-block title pr-3">
@@ -165,7 +168,7 @@ select.month-selector {
 						</li>
 
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block px-3">
-							<select class="form-control month-selector" v-model="month" @change="topMonthFilterChange">
+							<select class="form-control month-selector m-0" v-model="month" @change="topMonthFilterChange">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
 								<option value="3">March {{ getFullYear() }}</option>
