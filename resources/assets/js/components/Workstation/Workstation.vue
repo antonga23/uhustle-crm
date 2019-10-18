@@ -152,9 +152,10 @@ span.right{
   width: 22%;
   color: #7f99a4; 
 } 
-.notes-capture {
+.notes-capture, .callback-capture {
   background: #f4f4f4;
   border-radius: 50rem;
+  height:50px;
 }
 .choose-comment-type{
   height: 50px; 
@@ -175,13 +176,21 @@ span.right{
   cursor: pointer; 
   float: left; 
 } 
-#send-btn{ 
-  height: 50px; 
-  margin: 0; 
-  font-weight:700;
-  text-transform: uppercase;
-  font-size:10px;
-  letter-spacing:0.05em;
+.keys p {
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif;
+  font-size: 8px;
+  color: #808080;
+}
+.callback-label {
+  color: #666;
+  letter-spacing: 0.05em;
+  font-size:12px;
+  font-family: 'Rubik', sans-serif;
+}
+#submit-btn img{ 
+  margin-top: -15px; 
+  margin-right: -15px; 
 } 
 .btn-secondary { 
   color: #fff; 
@@ -535,22 +544,22 @@ a.down-scroll:hover{
   border-top-right-radius: 25px;
   border-top-left-radius:0;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"]{
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Seven"]{
   box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"]{
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Seven"]{
   box-shadow: inset -7px -10px 10px #f5f5f5;
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"]{
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Eight"]{
   box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"]{
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
   box-shadow: inset 7px -10px 10px #f5f5f5;
   border-bottom-left-radius: 25px;
   border-top-left-radius: 0;
@@ -561,6 +570,50 @@ a.down-scroll:hover{
 }
 .activities .card-header-tabs, .deals .card-header-tabs {
   box-shadow: inset 0 -10px 10px #f5f5f5;
+}
+.deals #eight p {
+  font-size: 10px; 
+  letter-spacing: 0.05em;
+  color: 808080;
+}
+.deals #eight label {
+  font-size: 10px; 
+  letter-spacing: 0.05em;
+  color: #999999;
+  font-family: 'Rubik', sans-serif; 
+}
+.deals #eight input, .deals #eight textarea, .deals #eight select {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  color: #003449;
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  padding: 10px 20px!important;
+}
+.deals #eight textarea {
+  border-radius: 25px;
+  height: 94px!important;
+}
+.deals #eight .custom-select {
+  height: auto;
+}
+.deals #eight .cancel-deal {
+  border-radius: 50rem!important;
+  font-size: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  letter-spacing: 0.05em;
+  color: #999999;
+  padding: 9px;
+}
+.deals #eight .save-deal {
+  font-size: 10px;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 9px;
 }
 .nav-tabs .nav-link span{ 
   font-size: 14px; 
@@ -874,11 +927,18 @@ a.down-scroll:hover{
                   </div>
                   <div class="flex-shrink-1">
                     <button 
-                      id="send-btn" 
+                      id="submit-btn" 
                       type="submit" 
-                      class="btn btn-primary" 
+                      class="btn p-0 m-0" 
                       @click="addComment()"
-                    >Submit</button>
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button>
                   </div> 
                 </div>             
               </div>
@@ -890,39 +950,69 @@ a.down-scroll:hover{
                 aria-labelledby="two-tab"
               >  
                 <div class="row mx-0 mb-0"> 
-                  <div class="col-lg-4 pr-0"> 
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label p-0">Date of Callback 
-                          <a-date-picker 
-                            v-model='selected_date' 
-                            format="YYYY-MM-DD" 
-                            :allowEmpty="false"
-                            @change="checkCBDate()"
-                          /> 
-                        </label> 
-                      </div> 
+                  <div class="col-lg-4 px-0"> 
+                    <div class="row mx-0 align-items-center">
+                      <div class="col-6 pl-0">
+                        <div class="w-100 keys">
+                          <img src="/images/icons/circle.svg" 
+                            alt="Icon" 
+                            class="d-inline icon" 
+                            width="17"/>
+                          <p>Today</p>
+                        </div>
+                        <div class="w-100 keys">
+                          <img src="/images/icons/grey dot.svg" 
+                            alt="Icon" 
+                            class="d-inline icon" 
+                            width="17"/>
+                          <p>Recommended Callback</p>
+                        </div>
+                      </div>
+                      <div class="col-6 pr-0">
+                        <div class="w-100 keys">
+                          <img src="/images/icons/blue dot.svg" 
+                            alt="Icon" 
+                            class="d-inline icon" 
+                            width="8"/>
+                          <p>Scheduled Callbacks</p>
+                        </div>
+                        <div class="w-100 keys">
+                          <img src="/images/icons/Orange Dot_Big.svg" 
+                            alt="Icon" 
+                            class="d-inline icon" 
+                            width="8"/>
+                          <p>Tasks</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label p-0 callback-label">Date of Callbacks 
+                        <a-date-picker 
+                          v-model='selected_date' 
+                          format="YYYY-MM-DD" 
+                          :allowEmpty="false"
+                          @change="checkCBDate()"
+                          class="rounded-pill"
+                        /> 
+                      </label> 
                     </div> 
-                      
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label pl-0">Time of Callback 
-                          <a-time-picker 
-                            v-model='selected_time' 
-                            :allowEmpty="false" 
-                            use24Hours 
-                            format="hh:mm a"
-                          /> 
-                        </label> 
-                      </div>   
-                    </div>                                        
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label pr-0">
-                          <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
-                        </label> 
-                      </div>   
-                    </div> 
+                       
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label pl-0 callback-label">Time of Callback 
+                        <a-time-picker 
+                          v-model='selected_time' 
+                          :allowEmpty="false" 
+                          use24Hours 
+                          format="hh:mm a"
+                        /> 
+                      </label> 
+                    </div>
+
+                    <!-- <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="col-lg-12 control-label pr-0">
+                        <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                      </label> 
+                    </div>   -->
                   </div> 
 
                   <div class="col-lg-8"> 
@@ -936,23 +1026,32 @@ a.down-scroll:hover{
                     /> 
                   </div> 
                 </div> 
-
-                <div class="row mb-0"> 
-                  <div class="col-lg-12 pr-0"> 
+ 
+                <div class="d-flex callback-capture">
+                  <div class="flex-grow-1">
                     <input 
-                      class="comment-desc d-block w-75 border-0" 
+                      class="comment-desc d-block w-100 border-0 rounded-pill" 
                       type="text" 
                       v-model="call_back.note" 
                       placeholder="Write notes here"
                     /> 
+                  </div>
+                  <div class="flex-shrink-1">
                     <button 
-                      id="send-btn" 
+                      id="submit-btn" 
                       type="submit" 
-                      class="btn btn-primary"
+                      class="btn p-0 m-0"
                       @click="addCallback()"
-                    >Submit</button> 
-                  </div>   
-                </div> 
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button> 
+                  </div>
+                </div>
               </div> 
             </div> 
           </div>
@@ -1036,7 +1135,7 @@ a.down-scroll:hover{
                       class="nav-link" 
                       id="one-tab" 
                       data-toggle="tab" 
-                      href="#one" 
+                      href="#five" 
                       role="tab" 
                       aria-controls="Five" 
                       aria-selected="true"
@@ -1056,7 +1155,7 @@ a.down-scroll:hover{
                       class="nav-link" 
                       id="two-tab" 
                       data-toggle="tab" 
-                      href="#two" 
+                      href="#six" 
                       role="tab" 
                       aria-controls="Six" 
                       aria-selected="false"
@@ -1076,23 +1175,35 @@ a.down-scroll:hover{
               <div class="tab-content" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active p-3" 
-                  id="one" role="tabpanel" 
+                  id="five" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
-                  <b-table hover :items="activityItems">
+                  <b-table 
+                    hover 
+                    :items="activityItems" 
+                    :per-page="perPage"
+                    :current-page="currentPage"
+                    sticky-header
+                  >
                     <template v-slot:cell(statusColor)="data">
-                      <p :style="{color: statusColor}">hi</p>
+                      <p :style="{color: item.statusColor}">hi</p>
                     </template>
-                  </b-table>             
+                  </b-table>
+                  <b-pagination
+                    v-model="currentPage"
+                    :total-rows="rows"
+                    :per-page="perPage"
+                    aria-controls="my-table"
+                  ></b-pagination>             
                 </div>
 
                 <div 
                   class="tab-pane fade pt-0 px-3 pb-3" 
-                  id="two" 
+                  id="six" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
                 >  
-                  <b-table hover :items="activityItems">
+                  <b-table hover :items="activityItems" per-page="5">
                     <template v-slot:cell(statusColor)="data">
                       <p :style="{color: statusColor}">hi</p>
                     </template>
@@ -1114,9 +1225,9 @@ a.down-scroll:hover{
                       class="nav-link" 
                       id="one-tab" 
                       data-toggle="tab" 
-                      href="#one" 
+                      href="#seven" 
                       role="tab" 
-                      aria-controls="Five" 
+                      aria-controls="Seven" 
                       aria-selected="true"
                     > 
                       <img 
@@ -1134,16 +1245,17 @@ a.down-scroll:hover{
                       class="nav-link" 
                       id="two-tab" 
                       data-toggle="tab" 
-                      href="#two" 
+                      href="#eight" 
                       role="tab" 
-                      aria-controls="Six" 
+                      aria-controls="Eight" 
                       aria-selected="false"
                     > 
                       <img 
                         src="/images/icons/workstation/Create_a_deal.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="36"
+                        style="margin-top:11px; margin-bottom:11px;"
                       /> 
                       <span>Create a Deal</span> 
                     </a> 
@@ -1154,7 +1266,7 @@ a.down-scroll:hover{
               <div class="tab-content" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active p-3" 
-                  id="one" role="tabpanel" 
+                  id="seven" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
                   <b-table hover :items="dealItems"></b-table>        
@@ -1162,11 +1274,136 @@ a.down-scroll:hover{
 
                 <div 
                   class="tab-pane fade pt-0 px-3 pb-3" 
-                  id="two" 
+                  id="eight" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
                 >  
-                  <b-table hover :items="dealItems"></b-table>
+                  <p>Deal information</p>
+                  <div class="row mx-0">
+                    <div class="col-7 pl-0">
+                      <div class="row mx-0">
+                        <div class="col-6 pl-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name
+                            <input 
+                              type="text" 
+                              id="agent-name"  
+                              name="AgentName"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name
+                            <input 
+                              type="text" 
+                              id="deal-name"  
+                              name="DealName"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date
+                            <input 
+                              type="date" 
+                              id="closing-date"  
+                              name="ClosingDate"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                        </div>
+                        <div class="col-6 pr-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type
+                            <select class="custom-select rounded-pill border-0">
+                              <option selected>-None-</option>
+                              <option value="1">Existing Business</option>
+                              <option value="2">New Business</option>
+                            </select>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source
+                            <select class="custom-select rounded-pill border-0">
+                              <option selected>-None-</option>
+                              <option value="1">Advertising</option>
+                              <option value="2">Cold Call</option>
+                              <option value="3">Employee Referral</option>
+                              <option value="4">External Referral</option>
+                              <option value="5">Online Store</option>
+                            </select>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount
+                            <input 
+                              type="number" 
+                              id="amount"  
+                              name="Amount"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                        </div>
+
+                        <div class="col-12 px-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information
+                            <textarea 
+                              id="info"  
+                              name="Info"
+                              class="form-control border-0"/>
+                          </label>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="col-3">
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage
+                        <select class="custom-select rounded-pill border-0">
+                          <option selected>-None-</option>
+                          <option value="1">Qualification</option>
+                          <option value="2">Needs Analysis</option>
+                          <option value="3">Value Proposition</option>
+                          <option value="4">Proposal</option>
+                          <option value="5">Negotiation</option>
+                        </select>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)
+                        <input 
+                          type="text" 
+                          id="probability"  
+                          name="Probability"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue
+                        <input 
+                          type="number" 
+                          id="revenue"  
+                          name="Revenue"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name
+                        <input 
+                          type="text" 
+                          id="contact-name"  
+                          name="ContactName"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number
+                        <input 
+                          type="tel" 
+                          id="contact-number"  
+                          name="ContactNumber"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                    </div>
+
+                    <div class="col-2 pr-0">
+                      <div class="row mx-0">
+                        <div class="col-lg-6 pl-0 pr-2">
+                          <button 
+                            type="submit" 
+                            class="btn btn-default cancel-deal w-100 m-0 border-0" 
+                            @click=""
+                          >Cancel</button>
+                        </div>
+                        <div class="col-lg-6 pr-0 pl-2">
+                          <button 
+                            type="submit" 
+                            class="btn btn-primary save-deal w-100 rounded-pill m-0" 
+                            @click=""
+                          >Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div> 
               </div> 
             </div> 
@@ -1516,11 +1753,18 @@ a.down-scroll:hover{
 
                       <div class="flex-shrink-1"> 
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
+                          class="btn " 
                           @click="addComment()"
-                        >Submit</button>
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button>
                       </div> 
                     </div>             
                   </div> 
@@ -1574,25 +1818,32 @@ a.down-scroll:hover{
                         /> 
                       </div> 
                     </div> 
-
-                    <div class="row mb-0"> 
-                      <div class="col-lg-12 pr-0"> 
+ 
+                    <div class="d-flex callback-capture">
+                      <div class="flex-grow-1">
                         <input 
-                          class="comment-desc d-block w-75 border-0" 
+                          class="comment-desc d-block border-0" 
                           type="text" 
                           v-model="call_back.note" 
-                          placeholder="Write notes here" 
-                          style="width: 72.5%;" 
-                        /> 
+                          placeholder="Write notes here"
+                        />
+                      </div>
+                      <div class="flex-shrink-1"> 
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
-                          style="width:100px;" 
+                          class="btn" 
                           @click="addCallback()"
-                        >Submit</button> 
-                      </div>   
-                    </div> 
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button> 
+                      </div>
+                    </div>
                   </div> 
                 </div> 
               </div> 
@@ -1698,17 +1949,25 @@ a.down-scroll:hover{
                       </div>
                     </div>
 
-                    <div class="row mb-0">
-                      <div class="col-lg-12 pr-0">
-                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
+                    <div class="d-flex callback-capture">
+                      <div class="flex-grow-1">
+                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" />
+                      </div>
+                      <div class="flex-shrink-1">
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
-                          style="width:100px;" 
+                          class="btn p-0 m-0"
                           @click="addCallback()"
-                        >Schedule</button>
-                      </div>  
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1768,8 +2027,8 @@ a.down-scroll:hover{
         </div>
       </b-modal>
     </div>
+    <input type="hidden" @click="startCall()" ref="callBtn" />
     
-    <input type="hidden"  @click="startCall()" ref="callBtn" />
   </div>
 </template>
 
@@ -1996,12 +2255,34 @@ a.down-scroll:hover{
               { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
               { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
               { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' }
             ],
             dealItems: [
               { dealName: '#f42222', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
               { dealName: '#00d58e', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
               { dealName: '#ff8c37', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
-            ]
+            ],
+            perPage: 10,
+            currentPage: 1,
+          }
+        },
+        computed: {
+          rows() {
+            return this.activityItems.length
           }
         },
         methods: {

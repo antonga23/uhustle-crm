@@ -476,7 +476,13 @@ label:not(.form-check-label):not(.custom-file-label) {
 .vc-bg-blue-600 {
   background-color: #fff!important;
 }
-
+.vc-bg-pink-600:first-child {
+  border: 2px solid #FF933A;
+  background:#fff;
+}
+.vc-bg-pink-600:last-child {
+  background:#ccc;
+}
 ::-webkit-scrollbar {
   width: 6px;
   right: 5px;
@@ -572,4 +578,12 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
+}
+
+/* workstation schedule callback */
+.ant-calendar-picker-input.ant-input, .ant-time-picker-input {
+  border-radius: 50rem!important;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  border: 0!important;
 }
