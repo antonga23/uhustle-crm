@@ -102,13 +102,8 @@
   /* transform: translateY(-50%); */
   right: 0;
 }
-.mt-20 {
-  margin-top: 0 !important;
-}
-@media screen and (min-width: 2000px) {
-  .mt-20 {
-    margin-top: 20% !important;
-  }
+.mt-10 {
+  margin-top: 10% !important;
 }
 
 @media screen and (max-width: 992px) {
