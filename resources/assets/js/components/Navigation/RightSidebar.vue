@@ -61,13 +61,13 @@ h3 img{
   padding-top: 3px;
 }
 .open-sidenav .navbar {
-  border-bottom: 1px solid #cdccce;
+  border-bottom: 1px solid #f4f4f5;
 }
 .navbar-light .navbar-nav .nav-link.icon {
   color: rgba(0, 0, 0, 0.5);
 }
 .navbar-light .navbar-nav .nav-link.name {
-  font-size: 22px;
+  font-size: 14px;
   color:#1e2331;
 	font-family: 'Rubik', sans-serif;
   padding-top: 6px;
@@ -121,6 +121,9 @@ h3 img{
 .p-3{
   padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;
 }
+.p-34{
+  padding: 0px 34px;
+}
 .progress-bar{
 	background: #f7f6fb;
 	border-radius: 5px;
@@ -134,17 +137,18 @@ h3 img{
 }
 .value{
   font-weight: 900;
-  font-size: 24px;
+  font-size: 16px;
   color: #1a1c43;
 	margin-top: -8px;
   letter-spacing: 0.1em;
   font-family: Montserrat !important;
 }
 .description{
-	font-size: 13px;
+	font-size: 12px;
 	font-family: 'Rubik', sans-serif;
   letter-spacing: 0.05em;
   color: #1e2331;
+  padding-bottom: 10px;
 }
 .position{
   display: block;
@@ -455,7 +459,7 @@ p.heading{
   color: #003549;
 }
 .stats-section {
-  margin-top: 35px;
+  margin-top: 25px;
 }
 .stats-section .commission {
   padding:25px 0;
@@ -464,7 +468,7 @@ p.heading{
   padding:5px 0;
 }
 .stats-section .calls .col-lg-12 p, .stats-section .sales .col-lg-12 p, p.badges{
-  border-bottom: 0.5px solid #cdccce; 
+  border-bottom: 0.5px solid #f4f4f5; 
   margin-bottom: 5px; 
   padding-bottom: 2px;
 }
@@ -1335,7 +1339,7 @@ p.heading{
 
             <div v-if="notifications_on == false && settings_on == false">
               <div class="row p-0 stats-section">
-                <div class="col-lg-12">
+                <div class="col-lg-12 p-34">
                   <div class="row p-0">
                     <div class="col-lg-12">
                       <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
