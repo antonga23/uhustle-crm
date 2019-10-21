@@ -643,6 +643,55 @@ a.down-scroll:hover{
 .ant-time-picker{ 
   width: 100% !important; 
 } 
+.summary p {
+  color: #818284;
+  font-size: 15px;
+}
+.stat-perc {
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  color: #808080;
+}
+.summary-abr {
+  letter-spacing: 0.05em;
+  color: #333333;
+  font-family: 'Rubik', sans-serif; 
+  font-size: 18px;
+}
+.progress-bar{
+	background: #E6E6E6;
+	border-radius: 5px;
+  height: 12px;
+}
+.tank{
+	background:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;
+	border-radius: 5px;
+  background: rgb(114, 218, 126);
+  height: 12px;
+  transition: all 0.5s ease 0s;
+}
+.email-desc {
+  letter-spacing: 0.05em;
+  color: #999999;
+}
+#four .text-uppercase.font-weight-bold{
+  color: #808080;
+  letter-spacing: 0.05em;
+} 
+#four .btn-default {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  font-family: 'Rubik', sans-serif; 
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  border-radius: 50rem!important;
+}
+#four textarea {
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  height: 163px!important;
+  overflow-y: auto;
+}
 </style> 
 <template> 
   <div id="workstation"> 
@@ -1098,7 +1147,7 @@ a.down-scroll:hover{
                 aria-labelledby="three-tab" 
               > 
                 <div class=""> 
-                  <div class="verticalChart w-100"> 
+                  <!-- <div class="verticalChart w-100"> 
                     <div class="singleBar" v-for="bar in comments_graph"> 
                       <div class="bar"> 
                         <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
@@ -1110,15 +1159,105 @@ a.down-scroll:hover{
 
                       <div class="clearfix"></div> 
                     </div> 
+                  </div> -->
+
+                  <div class="row mx-0 justify-content-between align-items-center summary">
+                    <div class="col-auto pl-0">
+                      <p>220 reviews</p>
+                    </div>
+
+                    <div class="col-auto px-0">
+                      <div class="row mx-0 mb-0">
+                        <div class="col-auto px-0">
+                          <p>Called: 600</p>
+                        </div>
+                        <div class="col-auto pr-0">
+                          <p>Answered: 50</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                    <div class="col-12 px-0">
+                      <div class="row mx-0 mb-0 align-items-center">
+                        <div class="col-12 align-content-end px-0">
+                          <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                        </div>
+
+                        <div class="col px-0">
+                          <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                        </div>
+
+                        <div class="col-11 pr-0 pl-4">
+                          <div class="progress-bar w-100">
+                            <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>            
                 </div>
               </div>  
 
               <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
-                <h5 class="card-title">TODO</h5> 
-                <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
-                  <p class="card-text">Email client form</p> 
-                </div> 
+                <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
+
+                <div class="row mx-0 align-items-center">
+                  <div class="col-auto pl-0">
+                    <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
+                  </div>
+                  <div class="col-auto pl-0 mb-2 pr-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Introduce Stock</button>
+                  </div>
+                  <div class="col-auto px-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >First time sell</button>
+                  </div>
+                  <div class="col-auto px-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Up sell</button>
+                  </div>
+                  <div class="col-auto pr-0 pl-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Extra Info</button>
+                  </div>
+                </div>
+
+                <textarea 
+                  id="message-body"  
+                  name="message"
+                  class="form-control border-0"
+                  placeholder="Write comment here..."/>
+              </div> 
+
+              <div class="flex-shrink-1 text-right">
+                <button 
+                  id="submit-btn" 
+                  type="submit" 
+                  class="btn py-0 my-0" 
+                  @click="sendEmail()"
+                >
+                  <img 
+                    src="/images/icons/workstation/Submit.svg" 
+                    alt="Icon" 
+                    class="icon" 
+                    width="76"
+                  />
+                </button>
               </div> 
             </div> 
           </div>
@@ -1185,10 +1324,11 @@ a.down-scroll:hover{
                     :current-page="currentPage"
                     sticky-header
                   >
-                    <template v-slot:cell(statusColor)="data">
-                      <p :style="{color: item.statusColor}">hi</p>
+                    <template v-for="item in activityItems" v-slot:cell(statusColor)="data">
+                      <p>hi {{ data.item.statusColor }}</p>
                     </template>
                   </b-table>
+
                   <b-pagination
                     v-model="currentPage"
                     :total-rows="rows"
@@ -1385,7 +1525,7 @@ a.down-scroll:hover{
                       </label>
                     </div>
 
-                    <div class="col-2 pr-0">
+                    <div class="col-2 align-self-end pr-0">
                       <div class="row mx-0">
                         <div class="col-lg-6 pl-0 pr-2">
                           <button 
@@ -1903,7 +2043,7 @@ a.down-scroll:hover{
                     aria-labelledby="three-tab" 
                     style="height: 349px;"
                   >
-                    <div class="verticalChart"> 
+                    <!-- <div class="verticalChart"> 
                       <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
                         <div class="bar"> 
                           <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
@@ -1915,7 +2055,44 @@ a.down-scroll:hover{
                       </div> 
 
                       <div class="clearfix"></div> 
-                    </div>            
+                    </div> -->
+
+                    <div class="row mx-0 justify-content-between align-items-center summary">
+                      <div class="col-auto pl-0">
+                        <p>220 reviews</p>
+                      </div>
+
+                      <div class="col-auto px-0">
+                        <div class="row mx-0 mb-0">
+                          <div class="col-auto px-0">
+                            <p>Called: 600</p>
+                          </div>
+                          <div class="col-auto pr-0">
+                            <p>Answered: 50</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                      <div class="col-12 px-0">
+                        <div class="row mx-0 mb-0 align-items-center">
+                          <div class="col-12 align-content-end px-0">
+                            <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                          </div>
+
+                          <div class="col px-0">
+                            <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                          </div>
+
+                          <div class="col-11 pr-0 pl-4">
+                            <div class="progress-bar w-100">
+                              <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
@@ -1998,7 +2175,7 @@ a.down-scroll:hover{
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
                     <div class="">
-                      <div class="verticalChart">
+                      <!-- <div class="verticalChart">
                         <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
                           <div class="bar">
                             <div class="value" :style="'height: ' + bar.percentage + '%;'">
@@ -2010,16 +2187,106 @@ a.down-scroll:hover{
                         </div>
 
                         <div class="clearfix"></div>
+                      </div> -->
+
+                      <div class="row mx-0 justify-content-between align-items-center summary">
+                        <div class="col-auto pl-0">
+                          <p>220 reviews</p>
+                        </div>
+
+                        <div class="col-auto px-0">
+                          <div class="row mx-0 mb-0">
+                            <div class="col-auto px-0">
+                              <p>Called: 600</p>
+                            </div>
+                            <div class="col-auto pr-0">
+                              <p>Answered: 50</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                        <div class="col-12 px-0">
+                          <div class="row mx-0 mb-0 align-items-center">
+                            <div class="col-12 align-content-end px-0">
+                              <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                            </div>
+
+                            <div class="col px-0">
+                              <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                            </div>
+
+                            <div class="col-11 pr-0 pl-4">
+                              <div class="progress-bar w-100">
+                                <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>           
                   </div>
 
                   <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <h5 class="card-title">TODO</h5>
-                    <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">
-                      <p class="card-text">Email client form</p>
+                    <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
+
+                    <div class="row mx-0 align-items-center">
+                      <div class="col-auto pl-0">
+                        <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
+                      </div>
+                      <div class="col-auto pl-0 mb-2 pr-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Introduce Stock</button>
+                      </div>
+                      <div class="col-auto px-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >First time sell</button>
+                      </div>
+                      <div class="col-auto px-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Up sell</button>
+                      </div>
+                      <div class="col-auto pr-0 pl-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Extra Info</button>
+                      </div>
                     </div>
-                  </div>
+
+                    <textarea 
+                      id="message-body"  
+                      name="message"
+                      class="form-control border-0"
+                      placeholder="Write comment here..."/>
+                  </div> 
+
+                  <div class="flex-shrink-1 text-right">
+                    <button 
+                      id="submit-btn" 
+                      type="submit" 
+                      class="btn py-0 my-0" 
+                      @click="sendEmail()"
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button>
+                  </div> 
                 </div>
               </div>
             </div>
@@ -2251,6 +2518,13 @@ a.down-scroll:hover{
               }
             ],
             Toast: null,
+            callStats: [
+              {abbreviation: 'NA', percent: 53},
+              {abbreviation: 'FT', percent: 9},
+              {abbreviation: 'LB', percent: 4},
+              {abbreviation: 'MI', percent: 30},
+              {abbreviation: 'VM', percent: 15}
+            ],
             activityItems: [
               { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
               { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },

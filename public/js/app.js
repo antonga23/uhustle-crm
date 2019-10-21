@@ -82117,6 +82117,273 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -82356,6 +82623,22 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         sortable: false
       }],
       Toast: null,
+      callStats: [{
+        abbreviation: 'NA',
+        percent: 53
+      }, {
+        abbreviation: 'FT',
+        percent: 9
+      }, {
+        abbreviation: 'LB',
+        percent: 4
+      }, {
+        abbreviation: 'MI',
+        percent: 30
+      }, {
+        abbreviation: 'VM',
+        percent: 15
+      }],
       activityItems: [{
         statusColor: '#f42222',
         status: 'Not Started',
@@ -103837,7 +104120,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
+/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -133324,7 +133607,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#workstation .general-section-stats[data-v-f3210f20],\r\n#workstation .scripts[data-v-f3210f20] {\r\n  height:100vh;\r\n  overflow-y: scroll;\n}\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-top: 69px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {\r\n  padding-left: 3%;\r\n  padding-right:3%;\n}\n.top-section .col[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid rgba(0,52,73,1);\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 19px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em;\r\n  color: rgba(30,34,83,1);\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 13px; \r\n  color: rgba(78,77,77,1);\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif; \r\n  padding-bottom:20px;\r\n  margin-bottom:0;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size:14px;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height:1em;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 25px;\r\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], .callback-capture[data-v-f3210f20] {\r\n  background: #f4f4f4;\r\n  border-radius: 50rem;\r\n  height:50px;\n}\n.choose-comment-type[data-v-f3210f20]{\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem!important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4;\r\n  cursor: pointer; \r\n  float: left;\n}\n.keys p[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 8px;\r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {\r\n  color: #666;\r\n  letter-spacing: 0.05em;\r\n  font-size:12px;\r\n  font-family: 'Rubik', sans-serif;\n}\n#submit-btn img[data-v-f3210f20]{ \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border:0;\r\n  box-shadow:0 0 10px rgba(0,0,0,0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\r\n  border: 0;\r\n  background-color: #fff;\r\n  color:#7f8080;\r\n  letter-spacing:0.05em;\r\n  text-align:center;\r\n  padding-top:0;\r\n  padding-bottom:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-bottom-right-radius: 25px;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: -10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-bottom-left-radius: 25px;\r\n  border-top-right-radius: 25px;\r\n  border-top-left-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-bottom-right-radius: 25px;\r\n  border-top-left-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-bottom-left-radius: 25px;\r\n  border-top-left-radius: 0;\r\n  border-top-right-radius: 0;\n}\n.activities .card-header[data-v-f3210f20], .deals .card-header[data-v-f3210f20]{\r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], .deals .card-header-tabs[data-v-f3210f20] {\r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif;\n}\n.deals #eight input[data-v-f3210f20], .deals #eight textarea[data-v-f3210f20], .deals #eight select[data-v-f3210f20] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  padding: 10px 20px!important;\n}\n.deals #eight textarea[data-v-f3210f20] {\r\n  border-radius: 25px;\r\n  height: 94px!important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {\r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  font-size: 10px;\r\n  text-transform: uppercase;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n} \r\n/*being used?*/\n.ant-time-picker[data-v-f3210f20]{ \r\n  width: 100% !important;\n} \r\n", ""]);
+exports.push([module.i, "\n#workstation .general-section-stats[data-v-f3210f20],\r\n#workstation .scripts[data-v-f3210f20] {\r\n  height:100vh;\r\n  overflow-y: scroll;\n}\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-top: 69px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {\r\n  padding-left: 3%;\r\n  padding-right:3%;\n}\n.top-section .col[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid rgba(0,52,73,1);\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 19px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em;\r\n  color: rgba(30,34,83,1);\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 13px; \r\n  color: rgba(78,77,77,1);\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif; \r\n  padding-bottom:20px;\r\n  margin-bottom:0;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size:14px;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height:1em;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 25px;\r\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], .callback-capture[data-v-f3210f20] {\r\n  background: #f4f4f4;\r\n  border-radius: 50rem;\r\n  height:50px;\n}\n.choose-comment-type[data-v-f3210f20]{\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem!important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4;\r\n  cursor: pointer; \r\n  float: left;\n}\n.keys p[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 8px;\r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {\r\n  color: #666;\r\n  letter-spacing: 0.05em;\r\n  font-size:12px;\r\n  font-family: 'Rubik', sans-serif;\n}\n#submit-btn img[data-v-f3210f20]{ \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border:0;\r\n  box-shadow:0 0 10px rgba(0,0,0,0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\r\n  border: 0;\r\n  background-color: #fff;\r\n  color:#7f8080;\r\n  letter-spacing:0.05em;\r\n  text-align:center;\r\n  padding-top:0;\r\n  padding-bottom:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-bottom-right-radius: 25px;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: -10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-bottom-left-radius: 25px;\r\n  border-top-right-radius: 25px;\r\n  border-top-left-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-bottom-right-radius: 25px;\r\n  border-top-left-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-bottom-left-radius: 25px;\r\n  border-top-left-radius: 0;\r\n  border-top-right-radius: 0;\n}\n.activities .card-header[data-v-f3210f20], .deals .card-header[data-v-f3210f20]{\r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], .deals .card-header-tabs[data-v-f3210f20] {\r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif;\n}\n.deals #eight input[data-v-f3210f20], .deals #eight textarea[data-v-f3210f20], .deals #eight select[data-v-f3210f20] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  padding: 10px 20px!important;\n}\n.deals #eight textarea[data-v-f3210f20] {\r\n  border-radius: 25px;\r\n  height: 94px!important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {\r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  font-size: 10px;\r\n  text-transform: uppercase;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n} \r\n/*being used?*/\n.ant-time-picker[data-v-f3210f20]{ \r\n  width: 100% !important;\n}\n.summary p[data-v-f3210f20] {\r\n  color: #818284;\r\n  font-size: 15px;\n}\n.stat-perc[data-v-f3210f20] {\r\n  letter-spacing: 0.1em;\r\n  font-size: 16px;\r\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  color: #333333;\r\n  font-family: 'Rubik', sans-serif; \r\n  font-size: 18px;\n}\n.progress-bar[data-v-f3210f20]{\r\n\tbackground: #E6E6E6;\r\n\tborder-radius: 5px;\r\n  height: 12px;\n}\n.tank[data-v-f3210f20]{\r\n\tbackground:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 12px;\r\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  color: #999999;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20]{\r\n  color: #808080;\r\n  letter-spacing: 0.05em;\n}\n#four .btn-default[data-v-f3210f20] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  font-family: 'Rubik', sans-serif; \r\n  font-size: 12px;\r\n  letter-spacing: 0.05em;\r\n  border-radius: 50rem!important;\n}\n#four textarea[data-v-f3210f20] {\r\n  background-color: #F9F9F9;\r\n  border-radius: 10px;\r\n  height: 163px!important;\r\n  overflow-y: auto;\n}\r\n", ""]);
 
 // exports
 
@@ -265218,49 +265501,227 @@ var render = function() {
                           }
                         },
                         [
-                          _c("div", {}, [
-                            _c(
-                              "div",
-                              { staticClass: "verticalChart w-100" },
-                              _vm._l(_vm.comments_graph, function(bar) {
-                                return _c("div", { staticClass: "singleBar" }, [
-                                  _c("div", { staticClass: "bar" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "value w-100",
-                                        style:
-                                          "height: " + bar.percentage + "%;"
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          {
-                                            staticStyle: {
-                                              color: "rgb(45, 137, 239)"
+                          _c(
+                            "div",
+                            {},
+                            [
+                              _vm._m(9),
+                              _vm._v(" "),
+                              _vm._l(_vm.callStats, function(stat, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: index,
+                                    staticClass:
+                                      "row mx-0 mb-1 align-items-center"
+                                  },
+                                  [
+                                    _c("div", { staticClass: "col-12 px-0" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "row mx-0 mb-0 align-items-center"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-12 align-content-end px-0"
                                             },
-                                            attrs: { clas: "w-100 d-inline" }
-                                          },
-                                          [_vm._v(_vm._s(bar.percentage + "%"))]
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "title" }, [
-                                    _vm._v(_vm._s(bar.type))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "clearfix" })
-                                ])
-                              }),
-                              0
-                            )
-                          ])
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "text-right mb-0 stat-perc"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(stat.percent) + "%"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col px-0" },
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "mb-0 summary-abr"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(stat.abbreviation)
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-11 pr-0 pl-4" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "progress-bar w-100"
+                                                },
+                                                [
+                                                  _c("span", {
+                                                    staticClass: "tank",
+                                                    style:
+                                                      "width:" +
+                                                      "{{ stat.percent }}" +
+                                                      "%"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(9)
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade p-3",
+                          attrs: {
+                            id: "four",
+                            role: "tabpanel",
+                            "aria-labelledby": "four-tab"
+                          }
+                        },
+                        [
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "email-desc font-weight-light font-italic"
+                            },
+                            [
+                              _vm._v(
+                                "Choose a tempalte or write your own email to Client"
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "row mx-0 align-items-center" },
+                            [
+                              _vm._m(10),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto pl-0 mb-1 pr-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Introduce Stock")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("First time sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("Up sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto pr-0 pl-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("Extra Info")]
+                                )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            staticClass: "form-control border-0",
+                            attrs: {
+                              id: "message-body",
+                              name: "message",
+                              placeholder: "Write comment here..."
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex-shrink-1 text-right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn py-0 my-0",
+                            attrs: { id: "submit-btn", type: "submit" },
+                            on: {
+                              click: function($event) {
+                                return _vm.sendEmail()
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              attrs: {
+                                src: "/images/icons/workstation/Submit.svg",
+                                alt: "Icon",
+                                width: "76"
+                              }
+                            })
+                          ]
+                        )
+                      ])
                     ]
                   )
                 ]
@@ -265270,7 +265731,7 @@ var render = function() {
             _c("div", { staticClass: "row mx-0 mb-0 activities" }, [
               _c("div", { staticClass: "col-lg-12 px-0" }, [
                 _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
-                  _vm._m(10),
+                  _vm._m(11),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -265300,24 +265761,24 @@ var render = function() {
                             },
                             scopedSlots: _vm._u(
                               [
-                                {
-                                  key: "cell(statusColor)",
-                                  fn: function(data) {
-                                    return [
-                                      _c(
-                                        "p",
-                                        {
-                                          style: { color: _vm.item.statusColor }
-                                        },
-                                        [_vm._v("hi")]
-                                      )
-                                    ]
+                                _vm._l(_vm.activityItems, function(item) {
+                                  return {
+                                    key: "cell(statusColor)",
+                                    fn: function(data) {
+                                      return [
+                                        _c("p", [
+                                          _vm._v(
+                                            "hi " +
+                                              _vm._s(data.item.statusColor)
+                                          )
+                                        ])
+                                      ]
+                                    }
                                   }
-                                }
+                                })
                               ],
                               null,
-                              false,
-                              382123356
+                              true
                             )
                           }),
                           _vm._v(" "),
@@ -265388,7 +265849,7 @@ var render = function() {
             _c("div", { staticClass: "row mx-0 mb-0 deals" }, [
               _c("div", { staticClass: "col-lg-12 px-0" }, [
                 _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
-                  _vm._m(11),
+                  _vm._m(12),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -265429,47 +265890,51 @@ var render = function() {
                           _c("p", [_vm._v("Deal information")]),
                           _vm._v(" "),
                           _c("div", { staticClass: "row mx-0" }, [
-                            _vm._m(12),
-                            _vm._v(" "),
                             _vm._m(13),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-2 pr-0" }, [
-                              _c("div", { staticClass: "row mx-0" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-lg-6 pl-0 pr-2" },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-default cancel-deal w-100 m-0 border-0",
-                                        attrs: { type: "submit" },
-                                        on: { click: function($event) {} }
-                                      },
-                                      [_vm._v("Cancel")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-lg-6 pr-0 pl-2" },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-primary save-deal w-100 rounded-pill m-0",
-                                        attrs: { type: "submit" },
-                                        on: { click: function($event) {} }
-                                      },
-                                      [_vm._v("Save")]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ])
+                            _vm._m(14),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-2 align-self-end pr-0" },
+                              [
+                                _c("div", { staticClass: "row mx-0" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-lg-6 pl-0 pr-2" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default cancel-deal w-100 m-0 border-0",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Cancel")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-lg-6 pr-0 pl-2" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-primary save-deal w-100 rounded-pill m-0",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Save")]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
                           ])
                         ]
                       )
@@ -265584,7 +266049,7 @@ var render = function() {
             ? _c(
                 "div",
                 { staticClass: "row idle-education justify-content-center" },
-                [_vm._m(14)]
+                [_vm._m(15)]
               )
             : _vm._e()
         ])
@@ -266836,63 +267301,145 @@ var render = function() {
                               [
                                 _c(
                                   "div",
-                                  { staticClass: "verticalChart" },
+                                  {
+                                    staticClass:
+                                      "row mx-0 justify-content-between align-items-center summary"
+                                  },
                                   [
-                                    _vm._l(_vm.comments_graph, function(
-                                      bar,
-                                      index
-                                    ) {
-                                      return _c(
-                                        "div",
-                                        {
-                                          key: index,
-                                          staticClass: "singleBar"
-                                        },
-                                        [
-                                          _c("div", { staticClass: "bar" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto pl-0" },
+                                      [_c("p", [_vm._v("220 reviews")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto px-0" },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "row mx-0 mb-0" },
+                                          [
                                             _c(
                                               "div",
-                                              {
-                                                staticClass: "value w-100",
-                                                style:
-                                                  "height: " +
-                                                  bar.percentage +
-                                                  "%;"
-                                              },
+                                              { staticClass: "col-auto px-0" },
+                                              [_c("p", [_vm._v("Called: 600")])]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-auto pr-0" },
                                               [
-                                                _c(
-                                                  "span",
-                                                  {
-                                                    staticClass:
-                                                      "w-100 d-inline",
-                                                    staticStyle: {
-                                                      color: "rgb(45, 137, 239)"
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      _vm._s(
-                                                        bar.percentage + "%"
-                                                      )
-                                                    )
-                                                  ]
-                                                )
+                                                _c("p", [
+                                                  _vm._v("Answered: 50")
+                                                ])
                                               ]
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "title" }, [
-                                            _vm._v(_vm._s(bar.type))
-                                          ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.callStats, function(stat, index) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: index,
+                                      staticClass:
+                                        "row mx-0 mb-1 align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-12 px-0" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "row mx-0 mb-0 align-items-center"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-12 align-content-end px-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "text-right mb-0 stat-perc"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(stat.percent) +
+                                                          "%"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col px-0" },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "mb-0 summary-abr"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          stat.abbreviation
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-11 pr-0 pl-4"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "progress-bar w-100"
+                                                    },
+                                                    [
+                                                      _c("span", {
+                                                        staticClass: "tank",
+                                                        style:
+                                                          "width:" +
+                                                          "{{ stat.percent }}" +
+                                                          "%"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
                                         ]
                                       )
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "clearfix" })
-                                  ],
-                                  2
-                                )
-                              ]
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
                             ),
                             _vm._v(" "),
                             _c(
@@ -267250,66 +267797,160 @@ var render = function() {
                               }
                             },
                             [
-                              _c("div", {}, [
-                                _c(
-                                  "div",
-                                  { staticClass: "verticalChart" },
-                                  [
-                                    _vm._l(_vm.comments_graph, function(
-                                      bar,
-                                      index
-                                    ) {
-                                      return _c(
+                              _c(
+                                "div",
+                                {},
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 justify-content-between align-items-center summary"
+                                    },
+                                    [
+                                      _c(
                                         "div",
-                                        {
-                                          key: index,
-                                          staticClass: "singleBar"
-                                        },
+                                        { staticClass: "col-auto pl-0" },
+                                        [_c("p", [_vm._v("220 reviews")])]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-auto px-0" },
                                         [
-                                          _c("div", { staticClass: "bar" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row mx-0 mb-0" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto px-0"
+                                                },
+                                                [
+                                                  _c("p", [
+                                                    _vm._v("Called: 600")
+                                                  ])
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto pr-0"
+                                                },
+                                                [
+                                                  _c("p", [
+                                                    _vm._v("Answered: 50")
+                                                  ])
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.callStats, function(stat, index) {
+                                    return _c(
+                                      "div",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "row mx-0 mb-1 align-items-center"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-12 px-0" },
+                                          [
                                             _c(
                                               "div",
                                               {
-                                                staticClass: "value",
-                                                style:
-                                                  "height: " +
-                                                  bar.percentage +
-                                                  "%;"
+                                                staticClass:
+                                                  "row mx-0 mb-0 align-items-center"
                                               },
                                               [
                                                 _c(
-                                                  "span",
+                                                  "div",
                                                   {
-                                                    staticStyle: {
-                                                      color:
-                                                        "rgb(45, 137, 239)",
-                                                      display: "inline"
-                                                    }
+                                                    staticClass:
+                                                      "col-12 align-content-end px-0"
                                                   },
                                                   [
-                                                    _vm._v(
-                                                      _vm._s(
-                                                        bar.percentage + "%"
-                                                      )
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "text-right mb-0 stat-perc"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(stat.percent) +
+                                                            "%"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "col px-0" },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "mb-0 summary-abr"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            stat.abbreviation
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "col-11 pr-0 pl-4"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "progress-bar w-100"
+                                                      },
+                                                      [
+                                                        _c("span", {
+                                                          staticClass: "tank",
+                                                          style:
+                                                            "width:" +
+                                                            "{{ stat.percent }}" +
+                                                            "%"
+                                                        })
+                                                      ]
                                                     )
                                                   ]
                                                 )
                                               ]
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "title" }, [
-                                            _vm._v(_vm._s(bar.type))
-                                          ])
-                                        ]
-                                      )
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "clearfix" })
-                                  ],
-                                  2
-                                )
-                              ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
                             ]
                           ),
                           _vm._v(" "),
@@ -267324,24 +267965,132 @@ var render = function() {
                               }
                             },
                             [
-                              _c("h5", { staticClass: "card-title" }, [
-                                _vm._v("TODO")
-                              ]),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "email-desc font-weight-light font-italic"
+                                },
+                                [
+                                  _vm._v(
+                                    "Choose a tempalte or write your own email to Client"
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
+                                { staticClass: "row mx-0 align-items-center" },
+                                [
+                                  _c("div", { staticClass: "col-auto pl-0" }, [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "text-uppercase font-weight-bold mb-0"
+                                      },
+                                      [_vm._v("Templates:")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-auto pl-0 mb-1 pr-1" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default m-0 border-0 text-capitalize",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Introduce Stock")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-auto px-1" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-default m-0 border-0 text-capitalize",
+                                        attrs: { type: "submit" },
+                                        on: { click: function($event) {} }
+                                      },
+                                      [_vm._v("First time sell")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-auto px-1" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-default m-0 border-0 text-capitalize",
+                                        attrs: { type: "submit" },
+                                        on: { click: function($event) {} }
+                                      },
+                                      [_vm._v("Up sell")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-auto pr-0 pl-1" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default m-0 border-0 text-capitalize",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Extra Info")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                staticClass: "form-control border-0",
+                                attrs: {
+                                  id: "message-body",
+                                  name: "message",
+                                  placeholder: "Write comment here..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex-shrink-1 text-right" },
+                            [
+                              _c(
+                                "button",
                                 {
-                                  staticClass: "w-100",
-                                  staticStyle: {
-                                    height: "245px",
-                                    overflow: "hidden",
-                                    color: "#818284"
+                                  staticClass: "btn py-0 my-0",
+                                  attrs: { id: "submit-btn", type: "submit" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.sendEmail()
+                                    }
                                   }
                                 },
                                 [
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v("Email client form")
-                                  ])
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/workstation/Submit.svg",
+                                      alt: "Icon",
+                                      width: "76"
+                                    }
+                                  })
                                 ]
                               )
                             ]
@@ -267702,26 +268451,37 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "four", role: "tabpanel", "aria-labelledby": "four-tab" }
+        staticClass:
+          "row mx-0 justify-content-between align-items-center summary"
       },
       [
-        _c("h5", { staticClass: "card-title" }, [_vm._v("TODO")]),
+        _c("div", { staticClass: "col-auto pl-0" }, [
+          _c("p", [_vm._v("220 reviews")])
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "w-100",
-            staticStyle: {
-              height: "245px",
-              overflow: "hidden",
-              color: "#818284"
-            }
-          },
-          [_c("p", { staticClass: "card-text" }, [_vm._v("Email client form")])]
-        )
+        _c("div", { staticClass: "col-auto px-0" }, [
+          _c("div", { staticClass: "row mx-0 mb-0" }, [
+            _c("div", { staticClass: "col-auto px-0" }, [
+              _c("p", [_vm._v("Called: 600")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto pr-0" }, [
+              _c("p", [_vm._v("Answered: 50")])
+            ])
+          ])
+        ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-auto pl-0" }, [
+      _c("p", { staticClass: "text-uppercase font-weight-bold mb-0" }, [
+        _vm._v("Templates:")
+      ])
+    ])
   },
   function() {
     var _vm = this
