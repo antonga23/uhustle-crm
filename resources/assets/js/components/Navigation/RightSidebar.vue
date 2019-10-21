@@ -72,6 +72,8 @@ h3 img{
 	font-family: 'Rubik', sans-serif;
   padding-top: 6px;
   letter-spacing: 0.05em;
+  position: relative;
+  top: 16%;
 }
 .help-block{
 	color: red;
@@ -387,6 +389,13 @@ p.heading{
   font-size: 55px;
   color: #FF933A;
 }
+.card-header {
+  color: rgba(28, 35, 49, 0.5);
+  border-bottom: 0.5px solid #f4f4f5 !important; 
+  background-color: #fff !important;
+  font-size: 10px;
+  font-weight: 600;
+}
 .final-modal .card-header{    
 	padding: 0 11px 0;
 }
@@ -518,11 +527,11 @@ p.heading{
 .reminders .custom-control-label::after, .reminders .custom-control-label::before {
   width: 20px;
   height: 20px;
-  top: 0.6rem;
+  top: 8px;
   left: 0.2rem;
 }
 .reminders input.list-input {
-  font-size: 21px;
+  font-size: 14px;
   font-family: 'Rubik', sans-serif;
   color: #7f8080;
   padding-left: 40px!important;
@@ -1395,9 +1404,20 @@ p.heading{
 
               <div class="row">
                 <div class="col-lg-12 final-modal border-0">
-                  <div class="card left mt-3 tab-card border-0 shadow-none">
-                    <div class="card-header tab-card-header">
-                      <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
+                  <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
+                    <div class="card-header tab-card-header p-0">
+                      <span 
+                            class="nav-link active border-0 pl-0" 
+                            id="calendar-tab" 
+                            data-toggle="tab" 
+                            href="#calendar" 
+                            role="tab" 
+                            aria-controls="Calendar" 
+                            aria-selected="true"
+                          >
+                            <span class="left">Calendar</span>
+                          </span>
+                      <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
                         <li class="nav-item left w-50">
                           <a 
                             class="nav-link active border-0" 
@@ -1408,7 +1428,7 @@ p.heading{
                             aria-controls="Calendar" 
                             aria-selected="true"
                           >
-                            <span class="left description">Callback Calendar</span>
+                            <span class="left description">Calendar</span>
                           </a>
                         </li>
 
@@ -1425,11 +1445,11 @@ p.heading{
                             <span class="left description">Search</span>
                           </a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
 
                     <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active p-3" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
+                      <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
                         <vc-calendar 
                           class="border-0" 
                           :attributes='attrs' 
@@ -1657,18 +1677,22 @@ p.heading{
                   </div>
                 </div>
               </div>
-
+            <div class="row p-34">
+            <div class="col-lg-12 final-modal border-0">
               <div class="row mx-0 mb-4 reminders">
-                <b-tabs content-class="mt-3">
+                <b-tabs content-class="mt-3" class="outer-shadow">
                   <b-tab title="Callbacks" active>
                     <ul class="pl-0">
                       <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                        <label class="custom-control-label mx-0" for="customControlAutosizing">Callback Steven</label>
+                      </li>
+                       <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
                         <label class="custom-control-label mx-0" for="customControlAutosizing">Callback Justine</label>
                       </li>
                     </ul>
                   </b-tab>
-
                   <b-tab title="Reminders">
                     <ul class="pl-0">
                       <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox">
@@ -1676,10 +1700,14 @@ p.heading{
                         <label class="custom-control-label mx-0" for="customControlAutosizing">
                           <input type="text" value="1. To Do List" class="w-100 border-0 list-input">
                         </label>
+                        <span>date</span>
                       </li>
                     </ul>
                   </b-tab>
+                  <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task">
                 </b-tabs>
+                </div>
+                </div>
               </div>
             </div>
           </div>

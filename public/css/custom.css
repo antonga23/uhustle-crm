@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
-
+body {
+  letter-spacing: 0.05em;
+}
 .hide {
   display:none !important;
 }
@@ -188,9 +190,6 @@
   /* Transitions */
 
   /* Right SideBar */
-  #search-panel, #calendar{
-    padding: 1.8rem 2.0rem 1.4rem 1.7rem !important;
-  }
   #search-panel .search div.search label{
     float:left;    
     color: #8d9198;
@@ -455,14 +454,14 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{
 	color: #1e2331;
-	font-size: 14px;
+	font-size: 10px;
   font-family: Montserrat, sans-serif;
   font-weight: 400;
 }
 .vc-day-content.vc-font-medium{
   font-family: Montserrat, sans-serif;
   color: #1e2331;
-  font-size: 19px;
+  font-size: 14px;
   font-weight:400;
 }
 .vc-rounded-full {
@@ -475,6 +474,9 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-bg-blue-600 {
   background-color: #fff!important;
+  border: 2px solid #ff931e !important;
+  border-radius: 50% !important;
+ 
 }
 
 ::-webkit-scrollbar {
@@ -534,8 +536,13 @@ label:not(.form-check-label):not(.custom-file-label) {
 .closed-sidenav .nav-tabs .nav-link {
   font-size: 18px;
 }
-.closed-sidenav .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"], .reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"]{
+.closed-sidenav .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"] {
   box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"] {
+  box-shadow: 20px -20px 34px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
@@ -558,12 +565,29 @@ label:not(.form-check-label):not(.custom-file-label) {
 .reminders .nav-tabs .nav-item, .filter-content .tabs .nav-item {
   width:50%;
 }
-.reminders .nav-tabs .nav-item a, .filter-content .tabs .nav-item a{
+
+.reminders .nav-tabs .filter-content .tabs {
   text-align:center;
 }
+.outer-shadow {
+-webkit-box-shadow: 0px 0px 32px -10px rgba(131,131,131,1);
+-moz-box-shadow: 0px 0px 32px -10px rgba(131,131,131,1);
+box-shadow: 0px 0px 32px -10px rgba(131,131,131,1);
+border-radius: 25px;
+}
+.add-task {
+  width: 25px;
+  position: absolute;
+  top: 19px;
+  right: 5%;
+}
+
 .reminders .nav-link {
-  font-size: 21px;
-  padding:20px 1rem;
+  font-size: 14px;
+  padding: 20px 15px;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif !important;
+  color: #1a1a1a !important;
 }
 .filter-content .tab-content .custom-checkbox .custom-control-label::before{
   border-radius:50rem!important;
