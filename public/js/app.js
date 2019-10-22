@@ -70538,6 +70538,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -103298,7 +103316,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -132405,7 +132423,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#dashboard[data-v-2c246ed2] {\n  height: 100vh;\n  overflow: auto;\n}\n#top-section[data-v-2c246ed2] {\n  padding-left: 3%;\n  padding-right: 3%;\n  margin-top: 60px;\n  background-image: linear-gradient(180deg,#fff 60%,#F7F7F7 60%);\n}\n#top-section h1[data-v-2c246ed2] {\n  font-size: 26px;\n  font-family: 'Rubik', sans-serif;\n  margin-bottom: 50px;\n}\n#top-section .card[data-v-2c246ed2]{    \n  border-radius: 25px;\n  padding: 20px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  transition: padding .5s ease;\n}\n#top-section .card .col-auto[data-v-2c246ed2] {\n  width: 100%;\n  padding-right: 0!important;\n}\n.sidebar-collapse #top-section .card .col-auto[data-v-2c246ed2] {\n  width: auto;\n  padding-right: 1rem!important;\n}\n.sidebar-collapse #top-section .card[data-v-2c246ed2] {\n  padding: 30px;\n}\n.sidebar-collapse #top-section .card .card-numeral[data-v-2c246ed2] {\n  font-size: 30px;\n  transition: font-size .5s ease;\n}\n#top-section .card .card-numeral[data-v-2c246ed2] {\n  font-size: 40px;\n}\n#top-section .card .card-desc[data-v-2c246ed2] {\n  font-size: 18px;\n  font-family: 'Rubik', sans-serif;\n}\n#top-section .card .card-stat[data-v-2c246ed2] {\n  font-size: 21px;\n  font-family: 'Rubik', sans-serif;\n  transition: font-size .5s ease;\n}\n.sidebar-collapse #top-section .card .card-stat[data-v-2c246ed2] {\n  font-size: 14px;\n  font-family: 'Rubik', sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n  padding-left: 3%;\n  padding-right: 3%;\n  padding-bottom: 650px;\n  background-color: #F7F7F7;\n}\n#dash-activities .card[data-v-2c246ed2] {\n  border-radius: 25px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n#dash-activities .card .card-header.tab-card-header[data-v-2c246ed2] {\n  background-color: #fff;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.sidebar-collapse .agent-details[data-v-2c246ed2] {\n  display: block!important;\n  transition: display .5s ease;\n}\n.agent-details .card[data-v-2c246ed2] {\n  padding: 15px!important;\n  border-radius: 15px!important;\n  margin-bottom:40px;\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n  font-size: 20px;\n  font-family: 'Rubik', sans-serif;\n  color: #B3B3B3;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n  font-size: 30px;\n  color: #1A1C43;\n  line-height: 1em;\n}\n.card.target[data-v-2c246ed2] {\n  background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n  padding-bottom: 30px;\n}\n.card.target .heading[data-v-2c246ed2] {\n  font-size: 18px;\n  color: #fff;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2]{ \n  box-shadow: 10px -10px 10px #f5f5f5; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-2c246ed2]{ \n  box-shadow: inset -7px -10px 10px #f5f5f5; \n  border-bottom-right-radius: 25px; \n  border-top-left-radius: 25px; \n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n  box-shadow: -10px -10px 10px #f5f5f5; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n  box-shadow: inset 7px -10px 10px #f5f5f5; \n  border-bottom-left-radius: 25px; \n  border-top-right-radius: 25px; \n  border-top-left-radius:0;\n}\n.tasks .card[data-v-2c246ed2] {\n  border-radius: 25px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.reminders p[data-v-2c246ed2] {\n  font-size: 16px;\n  font-family: 'Rubik', sans-serif;\n  color: #333333;\n}\n.reminders .row[data-v-2c246ed2] {\n  padding:20px;\n}\n.reminders ul[data-v-2c246ed2] {\n  max-height:448px;\n  overflow-y: auto;\n  margin: 20px;\n  border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n  padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n  font-size: 16px;\n  font-family: 'Rubik', sans-serif;\n  color: #808080;\n}\n.to-dos[data-v-2c246ed2] {\n  padding-top: 40px;\n  padding-bottom: 40px;\n  padding-left:40px;\n}\n.calendar .card[data-v-2c246ed2] {\n  padding: 30px 40px;\n}\n.calendar input[data-v-2c246ed2] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 15px 25px 20px;\n}\n", ""]);
+exports.push([module.i, "\n#dashboard[data-v-2c246ed2] {\n  height: 100vh;\n  overflow: auto;\n}\n#top-section[data-v-2c246ed2] {\n  padding-left: 5.2%;\n  padding-right: 5.2%;\n  margin-top: 4.4%;\n  background-image: linear-gradient(180deg,#fff 65%,#F7F7F7 65%);\n}\n#top-section h1[data-v-2c246ed2] {\n  font-size: 26px;\n  font-family: 'Rubik', sans-serif;\n  margin-bottom: 2.8%;\n}\n#top-section .card[data-v-2c246ed2]{    \n  border-radius: 25px;\n  padding: 1.3%;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.card .card-numeral[data-v-2c246ed2] {\n  font-size: 30px;\n  line-height: 1em;\n  letter-spacing: 0.1em;\n  color: #333333;\n}\n#top-section .card .card-desc[data-v-2c246ed2] {\n  font-size: 18px;\n  font-family: 'Rubik', sans-serif;\n  line-height: 1em;\n  color: #333333;\n  margin-top: 4px;\n}\n#top-section .card .card-stat[data-v-2c246ed2] {\n  font-size: 21px;\n  font-family: 'Rubik', sans-serif;\n  line-height: 1em;\n  letter-spacing: 0.1em;\n  margin-top: 5px;\n}\n#dash-activities[data-v-2c246ed2] {\n  padding-left: 5.2%;\n  padding-right: 5.2%;\n  padding-bottom: 65px;\n  background-color: #F7F7F7;\n}\n#dash-activities .card[data-v-2c246ed2] {\n  border-radius: 25px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n#dash-activities .card .card-header.tab-card-header[data-v-2c246ed2] {\n  background-color: #fff;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.sidebar-collapse .agent-details[data-v-2c246ed2] {\n  display: block!important;\n  padding-left:3.5%;\n  transition: display .5s ease;\n}\n.agent-details .card[data-v-2c246ed2] {\n  padding: 15px!important;\n  border-radius: 15px!important;\n  margin-bottom:22%!important;\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n  font-size: 20px;\n  font-family: 'Rubik', sans-serif;\n  color: #B3B3B3;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n  font-size: 30px;\n  color: #1A1C43;\n  line-height: 1em;\n}\n.card.target[data-v-2c246ed2] {\n  padding-bottom: 30px;\n  margin-bottom:14%!important;\n}\n.card.target.reached[data-v-2c246ed2] {\n  background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n  background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n  font-size: 18px;\n  color: #fff;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n  color: #808080;\n  font-size: 14px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2]{ \n  box-shadow: 10px -10px 10px #f5f5f5; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-2c246ed2]{ \n  box-shadow: inset -7px -10px 10px #f5f5f5; \n  border-bottom-right-radius: 25px; \n  border-top-left-radius: 25px; \n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n  box-shadow: -10px -10px 10px #f5f5f5; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-2c246ed2], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n  box-shadow: inset 7px -10px 10px #f5f5f5; \n  border-bottom-left-radius: 25px; \n  border-top-right-radius: 25px; \n  border-top-left-radius:0;\n}\n.tasks .card[data-v-2c246ed2] {\n  border-radius: 25px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.reminders p[data-v-2c246ed2] {\n  font-size: 16px;\n  font-family: 'Rubik', sans-serif;\n  color: #333333;\n}\n.reminders .row[data-v-2c246ed2] {\n  padding:20px;\n}\n.reminders ul[data-v-2c246ed2] {\n  max-height:448px;\n  overflow-y: auto;\n  margin: 20px;\n  border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n  padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n  font-size: 16px;\n  font-family: 'Rubik', sans-serif;\n  color: #808080;\n}\n.to-dos[data-v-2c246ed2] {\n  padding-top: 40px;\n  padding-bottom: 40px;\n  padding-left:40px;\n}\n.calendar .card[data-v-2c246ed2] {\n  padding: 30px 40px;\n}\n.calendar select[data-v-2c246ed2] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  max-width: 132px;\n  font-size: 15px;\n  font-family: 'Rubik', sans-serif;\n  padding:9px 17px 7px;\n  color: #4D4D4D;\n}\n.calendar p[data-v-2c246ed2] {\n  font-size: 14px;\n}\n.calendar input[data-v-2c246ed2] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 15px 25px 20px;\n}\n.calendar input[data-v-2c246ed2]::-webkit-input-placeholder{\n  font-size: 12px;\n  font-family: 'Rubik', sans-serif;\n  font-weight: 300;\n  font-style: italic;\n}\n.calendar input[data-v-2c246ed2]::-moz-placeholder{\n  font-size: 12px;\n  font-family: 'Rubik', sans-serif;\n  font-weight: 300;\n  font-style: italic;\n}\n.calendar input[data-v-2c246ed2]:-ms-input-placeholder{\n  font-size: 12px;\n  font-family: 'Rubik', sans-serif;\n  font-weight: 300;\n  font-style: italic;\n}\n.calendar input[data-v-2c246ed2]::-ms-input-placeholder{\n  font-size: 12px;\n  font-family: 'Rubik', sans-serif;\n  font-weight: 300;\n  font-style: italic;\n}\n.calendar input[data-v-2c246ed2]::placeholder{\n  font-size: 12px;\n  font-family: 'Rubik', sans-serif;\n  font-weight: 300;\n  font-style: italic;\n}\n.card-deck .card.tab-card[data-v-2c246ed2] {\n  margin-right: 1.7%;\n  margin-left: 1.7%\n}\n.card-deck .card .tab-content[data-v-2c246ed2] {\n  padding: 20px 7.6% 25px;\n}\n", ""]);
 
 // exports
 
@@ -249146,7 +249164,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { attrs: { id: "dash-activities" } }, [
-      _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "row mx-0 pt-5" }, [
         _c("div", { staticClass: "col px-0" }, [
           _c("div", { staticClass: "row mx-0 tasks" }, [
             _c("div", { staticClass: "col-5 pl-0" }, [
@@ -249166,7 +249184,7 @@ var render = function() {
                       [
                         _c(
                           "b-button",
-                          { staticClass: "m-0 p-0 rounded-circle" },
+                          { staticClass: "m-0 p-0 rounded-circle border-0" },
                           [
                             _c("img", {
                               staticClass: "icon",
@@ -249200,6 +249218,8 @@ var render = function() {
                       [
                         _vm._m(4),
                         _vm._v(" "),
+                        _c("p", [_vm._v("Callback Calendar")]),
+                        _vm._v(" "),
                         _c("vc-calendar", {
                           staticClass: "border-0",
                           attrs: {
@@ -249211,12 +249231,12 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("input", {
-                          staticClass: "rounded-pill border-0 w-100",
+                          staticClass: "rounded-pill border-0 w-100 mb-3",
                           attrs: { type: "text", placeholder: "Event Name" }
                         }),
                         _vm._v(" "),
                         _c("input", {
-                          staticClass: "rounded-pill border-0 w-100",
+                          staticClass: "rounded-pill border-0 w-100 mb-3",
                           attrs: { type: "text", placeholder: "Location" }
                         }),
                         _vm._v(" "),
@@ -249258,197 +249278,122 @@ var staticRenderFns = [
         _c("div", { staticClass: "card-deck w-100 mx-0 px-0" }, [
           _c("div", { staticClass: "card border-0 ml-0" }, [
             _c(
-              "div",
-              {
-                staticClass:
-                  "row justify-content-center align-items-center mx-0"
-              },
-              [
-                _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-numeral font-weight-bold text-center mb-0"
-                    },
-                    [_vm._v("11")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("p", { staticClass: "card-desc w-100 mb-0" }, [
-                    _vm._v("Calls made")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-stat text-center mb-0" }, [
-                    _c("img", {
-                      staticClass: "d-inline-block",
-                      attrs: {
-                        src: "/images/icons/dashboard/Up_icon.svg",
-                        width: "10"
-                      }
-                    }),
-                    _vm._v("\n              14%\n            ")
-                  ])
-                ])
-              ]
-            )
+              "p",
+              { staticClass: "card-numeral font-weight-bold text-center mb-0" },
+              [_vm._v("11")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-desc text-center mb-0" }, [
+              _vm._v("Calls made")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-stat text-center mb-0" }, [
+              _c("img", {
+                staticClass: "d-inline-block",
+                attrs: {
+                  src: "/images/icons/dashboard/Up_icon.svg",
+                  width: "10"
+                }
+              }),
+              _vm._v(" "),
+              _vm._v("\n          14%\n        ")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card border-0" }, [
             _c(
-              "div",
-              {
-                staticClass:
-                  "row justify-content-center align-items-center mx-0"
-              },
-              [
-                _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-numeral font-weight-bold text-center mb-0"
-                    },
-                    [_vm._v("5")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("p", { staticClass: "card-desc w-100 mb-0" }, [
-                    _vm._v("Sales Quantity")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-stat text-center mb-0" }, [
-                    _c("img", {
-                      staticClass: "d-inline-block",
-                      attrs: {
-                        src: "/images/icons/dashboard/Up_icon.svg",
-                        width: "10"
-                      }
-                    }),
-                    _vm._v("\n              3%\n            ")
-                  ])
-                ])
-              ]
-            )
+              "p",
+              { staticClass: "card-numeral font-weight-bold text-center mb-0" },
+              [_vm._v("5")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-desc text-center mb-0" }, [
+              _vm._v("Sales Quantity")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-stat text-center mb-0" }, [
+              _c("img", {
+                staticClass: "d-inline-block",
+                attrs: {
+                  src: "/images/icons/dashboard/Up_icon.svg",
+                  width: "10"
+                }
+              }),
+              _vm._v(" "),
+              _vm._v("\n          3%\n        ")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card border-0" }, [
             _c(
-              "div",
-              {
-                staticClass:
-                  "row justify-content-center align-items-center mx-0"
-              },
-              [
-                _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-numeral font-weight-bold text-center mb-0"
-                    },
-                    [_vm._v("$365")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("p", { staticClass: "card-desc w-100 mb-0" }, [
-                    _vm._v("Sales amount")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-stat text-center mb-0" }, [
-                    _c("img", {
-                      staticClass: "d-inline-block",
-                      attrs: {
-                        src: "/images/icons/dashboard/Up_icon.svg",
-                        width: "10"
-                      }
-                    }),
-                    _vm._v("\n              11%\n            ")
-                  ])
-                ])
-              ]
-            )
+              "p",
+              { staticClass: "card-numeral font-weight-bold text-center mb-0" },
+              [_vm._v("$365")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-desc text-center mb-0" }, [
+              _vm._v("Sales amount")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-stat text-center mb-0" }, [
+              _c("img", {
+                staticClass: "d-inline-block",
+                attrs: {
+                  src: "/images/icons/dashboard/Up_icon.svg",
+                  width: "10"
+                }
+              }),
+              _vm._v(" "),
+              _vm._v("\n          11%\n        ")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card border-0" }, [
             _c(
-              "div",
-              {
-                staticClass:
-                  "row justify-content-center align-items-center mx-0"
-              },
-              [
-                _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-numeral font-weight-bold text-center m-0"
-                    },
-                    [_vm._v("45%")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("p", { staticClass: "card-desc w-100 mb-0" }, [
-                    _vm._v("Conversion Ratio")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-stat text-center mb-0" }, [
-                    _c("img", {
-                      staticClass: "d-inline-block",
-                      attrs: {
-                        src: "/images/icons/dashboard/Up_icon.svg",
-                        width: "10"
-                      }
-                    }),
-                    _vm._v("\n              33%\n            ")
-                  ])
-                ])
-              ]
-            )
+              "p",
+              { staticClass: "card-numeral font-weight-bold text-center m-0" },
+              [_vm._v("45%")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-desc text-center mb-0" }, [
+              _vm._v("Conversion Ratio")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-stat text-center mb-0" }, [
+              _c("img", {
+                staticClass: "d-inline-block",
+                attrs: {
+                  src: "/images/icons/dashboard/Up_icon.svg",
+                  width: "10"
+                }
+              }),
+              _vm._v(" "),
+              _vm._v("\n          33%\n        ")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card border-0 mr-0" }, [
             _c(
-              "div",
-              {
-                staticClass:
-                  "row justify-content-center align-items-center mx-0"
-              },
-              [
-                _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-numeral font-weight-bold text-center mb-0"
-                    },
-                    [_vm._v("$3000")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("p", { staticClass: "card-desc w-100 mb-0" }, [
-                    _vm._v("Commission")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-stat text-center mb-0" }, [
-                    _c("img", {
-                      staticClass: "d-inline-block",
-                      attrs: {
-                        src: "/images/icons/dashboard/Up_icon.svg",
-                        width: "10"
-                      }
-                    }),
-                    _vm._v("\n              33%\n            ")
-                  ])
-                ])
-              ]
-            )
+              "p",
+              { staticClass: "card-numeral font-weight-bold text-center mb-0" },
+              [_vm._v("$3000")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-desc text-center mb-0" }, [
+              _vm._v("Commission")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-stat text-center mb-0" }, [
+              _c("img", {
+                staticClass: "d-inline-block",
+                attrs: {
+                  src: "/images/icons/dashboard/Up_icon.svg",
+                  width: "10"
+                }
+              }),
+              _vm._v(" "),
+              _vm._v("\n          33%\n        ")
+            ])
           ])
         ])
       ]
@@ -249459,7 +249404,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto pl-0" }, [
-      _c("p", { staticClass: "text-uppercase" }, [_vm._v("Reminders")])
+      _c("p", { staticClass: "text-uppercase mb-0" }, [_vm._v("Reminders")])
     ])
   },
   function() {
@@ -249505,228 +249450,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("select", [
-      _c("option", { attrs: { selected: "" } }, [_vm._v("Today")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0" }, [
-      _c("div", { staticClass: "col-6 pl-0" }, [
-        _c("div", { staticClass: "card mt-3 border-0 tab-card" }, [
-          _c(
-            "div",
-            { staticClass: "card-header tab-card-header border-bottom-0 p-0" },
-            [
-              _c(
-                "ul",
-                {
-                  staticClass: "nav nav-tabs card-header-tabs text-center mx-0",
-                  attrs: { id: "myTab", role: "tablist" }
-                },
-                [
-                  _c("li", { staticClass: "nav-item left w-50" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "one-tab",
-                          "data-toggle": "tab",
-                          href: "#one",
-                          role: "tab",
-                          "aria-controls": "One",
-                          "aria-selected": "true"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/icons/dashboard/Cash_vs Sales.svg",
-                            alt: "Icon",
-                            width: "60"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "w-50" }, [
-                          _vm._v("Calls vs Sales")
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item w-50" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "two-tab",
-                          "data-toggle": "tab",
-                          href: "#two",
-                          role: "tab",
-                          "aria-controls": "Two",
-                          "aria-selected": "false"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/icons/dashboard/Monthly_Sales.svg",
-                            alt: "Icon",
-                            width: "60"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Monthly Sales")])
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "tab-pane fade show active p-3",
-                  attrs: {
-                    id: "one",
-                    role: "tabpanel",
-                    "aria-labelledby": "one-tab"
-                  }
-                },
-                [_c("div", {})]
-              ),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "tab-pane fade p-3",
-                attrs: {
-                  id: "two",
-                  role: "tabpanel",
-                  "aria-labelledby": "two-tab"
-                }
-              })
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 pr-0" }, [
-        _c("div", { staticClass: "card mt-3 border-0 tab-card" }, [
-          _c(
-            "div",
-            { staticClass: "card-header tab-card-header border-bottom-0 p-0" },
-            [
-              _c(
-                "ul",
-                {
-                  staticClass: "nav nav-tabs card-header-tabs text-center mx-0",
-                  attrs: { id: "myTab", role: "tablist" }
-                },
-                [
-                  _c("li", { staticClass: "nav-item w-50" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "three-tab",
-                          "data-toggle": "tab",
-                          href: "#three",
-                          role: "tab",
-                          "aria-controls": "Three",
-                          "aria-selected": "true"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src:
-                              "/images/icons/dashboard/Answers_vs_dialing.svg",
-                            alt: "Icon",
-                            width: "60"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "w-50" }, [
-                          _vm._v("Answers vs dialing")
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item w-50" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "four-tab",
-                          "data-toggle": "tab",
-                          href: "#four",
-                          role: "tab",
-                          "aria-controls": "Four",
-                          "aria-selected": "false"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/icons/dashboard/Commissions.svg",
-                            alt: "Icon",
-                            width: "60"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Commissions")])
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "tab-pane fade show active p-3",
-                  attrs: {
-                    id: "three",
-                    role: "tabpanel",
-                    "aria-labelledby": "three-tab"
-                  }
-                },
-                [_c("div", {})]
-              ),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "tab-pane fade p-3",
-                attrs: {
-                  id: "four",
-                  role: "tabpanel",
-                  "aria-labelledby": "four-tab"
-                }
-              })
-            ]
-          )
-        ])
+    return _c("div", { staticClass: "row mx-0 justify-content-end" }, [
+      _c("select", { staticClass: "rounded-pill border-0" }, [
+        _c("option", { attrs: { selected: "" } }, [_vm._v("Today")])
       ])
     ])
   },
@@ -249734,8 +249460,339 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2 d-none pr-0 pl-5 agent-details" }, [
-      _c("div", { staticClass: "card w-100 border-0 target" }, [
+    return _c("div", { staticClass: "card-deck mt-4 mx-0" }, [
+      _c("div", { staticClass: "card mt-3 ml-0 border-0 tab-card" }, [
+        _c(
+          "div",
+          { staticClass: "card-header tab-card-header border-bottom-0 p-0" },
+          [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs text-center mx-0",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              [
+                _c("li", { staticClass: "nav-item w-50" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link py-0",
+                      attrs: {
+                        id: "one-tab",
+                        "data-toggle": "tab",
+                        href: "#one",
+                        role: "tab",
+                        "aria-controls": "One",
+                        "aria-selected": "true"
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Cash_vs Sales.svg",
+                          alt: "Icon",
+                          width: "60"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "w-50" }, [
+                        _vm._v("Calls vs Sales")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item w-50" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link py-0",
+                      attrs: {
+                        id: "two-tab",
+                        "data-toggle": "tab",
+                        href: "#two",
+                        role: "tab",
+                        "aria-controls": "Two",
+                        "aria-selected": "false"
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Monthly_Sales.svg",
+                          alt: "Icon",
+                          width: "60"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Monthly Sales")])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade show active p-3",
+                attrs: {
+                  id: "one",
+                  role: "tabpanel",
+                  "aria-labelledby": "one-tab"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row mx-0 justify-content-end align-items-center"
+                  },
+                  [
+                    _c("div", { staticClass: "col-auto pl-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/calls.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("Calls")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto pr-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/sales.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("Sales")
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "tab-pane fade p-3",
+              attrs: {
+                id: "two",
+                role: "tabpanel",
+                "aria-labelledby": "two-tab"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card mt-3 mr-0 border-0 tab-card" }, [
+        _c(
+          "div",
+          { staticClass: "card-header tab-card-header border-bottom-0 p-0" },
+          [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs text-center mx-0",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              [
+                _c("li", { staticClass: "nav-item w-50" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link py-0",
+                      attrs: {
+                        id: "three-tab",
+                        "data-toggle": "tab",
+                        href: "#three",
+                        role: "tab",
+                        "aria-controls": "Three",
+                        "aria-selected": "true"
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Answers_vs_dialing.svg",
+                          alt: "Icon",
+                          width: "60"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "w-50" }, [
+                        _vm._v("Answers vs Dialing")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item w-50" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link py-0",
+                      attrs: {
+                        id: "four-tab",
+                        "data-toggle": "tab",
+                        href: "#four",
+                        role: "tab",
+                        "aria-controls": "Four",
+                        "aria-selected": "false"
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Commissions.svg",
+                          alt: "Icon",
+                          width: "60"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Commissions")])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade show active p-3",
+                attrs: {
+                  id: "three",
+                  role: "tabpanel",
+                  "aria-labelledby": "three-tab"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row mx-0 justify-content-end align-items-center"
+                  },
+                  [
+                    _c("div", { staticClass: "col-auto pl-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/answers.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("Answers")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto pr-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/dialing.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("Dialling")
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade p-3",
+                attrs: {
+                  id: "four",
+                  role: "tabpanel",
+                  "aria-labelledby": "four-tab"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row mx-0 justify-content-end align-items-center"
+                  },
+                  [
+                    _c("div", { staticClass: "col-auto pl-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/year-1.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("2018")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto pr-0" }, [
+                      _c("img", {
+                        staticClass: "d-inline-block mr-2",
+                        attrs: {
+                          src: "images/icons/dashboard/year-2.svg",
+                          width: "17"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-inline-block mb-0" }, [
+                        _vm._v("2019")
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-2 d-none pr-0 agent-details" }, [
+      _c("div", { staticClass: "card w-100 border-0 target reached" }, [
         _c(
           "p",
           {
@@ -249791,7 +249848,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "w-100 mb-0 font-weight-bold detail" }, [
-          _vm._v("20 Horus")
+          _vm._v("20 Hours")
         ])
       ]),
       _vm._v(" "),
