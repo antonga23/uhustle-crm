@@ -8,8 +8,9 @@
 }
 li.title a strong{
   color: #003549;
-  font-size: 42px;
-  letter-spacing: 4.2px;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+	font-family: 'Montserrat, Bold', sans-serif;
 }
 a.top-link{    
   border-radius: 26px;
@@ -37,6 +38,7 @@ select{
   padding: 0 16px 0 !important;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   letter-spacing: 1px;
+  font-size: 14px;
 }
 select.month-selector {
   margin-left: 0!important;
