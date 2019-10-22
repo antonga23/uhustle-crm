@@ -75187,254 +75187,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -103251,7 +103003,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -132510,7 +132262,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0!important;\r\n  left: auto;\r\n  overflow:visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n\t-moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\r\n  width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0!important;\r\n  margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0!important;\r\n    margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow:visible;\n}\np[data-v-48ad9a74]{\r\n\tcolor: #9fb3bb;\r\n\tmargin: 0;\n}\nh2[data-v-48ad9a74]{\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74]{\r\n  color: #1a1c43;\r\n  font-size: 24px;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74]{\r\n\tfloat:right;\r\n\tcursor: pointer;\r\n\tmargin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74]{\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #f4f4f5;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  color:#1e2331;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  padding-top: 6px;\r\n  letter-spacing: 0.05em;\r\n  position: relative;\r\n  top: 16%;\n}\n.help-block[data-v-48ad9a74]{\r\n\tcolor: red;\n}\n.status[data-v-48ad9a74]{\r\n\tdisplay: none;\n}\n.status.active[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74]{\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover{\r\n\tcolor: #3b3b3b;\r\n\tcursor: pointer;\n}\n.status.show[data-v-48ad9a74]{\r\n\tdisplay: block !important;\n}\n.collapse[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74]{\r\n  padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.p-34[data-v-48ad9a74]{\r\n  padding: 0px 34px;\n}\n.progress-bar[data-v-48ad9a74]{\r\n\tbackground: #f7f6fb;\r\n\tborder-radius: 5px;\n}\n.tank[data-v-48ad9a74]{\r\n\tbackground:  linear-gradient(to right, rgba(161,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74]{\r\n  font-weight: 900;\r\n  font-size: 16px;\r\n  color: #1a1c43;\r\n\tmargin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74]{\r\n\tfont-size: 12px;\r\n\tfont-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\r\n  color: #1e2331;\r\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74]{\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg); /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74]{\r\n  transform: rotate(0deg); /* Standard syntax */\n}\np.heading[data-v-48ad9a74]{\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n\tfont-weight: 900;\n}\n.navbar ul[data-v-48ad9a74]{\r\n\tmargin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], .general-system-prefs[data-v-48ad9a74], .notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius:50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74]{\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74]{\r\n\tfont-size: 9px;\r\n\tdisplay: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, .themes label[data-v-48ad9a74]:nth-child(2), .language label[data-v-48ad9a74], .notifications label[data-v-48ad9a74], .action-btns label[data-v-48ad9a74]:first-child, .action-btns label[data-v-48ad9a74]:nth-child(2){\r\n  margin-right: 8px;\r\n  float:left;\n}\n.control-label[data-v-48ad9a74]{\r\n  color:#989899;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74]{\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-default[data-v-48ad9a74]:hover{\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;    \r\n\tborder: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n\tbackground: #00344a;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 6px 12px 6px 10px;\r\n  font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.themes .btn-default[data-v-48ad9a74], .language .btn-default[data-v-48ad9a74], .language .btn-active[data-v-48ad9a74]{\r\n  border-radius: 50rem!important;\r\n  padding: 10px 20px!important;\n}\n.btn-orange[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n\tbackground: linear-gradient(to right, rgb(60, 144, 206,1) 0%,  rgba(65,197, 231,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n\tbackground: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(to right, rgb(25, 25, 26,1) 0%,  rgba(23,23, 66,1) 100%) !important;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 10px 20px;\r\n  font-size: 13px;\r\n  border-radius: 50rem!important;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-has-new[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Dot.png') !important;\r\n  background-size: 12px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74]{\r\n\tmargin-top:14%;\n}\n#logout[data-v-48ad9a74]{\r\n  background-image: url('/images/icons/Asset 67.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover{\r\n  background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74]{\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 9px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\r\n.notifications .card h3 a[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 16px;\r\n  letter-spacing: 2.2px;\r\n  font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74]{\r\n  color: #00344a;\r\n  font-size: 14px;\r\n  letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], .account-info .row.mx-0.border-left[data-v-48ad9a74]{\r\n  border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\r\n  color:#7f8080;\r\n  padding-bottom:16px;\r\n  font-size: 13px;\r\n  letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74]{\r\n\twidth: 46px;\r\n\tborder-radius:50%;\n}\n.update-user[data-v-48ad9a74]{\r\n\tmargin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74]{\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74]{\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74]{\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74]{\r\n  font-size: 55px;\r\n  color: #FF933A;\n}\n.card-header[data-v-48ad9a74] {\r\n  color: rgba(28, 35, 49, 0.5);\r\n  border-bottom: 0.5px solid #f4f4f5 !important; \r\n  background-color: #fff !important;\r\n  font-size: 10px;\r\n  font-weight: 600;\n}\n.final-modal .card-header[data-v-48ad9a74]{    \r\n\tpadding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: 11px -7px 16px -11px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: -4px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-webkit-box-shadow:-8px -7px 14px -9px rgba(138,134,134,0.75);\r\n\t-moz-box-shadow: -8px -7px 14px -9px rgba(138,134,134,0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74]{\r\n  border-bottom: none;\r\n\tbackground: #fff;\r\n  padding: 6px 12px;\r\n\tbox-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-webkit-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\r\n\t-moz-box-shadow: 5px -7px 16px -11px rgba(138,134,134,0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\r\n\tcolor: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74]{\r\n\tfont-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 20px!important;\r\n  font-size: 16px;\r\n  box-shadow: 0px 0 5px rgba(0,0,0,0.05)!important;\r\n  color: #003549;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding:25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], .stats-section .calls[data-v-48ad9a74], .search-input[data-v-48ad9a74], .filter-search[data-v-48ad9a74], .filter-by[data-v-48ad9a74] {\r\n  padding:5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], .stats-section .sales .col-lg-12 p[data-v-48ad9a74], p.badges[data-v-48ad9a74]{\r\n  border-bottom: 0.5px solid #f4f4f5; \r\n  margin-bottom: 5px; \r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], .export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top:17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74]{\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  position: absolute;\r\n  right: 417px;\r\n  overflow:visible;\r\n  background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\r\n  background-size: 140px;\r\n  background-repeat: no-repeat;\r\n  background-position: -15px;\r\n  height: 120px;\r\n  width:80px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\r\n  background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n  border-radius: 25px;\n}\n.reminders .tabs[data-v-48ad9a74], .filter-content .tabs[data-v-48ad9a74] {\r\n  width: 100%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74]{\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50%!important;\r\n  border:1px solid #ff8033;\r\n  box-shadow: none;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after, .reminders .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 8px;\r\n  left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #7f8080;\r\n  padding-left: 40px!important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  background-image: none;\r\n  background: radial-gradient(rgba(249,164,101,1), rgba(245,127,56,1)) !important;\r\n  border-radius: 50%!important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus{\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width:50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 13px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.btn-primary.update-user[data-v-48ad9a74] {\r\n  font-size: 13px;\r\n  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%,  rgba(250,168, 59,1) 100%) !important;\r\n  font-weight:700;\r\n  text-transform: uppercase;\r\n  padding:10px 20px;\r\n  letter-spacing: 0.05em;\n}\n.inactive-icon[data-v-48ad9a74] {\r\n  padding: 11px;\r\n  border-radius: 50rem;\r\n  box-shadow: none;\r\n  transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover{\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.filter-heading[data-v-48ad9a74] {\r\n  font-size: 19px;\n}\n.row.filter-content[data-v-48ad9a74] {\r\n  margin-left:-27px;\r\n  margin-right:-27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74]{\r\n  border-radius: 14px;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 16px;\r\n  padding-left:28px;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\r\n  border:0;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\r\n  font-size: 13px;\r\n  border-radius: 14px;\r\n  padding:10px;\n}\n.row.filter-content .search-text[data-v-48ad9a74] {\r\n  border:0;\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.05);\r\n  font-size: 13px;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-weight: 300;\r\n  font-style: italic;\r\n  border-radius: 14px;\r\n  padding:10px;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n      right: 0!important;\n      left: auto;\n      overflow: visible;\n      position: absolute;\n      top: 0;\n      right: 0 !important;\n      bottom: 0;\n      z-index: 830;\n      transition: right 0.3s ease-in-out;\n      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n      transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\n      width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n      margin-left: 0!important;\n      margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n      .main-sidebar[data-v-48ad9a74]:before {\n          margin-left: -0!important;\n          margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n      .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n          margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n      overflow: visible;\n}\np[data-v-48ad9a74] {\n      color: #9fb3bb;\n      margin: 0;\n}\nh2[data-v-48ad9a74] {\n      color: #003449;\n      font-size: 29px;\n      letter-spacing: 4.2px;\n      font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n      color: #1a1c43;\n      font-size: 16px;\n      letter-spacing: 0.05em;\n      font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n      float: right;\n      cursor: pointer;\n      margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n      color: inherit;\n      font-weight: 200;\n      padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\n      border-bottom: 1px solid #f4f4f5;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n      color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n      font-size: 14px;\n      color: #1e2331;\n      font-family: 'Rubik', sans-serif;\n      padding-top: 6px;\n      letter-spacing: 0.05em;\n      position: relative;\n      top: 16%;\n}\n.help-block[data-v-48ad9a74] {\n      color: red;\n}\n.status[data-v-48ad9a74] {\n      display: none;\n}\n.status.active[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: #00d68f;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: orange;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n  .status.offline[data-v-48ad9a74]:hover {\n      color: #3b3b3b;\n      cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n      display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n      padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.p-34[data-v-48ad9a74] {\n      padding: 0px 34px;\n}\n.pl-34[data-v-48ad9a74] {\n    padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n    margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n      background: #f7f6fb;\n      border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important;\n      border-radius: 5px;\n      background: rgb(114, 218, 126);\n      height: 8px;\n      transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n      font-weight: 900;\n      font-size: 16px;\n      color: #1a1c43;\n      margin-top: -8px;\n      letter-spacing: 0.1em;\n      font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n      font-size: 12px;\n      font-family: 'Rubik', sans-serif;\n      letter-spacing: 0.05em;\n      color: #1e2331;\n      padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n      display: block;\n      position: relative;\n      background: #ff8234;\n      color: #fff;\n      height: 62px;\n      text-align: center;\n      font-size: 17px;\n      padding: 18px 9px;\n      width: 62px;\n      transform: rotate(45deg);\n      /* Standard syntax */\n      margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n      transform: rotate(0deg);\n      /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n      margin-bottom: 10px;\n      font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n      margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n  .general-system-prefs[data-v-48ad9a74],\n  .notifications .w-100[data-v-48ad9a74] {\n      margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n      border-radius: 50%;\n      width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n      margin: 5px 0 15px 0;\n      font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n  .notifications .row.border-bottom[data-v-48ad9a74] {\n      border-color: #cdccce;\n      padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74] {\n      font-size: 9px;\n      display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n  .themes label[data-v-48ad9a74]:nth-child(2),\n  .language label[data-v-48ad9a74],\n  .notifications label[data-v-48ad9a74],\n  .action-btns label[data-v-48ad9a74]:first-child,\n  .action-btns label[data-v-48ad9a74]:nth-child(2) {\n      margin-right: 8px;\n      float: left;\n}\n.control-label[data-v-48ad9a74] {\n      color: #989899;\n      font-family: 'Rubik', sans-serif;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n      text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      border: transparent !important;\n      border-radius: 5px !important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n  .language .btn-default[data-v-48ad9a74],\n  .language .btn-active[data-v-48ad9a74] {\n      border-radius: 50rem!important;\n      padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.orange-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n        padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n       letter-spacing: 0.05em;\n}\n.btn-blue[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.blue-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-dark[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n       padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n       letter-spacing: 0.05em;\n}\n.dark-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n       letter-spacing: 0.05em;\n}\n.btn-has-new[data-v-48ad9a74] {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n      margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n      background-image: url('/images/icons/Asset 67.svg') !important;\n      background-size: contain;\n      background-repeat: no-repeat;\n      height: 100px;\n      background-position: center;\n      margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n      padding: 6px 25px 6px 18px;\n      font-size: 9px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n      list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\n  .notifications .card h3 a[data-v-48ad9a74] {\n      color: #00344a;\n      font-size: 16px;\n      letter-spacing: 2.2px;\n      font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74] {\n      color: #00344a;\n      font-size: 14px;\n      letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n  .account-info .row.mx-0.border-left[data-v-48ad9a74] {\n      border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\n      color: #7f8080;\n      padding-bottom: 16px;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74] {\n      width: 46px;\n      border-radius: 50%;\n}\n.update-user[data-v-48ad9a74] {\n      margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n      padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n      width: 100%;\n      border-bottom: 1px solid #cdccce;\n      margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n      width: 20px;\n      margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n      font-size: 55px;\n      color: #FF933A;\n}\n.card-header[data-v-48ad9a74] {\n      color: rgba(28, 35, 49, 0.5);\n      border-bottom: 0.5px solid #f4f4f5 !important;\n      background-color: #fff !important;\n      font-size: 10px;\n      font-weight: 600;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n      padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n      border: none;\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74] {\n      font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n         padding: 10px 12px!important;\n        font-size: 12px;\n        box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n        color: #193246;\n        font-weight: 600;\n        margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n      margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n      padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n  .stats-section .calls[data-v-48ad9a74],\n  .search-input[data-v-48ad9a74],\n  .filter-search[data-v-48ad9a74],\n  .filter-by[data-v-48ad9a74] {\n      padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74],\n  p.badges[data-v-48ad9a74] {\n      border-bottom: 0.5px solid #f4f4f5;\n      margin-bottom: 5px;\n      padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n  .export-btn[data-v-48ad9a74] {\n      width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n      margin-top: 17px;\n}\n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n      position: relative;\n      top: -7px;\n      right: 15px;\n      font-size: 9px;\n      color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\n      position: absolute;\n      right: 417px;\n      overflow: visible;\n      background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\n      background-size: 140px;\n      background-repeat: no-repeat;\n      background-position: -15px;\n      height: 120px;\n      width: 80px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\n      background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n      border-radius: 25px;\n}\n.reminders .tabs[data-v-48ad9a74],\n  .filter-content .tabs[data-v-48ad9a74] {\n      width: 100%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n      border-radius: 50%!important;\n      border: 1px solid #ededed;\n      box-shadow: none;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n  .reminders .custom-control-label[data-v-48ad9a74]::before {\n      width: 20px;\n      height: 20px;\n      top: 6px;\n      left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n      font-size: 14px;\n      font-family: 'Rubik', sans-serif;\n      color: #7f8080;\n      padding-left: 37px!important;\n      width: 90%;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus, .nav-link[data-v-48ad9a74]:focus {\n      outline: 0 !important;\n      box-shadow: none !important;\n      border: 0 !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n      background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;\n      border-radius: 50%!important;\n      background-size: cover;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n      border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.tasks-circle[data-v-48ad9a74] {\n      font-size: 16px;\n      margin-right: 12px;\n}\n.orange[data-v-48ad9a74] {\n    color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n    color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n      font-size: 10px;\n}\n.task-date-div[data-v-48ad9a74] {\n      border: 1px solid #efefef;\n      border-radius: 20px;\n      padding-left: 6px;\n}\n.inner-box-shadow[data-v-48ad9a74] {\n    box-shadow: 0px 0px 14px 1px rgba(227,223,227,1);\n}\n.middle-box-shadow[data-v-48ad9a74] {\n    box-shadow: 0px 0px 14px 2px rgba(235,235,235,1);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n      width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n      border-radius: 50rem !important;\n      font-size: 10px;\n      color: #989899;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n      font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74] {\n      font-size: 10px;\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      font-weight: 600;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n}\n.inactive-icon[data-v-48ad9a74] {\n      padding: 11px;\n      border-radius: 50rem;\n      box-shadow: none;\n      transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover {\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] {\n      font-size: 19px;\n}\n.row.filter-content[data-v-48ad9a74] {\n      margin-left: -27px;\n      margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74] {\n      border-radius: 14px;\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      font-size: 16px;\n      padding-left: 28px;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n      font-size: 13px;\n      border-radius: 14px;\n      padding: 10px;\n}\n.row.filter-content .search-text[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n      font-size: 13px;\n      font-family: 'Rubik', sans-serif;\n      font-weight: 300;\n      font-style: italic;\n      border-radius: 14px;\n      padding: 10px;\n}\n  /*End Right Component*/\n", ""]);
 
 // exports
 
@@ -253815,7 +253567,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _vm.settings_on == true
-                ? _c("div", { staticClass: "settings" }, [
+                ? _c("div", { staticClass: "settings p-34" }, [
                     _c(
                       "div",
                       { staticClass: "row mx-0 border-bottom" },
@@ -253978,9 +253730,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Name\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Name")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254071,9 +253826,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Surname\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Surname")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254166,9 +253924,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Prefered Nickname\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Prefered Nickname")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254259,9 +254020,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Email\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Email")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254353,9 +254117,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Work Telephone\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Work Telephone")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254451,9 +254218,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-2"
                                             },
                                             [
-                                              _vm._v(
-                                                "Cellphone number\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Cellphone number")]
                                               ),
+                                              _vm._v(" "),
                                               _c("input", {
                                                 directives: [
                                                   {
@@ -254551,9 +254321,12 @@ var render = function() {
                                                 "col-lg-12 control-label w-100 p-0 mb-0"
                                             },
                                             [
-                                              _vm._v(
-                                                "Address\n                          "
+                                              _c(
+                                                "span",
+                                                { staticClass: "ml-12" },
+                                                [_vm._v("Address")]
                                               ),
+                                              _vm._v(" "),
                                               _c("textarea", {
                                                 directives: [
                                                   {
@@ -254832,9 +254605,12 @@ var render = function() {
                                               "col-lg-12 control-label w-100 p-0"
                                           },
                                           [
-                                            _vm._v(
-                                              "Old Password\n                          "
+                                            _c(
+                                              "span",
+                                              { staticClass: "ml-12" },
+                                              [_vm._v("Old Password")]
                                             ),
+                                            _vm._v(" "),
                                             _c("input", {
                                               directives: [
                                                 {
@@ -254926,9 +254702,12 @@ var render = function() {
                                               "col-lg-12 control-label w-100 p-0"
                                           },
                                           [
-                                            _vm._v(
-                                              "New Password\n                          "
+                                            _c(
+                                              "span",
+                                              { staticClass: "ml-12" },
+                                              [_vm._v("New Password")]
                                             ),
+                                            _vm._v(" "),
                                             _c("input", {
                                               directives: [
                                                 {
@@ -255020,9 +254799,12 @@ var render = function() {
                                               "col-lg-12 control-label w-100 p-0"
                                           },
                                           [
-                                            _vm._v(
-                                              "Confirm New Password\n                          "
+                                            _c(
+                                              "span",
+                                              { staticClass: "ml-12" },
+                                              [_vm._v("Confirm New Password")]
                                             ),
+                                            _vm._v(" "),
                                             _c("input", {
                                               directives: [
                                                 {
@@ -255133,7 +254915,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "div",
-                                      { staticClass: "col-6 pr-0 pl-2" },
+                                      { staticClass: "col-auto pr-0 pl-2" },
                                       [
                                         _c(
                                           "button",
@@ -255256,7 +255038,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                              Auto Dialing\n                              "
+                                                                "\n                                                        Auto Dialing\n                                                        "
                                                               ),
                                                               _c(
                                                                 "select",
@@ -255373,7 +255155,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                              Apply To\n                              "
+                                                                "\n                                                        Apply To\n                                                        "
                                                               ),
                                                               _c(
                                                                 "select",
@@ -255645,7 +255427,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "\n                                Orange\n                              "
+                                                                    "\n                                                            Orange\n                                                        "
                                                                   )
                                                                 ]
                                                               )
@@ -255698,7 +255480,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "\n                                Blue\n                              "
+                                                                    "\n                                                            Blue\n                                                        "
                                                                   )
                                                                 ]
                                                               )
@@ -255751,7 +255533,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "\n                                Dark\n                              "
+                                                                    "\n                                                            Dark\n                                                        "
                                                                   )
                                                                 ]
                                                               )
@@ -255813,7 +255595,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                Orange\n                              "
+                                                                "\n                                                            Orange\n                                                        "
                                                               )
                                                             ]
                                                           )
@@ -255856,7 +255638,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                Blue\n                              "
+                                                                "\n                                                            Blue\n                                                        "
                                                               )
                                                             ]
                                                           )
@@ -255899,7 +255681,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                Dark\n                              "
+                                                                "\n                                                            Dark\n                                                        "
                                                               )
                                                             ]
                                                           )
@@ -256163,7 +255945,7 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                          Spanish\n                        "
+                                                  "\n                                                Spanish\n                                            "
                                                 )
                                               ]
                                             )
@@ -256188,11 +255970,7 @@ var render = function() {
                           _c(
                             "h3",
                             { staticClass: "d-block w-100 text-center" },
-                            [
-                              _vm._v(
-                                "\n                  Logout \n                "
-                              )
-                            ]
+                            [_vm._v("\n              Logout \n            ")]
                           )
                         ])
                       : _vm._e()
@@ -256203,9 +255981,7 @@ var render = function() {
                 ? _c("div", { staticClass: "notifications" }, [
                     _c("div", { staticClass: "row mx-0" }, [
                       _c("h2", { staticClass: "w-100" }, [
-                        _vm._v(
-                          "\n                  Notifications \n                "
-                        )
+                        _vm._v("\n              Notifications \n            ")
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "w-100" }, [
@@ -257542,7 +257318,7 @@ var render = function() {
                               _c(
                                 "b-tabs",
                                 {
-                                  staticClass: "outer-shadow",
+                                  staticClass: "outer-box-shadow",
                                   attrs: { "content-class": "mt-3" }
                                 },
                                 [
@@ -257557,28 +257333,79 @@ var render = function() {
                                           "li",
                                           {
                                             staticClass:
-                                              "my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"
+                                              "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"
                                           },
                                           [
-                                            _c("input", {
-                                              staticClass:
-                                                "custom-control-input",
-                                              attrs: {
-                                                type: "checkbox",
-                                                id: "customControlAutosizing"
-                                              }
-                                            }),
-                                            _vm._v(" "),
                                             _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "custom-control-label mx-0",
-                                                attrs: {
-                                                  for: "customControlAutosizing"
-                                                }
-                                              },
-                                              [_vm._v("Callback Steven")]
+                                              "div",
+                                              { staticClass: "col-12" },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-8 pl-0 custom-control custom-checkbox"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          staticClass:
+                                                            "custom-control-input",
+                                                          attrs: {
+                                                            id: "callback1",
+                                                            type: "checkbox"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "pl-34 custom-control-label",
+                                                            attrs: {
+                                                              for: "callback1"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                                Callback Steven\n                                                              "
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-4 task-date-div inner-box-shadow"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-circle blue"
+                                                          },
+                                                          [_vm._v("⬤")]
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-date"
+                                                          },
+                                                          [_vm._v("18 Jul")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -257587,28 +257414,79 @@ var render = function() {
                                           "li",
                                           {
                                             staticClass:
-                                              "my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"
+                                              "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"
                                           },
                                           [
-                                            _c("input", {
-                                              staticClass:
-                                                "custom-control-input mx-0",
-                                              attrs: {
-                                                type: "checkbox",
-                                                id: "customControlAutosizing"
-                                              }
-                                            }),
-                                            _vm._v(" "),
                                             _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "custom-control-label mx-0",
-                                                attrs: {
-                                                  for: "customControlAutosizing"
-                                                }
-                                              },
-                                              [_vm._v("Callback Justine")]
+                                              "div",
+                                              { staticClass: "col-12" },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-8 pl-0 custom-control custom-checkbox"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          staticClass:
+                                                            "custom-control-input",
+                                                          attrs: {
+                                                            id: "callback2",
+                                                            type: "checkbox"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "pl-34 custom-control-label",
+                                                            attrs: {
+                                                              for: "callback2"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                                Callback Justine\n                                                              "
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-4 task-date-div inner-box-shadow"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-circle blue"
+                                                          },
+                                                          [_vm._v("⬤")]
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-date"
+                                                          },
+                                                          [_vm._v("3 Aug")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
                                             )
                                           ]
                                         )
@@ -257625,40 +257503,173 @@ var render = function() {
                                           "li",
                                           {
                                             staticClass:
-                                              "my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"
+                                              "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"
                                           },
                                           [
-                                            _c("input", {
-                                              staticClass:
-                                                "custom-control-input mx-0",
-                                              attrs: {
-                                                type: "checkbox",
-                                                id: "customControlAutosizing"
-                                              }
-                                            }),
-                                            _vm._v(" "),
                                             _c(
-                                              "label",
-                                              {
-                                                staticClass:
-                                                  "custom-control-label mx-0",
-                                                attrs: {
-                                                  for: "customControlAutosizing"
-                                                }
-                                              },
+                                              "div",
+                                              { staticClass: "col-12" },
                                               [
-                                                _c("input", {
-                                                  staticClass:
-                                                    "w-100 border-0 list-input",
-                                                  attrs: {
-                                                    type: "text",
-                                                    value: "1. To Do List"
-                                                  }
-                                                })
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-8 pl-0 custom-control custom-checkbox"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          staticClass:
+                                                            "custom-control-input",
+                                                          attrs: {
+                                                            id: "task1",
+                                                            type: "checkbox"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "terms-text custom-control-label",
+                                                            attrs: {
+                                                              for: "task1"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("input", {
+                                                              staticClass:
+                                                                "border-0 list-input",
+                                                              attrs: {
+                                                                type: "text",
+                                                                value:
+                                                                  "1. To Do List"
+                                                              }
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-4 task-date-div inner-box-shadow"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-circle orange"
+                                                          },
+                                                          [_vm._v("⬤")]
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-date"
+                                                          },
+                                                          [_vm._v("18 Jul")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
                                               ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c("span", [_vm._v("date")])
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "li",
+                                          {
+                                            staticClass:
+                                              "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-12" },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-8 pl-0 custom-control custom-checkbox"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          staticClass:
+                                                            "custom-control-input",
+                                                          attrs: {
+                                                            id: "task2",
+                                                            type: "checkbox"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "terms-text custom-control-label",
+                                                            attrs: {
+                                                              for: "task2"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("input", {
+                                                              staticClass:
+                                                                "border-0 list-input",
+                                                              attrs: {
+                                                                type: "text",
+                                                                value:
+                                                                  "2. To Do List"
+                                                              }
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-4 task-date-div inner-box-shadow"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-circle orange"
+                                                          },
+                                                          [_vm._v("⬤")]
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "tasks-date"
+                                                          },
+                                                          [_vm._v("23 Jul")]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
                                           ]
                                         )
                                       ])
@@ -257925,7 +257936,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
+    return _c("div", {}, [
       _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Profile ")])
     ])
   },
@@ -257933,15 +257944,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
-      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Account")])
+    return _c("div", {}, [
+      _c("h3", { staticClass: "mb-0" }, [_vm._v("Account")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
+    return _c("div", {}, [
       _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Settings")])
     ])
   },
@@ -257949,7 +257960,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
+    return _c("div", {}, [
       _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Themes")])
     ])
   },
@@ -257957,7 +257968,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
+    return _c("div", {}, [
       _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Language")])
     ])
   },
@@ -258004,7 +258015,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h3", { staticClass: "d-block" }, [
-          _vm._v("\n                      Steve Hughes \n                    ")
+          _vm._v("\n                  Steve Hughes \n                ")
         ]),
         _vm._v(" "),
         _c(
