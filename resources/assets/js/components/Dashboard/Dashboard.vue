@@ -1,396 +1,553 @@
 <style scoped>
-  .row{
-    margin-bottom: 3%; 
+  #dashboard {
+    height: 100vh;
+    overflow: auto;
   }
-  .top-section{
-    list-style: none;
-  }
-  .top-section .col-4{    
-    font-family: 'Rubik', sans-serif;
-    float: left;
-    border-right: 1px solid #e3e3e3;
-  }
-  .col-4 p.bottom{
-    font-size: 19px;
-    font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-  }
-  .card{
-    border-radius: 27px;
-  }
-  .card-title {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #fff;
-  }
-  .client{
-  }
-  .product{
-  }
-  .time{
-  }
-  .activity{
-  }
-  h5{
-    color: #fff;
-  }
-  h5 .icon{
-    width: 15px;
-    margin: -5px 15px 0 0;
-  }
-  p.card-text{
-    font-size: 40px;
-    color: #333333;
-    font-weight: bolder;
-    line-height: 1em;
-    margin-bottom: 10px!important;
-  }
-  @media screen and (min-width: 1389px) and (max-width:1596px) {
-    p.card-text {
-      font-size: 30px;
-    }
-  }
-  @media screen and (max-width: 1388px) {
-    p.card-text {
-      font-size: 20px;
-    }
-  }
-  p.card-text span{
-    font-size: 19px;
-    color: #333333;
-    font-weight: bolder;
-  }
-  p.card-link{
-    font-size: 12px;
-    color: #333333;
-    font-family: 'Rubik', sans-serif;
-  }
-  .stats .card{
-    border-radius: 20px;
-  }
-  .stats .card h5{
-    color: #818284;
-  }
-  .stats .card h5 .icon{
-    width: 25px;
-    margin: -5px 15px 0 0;
-  }
-  .stats .card .card-title {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #bfccd2;
-  }
-  span.right{
-    float: right;
-  }
-  .truncate {
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .list-group-item p{
-    margin: 0;
-  }
-  .list-group-item p strong{
-    font-size: 25px;
-    margin-right: 30px;
-  }
-  .choose-comment-type{
-    float: left;
-    display: block;
-    height: 50px;
-    width: 50px;
-    padding: 11px;
-    margin: 10px 10px 10px 0;
-    background: #f6f8f9;
-    border-radius: 9px;
-    cursor: pointer;
-  }
-
-  .comment-desc{
-    display: block;
-    height: 50px;
-    width: 75%;
-    padding: 11px;
-    margin: 10px 10px 10px 0;
-    background: #f6f8f9;
-    border-radius: 9px;
-    border: none;
-    cursor: pointer;
-    float: left;
-  }
-  #send-btn{
-    height: 50px;
-    margin: 10px 0px 10px 0;
-  }
-  .btn-secondary {
-    color: #fff;
-    background-color: #f6f8f9;
-    border-color: #f6f8f9;
-  }
-  .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-    color: #fff;
-    background-color: #f6f8f9;
-    border-color: #f6f8f9;
-  }
-  #chartjs-size-monitor #bar-chart{
-    height: 318px !important;
-  }
-
-  #top-section{
-    background: #7fd0ac; 
-    margin-top:2%;   
-    margin-left: -53px;
-    margin-right: -66px;
-    padding: 55px 3% 45px;
-  }
-  
-  .green{
-    color:#00a25a !important;
-  }
-  .red{
-    color:red !important;
-  }
-  .card-text-small{
-    color: #8d999f;
-    font-size: 13px;
-    font-family: 'Rubik', sans-serif;
-    margin-bottom: 25px;
-    word-break: keep-all;
-  }
-  .call-stats h1 {
-    padding-top: 35px;
-    color: #fff;
-    font-size: 65px;
-    font-weight: 900;
-  }
-  @media screen and (min-width: 1496px) and (max-width:1675px) {
-    .call-stats h1 {
-      font-size: 55px;
-    }
-  }
-  @media screen and (min-width: 1317px) and (max-width:1495px) {
-    .call-stats h1 {
-      font-size: 45px;
-    }
-    .call-stats p {
-      font-size: 15px;
-    }
-  }
-  @media screen and (max-width:1316px) {
-    .call-stats h1 {
-      font-size: 35px;
-    }
-  }
-  .call-stats p{
-    color: #fff;
+  h1 {
     font-size: 20px;
     font-family: 'Rubik', sans-serif;
-    letter-spacing: 1px;
-    word-break: keep-all;
+    padding-left: 5.2%;
+    padding-right: 5.2%;
+    margin-top:3.9%;
   }
-  .badges .col-sm-3{
-    border-right: 1px solid #e6e6e7;
+  #dash-container {
+    padding-left: 5.2%;
+    padding-right: 5.2%;
+    background-color: #F7F7F7;
+    margin-top: 3.7%;
   }
-  .badges .col-sm-3:last-child {
-    border-right: 0;
+  #top-section {
+    padding-top:1%;
+    margin-bottom: 5.5%;
   }
-  .description{
-    font-size: 10px;
+  select.rounded-pill{
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    font-size: 16px;
     font-family: 'Rubik', sans-serif;
-    letter-spacing: 1px;
-    color: #7f99a4;
+    padding:9px 17px 7px;
+    color: #333333;
   }
-  .row.stats {
-    padding-left: 3%;
-    padding-right: 3%;
+  .divider-line {
+    height: 1px;
+    background-color: #003449;
   }
-  .notes-roll {
-    height:345px;
+  #top-section .agent-stats {
+    margin-top:2.5%;
   }
-  .stats .margin-4 {
-    margin-bottom: 4%;
+  #top-section .agent-stats .card{    
+    border-radius: 25px;
+    padding: 1.3%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
-  .card .card-body .row .col-4 .top {
+  #top-section .agent-stats .card .card-numeral {
+    font-size: 30px;
+    line-height: 1em;
+    letter-spacing: 0.1em;
+    color: #333333;
+  }
+  #top-section .agent-stats .card .card-desc {
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    line-height: 1em;
+    color: #333333;
+    margin-top: 4px;
+  }
+  #top-section .agent-stats .card .card-stat {
+    font-size: 21px;
+    font-family: 'Rubik', sans-serif;
+    line-height: 1em;
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+  }
+  .agent-graphs {
+    margin-top:3.4%;
+  }
+  .agent-graphs .card {
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-left: 1.7%;
+    margin-right: 1.7%;
+  }
+  .agent-graphs .tab-content {
+    padding-top:12px;
+  }
+  .agent-graphs .tab-pane {
+    padding:5% 8.5%;
+  }
+  .nav.nav-tabs.card-header-tabs .nav-link {
+    color: #808080;
+    font-size: 14px;
+  }
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{ 
+    box-shadow: 10px -10px 10px #f5f5f5; 
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+  } 
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{ 
+    box-shadow: inset -7px -10px 10px #f5f5f5; 
+    border-bottom-right-radius: 25px; 
+    border-top-left-radius: 25px; 
+    border-top-right-radius:0; 
+  } 
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
+    box-shadow: -10px -10px 10px #f5f5f5; 
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+  } 
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{ 
+    box-shadow: inset 7px -10px 10px #f5f5f5; 
+    border-bottom-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+    border-top-left-radius:0; 
+  }
+  .card .card-header.tab-card-header {
+    background-color: #fff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  
+  .agent-details {
+    margin-top: 3.1%;
+  }
+  .agent-details .bottom-row{
+    margin-top: 4.7%;
+  }
+  .agent-details .card {
+    padding: 5% 7%!important;
+    border-radius: 15px!important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .agent-details .card .heading {
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    color: #B3B3B3;
+    margin-bottom: 8px;
+  }
+  .agent-details .card .detail {
+    font-size: 30px;
+    color: #1A1C43;
+    line-height: 1em;
+  }
+  .card.target .card-text{
+    margin: auto;
+  }
+  .card.target.reached {
+    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;
+  }
+  .card.target.not-reached {
+    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;
+  }
+  .card.target .heading {
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  #dash-activities {
+    margin-top:5.2%;
+    padding-bottom: 65px;
+  }
+  #dash-activities .card {
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding:2.9% 3.7%;
+  }
+  #dash-activities .col {
+    padding-left: 3.4%;
+    padding-right: 3.4%;
+  }
+  #dash-activities .border-right {
+    border-color: #003449;
+  }
+  #dash-activities h4 {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+  }
+  .calendar .card {
+    padding: 6% 5%!important;
+  }
+  .calendar p {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+  }
+  .calendar .card-title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
     font-size: 12px;
-    color: #9fb3bb;
   }
-  .margin-5 {
-    margin-bottom: 5%;
+  .calendar p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 10px;
+  }
+  .to-dos {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left:40px;
+  }
+  .reminders p {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    color: #333333;
+  }
+  .reminders .row {
+    padding:20px;
+  }
+  .reminders ul {
+    max-height:448px;
+    overflow-y: auto;
+    margin: 20px;
+    border-top: 1px solid #CDCDCF;
+  }
+  .reminders ul li {
+    box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    padding:10px 15px;
+  }
+  .reminders ul li label {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    color: #808080;
   }
 </style>
 <template>
-  <div>
-    <div id="top-section" class="row mx-0">
-      <div class="col-lg-2 px-2">
-        <div class="card border-0 client">
-          <div class="card-body text-center">
+  <div id="dashboard">
+    <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1>
+    <div id="dash-container">
+      <div id="top-section" class="row mx-0">
+        <div class="col-12 px-0">
+          <div class="row mx-0 align-items-center">
+            <div class="col-auto pl-0">
+              <select class="rounded-pill border-0"> 
+                <option selected>Filter by date</option> 
+              </select>
+            </div>
 
-            <p class="card-text m-0">11</p>
+            <div class="col pr-0">
+              <div class="divider-line"></div>
+            </div>
+          </div>
+        </div>
 
-            <p class="card-text-small">Calls made</p>
-
-            <p class="card-link green">
-                <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+        <div class="col-12 px-0 agent-stats">
+          <div class="card-deck w-100 mx-0 px-0">
+            <div class="card border-0 mb-0 ml-0">
+              <p class="card-numeral font-weight-bold text-center mb-0">11</p>
+              <p class="card-desc text-center mb-0">Calls made</p>
+              <p class="card-stat text-center mb-0">
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
                 14%
-            </p> 
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 px-2">
-        <div class="card border-0 client">
-          <div class="card-body text-center">
+              </p>
+            </div>
 
-            <p class="card-text m-0">5</p>
-
-            <p class="card-text-small">Sales Quantity</p>
-
-            <p class="card-link green">
-                <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+            <div class="card border-0 mb-0">
+              <p class="card-numeral font-weight-bold text-center mb-0">5</p>
+              <p class="card-desc text-center mb-0">Sales Quantity</p>
+              <p class="card-stat text-center mb-0">
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
                 3%
-            </p> 
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 px-2">
-        <div class="card border-0 client">
-          <div class="card-body text-center">
+              </p>
+            </div>
 
-            <p class="card-text m-0">$365</p>
-
-            <p class="card-text-small">Sales amount</p>
-
-            <p class="card-link green">
-                <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+            <div class="card border-0 mb-0">
+              <p class="card-numeral font-weight-bold text-center mb-0">$365</p>
+              <p class="card-desc text-center mb-0">Sales amount</p>
+              <p class="card-stat text-center mb-0">
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
                 11%
-            </p> 
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 px-2">
-        <div class="card border-0 client">
-          <div class="card-body text-center">
+              </p>
+            </div>
 
-            <p class="card-text m-0">45%</p>
-
-            <p class="card-text-small">Conversion Ratio</p>
-
-            <p class="card-link down">
-                <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+            <div class="card border-0 mb-0">
+              <p class="card-numeral font-weight-bold text-center m-0">45%</p>
+              <p class="card-desc text-center mb-0">Conversion Ratio</p>
+              <p class="card-stat text-center mb-0">
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
                 33%
-            </p> 
-          </div>
-        </div>
-      </div>
+              </p>
+            </div>
 
-      <div class="col-lg-2 px-2">
-        <div class="card border-0 client">
-          <div class="card-body text-center">
-
-            <p class="card-text m-0">$3000</p>
-
-            <p class="card-text-small">Commission</p>
-
-            <p class="card-link down">
-                <!-- <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> -->
+            <div class="card border-0 mr-0 mb-0">
+              <p class="card-numeral font-weight-bold text-center mb-0">$3000</p>
+              <p class="card-desc text-center mb-0">Commission</p>
+              <p class="card-stat text-center mb-0">
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
                 33%
-            </p> 
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-2 text-center px-2 call-stats">
-        <h1 class="card-text mb-0">11 / 10</h1>
 
-        <p class="card-text-small">Missed Target  </p>
+        <div class="col-12 px-0 agent-graphs">
+          <div class="card-deck mx-0">
+            <div class="card my-0 ml-0 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 p-0"> 
+                <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item w-50"> 
+                    <a 
+                      class="nav-link py-0" 
+                      id="one-tab" 
+                      data-toggle="tab" 
+                      href="#one" 
+                      role="tab" 
+                      aria-controls="One" 
+                      aria-selected="true"
+                    > 
+                      <img src="/images/icons/dashboard/Cash_vs Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <span class="w-50">Calls vs Sales</span>
+                    </a> 
+                  </li> 
+                  <li class="nav-item w-50"> 
+                    <a 
+                      class="nav-link py-0" 
+                      id="two-tab" 
+                      data-toggle="tab" 
+                      href="#two" 
+                      role="tab" 
+                      aria-controls="Two" 
+                      aria-selected="false"
+                    > 
+                      <img src="/images/icons/dashboard/Monthly_Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <span>Monthly Sales</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
 
-      </div>
-    </div>
-    <div class="row stats mx-0">
-      <div class="col-lg-6" >
-        <div class="card left text-left border-0">
-          <div class="card-body text-center">
-            <h5 class="card-title text-left">
-              <img src="/images/icons/Feedback summary icon@4x.png" alt="Icon" class="icon" />
-              <span class="left">Feedback Summary</span>
-              <span class="right">23 Review(s)</span>
-            </h5>
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active" 
+                  id="one" 
+                  role="tabpanel" 
+                  aria-labelledby="one-tab"
+                > 
+                  <div class="row mx-0 justify-content-end align-items-center"> 
+                    <div class="col-auto pl-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="17">
+                      <p class="d-inline-block mb-0">Calls</p>
+                    </div>
+                    <div class="col-auto pr-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="17">
+                      <p class="d-inline-block mb-0">Sales</p>
+                    </div>
+                  </div>
+                </div>  
 
-            <div class="notes-roll"></div>
+                <div 
+                  class="tab-pane fade" 
+                  id="two" 
+                  role="tabpanel" 
+                  aria-labelledby="two-tab"
+                > 
+                  
+                </div> 
+              </div> 
+            </div>
+
+            <div class="card my-0 mr-0 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 p-0"> 
+                <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item w-50"> 
+                    <a 
+                      class="nav-link py-0" 
+                      id="three-tab" 
+                      data-toggle="tab" 
+                      href="#three" 
+                      role="tab" 
+                      aria-controls="Three" 
+                      aria-selected="true"
+                    > 
+                      <img src="/images/icons/dashboard/Answers_vs_dialing.svg" alt="Icon" class="icon" width="60"/> 
+                      <span class="w-50">Answers vs Dialing</span>
+                    </a> 
+                  </li> 
+                  <li class="nav-item w-50"> 
+                    <a 
+                      class="nav-link py-0" 
+                      id="four-tab" 
+                      data-toggle="tab" 
+                      href="#four" 
+                      role="tab" 
+                      aria-controls="Four" 
+                      aria-selected="false"
+                    > 
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="60"/> 
+                      <span>Commissions</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
+
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active" 
+                  id="three" 
+                  role="tabpanel" 
+                  aria-labelledby="three-tab"
+                > 
+                  <div class="row mx-0 justify-content-end align-items-center"> 
+                    <div class="col-auto pl-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="17">
+                      <p class="d-inline-block mb-0">Answers</p>
+                    </div>
+                    <div class="col-auto pr-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="17">
+                      <p class="d-inline-block mb-0">Dialling</p>
+                    </div>
+                  </div>
+                </div>  
+
+                <div 
+                  class="tab-pane fade" 
+                  id="four" 
+                  role="tabpanel" 
+                  aria-labelledby="four-tab"
+                > 
+                  <div class="row mx-0 justify-content-end align-items-center"> 
+                    <div class="col-auto pl-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="17">
+                      <p class="d-inline-block mb-0">2018</p>
+                    </div>
+                    <div class="col-auto pr-0">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="17">
+                      <p class="d-inline-block mb-0">2019</p>
+                    </div>
+                  </div>
+                </div> 
+              </div> 
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6" >
-        <div class="row margin-4">
-          <div class="col-lg-12">
-            <div class="card right border-0">
-              <div class="card-body text-center">
-                <div class="row justfy-content-between align-items-center top-section">
-                  <div class="col-4">
-                    <p class="top">Active</p>
-                    <p class="bottom mb-0">22 hours</p>
+
+        <div class="col-12 px-0 agent-details">
+          <div class="row mx-0">
+            <div class="col-3 pl-0">
+              <div class="card h-100 border-0 target reached">
+                <div class="card-text">
+                  <p class="w-100 font-weight-bold text-uppercase text-center heading">You've reached your monthly target</p>
+                  <p class="w-100 mb-0 font-weight-bold text-center text-white detail">21/20 Sales</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col pr-0">
+              <div class="row mx-0 top-row">
+                <div class="col pl-0">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Monthly Target</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">20 Sales</p>
                   </div>
-                  <div class="col-4">
-                    <p class="top">Idle</p>
-                    <p class="bottom mb-0">2 Hours</p>
+                </div>
+
+                <div class="col">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Monthly connections</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">5 000, 000</p>
                   </div>
-                  <div class="col-4 border-right-0 pr-0">
-                    <p class="top">Offline</p>
-                    <p class="bottom mb-0">1 Hour</p>
+                </div>
+
+                <div class="col pr-0">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Unique users</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">243, 000 K</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mx-0 bottom-row">
+                <div class="col pl-0">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Calls</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">213</p>
+                  </div>
+                </div>
+                
+                <div class="col p-0">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Commission</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">$420.23</p>
+                  </div>
+                </div>
+
+                <div class="col pr-0">
+                  <div class="card border-0 mb-0">
+                    <p class="w-100 mb-0 text-capitalize heading">Sales</p>
+                    <p class="w-100 mb-0 font-weight-bold detail">$5, 654</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row margin-4">
-          <div class="col-lg-12">
-            <div class="card right border-0">
-              <div class="card-body text-center">
-                <div class="row justfy-content-between align-items-center top-section">
-                  <div class="col-4">
-                    <p class="top">Leads</p>
-                    <p class="bottom mb-0">123</p>
+      </div>
+
+      <div class="divider-line w-100"></div>
+
+      <div id="dash-activities">
+        <div class="card border-0">
+          <div class="row mx-0">
+            <div class="col border-right pl-0 calendar">
+              <h4 class="font-weight-regular">Filter</h4>
+              <vc-calendar 
+                class="border-0" 
+                :attributes='attrs' 
+                title-position="right" 
+                is-expanded 
+                :popover="true" />
+              
+              <div class="card border-0">
+                <div class="card-title">
+                  <p class="mb-0">This is a test</p>
+                </div>
+
+                <div class="row mx-0 justify-content-between">
+                  <div class="col-auto pl-0">
+                    <p>23 Jul</p>
                   </div>
-                  <div class="col-4">
-                    <p class="top">Dialed</p>
-                    <p class="bottom mb-0">70</p>
-                  </div>
-                  <div class="col-4 border-right-0 pr-0">
-                    <p class="top">Answered</p>
-                    <p class="bottom mb-0">67</p>
+
+                  <div class="col-auto pr-0">
+                    <p>9:10 to 10:00</p>
                   </div>
                 </div>
+
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row margin-5">
-          <div class="col-lg-12">
-            <div class="card right border-0">
-              <div class="card-body text-center row justify-content-between align-items-end badges">
 
-                <div class="col-sm-3 badge-1 px-4">
-                  <img src="/images/icons/Colonel@4x.png" alt="Badge" class="w-100">
-                  <p class="description text-center">Colonel</p>
-                </div>
+            <div class="col border-right to-dos">
+              <h4 class="mb-2 font-weight-regular">Callbacks</h4>
+              <h4 class="font-weight-regular">Thursday 11/06</h4>
+            </div>
 
-                <div class="col-sm-3 badge-2 px-4">
-                  <img src="/images/icons/Corporal@4x.png" alt="Badge" class="w-100">
-                  <p class="description text-center">Corporal</p>
-                </div>
+            <div class="col pr-0 reminders">
+              <div class="row mx-0 justify-content-between align-items-center"> 
+                <div class="col-auto pl-0"> 
+                  <h4 class="text-uppercase font-weight-regular mb-0">Reminders</h4> 
+                </div> 
+                <div class="col-auto pr-0"> 
+                  <b-button class="m-0 p-0 rounded-circle border-0">  
+                    <img src="/images/icons/Add_icon.svg" alt="Icon" class="icon" width="26"/>  
+                  </b-button> 
+                </div> 
+              </div> 
+              <h4 class="font-weight-regular">Thursday 11/06</h4>
 
-                <div class="col-sm-3 badge-2 px-4">
-                  <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-                  <p class="description text-center">Corporal</p>
-                </div>
-
-                <div class="col-sm-3 badge-2 px-4">
-                  <img src="/images/icons/Captain@4x.png" alt="Badge" class="w-100">
-                  <p class="description text-center">Corporal</p>
-                </div>
-              </div>
+              <ul class="border-top pl-0"> 
+                <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"> 
+                  <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing"> 
+                  <label class="custom-control-label mx-0" for="customControlAutosizing">Callback Justine</label> 
+                </li> 
+              </ul>
             </div>
           </div>
         </div>
