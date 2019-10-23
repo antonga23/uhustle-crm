@@ -687,7 +687,7 @@
     }
     .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
         border-radius: 50%!important;
-         background-color: #ff933a !important;
+        background-color: #ff933a !important;
     }
     
     .reminders input.list-input:focus {
@@ -760,6 +760,12 @@
         color: #171717 !important;
         font-family: 'Rubik', sans-serif !important;
         
+    }
+    .filterborder {
+        border: 1px solid #fed6d6;
+    }
+    .show {
+        display: block !important;
     }
     
     .row.filter-content {
@@ -1222,7 +1228,7 @@
                                         <div class="col-lg-12">
                                             <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
                                             <div class="progress-bar w-100">
-                                                <span class="tank" :style="'width:' + 65 + '%'"></span>
+                                                <span class="tank" :style="{width: + 65 + '%'}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1311,7 +1317,7 @@
 
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-                                                <vc-calendar class="border-0" :attributes='attrs' title-position="right" is-expanded :popover="true" />
+                                                <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />
                                             </div>
 
                                             <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
@@ -1558,19 +1564,21 @@
                             <b-tabs content-class="mt-3">
                                 <b-tab title="New">
                                     <div class="filter-group">
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
+                                        <!-- <div class="my-2 p-2 custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
                                             <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
                                         </div>
                                         <div class="my-2 p-2 custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input mx-0" id="newFilter2">
                                             <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
+                                        </div> -->
+                                        <ul>
+                                            <li v-for="filter in filters">
+                                        <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1" >
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
                                         </div>
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="newFilter3">
-                                            <label class="custom-control-label mx-0 pt-0" for="newFilter3">Name</label>
-                                        </div>
-                                        <div class="mr-4 pt-2 pl-34">
+                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
                                             <select class="search-criteria w-100 mb-2">
                                                 <option selected>is equal to</option>
                                                 <option value="1">contains</option>
@@ -1578,8 +1586,42 @@
                                                 <option value="3">begins with</option>
                                                 <option value="3">ends with</option>
                                             </select>
-                                            <input class="search-text w-100 mt-2" type="text" placeholder="Text Here">
+                                            <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
                                         </div>
+                                            </li>
+                                            </ul>
+                                        <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter2" >
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
+                                        </div>
+                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
+                                            <select class="search-criteria w-100 mb-2">
+                                                <option selected>is equal to</option>
+                                                <option value="1">contains</option>
+                                                <option value="2">does not contain</option>
+                                                <option value="3">begins with</option>
+                                                <option value="3">ends with</option>
+                                            </select>
+                                            <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                        </div>
+                                        <!-- <div v-on:click="filterProperties" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input v-if="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter2" v-model="isChecked">
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
+                                        </div>
+                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
+                                            <select class="search-criteria w-100 mb-2">
+                                                <option selected>is equal to</option>
+                                                <option value="1">contains</option>
+                                                <option value="2">does not contain</option>
+                                                <option value="3">begins with</option>
+                                                <option value="3">ends with</option>
+                                            </select>
+                                            <input class="search-text w-100 mt-2" v-on:keyup="tickCheckBox" type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                        </div> -->
+                                         
+                                        <!-- <div class="mr-4 pt-2 pl-34">
+                                            <input class="search-text w-100 mt-2" type="text" placeholder="Search">
+                                        </div> -->
                                     </div>
                                 </b-tab>
                                 <b-tab title="Saved" active>
@@ -1673,7 +1715,13 @@
                 fill: {
                     gradient: ["#a1ed1c", "#62d37e"]
                 },
-                p: 65
+                p: 65,
+
+                // filters: [
+                //     appendBorder: false,
+                //     showFilters: false, 
+                //     filterValue: ''
+                // ]  
             }
         },
 
@@ -1727,7 +1775,10 @@
                     this.settings_on = false;
                     this.profile_on = false;
                 },
-
+               filterProperties() {
+                this.appendBorder = !this.appendBorder
+                this.showFilters = !this.showFilters    
+                },
                 showSettings() {
                     this.settings_on = !this.settings_on;
                     this.notifications_on = false;

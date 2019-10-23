@@ -605,22 +605,21 @@ border-radius: 25px;
   font-family: 'Rubik', sans-serif !important;
   color: #1a1a1a !important;
 }
-.filter-content .tab-content .custom-checkbox .custom-control-label::before{
+.filter-content .custom-control-label::before, .filter-content .tab-content .custom-checkbox .custom-control-label::before{
   border-radius:50rem!important;
   border:1px solid #f79340;
   left: 4px;
 }
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
+  background-image: none !important;
 }
 
-.filter-content .custom-control-label::before {
+.filter-content .custom-control-label::after {
   width: 10px;
   height: 10px;
-  background-color: #f79340 !important;
 }
-.filter-content .custom-control-label::after {
-  left: 4px;
+.filter-content .custom-control-label::before {
   width: 10px;
   height: 10px;
 }
