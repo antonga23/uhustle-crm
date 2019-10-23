@@ -19,6 +19,9 @@
       active="{{ $active }}" 
 			module="{{ $module }}"
 			user_id="{{ Auth::user()->id }}"
+			role_id="{{ Auth::user()->role_id }}"
+			sources="{{ $sources }}"
+			packages="{{ $packages }}"
 			active_users="{{ $active_users }}"
 			active_roles="{{ $active_roles }}"
 			custom_filters="{{ $custom_filters }}" >

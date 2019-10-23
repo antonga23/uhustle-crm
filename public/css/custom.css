@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
+.rubik {
+  font-family: 'Rubik', sans-serif !important;
+}
+body {
+  letter-spacing: 0.05em;
+}
 .hide {
   display:none !important;
 }
@@ -188,9 +194,6 @@
   /* Transitions */
 
   /* Right SideBar */
-  #search-panel, #calendar{
-    padding: 1.8rem 2.0rem 1.4rem 1.7rem !important;
-  }
   #search-panel .search div.search label{
     float:left;    
     color: #8d9198;
@@ -435,9 +438,6 @@ label:not(.form-check-label):not(.custom-file-label) {
   background-color: white !important;
   border-radius: 0px !important;
 }
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: #F38912 !important;
-}
 
 /*end Register Stepper*/
 /*vc calendar styling*/
@@ -455,14 +455,14 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{
 	color: #1e2331;
-	font-size: 14px;
+	font-size: 10px;
   font-family: Montserrat, sans-serif;
   font-weight: 400;
 }
 .vc-day-content.vc-font-medium{
   font-family: Montserrat, sans-serif;
   color: #1e2331;
-  font-size: 19px;
+  font-size: 14px;
   font-weight:400;
 }
 .vc-rounded-full {
@@ -472,6 +472,9 @@ label:not(.form-check-label):not(.custom-file-label) {
   width: 45px!important;
   height: 45px!important;
   background-color: #fff!important;
+  border: 2px solid #ff931e !important;
+  border-radius: 50% !important;
+ 
 }
 .vc-bg-pink-200 {
   background-color: rgba(238, 244, 241, 0.5)!important;
@@ -534,23 +537,28 @@ label:not(.form-check-label):not(.custom-file-label) {
 .closed-sidenav .nav-tabs, .reminders .nav-tabs{
   border-bottom: 0!important;
 }
-.closed-sidenav .nav-tabs .nav-link, .nav-tabs .nav-link.active {
+.closed-sidenav .nav-tabs .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
   border: 0!important;
 }
 .closed-sidenav .nav-tabs .nav-link {
   font-size: 18px;
 }
-.closed-sidenav .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"], .reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"]{
+.closed-sidenav .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"] {
   box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
+.reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"] {
+  box-shadow: 20px -10px 34px -25px rgba(131,131,131,1);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
 .closed-sidenav .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"], .reminders .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"]{
-  box-shadow: inset -7px -10px 10px #f5f5f5;
+  box-shadow: inset 1px -10px 10px #f5f5f5;
   border-bottom-right-radius: 25px;
 }
 .closed-sidenav .nav-tabs .nav-link[aria-selected="true"][aria-posinset="2"], .reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="2"]{
-  box-shadow: -10px -10px 10px #f5f5f5;
+  box-shadow: -20px -10px 34px -25px rgba(131,131,131,1);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
@@ -564,12 +572,29 @@ label:not(.form-check-label):not(.custom-file-label) {
 .reminders .nav-tabs .nav-item, .filter-content .tabs .nav-item {
   width:50%;
 }
-.reminders .nav-tabs .nav-item a, .filter-content .tabs .nav-item a{
+
+.reminders .nav-tabs .filter-content .tabs {
   text-align:center;
 }
+.outer-box-shadow {
+-webkit-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
+-moz-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
+box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
+border-radius: 25px;
+}
+.add-task {
+  width: 25px;
+  position: absolute;
+  top: 19px;
+  right: 5%;
+}
+
 .reminders .nav-link {
-  font-size: 21px;
-  padding:20px 1rem;
+  font-size: 14px;
+  padding: 20px 15px;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif !important;
+  color: #1a1a1a !important;
 }
 .filter-content .tab-content .custom-checkbox .custom-control-label::before{
   border-radius:50rem!important;

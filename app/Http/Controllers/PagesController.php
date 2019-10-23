@@ -9,8 +9,13 @@ use App\SystemSettings;
 use App\DialerPermissions;
 use App\Comment;
 use App\Module;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
 use App\User;
 use App\Role;
+use App\Product;
+use App\LeadSource;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -87,6 +92,10 @@ class PagesController extends Controller
       $active_users = User::where(['activated' => 1])->get();
 
       $active_roles = Role::where(['status' => 1])->get();
+      
+      $sources = LeadSource::get();
+
+      $packages = Product::get();
 
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
@@ -130,12 +139,15 @@ class PagesController extends Controller
       return view('pages.modules')->with([
          'active'=> $type,
          'module' => $module,
+         'sources' => json_encode($sources),
+         'packages' => json_encode($packages),
          'active_users' => json_encode($active_users),
          'active_roles' => json_encode($active_roles),
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);
    }
+
 
    public function contacts()
    {
