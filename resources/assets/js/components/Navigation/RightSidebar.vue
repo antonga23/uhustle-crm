@@ -654,6 +654,8 @@
         border-radius: 50%!important;
         border: 1px solid #ededed;
         box-shadow: none;
+        background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
+        background-size: cover;
     }
     
     .reminders .custom-control-label::after,
@@ -678,10 +680,14 @@
         border: 0 !important;
     }
     
-    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
         background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
         border-radius: 50%!important;
         background-size: cover;
+    }
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+        border-radius: 50%!important;
+         background-color: #ff933a !important;
     }
     
     .reminders input.list-input:focus {
@@ -750,7 +756,10 @@
     }
     
     .filter-heading {
-        font-size: 19px;
+        font-size: 16px;
+        color: #171717 !important;
+        font-family: 'Rubik', sans-serif !important;
+        
     }
     
     .row.filter-content {
@@ -760,31 +769,45 @@
     
     .row.filter-content .custom-control.custom-checkbox {
         border-radius: 14px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        margin: 20px;
     }
     
     .row.filter-content .custom-control.custom-checkbox .custom-control-label {
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 28px;
+        font-family: 'Rubik', sans-serif !important;
     }
     
     .row.filter-content .search-criteria {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         border-radius: 14px;
         padding: 10px;
+        font-family: 'Rubik', sans-serif !important;
     }
     
     .row.filter-content .search-text {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         font-family: 'Rubik', sans-serif;
         font-weight: 300;
         font-style: italic;
         border-radius: 14px;
         padding: 10px;
+    }
+    .row.filter-content .search-text::-webkit-input-placeholder {
+        font-size: 12px !important;
+        font-family: 'Rubik', sans-serif !important;
+        color: rgba(0, 0, 0, 0.65) !important;
+        letter-spacing: 0 !important;
+    }
+
+    input.search-text:focus {
+        outline: 0 !important;
+        border: 0 !important;
     }
     /*End Right Component*/
 </style>
@@ -1539,7 +1562,15 @@
                                             <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
                                             <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
                                         </div>
-                                        <div class="ml-3 pt-2">
+                                        <div class="my-2 p-2 custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input mx-0" id="newFilter2">
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
+                                        </div>
+                                        <div class="my-2 p-2 custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input mx-0" id="newFilter3">
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter3">Name</label>
+                                        </div>
+                                        <div class="mr-4 pt-2 pl-34">
                                             <select class="search-criteria w-100 mb-2">
                                                 <option selected>is equal to</option>
                                                 <option value="1">contains</option>
@@ -1547,16 +1578,15 @@
                                                 <option value="3">begins with</option>
                                                 <option value="3">ends with</option>
                                             </select>
-                                            <input class="search-text w-100 mt-2" type="text" placeholder="Search...">
+                                            <input class="search-text w-100 mt-2" type="text" placeholder="Text Here">
                                         </div>
                                     </div>
                                 </b-tab>
-
                                 <b-tab title="Saved" active>
                                     <div class="saved-group">
                                         <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                                            <input type="checkbox" class="custom-control-input mx-0" id="savedFilter1">
+                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Name</label>
                                         </div>
                                     </div>
                                 </b-tab>
