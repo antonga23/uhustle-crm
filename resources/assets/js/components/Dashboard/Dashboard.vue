@@ -89,8 +89,7 @@
     border-top-right-radius: 25px; 
   } 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{ 
-    box-shadow: inset -7px -10px 10px #f5f5f5; 
-    border-bottom-right-radius: 25px; 
+    box-shadow: inset -7px -10px 10px #f5f5f5;
     border-top-left-radius: 25px; 
     border-top-right-radius:0; 
   } 
@@ -101,7 +100,6 @@
   } 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{ 
     box-shadow: inset 7px -10px 10px #f5f5f5; 
-    border-bottom-left-radius: 25px; 
     border-top-right-radius: 25px; 
     border-top-left-radius:0; 
   }
