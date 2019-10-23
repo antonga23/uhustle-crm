@@ -176,7 +176,7 @@ span.right{
   cursor: pointer; 
   float: left; 
 } 
-.keys p {
+.keys {
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
   font-size: 8px;
@@ -529,7 +529,6 @@ a.down-scroll:hover{
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
   box-shadow: inset -7px -10px 10px #f5f5f5;
-  border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
   border-top-right-radius:0;
 }
@@ -540,7 +539,6 @@ a.down-scroll:hover{
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
   box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
   border-top-left-radius:0;
 }
@@ -561,7 +559,6 @@ a.down-scroll:hover{
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
   box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-bottom-left-radius: 25px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -638,11 +635,7 @@ a.down-scroll:hover{
   padding-right: 3%; 
   padding-bottom: 6px;
   padding-left: 3%; 
-} 
-/*being used?*/
-.ant-time-picker{ 
-  width: 100% !important; 
-} 
+}
 .summary p {
   color: #818284;
   font-size: 15px;
@@ -1000,45 +993,71 @@ a.down-scroll:hover{
               >  
                 <div class="row mx-0 mb-0"> 
                   <div class="col-lg-4 px-0"> 
-                    <div class="row mx-0 align-items-center">
-                      <div class="col-6 pl-0">
-                        <div class="w-100 keys">
-                          <img src="/images/icons/circle.svg" 
-                            alt="Icon" 
-                            class="d-inline icon" 
-                            width="17"/>
-                          <p>Today</p>
+                    <div class="row mx-0">
+                      <div class="col-7 px-0">
+                        <div class="row mx-0 align-items-center">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/circle.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="17"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Today</p>
+                          </div>
                         </div>
-                        <div class="w-100 keys">
-                          <img src="/images/icons/grey dot.svg" 
+
+                        <div class="row mx-0 align-items-center">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/grey dot.svg" 
                             alt="Icon" 
-                            class="d-inline icon" 
-                            width="17"/>
-                          <p>Recommended Callback</p>
+                            class="icon" 
+                            width="17"
+                            style="vertical-align: baseline;"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Recommended Callback</p>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-6 pr-0">
-                        <div class="w-100 keys">
-                          <img src="/images/icons/blue dot.svg" 
-                            alt="Icon" 
-                            class="d-inline icon" 
-                            width="8"/>
-                          <p>Scheduled Callbacks</p>
+
+                      <div class="col-5 pr-0">
+                        <div class="row mx-0 align-items-start">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/blue dot.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="8"
+                              style="vertical-align: text-top;"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Scheduled Callbacks</p>
+                          </div>
                         </div>
-                        <div class="w-100 keys">
-                          <img src="/images/icons/Orange Dot_Big.svg" 
-                            alt="Icon" 
-                            class="d-inline icon" 
-                            width="8"/>
-                          <p>Tasks</p>
+
+                        <div class="row mx-0 align-items-start">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/Orange Dot_Big.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="8"
+                              style="vertical-align: text-top;"/>
+                          </div>
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Tasks</p>
+                          </div>
                         </div>
                       </div>
                     </div>
+
                     <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
                       <label class="control-label p-0 callback-label">Date of Callbacks 
                         <a-date-picker 
                           v-model='selected_date' 
-                          format="YYYY-MM-DD" 
+                          format="DD-MM" 
                           :allowEmpty="false"
                           @change="checkCBDate()"
                           class="rounded-pill"
@@ -1052,7 +1071,7 @@ a.down-scroll:hover{
                           v-model='selected_time' 
                           :allowEmpty="false" 
                           use24Hours 
-                          format="hh:mm a"
+                          format="hh:mm"
                         /> 
                       </label> 
                     </div>
@@ -1064,14 +1083,15 @@ a.down-scroll:hover{
                     </div>   -->
                   </div> 
 
-                  <div class="col-lg-8"> 
+                  <div class="col-lg-8 pr-0"> 
+                    <p>Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
                       is-inline is-expanded  
                       :min-date='new Date()' 
                       :max-date="max_date" 
-                      color="pink" 
+                      color="orange" 
                     /> 
                   </div> 
                 </div> 
@@ -1191,7 +1211,7 @@ a.down-scroll:hover{
 
                         <div class="col-11 pr-0 pl-4">
                           <div class="progress-bar w-100">
-                            <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                            <span class="tank" :style="{width: + stat.percent + '%'}"></span>
                           </div>
                         </div>
                       </div>
@@ -1201,11 +1221,11 @@ a.down-scroll:hover{
               </div>  
 
               <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
-                <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
+                <p class="email-desc font-weight-light font-italic">Choose a template or write your own email to Client</p>
 
                 <div class="row mx-0 align-items-center">
                   <div class="col-auto pl-0">
-                    <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
+                    <p class="text-uppercase font-weight-bold mb-2">Templates:</p>
                   </div>
                   <div class="col-auto pl-0 mb-2 pr-1">
                     <button 
@@ -1214,21 +1234,21 @@ a.down-scroll:hover{
                       @click=""
                     >Introduce Stock</button>
                   </div>
-                  <div class="col-auto px-1">
+                  <div class="col-auto mb-2 px-1">
                     <button 
                       type="submit" 
                       class="btn btn-default m-0 border-0 text-capitalize" 
                       @click=""
                     >First time sell</button>
                   </div>
-                  <div class="col-auto px-1">
+                  <div class="col-auto mb-2 px-1">
                     <button 
                       type="submit" 
                       class="btn btn-default m-0 border-0 text-capitalize" 
                       @click=""
                     >Up sell</button>
                   </div>
-                  <div class="col-auto pr-0 pl-1">
+                  <div class="col-auto mb-2 pr-0 pl-1">
                     <button 
                       type="submit" 
                       class="btn btn-default m-0 border-0 text-capitalize" 
@@ -1954,7 +1974,8 @@ a.down-scroll:hover{
                           is-inline 
                           is-expanded  
                           :min-date='new Date()' 
-                          :max-date="max_date" color="pink" 
+                          :max-date="max_date" 
+                          color="orange" 
                         /> 
                       </div> 
                     </div> 
@@ -2087,7 +2108,7 @@ a.down-scroll:hover{
 
                           <div class="col-11 pr-0 pl-4">
                             <div class="progress-bar w-100">
-                              <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                              <span class="tank" :style="{width: + stat.percent + '%'}"></span>
                             </div>
                           </div>
                         </div>
@@ -2122,7 +2143,7 @@ a.down-scroll:hover{
                       </div>
 
                       <div class="col-lg-8">
-                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
+                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="orange" />
                       </div>
                     </div>
 
