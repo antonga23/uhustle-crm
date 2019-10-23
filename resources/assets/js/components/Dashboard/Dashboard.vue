@@ -134,6 +134,23 @@
     color: #1A1C43;
     line-height: 1em;
   }
+  .progress-bar{
+    background: #F2F2F2;
+    min-height:100px;
+  }
+  .tank{
+    border-top-left-radius: 50rem;
+    border-top-right-radius: 50rem;
+    transition: all 0.5s ease 0s;
+  }
+  .tank.answers {
+    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;
+    background: #0496F0;
+  }
+  .tank.dialing {
+    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;
+    background: #0496F0;
+  }
   .card.target .card-text{
     margin: auto;
   }
@@ -405,6 +422,26 @@
                       <p class="d-inline-block mb-0">Dialling</p>
                     </div>
                   </div>
+
+                  <div class="row justify-content-between mx-0">
+                    <div class="col-2 px-2" v-for="(comparison, index) in comparisons" :key="index">
+                      <div class="row mx-0">
+                        <div class="col-6 px-0">
+                          <div class="progress-bar h-100">
+                            <span class="w-100 tank answers" :style="'height:' + '{{ comparison.answers }}' + '%'"></span>
+                          </div>
+                        </div>
+
+                        <div class="col-6 px-0">
+                          <div class="progress-bar h-100">
+                            <span class="w-100 tank dialing" :style="'height:' + '{{ comparison.dialing }}' + '%'"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="text-center">{{ comparison.month }}</p>
+                    </div>
+                  </div>
                 </div>  
 
                 <div 
@@ -557,78 +594,86 @@
 </template>
 
 <script>
-    import { Bar } from 'vue-chartjs';
-    import { BarChart } from 'vue-morris';
-    export default {
-        extends: Bar,
-        components: { 
-            BarChart,
+  import { Bar } from 'vue-chartjs';
+  import { BarChart } from 'vue-morris';
+  export default {
+    extends: Bar,
+    components: { 
+      BarChart,
+    },
+    mounted() {
+      console.log('Component mounted');
+
+      this.getDashboard();
+
+      var vm = this;
+
+      Fire.$on('TopMonthFilterChange', function(data){
+        vm.getCallLog(data.month);
+      });
+      
+      this.Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    },
+    created: function () {
+    },
+    props: [],
+    data: function(){
+      return {
+        call_log : {
+          total_calls: '',
+          total_sales: '',
+          con_ratio: '',
+          sum_sales: '',
+          call_history: '',
+          sum_call_back: '',
+          avg_time: '',
         },
-        mounted() {
-            console.log('Component mounted');
+        Toast: null,
+        comparisons: [
+          { month: "May", answers: 65, dialing: 65 },
+          { month: "Jun", answers: 65, dialing: 65 },
+          { month: "Jul", answers: 65, dialing: 65 },
+          { month: "Aug", answers: 65, dialing: 65 },
+          { month: "Sept", answers: 65, dialing: 65 },
+          { month: "Oct", answers: 65, dialing: 65 },
+        ]
+      }
+    },
+    methods: {
+      getDashboard(month = ''){
+        var vm = this;
 
-            this.getDashboard();
-
-            var vm = this;
-
-            Fire.$on('TopMonthFilterChange', function(data){
-                vm.getCallLog(data.month);
-            });
-            
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-        created: function () {
-        },
-        props: [],
-        data: function(){
-            return {
-                call_log : {
-                    total_calls: '',
-                    total_sales: '',
-                    con_ratio: '',
-                    sum_sales: '',
-                    call_history: '',
-                    sum_call_back: '',
-                    avg_time: '',
-                },
-                Toast: null
-            }
-        },
-        methods: {
-            getDashboard(month = ''){
-                var vm = this;
-
-                if(month == ''){
-                    var endpoint = '/calls/get-dashboard';
-                }else{
-                    var endpoint = '/calls/get-dashboard/' + month;
-                }
-
-                vm.$Progress.start();
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.call_log.total_calls = response.data.total_calls;
-                        vm.call_log.total_sales = response.data.total_sales;
-                        vm.call_log.con_ratio = response.data.con_ratio;
-                        vm.call_log.sum_sales = response.data.sum_sales;
-                        vm.call_log.call_history = response.data.call_history;
-                        vm.call_log.sum_call_back = response.data.sum_call_back;
-                        vm.call_log.avg_time = response.data.avg_time;
-                        
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
+        if(month == ''){
+          var endpoint = '/calls/get-dashboard';
+        }else{
+          var endpoint = '/calls/get-dashboard/' + month;
         }
+
+        vm.$Progress.start();
+
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.call_log.total_calls = response.data.total_calls;
+            vm.call_log.total_sales = response.data.total_sales;
+            vm.call_log.con_ratio = response.data.con_ratio;
+            vm.call_log.sum_sales = response.data.sum_sales;
+            vm.call_log.call_history = response.data.call_history;
+            vm.call_log.sum_call_back = response.data.sum_call_back;
+            vm.call_log.avg_time = response.data.avg_time;
+            
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
     }
+  }
 </script>
