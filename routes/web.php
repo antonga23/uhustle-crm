@@ -88,9 +88,6 @@ Route::get('/move-leads',  function(){
           case 'product':
               $insert = $lead->product_id;
             break;
-          case 'product_variant':
-              $insert = $lead->product_variant;
-            break;
           case 'start_at':
               $insert = $lead->start_date;
             break;

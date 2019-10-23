@@ -24,6 +24,7 @@
 			packages="{{ $packages }}"
 			active_users="{{ $active_users }}"
 			active_roles="{{ $active_roles }}"
+			custom_fields="{{ $custom_fields }}"
 			custom_filters="{{ $custom_filters }}" >
 	</modules>
 @endsection

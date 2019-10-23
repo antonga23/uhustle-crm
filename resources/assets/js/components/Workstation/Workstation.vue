@@ -1965,7 +1965,7 @@ a.down-scroll:hover{
                         vm.$Progress.finish();
 
                         if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1){
-                            vm.createDevice();
+                          vm.createDevice();
                         }
 
                     }else{

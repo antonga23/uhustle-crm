@@ -97,6 +97,8 @@ class PagesController extends Controller
 
       $packages = Product::get();
 
+      $custom_fields = ModuleCustomFields::where(['module_id' => $module->id])->get();
+
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
       $data = [];
@@ -143,6 +145,7 @@ class PagesController extends Controller
          'packages' => json_encode($packages),
          'active_users' => json_encode($active_users),
          'active_roles' => json_encode($active_roles),
+         'custom_fields' => json_encode($custom_fields),
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);
