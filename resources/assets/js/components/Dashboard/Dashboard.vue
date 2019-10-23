@@ -134,9 +134,23 @@
     color: #1A1C43;
     line-height: 1em;
   }
+  .legend {
+    margin-bottom:3.1%;
+  }
+  .legend p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color:#999999;
+  }
+  .comparison-month {
+    color: #1C2331;
+    font-size: 13px;
+  }
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
+    max-width:24px;
+    justify-content: flex-end;
   }
   .tank{
     border-top-left-radius: 50rem;
@@ -348,7 +362,7 @@
                   role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="17">
                       <p class="d-inline-block mb-0">Calls</p>
@@ -412,7 +426,7 @@
                   role="tabpanel" 
                   aria-labelledby="three-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="17">
                       <p class="d-inline-block mb-0">Answers</p>
@@ -425,21 +439,21 @@
 
                   <div class="row justify-content-between mx-0">
                     <div class="col-2 px-2" v-for="(comparison, index) in comparisons" :key="index">
-                      <div class="row mx-0">
-                        <div class="col-6 px-0">
+                      <div class="row mx-0 justify-content-between">
+                        <div class="col-6 px-1">
                           <div class="progress-bar h-100">
                             <span class="w-100 tank answers" :style="'height:' + '{{ comparison.answers }}' + '%'"></span>
                           </div>
                         </div>
 
-                        <div class="col-6 px-0">
+                        <div class="col-6 px-1">
                           <div class="progress-bar h-100">
                             <span class="w-100 tank dialing" :style="'height:' + '{{ comparison.dialing }}' + '%'"></span>
                           </div>
                         </div>
                       </div>
 
-                      <p class="text-center">{{ comparison.month }}</p>
+                      <p class="text-center mb-0 comparison-month">{{ comparison.month }}</p>
                     </div>
                   </div>
                 </div>  
@@ -450,7 +464,7 @@
                   role="tabpanel" 
                   aria-labelledby="four-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="17">
                       <p class="d-inline-block mb-0">2018</p>
@@ -636,11 +650,11 @@
         Toast: null,
         comparisons: [
           { month: "May", answers: 65, dialing: 65 },
-          { month: "Jun", answers: 65, dialing: 65 },
-          { month: "Jul", answers: 65, dialing: 65 },
-          { month: "Aug", answers: 65, dialing: 65 },
-          { month: "Sept", answers: 65, dialing: 65 },
-          { month: "Oct", answers: 65, dialing: 65 },
+          { month: "Jun", answers: 35, dialing: 65 },
+          { month: "Jul", answers: 95, dialing: 65 },
+          { month: "Aug", answers: 25, dialing: 65 },
+          { month: "Sept", answers: 5, dialing: 65 },
+          { month: "Oct", answers: 15, dialing: 65 },
         ]
       }
     },
