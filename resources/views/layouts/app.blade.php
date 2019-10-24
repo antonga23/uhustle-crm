@@ -24,7 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
       #content-wrapper{
-        min-height: auto !important"
+        min-height: auto !important;
       }
       .content-wrapper, .main-footer, .main-header {
           transition: margin-left 0.3s ease-in-out;
