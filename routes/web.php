@@ -106,7 +106,7 @@ Route::get('/move-leads',  function(){
           case 'owner':
               $insert = $lead->user_created_id;
             break;
-          case 'owner':
+          case 'status':
               $insert = $lead->user_created_id;
             break;             
 
@@ -291,6 +291,7 @@ Route::group(['prefix' => 'modules'], function () {
   // Items
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
+  Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');

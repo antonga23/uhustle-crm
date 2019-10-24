@@ -71417,6 +71417,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -71510,6 +71539,7 @@ __webpack_require__.r(__webpack_exports__);
         comments: [],
         assigned: []
       },
+      modified_row: null,
       editing_row: false,
       row_id: null,
       summaryModal: false,
@@ -71602,11 +71632,34 @@ __webpack_require__.r(__webpack_exports__);
       this.editing_row = !this.editing_row;
 
       if (this.editing_row === false) {
-        this.row_id = '';
+        this.row_id = null;
       } else {
         this.row_id = row_id;
       } // this.$bvModal.show('update-user-modal');
 
+    },
+    submitEdit: function submitEdit(row_id) {
+      var vm = this;
+      this.module_items.map(function (item) {
+        if (item.item.id == row_id) {
+          vm.modified_row = item.item;
+        }
+      });
+      console.log(this.modified_row);
+      vm.$Progress.start();
+      axios.post('/modules/update-item', this.modified_row).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.showEdit(row_id);
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
     },
     handleOk: function handleOk(bvModalEvt) {
       // Prevent modal from closing
@@ -71934,6 +71987,7 @@ for (var i = 0; i < 100; i++) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['rows', 'module_items', 'columns', 'custom_fields', 'role', 'active_users', 'active_roles', 'sources', 'packages'],
   data: function data() {
     this.cacheData = _data.map(function (item) {
       return _objectSpread({}, item);
@@ -250422,15 +250476,25 @@ var render = function() {
                                       }
                                     }),
                                     _vm._v(" "),
-                                    _c("a", {
-                                      staticClass: "Edit",
-                                      attrs: { href: "#", title: "Edit" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.showEdit(row.id)
-                                        }
-                                      }
-                                    }),
+                                    _vm.editing_row === true
+                                      ? _c("a", {
+                                          staticClass: "Edit",
+                                          attrs: { href: "#", title: "Save" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.submitEdit(row.id)
+                                            }
+                                          }
+                                        })
+                                      : _c("a", {
+                                          staticClass: "Edit",
+                                          attrs: { href: "#", title: "Edit" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.showEdit(row.id)
+                                            }
+                                          }
+                                        }),
                                     _vm._v(" "),
                                     _vm.role == 1 || _vm.role == 2
                                       ? _c("a", {
@@ -250445,808 +250509,1438 @@ var render = function() {
                                       : _vm._e()
                                   ]
                                 )
-                              : _vm.editing_row == false && _vm.row_id != row.id
-                              ? _c("span", [
-                                  _vm._v(_vm._s(_vm.collect(row, column.field)))
-                                ])
-                              : _vm.editing_row == true && _vm.row_id == row.id
-                              ? _vm._l(_vm.module_items, function(item, k) {
-                                  return _c(
-                                    "span",
-                                    { key: k },
-                                    _vm._l(_vm.custom_fields, function(
-                                      custom_field,
-                                      j
-                                    ) {
-                                      return _c("span", { key: j }, [
-                                        column.field == custom_field.name &&
-                                        item.item.id == row.id
-                                          ? _c("span", [
-                                              column.field == "source"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value.id,
-                                                            expression:
-                                                              "item.item[column.field].meta_value.id"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "Source",
-                                                          name: "Source"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                              "id",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Source"
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.sources,
-                                                          function(
-                                                            item,
-                                                            index
-                                                          ) {
-                                                            return _c(
-                                                              "option",
-                                                              {
-                                                                key: index,
-                                                                domProps: {
-                                                                  value: item.id
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    item.name
+                              : _c(
+                                  "span",
+                                  _vm._l(_vm.module_items, function(item, k) {
+                                    return _c("span", { key: k }, [
+                                      item.item.id == row.id
+                                        ? _c(
+                                            "span",
+                                            _vm._l(_vm.custom_fields, function(
+                                              custom_field,
+                                              j
+                                            ) {
+                                              return _c("span", { key: j }, [
+                                                column.field ==
+                                                  custom_field.name &&
+                                                item.item.id == row.id
+                                                  ? _c("span", [
+                                                      column.field == "source"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                        .name
+                                                                    )
                                                                   )
-                                                                )
-                                                              ]
-                                                            )
-                                                          }
-                                                        )
-                                                      ],
-                                                      2
-                                                    )
-                                                  ])
-                                                : column.field == "product"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "package",
-                                                          name: "Package"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Package"
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.packages,
-                                                          function(
-                                                            item,
-                                                            index
-                                                          ) {
-                                                            return _c(
-                                                              "option",
-                                                              {
-                                                                key: index,
-                                                                domProps: {
-                                                                  value: item
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    item.name
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                        .name
+                                                                    )
                                                                   )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value
+                                                                            .id,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value.id"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "Source",
+                                                                      name:
+                                                                        "Source"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                          "id",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Source"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _vm._l(
+                                                                      _vm.sources,
+                                                                      function(
+                                                                        item,
+                                                                        index
+                                                                      ) {
+                                                                        return _c(
+                                                                          "option",
+                                                                          {
+                                                                            key: index,
+                                                                            domProps: {
+                                                                              value:
+                                                                                item.id
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                item.name
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  2
                                                                 )
-                                                              ]
-                                                            )
-                                                          }
-                                                        )
-                                                      ],
-                                                      2
-                                                    )
-                                                  ])
-                                                : column.field == "owner"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "role",
-                                                          name: "Owner"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Lead Owner "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.active_users,
-                                                          function(
-                                                            item,
-                                                            index
-                                                          ) {
-                                                            return _c(
-                                                              "option",
-                                                              {
-                                                                key: index,
-                                                                domProps: {
-                                                                  value: {
-                                                                    id: item.id,
-                                                                    name:
-                                                                      item.name,
-                                                                    surname:
-                                                                      item.surname
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "product"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                        .name
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                        .name
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "package",
+                                                                      name:
+                                                                        "Package"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Package"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _vm._l(
+                                                                      _vm.packages,
+                                                                      function(
+                                                                        item,
+                                                                        index
+                                                                      ) {
+                                                                        return _c(
+                                                                          "option",
+                                                                          {
+                                                                            key: index,
+                                                                            domProps: {
+                                                                              value: item
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                item.name
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  2
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "owner"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    "\n                                            " +
+                                                                      _vm._s(
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ]
+                                                                          .meta_value
+                                                                          .name +
+                                                                          " " +
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value
+                                                                            .lastname
+                                                                      ) +
+                                                                      "\n                                          "
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    "\n                                            " +
+                                                                      _vm._s(
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ]
+                                                                          .meta_value
+                                                                          .name +
+                                                                          " " +
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value
+                                                                            .lastname
+                                                                      ) +
+                                                                      "\n                                          "
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "role",
+                                                                      name:
+                                                                        "Owner"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Lead Owner "
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _vm._l(
+                                                                      _vm.active_users,
+                                                                      function(
+                                                                        item,
+                                                                        index
+                                                                      ) {
+                                                                        return _c(
+                                                                          "option",
+                                                                          {
+                                                                            key: index,
+                                                                            domProps: {
+                                                                              value: {
+                                                                                id:
+                                                                                  item.id,
+                                                                                name:
+                                                                                  item.name,
+                                                                                lastname:
+                                                                                  item.surname
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                item.name +
+                                                                                  " " +
+                                                                                  item.lastname
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  2
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "assignee"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    "\n                                            " +
+                                                                      _vm._s(
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ]
+                                                                          .meta_value
+                                                                          .name +
+                                                                          " " +
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value
+                                                                            .lastname
+                                                                      ) +
+                                                                      "\n                                          "
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    "\n                                            " +
+                                                                      _vm._s(
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ]
+                                                                          .meta_value
+                                                                          .name +
+                                                                          " " +
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value
+                                                                            .lastname
+                                                                      ) +
+                                                                      "\n                                          "
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "Assignee",
+                                                                      name:
+                                                                        "Assignee"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Assignee"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _vm._l(
+                                                                      _vm.active_users,
+                                                                      function(
+                                                                        item,
+                                                                        index
+                                                                      ) {
+                                                                        return _c(
+                                                                          "option",
+                                                                          {
+                                                                            key: index,
+                                                                            domProps: {
+                                                                              value: {
+                                                                                id:
+                                                                                  item.id,
+                                                                                name:
+                                                                                  item.name,
+                                                                                lastname:
+                                                                                  item.surname
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                item.name +
+                                                                                  " " +
+                                                                                  item.lastname
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  2
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "status"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "status",
+                                                                      name:
+                                                                        "Status"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Status "
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "1"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Active"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "2"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Inactive"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "3"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Canceled"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "0"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Disabled"
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "title"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "status",
+                                                                      name:
+                                                                        "Status"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Status "
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Dr"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Dr"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Mr"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Mr"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Mrs"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Mrs"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Miss"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Miss"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Prof"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Prof"
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : column.field ==
+                                                          "gender"
+                                                        ? _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ]
+                                                                            .meta_value,
+                                                                        expression:
+                                                                          "item.item[column.field].meta_value"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "form-control",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      id:
+                                                                        "status",
+                                                                      name:
+                                                                        "Status"
+                                                                    },
+                                                                    on: {
+                                                                      change: function(
+                                                                        $event
+                                                                      ) {
+                                                                        var $$selectedVal = Array.prototype.filter
+                                                                          .call(
+                                                                            $event
+                                                                              .target
+                                                                              .options,
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              return o.selected
+                                                                            }
+                                                                          )
+                                                                          .map(
+                                                                            function(
+                                                                              o
+                                                                            ) {
+                                                                              var val =
+                                                                                "_value" in
+                                                                                o
+                                                                                  ? o._value
+                                                                                  : o.value
+                                                                              return val
+                                                                            }
+                                                                          )
+                                                                        _vm.$set(
+                                                                          item
+                                                                            .item[
+                                                                            column
+                                                                              .field
+                                                                          ],
+                                                                          "meta_value",
+                                                                          $event
+                                                                            .target
+                                                                            .multiple
+                                                                            ? $$selectedVal
+                                                                            : $$selectedVal[0]
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "- Please Choose Status "
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Male"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Male"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "Female"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Female"
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              : _vm._e()
+                                                          ])
+                                                        : _c("span", [
+                                                            _vm.editing_row ===
+                                                              false &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id === null
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id != row.id
+                                                              ? _c("span", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm.editing_row ===
+                                                              true &&
+                                                            item.item.id ==
+                                                              row.id &&
+                                                            _vm.row_id ===
+                                                              row.id
+                                                              ? _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ]
+                                                                          .meta_value,
+                                                                      expression:
+                                                                        "item.item[column.field].meta_value"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "text",
+                                                                    id: "Name",
+                                                                    name: "Name"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      item.item[
+                                                                        column
+                                                                          .field
+                                                                      ]
+                                                                        .meta_value
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        item
+                                                                          .item[
+                                                                          column
+                                                                            .field
+                                                                        ],
+                                                                        "meta_value",
+                                                                        $event
+                                                                          .target
+                                                                          .value
+                                                                      )
+                                                                    }
                                                                   }
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    item.name +
-                                                                      " " +
-                                                                      item.lastname
-                                                                  )
-                                                                )
-                                                              ]
-                                                            )
-                                                          }
-                                                        )
-                                                      ],
-                                                      2
-                                                    )
-                                                  ])
-                                                : column.field == "assignee"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "Assignee",
-                                                          name: "Assignee"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Assignee"
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _vm._l(
-                                                          _vm.active_users,
-                                                          function(
-                                                            item,
-                                                            index
-                                                          ) {
-                                                            return _c(
-                                                              "option",
-                                                              {
-                                                                key: index,
-                                                                domProps: {
-                                                                  value: {
-                                                                    id: item.id,
-                                                                    name:
-                                                                      item.name,
-                                                                    surname:
-                                                                      item.surname
-                                                                  }
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    item.name +
-                                                                      " " +
-                                                                      item.lastname
-                                                                  )
-                                                                )
-                                                              ]
-                                                            )
-                                                          }
-                                                        )
-                                                      ],
-                                                      2
-                                                    )
-                                                  ])
-                                                : column.field == "status"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "status",
-                                                          name: "Status"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Status "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Active"
-                                                            }
-                                                          },
-                                                          [_vm._v("Active")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Inactive"
-                                                            }
-                                                          },
-                                                          [_vm._v("Inactive")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Canceled"
-                                                            }
-                                                          },
-                                                          [_vm._v("Canceled")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Disabled"
-                                                            }
-                                                          },
-                                                          [_vm._v("Disabled")]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
-                                                : column.field == "title"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "status",
-                                                          name: "Status"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Status "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Dr"
-                                                            }
-                                                          },
-                                                          [_vm._v("Dr")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Mr"
-                                                            }
-                                                          },
-                                                          [_vm._v("Mr")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Mrs"
-                                                            }
-                                                          },
-                                                          [_vm._v("Mrs")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Miss"
-                                                            }
-                                                          },
-                                                          [_vm._v("Miss")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Prof"
-                                                            }
-                                                          },
-                                                          [_vm._v("Prof")]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
-                                                : column.field == "gender"
-                                                ? _c("span", [
-                                                    _c(
-                                                      "select",
-                                                      {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              item.item[
-                                                                column.field
-                                                              ].meta_value,
-                                                            expression:
-                                                              "item.item[column.field].meta_value"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control",
-                                                        attrs: {
-                                                          type: "text",
-                                                          id: "status",
-                                                          name: "Status"
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              item.item[
-                                                                column.field
-                                                              ],
-                                                              "meta_value",
-                                                              $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: { value: "" }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "- Please Choose Status "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Male"
-                                                            }
-                                                          },
-                                                          [_vm._v("Male")]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "option",
-                                                          {
-                                                            attrs: {
-                                                              value: "Female"
-                                                            }
-                                                          },
-                                                          [_vm._v("Female")]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
-                                                : _c("span", [
-                                                    _c("input", {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            item.item[
-                                                              column.field
-                                                            ].meta_value,
-                                                          expression:
-                                                            "item.item[column.field].meta_value"
-                                                        }
-                                                      ],
-                                                      staticClass:
-                                                        "form-control",
-                                                      attrs: {
-                                                        type: "text",
-                                                        id: "Name",
-                                                        name: "Name"
-                                                      },
-                                                      domProps: {
-                                                        value:
-                                                          item.item[
-                                                            column.field
-                                                          ].meta_value
-                                                      },
-                                                      on: {
-                                                        input: function(
-                                                          $event
-                                                        ) {
-                                                          if (
-                                                            $event.target
-                                                              .composing
-                                                          ) {
-                                                            return
-                                                          }
-                                                          _vm.$set(
-                                                            item.item[
-                                                              column.field
-                                                            ],
-                                                            "meta_value",
-                                                            $event.target.value
-                                                          )
-                                                        }
-                                                      }
-                                                    })
-                                                  ])
-                                            ])
-                                          : _vm._e()
-                                      ])
-                                    }),
-                                    0
-                                  )
-                                })
-                              : _vm._e()
-                          ],
-                          2
+                                                                })
+                                                              : _vm._e()
+                                                          ])
+                                                    ])
+                                                  : _vm._e()
+                                              ])
+                                            }),
+                                            0
+                                          )
+                                        : _vm._e()
+                                    ])
+                                  }),
+                                  0
+                                )
+                          ]
                         )
                       }),
                       0

@@ -56,77 +56,106 @@
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
                                 <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
-                                    <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
-                                    <a  class="Edit" href="#" @click="showEdit(row.id)" title="Edit"></a>
-                                    <a  class="Delete" href="#" @click="deleteItem(row.id)" title="Delete" v-if="role == 1 || role == 2"></a>
+                                    <a class="View" :href="'/workstation/' + row.id" title="View"></a>
+                                    <a v-if="editing_row === true" class="Edit" href="#" @click="submitEdit(row.id)" title="Save"></a>
+                                    <a v-else class="Edit" href="#" @click="showEdit(row.id)" title="Edit"></a>
+                                    <a class="Delete" href="#" @click="deleteItem(row.id)" title="Delete" v-if="role == 1 || role == 2"></a>
                                 </span>
-                                <span v-else-if="editing_row == false && row_id != row.id">{{ collect(row, column.field) }}</span>
-                                <span v-for="(item, k) in module_items" :key="k" v-else-if="editing_row == true && row_id == row.id">
-                                  <span v-for="(custom_field, j) in custom_fields" :key="j">
-                                    <span v-if="column.field == custom_field.name && item.item.id == row.id">
-                                      <span v-if="column.field == 'source'">
-                                        <select type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value.id"  class="form-control">
-                                            <option value="">- Please Choose Source</option>
-                                            <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
-                                        </select>
-                                      </span>
+                                <span v-else>
+                                    <span v-for="(item, k) in module_items" :key="k">
+                                      <span v-if="item.item.id == row.id">
+                                        <span v-for="(custom_field, j) in custom_fields" :key="j">
+                                          <span v-if="column.field == custom_field.name && item.item.id == row.id">
+                                            <span v-if="column.field == 'source'">
 
-                                      <span v-else-if="column.field == 'product'">
-                                        <select type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control">
-                                            <option value="">- Please Choose Package</option>
-                                            <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-                                        </select>
-                                      </span>
+                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value.name }}</span>
+                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value.name }}</span>
+                                              <select v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value.id"  class="form-control">
+                                                  <option value="">- Please Choose Source</option>
+                                                  <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+                                              </select>
+                                            </span>
 
-                                      <span v-else-if="column.field == 'owner'">
-                                        <select type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control">
-                                            <option value="">- Please Choose Lead Owner </option>
-                                            <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                        </select>
-                                      </span>
+                                            <span v-else-if="column.field == 'product'">
+                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value.name }}</span>
+                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value.name }}</span>
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control">
+                                                  <option value="">- Please Choose Package</option>
+                                                  <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+                                              </select>
+                                            </span>
 
-                                      <span v-else-if="column.field == 'assignee'">
-                                        <select type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control">
-                                            <option value="">- Please Choose Assignee</option>
-                                            <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                        </select>
-                                      </span>
+                                            <span v-else-if="column.field == 'owner'">
+                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              </span>
+                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              </span>
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control">
+                                                  <option value="">- Please Choose Lead Owner </option>
+                                                  <option :value="{id: item.id, name : item.name, lastname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                              </select>
+                                            </span>
 
-                                      <span v-else-if="column.field == 'status'">
-                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
-                                              <option value="">- Please Choose Status </option>
-                                              <option value="Active">Active</option>
-                                              <option value="Inactive">Inactive</option>
-                                              <option value="Canceled">Canceled</option>
-                                              <option value="Disabled">Disabled</option>
-                                          </select>
-                                      </span>
+                                            <span v-else-if="column.field == 'assignee'">
+                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              </span>
+                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              </span>
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                  <option value="">- Please Choose Assignee</option>
+                                                  <option :value="{id: item.id, name : item.name, lastname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                              </select>
+                                            </span>
 
-                                      <span v-else-if="column.field == 'title'">
-                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
-                                              <option value="">- Please Choose Status </option>
-                                              <option value="Dr">Dr</option>
-                                              <option value="Mr">Mr</option>
-                                              <option value="Mrs">Mrs</option>
-                                              <option value="Miss">Miss</option>
-                                              <option value="Prof">Prof</option>
-                                          </select>
-                                      </span>
+                                            <span v-else-if="column.field == 'status'">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                    <option value="">- Please Choose Status </option>
+                                                    <option value="1">Active</option>
+                                                    <option value="2">Inactive</option>
+                                                    <option value="3">Canceled</option>
+                                                    <option value="0">Disabled</option>
+                                                </select>
+                                            </span>
 
-                                      <span v-else-if="column.field == 'gender'">
-                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
-                                              <option value="">- Please Choose Status </option>
-                                              <option value="Male">Male</option>
-                                              <option value="Female">Female</option>
-                                          </select>
-                                      </span>
+                                            <span v-else-if="column.field == 'title'">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                    <option value="">- Please Choose Status </option>
+                                                    <option value="Dr">Dr</option>
+                                                    <option value="Mr">Mr</option>
+                                                    <option value="Mrs">Mrs</option>
+                                                    <option value="Miss">Miss</option>
+                                                    <option value="Prof">Prof</option>
+                                                </select>
+                                            </span>
 
-                                      <span v-else>
-                                           <input type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control">
-                                      </span>
+                                            <span v-else-if="column.field == 'gender'">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                    <option value="">- Please Choose Status </option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </span>
 
+                                            <span v-else>
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                                <input  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control">
+                                            </span>
+
+                                          </span>
+                                        </span>
+                                      </span>
                                     </span>
-                                  </span>
                                 </span>
                             </td>
                         </tr>
@@ -343,6 +372,7 @@ export default {
                 comments: [],
                 assigned: [],
             },
+            modified_row: null,
             editing_row: false,
             row_id: null ,
             summaryModal: false,
@@ -426,12 +456,37 @@ export default {
             this.editing_row = !this.editing_row;
 
             if(this.editing_row === false){
-                this.row_id = '';
+              this.row_id = null;
             }else{
               this.row_id = row_id;
             }
             
             // this.$bvModal.show('update-user-modal');
+        },
+        submitEdit(row_id){
+          var vm = this;
+          this.module_items.map((item) => {
+            if( item.item.id == row_id){
+              vm.modified_row = item.item ;
+            } 
+            
+          });
+          
+          console.log(this.modified_row);
+          
+          vm.$Progress.start();
+
+          axios.post('/modules/update-item',this.modified_row).then(function (response) {
+                  
+              if(response.data.success == true){
+                  vm.Toast.fire({ type: 'success', title: response.data.message });
+                  vm.showEdit(row_id);
+                  vm.$Progress.finish();
+              }else{ 
+                  vm.$Progress.fail();
+                  vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+              }
+          });
         },
         handleOk(bvModalEvt) {
             // Prevent modal from closing
