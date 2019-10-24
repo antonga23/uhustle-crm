@@ -478,6 +478,13 @@ export default {
 }
 </script>
 <style scoped>
+thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
 .no-box-shadow {
     box-shadow: none !important;
 }

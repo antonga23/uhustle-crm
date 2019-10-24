@@ -222,7 +222,7 @@ ul.items li a:hover{
 .scroll-hidden{
     overflow-y: scroll;
     height: 70vh;
-    padding-top: 6px;
+    /* padding-top: 6px; */
     padding-right: 6px;
     width: 100%;
 }
@@ -412,6 +412,7 @@ table.listing tr  th{
             return {
                 items : [],
                 display_items : [],
+                chached_display_items : [],
                 count_assigned : 0,
                 count_unassigned : 0,
 				        user: {
@@ -438,13 +439,13 @@ table.listing tr  th{
                 show_page_loader: false,
                 Toast: null,
                 columns:[
-                    {
-                        label: '',  // Column name
-                        field: 'all',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    }
+                    // {
+                    //     label: '',  // Column name
+                    //     field: 'all',  // Field name from row
+                    //     numeric: false, // Affects sorting
+                    //     html: false,    // Escapes output if false.
+                    //     sortable:false
+                    // }
                 ]
             }
         },
@@ -473,6 +474,25 @@ table.listing tr  th{
                 },
               );
               
+            },
+            filterItems(type){
+              this.display_items = this.chached_display_items;
+              var filtered = this.display_items.filter( (item) => {
+                  if(type == -1){
+                    return item;
+                  }else if(type == 1){
+                    if(item.assigned == true){
+                      return item;
+                    }
+                  }else if(type == 0){
+                    if(item.assigned == false){
+                      return item;
+                    }
+                  }
+                });
+
+              this.display_items = filtered;
+              // console.log(filtered);
             },
             getLastCommentDade(comments){
                 if(comments.length > 0){
@@ -517,6 +537,8 @@ table.listing tr  th{
                         vm.items = response.data.items;
 
                         vm.display_items = response.data.display_items;
+                        
+                        vm.chached_display_items = response.data.display_items;
 
                         vm.count_assigned = response.data.count_assigned;
 
@@ -560,20 +582,20 @@ table.listing tr  th{
                     }
                 });
             },
-            applyFilter(filter){
-                var vm = this;
-                vm.$Progress.start();
-                axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
-                    if(response.data.success == true){
-                        vm.users.leads = response.data.leads;
-                        Fire.$emit('CustomFilterApplied', filter);
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                        vm.$Progress.fail();
-                    }
-                });
-            },
+            // applyFilter(filter){
+            //     var vm = this;
+            //     vm.$Progress.start();
+            //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
+            //         if(response.data.success == true){
+            //             vm.users.leads = response.data.leads;
+            //             Fire.$emit('CustomFilterApplied', filter);
+            //             vm.$Progress.finish();
+            //         }else{
+            //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+            //             vm.$Progress.fail();
+            //         }
+            //     });
+            // },
             deleteFilter(id){
                 this.$swal.fire({
                     title: 'Are you sure?',
