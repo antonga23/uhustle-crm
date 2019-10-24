@@ -293,92 +293,92 @@ table.listing tr  th{
             </div>
         </div>
         <div v-else>
-              <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
-                <div class="w-100" style="margin-top: 20px;" >
-                    <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            
-                            <label class="col-lg-4 control-label" v-if="current_user.role_id == 4">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option value="2" selected>Winsta IO</option>
-                                </select>
-                            </label>
-
-                            <label class="col-lg-4 control-label" v-else>Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label"  v-if="current_user.role_id == 4">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="current_user.id" selected="selected">{{ current_user.name + ' ' + current_user.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label" v-else>Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
-                                </select>
-                            </label>
-                        <label class="col-lg-12 control-label">
-                            <button type="submit" class="btn btn-primary update-user" @click="createUser()">
-                                Add Contact
-                            </button>
+          <a-card title="Add Contact" style="overflow-y: scroll;height: 380px;">
+            <div class="w-100" style="margin-top: 20px;" >
+                <div :class="{'input': true, 'form-group' :true }">
+                        <label class="col-lg-4 control-label">Title
+                            <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
                         </label>
-                    </div>
+                        <label class="col-lg-4 control-label">Name
+                            <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
+                            <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
+                        </label>
+                        <label class="col-lg-4 control-label">Surname
+                            <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
+                            <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
+                        </label>
+                        <label class="col-lg-4 control-label">Account
+                            <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
+                        </label>
+                        <label class="col-lg-4 control-label">Email
+                            <input type="text" id="email"  name="Email" v-model="user.email" v-validate="'email'"  class="form-control">
+                            <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
+                        </label>
+                        
+                        <label class="col-lg-4 control-label" v-if="current_user.role_id == 4">Owner
+                            <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
+                                <option value="">- Please Choose Lead Owner </option>
+                                <option value="2" selected>Winsta IO</option>
+                            </select>
+                        </label>
+
+                        <label class="col-lg-4 control-label" v-else>Owner
+                            <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
+                                <option value="">- Please Choose Lead Owner </option>
+                                <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                            </select>
+                        </label>
+                        <label class="col-lg-4 control-label">Mobile number
+                            <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
+                            <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
+                        </label>
+                        <label class="col-lg-4 control-label">Package
+                            <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
+                                <option value="">- Please Choose Package</option>
+                                <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
+                            </select>
+                            <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+                        </label>
+                        <label class="col-lg-4 control-label"  v-if="current_user.role_id == 4">Assigned To
+                            <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
+                                <option value="">- Please Choose Assignee</option>
+                                <option :value="current_user.id" selected="selected">{{ current_user.name + ' ' + current_user.lastname }}</option>
+                            </select>
+                        </label>
+                        <label class="col-lg-4 control-label" v-else>Assigned To
+                            <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
+                                <option value="">- Please Choose Assignee</option>
+                                <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                            </select>
+                        </label>
+                        <label class="col-lg-4 control-label">Lead Source
+                            <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
+                                <option value="">- Please Choose Source</option>
+                                <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
+                            </select>
+                        </label>
+                        <label class="col-lg-4 control-label">Country
+                            <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
+                        </label>
+                        <label class="col-lg-4 control-label">City
+                            <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
+                        </label>
+                        <label class="col-lg-4 control-label">Status
+                            <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
+                                <option value="">- Please Choose Status </option>
+                                <option value="1">Active</option>
+                                <option value="2">Inactive</option>
+                                <option value="0">Canceled</option>
+                            </select>
+                        </label>
+                    <label class="col-lg-12 control-label">
+                        <button type="submit" class="btn btn-primary update-user" @click="createUser()">
+                            Add Contact
+                        </button>
+                    </label>
                 </div>
-            </a-card>
+            </div>
+          </a-card>
         </div>
     </div>
 </template>
@@ -446,7 +446,7 @@ table.listing tr  th{
                     assignees: [],
                     lead_owners: [],
                 },
-				user: {
+				        user: {
                     name: '',
                     surname: '',
                     account: '',

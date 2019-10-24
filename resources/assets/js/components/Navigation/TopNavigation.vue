@@ -1,119 +1,129 @@
 <style scoped>
-	/*Right Component*/
-	.main-header.navbar.navbar-expand {
-		padding: 23px 4% 0;
-	}
-	.navbar-nav li.title{
-		line-height: 20px;
-	}
-	li.title a strong{
-		color: #003449;
-		font-size: 25px;
-	  letter-spacing: 4.2px;
-	}
-	a.top-link{    
-		border-radius: 26px;
-    height: 30px !important;
-    padding: 2px 17px 6px !important;
-		font-family: 'Rubik', sans-serif;
-		letter-spacing: 1px;
-	}
-	a.active{    
-		border-radius: 26px;
-    height: 30px !important;
-    background: #F98B39 !important;
-    border-color: #F98B39 !important;
-    color: #fff !important;
-    padding: 4px 17px 6px !important;
-	}
-	select{
-    border-radius: 26px;
-    margin: 5px 8px 8px 55px !important;
-    height: 30px !important;
-    background: #F98B39 !important;
-    border-color: #F98B39 !important;
-    color: #fff !important;
-    padding: 2px 17px 6px !important;
-	}
-	select.month-selector {
-		margin-left: 0!important;
-		margin-right: 0!important;
-	}
-	.callIcons li{
-    width: 43px;
-    margin-left: 15px !important;
-	}
-	.callIcons li a{
-    background-repeat: no-repeat;
-    color: black;
-    background-size: 59px !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-	}
-	.callIcons li a.search{
-    background-image: url('/images/icons/Asset 60.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li a.search:hover{
-    background-image: url('/images/icons/Asset 61.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li.idle .status{
-    background-image: url('/images/icons/Asset 55.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li.on-call .status{
-    background-image: url('/images/icons/Asset 56.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li.offline .status{
-    background-image: url('/images/icons/Asset 57.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li .call{
-    background-image: url('/images/icons/Asset 59.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li .call:hover{
-    background-image: url('/images/icons/Asset 58.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	}
-	.callIcons li .add-call-back-btn{
-    background-image: url('/images/workstation/Asset 28@4x.png') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-	background-color: transparent;
-	border: none;
-	padding: 14px;
-	margin-top: 5px;
-	margin-left: 20px;
-	}
-	.callIcons button.status, .callIcons button.call {
-		padding: 31px;
-		margin-top: -11px;
-		margin-left: -7px;
-	}
-	.modal-content{
-		background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
-	}
-	/*is error being used?*/
-	.error{
-		color:#F98B39;
-	}
-	/*End Right Component*/
+/*Right Component*/
+.main-header.navbar.navbar-expand {
+  padding: 23px 4% 0;
+}
+.navbar-nav li.title{
+  line-height: 20px;
+}
+li.title a strong{
+  color: #003549;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+	font-family: 'Montserrat, Bold', sans-serif;
+}
+a.top-link{    
+  border-radius: 26px;
+  height: 30px !important;
+  padding: 2px 17px 6px !important;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 1px;
+}
+a.active{    
+  border-radius: 26px;
+  height: 30px !important;
+  background: #F98B39 !important;
+  border-color: #F98B39 !important;
+  color: #fff !important;
+  padding: 4px 17px 6px !important;
+}
+select{
+  font-family: 'Rubik', sans-serif;
+  border-radius: 26px;
+  border:0;
+  margin: 5px 8px 8px 55px !important;
+  height: 30px !important;
+  background: #fff !important;
+  color: #003549 !important;
+  padding: 0 16px 0 !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+select.month-selector {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+.callIcons li{
+  width: 43px;
+  margin-left: 15px !important;
+}
+.callIcons li a{
+  background-repeat: no-repeat;
+  color: black;
+  background-size: 59px !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+.callIcons li a.search{
+  background-image: url('/images/icons/Asset 60.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li a.search:hover{
+  background-image: url('/images/icons/Asset 61.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li.idle .status{
+  background-image: url('/images/icons/Asset 55.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li.on-call .status{
+  background-image: url('/images/icons/Asset 56.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li.offline .status{
+  background-image: url('/images/icons/Asset 57.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li .call{
+  background-image: url('/images/icons/Asset 59.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li .call:hover{
+  background-image: url('/images/icons/Asset 58.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li .add-call-back-btn{
+  background-image: url('/images/workstation/Asset 28@4x.png') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 14px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.callIcons li a.filter{
+  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons button.status, .callIcons button.call {
+  padding: 31px;
+  margin-top: -11px;
+  margin-left: -7px;
+}
+.modal-content{
+  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
+}
+/*is error being used?*/
+.error{
+  color:#F98B39;
+}
+/*End Right Component*/
 </style>
 <template>
 	<div>
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0">
 			<!-- Left navbar links -->
-			<div class="row w-100 justify-content-between">
+			<div class="row w-100 justify-content-between align-items-center">
 				<div class="col-auto">
 					<ul class="navbar-nav left align-items-center">
 						<li class="nav-item d-none d-sm-inline-block title pr-3">
@@ -160,7 +170,7 @@
 						</li>
 
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block px-3">
-							<select class="form-control month-selector" v-model="month" @change="topMonthFilterChange">
+							<select class="form-control month-selector m-0" v-model="month" @change="topMonthFilterChange">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
 								<option value="3">March {{ getFullYear() }}</option>
@@ -185,6 +195,17 @@
 							>Add New</a>
 						</li>
 					</ul>
+				</div>
+
+				<div class="col-auto px-0" v-if="active == 'call-history'">
+					<ul class="navbar-nav callIcons">
+						<li class="nav-item d-sm-inline-block">
+							<a href="#" class="nav-link search p-0"></a>
+						</li>
+						<li class="nav-item d-sm-inline-block">
+							<a href="#" class="nav-link filter p-0"></a>
+						</li>
+					</ul>				
 				</div>
 
 				<div class="col-auto px-0" v-if="active == 'workstation'">

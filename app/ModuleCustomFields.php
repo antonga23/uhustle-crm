@@ -18,6 +18,10 @@ class ModuleCustomFields extends Model implements Auditable
         'name',
         'type',
         'options',
+        'required',
+        'can_read',
+        'can_edit',
+        'display_name',
     ];
 
     public function generateTags(): array

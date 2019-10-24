@@ -12,26 +12,117 @@
 */
 
 use App\Lead;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
+use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');;
 });
 
 Route::get('/home', function () {
-    return redirect('/workstation');
+    return redirect('/dashaboard');
 });
 
-Route::get('/update-leads',  function(){
-	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->orWhereIn('user_created_id', [25, 23, 16])->get();
-	$user = User::whereIn()->get();
+Route::get('/move-leads',  function(){
+	$leads = Lead::get();
+	
 	try{
-		DB::beginTransaction();
-		foreach ($leads as $key => $value) {
-			Lead::find($value->id)->update([
-				'user_assigned' => 53,
-				'user_created_id' => 53,
-			]);
-		}
+
+    DB::beginTransaction();
+    
+		foreach ($leads as $key => $lead) {
+      Log::info($lead->id);
+			if($lead->is_client == 1){
+        $module_id = 2;
+      } else {
+        $module_id = 1;
+      }
+
+      $module_item = ModuleItem::create([
+        'module_id' => $module_id
+      ]);
+
+      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+
+      foreach($module_fields as $key => $value){
+        
+        switch ($value->name) {
+          case 'source':
+              $insert = $lead->source;
+            break;
+          case 'title':
+              $insert = $lead->title;
+            break;
+          case 'name':
+              $insert = $lead->name;
+            break;
+          case 'surname':
+              $insert = $lead->surname;
+            break; 
+          case 'gender':
+              $insert = $lead->gender;
+            break;
+          case 'age':
+              $insert = $lead->age;
+            break;
+          case 'phone_number':
+              $insert = $lead->phone_number;
+            break;
+          case 'email':
+              $insert = $lead->email;
+            break;
+          case 'city':
+              $insert = $lead->city;
+            break;
+          case 'country':
+              $insert = $lead->country;
+            break;
+          case 'instagram_account':
+              $insert = $lead->account;
+            break;
+          case 'rating':
+              $insert = $lead->rating;
+            break; 
+          case 'product':
+              $insert = $lead->product_id;
+            break;
+          case 'start_at':
+              $insert = $lead->start_date;
+            break;
+          case 'expires_at':
+              $insert = $lead->expires_at;
+            break;
+          case 'total':
+              $insert = $lead->total;
+            break;
+          case 'transaction_number':
+              $insert = $lead->trans_num;
+            break; 
+          case 'assignee':
+              $insert = $lead->user_assigned;
+            break;
+          case 'owner':
+              $insert = $lead->user_created_id;
+            break;
+          case 'owner':
+              $insert = $lead->user_created_id;
+            break;             
+
+          default:
+            # code...
+            break;
+        }
+
+        ModuleItemMeta::create([
+          'item_id' => $module_item->id,
+          'custom_field_id' => $value->id,
+          'custom_field_value' => $insert,
+        ]);
+      }
+    }
+    
 		DB::commit();
 
 		echo 'Done';
@@ -65,8 +156,6 @@ Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::get('/call-history', 'PagesController@callHistory')->name('call-history');
 Route::get('/social-board', 'PagesController@socialBoard')->name('social-board');
 Route::get('/users', 'PagesController@users')->name('users');
-Route::get('/leads', 'PagesController@leads')->name('leads');
-Route::get('/contacts', 'PagesController@contacts')->name('contacts');
 Route::get('/preferences', 'PagesController@preferences')->name('preferences');
 Route::get('/transactions', 'PagesController@transactions')->name('transactions');
 
@@ -82,7 +171,6 @@ Route::group(['prefix' => 'calls'], function () {
 	Route::post('/voice', 'TwillioController@voice');
 	Route::post('/coach', 'TwillioController@joinConference');
 	Route::post('/status-update', 'TwillioController@statusUpdate');
-	Route::post('/create-call-record', 'TwillioController@createCallRecord');
 	Route::get('/get-call-history', 'TwillioController@getCallHistory');
 	Route::get('/get-call-history/{month}', 'TwillioController@getCallHistory');
 	Route::get('/get-dashboard', 'TwillioController@getDashboard');
@@ -126,22 +214,22 @@ Route::group(['prefix' => 'tasks'], function () {
 
 // Leads Routes
 Route::group(['prefix' => 'leads'], function () {
-	Route::get('/enqueue', 'LeadController@enQueue');
-	Route::get('/get/{lead_id}', 'LeadController@getById');
-	Route::get('/get-all', 'LeadController@index');
-	Route::get('/get-active', 'LeadController@getActive');
-	Route::post('/create', 'LeadController@store');
-	Route::post('/create-client', 'LeadController@storeClient');
-	Route::post('/update', 'LeadController@update');
-	Route::get('/delete/{lead_id}', 'LeadController@destroy');
-    Route::post('/updatestatus/{lead_id}', 'LeadController@updateStatus');
-    Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
-    Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
-    Route::post('/setcallback', 'LeadController@setCallback');
-    Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
-    Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
-	Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
-    Route::get('/get-client-counts', 'LeadController@getClientCount');
+  Route::get('/enqueue', 'LeadController@enQueue');
+  Route::get('/get/{lead_id}', 'LeadController@getById');
+  Route::get('/get-all', 'LeadController@index');
+  Route::get('/get-active', 'LeadController@getActive');
+  Route::post('/create', 'LeadController@store');
+  Route::post('/create-client', 'LeadController@storeClient');
+  Route::post('/update', 'LeadController@update');
+  Route::get('/delete/{lead_id}', 'LeadController@destroy');
+  Route::post('/updatestatus/{lead_id}', 'LeadController@updateStatus');
+  Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
+  Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
+  Route::post('/setcallback', 'LeadController@setCallback');
+  Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+  Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
+  Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
+  Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
 	Route::post('mass-assign', 'LeadController@massAssign');
@@ -166,7 +254,9 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-active', 'RoleController@getActive');
 	Route::post('/create', 'RoleController@store');
 	Route::post('/update', 'RoleController@update');
+	Route::post('/delete', 'RoleController@destroy');
 	Route::get('/get-permissions', 'RoleController@getPermissions');
+	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
@@ -190,12 +280,21 @@ Route::group(['prefix' => 'comments'], function () {
 
 // Modules Routes
 Route::group(['prefix' => 'modules'], function () {
-    Route::get('/get-all', 'ModuleController@index');
-    Route::post('/add', 'ModuleController@store');
-    Route::post('/update', 'ModuleController@update');
-    Route::get('/destroy/{id}', 'ModuleController@destroy');
-    Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
-    Route::post('/check-exist', 'ModuleController@checkExist');
+  Route::get('/get-all', 'ModuleController@index');
+  Route::get('/get-items/{module}', 'ModuleController@getItems');
+  Route::post('/add', 'ModuleController@store');
+  Route::post('/update', 'ModuleController@update');
+  Route::get('/destroy/{id}', 'ModuleController@destroy');
+  Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
+  Route::post('/check-exist', 'ModuleController@checkExist');
+
+  // Items
+  Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
+  Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
+
+  // Pages
+  Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');
+  Route::get('/test', 'PagesController@compactModuleItems');
 });
 
 // API Integration Routes

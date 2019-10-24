@@ -1,39 +1,39 @@
 
 <template>
-    <div class="card material-table" style="width: fit-content;">
-                <table class="tg" v-if="show_mass_assign">
-                    <tr>
-                        <td class="tg-1lax" style="padding-right:20px;width:500px">
+    <div class="card no-box-shadow material-table" style="width: fit-content;">
+        <!-- <table class="tg" v-if="show_mass_assign">
+            <tr>
+                <td class="tg-1lax" style="padding-right:20px;width:500px">
 
-                            <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
-                                <b-dropdown-form>
-                                    <b-form-group>
-                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
-                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                        </b-form-checkbox-group>
-                                    </b-form-group>
-                                </b-dropdown-form>
-                            </b-dropdown>
-                        </td>
-                        <td class="tg-1lax">
+                    <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
+                        <b-dropdown-form>
+                            <b-form-group>
+                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
+                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                </b-form-checkbox-group>
+                            </b-form-group>
+                        </b-dropdown-form>
+                    </b-dropdown>
+                </td>
+                <td class="tg-1lax">
 
-                            <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
-                                <b-dropdown-form>
-                                    <b-form-group>
-                                        <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
-                                            <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                        </b-form-checkbox-group>
-                                    </b-form-group>
-                                </b-dropdown-form>
-                            </b-dropdown>
-                        </td>
-                        <td class="tg-1lax">
-                            <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
-                                Assign
-                            </button>
-                        </td>
-                    </tr>
-            </table>
+                    <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
+                        <b-dropdown-form>
+                            <b-form-group>
+                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
+                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
+                                </b-form-checkbox-group>
+                            </b-form-group>
+                        </b-dropdown-form>
+                    </b-dropdown>
+                </td>
+                <td class="tg-1lax">
+                    <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
+                        Assign
+                    </button>
+                </td>
+            </tr>
+    </table> -->
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
                 <table ref="table">
@@ -51,25 +51,83 @@
                     </thead>
                     <tbody>
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                            <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">
+                            <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
                                 <span v-if="column.field == 'all'">
-                                    <b-form-checkbox :value="row.lead.id" v-model="selected" @change="selectOne"></b-form-checkbox>
-                                </span>
-                                <span v-if="column.field == 'full_name'">
-                                    {{ collect(row, column.field) }}
-                                </span>
-                                <span v-else-if="column.field == 'status'">
-                                    <a href="#"  @click="showEditModal(row.lead)" :class="collect(row, column.field)"  :title="collect(row, column.field)" disabled></a>
-                                </span>
-                                <span v-else-if="column.field == 'days_remaining'" class="days-remaining">
-                                    {{ getDaysRemaining(row.lead) }}
+                                    <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
                                 <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
                                     <a  class="View" :href="'/workstation/' + row.id" title="View"></a>
-                                    <a  class="Edit" href="#" @click="showEditModal(row.lead)" title="Edit"></a>
-                                    <a  class="Delete" href="#" @click="deleteItem(row.lead.id)" title="Delete" v-if="role == 1 || role == 2"></a>
+                                    <a  class="Edit" href="#" @click="showEdit(row.id)" title="Edit"></a>
+                                    <a  class="Delete" href="#" @click="deleteItem(row.id)" title="Delete" v-if="role == 1 || role == 2"></a>
                                 </span>
-                                <span v-else>{{ collect(row, column.field) }}</span>
+                                <span v-else-if="editing_row == false && row_id != row.id">{{ collect(row, column.field) }}</span>
+                                <span v-for="(item, k) in module_items" :key="k" v-else-if="editing_row == true && row_id == row.id">
+                                  <span v-for="(custom_field, j) in custom_fields" :key="j">
+                                    <span v-if="column.field == custom_field.name && item.item.id == row.id">
+                                      <span v-if="column.field == 'source'">
+                                        <select type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value.id"  class="form-control">
+                                            <option value="">- Please Choose Source</option>
+                                            <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+                                        </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'product'">
+                                        <select type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control">
+                                            <option value="">- Please Choose Package</option>
+                                            <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+                                        </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'owner'">
+                                        <select type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control">
+                                            <option value="">- Please Choose Lead Owner </option>
+                                            <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                        </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'assignee'">
+                                        <select type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control">
+                                            <option value="">- Please Choose Assignee</option>
+                                            <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                        </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'status'">
+                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                              <option value="">- Please Choose Status </option>
+                                              <option value="Active">Active</option>
+                                              <option value="Inactive">Inactive</option>
+                                              <option value="Canceled">Canceled</option>
+                                              <option value="Disabled">Disabled</option>
+                                          </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'title'">
+                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                              <option value="">- Please Choose Status </option>
+                                              <option value="Dr">Dr</option>
+                                              <option value="Mr">Mr</option>
+                                              <option value="Mrs">Mrs</option>
+                                              <option value="Miss">Miss</option>
+                                              <option value="Prof">Prof</option>
+                                          </select>
+                                      </span>
+
+                                      <span v-else-if="column.field == 'gender'">
+                                          <select type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                              <option value="">- Please Choose Status </option>
+                                              <option value="Male">Male</option>
+                                              <option value="Female">Female</option>
+                                          </select>
+                                      </span>
+
+                                      <span v-else>
+                                           <input type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control">
+                                      </span>
+
+                                    </span>
+                                  </span>
+                                </span>
                             </td>
                         </tr>
                     </tbody>
@@ -113,13 +171,13 @@
             <b-modal
             id="update-user-modal"
             ref="modalUpdateUser"
-            :title="(user.is_client == 1)? 'Update Contact' : 'Update Lead'"
+            :title="'Update Item'"
             size="lg"
             header-text-variant="light"
             header-bg-variant="warning"
             @ok="handleOk"
             >
-                <a-card :title="(user.is_client == 1)? 'Contact Information' : 'Lead Information'">
+                <a-card :title="'Update Item'">
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <div :class="{'input': true, 'form-group' :true }">
                             <label class="col-lg-4 control-label">Title
@@ -134,40 +192,15 @@
                                 <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
                             </label>
                             <label class="col-lg-4 control-label">Instagram Account
-                                <input type="text" id="Account"  name="Account" v-model="user.account" class="form-control">
+                                <input type="text" id="Account"  name="Account" v-model="user.instagram_account" class="form-control">
                             </label>
                             <label class="col-lg-4 control-label">Email
                                 <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
                                 <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
                             </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.user_created_id" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
                             <label class="col-lg-4 control-label">Mobile number
                                 <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
                                 <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product_id"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item.id" v-for="(item,index) in users.packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.user_assigned"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
-                                </select>
                             </label>
                             <label class="col-lg-4 control-label">Country
                                 <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
@@ -175,38 +208,42 @@
                             <label class="col-lg-4 control-label">City
                                 <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
                             </label>
+                            <label class="col-lg-4 control-label">Package
+                                <select type="text" id="package"  name="Package" v-model="user.product"   class="form-control">
+                                    <option value="">- Please Choose Package</option>
+                                    <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+                                </select>
+                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
+                            </label>
+                            <label class="col-lg-4 control-label">Owner
+                                <select type="text" id="role"  name="Owner" v-model="user.owner" class="form-control">
+                                    <option value="">- Please Choose Lead Owner </option>
+                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Assigned To
+                                <select type="text" id="Assignee"  name="Assignee" v-model="user.assignee"  class="form-control">
+                                    <option value="">- Please Choose Assignee</option>
+                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                </select>
+                            </label>
+                            <label class="col-lg-4 control-label">Lead Source
+                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
+                                    <option value="">- Please Choose Source</option>
+                                    <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+                                </select>
+                            </label>
                             <label class="col-lg-4 control-label">Status
                                 <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
                                     <option value="">- Please Choose Status </option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
-                                    <option value="0">Canceled</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Canceled">Canceled</option>
+                                    <option value="Disabled">Disabled</option>
                                 </select>
                             </label>
                         </div>
                     </form>
-                </a-card>
-                <a-card :title="'Comments: ' + user.comments.length " style="margin-top:20px">
-                    <a-list itemLayout="horizontal" :dataSource="user.comments">
-                        <a-list-item slot="renderItem" slot-scope="item, index">
-                            <a-list-item-meta :description="item.comment_type + ': ' + item.description">
-                                <a slot="title" href="#">{{item.user_name}}</a>
-                            </a-list-item-meta>
-                        </a-list-item>
-                    </a-list>
-                </a-card>
-                <a-card :title="'File Uploads: ' + user.winsta_uploads.length" style="margin-top:20px" class="uploaded-files">
-                    <div v-for="(upload, index) in user.winsta_uploads" :key="index" style="margin-top: 15px;">
-                        <a @click="downloadFile(upload.id)">
-                            <b-alert v-if="index % 2 == 0" variant="success" show>
-                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
-                            </b-alert>
-                            <b-alert v-else show>
-                                {{ upload.file_name }}<small style="float:right"><em>Click to download</em></small>
-                            </b-alert>
-                        </a>
-                        <b-button class="Delete" @click="deleteFile(upload.id, index)"></b-button>
-                    </div>
                 </a-card>
             </b-modal>
         </div>
@@ -220,6 +257,16 @@ export default {
         role: '',
         title: {},
         users: null,
+        active_users : null,
+        active_roles : null,
+        sources : null,
+        packages : null,
+        custom_fields :{
+            required: true
+        },
+        module_items :{
+            required: true
+        },
         columns: {
             required: true
         },
@@ -296,6 +343,8 @@ export default {
                 comments: [],
                 assigned: [],
             },
+            editing_row: false,
+            row_id: null ,
             summaryModal: false,
             showModal: false,
             loading: false,
@@ -305,13 +354,26 @@ export default {
             sortType: 'asc',
             searching: false,
             searchInput: '',
-            claim: '',
-            claim_items: '',
             Toast: '',
             winstaUpload: '/images/winsta-uploads/'
         }
     },
     methods: {
+        getText(col, field){
+          var field_value = "";
+          if(col !== undefined){
+              if(field == 'owner' || field == 'assignee'){
+                field_value = col.meta_value.name + ' ' + col.meta_value.lastname;
+              }else if(field == 'product'){
+                field_value = col.meta_value.name;
+              }else if(field == 'source'){
+                field_value = col.meta_value.name;
+              }else{
+                field_value = col.meta_value;
+              }
+          }
+          return field_value; 
+        },
         selectOne(e){
             if(e !== null){ 
                 if(this.selected.length > 0 ){
@@ -359,11 +421,17 @@ export default {
                 return '-'
             }
         },
-        showEditModal(user){
+        showEdit(row_id){
             var vm = this;
-            this.user = user;
-            this.user.source = user.lead_source;
-            this.$bvModal.show('update-user-modal');
+            this.editing_row = !this.editing_row;
+
+            if(this.editing_row === false){
+                this.row_id = '';
+            }else{
+              this.row_id = row_id;
+            }
+            
+            // this.$bvModal.show('update-user-modal');
         },
         handleOk(bvModalEvt) {
             // Prevent modal from closing
@@ -412,10 +480,12 @@ export default {
             }).then((result) => {
                 if (result.value) {
                     vm.$Progress.start();
-                    axios.get('/leads/delete/' + id).then(function (response) {
+                    axios.get('/modules/delete-item/' + id).then(function (response) {
                         if(response.data.success == true){
                             vm.Toast.fire({ type: 'success', title: response.data.message });
-                            Fire.$emit('ReloadLeads');
+                            
+                            Fire.$emit('ReloadLeads', {'id' : id});
+
                             vm.$Progress.finish();
                         }else{
                             vm.$Progress.fail();
@@ -571,6 +641,7 @@ export default {
 
     computed: {
         processedRows: function() {
+            
             var computedRows = this.rows;
 
             if (this.sortable !== false)
@@ -612,7 +683,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.no-box-shadow {
+    box-shadow: none !important;
+}
 .btn-orange {
 	background: #FF9039;
 	color: #ffffff;
@@ -786,7 +859,6 @@ tr.clickable {
 
 table {
     /* table-layout: fixed; */
-    border-collapse: separate;
     border-spacing: 0 6px;
 }
 
@@ -922,9 +994,12 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 11px;
-    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    color: #003449;
     display: table-cell;
+    font-family: 'Rubik', sans-serif !important;
+    padding: 25px 0px 25px 0px;
+    min-width: 150px;
 }
 
 table tr td a i {
@@ -934,27 +1009,34 @@ table tr td a i {
 
 table tr {
     font-size: 12px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #B3B3B3;
+    padding-left: 0;
+    width: auto;
+    white-space: nowrap; 
+
 }
 
 table thead tr:first-child {
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);
+   border-bottom: 0 !important;
 }
 
 table th {
-    font-size: 10;
-    font-weight: 900;
-    color: #003449;
+   font-size: 12px;
+    font-weight: 600;
+    color: #A6A6A6;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0 0 3px 0;
-    height: 30px;
-    padding-left: 14px;
+    padding: 0;
+    /* height: 56px; */
+    /* padding-left: 14px; */
     vertical-align: middle;
     outline: none !important;
     overflow: hidden;
     text-overflow: ellipsis;
     background-size: 11px 12px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-family: 'Montserrat bold', sans-serif;
 }
 
 table th:hover {

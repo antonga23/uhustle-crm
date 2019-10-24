@@ -8,6 +8,14 @@ use App\StoredFilter;
 use App\SystemSettings;
 use App\DialerPermissions;
 use App\Comment;
+use App\Module;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
+use App\User;
+use App\Role;
+use App\Product;
+use App\LeadSource;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -77,8 +85,20 @@ class PagesController extends Controller
       return view('pages.transactions')->with(['active'=> 'transactions']);
    }
 
-   public function leads()
+   public function loadModulePage($type = null)
    {
+      $module = Module::with('module_fields')->where(['tag' => $type])->first();
+
+      $active_users = User::where(['activated' => 1])->get();
+
+      $active_roles = Role::where(['status' => 1])->get();
+      
+      $sources = LeadSource::get();
+
+      $packages = Product::get();
+
+      $custom_fields = ModuleCustomFields::where(['module_id' => $module->id])->get();
+
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
       $data = [];
@@ -118,43 +138,19 @@ class PagesController extends Controller
          array_push($data, $temp);
       }
       
-      return view('pages.leads')->with([
-         'active'=> 'leads',
+      return view('pages.modules')->with([
+         'active'=> $type,
+         'module' => $module,
+         'sources' => json_encode($sources),
+         'packages' => json_encode($packages),
+         'active_users' => json_encode($active_users),
+         'active_roles' => json_encode($active_roles),
+         'custom_fields' => json_encode($custom_fields),
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);
    }
 
-   public function getFilterCounts($filter = [], $type = null){
-      $sql = '';
-      foreach($filter as $key => $value){
-         if($key == 'search'){
-            $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
-         }
-         if($key == 'user_created_id' && !is_null($value)){
-            $sql .= " AND user_created_id = '$value' ";
-         }
-         if($key == 'user_assigned' && !is_null($value)){
-            $sql .= " AND user_assigned = '$value' ";
-         }
-         if($key == 'source' && !is_null($value)){
-            $sql .= " AND source = '$value' ";
-         }
-         if($key == 'product_id' && !is_null($value)){
-            $sql .= " AND product_id = '$value' ";
-         }
-         if($key == 'status' && !is_null($value)){
-            $sql .= " AND status = '$value' ";
-         }
-      }
-
-      $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
-            ->whereRaw($sql)
-            ->where(['is_client' => $type])
-            ->orderBy('updated_at', 'DESC')
-            ->count();
-      return $counts;
-   }
 
    public function contacts()
    {
@@ -204,4 +200,34 @@ class PagesController extends Controller
       ]);
    }
 
+  public function getFilterCounts($filter = [], $type = null){
+    $sql = '';
+    foreach($filter as $key => $value){
+      if($key == 'search'){
+          $sql .= " (name LIKE '%$value%' OR surname LIKE '%$value%' OR email LIKE '%$value%') ";
+      }
+      if($key == 'user_created_id' && !is_null($value)){
+          $sql .= " AND user_created_id = '$value' ";
+      }
+      if($key == 'user_assigned' && !is_null($value)){
+          $sql .= " AND user_assigned = '$value' ";
+      }
+      if($key == 'source' && !is_null($value)){
+          $sql .= " AND source = '$value' ";
+      }
+      if($key == 'product_id' && !is_null($value)){
+          $sql .= " AND product_id = '$value' ";
+      }
+      if($key == 'status' && !is_null($value)){
+          $sql .= " AND status = '$value' ";
+      }
+    }
+
+    $counts = Lead::with('product')->with('source')->with('creator')->with('comments')
+          ->whereRaw($sql)
+          ->where(['is_client' => $type])
+          ->orderBy('updated_at', 'DESC')
+          ->count();
+    return $counts;
+  }
 }

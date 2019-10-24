@@ -121,6 +121,14 @@ class RoleController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+      $role = $request->role;
+      
+      Role::find($role['id'])->delete();
+      
+      return array('success' => true, 'message' => 'User role has been delete.');
+    }
+
     public function getPermissions(){
         $permissions = Permissions::get();
         return array('success' => true, 'permissions' => $permissions);
@@ -161,4 +169,32 @@ class RoleController extends Controller
         }
     }
 
+    public function applyPermissions(Request $request){
+
+      $data = $request->all();
+
+      $permissions = $data['permissions'];
+       
+      try{
+          DB::beginTransaction();
+
+          foreach($permissions as $key => $permission){
+              Permissions::find($permission['id'])->update([
+                  "write" => $permission['write'],
+                  "delete" => $permission['delete'],
+                  "read" => $permission['read']
+              ]);
+          }
+
+          DB::commit();
+
+          $permissions = Permissions::get();
+
+          return array('success' => true, 'permissions' => $permissions);
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+    }
 }

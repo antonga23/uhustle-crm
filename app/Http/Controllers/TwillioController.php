@@ -38,7 +38,7 @@ class TwillioController extends Controller
         $this->middleware('auth', ['except' => ['voice', 'statusUpdate']]);
 
         $twillio = ApiIntegration::with('attributes')->where(['name' => 'Twillio'])->first();
-
+        
         foreach ($twillio->attributes as $key => $value) {
             switch($value->key){
                 case 'twilio_phone_number':
@@ -55,11 +55,10 @@ class TwillioController extends Controller
                     break;
             }
         }
-        $this->twilio_number = ( config('twillio.twillio_number') !== '' )? config('twillio.twillio_number') : $twilio_phone_number ;
-        $this->account_sid = ( config('twillio.twillio_account_sid') !== '' )? config('twillio.twillio_account_sid') : $account_sid ;
-        $this->auth_token = ( config('twillio.twillio_auth_token') !== '' )? config('twillio.twillio_auth_token') : $auth_token ;
-        $this->twiml_app_sid = ( config('twillio.twillio_twiml_app_sid') !== '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
-
+        $this->twilio_number = ( is_null($twilio_phone_number) || $twilio_phone_number == '' )? config('twillio.twillio_number') : $twilio_phone_number ;
+        $this->account_sid = ( is_null($account_sid) || $account_sid == '' )? config('twillio.twillio_account_sid') : $account_sid ;
+        $this->auth_token = ( is_null($auth_token) || $auth_token == '' )? config('twillio.twillio_auth_token') : $auth_token ;
+        $this->twiml_app_sid = ( is_null($twiml_app_sid) || $twiml_app_sid == '' )? config('twillio.twillio_twiml_app_sid') : $twiml_app_sid ;
     }
 
     /**
@@ -73,9 +72,9 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                            //   ->read(array(),1);
-                              ->read(array("status" => "in-progress"),500);
-              
+                              ->read(array(),5);
+                              // ->read(array("status" => "in-progress"),500);
+        
         $conferences_arr = [];
 
         foreach ($conferences as $record) {
@@ -97,8 +96,8 @@ class TwillioController extends Controller
             $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
             $data->lead_mobile = $lead->phone_number;
             $data->lead_country = $lead->country;
-            $data->lead_owner = ucwords($lead->creator->name . ' ' . $lead->creator->lastname);
-            $data->lead_assignee = ucwords($lead->user->name . ' ' . $lead->user->lastname);
+            $data->lead_owner = ucwords($lead->creator['name'] . ' ' . $lead->creator['lastname']);
+            $data->lead_assignee = ucwords($lead->user['name']  . ' ' . $lead->user['lastname']);
             $data->lead_caller = ucwords($caller['name'] . ' ' . $caller['lastname']);
             $data->lead_product = $lead->product['name'];
             $data->conference_sid = $record->sid;
@@ -108,13 +107,6 @@ class TwillioController extends Controller
                 'auth' => [$this->account_sid, $this->auth_token],
             ]);
 
-            // $form_data = [
-            //     'To' => $to_number,
-            //     'From' => $this->twilio_number,
-            //     'EarlyMedia' => true
-            // ];
-
-            // $end_point = "https://api.twilio.com/2010-04-01/Accounts/$this->account_sid/Conferences/$conference_name/Participants";
             $end_point = "https://api.twilio.com/2010-04-01/Accounts/$this->account_sid/Conferences/$data->conference_sid/Participants.json";
 
             $participants_response = $client->request( 
@@ -134,10 +126,10 @@ class TwillioController extends Controller
             $coaching_sid = $this->getAgentToCoach($participants);
 
             $data->coaching_sid = $coaching_sid;
-
+            
             array_push($conferences_arr, $data);
         }
-
+        
         return ['conferences' => $conferences_arr];
     }
 
@@ -237,12 +229,12 @@ class TwillioController extends Controller
 
                 $conference_name = $prefix.$lead_id . '-' . $caller_id;
                 
-                $dial = $twiml->dial('',['from' => 'client:Agent']);
+                $dial = $twiml->dial('');
 
                 $dial->conference($conference_name, [
                         'maxParticipants' => 3, 
-                        'startConferenceOnEnter' => true, 
-                        'endConferenceOnExit' => True,
+                        // 'startConferenceOnEnter' => True, 
+                        // 'endConferenceOnExit' => True,
                         'record' => 'record-from-start'
                     ]);
 
@@ -348,46 +340,6 @@ class TwillioController extends Controller
         } 
 
 
-    }
-
-    public function createCallRecord(Request $request){
-
-        $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
-
-        $lead_id = $request->lead_id;
-        $call_sid = $request->call_sid;
-
-        $call_exist = Twillio::where(['call_sid' => $call_sid])->first();
-
-        try{
-            DB::beginTransaction();
-
-            if($call_exist){
-
-                Twillio::where(['call_sid' => $call_sid])->update([ 
-                    'lead_id' => $lead_id,
-                ]);
-
-            }else{
-
-                Twillio::create([
-                    'agent_name' => $request_user['name'],
-                    'agent_id' => $request_user['user_id'],
-                    'lead_id' => $lead_id,
-                    'call_sid' => $call_sid
-                ]);
-
-            }
-
-            DB::commit();
-
-            header('Content-Type: application/json');
-            return json_encode(['call_sid' => $call_sid]);
-
-        }catch(\QueryException $e){
-            DB::rollback();
-            return array('success' =>false, 'message' => $e->getMessage());
-        } 
     }
 
     public function getCallHistory($month = ''){
