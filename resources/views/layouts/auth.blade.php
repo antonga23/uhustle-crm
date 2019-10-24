@@ -21,7 +21,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/spin.css') }}" rel="stylesheet">
 </head>
 <body>
   @yield('content')
@@ -71,9 +70,6 @@
     
 
         });
-        var target = document.getElementById('spinner');
-            const Spin = new Spinner({color:'#fff', lines: 20});
-            Spin.spin(target);
     </script>
 </body>
 </html>

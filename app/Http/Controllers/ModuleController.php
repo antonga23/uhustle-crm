@@ -423,4 +423,40 @@ class ModuleController extends Controller
           return array('success' =>false, 'message' => $e->getMessage());
       }
     }
+
+    public function updateItem(Request $request){
+
+      $item_data = $request->all();
+
+      try{
+        DB::beginTransaction();
+
+        foreach($item_data as $key => $item){
+          switch ($key) {
+            case 'source':
+            case 'product':
+            case 'assignee':
+            case 'owner':
+                ModuleItemMeta::where(['id' => $item['meta_id']])->update([
+                  'custom_field_value' => $item['meta_value']['id']
+                ]);
+              break;
+            
+            default:
+                ModuleItemMeta::where(['id' => $item['meta_id']])->update([
+                  'custom_field_value' => $item['meta_value']
+                ]);
+              break;
+          }
+        }
+
+        DB::commit();
+        return array('success' => true, 'message' => 'Item successfully update.' );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+
+    }
 }

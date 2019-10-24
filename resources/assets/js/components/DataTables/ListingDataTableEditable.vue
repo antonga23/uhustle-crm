@@ -69,6 +69,17 @@
     });
   }
   export default {
+    props:[
+      'rows',
+      'module_items',
+      'columns',
+      'custom_fields',
+      'role',
+      'active_users',
+      'active_roles',
+      'sources',
+      'packages',
+    ],
     data() {
       this.cacheData = data.map(item => ({ ...item }));
       return {
