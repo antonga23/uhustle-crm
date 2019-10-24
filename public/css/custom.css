@@ -556,9 +556,12 @@ border-radius: 25px;
 }
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
-<<<<<<< HEAD
+ 
+}
+.filter-group .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,.saved-group .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
   background-image: none !important;
 }
+
 
 .filter-content .custom-control-label::after {
   width: 10px;
@@ -567,7 +570,6 @@ border-radius: 25px;
 .filter-content .custom-control-label::before {
   width: 10px;
   height: 10px;
-=======
 }
 
 /* workstation schedule callback */
@@ -576,5 +578,4 @@ border-radius: 25px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   border: 0!important;
->>>>>>> a6de01093970b0fa652339d3303ca6b54e3fd653
 }

@@ -150,11 +150,13 @@
     .p-34 {
         padding: 0px 34px;
     }
+    
     .pl-34 {
-      padding-left: 34px;
+        padding-left: 34px;
     }
+    
     .ml-12 {
-      margin-left: 12px;
+        margin-left: 12px;
     }
     
     .progress-bar {
@@ -322,13 +324,13 @@
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-          padding: 8px 15px;
+        padding: 8px 15px;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
     }
     
     .btn-blue {
@@ -361,13 +363,13 @@
         background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-         padding: 8px 15px;
+        padding: 8px 15px;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
     }
     
     .dark-btn:hover {
@@ -380,7 +382,7 @@
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
     }
     
     .btn-has-new {
@@ -457,7 +459,7 @@
         border-radius: 50%;
     }
     
-    .update-user {
+    .update-user, .update-filter, .save-filter {
         margin: 0px 0px 5px 0px;
     }
     
@@ -566,17 +568,18 @@
     }
     
     .form-control {
-           padding: 10px 12px!important;
-          font-size: 12px;
-          box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
-          color: #193246;
-          font-weight: 600;
-          margin-top: 6px;
+        padding: 10px 12px!important;
+        font-size: 12px;
+        box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
+        color: #193246;
+        font-weight: 600;
+        margin-top: 6px;
     }
-  textarea.form-control {
-    height: 100px !important;
-    border-radius: 15px;
-  }
+    
+    textarea.form-control {
+        height: 100px !important;
+        border-radius: 15px;
+    }
     
     .stats-section {
         margin-top: 25px;
@@ -650,6 +653,7 @@
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     }
     
+    .filter-results .custom-control.custom-checkbox .custom-control-label:before,
     .reminders .custom-checkbox .custom-control-label::before {
         border-radius: 50%!important;
         border: 1px solid #ededed;
@@ -674,7 +678,8 @@
         width: 90%;
     }
     
-    .reminders input.list-input:focus, .nav-link:focus {
+    .reminders input.list-input:focus,
+    .nav-link:focus {
         outline: 0 !important;
         box-shadow: none !important;
         border: 0 !important;
@@ -685,6 +690,7 @@
         border-radius: 50%!important;
         background-size: cover;
     }
+    
     .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
         border-radius: 50%!important;
         background-color: #ff933a !important;
@@ -698,14 +704,20 @@
         font-size: 16px;
         margin-right: 12px;
     }
-
+    
+    .grey-scroll::-webkit-scrollbar-thumb {
+        background: #B3B3B3 !important;
+        border-radius: 5px !important;
+    }
+    
     .orange {
-      color: #ff933a;
+        color: #ff933a;
     }
     
     .blue {
-      color: #3fa9f5;
+        color: #3fa9f5;
     }
+    
     .tasks-date {
         font-size: 10px;
     }
@@ -715,12 +727,15 @@
         border-radius: 20px;
         padding-left: 6px;
     }
+    
     .inner-box-shadow {
-      box-shadow: 0px 0px 14px 1px rgba(227,223,227,1);
+        box-shadow: 0px 0px 14px 1px rgba(227, 223, 227, 1);
     }
+    
     .middle-box-shadow {
-      box-shadow: 0px 0px 14px 2px rgba(235,235,235,1);
+        box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);
     }
+    
     .nav-tabs .nav-item {
         width: 50%;
     }
@@ -735,7 +750,7 @@
         font-weight: 600;
     }
     
-    .btn-primary.update-user {
+    .btn-primary.update-user, .btn-primary.update-filter, .btn-primary.save-filter {
         font-size: 10px;
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         font-weight: 600;
@@ -744,6 +759,13 @@
         letter-spacing: 0.05em;
     }
     
+  .btn-primary.update-filter, .btn-primary.save-filter {
+        padding: 6px 12px !important;
+    }
+    
+    .float-right {
+        float: right;
+    }
     .inactive-icon {
         padding: 11px;
         border-radius: 50rem;
@@ -759,11 +781,12 @@
         font-size: 16px;
         color: #171717 !important;
         font-family: 'Rubik', sans-serif !important;
-        
     }
+    
     .filterborder {
         border: 1px solid #fed6d6;
     }
+    
     .show {
         display: block !important;
     }
@@ -773,7 +796,7 @@
         margin-right: -27px;
     }
     
-    .row.filter-content .custom-control.custom-checkbox {
+    .row.filter-content .custom-control.custom-checkbox, .saved-results {
         border-radius: 14px;
         box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
         margin: 20px;
@@ -784,10 +807,14 @@
         padding-left: 28px;
         font-family: 'Rubik', sans-serif !important;
     }
-
+    
     .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label {
         font-size: 12px;
         padding-left: 20px;
+    }
+    
+    .row.filter-content .filter-results .custom-control {
+        padding-left: 10px !important;
     }
     
     .row.filter-content .search-criteria {
@@ -799,7 +826,8 @@
         font-family: 'Rubik', sans-serif !important;
     }
     
-    .row.filter-content .search-text {
+    .row.filter-content .search-text,
+    .save-text {
         border: 0;
         box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
         font-size: 12px;
@@ -809,14 +837,55 @@
         border-radius: 14px;
         padding: 10px;
     }
-    .row.filter-content .search-text::-webkit-input-placeholder {
+    
+    .row.filter-content .search-text::-webkit-input-placeholder .save-text::-webkit-input-placeholder {
         font-size: 12px !important;
         font-family: 'Rubik', sans-serif !important;
         color: rgba(0, 0, 0, 0.65) !important;
         letter-spacing: 0 !important;
     }
+    
+    .save-text::-webkit-input-placeholder {
+        font-size: 11px !important;
+        font-family: 'Rubik', sans-serif !important;
+        color: rgba(0, 0, 0, 0.65) !important;
+        letter-spacing: 0 !important;
+    }
+    
+    .filter-results {
+        max-height: 200px;
+        overflow: auto;
+        margin-top: 20px;
+    }
 
-    input.search-text:focus {
+    .saved-results {
+            font-size: 12px !important;
+            font-family: 'Rubik', sans-serif;
+    }
+    
+    .filter-container {
+        overflow: auto;
+    }
+
+    @media screen and (max-width:1368px ) {
+         .filter-container {
+         max-height: 450px;
+         }
+    }
+
+     @media screen and (min-width:1400px ) {
+          .filter-container {
+         max-height: 650px;
+          }
+    }
+    
+    .position-bottom {
+        position: absolute;
+        bottom: 20px;
+    }
+    
+    input.search-text:focus,
+    input.save-text:focus {
         outline: 0 !important;
         border: 0 !important;
     }
@@ -1472,11 +1541,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="callback1" type="checkbox">
-                                                                  <label class="pl-34 custom-control-label" for="callback1" >
-                                                                    Callback Steven
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="callback1" type="checkbox">
+                                                                    <label class="pl-34 custom-control-label" for="callback1">
+                                                                        Callback Steven
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                                             </div>
@@ -1485,11 +1554,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="callback2" type="checkbox">
-                                                                  <label class="pl-34 custom-control-label" for="callback2" >
-                                                                    Callback Justine
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="callback2" type="checkbox">
+                                                                    <label class="pl-34 custom-control-label" for="callback2">
+                                                                        Callback Justine
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">3 Aug</span></div>
                                                             </div>
@@ -1499,15 +1568,15 @@
                                             </b-tab>
                                             <b-tab title="Reminders">
                                                 <ul class="pl-0">
-                                                  <!--When adding a new task, the whole li tag should be added and change input ids -->
+                                                    <!--When adding a new task, the whole li tag should be added and change input ids -->
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="task1" type="checkbox">
-                                                                  <label class="terms-text custom-control-label" for="task1" >
-                                                                    <input type="text" value="1. To Do List" class="border-0 list-input">
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="task1" type="checkbox">
+                                                                    <label class="terms-text custom-control-label" for="task1">
+                                                                        <input type="text" value="1. To Do List" class="border-0 list-input">
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                                             </div>
@@ -1516,11 +1585,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="task2" type="checkbox">
-                                                                  <label class="terms-text custom-control-label" for="task2" >
-                                                                    <input type="text" value="2. To Do List" class="border-0 list-input">
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="task2" type="checkbox">
+                                                                    <label class="terms-text custom-control-label" for="task2">
+                                                                        <input type="text" value="2. To Do List" class="border-0 list-input">
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">23 Jul</span></div>
                                                             </div>
@@ -1568,34 +1637,54 @@
                         <div class="row filter-content">
                             <b-tabs content-class="mt-3">
                                 <b-tab title="New">
-                                    <div class="filter-group">
-                                        <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
-                                            <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1" >
-                                            <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
+                                    <div class="filter-container grey-scroll">
+                                        <div class="filter-group">
+                                            <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                                <input :disabled="filterValue === ''" :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1">
+                                                <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
+                                            </div>
+                                            <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show:showFilters }">
+                                                <select class="search-criteria w-100 mb-2">
+                                                    <option selected>is equal to</option>
+                                                    <option value="1">contains</option>
+                                                    <option value="2">does not contain</option>
+                                                    <option value="3">begins with</option>
+                                                    <option value="3">ends with</option>
+                                                </select>
+                                                <input class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                            </div>
                                         </div>
-                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
-                                            <select class="search-criteria w-100 mb-2">
-                                                <option selected>is equal to</option>
-                                                <option value="1">contains</option>
-                                                <option value="2">does not contain</option>
-                                                <option value="3">begins with</option>
-                                                <option value="3">ends with</option>
-                                            </select>
-                                            <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                        <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:filterValue != '' }" style="display:none;">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result1">
+                                                <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result2">
+                                                <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="filter-results mr-4 pt-2 pl-34">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="result1" >
-                                            <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
+                                    <div class="row mx-2 mt-4 position-bottom justify-content-end">
+                                        <div class="col-7 pl-0 pr-2">
+                                            <input class="save-text w-100" type="text" placeholder="Custom Filter Name" value="">
+                                        </div>
+                                        <div class="col-5 pr-0 pl-2">
+                                            <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0">Save</button>
                                         </div>
                                     </div>
                                 </b-tab>
                                 <b-tab title="Saved" active>
-                                    <div class="saved-group">
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="savedFilter1">
-                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Name</label>
+                                    <div class="saved-group filter-container grey-scroll">
+                                        <div @click="savedFilters()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input type="checkbox" :disabled="appendBorder === false" :checked="appendBorder !== false " class="custom-control-input mx-0" id="savedFilter1">
+                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Saved</label>
+                                        </div>
+                                        <div class="pl-34" style="display:none;" :class="{ show:showSavedFilters }">
+                                               <div class="saved-results p-2"><span class="orange pr-2">⬤</span>Name</div>
+                                               <div class="col-auto pr-0 pl-2 float-right">
+                                                <button type="submit" class="btn btn-primary update-filter mt-2 rounded-pill mr-4">Edit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </b-tab>
@@ -1684,10 +1773,11 @@
                 },
                 p: 65,
 
-                    appendBorder: false,
-                    showFilters: false, 
-                    filterValue: ''
-              
+                appendBorder: false,
+                showSavedFilters: false,
+                showFilters: false,
+                filterValue: ''
+
             }
         },
 
@@ -1741,10 +1831,15 @@
                     this.settings_on = false;
                     this.profile_on = false;
                 },
-               filterProperties() {
-                this.appendBorder = !this.appendBorder
-                this.showFilters = !this.showFilters    
+                filterProperties() {
+                    this.appendBorder = !this.appendBorder
+                    this.showFilters = !this.showFilters
+                   
                 },
+                 savedFilters() {
+                      this.appendBorder = !this.appendBorder
+                      this.showSavedFilters = !this.showSavedFilters
+                 },
                 showSettings() {
                     this.settings_on = !this.settings_on;
                     this.notifications_on = false;
