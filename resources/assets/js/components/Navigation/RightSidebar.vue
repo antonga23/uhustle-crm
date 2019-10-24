@@ -654,6 +654,8 @@
         border-radius: 50%!important;
         border: 1px solid #ededed;
         box-shadow: none;
+        background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
+        background-size: cover;
     }
     
     .reminders .custom-control-label::after,
@@ -678,10 +680,14 @@
         border: 0 !important;
     }
     
-    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
         background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
         border-radius: 50%!important;
         background-size: cover;
+    }
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+        border-radius: 50%!important;
+        background-color: #ff933a !important;
     }
     
     .reminders input.list-input:focus {
@@ -750,7 +756,16 @@
     }
     
     .filter-heading {
-        font-size: 19px;
+        font-size: 16px;
+        color: #171717 !important;
+        font-family: 'Rubik', sans-serif !important;
+        
+    }
+    .filterborder {
+        border: 1px solid #fed6d6;
+    }
+    .show {
+        display: block !important;
     }
     
     .row.filter-content {
@@ -760,31 +775,50 @@
     
     .row.filter-content .custom-control.custom-checkbox {
         border-radius: 14px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        margin: 20px;
     }
     
     .row.filter-content .custom-control.custom-checkbox .custom-control-label {
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 28px;
+        font-family: 'Rubik', sans-serif !important;
+    }
+
+    .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label {
+        font-size: 12px;
+        padding-left: 20px;
     }
     
     .row.filter-content .search-criteria {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         border-radius: 14px;
         padding: 10px;
+        font-family: 'Rubik', sans-serif !important;
     }
     
     .row.filter-content .search-text {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         font-family: 'Rubik', sans-serif;
         font-weight: 300;
         font-style: italic;
         border-radius: 14px;
         padding: 10px;
+    }
+    .row.filter-content .search-text::-webkit-input-placeholder {
+        font-size: 12px !important;
+        font-family: 'Rubik', sans-serif !important;
+        color: rgba(0, 0, 0, 0.65) !important;
+        letter-spacing: 0 !important;
+    }
+
+    input.search-text:focus {
+        outline: 0 !important;
+        border: 0 !important;
     }
     /*End Right Component*/
 </style>
@@ -1199,7 +1233,7 @@
                                         <div class="col-lg-12">
                                             <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
                                             <div class="progress-bar w-100">
-                                                <span class="tank" :style="'width:' + 65 + '%'"></span>
+                                                <span class="tank" :style="{width: + 65 + '%'}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1288,7 +1322,7 @@
 
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-                                                <vc-calendar class="border-0" :attributes='attrs' title-position="right" is-expanded :popover="true" />
+                                                <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />
                                             </div>
 
                                             <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
@@ -1535,11 +1569,11 @@
                             <b-tabs content-class="mt-3">
                                 <b-tab title="New">
                                     <div class="filter-group">
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                                        <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1" >
+                                            <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
                                         </div>
-                                        <div class="ml-3 pt-2">
+                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
                                             <select class="search-criteria w-100 mb-2">
                                                 <option selected>is equal to</option>
                                                 <option value="1">contains</option>
@@ -1547,16 +1581,21 @@
                                                 <option value="3">begins with</option>
                                                 <option value="3">ends with</option>
                                             </select>
-                                            <input class="search-text w-100 mt-2" type="text" placeholder="Search...">
+                                            <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                        </div>
+                                    </div>
+                                    <div class="filter-results mr-4 pt-2 pl-34">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input mx-0" id="result1" >
+                                            <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
                                         </div>
                                     </div>
                                 </b-tab>
-
                                 <b-tab title="Saved" active>
                                     <div class="saved-group">
                                         <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                                            <input type="checkbox" class="custom-control-input mx-0" id="savedFilter1">
+                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Name</label>
                                         </div>
                                     </div>
                                 </b-tab>
@@ -1643,7 +1682,12 @@
                 fill: {
                     gradient: ["#a1ed1c", "#62d37e"]
                 },
-                p: 65
+                p: 65,
+
+                    appendBorder: false,
+                    showFilters: false, 
+                    filterValue: ''
+              
             }
         },
 
@@ -1697,7 +1741,10 @@
                     this.settings_on = false;
                     this.profile_on = false;
                 },
-
+               filterProperties() {
+                this.appendBorder = !this.appendBorder
+                this.showFilters = !this.showFilters    
+                },
                 showSettings() {
                     this.settings_on = !this.settings_on;
                     this.notifications_on = false;
