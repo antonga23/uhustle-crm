@@ -7,6 +7,7 @@ use Auth;
 use App\Role;
 use App\Product;
 use App\User;
+use App\LeadSource;
 use App\Module;
 use App\ModuleCustomFields;
 use App\ModuleItem;
@@ -224,7 +225,7 @@ class ModuleController extends Controller
     public function getItems($module = null){
       $module = Module::with('module_fields')->where(['tag' => $module])->first();
 
-      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take(100);
+      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take(50);
 
       $items = $this->compactModuleItems($module_items);
 
@@ -234,13 +235,22 @@ class ModuleController extends Controller
    public function compactModuleItems($module_items = null){
       
       $data = [];
+
+      $display_data = [];
+
       $count_assigned = 0;
+
       $count_unassigned = 0;
+
       foreach ($module_items as $key => $item) {
 
          $item_temp = new \StdClass();
 
+         $display_item_temp = new \StdClass();
+
          $fields_array = [];
+
+         $display_array = [];
 
          foreach ($item->item_meta as $k => $meta) {
 
@@ -249,14 +259,55 @@ class ModuleController extends Controller
                                             ->first();
 
             if($meta_name->id == $meta->custom_field_id){
+
+
               $fields_array['id'] = $item->id;
 
+              $display_array['id'] = $item->id;
+
               if($meta_name->name == 'assignee'){ 
-                $fields_array[$meta_name->name] = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+                
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+                
+                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+                $fields_array[$meta_name->name] = [
+                    'meta_id' => $meta->id,
+                    'meta_value' => $user
+                  ];
+
               }else if ($meta_name->name == 'owner'){
-                $fields_array[$meta_name->name] = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+
+                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+                $fields_array[$meta_name->name] = [
+                    'meta_id' => $meta->id,
+                    'meta_value' =>  $user
+                  ];
               }else if ($meta_name->name == 'product'){
-                $fields_array[$meta_name->name] = Product::where(['id' => $meta->custom_field_value])->first();
+
+                $product = Product::where(['id' => $meta->custom_field_value])->first();
+
+                $display_array[$meta_name->name] = $product['name'];
+
+                $fields_array[$meta_name->name] = [
+                    'meta_id' => $meta->id,
+                    'meta_value' => $product
+                  ];
+
+              }else if ($meta_name->name == 'source'){
+
+                $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->first();
+
+                $display_array[$meta_name->name] = $lead_source['name'];
+
+                $fields_array[$meta_name->name] = [
+                    'meta_id' => $meta->id,
+                    'meta_value' => $lead_source
+                  ];
+
               }else if ($meta_name->name == 'status'){
                 
                 switch ($meta->custom_field_value) {
@@ -278,9 +329,21 @@ class ModuleController extends Controller
                     break;
                 }
 
-                $fields_array[$meta_name->name] = $status;
+                $display_array[$meta_name->name] = $status;
+
+                $fields_array[$meta_name->name] =  [
+                  'meta_id' => $meta->id,
+                  'meta_value' => $meta->custom_field_value
+                ];
+                
               }else{
-                $fields_array[$meta_name->name] = $meta->custom_field_value;
+
+                $display_array[$meta_name->name] = $meta->custom_field_value;
+
+                $fields_array[$meta_name->name] = [
+                  'meta_id' => $meta->id,
+                  'meta_value' =>$meta->custom_field_value
+                ];
               }
 
               if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
@@ -299,13 +362,17 @@ class ModuleController extends Controller
 
          $item_temp->item = $fields_array;
 
+        //  $display_item_temp->item = $display_array;
+
          array_push($data, $item_temp);
+
+         array_push($display_data, $display_array);
       }
       
       return [ 
               'success' => true,
               'items' => $data, 
-              // 'colums' => $colums, 
+              'display_items' => $display_data,  
               'count_assigned' => $count_assigned, 
               'count_unassigned' => $count_unassigned, 
           ];

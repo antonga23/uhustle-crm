@@ -301,11 +301,21 @@ table.listing tr  th{
             <div class="row stats ml-1 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
+                    <!-- <data-table-editable 
+                        :role="role_id" 
+                        :active_users="JSON.parse(active_users)" 
+                        :active_roles="JSON.parse(active_roles)" 
+                        :sources="JSON.parse(sources)" 
+                        :packages="JSON.parse(packages)"
+                    /> -->
+                        
                     <datatable 
                         v-if="!show_page_loader" 
                         id="datatable" 
-                        :rows="items" 
+                        :rows="display_items" 
+                        :module_items="items" 
                         :columns="columns" 
+                        :custom_fields="module_custom_fields" 
                         :role="role_id" 
                         :active_users="JSON.parse(active_users)" 
                         :active_roles="JSON.parse(active_roles)" 
@@ -334,6 +344,7 @@ table.listing tr  th{
     import { BarChart } from 'vue-morris';
     import AddModuleItem from '../Modules/AddModuleItem';
     import DataTable from '../DataTables/ListingDataTable';
+    import DataTableEditable from '../DataTables/ListingDataTableEditable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -343,6 +354,7 @@ table.listing tr  th{
             VclInstagram,
             VclTable,
             AddModuleItem,
+            DataTableEditable,
             'datatable' : DataTable
         },
         mounted() {
@@ -352,7 +364,11 @@ table.listing tr  th{
             
             vm.filter_data = JSON.parse(vm.custom_filters);
 
+            vm.module_custom_fields = JSON.parse(vm.custom_fields);
+
             vm.getItems();
+
+            vm.prepColums();
 
             Fire.$on('SaveFilter', function(data){
               console.log('in filters', data);
@@ -384,15 +400,18 @@ table.listing tr  th{
           'module', 
           'active', 
           'custom_filters', 
+          'custom_fields', 
           'user_id',
           'sources',
           'packages',
           'active_users',
           'active_roles', 
-          'role_id'],
+          'role_id'
+        ],
         data: function(){
             return {
                 items : [],
+                display_items : [],
                 count_assigned : 0,
                 count_unassigned : 0,
 				        user: {
@@ -414,6 +433,7 @@ table.listing tr  th{
                 },
                 current_user: [],
                 filter_data: [],
+                module_custom_fields: [],
                 add_user: false,
                 show_page_loader: false,
                 Toast: null,
@@ -424,103 +444,36 @@ table.listing tr  th{
                         numeric: false, // Affects sorting
                         html: false,    // Escapes output if false.
                         sortable:false
-                    },
-                    {
-                        label: 'NAME',  // Column name
-                        field: 'name',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'SURNAME',  // Column name
-                        field: 'surname',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'EMAIL',  // Column name
-                        field: 'email',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'OWNER',  // Column name
-                        field: 'owner',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ASSIGNEE',  // Column name
-                        field: 'assignee',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'MOBILE #',  // Column name
-                        field: 'phone_number',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'PACKAGE',  // Column name
-                        field: 'product',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true,
-                        exportable: true
-                    },
-                    {
-                        label: 'TRIAL STARTS',  // Column name
-                        field: 'start_date',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'TRIAL ENDS',  // Column name
-                        field: 'expires_at',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'DAYS REMAINING',  // Column name
-                        field: 'days_remaining',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'LAST ACTIVITY',  // Column name
-                        field: 'last_activity',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'STATUS',  // Column name
-                        field: 'status',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ACTIONS',  // Column name
-                        field: 'actions',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
+                    }
                 ]
             }
         },
         methods: {
+            prepColums(){
+              var vm = this;
+              this.module_custom_fields.map( (field) => {
+                vm.columns.push(
+                    {
+                        label: field.display_name.toUpperCase(),  // Column name
+                        field: field.name,  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    });
+                  
+              });
+
+              this.columns.push(
+                {
+                    label: 'ACTIONS',  // Column name
+                    field: 'actions',  // Field name from row
+                    numeric: false, // Affects sorting
+                    html: false,    // Escapes output if false.
+                    sortable:true
+                },
+              );
+              
+            },
             getLastCommentDade(comments){
                 if(comments.length > 0){
                     var i = comments.length - 1;
@@ -562,6 +515,8 @@ table.listing tr  th{
                     if(response.data.success == true){
 
                         vm.items = response.data.items;
+
+                        vm.display_items = response.data.display_items;
 
                         vm.count_assigned = response.data.count_assigned;
 
