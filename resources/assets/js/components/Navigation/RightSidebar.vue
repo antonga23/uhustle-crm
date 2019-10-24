@@ -784,6 +784,11 @@
         padding-left: 28px;
         font-family: 'Rubik', sans-serif !important;
     }
+
+    .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label {
+        font-size: 12px;
+        padding-left: 20px;
+    }
     
     .row.filter-content .search-criteria {
         border: 0;
@@ -1564,16 +1569,6 @@
                             <b-tabs content-class="mt-3">
                                 <b-tab title="New">
                                     <div class="filter-group">
-                                        <!-- <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
-                                        </div>
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="newFilter2">
-                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
-                                        </div> -->
-                                        <ul>
-                                            <li v-for="filter in filters">
                                         <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
                                             <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1" >
                                             <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
@@ -1588,40 +1583,12 @@
                                             </select>
                                             <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
                                         </div>
-                                            </li>
-                                            </ul>
-                                        <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
-                                            <input :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter2" >
-                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
+                                    </div>
+                                    <div class="filter-results mr-4 pt-2 pl-34">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input mx-0" id="result1" >
+                                            <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
                                         </div>
-                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
-                                            <select class="search-criteria w-100 mb-2">
-                                                <option selected>is equal to</option>
-                                                <option value="1">contains</option>
-                                                <option value="2">does not contain</option>
-                                                <option value="3">begins with</option>
-                                                <option value="3">ends with</option>
-                                            </select>
-                                            <input class="search-text w-100 mt-2"  type="text" placeholder="Text Here" v-model="filterValue" value="">
-                                        </div>
-                                        <!-- <div v-on:click="filterProperties" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
-                                            <input v-if="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter2" v-model="isChecked">
-                                            <label class="custom-control-label mx-0 pt-0" for="newFilter2">Name</label>
-                                        </div>
-                                        <div class="mr-4 pt-2 pl-34" style="display:none;" :class="{ show:showFilters }">
-                                            <select class="search-criteria w-100 mb-2">
-                                                <option selected>is equal to</option>
-                                                <option value="1">contains</option>
-                                                <option value="2">does not contain</option>
-                                                <option value="3">begins with</option>
-                                                <option value="3">ends with</option>
-                                            </select>
-                                            <input class="search-text w-100 mt-2" v-on:keyup="tickCheckBox" type="text" placeholder="Text Here" v-model="filterValue" value="">
-                                        </div> -->
-                                         
-                                        <!-- <div class="mr-4 pt-2 pl-34">
-                                            <input class="search-text w-100 mt-2" type="text" placeholder="Search">
-                                        </div> -->
                                     </div>
                                 </b-tab>
                                 <b-tab title="Saved" active>
@@ -1717,11 +1684,10 @@
                 },
                 p: 65,
 
-                // filters: [
-                //     appendBorder: false,
-                //     showFilters: false, 
-                //     filterValue: ''
-                // ]  
+                    appendBorder: false,
+                    showFilters: false, 
+                    filterValue: ''
+              
             }
         },
 
