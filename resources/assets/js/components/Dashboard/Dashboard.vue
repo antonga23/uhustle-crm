@@ -89,8 +89,7 @@
     border-top-right-radius: 25px; 
   } 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{ 
-    box-shadow: inset -7px -10px 10px #f5f5f5; 
-    border-bottom-right-radius: 25px; 
+    box-shadow: inset -7px -10px 10px #f5f5f5;
     border-top-left-radius: 25px; 
     border-top-right-radius:0; 
   } 
@@ -101,7 +100,6 @@
   } 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{ 
     box-shadow: inset 7px -10px 10px #f5f5f5; 
-    border-bottom-left-radius: 25px; 
     border-top-right-radius: 25px; 
     border-top-left-radius:0; 
   }
@@ -133,6 +131,37 @@
     font-size: 30px;
     color: #1A1C43;
     line-height: 1em;
+  }
+  .legend {
+    margin-bottom:3.1%;
+  }
+  .legend p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color:#999999;
+  }
+  .comparison-month {
+    color: #1C2331;
+    font-size: 13px;
+  }
+  .progress-bar{
+    background: #F2F2F2;
+    min-height:100px;
+    max-width:24px;
+    justify-content: flex-end;
+  }
+  .tank{
+    border-top-left-radius: 50rem;
+    border-top-right-radius: 50rem;
+    transition: all 0.5s ease 0s;
+  }
+  .tank.answers {
+    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;
+    background: #0496F0;
+  }
+  .tank.dialing {
+    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;
+    background: #0496F0;
   }
   .card.target .card-text{
     margin: auto;
@@ -331,7 +360,7 @@
                   role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="17">
                       <p class="d-inline-block mb-0">Calls</p>
@@ -395,7 +424,7 @@
                   role="tabpanel" 
                   aria-labelledby="three-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="17">
                       <p class="d-inline-block mb-0">Answers</p>
@@ -403,6 +432,26 @@
                     <div class="col-auto pr-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="17">
                       <p class="d-inline-block mb-0">Dialling</p>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-between mx-0">
+                    <div class="col-2 px-2" v-for="(comparison, index) in comparisons" :key="index">
+                      <div class="row mx-0 justify-content-between">
+                        <div class="col-6 px-1">
+                          <div class="progress-bar h-100">
+                            <span class="w-100 tank answers" :style="'height:' + '{{ comparison.answers }}' + '%'"></span>
+                          </div>
+                        </div>
+
+                        <div class="col-6 px-1">
+                          <div class="progress-bar h-100">
+                            <span class="w-100 tank dialing" :style="'height:' + '{{ comparison.dialing }}' + '%'"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="text-center mb-0 comparison-month">{{ comparison.month }}</p>
                     </div>
                   </div>
                 </div>  
@@ -413,7 +462,7 @@
                   role="tabpanel" 
                   aria-labelledby="four-tab"
                 > 
-                  <div class="row mx-0 justify-content-end align-items-center"> 
+                  <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
                       <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="17">
                       <p class="d-inline-block mb-0">2018</p>
@@ -557,78 +606,86 @@
 </template>
 
 <script>
-    import { Bar } from 'vue-chartjs';
-    import { BarChart } from 'vue-morris';
-    export default {
-        extends: Bar,
-        components: { 
-            BarChart,
+  import { Bar } from 'vue-chartjs';
+  import { BarChart } from 'vue-morris';
+  export default {
+    extends: Bar,
+    components: { 
+      BarChart,
+    },
+    mounted() {
+      console.log('Component mounted');
+
+      this.getDashboard();
+
+      var vm = this;
+
+      Fire.$on('TopMonthFilterChange', function(data){
+        vm.getCallLog(data.month);
+      });
+      
+      this.Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    },
+    created: function () {
+    },
+    props: [],
+    data: function(){
+      return {
+        call_log : {
+          total_calls: '',
+          total_sales: '',
+          con_ratio: '',
+          sum_sales: '',
+          call_history: '',
+          sum_call_back: '',
+          avg_time: '',
         },
-        mounted() {
-            console.log('Component mounted');
+        Toast: null,
+        comparisons: [
+          { month: "May", answers: 65, dialing: 65 },
+          { month: "Jun", answers: 35, dialing: 65 },
+          { month: "Jul", answers: 95, dialing: 65 },
+          { month: "Aug", answers: 25, dialing: 65 },
+          { month: "Sept", answers: 5, dialing: 65 },
+          { month: "Oct", answers: 15, dialing: 65 },
+        ]
+      }
+    },
+    methods: {
+      getDashboard(month = ''){
+        var vm = this;
 
-            this.getDashboard();
-
-            var vm = this;
-
-            Fire.$on('TopMonthFilterChange', function(data){
-                vm.getCallLog(data.month);
-            });
-            
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-        created: function () {
-        },
-        props: [],
-        data: function(){
-            return {
-                call_log : {
-                    total_calls: '',
-                    total_sales: '',
-                    con_ratio: '',
-                    sum_sales: '',
-                    call_history: '',
-                    sum_call_back: '',
-                    avg_time: '',
-                },
-                Toast: null
-            }
-        },
-        methods: {
-            getDashboard(month = ''){
-                var vm = this;
-
-                if(month == ''){
-                    var endpoint = '/calls/get-dashboard';
-                }else{
-                    var endpoint = '/calls/get-dashboard/' + month;
-                }
-
-                vm.$Progress.start();
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.call_log.total_calls = response.data.total_calls;
-                        vm.call_log.total_sales = response.data.total_sales;
-                        vm.call_log.con_ratio = response.data.con_ratio;
-                        vm.call_log.sum_sales = response.data.sum_sales;
-                        vm.call_log.call_history = response.data.call_history;
-                        vm.call_log.sum_call_back = response.data.sum_call_back;
-                        vm.call_log.avg_time = response.data.avg_time;
-                        
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
+        if(month == ''){
+          var endpoint = '/calls/get-dashboard';
+        }else{
+          var endpoint = '/calls/get-dashboard/' + month;
         }
+
+        vm.$Progress.start();
+
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.call_log.total_calls = response.data.total_calls;
+            vm.call_log.total_sales = response.data.total_sales;
+            vm.call_log.con_ratio = response.data.con_ratio;
+            vm.call_log.sum_sales = response.data.sum_sales;
+            vm.call_log.call_history = response.data.call_history;
+            vm.call_log.sum_call_back = response.data.sum_call_back;
+            vm.call_log.avg_time = response.data.avg_time;
+            
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
     }
+  }
 </script>
