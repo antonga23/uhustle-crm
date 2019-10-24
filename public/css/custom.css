@@ -624,8 +624,13 @@ border-radius: 25px;
   /* margin-bottom: -32px; */
 }
 #preferences .nav-tabs .nav-link {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 23px 23px 16px 30px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #999999;
+}
+#preferences .nav-tabs .nav-link.active {
+  color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"] {
   box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
@@ -634,25 +639,6 @@ border-radius: 25px;
   border-top-right-radius: 25px;
   background-color: #fff;
 }
-/* #preferences .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"]{
-  box-shadow: inset -10px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset -10px -10px 10px #f5f5f5;
-  border-bottom-right-radius: 25px;
-  background-color: transparent;
-} */
-/* #preferences .nav-tabs .nav-link[aria-selected="true"][aria-posinset="2"]{
-  box-shadow: -20px -10px 10px #f5f5f5;
-  -webkit-box-shadow: -20px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background-color: #fff;
-} */
-/* #preferences .nav-tabs .nav-link[aria-selected="false"][aria-posinset="2"]{
-  box-shadow: inset 7px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-bottom-left-radius: 25px;
-  background-color: transparent;
-} */
-/* #preferences .tab-content {
-  margin-top: 11px;
-} */
+.ant-switch-checked {
+  background-color: #f79340!important;
+}
