@@ -685,6 +685,14 @@ a.down-scroll:hover{
   height: 163px!important;
   overflow-y: auto;
 }
+
+.scroll-hidden{
+    overflow-y: scroll;
+    height: 70vh;
+    /* padding-top: 6px; */
+    padding-right: 6px;
+    width: 100%;
+}
 </style> 
 <template> 
   <div id="workstation"> 
@@ -1662,7 +1670,7 @@ a.down-scroll:hover{
 
     <!-- Active calls Section Starts --> 
     <div class="" v-if="active_calls == true"> 
-      <div class="row stats scroll-hidden w-100 mx-0" style="margin-top: 6%"> 
+      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%"> 
         <div class="col-lg-12"> 
           <vcl-table v-if="show_page_loader === true"></vcl-table> 
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable> 
@@ -2346,18 +2354,21 @@ a.down-scroll:hover{
             var vm = this;
             
             if( vm.lead_id != ''){
-                console.log('Lead Mounting' + vm.lead_id);
                 vm.enqueueLead(vm.lead_id);
                 vm.general = true;
                 vm.active_calls = false;
-            }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){
+                Fire.$emit('ShowGeneral');
+            }else{
+              if( this.role_id == 1 || this.role_id == 2 ){
                 vm.active_calls = true;
                 Fire.$emit('ShowActiveCalls');
-            }else{
+              }else{
                 vm.general = false;
-                vm.scripts = false;
-                vm.idle = true;
+                vm.scripts = true;
+                vm.idle = false;
                 vm.active_calls = false;
+                Fire.$emit('ShowActiveCalls');
+              }
             }
             
             vm.getActiveCalls();

@@ -42,10 +42,6 @@
         padding: 20px 3%;
     }
     
-    .row.stats {
-        /* padding: 0 3% */
-    }
-    
     .row {
         margin-bottom: 3%;
     }

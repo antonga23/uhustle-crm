@@ -1,5 +1,5 @@
 <template>
-    <div class="card no-box-shadow material-table">
+    <div class="no-box-shadow material-table">
         <table ref="table">
             <thead>
                 <tr>
@@ -36,7 +36,7 @@
                             
                         </span>
                         <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
-                            &npsp;
+                            &nbsp;
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
