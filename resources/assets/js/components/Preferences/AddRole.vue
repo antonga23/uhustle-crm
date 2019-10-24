@@ -21,7 +21,7 @@
 </style>
 <template>
   <div class="col-lg-6 px-0">
-    <b-container fluid>
+    <b-container fluid class="px-0">
       <b-row class="mx-0">
         <b-col sm="12" class="px-0">
           <label for="input-none">Role Name</label>
@@ -32,6 +32,8 @@
 
           <label for="input-invalid">Role Status</label>
           <a-switch v-model="status"/>
+          <label v-if="status == 1">Active</label>
+          <label v-if="status == 0">Inactive</label>
           <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
 
           <b-button variant="primary" class="m-0" @click="addRole()">Add Role</b-button>

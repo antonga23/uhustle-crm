@@ -76857,6 +76857,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -76981,6 +76983,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -77048,6 +77071,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -77420,6 +77466,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -132980,7 +133037,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-390d5e68] {\n    border-radius: 25px;\n    padding: 7px;\n    height: 28px !important;\n    font-size: 9px;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px;\n  font-size: 9px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #999999;\n  margin-bottom: 17px;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n}\n", ""]);
 
 // exports
 
@@ -132999,7 +133056,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.add-fields .btn[data-v-37c5ed24]{\n    margin: 0;\n}\n.help-block[data-v-37c5ed24]{\n    color: #dc3545;\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.scrollable[data-v-37c5ed24]{\n  height: 789px;\n  overflow: overlay;\n}\n", ""]);
+exports.push([module.i, "\n.add-fields .btn[data-v-37c5ed24]{\n  margin: 0;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.scrollable[data-v-37c5ed24]{\n  height: 789px;\n  overflow: overlay;\n}\ninput[data-v-37c5ed24], .ant-select-selection--single[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n}\n.ant-select-selection--multiple[data-v-37c5ed24] {\n  border-radius: 25px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\n", ""]);
 
 // exports
 
@@ -133037,7 +133094,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title a[data-v-d4042370] {\n    color: #003449;\n    font-size: 25px;\n    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 10px;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 16px;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n  ul.top-menu li.item a.active[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 16px;\n    background: #F98B39;\n    color: #fff !important;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n    margin: 5px 8px 8px 55px !important;\n    height: 29px !important;\n    background: #F98B39 !important;\n    border-color: #F98B39 !important;\n    color: #fff !important;\n    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n    border-radius: 25px;\n    padding: 7px;\n    height: 28px !important;\n    font-size: 9px;\n}\n.user-roles .tab-pane .col-lg-3[data-v-d4042370]{\n    float: left;\n    flex: 0 0 24%;\n    max-width: 24%;\n    margin-right: 1%;\n    min-height: 50px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\n.user-roles .tab-pane .row .col-lg-3 button[data-v-d4042370]{\n    width: 100%;\n}\n.user-roles .tab-pane .col-lg-3 .card-body .permisions[data-v-d4042370]{\n    padding-left: 30px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-default[data-v-d4042370]:hover{\n    border: none!important;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.pt-0[data-v-d4042370], .py-0[data-v-d4042370] {\n    padding-top: 0 !important;\n    padding-bottom: 0;\n}\n.divider-line[data-v-d4042370] { \n    height: 1px; \n    background-color: #003449;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    color: #000;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n", ""]);
+exports.push([module.i, "\n.main-header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title a[data-v-d4042370] {\n\t\tcolor: #003449;\n\t\tfont-size: 25px;\n    letter-spacing: 4.2px;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 10px;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 16px;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a[data-v-d4042370]:hover,\n  ul.top-menu li.item a.active[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 16px;\n    background: #F98B39;\n    color: #fff !important;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.navbar-nav a.active[data-v-d4042370]{    \n\t\tborder-radius: 26px;\n    margin: 5px 8px 8px 55px !important;\n    height: 29px !important;\n    background: #F98B39 !important;\n    border-color: #F98B39 !important;\n    color: #fff !important;\n    padding: 4px 17px 6px !important;\n}\n.form-control[data-v-d4042370] {\n    border-radius: 25px;\n    padding: 7px;\n    height: 28px !important;\n    font-size: 9px;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.divider-line[data-v-d4042370] { \n    height: 1px; \n    background-color: #999;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #999999!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
 
 // exports
 
@@ -261984,7 +262041,7 @@ var render = function() {
     [
       _c(
         "b-container",
-        { attrs: { fluid: "" } },
+        { staticClass: "px-0", attrs: { fluid: "" } },
         [
           _c(
             "b-row",
@@ -262037,6 +262094,12 @@ var render = function() {
                       expression: "status"
                     }
                   }),
+                  _vm._v(" "),
+                  _vm.status == 1 ? _c("label", [_vm._v("Active")]) : _vm._e(),
+                  _vm._v(" "),
+                  _vm.status == 0
+                    ? _c("label", [_vm._v("Inactive")])
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("b-form-select", {
                     staticClass: "form-control",
@@ -262124,118 +262187,99 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "col-lg-9" },
+                    { staticClass: "col-lg-6" },
                     [
                       _c(
                         "b-container",
                         { attrs: { fluid: "" } },
                         [
                           _vm._l(api.attributes, function(attr, i) {
-                            return _c(
-                              "div",
-                              { key: i },
-                              [
-                                attr.key != "default_dialing_api" &&
-                                attr.key != "default_payment_api"
-                                  ? _c(
-                                      "b-row",
-                                      { staticClass: "my-1" },
-                                      [
-                                        _c("b-col", { attrs: { sm: "3" } }, [
-                                          _c(
-                                            "label",
-                                            { attrs: { for: "input-none" } },
-                                            [_vm._v(_vm._s(attr.display_name))]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-col",
-                                          { attrs: { sm: "7" } },
-                                          [
-                                            _c("b-form-input", {
-                                              attrs: {
-                                                id: "input-none",
-                                                state: null
-                                              },
-                                              model: {
-                                                value: attr.value,
-                                                callback: function($$v) {
-                                                  _vm.$set(attr, "value", $$v)
-                                                },
-                                                expression: "attr.value"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  : _c(
-                                      "b-row",
-                                      { staticClass: "my-1" },
-                                      [
-                                        _c("b-col", { attrs: { sm: "3" } }, [
-                                          _c(
-                                            "label",
-                                            { attrs: { for: "input-valid" } },
-                                            [_vm._v(_vm._s(attr.display_name))]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-col",
-                                          { attrs: { sm: "7" } },
-                                          [
-                                            _c("b-form-checkbox", {
-                                              attrs: {
-                                                id: "checkbox-1",
-                                                name: "checkbox-1",
-                                                value: "1",
-                                                "unchecked-value": "0"
-                                              },
-                                              model: {
-                                                value: attr.value,
-                                                callback: function($$v) {
-                                                  _vm.$set(attr, "value", $$v)
-                                                },
-                                                expression: "attr.value"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                              ],
-                              1
-                            )
+                            return _c("div", { key: i }, [
+                              attr.key != "default_dialing_api" &&
+                              attr.key != "default_payment_api"
+                                ? _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v(_vm._s(attr.display_name))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: attr.value,
+                                          callback: function($$v) {
+                                            _vm.$set(attr, "value", $$v)
+                                          },
+                                          expression: "attr.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                : _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-valid" } },
+                                        [_vm._v(_vm._s(attr.display_name))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-checkbox", {
+                                        attrs: {
+                                          id: "checkbox-1",
+                                          name: "checkbox-1",
+                                          value: "1",
+                                          "unchecked-value": "0"
+                                        },
+                                        model: {
+                                          value: attr.value,
+                                          callback: function($$v) {
+                                            _vm.$set(attr, "value", $$v)
+                                          },
+                                          expression: "attr.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                            ])
                           }),
                           _vm._v(" "),
                           _c(
-                            "b-row",
-                            { staticClass: "my-1" },
+                            "div",
+                            { staticClass: "row justify-content-end mx-0" },
                             [
                               _c(
-                                "b-col",
-                                { attrs: { sm: "9" } },
-                                [
-                                  _c(
-                                    "b-button",
-                                    {
-                                      attrs: { variant: "default" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.updateDetails()
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Update Details")]
-                                  )
-                                ],
-                                1
+                                "b-button",
+                                {
+                                  staticClass: "btn-default",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.updateDetails()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Cancel")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-button",
+                                {
+                                  staticClass: "btn-primary font-weight-bold",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.updateDetails()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Update")]
                               )
                             ],
                             1
@@ -262700,8 +262744,6 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
           _c(
             "b-container",
             { attrs: { fluid: "" } },
@@ -262790,7 +262832,7 @@ var render = function() {
     [
       _c(
         "b-container",
-        { attrs: { fluid: "" } },
+        { staticClass: "px-0", attrs: { fluid: "" } },
         [
           _c(
             "b-row",
@@ -263049,7 +263091,7 @@ var render = function() {
                                 _vm.role_edit
                                   ? _c(
                                       "div",
-                                      { staticClass: "row mx-0" },
+                                      { staticClass: "row mx-0 edit-role" },
                                       [
                                         _c("edit-role", {
                                           attrs: { role: role }
@@ -263061,53 +263103,59 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  { staticClass: "row mx-0" },
+                                  {
+                                    staticClass: "row justify-content-end mx-0"
+                                  },
                                   [
                                     _c(
-                                      "b-button",
-                                      {
-                                        staticClass: "btn btn-danger",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.deleteRole(role)
-                                          }
-                                        }
-                                      },
+                                      "div",
+                                      { staticClass: "col-6 text-right px-0" },
                                       [
-                                        _vm._v(
-                                          "Delete " + _vm._s(role.display_name)
+                                        _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "btn btn-danger my-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteRole(role)
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Delete")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "btn btn-default my-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updateRole(role)
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Cancel")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-button",
+                                          {
+                                            staticClass:
+                                              "btn btn-primary font-weight-bold my-0 mr-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updateRole(role)
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Update")]
                                         )
-                                      ]
+                                      ],
+                                      1
                                     ),
                                     _vm._v(" "),
-                                    _c(
-                                      "b-button",
-                                      {
-                                        staticClass: "btn btn-default",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.updateRole(role)
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Cancel")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "b-button",
-                                      {
-                                        staticClass:
-                                          "btn btn-primary font-weight-bold",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.updateRole(role)
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Update")]
-                                    )
-                                  ],
-                                  1
+                                    _c("div", { staticClass: "col-6 px-0" })
+                                  ]
                                 ),
                                 _vm._v(" "),
                                 _vm.role_add
@@ -263125,7 +263173,7 @@ var render = function() {
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-lg-12",
+                                            staticClass: "col-lg-12 px-0",
                                             attrs: { role: "tablist" }
                                           },
                                           [
@@ -263133,7 +263181,7 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "row mx-0 align-items-center"
+                                                  "row mx-0 align-items-center permissions-divider"
                                               },
                                               [
                                                 _c(
@@ -263174,7 +263222,8 @@ var render = function() {
                                                     expression: "'accordion-0'"
                                                   }
                                                 ],
-                                                staticClass: "expand-toggle",
+                                                staticClass:
+                                                  "p-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -263225,7 +263274,7 @@ var render = function() {
                                                                     "b-form-group",
                                                                     {
                                                                       staticClass:
-                                                                        "permisions"
+                                                                        "mx-2 permissions"
                                                                     },
                                                                     [
                                                                       _c(
@@ -263438,7 +263487,7 @@ var render = function() {
                                                         }
                                                       ],
                                                       staticClass:
-                                                        "border-radius-0 expand-toggle",
+                                                        "p-0 expand-toggle",
                                                       attrs: {
                                                         block: "",
                                                         href: "#",

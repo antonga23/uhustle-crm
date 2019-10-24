@@ -8,8 +8,8 @@
   }
 	/*Right Component*/
 	li.title a {
-    color: #003449;
-    font-size: 25px;
+		color: #003449;
+		font-size: 25px;
     letter-spacing: 4.2px;
   }
   div.top-nav{
@@ -56,22 +56,12 @@
     height: 28px !important;
     font-size: 9px;
   }
-  .user-roles .tab-pane .col-lg-3{
-    float: left;
-    flex: 0 0 24%;
-    max-width: 24%;
-    margin-right: 1%;
-    min-height: 50px;
-  }
   .user-roles .tab-pane .row{
     margin-right: 0;
     margin-left: 0;
   }
-  .user-roles .tab-pane .row .col-lg-3 button{
-    width: 100%;
-  }
-  .user-roles .tab-pane .col-lg-3 .card-body .permisions{
-    padding-left: 30px;
+  h5 {
+    font-size: 16px;
   }
 
   .btn-default{
@@ -86,12 +76,6 @@
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
-  .btn-default:hover{
-    border: none!important;
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-  }
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
@@ -102,44 +86,67 @@
     display: block;
     width: 98%;
   }
+  .tab-pane.card-body {
+    padding:4.4% 5.6% 6.8%;
+  }
   .card-body .form-group{
     margin-left: 0%;
   }
-  .pt-0, .py-0 {
-    padding-top: 0 !important;
-    padding-bottom: 0;
-  }
   .divider-line { 
     height: 1px; 
-    background-color: #003449; 
+    background-color: #999; 
   } 
   .expand-toggle {
     background: #fff;
     box-shadow: none;
     text-align: left;
-    color: #000;
     border-radius: 0!important;
     border-top: 0;
     border-left: 0;
     border-right: 0;
+    border-color: #999;
+    font-family: 'Rubik', sans-serif;
+    font-size:14px;
+    color: #999999;
+    margin-top: 4.6%;
+  }
+  .expand-toggle[aria-expanded="true"] {
+    border-bottom: 0;
   }
   .custom-control-label {
     color: #999999;
     font-family: 'Rubik', sans-serif;
     font-size:14px;
   }
+  .collapse.show .card {
+    border-radius: 25px;
+    border: 1px solid #999999!important;
+  }
+  .collapse.show .card-body{
+    padding: 1.15% 2.5% 1.85%;
+  }
+  .edit-role {
+    margin-bottom:1.7%;
+  }
+  .permissions-divider {
+    margin-top:3.7%;
+    margin-bottom:3.1%;
+  }
+  .permissions {
+    margin-top: 0.5%;
+  }
 </style>
 <template>
   <div id="preferences">
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
 			<!-- Left navbar links -->
-      <ul class="navbar-nav left">
-        <li class="nav-item d-none d-sm-inline-block title">
-          <a href="#" class="nav-link font-weight-bold p-0">Preferences</a>
-        </li> 
-      </ul>
+        <ul class="navbar-nav left">
+          <li class="nav-item d-none d-sm-inline-block title">
+            <a href="#" class="nav-link font-weight-bold p-0">Preferences</a>
+          </li> 
+        </ul>
 		</nav>
-    
+
     <div class="row mx-0 top-nav">
       <ul class="top-menu">
         <li class="item">
@@ -152,7 +159,7 @@
         </li>
 
         <li class="item" style="display_none">
-          <a
+          <a 
             href="#" 
             @click="showModulePreferences('dialer', 'dialer', null);" 
             :class="{ 'active' : ( active_module_name ===  'dialer')? true : false }"
@@ -197,25 +204,29 @@
                 :title="role.display_name" 
                 @click="editRole(role)" 
                 v-for="(role,index) in roles" 
-                :key="index" :active="(index == 0)? true : false">
-                <div class="row mx-0" v-if="role_edit">
+                :key="index" :active="(index == 0)? true : false">   
+                <div class="row mx-0 edit-role" v-if="role_edit">
                   <edit-role :role="role" />
                 </div>
 
-                <div class="row mx-0">
-                  <b-button class="btn btn-danger" @click="deleteRole(role)">Delete {{ role.display_name }}</b-button>
-                  <b-button class="btn btn-default" @click="updateRole(role)">Cancel</b-button>
-                  <b-button class="btn btn-primary font-weight-bold" @click="updateRole(role)">Update</b-button>
+                <div class="row justify-content-end mx-0">
+                  <div class="col-6 text-right px-0">
+                    <b-button class="btn btn-danger my-0" @click="deleteRole(role)">Delete</b-button>
+                    <b-button class="btn btn-default my-0" @click="updateRole(role)">Cancel</b-button>
+                    <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="updateRole(role)">Update</b-button>
+                  </div>
+
+                  <div class="col-6 px-0"></div>
                 </div>
 
                 <div class="row mx-0" v-if="role_add">
                   <add-role/>
                 </div>
-                
+
                 <transition name="fade">
                   <div class="row mx-0" v-if="!role_add" >
-                    <div role="tablist" class="col-lg-12">
-                      <div class="row mx-0 align-items-center">
+                    <div role="tablist" class="col-lg-12 px-0">
+                      <div class="row mx-0 align-items-center permissions-divider">
                         <div class="col-auto pl-0">
                           <h5 class="mb-0">Permissions</h5>
                         </div>
@@ -228,9 +239,9 @@
                       <b-button 
                         block 
                         href="#" 
-                        v-b-toggle="'accordion-0'" 
+                        v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="expand-toggle"
+                        class="p-0 expand-toggle"
                       >
                         Dialer
                         <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -241,13 +252,13 @@
                         <b-card>
                           <div v-for="(permission,k) in dialer_permissions" :key="k">
                             <div v-if="permission.role_id == role.id">
-                              <b-form-group  class="permisions">
+                              <b-form-group class="mx-2 permissions">
                                 <a-row >
                                   <a-col :span="8">
                                     <b-form-checkbox 
                                       inline value="1" 
                                       unchecked-value="0" 
-                                      v-model="permission.disabled" 
+                                      v-model="permission.disabled"
                                       @change="applyDialerPermissions()"
                                     >{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</b-form-checkbox>
                                   </a-col>
@@ -281,14 +292,14 @@
                         <b-button 
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
-                          :aria-controls="'accordion-' + (i+1)" 
-                          class="border-radius-0 expand-toggle"
+                          :aria-controls="'accordion-' + (i+1)"
+                          class="p-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <!-- <img src="images/icons/up.svg" width="11"> -->
                           <img src="images/icons/down.svg" width="11">
                         </b-button>
-                          
+
                         <b-collapse :id="'accordion-' + (i+1)" accordion="my-accordion" role="tabpanel">
                           <div v-for="(permission, k) in permissions" :key="k" >
                             <b-card v-if="permission.module_id == a_module.id && permission.role_id == role.id">
@@ -358,313 +369,313 @@
 </template>
 
 <script>
-  import { Bar } from 'vue-chartjs';
-  import { BarChart } from 'vue-morris';
-  import DataTable from '../DataTables/UsersDataTable';
-  import EditRole from './EditRole';
-  import AddRole from './AddRole';
-  import AddModule from './AddModule';
-  import EditModule from './EditModule';
-  import ApiIntegration from './ApiIntegration';
-  import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
-  export default {
-    extends: Bar,
-    components: { 
-      BarChart,
-      VclFacebook,
-      VclInstagram,
-      VclTable,
-      EditRole,
-      AddRole,
-      AddModule,
-      EditModule,
-      ApiIntegration,
-      'datatable' : DataTable
-    },
-    mounted() {
-      this.current_user = JSON.parse(this.logged_user);
-      this.getRoles();
-      this.getModules();
-      this.getPermissions();
-      this.getDialerPermissions();
-      this.getApis();
-
-      var vm = this;
-
-      Fire.$on('DoneAddingRole', function(){
-        vm.getRoles();
-        vm.getPermissions();
-        vm.getDialerPermissions();
-      });
-
-      Fire.$on('DoneEditingRole', function(){
-        vm.getRoles();
-        vm.getPermissions();
-        vm.getDialerPermissions();    
-      });
-
-      Fire.$on('DoneAddingModule', function(){
-        vm.getModules();
-      });
-
-      Fire.$on('AfterModuleDelete', function(){
-        vm.getModules();
-        vm.showModulePreferences('add_module','add_module', null);
-      });
-
-      Fire.$on('AfterUpdatingApis', function(){
-        vm.getApis();
-      });
-
-      this.Toast = this.$swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-    },
-    computed: {
-    },
-    props: ['logged_user'],
-    data: function(){
-      return {
-        edit_role: {
-          display_name : '',
-          description : '',
-          status : '',
+    import { Bar } from 'vue-chartjs';
+    import { BarChart } from 'vue-morris';
+    import DataTable from '../DataTables/UsersDataTable';
+    import EditRole from './EditRole';
+    import AddRole from './AddRole';
+    import AddModule from './AddModule';
+    import EditModule from './EditModule';
+    import ApiIntegration from './ApiIntegration';
+    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
+    export default {
+        extends: Bar,
+        components: { 
+            BarChart,
+            VclFacebook,
+            VclInstagram,
+            VclTable,
+            EditRole,
+            AddRole,
+            AddModule,
+            EditModule,
+            ApiIntegration,
+            'datatable' : DataTable
         },
-        roles: null,
-        modules: null,
-        apis: null,
-        editing_module: null,
-        permissions:[],
-        dialer_permissions: null,
-        current_user: {},
-        add_user: false,
-        active_module_action: null,
-        active_module_name: 'roles',
-        show_page_loader: false,
-        role_edit: false,
-        role_add: false,
-        Toast: null,
-        dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
-        dialer_selected: [],
-        dialer_allSelected: false,
-        dialer_indeterminate: false,
-        flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
-        selected: [],
-        allSelected: false,
-        indeterminate: false
-      }
-    },
-    methods: {
-      toggleAll(){
+        mounted() {
+            this.current_user = JSON.parse(this.logged_user);
+            this.getRoles();
+            this.getModules();
+            this.getPermissions();
+            this.getDialerPermissions();
+            this.getApis();
 
-      },
-      dialerToggleAll(checked) {
-        this.dialer_selected = checked ? this.dialer_options.slice() : []
-      },
-      secondsToMinues(time){
-        var minutes = Math.floor(time / 60);
-        var seconds = time - minutes * 60;
-        var finalTime = this.str_pad_left(minutes,'0',2) + ':' + this.str_pad_left(seconds,'0',2);
-        return finalTime;
-      },
-      str_pad_left(string,pad,length) {
-        return (new Array(length+1).join(pad)+string).slice(-length);
-      },
-      getRoles(){
-        var vm = this;
-        var endpoint = '/roles/get-all';
+            var vm = this;
 
-        vm.show_page_loader = true;
-        vm.$Progress.start();
-
-        axios.get(endpoint).then(function (response) {
-            
-          if(response.data.success == true){
-            vm.roles = response.data.roles;
-            vm.editRole(vm.roles[0]);
-            vm.show_page_loader = false;
-            vm.$Progress.finish();
-          }else{
-            vm.show_page_loader = false;
-            vm.$Progress.fail();
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },	
-      getModules(){
-        var vm = this;
-        var endpoint = '/modules/get-all';
-
-        axios.get(endpoint).then(function (response) {
-            
-          if(response.data.success == true){
-            vm.modules = response.data.modules;
-          }else{
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },
-      getApis(){
-        var vm = this;
-        var endpoint = '/apis/get-all';
-
-        vm.$Progress.start();
-
-        axios.get(endpoint).then(function (response) {
-            
-          if(response.data.success == true){
-            vm.apis = response.data.apis;
-            vm.$Progress.finish();
-          }else{
-            vm.$Progress.fail();
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },	
-      getPermissions(){
-        var vm = this;
-        var endpoint = '/roles/get-permissions';
-
-        axios.get(endpoint).then(function (response) {
-            
-          if(response.data.success == true){
-            vm.permissions = response.data.permissions;
-          }else{
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },
-      getDialerPermissions(){
-        var vm = this;
-        var endpoint = '/roles/get-dialer-permissions';
-
-        axios.get(endpoint).then(function (response) {
-            
-          if(response.data.success == true){
-            vm.dialer_permissions = response.data.permissions;
-          }else{
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },
-      applyDialerPermissions(){
-        var vm = this;
-        var endpoint = '/roles/apply-dialer-permissions';
-
-        vm.$Progress.start();
-
-        axios.put(endpoint, {'permissions':vm.dialer_permissions}).then(function (response) {
-          if(response.data.success == true){
-            vm.dialer_permissions = response.data.permissions;
-            vm.Toast.fire({ type: 'success'});
-            vm.$Progress.finish();
-          }else{
-            vm.$Progress.fail();
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-          }
-        });
-      },
-      editRole(edit_role = null){
-        var vm = this;
-        vm.edit_role = edit_role;
-        vm.role_edit = true;
-        vm.role_add = false;
-      },
-      addRole(){
-        var vm = this;
-        vm.role_add = true;
-        vm.role_edit = false;
-      },
-      updateRole(role){
-        Fire.$emit('UpdateRole', { 
-          'role' : role,
-        });
-      },
-      deleteRole(role){
-        var vm = this;  
-        vm.$swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#409EFF',
-          cancelButtonColor: '#F56C6C',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.value) {  
-            vm.$Progress.start();
-
-            var end_point = '/roles/delete';
-            console.log(role);
-            axios.post(end_point,{ 'role' : role }).then(function (response) {
-                    
-              if(response.data.success == true){
-                vm.$Progress.finish();
-                vm.Toast.fire({ type: 'success', title: response.data.message });
-                
-                Fire.$emit('DoneEditingRole');
-              }else {
-                vm.$Progress.fail();
-                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-              }
+            Fire.$on('DoneAddingRole', function(){
+                vm.getRoles();
+                vm.getPermissions();
+                vm.getDialerPermissions();
             });
-            }
-          });
-        },
-        showModulePreferences(active_module, action, in_module){
-          Fire.$emit(action, { 'module' : in_module });
-          this.editing_module = in_module;
-          this.active_module_name = active_module;
-          this.active_module_action = action;
-        },
-        updatePermmissions(){
-          var vm = this;
-          var endpoint = '/roles/update-permissions';
 
-          vm.$Progress.start();
+            Fire.$on('DoneEditingRole', function(){
+                vm.getRoles();
+                vm.getPermissions();
+                vm.getDialerPermissions();    
+            });
 
-          axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
-            if(response.data.success == true){
-              vm.permissions = response.data.permissions;
-              vm.Toast.fire({ type: 'success'});
-              vm.$Progress.finish();
-            }else{
-              vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+            Fire.$on('DoneAddingModule', function(){
+                vm.getModules();
+            });
+
+            Fire.$on('AfterModuleDelete', function(){
+                vm.getModules();
+                vm.showModulePreferences('add_module','add_module', null);
+            });
+
+            Fire.$on('AfterUpdatingApis', function(){
+                vm.getApis();
+            });
+
+            this.Toast = this.$swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        },
+        computed: {
+        },
+        props: ['logged_user'],
+        data: function(){
+            return {
+                edit_role: {
+                    display_name : '',
+                    description : '',
+                    status : '',
+                },
+                roles: null,
+                modules: null,
+                apis: null,
+                editing_module: null,
+                permissions:[],
+                dialer_permissions: null,
+                current_user: {},
+                add_user: false,
+                active_module_action: null,
+                active_module_name: 'roles',
+                show_page_loader: false,
+                role_edit: false,
+                role_add: false,
+                Toast: null,
+                dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
+                dialer_selected: [],
+                dialer_allSelected: false,
+                dialer_indeterminate: false,
+                flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
+                selected: [],
+                allSelected: false,
+                indeterminate: false
             }
-          });
-      }
-    },
-    watch: {
-      selected(newVal, oldVal) {
-        // Handle changes in individual flavour checkboxes
-        if (newVal.length === 0) {
-        this.indeterminate = false
-        this.allSelected = false
-        } else if (newVal.length === this.flavours.length) {
-        this.indeterminate = false
-        this.allSelected = true
-        } else {
-        this.indeterminate = true
-        this.allSelected = false
+        },
+        methods: {
+            toggleAll(){
+
+            },
+            dialerToggleAll(checked) {
+                this.dialer_selected = checked ? this.dialer_options.slice() : []
+            },
+            secondsToMinues(time){
+                var minutes = Math.floor(time / 60);
+                var seconds = time - minutes * 60;
+                var finalTime = this.str_pad_left(minutes,'0',2) + ':' + this.str_pad_left(seconds,'0',2);
+                return finalTime;
+            },
+            str_pad_left(string,pad,length) {
+                    return (new Array(length+1).join(pad)+string).slice(-length);
+            },
+            getRoles(){
+                var vm = this;
+                var endpoint = '/roles/get-all';
+
+                vm.show_page_loader = true;
+                vm.$Progress.start();
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.roles = response.data.roles;
+                        vm.editRole(vm.roles[0]);
+                        vm.show_page_loader = false;
+                        vm.$Progress.finish();
+                    }else{
+                        vm.show_page_loader = false;
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },	
+            getModules(){
+                var vm = this;
+                var endpoint = '/modules/get-all';
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.modules = response.data.modules;
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            getApis(){
+                var vm = this;
+                var endpoint = '/apis/get-all';
+
+                vm.$Progress.start();
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.apis = response.data.apis;
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },	
+            getPermissions(){
+                var vm = this;
+                var endpoint = '/roles/get-permissions';
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.permissions = response.data.permissions;
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            getDialerPermissions(){
+                var vm = this;
+                var endpoint = '/roles/get-dialer-permissions';
+
+                axios.get(endpoint).then(function (response) {
+                    
+                    if(response.data.success == true){
+                        vm.dialer_permissions = response.data.permissions;
+                    }else{
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            applyDialerPermissions(){
+                var vm = this;
+                var endpoint = '/roles/apply-dialer-permissions';
+
+                vm.$Progress.start();
+
+                axios.put(endpoint, {'permissions':vm.dialer_permissions}).then(function (response) {
+                    if(response.data.success == true){
+                        vm.dialer_permissions = response.data.permissions;
+                        vm.Toast.fire({ type: 'success'});
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            },
+            editRole(edit_role = null){
+                var vm = this;
+                vm.edit_role = edit_role;
+                vm.role_edit = true;
+                vm.role_add = false;
+            },
+            addRole(){
+                var vm = this;
+                vm.role_add = true;
+                vm.role_edit = false;
+            },
+            updateRole(role){
+                Fire.$emit('UpdateRole', { 
+                    'role' : role,
+                });
+            },
+            deleteRole(role){
+              var vm = this;  
+              vm.$swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#409EFF',
+                  cancelButtonColor: '#F56C6C',
+                  confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                  if (result.value) {  
+                    vm.$Progress.start();
+
+                    var end_point = '/roles/delete';
+                    console.log(role);
+                    axios.post(end_point,{ 'role' : role }).then(function (response) {
+                            
+                        if(response.data.success == true){
+                            vm.$Progress.finish();
+                            vm.Toast.fire({ type: 'success', title: response.data.message });
+                            
+                            Fire.$emit('DoneEditingRole');
+                        }else {
+                            vm.$Progress.fail();
+                            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                        }
+                    });
+                    }
+                });
+            },
+            showModulePreferences(active_module, action, in_module){
+                Fire.$emit(action, { 'module' : in_module });
+                this.editing_module = in_module;
+                this.active_module_name = active_module;
+                this.active_module_action = action;
+            },
+            updatePermmissions(){
+                var vm = this;
+                var endpoint = '/roles/update-permissions';
+
+                vm.$Progress.start();
+
+                axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
+                    if(response.data.success == true){
+                        vm.permissions = response.data.permissions;
+                        vm.Toast.fire({ type: 'success'});
+                        vm.$Progress.finish();
+                    }else{
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+                    }
+                });
+            }
+        },
+        watch: {
+            selected(newVal, oldVal) {
+                // Handle changes in individual flavour checkboxes
+                if (newVal.length === 0) {
+                this.indeterminate = false
+                this.allSelected = false
+                } else if (newVal.length === this.flavours.length) {
+                this.indeterminate = false
+                this.allSelected = true
+                } else {
+                this.indeterminate = true
+                this.allSelected = false
+                }
+            },
+            dialer_selected(newVal, oldVal) {
+                // Handle changes in individual flavour checkboxes
+                if (newVal.length === 0) {
+                this.dialer_indeterminate = false
+                this.dialer_allSelected = false
+                } else if (newVal.length === this.flavours.length) {
+                this.dialer_indeterminate = false
+                this.dialer_allSelected = true
+                } else {
+                this.dialer_indeterminate = true
+                this.dialer_allSelected = false
+                }
+            }
         }
-      },
-      dialer_selected(newVal, oldVal) {
-        // Handle changes in individual flavour checkboxes
-        if (newVal.length === 0) {
-        this.dialer_indeterminate = false
-        this.dialer_allSelected = false
-        } else if (newVal.length === this.flavours.length) {
-        this.dialer_indeterminate = false
-        this.dialer_allSelected = true
-        } else {
-        this.dialer_indeterminate = true
-        this.dialer_allSelected = false
-        }
-      }
     }
-  }
 </script>

@@ -558,7 +558,7 @@ border-radius: 25px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
   border-bottom-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 #preferences .card-header {
   padding-left: 0;

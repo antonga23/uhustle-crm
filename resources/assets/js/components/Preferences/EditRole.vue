@@ -18,7 +18,7 @@
 </style>
 <template>
   <div class="col-lg-6 px-0">
-    <b-container fluid>
+    <b-container fluid class="px-0">
       <b-row class="mx-0">
         <b-col sm="12" class="px-0">
           <label for="input-none">Role Name</label>
