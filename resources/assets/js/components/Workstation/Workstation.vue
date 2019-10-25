@@ -414,21 +414,6 @@ a.down-scroll{
 a.down-scroll:hover{ 
   margin-top: 5px;  
 } 
-.idle-education .col-lg-10{ 
-  max-width: 80.333333%; 
-} 
-.idle-education .col-lg-4 p{ 
-  color: #1c2331;  
-} 
-.idle-education .col-lg-4{ 
-  float: left; 
-  display: block; 
-  border-radius: 25px; 
-  box-shadow: 0px 1px 6px 0px #4a4a4a; 
-  margin: 0 10px 19px 10px; 
-  max-width: 30.333333%; 
-  padding: 25px;
-} 
 .btn-active:hover{ 
   background: #00344a; 
   color: #ffffff;    border: none !important; 
@@ -2172,7 +2157,7 @@ a.down-scroll:hover{
             general: false,
             active_calls: false,
             calling: false,
-            has_education: true,
+            has_education: false,
             idle: false,
             added_time: false,
             choose_comment_type: false,
