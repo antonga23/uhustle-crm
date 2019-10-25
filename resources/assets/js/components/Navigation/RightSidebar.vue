@@ -462,6 +462,9 @@
     .update-user, .update-filter, .save-filter {
         margin: 0px 0px 5px 0px;
     }
+    .row.cal-height {
+        max-height: 390px;
+    }
     
     .final-modal {
         padding: 0 0 1rem;
@@ -898,7 +901,7 @@
             <section class="sidebar p-3 h-100">
                 <a href="#" data-toggle="push-menu" class="menu-toggle">
                 </a>
-                <div class="sidebar-menu" data-widget="tree">
+                <div class="sidebar-menu grey-scroll" data-widget="tree">
                     <div class="open-sidenav">
                         <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
                             <!-- Right Side Of Navbar -->
@@ -1351,7 +1354,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row cal-height">
                                 <div class="col-lg-12 final-modal border-0">
                                     <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
                                         <div class="card-header tab-card-header p-0">
