@@ -635,7 +635,7 @@ border-radius: 25px;
 }
 .divider-line { 
   height: 1px; 
-  background-color: #999; 
+  background-color: #cccccc; 
 } 
 #edit-module .nav-tabs,
 #add-module .nav-tabs {
@@ -646,7 +646,12 @@ border-radius: 25px;
   border-radius: 50rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  border-color: #999999;
+  border-color: #cccccc;
+  height:auto!important;
+  padding: 11px 18px!important;
+}
+.ant-select-selection__rendered {
+  line-height:1em!important;
 }
 #edit-module .ant-select-selection--multiple, 
 #add-module .ant-select-selection--multiple{
@@ -654,7 +659,7 @@ border-radius: 25px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   padding: 12px 15px;
-  border-color: #999999;
+  border-color: #cccccc;
 }
 #edit-module .ant-select-selection-selected-value, 
 #add-module .ant-select-selection-selected-value{

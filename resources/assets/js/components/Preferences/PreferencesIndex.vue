@@ -3,14 +3,19 @@
     padding-left: 5.2%;
     padding-right: 5.2%;
   }
+  .top-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .navbar {
     padding: 0;
   }
 	/*Right Component*/
-	li.title a {
-		color: #003449;
-		font-size: 25px;
-    letter-spacing: 4.2px;
+	li.title h1 {
+		color: #003549;
+    font-size: 32px;
+    letter-spacing: 0.1em;
   }
   div.top-nav{
     margin-top: 15px;
@@ -79,6 +84,9 @@
     display: block;
     width: 98%;
   }
+  .add-module-btn {
+    box-shadow:none!important;
+  }
   .tab-pane.card-body {
     padding:4.4% 5.6% 6.8%;
   }
@@ -93,11 +101,18 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-color: #999;
+    border-color: #ccc;
     font-family: 'Rubik', sans-serif;
     font-size:14px;
     color: #999999;
     margin-top: 4.6%;
+  }
+  .expand-toggle.btn-secondary:not(:disabled):not(.disabled):active, 
+  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active, 
+  .show > .expand-toggle.btn-secondary.dropdown-toggle {
+    background: #fff;
+    border-color: #fff;
+    color: #999999;
   }
   .expand-toggle[aria-expanded="true"] {
     border-bottom: 0;
@@ -109,7 +124,7 @@
   }
   .collapse.show .card {
     border-radius: 25px;
-    border: 1px solid #999999!important;
+    border: 1px solid #ccc!important;
   }
   .collapse.show .card-body{
     padding: 1.15% 2.5% 1.85%;
@@ -131,7 +146,7 @@
 			<!-- Left navbar links -->
         <ul class="navbar-nav left">
           <li class="nav-item d-none d-sm-inline-block title">
-            <a href="#" class="nav-link font-weight-bold p-0">Preferences</a>
+            <h1 class="font-weight-bold p-0">System Preferences</h1>
           </li> 
         </ul>
 		</nav>
@@ -175,10 +190,12 @@
           <a 
             role="button" 
             rel="addModuleLink" 
-            @click="showModulePreferences('add_module','add_module', null);" 
-            :class="{ 'active' : ( active_module_name ===  'add_module')? true : false }" 
+            @click="showModulePreferences('add_module','add_module', null);"
             title="Add new Module"
-          >+ Add New</a>
+            class="p-0 add-module-btn"
+          >
+            <img src="images/icons/Module_Add.svg" width="47"/>
+          </a>
         </li>
       </ul>
     </div>
@@ -193,7 +210,9 @@
                 :title="role.display_name" 
                 @click="editRole(role)" 
                 v-for="(role,index) in roles" 
-                :key="index" :active="(index == 0)? true : false">   
+                :key="index" 
+                :active="(index == 0)? true : false"
+              >   
                 <div class="row mx-0 edit-role" v-if="role_edit">
                   <edit-role :role="role" />
                 </div>
