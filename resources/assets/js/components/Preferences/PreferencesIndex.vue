@@ -31,7 +31,6 @@
     box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
   }
-  ul.top-menu li.item a:hover,
   ul.top-menu li.item a.active{
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;

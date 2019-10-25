@@ -9,6 +9,10 @@
   .b-container{
     margin-bottom: 25px
   }
+  .col {
+    padding-right: 1.3%;
+    padding-left: 1.3%;
+  }
   .scrollable{
     height: 789px;
     overflow: overlay;
@@ -198,7 +202,7 @@
                 </a-select>
               </b-col>
 
-              <b-col sm="auto" class="pr-0" style="padding-top: 36px;">
+              <b-col sm="auto" style="padding-top: 36px;">
                 <b-button
                   v-if="(index + 1) < module.module_fields.length" 
                   @click="removeField(index)"
@@ -206,6 +210,7 @@
                 >
                   <img src="images/icons/Field_Delete.svg" width="19"/>
                 </b-button>
+
                 <b-button 
                   v-else 
                   @click="addField()" 
@@ -219,7 +224,7 @@
 
           <b-row class="mx-0 justify-content-end">
             <b-button variant="default" @click="editModule()">Cancel</b-button>
-            <b-button variant="primary" @click="editModule()">Update</b-button>
+            <b-button variant="primary" @click="editModule()" class="font-weight-bold">Update</b-button>
             <b-button variant="danger" @click="deleteModule()">Delete</b-button>
           </b-row>
         </b-tab>

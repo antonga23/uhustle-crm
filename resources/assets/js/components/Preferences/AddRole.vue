@@ -37,7 +37,7 @@
           <label v-if="status == 0">Inactive</label>
           <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
 
-          <b-button variant="primary" class="m-0" @click="addRole()">Add Role</b-button>
+          <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add Role</b-button>
         </b-col>
       </b-row>
     </b-container>
