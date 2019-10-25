@@ -267,7 +267,7 @@ class ModuleController extends Controller
 
               if($meta_name->name == 'assignee'){ 
                 
-                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
                 
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
@@ -278,7 +278,7 @@ class ModuleController extends Controller
 
               }else if ($meta_name->name == 'owner'){
 
-                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname')->first();
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
 
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
@@ -299,7 +299,7 @@ class ModuleController extends Controller
 
               }else if ($meta_name->name == 'source'){
 
-                $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->first();
+                $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->select('id','name')->first();
 
                 $display_array[$meta_name->name] = $lead_source['name'];
 
@@ -348,12 +348,14 @@ class ModuleController extends Controller
 
               if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
                 $fields_array['assigned'] = true;
+                $display_array['assigned'] = true;
                 $count_assigned++;
               }else if($meta_name->name == 'assignee' && $meta->custom_field_value == '0' && $item->id == $meta->item_id){
                 $fields_array['assigned'] = false;
                 $count_unassigned++;
               }else if($meta_name->name == 'assignee' && is_null($meta->custom_field_value) && $item->id == $meta->item_id){
                 $fields_array['assigned'] = false;
+                $display_array['assigned'] = false;
                 $count_unassigned++;
               }
               

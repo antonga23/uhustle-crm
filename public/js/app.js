@@ -69072,6 +69072,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -70846,6 +70850,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
@@ -71472,54 +71482,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -71702,6 +71664,17 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     showEdit: function showEdit(row_id) {
+      var vm = this;
+      this.editing_row = !this.editing_row;
+
+      if (this.editing_row === false) {
+        this.row_id = null;
+      } else {
+        this.row_id = row_id;
+      } // this.$bvModal.show('update-user-modal');
+
+    },
+    cancelEdit: function cancelEdit(row_id) {
       var vm = this;
       this.editing_row = !this.editing_row;
 
@@ -73534,6 +73507,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       items: [],
       display_items: [],
+      chached_display_items: [],
       count_assigned: 0,
       count_unassigned: 0,
       user: {
@@ -73559,17 +73533,14 @@ __webpack_require__.r(__webpack_exports__);
       add_user: false,
       show_page_loader: false,
       Toast: null,
-      columns: [{
-        label: '',
-        // Column name
-        field: 'all',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: false
-      }]
+      columns: [// {
+        //     label: '',  // Column name
+        //     field: 'all',  // Field name from row
+        //     numeric: false, // Affects sorting
+        //     html: false,    // Escapes output if false.
+        //     sortable:false
+        // }
+      ]
     };
   },
   methods: {
@@ -73599,6 +73570,23 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       });
+    },
+    filterItems: function filterItems(type) {
+      this.display_items = this.chached_display_items;
+      var filtered = this.display_items.filter(function (item) {
+        if (type == -1) {
+          return item;
+        } else if (type == 1) {
+          if (item.assigned == true) {
+            return item;
+          }
+        } else if (type == 0) {
+          if (item.assigned == false) {
+            return item;
+          }
+        }
+      });
+      this.display_items = filtered; // console.log(filtered);
     },
     getLastCommentDade: function getLastCommentDade(comments) {
       if (comments.length > 0) {
@@ -73636,6 +73624,7 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.success == true) {
           vm.items = response.data.items;
           vm.display_items = response.data.display_items;
+          vm.chached_display_items = response.data.display_items;
           vm.count_assigned = response.data.count_assigned;
           vm.count_unassigned = response.data.count_unassigned;
           vm.show_page_loader = false;
@@ -73677,22 +73666,20 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    applyFilter: function applyFilter(filter) {
-      var vm = this;
-      vm.$Progress.start();
-      axios.post('/filters/filter/0', {
-        'filter': filter
-      }).then(function (response) {
-        if (response.data.success == true) {
-          vm.users.leads = response.data.leads;
-          Fire.$emit('CustomFilterApplied', filter);
-          vm.$Progress.finish();
-        } else {
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
-          vm.$Progress.fail();
-        }
-      });
-    },
+    // applyFilter(filter){
+    //     var vm = this;
+    //     vm.$Progress.start();
+    //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
+    //         if(response.data.success == true){
+    //             vm.users.leads = response.data.leads;
+    //             Fire.$emit('CustomFilterApplied', filter);
+    //             vm.$Progress.finish();
+    //         }else{
+    //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+    //             vm.$Progress.fail();
+    //         }
+    //     });
+    // },
     deleteFilter: function deleteFilter(id) {
       var _this2 = this;
 
@@ -76309,6 +76296,12 @@ __webpack_require__.r(__webpack_exports__);
       vm.dialer_active = false;
       vm.active_calls_active = false;
     });
+    Fire.$on('ShowScripts', function () {
+      vm.showScripts();
+    });
+    Fire.$on('ShowActiveCalls', function () {
+      vm.showActiveCalls();
+    });
   },
   mounted: function mounted() {
     this.current_user = JSON.parse(this.logged_user);
@@ -76382,6 +76375,7 @@ __webpack_require__.r(__webpack_exports__);
       var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     },
     showActiveCalls: function showActiveCalls() {
+      this.active_calls = true;
       this.active_calls_active = true;
       this.general_active = false;
       this.scripts_active = false;
@@ -82211,6 +82205,741 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -82238,18 +82967,21 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     var vm = this;
 
     if (vm.lead_id != '') {
-      console.log('Lead Mounting' + vm.lead_id);
       vm.enqueueLead(vm.lead_id);
       vm.general = true;
       vm.active_calls = false;
-    } else if ((this.role_id == 1 || this.role_id == 2) && vm.lead_id == '') {
-      vm.active_calls = true;
-      Fire.$emit('ShowActiveCalls');
+      Fire.$emit('ShowGeneral');
     } else {
-      vm.general = false;
-      vm.scripts = false;
-      vm.idle = true;
-      vm.active_calls = false;
+      if (this.role_id == 1 || this.role_id == 2) {
+        vm.active_calls = true;
+        Fire.$emit('ShowActiveCalls');
+      } else {
+        vm.general = false;
+        vm.scripts = true;
+        vm.idle = false;
+        vm.active_calls = false;
+        Fire.$emit('ShowActiveCalls');
+      }
     }
 
     vm.getActiveCalls();
@@ -82449,8 +83181,180 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         // Escapes output if false.
         sortable: false
       }],
-      Toast: null
+      Toast: null,
+      callStats: [{
+        abbreviation: 'NA',
+        percent: 53
+      }, {
+        abbreviation: 'FT',
+        percent: 9
+      }, {
+        abbreviation: 'LB',
+        percent: 4
+      }, {
+        abbreviation: 'MI',
+        percent: 30
+      }, {
+        abbreviation: 'VM',
+        percent: 15
+      }],
+      activityItems: [{
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#f42222',
+        status: 'Not Started',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#00d58e',
+        status: 'Finished',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }, {
+        statusColor: '#ff8c37',
+        status: 'In Progress',
+        subject: 40,
+        dueDate: 'Dickerson',
+        activityOwner: 'Macdonald',
+        timeModified: ''
+      }],
+      dealItems: [{
+        dealName: '#f42222',
+        amount: '0',
+        probability: 40,
+        closingDate: 'Dickerson',
+        type: 'Macdonald',
+        edit: ''
+      }, {
+        dealName: '#00d58e',
+        amount: '0',
+        probability: 40,
+        closingDate: 'Dickerson',
+        type: 'Macdonald',
+        edit: ''
+      }, {
+        dealName: '#ff8c37',
+        amount: '0',
+        probability: 40,
+        closingDate: 'Dickerson',
+        type: 'Macdonald',
+        edit: ''
+      }],
+      perPage: 10,
+      currentPage: 1
     };
+  },
+  computed: {
+    rows: function rows() {
+      return this.activityItems.length;
+    }
   },
   methods: (_methods = {
     getActiveCalls: function getActiveCalls() {
@@ -132844,7 +133748,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row.stats[data-v-507c5f96] {\n    padding: 0 3%\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 3%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    width: 100px;\n    float: right;\n    border-radius: 50%;\n    background-color: #EBEFF3;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 3%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    width: 100px;\n    float: right;\n    border-radius: 50%;\n    background-color: #EBEFF3;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 26px;\n}\n}\n@media screen and (max-width: 1352px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -132901,7 +133805,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.no-box-shadow[data-v-ccb78764] {\n      box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}Barge\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\ntable td[data-v-ccb78764]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\ntable td[data-v-ccb78764]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -132920,7 +133824,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.no-box-shadow[data-v-6263b939] {\r\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\r\n    display: block;\r\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\r\n    width: 98%;\r\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\r\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\r\n    position: relative;\r\n    padding: 0.75rem 1.25rem;\r\n    margin-bottom: 1rem;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    width: 100%;\r\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\r\n    display: flex;\r\n    width: 90%;\r\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\r\n.uploaded-files .Delete[data-v-6263b939]:active{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\r\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n    /* table-layout: fixed; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n    height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n    font-size: 12px;\r\n    border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\r\n   font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\r\ntable td[data-v-6263b939]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -132977,7 +133881,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.no-box-shadow[data-v-3f7b2f16] {\r\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {\r\n    align-items: center;\r\n    display: flex;\r\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\r\n    width: 28px;\r\n    margin-top: 0px;\r\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{\r\n    padding: 0px 7px;\r\n    width: 41px;\r\n    display: block;\r\n    height: 46px;\r\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,\r\ntable tr td a.View[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,\r\ntable tr td a.Delete[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,\r\ntable tr td a.Edit[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{\r\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\r\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\r\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\r\n    /* table-layout: fixed; */\r\n    /* border-collapse: separate; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\r\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\r\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\r\n.table-footer .datatable-length[data-v-3f7b2f16] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\r\n     height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-3f7b2f16] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n     border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\r\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\r\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\r\ntable th.sorting-desc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{\r\n    color: #1890ff !important;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\r\ntable th.sorting-asc[data-v-3f7b2f16]:after,\r\ntable th.sorting-desc[data-v-3f7b2f16]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\r\ntable td[data-v-3f7b2f16]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\r\ntable td[data-v-3f7b2f16]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\nthead th[data-v-3f7b2f16] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] {\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {\n    align-items: center;\n    display: flex;\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\n    width: 28px;\n    margin-top: 0px;\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{\n    padding: 0px 7px;\n    width: 41px;\n    display: block;\n    height: 46px;\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,\ntable tr td a.View[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,\ntable tr td a.Delete[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,\ntable tr td a.Edit[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\n    /* table-layout: fixed; */\n    /* border-collapse: separate; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\n     height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-3f7b2f16] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\n    font-size: 12px;\n     border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{\n    color: #1890ff !important;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\ntable th.sorting-asc[data-v-3f7b2f16]:after,\ntable th.sorting-desc[data-v-3f7b2f16]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\ntable td[data-v-3f7b2f16]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\ntable td[data-v-3f7b2f16]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -133015,7 +133919,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\r\n        background: #B3B3B3 !important;\r\n        border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar {\r\n        width: 5px !important;\r\n        height: 5px;\n}\n.row[data-v-78f6706a]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-78f6706a]{\r\n    list-style: none;\n}\n.top-section li[data-v-78f6706a]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-78f6706a]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-78f6706a]{\r\n    border-radius: 27px;\r\n    border: none;\n}\n.card-body[data-v-78f6706a]{\r\n    color: #fff;\n}\n.card-title[data-v-78f6706a] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-78f6706a]{\r\n    color: #fff;\n}\nh5 .icon[data-v-78f6706a]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-78f6706a]{\r\n    color: #fff;\r\n    width: 100%;\r\n    margin-right: 0;\r\n    text-align: left;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\r\n    float: right;\n}\np.card-text[data-v-78f6706a]{\r\n    font-size: 16px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 100%;\r\n    float: right;\n}\np.card-text span[data-v-78f6706a]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-78f6706a]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-78f6706a]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-78f6706a]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-78f6706a] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\r\n    float: right;\n}\n.truncate[data-v-78f6706a] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-78f6706a]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\r\n    height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\r\n    background: #fff;    \r\n    margin-left: -53px;\r\n    margin-right: -66px;\r\n    padding: 0px 37px;\n}\n.green[data-v-78f6706a]{\r\n    color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\r\n    color:red !important;\n}.card-text-small[data-v-78f6706a]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\r\n    width: 12%;\n}\n.badge img[data-v-78f6706a]{\r\n    width: 100%;\n}\nul.headings[data-v-78f6706a]{\r\n    list-style: none;\r\n    padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 11%;\r\n    text-align: left;\n}\nul.items[data-v-78f6706a]{\r\n    list-style: none;\r\n    padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 11%;\r\n    text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    padding-top: 6px;\r\n    padding-right: 6px;\r\n    width: 100%;\n}\ntable.listing[data-v-78f6706a]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\r\n    cursor: pointer;\r\n    margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\r\n    padding: 23px 4% 0;\n}\n.control-label[data-v-78f6706a]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-78f6706a]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\r\n    background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\r\n    transition: padding 0.3s;\r\n    overflow-y: scroll;\r\n    height: 380px;\n}\r\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\n        background: #B3B3B3 !important;\n        border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar {\n        width: 5px !important;\n        height: 5px;\n}\n.row[data-v-78f6706a]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-78f6706a]{\n    list-style: none;\n}\n.top-section li[data-v-78f6706a]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-78f6706a]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-78f6706a]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-78f6706a]{\n    color: #fff;\n}\n.card-title[data-v-78f6706a] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-78f6706a]{\n    color: #fff;\n}\nh5 .icon[data-v-78f6706a]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-78f6706a]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\n    float: right;\n}\np.card-text[data-v-78f6706a]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-78f6706a]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-78f6706a]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-78f6706a]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-78f6706a]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-78f6706a] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\n    float: right;\n}\n.truncate[data-v-78f6706a] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-78f6706a]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\n    height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-78f6706a]{\n    color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\n    color:red !important;\n}.card-text-small[data-v-78f6706a]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\n    width: 12%;\n}\n.badge img[data-v-78f6706a]{\n    width: 100%;\n}\nul.headings[data-v-78f6706a]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-78f6706a]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-78f6706a]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\n    cursor: pointer;\n    margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\n    padding: 23px 4% 0;\n}\n.control-label[data-v-78f6706a]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-78f6706a]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\n    background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
 
 // exports
 
@@ -133281,7 +134185,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-top: 90px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 50px;\n}\n.top-section .col-auto[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid #003549;\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  color: #003449;\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  color: #003449;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 27px;\n}\n.card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #fff;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 23px; \r\n  color: #fff; \r\n  font-weight: bolder;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 9px rgba(160, 124, 124, 0.15);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 20px;\r\n  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.choose-comment-type[data-v-f3210f20]{ \r\n  float: left;\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 10px 0px; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer; \r\n  float: left;\n}\n#send-btn[data-v-f3210f20]{ \r\n  height: 50px; \r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  margin-right: 23px;\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\r\n  box-shadow: inset 5px -5px 10px rgba(0,0,0,0.05);\r\n  border: 0;\r\n  background-color: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a.active[data-v-f3210f20]{\r\n  box-shadow: none!important;\n}\n.final-modal .card ul li.left[data-v-f3210f20]{ \r\n  border-top-left-radius: 19px;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20] {\r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 0px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-f3210f20]:hover {\r\n  border-top-left-radius: 20px; \r\n  border-top-right-radius: 0px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.final-modal .card ul li.right[data-v-f3210f20]{ \r\n  border-top-right-radius: 19px; \r\n  border-top-left-radius: 0px;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20] {\r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  padding: 16px; \r\n  font-size: 16px; \r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-f3210f20]:hover {\r\n  border-top-left-radius: 0px; \r\n  border-top-right-radius: 20px; \r\n  background: #fff; \r\n  padding: 16px; \r\n  font-size: 16px;\n}\n.tab-pane[data-v-f3210f20]{ \r\n  height: 348px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n} \r\n/*being used?*/\n.ant-time-picker[data-v-f3210f20]{ \r\n  width: 100% !important;\n} \r\n", ""]);
+exports.push([module.i, "\n#workstation .general-section-stats[data-v-f3210f20],\n#workstation .scripts[data-v-f3210f20] {\n  height:100vh;\n  overflow-y: scroll;\n}\n.row[data-v-f3210f20]{ \n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\n  padding-top: 69px;\n  padding-left: 5%;\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\n  padding-left: 5%;\n  padding-right: 5%;\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {\n  padding-left: 3%;\n  padding-right:3%;\n}\n.top-section .col[data-v-f3210f20]{\n  padding: 0 10px; \n  border-left: 1px solid rgba(0,52,73,1);\n}\n.top-section p.bottom[data-v-f3210f20]{\n  font-size: 19px; \n  font-weight: 700; \n  letter-spacing: 0.05em;\n  color: rgba(30,34,83,1);\n}\n.top-section p.top[data-v-f3210f20]{ \n  font-size: 13px; \n  color: rgba(78,77,77,1);\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif; \n  padding-bottom:20px;\n  margin-bottom:0;\n}\n.card[data-v-f3210f20]{ \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.5rem; \n  border-bottom: 1px solid #fff; \n  font-size:14px;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \n  width: 15px; \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \n  font-size: 32px; \n  color: #fff; \n  font-weight: bolder; \n  line-height:1em;\n}\np.card-link[data-v-f3210f20]{ \n  font-size: 16px; \n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\n  padding-left:3%;\n  padding-right: 3%;\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\n  background-color: #f6f8f9;\n  padding-left:3%;\n  padding-right: 3%;\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \n  border-radius: 25px;\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); \n  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);\n}\n.stats .card h5[data-v-f3210f20]{ \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \n  width: 25px; \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.75rem; \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \n  float: right;\n}\n.truncate[data-v-f3210f20] { \n  white-space: nowrap; \n  overflow: hidden; \n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \n  font-size: 18px; \n  margin-right: 30px;\n  float: left; \n  width: 12%; \n  margin-top: 11px; \n  color: #003449;     \n  letter-spacing: 2.2px;\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\n  float: left; \n  margin-top: 11px; \n  width: 57%; \n  font-size: 10px; \n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \n  float: right; \n  margin-top: 11px; \n  font-size: 10px; \n  text-align: left; \n  width: 22%;\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], .callback-capture[data-v-f3210f20] {\n  background: #f4f4f4;\n  border-radius: 50rem;\n  height:50px;\n}\n.choose-comment-type[data-v-f3210f20]{\n  height: 50px; \n  width: 50px; \n  padding: 11px; \n  margin: 0 10px 0 0; \n  background: #f4f4f4; \n  border-radius: 50rem!important; \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \n  height: 50px;\n  padding: 11px; \n  margin: 0; \n  border-radius: 9px; \n  background: #f4f4f4;\n  cursor: pointer; \n  float: left;\n}\n.keys[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif;\n  font-size: 8px;\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {\n  color: #666;\n  letter-spacing: 0.05em;\n  font-size:12px;\n  font-family: 'Rubik', sans-serif;\n}\n#submit-btn img[data-v-f3210f20]{ \n  margin-top: -15px; \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 34px 0; \n  background-image: url(/images/call/Call_Background.svg) !important; \n  background-size: cover; \n  background-repeat: no-repeat;\n  max-height:120vh; \n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \n  padding: 7px; \n  background-image: url(/images/call/Call_Logo.svg) !important; \n  background-size: 75%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \n  margin-bottom: 40px; \n  background-size: 20%; \n  background-repeat: no-repeat; \n  background-position: center 1px; \n  margin-bottom: 40px; \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \n  border-bottom: 1px solid #fff; \n  margin-bottom: 10px;     \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \n  color: #fff; \n  font-size: 1.6rem; \n  letter-spacing: 6px; \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n  margin-bottom: 10px;     \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \n  background-image: url('/images/call/1@4x.png') !important; \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  background-image: url('/images/graph_grid.png') !important; \n  background-repeat: repeat-x; \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n  width: 14%; \n  float: left; \n  margin-left: 6.5%; \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0;\n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n  margin-top: 5px; \n  text-align: center; \n  color: #003449; \n  font-size: 18px; \n  font-weight: 900; \n  letter-spacing: 2.2px; \n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \n  max-height:880.84px; \n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \n  max-height:35px; \n  overflow:hidden; \n  padding:0px; \n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -38px; \n  right: -62px; \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -1px; \n  right: 14px; \n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \np.maximize a[data-v-f3210f20]{ \n  color: #fff;  \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \n  font-size: 17px; \n  border-bottom: 1px solid #003449; \n  margin-bottom: 18px; \n  color: #003449; \n  letter-spacing: 1.42px;\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \n  border:0;\n  box-shadow:0 0 10px rgba(0,0,0,0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \n  flex: 1 1 auto; \n  padding: 3.25rem; \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \n  color: #fff;\n  border-bottom: 1px solid #fff; \n  padding-bottom: 5px; \n  font-size: 32px; \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 6%; \n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \n  background-size: 100%; \n  background-repeat: no-repeat; \n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \n  padding: 7px; \n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \n  background-size: 100%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \n  padding: 7px; \n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \n  background-size: 33%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \n  margin: 0 auto; \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \n  margin: 0 auto; \n  text-align: center; \n  font-size: 12px; \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \n  margin-top: 5px;\n}\n.idle-education .col-lg-10[data-v-f3210f20]{ \n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-f3210f20]{ \n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-f3210f20]{ \n  float: left; \n  display: block; \n  border-radius: 25px; \n  box-shadow: 0px 1px 6px 0px #4a4a4a; \n  margin: 0 10px 19px 10px; \n  max-width: 30.333333%; \n  padding: 25px;\n}\n.btn-active[data-v-f3210f20]:hover{ \n  background: #00344a; \n  color: #ffffff;    border: none !important; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  font-weight: 700; \n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \n  background: #ffffff; \n  color: #00344a; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \n  border-radius: 50%; \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n.pulse[data-v-f3210f20] { \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \n  width: 20px; \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \n  font-size: 55px; \n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \n  border-top-left-radius: 19px; \n  border-top-right-radius: 19px; \n  padding: 0 11px 11px; \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \n  border-bottom: none; \n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\n  border: 0;\n  background-color: #fff;\n  color:#7f8080;\n  letter-spacing:0.05em;\n  text-align:center;\n  padding-top:0;\n  padding-bottom:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-f3210f20]{\n  box-shadow: inset -7px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-f3210f20]{\n  box-shadow: -10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-f3210f20]{\n  box-shadow: inset 7px -10px 10px #f5f5f5;\n  border-top-right-radius: 25px;\n  border-top-left-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Seven\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Seven\"][data-v-f3210f20]{\n  box-shadow: inset -7px -10px 10px #f5f5f5;\n  border-bottom-right-radius: 25px;\n  border-top-left-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Eight\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Eight\"][data-v-f3210f20]{\n  box-shadow: inset 7px -10px 10px #f5f5f5;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n.activities .card-header[data-v-f3210f20], .deals .card-header[data-v-f3210f20]{\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], .deals .card-header-tabs[data-v-f3210f20] {\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {\n  font-size: 10px; \n  letter-spacing: 0.05em;\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {\n  font-size: 10px; \n  letter-spacing: 0.05em;\n  color: #999999;\n  font-family: 'Rubik', sans-serif;\n}\n.deals #eight input[data-v-f3210f20], .deals #eight textarea[data-v-f3210f20], .deals #eight select[data-v-f3210f20] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif;\n  font-size: 12px;\n  padding: 10px 20px!important;\n}\n.deals #eight textarea[data-v-f3210f20] {\n  border-radius: 25px;\n  height: 94px!important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  letter-spacing: 0.05em;\n  color: #999999;\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {\n  font-size: 10px;\n  text-transform:uppercase;\n  letter-spacing: 0.05em;\n  font-weight: 700;\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \n  font-size: 14px; \n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \n  color: rgb(129, 130, 132); \n  font-size: 13px;\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \n  border-style: none !important; \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \n  overflow-y: scroll; \n  height: 70vh; \n  padding-top: 6px;\n  padding-right: 3%; \n  padding-bottom: 6px;\n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] {\n  color: #818284;\n  font-size: 15px;\n}\n.stat-perc[data-v-f3210f20] {\n  letter-spacing: 0.1em;\n  font-size: 16px;\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  color: #333333;\n  font-family: 'Rubik', sans-serif; \n  font-size: 18px;\n}\n.progress-bar[data-v-f3210f20]{\n\tbackground: #E6E6E6;\n\tborder-radius: 5px;\n  height: 12px;\n}\n.tank[data-v-f3210f20]{\n\tbackground:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;\n\tborder-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 12px;\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  color: #999999;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20]{\n  color: #808080;\n  letter-spacing: 0.05em;\n}\n#four .btn-default[data-v-f3210f20] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  font-family: 'Rubik', sans-serif; \n  font-size: 12px;\n  letter-spacing: 0.05em;\n  border-radius: 50rem!important;\n}\n#four textarea[data-v-f3210f20] {\n  background-color: #F9F9F9;\n  border-radius: 10px;\n  height: 163px!important;\n  overflow-y: auto;\n}\n.scroll-hidden[data-v-f3210f20]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -248545,24 +249449,30 @@ var render = function() {
     ),
     _vm._v(" "),
     _vm.conferences.length > 0
-      ? _c("div", { staticClass: "row stats mt-4 mx-0" }, [
-          _c("div", { staticClass: "col-lg-12 px-0" }, [
-            _c(
-              "div",
-              { staticClass: "card-body padding-bottom-18" },
-              [
-                _c("data-table", {
-                  attrs: {
-                    id: "datatable",
-                    rows: _vm.conferences,
-                    columns: _vm.columns
-                  }
-                })
-              ],
-              1
-            )
-          ])
-        ])
+      ? _c(
+          "div",
+          {
+            staticClass: "row stats mt-4 mx-0 scroll-hidden horizontal-scroll"
+          },
+          [
+            _c("div", { staticClass: "col-lg-12 px-0" }, [
+              _c(
+                "div",
+                { staticClass: "card-body padding-bottom-18" },
+                [
+                  _c("data-table", {
+                    attrs: {
+                      id: "datatable",
+                      rows: _vm.conferences,
+                      columns: _vm.columns
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ]
+        )
       : _c("div", { staticClass: "row stats mt-4 mx-0" }, [_vm._m(7)])
   ])
 }
@@ -250487,78 +251397,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card no-box-shadow material-table" }, [
+  return _c("div", { staticClass: "no-box-shadow material-table" }, [
     _c("table", { ref: "table" }, [
       _c("thead", [
         _c(
           "tr",
-          [
-            _vm._l(_vm.columns, function(column, index) {
-              return column.field != "actions"
-                ? _c(
-                    "th",
-                    {
-                      key: index,
-                      class:
-                        (column.sortable ? "sorting " : "") +
-                        (_vm.sortColumn === index
-                          ? _vm.sortType === "desc"
-                            ? "sorting-desc"
-                            : "sorting-asc"
-                          : "") +
-                        (column.numeric ? " numeric" : ""),
-                      style: { width: column.width ? column.width : "auto" },
-                      on: {
-                        click: function($event) {
-                          return _vm.sort(index)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(column.label) +
-                          "\n                "
-                      )
-                    ]
-                  )
-                : _vm._e()
-            }),
-            _vm._v(" "),
-            _vm._l(_vm.columns, function(column, index) {
-              return column.field == "actions"
-                ? _c(
-                    "th",
-                    {
-                      key: index,
-                      class:
-                        (column.sortable ? "sorting " : "") +
-                        (_vm.sortColumn === index
-                          ? _vm.sortType === "desc"
-                            ? "sorting-desc"
-                            : "sorting-asc"
-                          : "") +
-                        (column.numeric ? " numeric" : ""),
-                      style: {
-                        width: column.width ? column.width : "auto",
-                        "add-sign": true
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.sort(index)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                    Putt image style\n                "
-                      )
-                    ]
-                  )
-                : _vm._e()
-            })
-          ],
-          2
+          _vm._l(_vm.columns, function(column, index) {
+            return _c(
+              "th",
+              {
+                key: index,
+                class:
+                  (column.sortable ? "sorting " : "") +
+                  (_vm.sortColumn === index
+                    ? _vm.sortType === "desc"
+                      ? "sorting-desc"
+                      : "sorting-asc"
+                    : "") +
+                  (column.numeric ? " numeric" : ""),
+                style: { width: column.width ? column.width : "auto" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort(index)
+                  }
+                }
+              },
+              [
+                _c(
+                  "span",
+                  { staticStyle: { float: "left", "padding-top": "2px" } },
+                  [
+                    _vm._v(
+                      "\n                      " +
+                        _vm._s(column.label) +
+                        "\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                index == _vm.columns.length - 1
+                  ? _c(
+                      "div",
+                      { staticClass: "col pl-0 dropdown" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            staticClass: "rounded-circle m-0",
+                            attrs: {
+                              "data-toggle": "dropdown",
+                              "aria-haspopup": "true",
+                              "aria-expanded": "false"
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              staticStyle: { width: "10px" },
+                              attrs: {
+                                src: "/images/workstation/Asset 28@4x.png",
+                                alt: "Icon"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0, true)
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]
+            )
+          }),
+          0
         )
       ]),
       _vm._v(" "),
@@ -250595,7 +251507,7 @@ var render = function() {
                       (_vm.role == 1 || _vm.role == 2)
                     ? _c("span", { staticClass: "actions" }, [
                         _vm._v(
-                          "\n                        &npsp;\n                    "
+                          "\n                         \n                    "
                         )
                       ])
                     : _c("span", [
@@ -250722,7 +251634,30 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown-menu" }, [
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Calls")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Sales")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Calls")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Sales")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -250794,22 +251729,93 @@ var render = function() {
                           }
                         },
                         [
-                          index == 0
-                            ? _c("b-form-checkbox", {
-                                attrs: {
-                                  value: "select_all",
-                                  "unchecked-value": "select_none"
-                                },
-                                on: { change: _vm.selectAll }
-                              })
-                            : _vm._e(),
-                          _vm._v(
-                            "  \n                            " +
-                              _vm._s(column.label) +
-                              "\n                        "
-                          )
-                        ],
-                        1
+                          _c(
+                            "span",
+                            {
+                              staticStyle: {
+                                float: "left",
+                                "padding-top": "2px"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                              " +
+                                  _vm._s(column.label) +
+                                  "\n                            "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          index == _vm.columns.length - 1
+                            ? _c(
+                                "div",
+                                { staticClass: "col pl-0 dropdown" },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      staticClass: "rounded-circle m-0",
+                                      attrs: {
+                                        "data-toggle": "dropdown",
+                                        "aria-haspopup": "true",
+                                        "aria-expanded": "false"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "icon",
+                                        staticStyle: { width: "10px" },
+                                        attrs: {
+                                          src:
+                                            "/images/workstation/Asset 28@4x.png",
+                                          alt: "Icon"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "dropdown-menu" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Calls")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Sales")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Calls")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Sales")]
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ]
                       )
                     }),
                     0
@@ -250839,25 +251845,7 @@ var render = function() {
                             on: { "": function($event) {} }
                           },
                           [
-                            column.field == "all"
-                              ? _c(
-                                  "span",
-                                  [
-                                    _c("b-form-checkbox", {
-                                      attrs: { value: row.id },
-                                      on: { change: _vm.selectOne },
-                                      model: {
-                                        value: _vm.selected,
-                                        callback: function($$v) {
-                                          _vm.selected = $$v
-                                        },
-                                        expression: "selected"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              : column.field == "actions"
+                            column.field == "actions"
                               ? _c(
                                   "span",
                                   {
@@ -250876,9 +251864,10 @@ var render = function() {
                                       }
                                     }),
                                     _vm._v(" "),
-                                    _vm.editing_row === true
+                                    _vm.editing_row === true &&
+                                    _vm.row_id === row.id
                                       ? _c("a", {
-                                          staticClass: "Edit",
+                                          staticClass: "Save",
                                           attrs: { href: "#", title: "Save" },
                                           on: {
                                             click: function($event) {
@@ -250896,7 +251885,25 @@ var render = function() {
                                           }
                                         }),
                                     _vm._v(" "),
-                                    _vm.role == 1 || _vm.role == 2
+                                    _vm.editing_row === true &&
+                                    _vm.row_id === row.id
+                                      ? _c("a", {
+                                          staticClass: "Cancel",
+                                          attrs: {
+                                            href: "#",
+                                            title: "Cancel Edit"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.cancelEdit(row.id)
+                                            }
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.editing_row === false &&
+                                    (_vm.row_id === null ||
+                                      _vm.row_id != row.id)
                                       ? _c("a", {
                                           staticClass: "Delete",
                                           attrs: { href: "#", title: "Delete" },
@@ -250927,41 +251934,64 @@ var render = function() {
                                                   ? _c("span", [
                                                       column.field == "source"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                        .name
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                        .name
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -250986,10 +252016,9 @@ var render = function() {
                                                                             column
                                                                               .field
                                                                           ]
-                                                                            .meta_value
-                                                                            .id,
+                                                                            .meta_value,
                                                                         expression:
-                                                                          "item.item[column.field].meta_value.id"
+                                                                          "item.item[column.field].meta_value"
                                                                       }
                                                                     ],
                                                                     staticClass:
@@ -251034,9 +252063,8 @@ var render = function() {
                                                                             .item[
                                                                             column
                                                                               .field
-                                                                          ]
-                                                                            .meta_value,
-                                                                          "id",
+                                                                          ],
+                                                                          "meta_value",
                                                                           $event
                                                                             .target
                                                                             .multiple
@@ -251050,9 +252078,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -251073,8 +252100,12 @@ var render = function() {
                                                                           {
                                                                             key: index,
                                                                             domProps: {
-                                                                              value:
-                                                                                item.id
+                                                                              value: {
+                                                                                id:
+                                                                                  item.id,
+                                                                                name:
+                                                                                  item.name
+                                                                              }
                                                                             }
                                                                           },
                                                                           [
@@ -251095,41 +252126,64 @@ var render = function() {
                                                         : column.field ==
                                                           "product"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                        .name
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                        .name
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -251216,9 +252270,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -251260,63 +252313,80 @@ var render = function() {
                                                         : column.field ==
                                                           "owner"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    "\n                                            " +
-                                                                      _vm._s(
-                                                                        item
-                                                                          .item[
-                                                                          column
-                                                                            .field
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name +
+                                                                                  " " +
+                                                                                  item
+                                                                                    .item[
+                                                                                    column
+                                                                                      .field
+                                                                                  ]
+                                                                                    .meta_value
+                                                                                    .surname
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
                                                                         ]
-                                                                          .meta_value
-                                                                          .name +
-                                                                          " " +
-                                                                          item
-                                                                            .item[
-                                                                            column
-                                                                              .field
-                                                                          ]
-                                                                            .meta_value
-                                                                            .lastname
-                                                                      ) +
-                                                                      "\n                                          "
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    "\n                                            " +
-                                                                      _vm._s(
-                                                                        item
-                                                                          .item[
-                                                                          column
-                                                                            .field
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name +
+                                                                                  " " +
+                                                                                  item
+                                                                                    .item[
+                                                                                    column
+                                                                                      .field
+                                                                                  ]
+                                                                                    .meta_value
+                                                                                    .surname
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
                                                                         ]
-                                                                          .meta_value
-                                                                          .name +
-                                                                          " " +
-                                                                          item
-                                                                            .item[
-                                                                            column
-                                                                              .field
-                                                                          ]
-                                                                            .meta_value
-                                                                            .lastname
-                                                                      ) +
-                                                                      "\n                                          "
-                                                                  )
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -251403,9 +252473,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -251431,8 +252500,8 @@ var render = function() {
                                                                                   item.id,
                                                                                 name:
                                                                                   item.name,
-                                                                                lastname:
-                                                                                  item.surname
+                                                                                surname:
+                                                                                  item.lastname
                                                                               }
                                                                             }
                                                                           },
@@ -251456,63 +252525,80 @@ var render = function() {
                                                         : column.field ==
                                                           "assignee"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    "\n                                            " +
-                                                                      _vm._s(
-                                                                        item
-                                                                          .item[
-                                                                          column
-                                                                            .field
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name +
+                                                                                  " " +
+                                                                                  item
+                                                                                    .item[
+                                                                                    column
+                                                                                      .field
+                                                                                  ]
+                                                                                    .meta_value
+                                                                                    .surname
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
                                                                         ]
-                                                                          .meta_value
-                                                                          .name +
-                                                                          " " +
-                                                                          item
-                                                                            .item[
-                                                                            column
-                                                                              .field
-                                                                          ]
-                                                                            .meta_value
-                                                                            .lastname
-                                                                      ) +
-                                                                      "\n                                          "
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    "\n                                            " +
-                                                                      _vm._s(
-                                                                        item
-                                                                          .item[
-                                                                          column
-                                                                            .field
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                                  .name +
+                                                                                  " " +
+                                                                                  item
+                                                                                    .item[
+                                                                                    column
+                                                                                      .field
+                                                                                  ]
+                                                                                    .meta_value
+                                                                                    .surname
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
                                                                         ]
-                                                                          .meta_value
-                                                                          .name +
-                                                                          " " +
-                                                                          item
-                                                                            .item[
-                                                                            column
-                                                                              .field
-                                                                          ]
-                                                                            .meta_value
-                                                                            .lastname
-                                                                      ) +
-                                                                      "\n                                          "
-                                                                  )
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -251599,9 +252685,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -251627,8 +252712,8 @@ var render = function() {
                                                                                   item.id,
                                                                                 name:
                                                                                   item.name,
-                                                                                lastname:
-                                                                                  item.surname
+                                                                                surname:
+                                                                                  item.lastname
                                                                               }
                                                                             }
                                                                           },
@@ -251652,39 +252737,62 @@ var render = function() {
                                                         : column.field ==
                                                           "status"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -251771,9 +252879,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -251849,39 +252956,62 @@ var render = function() {
                                                         : column.field ==
                                                           "title"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                                " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                              "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                                " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                              "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -251968,9 +253098,8 @@ var render = function() {
                                                                     _c(
                                                                       "option",
                                                                       {
-                                                                        attrs: {
-                                                                          value:
-                                                                            ""
+                                                                        domProps: {
+                                                                          value: null
                                                                         }
                                                                       },
                                                                       [
@@ -252061,39 +253190,62 @@ var render = function() {
                                                         : column.field ==
                                                           "gender"
                                                         ? _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -252226,39 +253378,62 @@ var render = function() {
                                                               : _vm._e()
                                                           ])
                                                         : _c("span", [
-                                                            _vm.editing_row ===
-                                                              false &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id === null
+                                                            item.item[
+                                                              column.field
+                                                            ].meta_value !==
+                                                            null
                                                               ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
-                                                                ])
-                                                              : _vm._e(),
-                                                            _vm._v(" "),
-                                                            _vm.editing_row ===
-                                                              true &&
-                                                            item.item.id ==
-                                                              row.id &&
-                                                            _vm.row_id != row.id
-                                                              ? _c("span", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      item.item[
-                                                                        column
-                                                                          .field
-                                                                      ]
-                                                                        .meta_value
-                                                                    )
-                                                                  )
+                                                                  _vm.editing_row ===
+                                                                    false &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id ===
+                                                                    null
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e(),
+                                                                  _vm._v(" "),
+                                                                  _vm.editing_row ===
+                                                                    true &&
+                                                                  item.item
+                                                                    .id ==
+                                                                    row.id &&
+                                                                  _vm.row_id !=
+                                                                    row.id
+                                                                    ? _c(
+                                                                        "span",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\n                                              " +
+                                                                              _vm._s(
+                                                                                item
+                                                                                  .item[
+                                                                                  column
+                                                                                    .field
+                                                                                ]
+                                                                                  .meta_value
+                                                                              ) +
+                                                                              "\n                                            "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    : _vm._e()
                                                                 ])
                                                               : _vm._e(),
                                                             _vm._v(" "),
@@ -252451,681 +253626,7 @@ var render = function() {
               ])
             ])
           ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c(
-            "b-modal",
-            {
-              ref: "modalUpdateUser",
-              attrs: {
-                id: "update-user-modal",
-                title: "Update Item",
-                size: "lg",
-                "header-text-variant": "light",
-                "header-bg-variant": "warning"
-              },
-              on: { ok: _vm.handleOk }
-            },
-            [
-              _c("a-card", { attrs: { title: "Update Item" } }, [
-                _c(
-                  "form",
-                  {
-                    ref: "form",
-                    on: {
-                      submit: function($event) {
-                        $event.stopPropagation()
-                        $event.preventDefault()
-                        return _vm.handleSubmit($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { class: { input: true, "form-group": true } }, [
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Title\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.title,
-                              expression: "user.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "Name", name: "Name" },
-                          domProps: { value: _vm.user.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "title", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Name\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.name,
-                              expression: "user.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "Name", name: "Name" },
-                          domProps: { value: _vm.user.name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "name", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Name"),
-                                expression: "errors.has('Name')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Name")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Surname\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.surname,
-                              expression: "user.surname"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Surname",
-                            name: "Surname"
-                          },
-                          domProps: { value: _vm.user.surname },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "surname", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Surname"),
-                                expression: "errors.has('Surname')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Surname")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v(
-                          "Instagram Account\n                            "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.instagram_account,
-                              expression: "user.instagram_account"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Account",
-                            name: "Account"
-                          },
-                          domProps: { value: _vm.user.instagram_account },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.user,
-                                "instagram_account",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Email\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.email,
-                              expression: "user.email"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "email",
-                              expression: "'email'"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "email", name: "Email" },
-                          domProps: { value: _vm.user.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "email", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Email"),
-                                expression: "errors.has('Email')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Email")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Mobile number\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.phone_number,
-                              expression: "user.phone_number"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "min:10",
-                              expression: "'min:10'"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "work_number",
-                            name: "Mobile"
-                          },
-                          domProps: { value: _vm.user.phone_number },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.user,
-                                "phone_number",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Mobile"),
-                                expression: "errors.has('Mobile')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Mobile")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Country\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.country,
-                              expression: "user.country"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "Country",
-                            name: "Country"
-                          },
-                          domProps: { value: _vm.user.country },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "country", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("City\n                            "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.city,
-                              expression: "user.city"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "City", name: "City" },
-                          domProps: { value: _vm.user.city },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.user, "city", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Package\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.product,
-                                expression: "user.product"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "package",
-                              name: "Package"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "product",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Package")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.packages, function(item, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item } },
-                                [_vm._v(_vm._s(item.name))]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has("Package"),
-                                expression: "errors.has('Package')"
-                              }
-                            ],
-                            staticClass: "help-block",
-                            attrs: { id: "error" }
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first("Package")))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Owner\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.owner,
-                                expression: "user.owner"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", id: "role", name: "Owner" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "owner",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Lead Owner ")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.active_users, function(item, index) {
-                              return _c(
-                                "option",
-                                {
-                                  key: index,
-                                  domProps: {
-                                    value: {
-                                      id: item.id,
-                                      name: item.name,
-                                      surname: item.surname
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.name + " " + item.lastname)
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Assigned To\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.assignee,
-                                expression: "user.assignee"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "Assignee",
-                              name: "Assignee"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "assignee",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Assignee")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.active_users, function(item, index) {
-                              return _c(
-                                "option",
-                                {
-                                  key: index,
-                                  domProps: {
-                                    value: {
-                                      id: item.id,
-                                      name: item.name,
-                                      surname: item.surname
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.name + " " + item.lastname)
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Lead Source\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.source,
-                                expression: "user.source"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "Source",
-                              name: "Source"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "source",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Source")
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.sources, function(item, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: item.id } },
-                                [_vm._v(_vm._s(item.name))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "col-lg-4 control-label" }, [
-                        _vm._v("Status\n                            "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.user.status,
-                                expression: "user.status"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "status",
-                              name: "Status"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.user,
-                                  "status",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("- Please Choose Status ")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "Active" } }, [
-                              _vm._v("Active")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "Inactive" } }, [
-                              _vm._v("Inactive")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "Canceled" } }, [
-                              _vm._v("Canceled")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "Disabled" } }, [
-                              _vm._v("Disabled")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      )
+        : _vm._e()
     ],
     1
   )
@@ -266366,7 +266867,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", { attrs: { id: "workstation" } }, [
     _vm.scripts == true
       ? _c("div", { staticClass: "scripts" }, [
           _c(
@@ -266380,17 +266881,7 @@ var render = function() {
                 "data-aos-offset": "700"
               }
             },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4)
-            ]
+            [_vm._m(0), _vm._v(" "), _vm._m(1)]
           )
         ])
       : _vm._e(),
@@ -266404,23 +266895,23 @@ var render = function() {
                 "row mx-0 pb-4 justify-content-between top-section agent-stats-1"
             },
             [
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Lead Source")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("First Name")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.lead_info.lead_source.name))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Online")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Last Name")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
-                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.surname))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
+              _c("div", { staticClass: "col" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Contact OWner")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
@@ -266428,35 +266919,35 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Invested")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Contact Source")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count_sales))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Called")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Successful")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Answers")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Due")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Area")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
-                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                  _vm._v(_vm._s(_vm.lead_info.city))
                 ])
               ])
             ]
@@ -266469,15 +266960,15 @@ var render = function() {
                 "row pt-4 mx-0 justify-content-between top-section agent-stats-2"
             },
             [
-              _c("div", { staticClass: "col-auto" }, [
+              _c("div", { staticClass: "col" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Email")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
-                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.phone))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
+              _c("div", { staticClass: "col" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Phone")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
@@ -266485,259 +266976,185 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Online Funds")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Contact Status")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Invested")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Last Answer")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count_sales))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Negotiation")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Best Time")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
                   _vm._v(_vm._s(_vm.call_counts.call_count))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
+              _c("div", { staticClass: "col" }, [
                 _c("p", { staticClass: "top" }, [_vm._v("Avg. Call length")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
-                  _vm._v(_vm._s(_vm.call_counts.call_count))
+                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("p", { staticClass: "top" }, [_vm._v("Sales")]),
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "top" }, [_vm._v("Client ID")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "bottom mb-0" }, [
-                  _vm._v(_vm._s(_vm.lead_info.lead_source.name))
+                  _vm._v(_vm._s(_vm.call_counts.call_count))
                 ])
               ])
             ]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "row mx-0 mb-0 justify-content-between client-details"
-            },
-            [
-              _c("div", { staticClass: "col-lg-3 col-md-4 col-sm-4 pl-0" }, [
-                _c("div", { staticClass: "card border-0 client" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text truncate mb-3",
-                        attrs: {
-                          title:
-                            _vm.lead_info.name + " " + _vm.lead_info.surname
-                        }
-                      },
-                      [
-                        _vm._v(
-                          _vm._s(
-                            this.lead_info.name + " " + _vm.lead_info.surname
-                          )
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "truncate w-100" }, [
-                      _vm.lead_info.country
-                        ? _c(
-                            "p",
-                            {
-                              staticClass:
-                                "card-link d-inline border-right border-white pb-3 pr-3"
-                            },
-                            [_vm._v(_vm._s(_vm.lead_info.country))]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.lead_info.gender
-                        ? _c(
-                            "p",
-                            {
-                              staticClass:
-                                "card-link d-inline border-right border-white ml-0 pb-3 px-3"
-                            },
-                            [_vm._v(_vm._s(_vm.lead_info.gender))]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.lead_info.age
-                        ? _c(
-                            "p",
-                            {
-                              staticClass: "card-link d-inline ml-0 pb-3 pl-3"
-                            },
-                            [_vm._v(_vm._s(_vm.lead_info.age))]
-                          )
-                        : _vm._e()
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-3" }, [
-                _c("div", { staticClass: "card border-0 product" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-text truncate mb-3",
-                        attrs: {
-                          title:
-                            _vm.lead_info.product.description +
-                            ". " +
-                            _vm.lead_info.product.price
-                        }
-                      },
-                      [_vm._v(_vm._s(_vm.lead_info.product.name))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-link truncate w-100 mb-0",
-                        attrs: {
-                          title:
-                            _vm.lead_info.product.description +
-                            ". " +
-                            _vm.lead_info.product.currency +
-                            _vm.lead_info.product.price
-                        }
-                      },
-                      [
-                        _vm._v(
-                          " \n              " +
-                            _vm._s(
-                              _vm.lead_info.product.description +
-                                ". " +
-                                _vm.lead_info.product.currency +
-                                _vm.lead_info.product.price
-                            ) +
-                            " \n            "
-                        )
-                      ]
+          _c("div", { staticClass: "card-deck client-details mx-0" }, [
+            _c("div", { staticClass: "card border-0 mb-0 ml-0 client" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text truncate mb-2",
+                    attrs: {
+                      title: _vm.lead_info.name + " " + _vm.lead_info.surname
+                    }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(this.lead_info.name + " " + _vm.lead_info.surname)
                     )
-                  ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "truncate w-100" }, [
+                  _vm.lead_info.country
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "card-link d-inline border-right border-white pb-3 pr-3"
+                        },
+                        [_vm._v(_vm._s(_vm.lead_info.country))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.lead_info.gender
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "card-link d-inline border-right border-white ml-0 pb-3 px-3"
+                        },
+                        [_vm._v(_vm._s(_vm.lead_info.gender))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.lead_info.age
+                    ? _c(
+                        "p",
+                        { staticClass: "card-link d-inline ml-0 pb-3 pl-3" },
+                        [_vm._v(_vm._s(_vm.lead_info.age))]
+                      )
+                    : _vm._e()
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-3" }, [
-                _c("div", { staticClass: "card border-0 time" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text mb-3" }, [
-                      _vm._v("11:20")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "truncate" }, [
-                      _c(
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 product mb-0" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text truncate mb-2",
+                    attrs: {
+                      title:
+                        _vm.lead_info.product.description +
+                        ". " +
+                        _vm.lead_info.product.price
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.lead_info.product.name))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-link truncate w-100 mb-0",
+                    attrs: {
+                      title:
+                        _vm.lead_info.product.description +
+                        ". " +
+                        _vm.lead_info.product.currency +
+                        _vm.lead_info.product.price
+                    }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(
+                        _vm.lead_info.product.description +
+                          ". " +
+                          _vm.lead_info.product.currency +
+                          _vm.lead_info.product.price
+                      )
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mb-0 mr-0 time" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("11:20")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "truncate" }, [
+                  _vm.lead_info.city
+                    ? _c(
                         "p",
                         {
                           staticClass:
                             "card-link d-inline border-right border-white pb-3 pr-3"
                         },
                         [_vm._v(_vm._s(_vm.lead_info.city))]
-                      ),
-                      _vm._v(" "),
-                      _c(
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.lead_info.country
+                    ? _c(
                         "p",
                         { staticClass: "card-link d-inline ml-0 pb-3 pl-3" },
                         [_vm._v(_vm._s(_vm.lead_info.country))]
                       )
-                    ])
-                  ])
+                    : _vm._e()
                 ])
-              ]),
-              _vm._v(" "),
-              _vm._m(8)
-            ]
-          ),
+              ])
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "row mx-0 mb-0 justify-content-between side-indentation stats final-modal"
-            },
-            [
-              _c("div", { staticClass: "col-lg-6 pl-0 pr-4" }, [
-                _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-header tab-card-header border-bottom-0"
-                    },
-                    [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
-                        },
-                        [
-                          _c("li", { staticClass: "nav-item left w-50" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "one-tab",
-                                  "data-toggle": "tab",
-                                  href: "#one",
-                                  role: "tab",
-                                  "aria-controls": "One",
-                                  "aria-selected": "true"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Agent_Notes_Icon@4x.png",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left w-50" }, [
-                                  _vm._v("Agent Notes")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(9)
-                        ]
-                      )
-                    ]
-                  ),
+          _c("div", { staticClass: "side-indentation stats final-modal" }, [
+            _c("div", { staticClass: "card-deck mx-0 mb-0" }, [
+              _c(
+                "div",
+                { staticClass: "card left mt-3 border-0 mr-4 ml-0 tab-card" },
+                [
+                  _vm._m(6),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -266934,15 +267351,25 @@ var render = function() {
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { id: "send-btn", type: "submit" },
+                                  staticClass: "btn p-0 m-0",
+                                  attrs: { id: "submit-btn", type: "submit" },
                                   on: {
                                     click: function($event) {
                                       return _vm.addComment()
                                     }
                                   }
                                 },
-                                [_vm._v("Send")]
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/workstation/Submit.svg",
+                                      alt: "Icon",
+                                      width: "76"
+                                    }
+                                  })
+                                ]
                               )
                             ])
                           ])
@@ -266961,137 +267388,101 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "row mx-0 mb-0" }, [
-                            _c("div", { staticClass: "col-lg-4 pr-0" }, [
-                              _c("div", { staticClass: "row" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    class: {
-                                      input: true,
-                                      "form-group": true,
-                                      "has-error": _vm.errors.has("Name")
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "col-lg-12 control-label p-0"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "Date of Callback \n                        "
-                                        ),
-                                        _c("a-date-picker", {
-                                          attrs: {
-                                            format: "YYYY-MM-DD",
-                                            allowEmpty: false
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.checkCBDate()
-                                            }
-                                          },
-                                          model: {
-                                            value: _vm.selected_date,
-                                            callback: function($$v) {
-                                              _vm.selected_date = $$v
-                                            },
-                                            expression: "selected_date"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              ]),
+                            _c("div", { staticClass: "col-lg-4 px-0" }, [
+                              _vm._m(7),
                               _vm._v(" "),
-                              _c("div", { staticClass: "row" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    class: {
-                                      input: true,
-                                      "form-group": true,
-                                      "has-error": _vm.errors.has("Name")
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "col-lg-12 control-label pl-0"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "Time of Callback \n                        "
-                                        ),
-                                        _c("a-time-picker", {
-                                          attrs: {
-                                            allowEmpty: false,
-                                            use24Hours: "",
-                                            format: "hh:mm a"
-                                          },
-                                          model: {
-                                            value: _vm.selected_time,
-                                            callback: function($$v) {
-                                              _vm.selected_time = $$v
-                                            },
-                                            expression: "selected_time"
+                              _c(
+                                "div",
+                                {
+                                  class: {
+                                    input: true,
+                                    "form-group": true,
+                                    "has-error": _vm.errors.has("Name")
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass:
+                                        "control-label p-0 callback-label"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Date of Callbacks \n                      "
+                                      ),
+                                      _c("a-date-picker", {
+                                        staticClass: "rounded-pill",
+                                        attrs: {
+                                          format: "DD-MM",
+                                          allowEmpty: false
+                                        },
+                                        on: {
+                                          change: function($event) {
+                                            return _vm.checkCBDate()
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              ]),
+                                        },
+                                        model: {
+                                          value: _vm.selected_date,
+                                          callback: function($$v) {
+                                            _vm.selected_date = $$v
+                                          },
+                                          expression: "selected_date"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
-                              _c("div", { staticClass: "row" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    class: {
-                                      input: true,
-                                      "form-group": true,
-                                      "has-error": _vm.errors.has("Name")
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "col-lg-12 control-label pr-0"
-                                      },
-                                      [
-                                        _c("strong", [
-                                          _vm._v(
-                                            _vm._s(
-                                              _vm.selected_date.format(
-                                                "DD-MM-YYYY"
-                                              ) +
-                                                " @" +
-                                                _vm.selected_time.format(
-                                                  "hh:mm a"
-                                                )
-                                            )
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
+                              _c(
+                                "div",
+                                {
+                                  class: {
+                                    input: true,
+                                    "form-group": true,
+                                    "has-error": _vm.errors.has("Name")
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass:
+                                        "control-label pl-0 callback-label"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Time of Callback \n                      "
+                                      ),
+                                      _c("a-time-picker", {
+                                        attrs: {
+                                          allowEmpty: false,
+                                          use24Hours: "",
+                                          format: "hh:mm"
+                                        },
+                                        model: {
+                                          value: _vm.selected_time,
+                                          callback: function($$v) {
+                                            _vm.selected_time = $$v
+                                          },
+                                          expression: "selected_time"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              )
                             ]),
                             _vm._v(" "),
                             _c(
                               "div",
-                              { staticClass: "col-lg-8" },
+                              { staticClass: "col-lg-8 pr-0" },
                               [
+                                _c("p", [_vm._v("Callback Calendar")]),
+                                _vm._v(" "),
                                 _c("vc-date-picker", {
                                   attrs: {
                                     mode: "multiple",
@@ -267099,7 +267490,7 @@ var render = function() {
                                     "is-expanded": "",
                                     "min-date": new Date(),
                                     "max-date": _vm.max_date,
-                                    color: "pink"
+                                    color: "orange"
                                   },
                                   model: {
                                     value: _vm.dates,
@@ -267114,116 +267505,81 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "row mb-0" }, [
-                            _c("div", { staticClass: "col-lg-12 pr-0" }, [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.call_back.note,
-                                    expression: "call_back.note"
-                                  }
-                                ],
-                                staticClass:
-                                  "comment-desc d-block w-75 border-0",
-                                attrs: {
-                                  type: "text",
-                                  placeholder: "Write notes here"
-                                },
-                                domProps: { value: _vm.call_back.note },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
+                          _c(
+                            "div",
+                            { staticClass: "d-flex callback-capture" },
+                            [
+                              _c("div", { staticClass: "flex-grow-1" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.call_back.note,
+                                      expression: "call_back.note"
                                     }
-                                    _vm.$set(
-                                      _vm.call_back,
-                                      "note",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { id: "send-btn", type: "submit" },
+                                  ],
+                                  staticClass:
+                                    "comment-desc d-block w-100 border-0 rounded-pill",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Write notes here"
+                                  },
+                                  domProps: { value: _vm.call_back.note },
                                   on: {
-                                    click: function($event) {
-                                      return _vm.addCallback()
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.call_back,
+                                        "note",
+                                        $event.target.value
+                                      )
                                     }
                                   }
-                                },
-                                [_vm._v("Schedule")]
-                              )
-                            ])
-                          ])
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "flex-shrink-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn p-0 m-0",
+                                    attrs: { id: "submit-btn", type: "submit" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addCallback()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "icon",
+                                      attrs: {
+                                        src:
+                                          "/images/icons/workstation/Submit.svg",
+                                        alt: "Icon",
+                                        width: "76"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
                         ]
                       )
                     ]
                   )
-                ])
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6 pr-0 pl-4" }, [
-                _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-header tab-card-header border-bottom-0"
-                    },
-                    [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "nav nav-tabs card-header-tabs",
-                          attrs: { id: "myTab", role: "tablist" }
-                        },
-                        [
-                          _c("li", { staticClass: "nav-item left w-50" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  id: "three-tab",
-                                  "data-toggle": "tab",
-                                  href: "#three",
-                                  role: "tab",
-                                  "aria-controls": "Three",
-                                  "aria-selected": "true"
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "icon",
-                                  attrs: {
-                                    src:
-                                      "/images/workstation/Feedback_Summary.svg",
-                                    alt: "Icon",
-                                    width: "23"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "left w-50" }, [
-                                  _vm._v("Feedback Summary")
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "right" }, [
-                                  _vm._v(_vm._s(_vm.comments.total_comments))
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(10)
-                        ]
-                      )
-                    ]
-                  ),
+              _c(
+                "div",
+                { staticClass: "card left mt-3 mr-0 ml-4 border-0 tab-card" },
+                [
+                  _vm._m(8),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -267236,7 +267592,6 @@ var render = function() {
                         "div",
                         {
                           staticClass: "tab-pane fade show active p-3",
-                          staticStyle: { height: "349px" },
                           attrs: {
                             id: "three",
                             role: "tabpanel",
@@ -267244,55 +267599,452 @@ var render = function() {
                           }
                         },
                         [
-                          _c("div", {}, [
-                            _c(
-                              "div",
-                              { staticClass: "verticalChart w-100" },
-                              _vm._l(_vm.comments_graph, function(bar) {
-                                return _c("div", { staticClass: "singleBar" }, [
-                                  _c("div", { staticClass: "bar" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "value w-100",
-                                        style:
-                                          "height: " + bar.percentage + "%;"
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          {
-                                            staticStyle: {
-                                              color: "rgb(45, 137, 239)"
+                          _c(
+                            "div",
+                            {},
+                            [
+                              _vm._m(9),
+                              _vm._v(" "),
+                              _vm._l(_vm.callStats, function(stat, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: index,
+                                    staticClass:
+                                      "row mx-0 mb-1 align-items-center"
+                                  },
+                                  [
+                                    _c("div", { staticClass: "col-12 px-0" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "row mx-0 mb-0 align-items-center"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-12 align-content-end px-0"
                                             },
-                                            attrs: { clas: "w-100 d-inline" }
-                                          },
-                                          [_vm._v(_vm._s(bar.percentage + "%"))]
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "title" }, [
-                                    _vm._v(_vm._s(bar.type))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "clearfix" })
-                                ])
-                              }),
-                              0
-                            )
-                          ])
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "text-right mb-0 stat-perc"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(stat.percent) + "%"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col px-0" },
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "mb-0 summary-abr"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(stat.abbreviation)
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-11 pr-0 pl-4" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "progress-bar w-100"
+                                                },
+                                                [
+                                                  _c("span", {
+                                                    staticClass: "tank",
+                                                    style: {
+                                                      width: +stat.percent + "%"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(11)
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade p-3",
+                          attrs: {
+                            id: "four",
+                            role: "tabpanel",
+                            "aria-labelledby": "four-tab"
+                          }
+                        },
+                        [
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "email-desc font-weight-light font-italic"
+                            },
+                            [
+                              _vm._v(
+                                "Choose a template or write your own email to Client"
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "row mx-0 align-items-center" },
+                            [
+                              _vm._m(10),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto pl-0 mb-2 pr-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Introduce Stock")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("First time sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("Up sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto mb-2 pr-0 pl-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Extra Info")]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            staticClass: "form-control border-0",
+                            attrs: {
+                              id: "message-body",
+                              name: "message",
+                              placeholder: "Write comment here..."
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex-shrink-1 text-right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn py-0 my-0",
+                            attrs: { id: "submit-btn", type: "submit" },
+                            on: {
+                              click: function($event) {
+                                return _vm.sendEmail()
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              attrs: {
+                                src: "/images/icons/workstation/Submit.svg",
+                                alt: "Icon",
+                                width: "76"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mx-0 mb-0 activities" }, [
+              _c("div", { staticClass: "col-lg-12 px-0" }, [
+                _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
+                  _vm._m(11),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active p-3",
+                          attrs: {
+                            id: "five",
+                            role: "tabpanel",
+                            "aria-labelledby": "one-tab"
+                          }
+                        },
+                        [
+                          _c("b-table", {
+                            attrs: {
+                              hover: "",
+                              items: _vm.activityItems,
+                              "per-page": _vm.perPage,
+                              "current-page": _vm.currentPage,
+                              "sticky-header": ""
+                            },
+                            scopedSlots: _vm._u(
+                              [
+                                _vm._l(_vm.activityItems, function(item) {
+                                  return {
+                                    key: "cell(statusColor)",
+                                    fn: function(data) {
+                                      return [
+                                        _c("p", [
+                                          _vm._v(
+                                            "hi " +
+                                              _vm._s(data.item.statusColor)
+                                          )
+                                        ])
+                                      ]
+                                    }
+                                  }
+                                })
+                              ],
+                              null,
+                              true
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c("b-pagination", {
+                            attrs: {
+                              "total-rows": _vm.rows,
+                              "per-page": _vm.perPage,
+                              "aria-controls": "my-table"
+                            },
+                            model: {
+                              value: _vm.currentPage,
+                              callback: function($$v) {
+                                _vm.currentPage = $$v
+                              },
+                              expression: "currentPage"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade pt-0 px-3 pb-3",
+                          attrs: {
+                            id: "six",
+                            role: "tabpanel",
+                            "aria-labelledby": "two-tab"
+                          }
+                        },
+                        [
+                          _c("b-table", {
+                            attrs: {
+                              hover: "",
+                              items: _vm.activityItems,
+                              "per-page": "5"
+                            },
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "cell(statusColor)",
+                                  fn: function(data) {
+                                    return [
+                                      _c(
+                                        "p",
+                                        { style: { color: _vm.statusColor } },
+                                        [_vm._v("hi")]
+                                      )
+                                    ]
+                                  }
+                                }
+                              ],
+                              null,
+                              false,
+                              1390597447
+                            )
+                          })
+                        ],
+                        1
+                      )
                     ]
                   )
                 ])
               ])
-            ]
-          )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mx-0 mb-0 deals" }, [
+              _c("div", { staticClass: "col-lg-12 px-0" }, [
+                _c("div", { staticClass: "card left mt-3 border-0 tab-card" }, [
+                  _vm._m(12),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "myTabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active p-3",
+                          attrs: {
+                            id: "seven",
+                            role: "tabpanel",
+                            "aria-labelledby": "one-tab"
+                          }
+                        },
+                        [
+                          _c("b-table", {
+                            attrs: { hover: "", items: _vm.dealItems }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade pt-0 px-3 pb-3",
+                          attrs: {
+                            id: "eight",
+                            role: "tabpanel",
+                            "aria-labelledby": "two-tab"
+                          }
+                        },
+                        [
+                          _c("p", [_vm._v("Deal information")]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row mx-0" }, [
+                            _vm._m(13),
+                            _vm._v(" "),
+                            _vm._m(14),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-2 align-self-end pr-0" },
+                              [
+                                _c("div", { staticClass: "row mx-0" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-lg-6 pl-0 pr-2" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default cancel-deal w-100 m-0 border-0",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Cancel")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-lg-6 pr-0 pl-2" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-primary save-deal w-100 rounded-pill m-0",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Save")]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -267398,7 +268150,7 @@ var render = function() {
             ? _c(
                 "div",
                 { staticClass: "row idle-education justify-content-center" },
-                [_vm._m(12)]
+                [_vm._m(15)]
               )
             : _vm._e()
         ])
@@ -267409,7 +268161,8 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "row stats scroll-hidden w-100 mx-0",
+              staticClass:
+                "row stats scroll-hidden horizontal-scroll w-100 mx-0",
               staticStyle: { "margin-top": "6%" }
             },
             [
@@ -267791,7 +268544,7 @@ var render = function() {
                           _c(
                             "p",
                             {
-                              staticClass: "card-text truncate mb-3",
+                              staticClass: "card-text truncate mb-2",
                               attrs: {
                                 title:
                                   _vm.lead_info.name +
@@ -267868,7 +268621,7 @@ var render = function() {
                         _c(
                           "p",
                           {
-                            staticClass: "card-text truncate mb-3",
+                            staticClass: "card-text truncate mb-2",
                             attrs: {
                               title:
                                 _vm.lead_info.product.description +
@@ -267877,13 +268630,7 @@ var render = function() {
                                 _vm.lead_info.product.price
                             }
                           },
-                          [
-                            _vm._v(
-                              " \n                  " +
-                                _vm._s(_vm.lead_info.product.name) +
-                                " \n                "
-                            )
-                          ]
+                          [_vm._v(_vm._s(_vm.lead_info.product.name))]
                         ),
                         _vm._v(" "),
                         _c(
@@ -267898,13 +268645,7 @@ var render = function() {
                                 _vm.lead_info.product.price
                             }
                           },
-                          [
-                            _vm._v(
-                              " \n                  " +
-                                _vm._s(_vm.lead_info.product.description) +
-                                " \n                "
-                            )
-                          ]
+                          [_vm._v(_vm._s(_vm.lead_info.product.description))]
                         )
                       ])
                     ])
@@ -267924,23 +268665,32 @@ var render = function() {
                           _vm._v(" \n                  Time \n                ")
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "truncate mb-3" }, [
-                          _c(
-                            "p",
-                            {
-                              staticClass:
-                                "card-link d-inline border-right border-white pb-3 pr-3"
-                            },
-                            [_vm._v(_vm._s(_vm.lead_info.city))]
-                          ),
+                        _c("p", { staticClass: "card-text mb-2" }, [
+                          _vm._v("11:20")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "truncate mb-2" }, [
+                          _vm.lead_info.city
+                            ? _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "card-link d-inline border-right border-white pb-3 pr-3"
+                                },
+                                [_vm._v(_vm._s(_vm.lead_info.city))]
+                              )
+                            : _vm._e(),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "card-link d-inline ml-0 pb-3 pl-3"
-                            },
-                            [_vm._v(_vm._s(_vm.lead_info.country))]
-                          )
+                          _vm.lead_info.country
+                            ? _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "card-link d-inline ml-0 pb-3 pl-3"
+                                },
+                                [_vm._v(_vm._s(_vm.lead_info.country))]
+                              )
+                            : _vm._e()
                         ])
                       ])
                     ])
@@ -267990,25 +268740,13 @@ var render = function() {
                                         staticClass: "icon",
                                         attrs: {
                                           src:
-                                            "/images/workstation/Agent_Notes_Icon@4x.png",
+                                            "/images/icons/workstation/Agent_Notes.svg",
                                           alt: "Icon",
-                                          width: "23"
+                                          width: "60"
                                         }
                                       }),
                                       _vm._v(" "),
-                                      _c("span", { staticClass: "left w-50" }, [
-                                        _vm._v("Agent Notes")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "right w-50" },
-                                        [
-                                          _vm._v(
-                                            _vm._s(_vm.comments.total_comments)
-                                          )
-                                        ]
-                                      )
+                                      _c("span", [_vm._v("Agent Notes")])
                                     ]
                                   )
                                 ]),
@@ -268032,15 +268770,13 @@ var render = function() {
                                         staticClass: "icon",
                                         attrs: {
                                           src:
-                                            "/images/workstation/Schedule_Callbacks.svg",
+                                            "/images/icons/workstation/Schedual_Callback.svg",
                                           alt: "Icon",
-                                          width: "23"
+                                          width: "60"
                                         }
                                       }),
                                       _vm._v(" "),
-                                      _c("span", { staticClass: "left" }, [
-                                        _vm._v("Schedule Callback")
-                                      ])
+                                      _c("span", [_vm._v("Schedule Callback")])
                                     ]
                                   )
                                 ])
@@ -268276,9 +269012,9 @@ var render = function() {
                                         _c(
                                           "button",
                                           {
-                                            staticClass: "btn btn-primary",
+                                            staticClass: "btn ",
                                             attrs: {
-                                              id: "send-btn",
+                                              id: "submit-btn",
                                               type: "submit"
                                             },
                                             on: {
@@ -268287,7 +269023,17 @@ var render = function() {
                                               }
                                             }
                                           },
-                                          [_vm._v("Send")]
+                                          [
+                                            _c("img", {
+                                              staticClass: "icon",
+                                              attrs: {
+                                                src:
+                                                  "/images/icons/workstation/Submit.svg",
+                                                alt: "Icon",
+                                                width: "76"
+                                              }
+                                            })
+                                          ]
                                         )
                                       ]
                                     )
@@ -268446,7 +269192,7 @@ var render = function() {
                                           "is-expanded": "",
                                           "min-date": new Date(),
                                           "max-date": _vm.max_date,
-                                          color: "pink"
+                                          color: "orange"
                                         },
                                         model: {
                                           value: _vm.dates,
@@ -268461,58 +269207,76 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "row mb-0" }, [
-                                  _c("div", { staticClass: "col-lg-12 pr-0" }, [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.call_back.note,
-                                          expression: "call_back.note"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "comment-desc d-block w-75 border-0",
-                                      staticStyle: { width: "72.5%" },
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Write notes here"
-                                      },
-                                      domProps: { value: _vm.call_back.note },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
+                                _c(
+                                  "div",
+                                  { staticClass: "d-flex callback-capture" },
+                                  [
+                                    _c("div", { staticClass: "flex-grow-1" }, [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.call_back.note,
+                                            expression: "call_back.note"
                                           }
-                                          _vm.$set(
-                                            _vm.call_back,
-                                            "note",
-                                            $event.target.value
-                                          )
+                                        ],
+                                        staticClass:
+                                          "comment-desc d-block border-0",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Write notes here"
+                                        },
+                                        domProps: { value: _vm.call_back.note },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.call_back,
+                                              "note",
+                                              $event.target.value
+                                            )
+                                          }
                                         }
-                                      }
-                                    }),
+                                      })
+                                    ]),
                                     _vm._v(" "),
                                     _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-primary",
-                                        staticStyle: { width: "100px" },
-                                        attrs: {
-                                          id: "send-btn",
-                                          type: "submit"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.addCallback()
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Schedule")]
+                                      "div",
+                                      { staticClass: "flex-shrink-1" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn",
+                                            attrs: {
+                                              id: "submit-btn",
+                                              type: "submit"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addCallback()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              staticClass: "icon",
+                                              attrs: {
+                                                src:
+                                                  "/images/icons/workstation/Submit.svg",
+                                                alt: "Icon",
+                                                width: "76"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
                                     )
-                                  ])
-                                ])
+                                  ]
+                                )
                               ]
                             )
                           ]
@@ -268639,63 +269403,145 @@ var render = function() {
                               [
                                 _c(
                                   "div",
-                                  { staticClass: "verticalChart" },
+                                  {
+                                    staticClass:
+                                      "row mx-0 justify-content-between align-items-center summary"
+                                  },
                                   [
-                                    _vm._l(_vm.comments_graph, function(
-                                      bar,
-                                      index
-                                    ) {
-                                      return _c(
-                                        "div",
-                                        {
-                                          key: index,
-                                          staticClass: "singleBar"
-                                        },
-                                        [
-                                          _c("div", { staticClass: "bar" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto pl-0" },
+                                      [_c("p", [_vm._v("220 reviews")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto px-0" },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "row mx-0 mb-0" },
+                                          [
                                             _c(
                                               "div",
-                                              {
-                                                staticClass: "value w-100",
-                                                style:
-                                                  "height: " +
-                                                  bar.percentage +
-                                                  "%;"
-                                              },
+                                              { staticClass: "col-auto px-0" },
+                                              [_c("p", [_vm._v("Called: 600")])]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-auto pr-0" },
                                               [
-                                                _c(
-                                                  "span",
-                                                  {
-                                                    staticClass:
-                                                      "w-100 d-inline",
-                                                    staticStyle: {
-                                                      color: "rgb(45, 137, 239)"
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      _vm._s(
-                                                        bar.percentage + "%"
-                                                      )
-                                                    )
-                                                  ]
-                                                )
+                                                _c("p", [
+                                                  _vm._v("Answered: 50")
+                                                ])
                                               ]
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "title" }, [
-                                            _vm._v(_vm._s(bar.type))
-                                          ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.callStats, function(stat, index) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: index,
+                                      staticClass:
+                                        "row mx-0 mb-1 align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-12 px-0" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "row mx-0 mb-0 align-items-center"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-12 align-content-end px-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "text-right mb-0 stat-perc"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(stat.percent) +
+                                                          "%"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col px-0" },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "mb-0 summary-abr"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          stat.abbreviation
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-11 pr-0 pl-4"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "progress-bar w-100"
+                                                    },
+                                                    [
+                                                      _c("span", {
+                                                        staticClass: "tank",
+                                                        style: {
+                                                          width:
+                                                            +stat.percent + "%"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
                                         ]
                                       )
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "clearfix" })
-                                  ],
-                                  2
-                                )
-                              ]
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
                             ),
                             _vm._v(" "),
                             _c(
@@ -268848,7 +269694,7 @@ var render = function() {
                                           "is-expanded": "",
                                           "min-date": new Date(),
                                           "max-date": _vm.max_date,
-                                          color: "pink"
+                                          color: "orange"
                                         },
                                         model: {
                                           value: _vm.dates,
@@ -268863,57 +269709,75 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "row mb-0" }, [
-                                  _c("div", { staticClass: "col-lg-12 pr-0" }, [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.call_back.note,
-                                          expression: "call_back.note"
-                                        }
-                                      ],
-                                      staticClass: "comment-desc",
-                                      staticStyle: { width: "72.5%" },
-                                      attrs: {
-                                        type: "text",
-                                        placeholder: "Write notes here"
-                                      },
-                                      domProps: { value: _vm.call_back.note },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
+                                _c(
+                                  "div",
+                                  { staticClass: "d-flex callback-capture" },
+                                  [
+                                    _c("div", { staticClass: "flex-grow-1" }, [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.call_back.note,
+                                            expression: "call_back.note"
                                           }
-                                          _vm.$set(
-                                            _vm.call_back,
-                                            "note",
-                                            $event.target.value
-                                          )
+                                        ],
+                                        staticClass: "comment-desc",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Write notes here"
+                                        },
+                                        domProps: { value: _vm.call_back.note },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.call_back,
+                                              "note",
+                                              $event.target.value
+                                            )
+                                          }
                                         }
-                                      }
-                                    }),
+                                      })
+                                    ]),
                                     _vm._v(" "),
                                     _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-primary",
-                                        staticStyle: { width: "100px" },
-                                        attrs: {
-                                          id: "send-btn",
-                                          type: "submit"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.addCallback()
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Schedule")]
+                                      "div",
+                                      { staticClass: "flex-shrink-1" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn p-0 m-0",
+                                            attrs: {
+                                              id: "submit-btn",
+                                              type: "submit"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addCallback()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              staticClass: "icon",
+                                              attrs: {
+                                                src:
+                                                  "/images/icons/workstation/Submit.svg",
+                                                alt: "Icon",
+                                                width: "76"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
                                     )
-                                  ])
-                                ])
+                                  ]
+                                )
                               ]
                             )
                           ]
@@ -269035,66 +269899,160 @@ var render = function() {
                               }
                             },
                             [
-                              _c("div", {}, [
-                                _c(
-                                  "div",
-                                  { staticClass: "verticalChart" },
-                                  [
-                                    _vm._l(_vm.comments_graph, function(
-                                      bar,
-                                      index
-                                    ) {
-                                      return _c(
+                              _c(
+                                "div",
+                                {},
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 justify-content-between align-items-center summary"
+                                    },
+                                    [
+                                      _c(
                                         "div",
-                                        {
-                                          key: index,
-                                          staticClass: "singleBar"
-                                        },
+                                        { staticClass: "col-auto pl-0" },
+                                        [_c("p", [_vm._v("220 reviews")])]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-auto px-0" },
                                         [
-                                          _c("div", { staticClass: "bar" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "row mx-0 mb-0" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto px-0"
+                                                },
+                                                [
+                                                  _c("p", [
+                                                    _vm._v("Called: 600")
+                                                  ])
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto pr-0"
+                                                },
+                                                [
+                                                  _c("p", [
+                                                    _vm._v("Answered: 50")
+                                                  ])
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.callStats, function(stat, index) {
+                                    return _c(
+                                      "div",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "row mx-0 mb-1 align-items-center"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-12 px-0" },
+                                          [
                                             _c(
                                               "div",
                                               {
-                                                staticClass: "value",
-                                                style:
-                                                  "height: " +
-                                                  bar.percentage +
-                                                  "%;"
+                                                staticClass:
+                                                  "row mx-0 mb-0 align-items-center"
                                               },
                                               [
                                                 _c(
-                                                  "span",
+                                                  "div",
                                                   {
-                                                    staticStyle: {
-                                                      color:
-                                                        "rgb(45, 137, 239)",
-                                                      display: "inline"
-                                                    }
+                                                    staticClass:
+                                                      "col-12 align-content-end px-0"
                                                   },
                                                   [
-                                                    _vm._v(
-                                                      _vm._s(
-                                                        bar.percentage + "%"
-                                                      )
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "text-right mb-0 stat-perc"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(stat.percent) +
+                                                            "%"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "col px-0" },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "mb-0 summary-abr"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            stat.abbreviation
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "col-11 pr-0 pl-4"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "progress-bar w-100"
+                                                      },
+                                                      [
+                                                        _c("span", {
+                                                          staticClass: "tank",
+                                                          style:
+                                                            "width:" +
+                                                            "{{ stat.percent }}" +
+                                                            "%"
+                                                        })
+                                                      ]
                                                     )
                                                   ]
                                                 )
                                               ]
                                             )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "title" }, [
-                                            _vm._v(_vm._s(bar.type))
-                                          ])
-                                        ]
-                                      )
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "clearfix" })
-                                  ],
-                                  2
-                                )
-                              ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
                             ]
                           ),
                           _vm._v(" "),
@@ -269109,24 +270067,132 @@ var render = function() {
                               }
                             },
                             [
-                              _c("h5", { staticClass: "card-title" }, [
-                                _vm._v("TODO")
-                              ]),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "email-desc font-weight-light font-italic"
+                                },
+                                [
+                                  _vm._v(
+                                    "Choose a tempalte or write your own email to Client"
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
+                                { staticClass: "row mx-0 align-items-center" },
+                                [
+                                  _c("div", { staticClass: "col-auto pl-0" }, [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "text-uppercase font-weight-bold mb-0"
+                                      },
+                                      [_vm._v("Templates:")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-auto pl-0 mb-2 pr-1" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default m-0 border-0 text-capitalize",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Introduce Stock")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-auto px-1" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-default m-0 border-0 text-capitalize",
+                                        attrs: { type: "submit" },
+                                        on: { click: function($event) {} }
+                                      },
+                                      [_vm._v("First time sell")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-auto px-1" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-default m-0 border-0 text-capitalize",
+                                        attrs: { type: "submit" },
+                                        on: { click: function($event) {} }
+                                      },
+                                      [_vm._v("Up sell")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-auto pr-0 pl-1" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-default m-0 border-0 text-capitalize",
+                                          attrs: { type: "submit" },
+                                          on: { click: function($event) {} }
+                                        },
+                                        [_vm._v("Extra Info")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                staticClass: "form-control border-0",
+                                attrs: {
+                                  id: "message-body",
+                                  name: "message",
+                                  placeholder: "Write comment here..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex-shrink-1 text-right" },
+                            [
+                              _c(
+                                "button",
                                 {
-                                  staticClass: "w-100",
-                                  staticStyle: {
-                                    height: "245px",
-                                    overflow: "hidden",
-                                    color: "#818284"
+                                  staticClass: "btn py-0 my-0",
+                                  attrs: { id: "submit-btn", type: "submit" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.sendEmail()
+                                    }
                                   }
                                 },
                                 [
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v("Email client form")
-                                  ])
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/workstation/Submit.svg",
+                                      alt: "Icon",
+                                      width: "76"
+                                    }
+                                  })
                                 ]
                               )
                             ]
@@ -269168,51 +270234,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card client" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("p", { staticClass: "card-text font-weight-bolder" }, [
-            _vm._v("Cashed Out")
+    return _c("div", { staticClass: "row mx-0 justify-content-between" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("div", { staticClass: "card client" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text font-weight-bolder" }, [
+              _vm._v("Cashed Out")
+            ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card product" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("p", { staticClass: "card-text font-weight-bolder" }, [
-            _vm._v("Upsell")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto" }, [
+        _c("div", { staticClass: "card product" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text font-weight-bolder" }, [
+              _vm._v("Upsell")
+            ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card time" }, [
-        _c("div", { staticClass: "card-body font-weight-bolder" }, [
-          _c("p", { staticClass: "card-text" }, [_vm._v("Not Interested")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto" }, [
+        _c("div", { staticClass: "card time" }, [
+          _c("div", { staticClass: "card-body font-weight-bolder" }, [
+            _c("p", { staticClass: "card-text" }, [_vm._v("Not Interested")])
+          ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card activity" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("p", { staticClass: "card-text font-weight-bolder" }, [
-            _vm._v("More Info")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto pr-0" }, [
+        _c("div", { staticClass: "card activity" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text font-weight-bolder" }, [
+              _vm._v("More Info")
+            ])
           ])
         ])
       ])
@@ -269227,7 +270283,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n              Client \n            ")
+      _vm._v(" \n            Client \n          ")
     ])
   },
   function() {
@@ -269239,7 +270295,29 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n              Product \n            ")
+      _vm._v(" \n            Product \n          ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card border-0 mb-0 activity" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _c("img", {
+            staticClass: "icon",
+            attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
+          }),
+          _vm._v(" \n            Activity \n          ")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text mb-2" }, [_vm._v("Off-line")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-link mb-0" }, [
+          _vm._v("Online 2 Days ago")
+        ])
+      ])
     ])
   },
   function() {
@@ -269251,28 +270329,166 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v(" \n              Time \n            ")
+      _vm._v(" \n            Time \n          ")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 pr-0" }, [
-      _c("div", { staticClass: "card border-0 activity" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
+    return _c(
+      "div",
+      { staticClass: "card-header tab-card-header border-bottom-0" },
+      [
+        _c(
+          "ul",
+          {
+            staticClass: "nav nav-tabs card-header-tabs",
+            attrs: { id: "myTab", role: "tablist" }
+          },
+          [
+            _c("li", { staticClass: "nav-item left w-50" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "one-tab",
+                    "data-toggle": "tab",
+                    href: "#one",
+                    role: "tab",
+                    "aria-controls": "One",
+                    "aria-selected": "true"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Agent_Notes.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Agent Notes")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item right w-50" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "two-tab",
+                    "data-toggle": "tab",
+                    href: "#two",
+                    role: "tab",
+                    "aria-controls": "Two",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Schedual_Callback.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Schedule Callback")])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-7 px-0" }, [
+        _c("div", { staticClass: "row mx-0 align-items-center" }, [
+          _c("div", { staticClass: "col-auto px-0" }, [
             _c("img", {
               staticClass: "icon",
-              attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
-            }),
-            _vm._v(" \n              Activity \n            ")
+              attrs: {
+                src: "/images/icons/circle.svg",
+                alt: "Icon",
+                width: "17"
+              }
+            })
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-text mb-3" }, [_vm._v("Off-line")]),
+          _c("div", { staticClass: "col pr-0 pl-2" }, [
+            _c("p", { staticClass: "keys mb-0" }, [_vm._v("Today")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mx-0 align-items-center" }, [
+          _c("div", { staticClass: "col-auto px-0" }, [
+            _c("img", {
+              staticClass: "icon",
+              staticStyle: { "vertical-align": "baseline" },
+              attrs: {
+                src: "/images/icons/grey dot.svg",
+                alt: "Icon",
+                width: "17"
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-link mb-0" }, [
-            _vm._v("Online 2 Days ago")
+          _c("div", { staticClass: "col pr-0 pl-2" }, [
+            _c("p", { staticClass: "keys mb-0" }, [
+              _vm._v("Recommended Callback")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-5 pr-0" }, [
+        _c("div", { staticClass: "row mx-0 align-items-start" }, [
+          _c("div", { staticClass: "col-auto px-0" }, [
+            _c("img", {
+              staticClass: "icon",
+              staticStyle: { "vertical-align": "text-top" },
+              attrs: {
+                src: "/images/icons/blue dot.svg",
+                alt: "Icon",
+                width: "8"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col pr-0 pl-2" }, [
+            _c("p", { staticClass: "keys mb-0" }, [
+              _vm._v("Scheduled Callbacks")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mx-0 align-items-start" }, [
+          _c("div", { staticClass: "col-auto px-0" }, [
+            _c("img", {
+              staticClass: "icon",
+              staticStyle: { "vertical-align": "text-top" },
+              attrs: {
+                src: "/images/icons/Orange Dot_Big.svg",
+                alt: "Icon",
+                width: "8"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col pr-0 pl-2" }, [
+            _c("p", { staticClass: "keys mb-0" }, [_vm._v("Tasks")])
           ])
         ])
       ])
@@ -269282,67 +270498,80 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item right w-50" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link",
-          attrs: {
-            id: "two-tab",
-            "data-toggle": "tab",
-            href: "#two",
-            role: "tab",
-            "aria-controls": "Two",
-            "aria-selected": "false"
-          }
-        },
-        [
-          _c("img", {
-            staticClass: "icon",
-            attrs: {
-              src: "/images/workstation/Schedule_Callbacks.svg",
-              alt: "Icon",
-              width: "23"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "left" }, [_vm._v("Schedule Callback")])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item right w-50" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link",
-          attrs: {
-            id: "four-tab",
-            "data-toggle": "tab",
-            href: "#four",
-            role: "tab",
-            "aria-controls": "Four",
-            "aria-selected": "false"
-          }
-        },
-        [
-          _c("img", {
-            staticClass: "icon",
-            attrs: {
-              src: "/images/workstation/Email_Client.svg",
-              alt: "Icon",
-              width: "23"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "left" }, [_vm._v("Email Client")])
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "card-header tab-card-header border-bottom-0" },
+      [
+        _c(
+          "ul",
+          {
+            staticClass: "nav nav-tabs card-header-tabs",
+            attrs: { id: "myTab", role: "tablist" }
+          },
+          [
+            _c("li", { staticClass: "nav-item left w-50" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "three-tab",
+                    "data-toggle": "tab",
+                    href: "#three",
+                    role: "tab",
+                    "aria-controls": "Three",
+                    "aria-selected": "true"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Feedback_summary.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left w-50" }, [
+                    _vm._v("Feedback Summary")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item right w-50" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "four-tab",
+                    "data-toggle": "tab",
+                    href: "#four",
+                    role: "tab",
+                    "aria-controls": "Four",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Email_Client.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left" }, [_vm._v("Email Client")])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -269351,26 +270580,384 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "four", role: "tabpanel", "aria-labelledby": "four-tab" }
+        staticClass:
+          "row mx-0 justify-content-between align-items-center summary"
       },
       [
-        _c("h5", { staticClass: "card-title" }, [_vm._v("TODO")]),
+        _c("div", { staticClass: "col-auto pl-0" }, [
+          _c("p", [_vm._v("220 reviews")])
+        ]),
         _vm._v(" "),
+        _c("div", { staticClass: "col-auto px-0" }, [
+          _c("div", { staticClass: "row mx-0 mb-0" }, [
+            _c("div", { staticClass: "col-auto px-0" }, [
+              _c("p", [_vm._v("Called: 600")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto pr-0" }, [
+              _c("p", [_vm._v("Answered: 50")])
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-auto pl-0" }, [
+      _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
+        _vm._v("Templates:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header tab-card-header border-bottom-0 pt-0 px-0" },
+      [
         _c(
-          "div",
+          "ul",
           {
-            staticClass: "w-100",
-            staticStyle: {
-              height: "245px",
-              overflow: "hidden",
-              color: "#818284"
-            }
+            staticClass: "nav nav-tabs card-header-tabs mx-0",
+            attrs: { id: "myTab", role: "tablist" }
           },
-          [_c("p", { staticClass: "card-text" }, [_vm._v("Email client form")])]
+          [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "one-tab",
+                    "data-toggle": "tab",
+                    href: "#five",
+                    role: "tab",
+                    "aria-controls": "Five",
+                    "aria-selected": "true"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Open Activities.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Open Activities")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "two-tab",
+                    "data-toggle": "tab",
+                    href: "#six",
+                    role: "tab",
+                    "aria-controls": "Six",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Closed_activites.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Closed Activities")])
+                ]
+              )
+            ])
+          ]
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header tab-card-header border-bottom-0 pt-0 px-0" },
+      [
+        _c(
+          "ul",
+          {
+            staticClass: "nav nav-tabs card-header-tabs mx-0",
+            attrs: { id: "myTab", role: "tablist" }
+          },
+          [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "one-tab",
+                    "data-toggle": "tab",
+                    href: "#seven",
+                    role: "tab",
+                    "aria-controls": "Seven",
+                    "aria-selected": "true"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Deals.svg",
+                      alt: "Icon",
+                      width: "60"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Deals")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "two-tab",
+                    "data-toggle": "tab",
+                    href: "#eight",
+                    role: "tab",
+                    "aria-controls": "Eight",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    staticStyle: {
+                      "margin-top": "11px",
+                      "margin-bottom": "11px"
+                    },
+                    attrs: {
+                      src: "/images/icons/workstation/Create_a_deal.svg",
+                      alt: "Icon",
+                      width: "36"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Create a Deal")])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-7 pl-0" }, [
+      _c("div", { staticClass: "row mx-0" }, [
+        _c("div", { staticClass: "col-6 pl-0" }, [
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Agent Name\n                          "),
+              _c("input", {
+                staticClass: "form-control border-0 rounded-pill",
+                attrs: { type: "text", id: "agent-name", name: "AgentName" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Deal Name\n                          "),
+              _c("input", {
+                staticClass: "form-control border-0 rounded-pill",
+                attrs: { type: "text", id: "deal-name", name: "DealName" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Closing Date\n                          "),
+              _c("input", {
+                staticClass: "form-control border-0 rounded-pill",
+                attrs: { type: "date", id: "closing-date", name: "ClosingDate" }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 pr-0" }, [
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Type\n                          "),
+              _c(
+                "select",
+                { staticClass: "custom-select rounded-pill border-0" },
+                [
+                  _c("option", { attrs: { selected: "" } }, [_vm._v("-None-")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [
+                    _vm._v("Existing Business")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [
+                    _vm._v("New Business")
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Lead Source\n                          "),
+              _c(
+                "select",
+                { staticClass: "custom-select rounded-pill border-0" },
+                [
+                  _c("option", { attrs: { selected: "" } }, [_vm._v("-None-")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [
+                    _vm._v("Advertising")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [
+                    _vm._v("Cold Call")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [
+                    _vm._v("Employee Referral")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [
+                    _vm._v("External Referral")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "5" } }, [
+                    _vm._v("Online Store")
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Amount\n                          "),
+              _c("input", {
+                staticClass: "form-control border-0 rounded-pill",
+                attrs: { type: "number", id: "amount", name: "Amount" }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 px-0" }, [
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [
+              _vm._v("Description Information\n                          "),
+              _c("textarea", {
+                staticClass: "form-control border-0",
+                attrs: { id: "info", name: "Info" }
+              })
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [
+      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+        _vm._v("Stage\n                      "),
+        _c("select", { staticClass: "custom-select rounded-pill border-0" }, [
+          _c("option", { attrs: { selected: "" } }, [_vm._v("-None-")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "1" } }, [_vm._v("Qualification")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("Needs Analysis")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [
+            _vm._v("Value Proposition")
+          ]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "4" } }, [_vm._v("Proposal")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "5" } }, [_vm._v("Negotiation")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+        _vm._v("Probability (%)\n                      "),
+        _c("input", {
+          staticClass: "form-control border-0 rounded-pill",
+          attrs: { type: "text", id: "probability", name: "Probability" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+        _vm._v("Expected Revenue\n                      "),
+        _c("input", {
+          staticClass: "form-control border-0 rounded-pill",
+          attrs: { type: "number", id: "revenue", name: "Revenue" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+        _vm._v("Contact Name\n                      "),
+        _c("input", {
+          staticClass: "form-control border-0 rounded-pill",
+          attrs: { type: "text", id: "contact-name", name: "ContactName" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+        _vm._v("Contact Number\n                      "),
+        _c("input", {
+          staticClass: "form-control border-0 rounded-pill",
+          attrs: { type: "tel", id: "contact-number", name: "ContactNumber" }
+        })
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -269395,7 +270982,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
+      _c("div", { staticClass: "col-lg-4 text-center" }, [
         _c("img", {
           attrs: {
             src: "/images/Idle_Pages_Assest/Asset 107.svg",
@@ -269413,7 +271000,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
+      _c("div", { staticClass: "col-lg-4 text-center" }, [
         _c("img", {
           attrs: {
             src: "/images/Idle_Pages_Assest/Asset 108.svg",
@@ -269431,7 +271018,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
+      _c("div", { staticClass: "col-lg-4 text-center" }, [
         _c("img", {
           attrs: {
             src: "/images/Idle_Pages_Assest/Asset 108.svg",
@@ -269449,7 +271036,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
+      _c("div", { staticClass: "col-lg-4 text-center" }, [
         _c("img", {
           attrs: {
             src: "/images/Idle_Pages_Assest/Asset 107.svg",
@@ -269467,7 +271054,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
+      _c("div", { staticClass: "col-lg-4 text-center" }, [
         _c("img", {
           attrs: {
             src: "/images/Idle_Pages_Assest/Asset 106.svg",

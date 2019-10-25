@@ -1,37 +1,54 @@
 <style scoped>
+#workstation .general-section-stats,
+#workstation .scripts {
+  height:100vh;
+  overflow-y: scroll;
+}
 .row{ 
   margin-bottom: 3.5vh;  
 }
 .general-section-stats .agent-stats-1 {
-  padding-top: 90px;
+  padding-top: 69px;
   padding-left: 5%;
   padding-right: 5%;
 }
 .general-section-stats .agent-stats-2 {
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
-.top-section .col-auto{
+.scripts {
+  padding-left: 3%;
+  padding-right:3%;
+}
+.top-section .col{
   padding: 0 10px; 
-  border-left: 1px solid #003549; 
+  border-left: 1px solid rgba(0,52,73,1); 
 }
 .top-section p.bottom{
-  font-size: 18px; 
-  font-weight: 900; 
-  color: #003449; 
+  font-size: 19px; 
+  font-weight: 700; 
+  letter-spacing: 0.05em;
+  color: rgba(30,34,83,1); 
 } 
 .top-section p.top{ 
-  font-size: 14px; 
-  color: #003449; 
+  font-size: 13px; 
+  color: rgba(78,77,77,1);
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif; 
+  padding-bottom:20px;
+  margin-bottom:0;
 } 
 .card{ 
-  border-radius: 27px;
+  border-radius: 25px;
 } 
-.card-title { 
+.client-details .card-title { 
   margin-bottom: 0.75rem; 
-  padding-bottom: 0.75rem; 
+  padding-bottom: 0.5rem; 
   border-bottom: 1px solid #fff; 
+  font-size:14px;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 0.05em;
 } 
 .client{ 
   background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ; 
@@ -39,10 +56,10 @@
 .product{ 
   background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ; 
 } 
-.time{ 
+.activity{ 
   background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ; 
 } 
-.activity{ 
+.time{ 
   background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ; 
 } 
 h5{ 
@@ -53,9 +70,10 @@ h5 .icon{
   margin: -5px 15px 0 0; 
 } 
 p.card-text{ 
-  font-size: 23px; 
+  font-size: 32px; 
   color: #fff; 
   font-weight: bolder; 
+  line-height:1em;
 } 
 p.card-link{ 
   font-size: 16px; 
@@ -68,7 +86,8 @@ p.card-link{
   padding-bottom: 30px;
 }
 .client-details .card {
-  box-shadow: 0px 0px 9px rgba(160, 124, 124, 0.15);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .client-details .card-body {
   padding: 1.25rem;
@@ -80,8 +99,9 @@ p.card-link{
   padding-bottom: 3%;
 }
 .stats .card{ 
-  border-radius: 20px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.15); 
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
 } 
 .stats .card h5{ 
   color: #818284; 
@@ -132,29 +152,45 @@ span.right{
   width: 22%;
   color: #7f99a4; 
 } 
-.choose-comment-type{ 
-  float: left;
+.notes-capture, .callback-capture {
+  background: #f4f4f4;
+  border-radius: 50rem;
+  height:50px;
+}
+.choose-comment-type{
   height: 50px; 
   width: 50px; 
   padding: 11px; 
-  margin: 10px 10px 10px 0; 
-  background: #f6f8f9; 
-  border-radius: 9px; 
+  margin: 0 10px 0 0; 
+  background: #f4f4f4; 
+  border-radius: 50rem!important; 
   cursor: pointer; 
 } 
 
 .comment-desc{ 
   height: 50px;
   padding: 11px; 
-  margin: 10px 0px; 
-  background: #f6f8f9; 
+  margin: 0; 
   border-radius: 9px; 
+  background: #f4f4f4;
   cursor: pointer; 
   float: left; 
 } 
-#send-btn{ 
-  height: 50px; 
-  margin: 10px 0px 10px 0; 
+.keys {
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif;
+  font-size: 8px;
+  color: #808080;
+}
+.callback-label {
+  color: #666;
+  letter-spacing: 0.05em;
+  font-size:12px;
+  font-family: 'Rubik', sans-serif;
+}
+#submit-btn img{ 
+  margin-top: -15px; 
+  margin-right: -15px; 
 } 
 .btn-secondary { 
   color: #fff; 
@@ -321,7 +357,8 @@ p.maximize a{
   padding-bottom: 9px; 
 }
 .scripts .card { 
-  margin-right: 23px; 
+  border:0;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
 } 
 .scripts .card-body { 
   flex: 1 1 auto; 
@@ -477,51 +514,104 @@ a.down-scroll:hover{
   background: #fff; 
 } 
 .nav.nav-tabs.card-header-tabs li a {
-  box-shadow: inset 5px -5px 10px rgba(0,0,0,0.05);
   border: 0;
   background-color: #fff;
+  color:#7f8080;
+  letter-spacing:0.05em;
+  text-align:center;
+  padding-top:0;
+  padding-bottom:0;
 }
-.nav.nav-tabs.card-header-tabs li a.active{
-  box-shadow: none!important;
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
-.final-modal .card ul li.left{ 
-  border-top-left-radius: 19px; 
-} 
-.final-modal .card ul li.left .nav-link {
-  border-top-left-radius: 19px; 
-  border-top-right-radius: 0px; 
-  padding: 16px; 
-  font-size: 16px; 
-  color: #818284; 
-} 
-.final-modal .card ul li.left .nav-link:hover {
-  border-top-left-radius: 20px; 
-  border-top-right-radius: 0px; 
-  background: #fff; 
-  padding: 16px; 
-  font-size: 16px; 
-} 
-.final-modal .card ul li.right{ 
-  border-top-right-radius: 19px; 
-  border-top-left-radius: 0px;
-} 
-.final-modal .card ul li.right .nav-link {
-  border-top-left-radius: 0px; 
-  border-top-right-radius: 20px; 
-  padding: 16px; 
-  font-size: 16px; 
-  color: #818284; 
-} 
-.final-modal .card ul li.right .nav-link:hover {
-  border-top-left-radius: 0px; 
-  border-top-right-radius: 20px; 
-  background: #fff; 
-  padding: 16px; 
-  font-size: 16px; 
-} 
-.tab-pane{ 
-  height: 348px; 
-} 
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
+  box-shadow: inset -7px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius:0;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{
+  box-shadow: -10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
+  box-shadow: inset 7px -10px 10px #f5f5f5;
+  border-top-right-radius: 25px;
+  border-top-left-radius:0;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Seven"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Seven"]{
+  box-shadow: inset -7px -10px 10px #f5f5f5;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Eight"]{
+  box-shadow: 10px -10px 10px #f5f5f5;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
+  box-shadow: inset 7px -10px 10px #f5f5f5;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.activities .card-header, .deals .card-header{
+  background: #fff;
+}
+.activities .card-header-tabs, .deals .card-header-tabs {
+  box-shadow: inset 0 -10px 10px #f5f5f5;
+}
+.deals #eight p {
+  font-size: 10px; 
+  letter-spacing: 0.05em;
+  color: 808080;
+}
+.deals #eight label {
+  font-size: 10px; 
+  letter-spacing: 0.05em;
+  color: #999999;
+  font-family: 'Rubik', sans-serif; 
+}
+.deals #eight input, .deals #eight textarea, .deals #eight select {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  color: #003449;
+  letter-spacing: 0.05em;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  padding: 10px 20px!important;
+}
+.deals #eight textarea {
+  border-radius: 25px;
+  height: 94px!important;
+}
+.deals #eight .custom-select {
+  height: auto;
+}
+.deals #eight .cancel-deal {
+  border-radius: 50rem!important;
+  font-size: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  letter-spacing: 0.05em;
+  color: #999999;
+  padding: 9px;
+}
+.deals #eight .save-deal {
+  font-size: 10px;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 9px;
+}
 .nav-tabs .nav-link span{ 
   font-size: 14px; 
   padding-left: 10px; 
@@ -545,14 +635,67 @@ a.down-scroll:hover{
   padding-right: 3%; 
   padding-bottom: 6px;
   padding-left: 3%; 
+}
+.summary p {
+  color: #818284;
+  font-size: 15px;
+}
+.stat-perc {
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  color: #808080;
+}
+.summary-abr {
+  letter-spacing: 0.05em;
+  color: #333333;
+  font-family: 'Rubik', sans-serif; 
+  font-size: 18px;
+}
+.progress-bar{
+	background: #E6E6E6;
+	border-radius: 5px;
+  height: 12px;
+}
+.tank{
+	background:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;
+	border-radius: 5px;
+  background: rgb(114, 218, 126);
+  height: 12px;
+  transition: all 0.5s ease 0s;
+}
+.email-desc {
+  letter-spacing: 0.05em;
+  color: #999999;
+}
+#four .text-uppercase.font-weight-bold{
+  color: #808080;
+  letter-spacing: 0.05em;
 } 
-/*being used?*/
-.ant-time-picker{ 
-  width: 100% !important; 
-} 
+#four .btn-default {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  font-family: 'Rubik', sans-serif; 
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  border-radius: 50rem!important;
+}
+#four textarea {
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  height: 163px!important;
+  overflow-y: auto;
+}
+
+.scroll-hidden{
+    overflow-y: scroll;
+    height: 70vh;
+    /* padding-top: 6px; */
+    padding-right: 6px;
+    width: 100%;
+}
 </style> 
 <template> 
-  <div class=""> 
+  <div id="workstation"> 
     <!-- Scripts Section Starts --> 
     <div class="scripts" v-if="scripts == true"> 
       <div :class="{ 'row mx-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%"> 
@@ -560,37 +703,39 @@ a.down-scroll:hover{
           <p class="heading px-0">Calls</p> 
         </div> 
 
-        <div> 
-          <div class="card client"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">Cashed Out</p> 
+        <div class="row mx-0 justify-content-between"> 
+          <div class="col-auto pl-0">
+            <div class="card client"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">Cashed Out</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card product"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">Upsell</p> 
+          <div class="col-auto"> 
+            <div class="card product"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">Upsell</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card time"> 
-            <div class="card-body font-weight-bolder"> 
-              <p class="card-text">Not Interested</p> 
+          <div class="col-auto"> 
+            <div class="card time"> 
+              <div class="card-body font-weight-bolder"> 
+                <p class="card-text">Not Interested</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
 
-        <div> 
-          <div class="card activity"> 
-            <div class="card-body"> 
-              <p class="card-text font-weight-bolder">More Info</p> 
+          <div class="col-auto pr-0"> 
+            <div class="card activity"> 
+              <div class="card-body"> 
+                <p class="card-text font-weight-bolder">More Info</p> 
+              </div> 
             </div> 
           </div> 
-        </div> 
+        </div>
       </div> 
     </div>   
     <!-- Scripts Section ends --> 
@@ -598,151 +743,143 @@ a.down-scroll:hover{
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">
-        <div class="col-auto"> 
-          <p class="top">Lead Source</p> 
+        <div class="col"> 
+          <p class="top">First Name</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
         
-        <div class="col-auto"> 
-          <p class="top">Online</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        <div class="col"> 
+          <p class="top">Last Name</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.surname }}</p> 
         </div> 
 
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Contact OWner</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Invested</p> 
+        <div class="col"> 
+          <p class="top">Contact Source</p> 
           <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
         </div>
         
-        <div class="col-auto"> 
-          <p class="top">Called</p> 
+        <div class="col"> 
+          <p class="top">Successful</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Answers</p> 
+        <div class="col"> 
+          <p class="top">Due</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Sales</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+        <div class="col"> 
+          <p class="top">Area</p> 
+          <p class="bottom mb-0">{{ lead_info.city }}</p> 
         </div> 
       </div>
 
       <div class="row pt-4 mx-0 justify-content-between top-section agent-stats-2">
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Email</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
+          <p class="bottom mb-0">{{ lead_info.lead_source.phone }}</p> 
         </div> 
         
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Phone</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Online Funds</p> 
+        <div class="col"> 
+          <p class="top">Contact Status</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
-          <p class="top">Invested</p> 
+        <div class="col"> 
+          <p class="top">Last Answer</p> 
           <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
         </div>
-        
-        <div class="col-auto"> 
-          <p class="top">Negotiation</p> 
+
+        <div class="col"> 
+          <p class="top">Best Time</p>
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
         </div> 
 
-        <div class="col-auto"> 
+        <div class="col"> 
           <p class="top">Avg. Call length</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col-auto"> 
-          <p class="top">Sales</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
         </div> 
+        <div class="col"> 
+          <p class="top">Client ID</p> 
+          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
+        </div> 
       </div> 
-      
-      <div class="row mx-0 mb-0 justify-content-between client-details"> 
-        <div class="col-lg-3 col-md-4 col-sm-4 pl-0"> 
-          <div class="card border-0 client"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
-                Client 
-              </h5> 
-              <p 
-                class="card-text truncate mb-3" 
-                :title="lead_info.name + ' ' + lead_info.surname"
-              >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
-              <div class="truncate w-100">
-                <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
-                <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
-                <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
-              </div> 
+
+      <div class="card-deck client-details mx-0"> 
+        <div class="card border-0 mb-0 ml-0 client"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+              Client 
+            </h5> 
+            <p 
+              class="card-text truncate mb-2" 
+              :title="lead_info.name + ' ' + lead_info.surname"
+            >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
+            <div class="truncate w-100">
+              <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
+              <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
+              <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
             </div> 
           </div> 
         </div>
 
-        <div class="col-lg-3"> 
-          <div class="card border-0 product"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
-                Product 
-              </h5> 
-              <p 
-                class="card-text truncate mb-3" 
-                :title="lead_info.product.description + '. ' + lead_info.product.price "
-              >{{ lead_info.product.name }}</p> 
-              <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                {{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }} 
-              </p>  
-            </div> 
+        <div class="card border-0 product mb-0"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+              Product 
+            </h5> 
+            <p 
+              class="card-text truncate mb-2" 
+              :title="lead_info.product.description + '. ' + lead_info.product.price "
+            >{{ lead_info.product.name }}</p> 
+            <p 
+              class="card-link truncate w-100 mb-0" 
+              :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+            >{{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}</p>  
+          </div> 
+        </div>
+
+        <div class="card border-0 mb-0 activity"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+              Activity 
+            </h5> 
+            <p class="card-text mb-2">Off-line</p> 
+            <p class="card-link mb-0">Online 2 Days ago</p>  
           </div> 
         </div> 
 
-        <div class="col-lg-3"> 
-          <div class="card border-0 time"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
-                Time 
-              </h5> 
-              <p class="card-text mb-3">11:20</p>
-              <div class="truncate"> 
-                <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-                <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
-              </div>
-            </div> 
-          </div> 
-        </div> 
-
-        <div class="col-lg-3 pr-0"> 
-          <div class="card border-0 activity"> 
-            <div class="card-body"> 
-              <h5 class="card-title"> 
-                <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
-                Activity 
-              </h5> 
-              <p class="card-text mb-3">Off-line</p> 
-              <p class="card-link mb-0">Online 2 Days ago</p>  
-            </div> 
+        <div class="card border-0 mb-0 mr-0 time"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+              Time 
+            </h5> 
+            <p class="card-text mb-2">11:20</p>
+            <div class="truncate"> 
+              <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+              <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+            </div>
           </div> 
         </div> 
       </div>       
 
-      <div class="row mx-0 mb-0 justify-content-between side-indentation stats final-modal"> 
-        <div class="col-lg-6 pl-0 pr-4"> 
-          <div class="card left mt-3 border-0 tab-card"> 
+      <div class="side-indentation stats final-modal">
+        <div class="card-deck mx-0 mb-0"> 
+          <div class="card left mt-3 border-0 mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -756,13 +893,12 @@ a.down-scroll:hover{
                     aria-selected="true"
                   > 
                     <img 
-                      src="/images/workstation/Agent_Notes_Icon@4x.png" 
+                      src="/images/icons/workstation/Agent_Notes.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="23"
+                      width="60"
                     /> 
-                    <span class="left w-50">Agent Notes</span> 
-                    <span class="right">{{ comments.total_comments }}</span> 
+                    <span>Agent Notes</span>
                   </a> 
                 </li> 
 
@@ -777,12 +913,12 @@ a.down-scroll:hover{
                     aria-selected="false"
                   > 
                     <img 
-                      src="/images/workstation/Schedule_Callbacks.svg" 
+                      src="/images/icons/workstation/Schedual_Callback.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="23"
+                      width="60"
                     /> 
-                    <span class="left">Schedule Callback</span> 
+                    <span>Schedule Callback</span> 
                   </a> 
                 </li> 
               </ul> 
@@ -791,7 +927,8 @@ a.down-scroll:hover{
             <div class="tab-content" id="myTabContent"> 
               <div 
                 class="tab-pane fade show active p-3" 
-                id="one" role="tabpanel" 
+                id="one" 
+                role="tabpanel" 
                 aria-labelledby="one-tab"
               > 
                 <div class="notes-roll"> 
@@ -840,11 +977,18 @@ a.down-scroll:hover{
                   </div>
                   <div class="flex-shrink-1">
                     <button 
-                      id="send-btn" 
+                      id="submit-btn" 
                       type="submit" 
-                      class="btn btn-primary" 
+                      class="btn p-0 m-0" 
                       @click="addComment()"
-                    >Send</button>
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button>
                   </div> 
                 </div>             
               </div>
@@ -856,76 +1000,140 @@ a.down-scroll:hover{
                 aria-labelledby="two-tab"
               >  
                 <div class="row mx-0 mb-0"> 
-                  <div class="col-lg-4 pr-0"> 
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label p-0">Date of Callback 
-                          <a-date-picker 
-                            v-model='selected_date' 
-                            format="YYYY-MM-DD" 
-                            :allowEmpty="false"
-                            @change="checkCBDate()"
-                          /> 
-                        </label> 
-                      </div> 
+                  <div class="col-lg-4 px-0"> 
+                    <div class="row mx-0">
+                      <div class="col-7 px-0">
+                        <div class="row mx-0 align-items-center">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/circle.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="17"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Today</p>
+                          </div>
+                        </div>
+
+                        <div class="row mx-0 align-items-center">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/grey dot.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="17"
+                            style="vertical-align: baseline;"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Recommended Callback</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-5 pr-0">
+                        <div class="row mx-0 align-items-start">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/blue dot.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="8"
+                              style="vertical-align: text-top;"/>
+                          </div>
+
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Scheduled Callbacks</p>
+                          </div>
+                        </div>
+
+                        <div class="row mx-0 align-items-start">
+                          <div class="col-auto px-0">
+                            <img src="/images/icons/Orange Dot_Big.svg" 
+                              alt="Icon" 
+                              class="icon" 
+                              width="8"
+                              style="vertical-align: text-top;"/>
+                          </div>
+                          <div class="col pr-0 pl-2">
+                            <p class="keys mb-0">Tasks</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label p-0 callback-label">Date of Callbacks 
+                        <a-date-picker 
+                          v-model='selected_date' 
+                          format="DD-MM" 
+                          :allowEmpty="false"
+                          @change="checkCBDate()"
+                          class="rounded-pill"
+                        /> 
+                      </label> 
                     </div> 
-                      
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label pl-0">Time of Callback 
-                          <a-time-picker 
-                            v-model='selected_time' 
-                            :allowEmpty="false" 
-                            use24Hours 
-                            format="hh:mm a"
-                          /> 
-                        </label> 
-                      </div>   
-                    </div>                                        
-                    <div class="row"> 
-                      <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                        <label class="col-lg-12 control-label pr-0">
-                          <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
-                        </label> 
-                      </div>   
-                    </div> 
+                       
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label pl-0 callback-label">Time of Callback 
+                        <a-time-picker 
+                          v-model='selected_time' 
+                          :allowEmpty="false" 
+                          use24Hours 
+                          format="hh:mm"
+                        /> 
+                      </label> 
+                    </div>
+
+                    <!-- <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="col-lg-12 control-label pr-0">
+                        <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
+                      </label> 
+                    </div>   -->
                   </div> 
 
-                  <div class="col-lg-8"> 
+                  <div class="col-lg-8 pr-0"> 
+                    <p>Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
                       is-inline is-expanded  
                       :min-date='new Date()' 
                       :max-date="max_date" 
-                      color="pink" 
+                      color="orange" 
                     /> 
                   </div> 
                 </div> 
-
-                <div class="row mb-0"> 
-                  <div class="col-lg-12 pr-0"> 
+ 
+                <div class="d-flex callback-capture">
+                  <div class="flex-grow-1">
                     <input 
-                      class="comment-desc d-block w-75 border-0" 
+                      class="comment-desc d-block w-100 border-0 rounded-pill" 
                       type="text" 
                       v-model="call_back.note" 
                       placeholder="Write notes here"
                     /> 
+                  </div>
+                  <div class="flex-shrink-1">
                     <button 
-                      id="send-btn" 
+                      id="submit-btn" 
                       type="submit" 
-                      class="btn btn-primary"
+                      class="btn p-0 m-0"
                       @click="addCallback()"
-                    >Schedule</button> 
-                  </div>   
-                </div> 
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button> 
+                  </div>
+                </div>
               </div> 
             </div> 
-          </div> 
-        </div> 
-
-        <div class="col-lg-6 pr-0 pl-4"> 
-          <div class="card left mt-3 border-0 tab-card"> 
+          </div>
+ 
+          <div class="card left mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -938,9 +1146,8 @@ a.down-scroll:hover{
                     aria-controls="Three" 
                     aria-selected="true"
                   > 
-                    <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/> 
+                    <img src="/images/icons/workstation/Feedback_summary.svg" alt="Icon" class="icon" width="60"/> 
                     <span class="left w-50">Feedback Summary</span> 
-                    <span class="right">{{ comments.total_comments }}</span> 
                   </a> 
                 </li> 
                 <li class="nav-item right w-50"> 
@@ -953,7 +1160,7 @@ a.down-scroll:hover{
                     aria-controls="Four" 
                     aria-selected="false"
                   > 
-                    <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/> 
+                    <img src="/images/icons/workstation/Email_Client.svg" alt="Icon" class="icon" width="60"/> 
                     <span class="left">Email Client</span> 
                   </a> 
                 </li> 
@@ -966,10 +1173,9 @@ a.down-scroll:hover{
                 id="three" 
                 role="tabpanel" 
                 aria-labelledby="three-tab" 
-                style="height: 349px;"
               > 
                 <div class=""> 
-                  <div class="verticalChart w-100"> 
+                  <!-- <div class="verticalChart w-100"> 
                     <div class="singleBar" v-for="bar in comments_graph"> 
                       <div class="bar"> 
                         <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
@@ -981,20 +1187,398 @@ a.down-scroll:hover{
 
                       <div class="clearfix"></div> 
                     </div> 
+                  </div> -->
+
+                  <div class="row mx-0 justify-content-between align-items-center summary">
+                    <div class="col-auto pl-0">
+                      <p>220 reviews</p>
+                    </div>
+
+                    <div class="col-auto px-0">
+                      <div class="row mx-0 mb-0">
+                        <div class="col-auto px-0">
+                          <p>Called: 600</p>
+                        </div>
+                        <div class="col-auto pr-0">
+                          <p>Answered: 50</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                    <div class="col-12 px-0">
+                      <div class="row mx-0 mb-0 align-items-center">
+                        <div class="col-12 align-content-end px-0">
+                          <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                        </div>
+
+                        <div class="col px-0">
+                          <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                        </div>
+
+                        <div class="col-11 pr-0 pl-4">
+                          <div class="progress-bar w-100">
+                            <span class="tank" :style="{width: + stat.percent + '%'}"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>            
                 </div>
               </div>  
 
               <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
-                <h5 class="card-title">TODO</h5> 
-                <div class="w-100" style="height:245px; overflow:hidden; color: #818284;"> 
-                  <p class="card-text">Email client form</p> 
+                <p class="email-desc font-weight-light font-italic">Choose a template or write your own email to Client</p>
+
+                <div class="row mx-0 align-items-center">
+                  <div class="col-auto pl-0">
+                    <p class="text-uppercase font-weight-bold mb-2">Templates:</p>
+                  </div>
+                  <div class="col-auto pl-0 mb-2 pr-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Introduce Stock</button>
+                  </div>
+                  <div class="col-auto mb-2 px-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >First time sell</button>
+                  </div>
+                  <div class="col-auto mb-2 px-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Up sell</button>
+                  </div>
+                  <div class="col-auto mb-2 pr-0 pl-1">
+                    <button 
+                      type="submit" 
+                      class="btn btn-default m-0 border-0 text-capitalize" 
+                      @click=""
+                    >Extra Info</button>
+                  </div>
+                </div>
+
+                <textarea 
+                  id="message-body"  
+                  name="message"
+                  class="form-control border-0"
+                  placeholder="Write comment here..."/>
+              </div> 
+
+              <div class="flex-shrink-1 text-right">
+                <button 
+                  id="submit-btn" 
+                  type="submit" 
+                  class="btn py-0 my-0" 
+                  @click="sendEmail()"
+                >
+                  <img 
+                    src="/images/icons/workstation/Submit.svg" 
+                    alt="Icon" 
+                    class="icon" 
+                    width="76"
+                  />
+                </button>
+              </div> 
+            </div> 
+          </div>
+        </div>
+
+        <!-- Activities Starts -->
+        <div class="row mx-0 mb-0 activities"> 
+          <div class="col-lg-12 px-0"> 
+            <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
+                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="one-tab" 
+                      data-toggle="tab" 
+                      href="#five" 
+                      role="tab" 
+                      aria-controls="Five" 
+                      aria-selected="true"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Open Activities.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Open Activities</span> 
+                    </a> 
+                  </li> 
+
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="two-tab" 
+                      data-toggle="tab" 
+                      href="#six" 
+                      role="tab" 
+                      aria-controls="Six" 
+                      aria-selected="false"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Closed_activites.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Closed Activities</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
+
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active p-3" 
+                  id="five" role="tabpanel" 
+                  aria-labelledby="one-tab"
+                > 
+                  <b-table 
+                    hover 
+                    :items="activityItems" 
+                    :per-page="perPage"
+                    :current-page="currentPage"
+                    sticky-header
+                  >
+                    <template v-for="item in activityItems" v-slot:cell(statusColor)="data">
+                      <p>hi {{ data.item.statusColor }}</p>
+                    </template>
+                  </b-table>
+
+                  <b-pagination
+                    v-model="currentPage"
+                    :total-rows="rows"
+                    :per-page="perPage"
+                    aria-controls="my-table"
+                  ></b-pagination>             
+                </div>
+
+                <div 
+                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  id="six" 
+                  role="tabpanel" 
+                  aria-labelledby="two-tab"
+                >  
+                  <b-table hover :items="activityItems" per-page="5">
+                    <template v-slot:cell(statusColor)="data">
+                      <p :style="{color: statusColor}">hi</p>
+                    </template>
+                  </b-table>
                 </div> 
               </div> 
             </div> 
-          </div> 
-        </div> 
-      </div> 
+          </div>  
+        </div>
+
+        <!-- Deals Starts -->
+        <div class="row mx-0 mb-0 deals"> 
+          <div class="col-lg-12 px-0"> 
+            <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
+                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="one-tab" 
+                      data-toggle="tab" 
+                      href="#seven" 
+                      role="tab" 
+                      aria-controls="Seven" 
+                      aria-selected="true"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Deals.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="60"
+                      /> 
+                      <span>Deals</span> 
+                    </a> 
+                  </li> 
+
+                  <li class="nav-item"> 
+                    <a 
+                      class="nav-link" 
+                      id="two-tab" 
+                      data-toggle="tab" 
+                      href="#eight" 
+                      role="tab" 
+                      aria-controls="Eight" 
+                      aria-selected="false"
+                    > 
+                      <img 
+                        src="/images/icons/workstation/Create_a_deal.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="36"
+                        style="margin-top:11px; margin-bottom:11px;"
+                      /> 
+                      <span>Create a Deal</span> 
+                    </a> 
+                  </li> 
+                </ul> 
+              </div> 
+
+              <div class="tab-content" id="myTabContent"> 
+                <div 
+                  class="tab-pane fade show active p-3" 
+                  id="seven" role="tabpanel" 
+                  aria-labelledby="one-tab"
+                > 
+                  <b-table hover :items="dealItems"></b-table>        
+                </div>
+
+                <div 
+                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  id="eight" 
+                  role="tabpanel" 
+                  aria-labelledby="two-tab"
+                >  
+                  <p>Deal information</p>
+                  <div class="row mx-0">
+                    <div class="col-7 pl-0">
+                      <div class="row mx-0">
+                        <div class="col-6 pl-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name
+                            <input 
+                              type="text" 
+                              id="agent-name"  
+                              name="AgentName"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name
+                            <input 
+                              type="text" 
+                              id="deal-name"  
+                              name="DealName"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date
+                            <input 
+                              type="date" 
+                              id="closing-date"  
+                              name="ClosingDate"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                        </div>
+                        <div class="col-6 pr-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type
+                            <select class="custom-select rounded-pill border-0">
+                              <option selected>-None-</option>
+                              <option value="1">Existing Business</option>
+                              <option value="2">New Business</option>
+                            </select>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source
+                            <select class="custom-select rounded-pill border-0">
+                              <option selected>-None-</option>
+                              <option value="1">Advertising</option>
+                              <option value="2">Cold Call</option>
+                              <option value="3">Employee Referral</option>
+                              <option value="4">External Referral</option>
+                              <option value="5">Online Store</option>
+                            </select>
+                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount
+                            <input 
+                              type="number" 
+                              id="amount"  
+                              name="Amount"
+                              class="form-control border-0 rounded-pill"/>
+                          </label>
+                        </div>
+
+                        <div class="col-12 px-0">
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information
+                            <textarea 
+                              id="info"  
+                              name="Info"
+                              class="form-control border-0"/>
+                          </label>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="col-3">
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage
+                        <select class="custom-select rounded-pill border-0">
+                          <option selected>-None-</option>
+                          <option value="1">Qualification</option>
+                          <option value="2">Needs Analysis</option>
+                          <option value="3">Value Proposition</option>
+                          <option value="4">Proposal</option>
+                          <option value="5">Negotiation</option>
+                        </select>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)
+                        <input 
+                          type="text" 
+                          id="probability"  
+                          name="Probability"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue
+                        <input 
+                          type="number" 
+                          id="revenue"  
+                          name="Revenue"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name
+                        <input 
+                          type="text" 
+                          id="contact-name"  
+                          name="ContactName"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number
+                        <input 
+                          type="tel" 
+                          id="contact-number"  
+                          name="ContactNumber"
+                          class="form-control border-0 rounded-pill"/>
+                      </label>
+                    </div>
+
+                    <div class="col-2 align-self-end pr-0">
+                      <div class="row mx-0">
+                        <div class="col-lg-6 pl-0 pr-2">
+                          <button 
+                            type="submit" 
+                            class="btn btn-default cancel-deal w-100 m-0 border-0" 
+                            @click=""
+                          >Cancel</button>
+                        </div>
+                        <div class="col-lg-6 pr-0 pl-2">
+                          <button 
+                            type="submit" 
+                            class="btn btn-primary save-deal w-100 rounded-pill m-0" 
+                            @click=""
+                          >Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+              </div> 
+            </div> 
+          </div>  
+        </div>
+        <!-- Deals Ends -->
+      </div>
     </div> 
     <!-- General Section Ends --> 
 
@@ -1040,7 +1624,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Clients</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1048,7 +1632,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Commission</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1056,7 +1640,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
             <p>Upselling</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1064,7 +1648,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
             <p>Breaking the Ice</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1072,7 +1656,7 @@ a.down-scroll:hover{
             </a> 
           </div> 
           
-          <div class="col-lg-4"> 
+          <div class="col-lg-4 text-center"> 
             <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
             <p>Callbacks</p> 
             <a href="#" class="down-scroll d-block"> 
@@ -1086,7 +1670,7 @@ a.down-scroll:hover{
 
     <!-- Active calls Section Starts --> 
     <div class="" v-if="active_calls == true"> 
-      <div class="row stats scroll-hidden w-100 mx-0" style="margin-top: 6%"> 
+      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%"> 
         <div class="col-lg-12"> 
           <vcl-table v-if="show_page_loader === true"></vcl-table> 
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable> 
@@ -1131,8 +1715,7 @@ a.down-scroll:hover{
         @hide="preventClosing" 
         style="z-index: 999999;padding: 1rem 3rem;" 
         hide-header 
-        hide-footer 
-      > 
+        hide-footer> 
         <div class="final-modal"> 
           <div class="row row-a w-100 ml-0"> 
             <div class="col-lg-6" style="padding-left: 6%;"> 
@@ -1200,7 +1783,7 @@ a.down-scroll:hover{
                     <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
                     Client 
                   </h5> 
-                  <p class="card-text truncate mb-3" 
+                  <p class="card-text truncate mb-2" 
                     :title="lead_info.name + ' ' + lead_info.surname"
                   >{{ lead_info.name + ' ' + lead_info.surname }}</p> 
                   <div class="truncate w-100">
@@ -1219,12 +1802,14 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
                     Product 
                   </h5> 
-                  <p class="card-text truncate mb-3" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                    {{ lead_info.product.name }} 
-                  </p> 
-                  <p class="card-link truncate w-100 mb-0" :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "> 
-                    {{ lead_info.product.description }} 
-                  </p>  
+                  <p 
+                    class="card-text truncate mb-2" 
+                    :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+                  >{{ lead_info.product.name }}</p> 
+                  <p 
+                  class="card-link truncate w-100 mb-0" 
+                  :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
+                  >{{ lead_info.product.description }}</p>  
                 </div> 
               </div> 
             </div> 
@@ -1236,9 +1821,10 @@ a.down-scroll:hover{
                     <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
                     Time 
                   </h5> 
-                  <div class="truncate mb-3"> 
-                    <p class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-                    <p class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+                  <p class="card-text mb-2">11:20</p>
+                  <div class="truncate mb-2"> 
+                    <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
+                    <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
                   </div>  
                 </div> 
               </div> 
@@ -1260,9 +1846,8 @@ a.down-scroll:hover{
                         aria-controls="One" 
                         aria-selected="true"
                       > 
-                        <img src="/images/workstation/Agent_Notes_Icon@4x.png" alt="Icon" class="icon" width="23"/> 
-                        <span class="left w-50">Agent Notes</span> 
-                        <span class="right w-50">{{ comments.total_comments }}</span> 
+                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="60"/> 
+                        <span>Agent Notes</span>  
                       </a> 
                     </li> 
                     <li class="nav-item right"> 
@@ -1275,8 +1860,8 @@ a.down-scroll:hover{
                         aria-controls="Two" 
                         aria-selected="false"
                       > 
-                        <img src="/images/workstation/Schedule_Callbacks.svg" alt="Icon" class="icon" width="23"/> 
-                        <span class="left">Schedule Callback</span> 
+                        <img src="/images/icons/workstation/Schedual_Callback.svg" alt="Icon" class="icon" width="60"/> 
+                        <span>Schedule Callback</span> 
                       </a> 
                     </li> 
                   </ul> 
@@ -1336,11 +1921,18 @@ a.down-scroll:hover{
 
                       <div class="flex-shrink-1"> 
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
+                          class="btn " 
                           @click="addComment()"
-                        >Send</button>
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button>
                       </div> 
                     </div>             
                   </div> 
@@ -1390,29 +1982,37 @@ a.down-scroll:hover{
                           is-inline 
                           is-expanded  
                           :min-date='new Date()' 
-                          :max-date="max_date" color="pink" 
+                          :max-date="max_date" 
+                          color="orange" 
                         /> 
                       </div> 
                     </div> 
-
-                    <div class="row mb-0"> 
-                      <div class="col-lg-12 pr-0"> 
+ 
+                    <div class="d-flex callback-capture">
+                      <div class="flex-grow-1">
                         <input 
-                          class="comment-desc d-block w-75 border-0" 
+                          class="comment-desc d-block border-0" 
                           type="text" 
                           v-model="call_back.note" 
-                          placeholder="Write notes here" 
-                          style="width: 72.5%;" 
-                        /> 
+                          placeholder="Write notes here"
+                        />
+                      </div>
+                      <div class="flex-shrink-1"> 
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
-                          style="width:100px;" 
+                          class="btn" 
                           @click="addCallback()"
-                        >Schedule</button> 
-                      </div>   
-                    </div> 
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button> 
+                      </div>
+                    </div>
                   </div> 
                 </div> 
               </div> 
@@ -1472,7 +2072,7 @@ a.down-scroll:hover{
                     aria-labelledby="three-tab" 
                     style="height: 349px;"
                   >
-                    <div class="verticalChart"> 
+                    <!-- <div class="verticalChart"> 
                       <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
                         <div class="bar"> 
                           <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
@@ -1484,7 +2084,44 @@ a.down-scroll:hover{
                       </div> 
 
                       <div class="clearfix"></div> 
-                    </div>            
+                    </div> -->
+
+                    <div class="row mx-0 justify-content-between align-items-center summary">
+                      <div class="col-auto pl-0">
+                        <p>220 reviews</p>
+                      </div>
+
+                      <div class="col-auto px-0">
+                        <div class="row mx-0 mb-0">
+                          <div class="col-auto px-0">
+                            <p>Called: 600</p>
+                          </div>
+                          <div class="col-auto pr-0">
+                            <p>Answered: 50</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                      <div class="col-12 px-0">
+                        <div class="row mx-0 mb-0 align-items-center">
+                          <div class="col-12 align-content-end px-0">
+                            <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                          </div>
+
+                          <div class="col px-0">
+                            <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                          </div>
+
+                          <div class="col-11 pr-0 pl-4">
+                            <div class="progress-bar w-100">
+                              <span class="tank" :style="{width: + stat.percent + '%'}"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
@@ -1514,21 +2151,29 @@ a.down-scroll:hover{
                       </div>
 
                       <div class="col-lg-8">
-                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="pink" />
+                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="orange" />
                       </div>
                     </div>
 
-                    <div class="row mb-0">
-                      <div class="col-lg-12 pr-0">
-                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" style="width: 72.5%;" />
+                    <div class="d-flex callback-capture">
+                      <div class="flex-grow-1">
+                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" />
+                      </div>
+                      <div class="flex-shrink-1">
                         <button 
-                          id="send-btn" 
+                          id="submit-btn" 
                           type="submit" 
-                          class="btn btn-primary" 
-                          style="width:100px;" 
+                          class="btn p-0 m-0"
                           @click="addCallback()"
-                        >Schedule</button>
-                      </div>  
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1559,7 +2204,7 @@ a.down-scroll:hover{
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
                     <div class="">
-                      <div class="verticalChart">
+                      <!-- <div class="verticalChart">
                         <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
                           <div class="bar">
                             <div class="value" :style="'height: ' + bar.percentage + '%;'">
@@ -1571,16 +2216,106 @@ a.down-scroll:hover{
                         </div>
 
                         <div class="clearfix"></div>
+                      </div> -->
+
+                      <div class="row mx-0 justify-content-between align-items-center summary">
+                        <div class="col-auto pl-0">
+                          <p>220 reviews</p>
+                        </div>
+
+                        <div class="col-auto px-0">
+                          <div class="row mx-0 mb-0">
+                            <div class="col-auto px-0">
+                              <p>Called: 600</p>
+                            </div>
+                            <div class="col-auto pr-0">
+                              <p>Answered: 50</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                        <div class="col-12 px-0">
+                          <div class="row mx-0 mb-0 align-items-center">
+                            <div class="col-12 align-content-end px-0">
+                              <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                            </div>
+
+                            <div class="col px-0">
+                              <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                            </div>
+
+                            <div class="col-11 pr-0 pl-4">
+                              <div class="progress-bar w-100">
+                                <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>           
                   </div>
 
                   <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <h5 class="card-title">TODO</h5>
-                    <div class="w-100" style="height:245px; overflow:hidden; color: #818284;">
-                      <p class="card-text">Email client form</p>
+                    <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
+
+                    <div class="row mx-0 align-items-center">
+                      <div class="col-auto pl-0">
+                        <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
+                      </div>
+                      <div class="col-auto pl-0 mb-2 pr-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Introduce Stock</button>
+                      </div>
+                      <div class="col-auto px-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >First time sell</button>
+                      </div>
+                      <div class="col-auto px-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Up sell</button>
+                      </div>
+                      <div class="col-auto pr-0 pl-1">
+                        <button 
+                          type="submit" 
+                          class="btn btn-default m-0 border-0 text-capitalize" 
+                          @click=""
+                        >Extra Info</button>
+                      </div>
                     </div>
-                  </div>
+
+                    <textarea 
+                      id="message-body"  
+                      name="message"
+                      class="form-control border-0"
+                      placeholder="Write comment here..."/>
+                  </div> 
+
+                  <div class="flex-shrink-1 text-right">
+                    <button 
+                      id="submit-btn" 
+                      type="submit" 
+                      class="btn py-0 my-0" 
+                      @click="sendEmail()"
+                    >
+                      <img 
+                        src="/images/icons/workstation/Submit.svg" 
+                        alt="Icon" 
+                        class="icon" 
+                        width="76"
+                      />
+                    </button>
+                  </div> 
                 </div>
               </div>
             </div>
@@ -1588,8 +2323,8 @@ a.down-scroll:hover{
         </div>
       </b-modal>
     </div>
+    <input type="hidden" @click="startCall()" ref="callBtn" />
     
-    <input type="hidden"  @click="startCall()" ref="callBtn" />
   </div>
 </template>
 
@@ -1619,18 +2354,21 @@ a.down-scroll:hover{
             var vm = this;
             
             if( vm.lead_id != ''){
-                console.log('Lead Mounting' + vm.lead_id);
                 vm.enqueueLead(vm.lead_id);
                 vm.general = true;
                 vm.active_calls = false;
-            }else if( ( this.role_id == 1 || this.role_id == 2 ) && vm.lead_id == '' ){
+                Fire.$emit('ShowGeneral');
+            }else{
+              if( this.role_id == 1 || this.role_id == 2 ){
                 vm.active_calls = true;
                 Fire.$emit('ShowActiveCalls');
-            }else{
+              }else{
                 vm.general = false;
-                vm.scripts = false;
-                vm.idle = true;
+                vm.scripts = true;
+                vm.idle = false;
                 vm.active_calls = false;
+                Fire.$emit('ShowActiveCalls');
+              }
             }
             
             vm.getActiveCalls();
@@ -1690,129 +2428,168 @@ a.down-scroll:hover{
         },
         props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'],
         data: function(){
-            return {
-                lead : {},
-                conferences: [],
-                lead_info : {
-                    lead_source: {},
-                    product: {},
-                },
-                call_counts : {},
-                product : {},
-                comments : {},
-                comments_graph : {},
-                notes_data: [],
-                minimized: false,
-                scripts: false,
-                general: false,
-                active_calls: false,
-                calling: false,
-                show_edication_blocks: false,
-                idle: false,
-                added_time: false,
-                choose_comment_type: false,
-                edit_comment: false,
-                continues: false,
-                show_page_loader: false,
-                call_status: '',
-                call_sid: '',
-                handle: '',
-                set_time: 2  * 60 * 1000,
-                comment:{
-                    id: '',
-                    comment_description :'',
-                    comment_type :''
-                },
-                call_back:{
-                    id: '',
-                    note :'',
-                    date :'',
-                    time :'',
-                    user_id: this.user_id,
-                    lead_id: '',
-                    call_sid: this.call_sid
-                },
-                date_span: '',
-                max_date: '',
-                selected_date: moment(),
-                selected_time:  moment(),
-                dates: [],
-                dialer_settings: [],
-                columns:[
-                    {
-                        label: 'CALLER',  // Column name
-                        field: 'lead_caller',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'TYPE',  // Column name
-                        field: 'lead_type',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'NAME',  // Column name
-                        field: 'lead_name',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'OWNER',  // Column name
-                        field: 'lead_owner',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ASSIGNEE',  // Column name
-                        field: 'lead_assignee',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'MOBILE #',  // Column name
-                        field: 'lead_mobile',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'PACKAGE',  // Column name
-                        field: 'lead_product',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true,
-                        exportable: true
-                    },
-                    {
-                        label: 'CALL START',  // Column name
-                        field: 'dateCreated',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'STATUS',  // Column name
-                        field: 'status',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    },
-                    {
-                        label: 'ACTIONS',  // Column name
-                        field: 'actions',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    },
-                ],
-                Toast: null
-            }
+          return {
+            lead : {},
+            conferences: [],
+            lead_info : {
+                lead_source: {},
+                product: {},
+            },
+            call_counts : {},
+            product : {},
+            comments : {},
+            comments_graph : {},
+            notes_data: [],
+            minimized: false,
+            scripts: false,
+            general: false,
+            active_calls: false,
+            calling: false,
+            show_edication_blocks: false,
+            idle: false,
+            added_time: false,
+            choose_comment_type: false,
+            edit_comment: false,
+            continues: false,
+            show_page_loader: false,
+            call_status: '',
+            call_sid: '',
+            handle: '',
+            set_time: 2  * 60 * 1000,
+            comment:{
+                id: '',
+                comment_description :'',
+                comment_type :''
+            },
+            call_back:{
+                id: '',
+                note :'',
+                date :'',
+                time :'',
+                user_id: this.user_id,
+                lead_id: '',
+                call_sid: this.call_sid
+            },
+            date_span: '',
+            max_date: '',
+            selected_date: moment(),
+            selected_time:  moment(),
+            dates: [],
+            dialer_settings: [],
+            columns:[
+              {
+                label: 'CALLER',  // Column name
+                field: 'lead_caller',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'TYPE',  // Column name
+                field: 'lead_type',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'NAME',  // Column name
+                field: 'lead_name',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'OWNER',  // Column name
+                field: 'lead_owner',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'ASSIGNEE',  // Column name
+                field: 'lead_assignee',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'MOBILE #',  // Column name
+                field: 'lead_mobile',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'PACKAGE',  // Column name
+                field: 'lead_product',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true,
+                exportable: true
+              },
+              {
+                label: 'CALL START',  // Column name
+                field: 'dateCreated',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:true
+              },
+              {
+                label: 'STATUS',  // Column name
+                field: 'status',  // Field name from row
+                numeric: true, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:false
+              },
+              {
+                label: 'ACTIONS',  // Column name
+                field: 'actions',  // Field name from row
+                numeric: false, // Affects sorting
+                html: false,    // Escapes output if false.
+                sortable:false
+              }
+            ],
+            Toast: null,
+            callStats: [
+              {abbreviation: 'NA', percent: 53},
+              {abbreviation: 'FT', percent: 9},
+              {abbreviation: 'LB', percent: 4},
+              {abbreviation: 'MI', percent: 30},
+              {abbreviation: 'VM', percent: 15}
+            ],
+            activityItems: [
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
+              { statusColor: '#ff8c37', status: 'In Progress', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' }
+            ],
+            dealItems: [
+              { dealName: '#f42222', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+              { dealName: '#00d58e', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+              { dealName: '#ff8c37', amount: '0', probability: 40, closingDate: 'Dickerson', type: 'Macdonald', edit: '' },
+            ],
+            perPage: 10,
+            currentPage: 1,
+          }
+        },
+        computed: {
+          rows() {
+            return this.activityItems.length
+          }
         },
         methods: {
             getActiveCalls(){

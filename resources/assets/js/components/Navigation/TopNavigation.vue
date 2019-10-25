@@ -285,6 +285,14 @@ select.month-selector {
         vm.dialer_active = false;
         vm.active_calls_active = false;
       });
+
+      Fire.$on('ShowScripts', function(){
+        vm.showScripts();
+      });
+
+      Fire.$on('ShowActiveCalls', function(){
+        vm.showActiveCalls();
+      });
     },
 
 		mounted() {
@@ -371,6 +379,7 @@ select.month-selector {
       },
       
 			showActiveCalls(){
+				this.active_calls = true;
 				this.active_calls_active = true;
 				this.general_active = false;
 				this.scripts_active = false;

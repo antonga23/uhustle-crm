@@ -1,39 +1,6 @@
 
 <template>
     <div class="card no-box-shadow material-table" style="width: fit-content;">
-        <!-- <table class="tg" v-if="show_mass_assign">
-            <tr>
-                <td class="tg-1lax" style="padding-right:20px;width:500px">
-
-                    <b-dropdown id="dropdown-form1" text="Assignees" ref="dropdown" class="m-1" style="width: 100%;">
-                        <b-dropdown-form>
-                            <b-form-group>
-                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_assignees" name="flavour-1" stacked>
-                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.assignees" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                </b-form-checkbox-group>
-                            </b-form-group>
-                        </b-dropdown-form>
-                    </b-dropdown>
-                </td>
-                <td class="tg-1lax">
-
-                    <b-dropdown id="dropdown-form2" text="Owners" ref="dropdown" class="m-1" style="width: 100%;">
-                        <b-dropdown-form>
-                            <b-form-group>
-                                <b-form-checkbox-group id="checkbox-group-2"  v-model="selected_owners" name="flavour-1" stacked>
-                                    <b-form-checkbox class="mb-12" :value="item.id" v-for="(item,index) in users.lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</b-form-checkbox>
-                                </b-form-checkbox-group>
-                            </b-form-group>
-                        </b-dropdown-form>
-                    </b-dropdown>
-                </td>
-                <td class="tg-1lax">
-                    <button v-on:click="assignTo()" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : true   }" style="width: 100%; margin: 0px;">
-                        Assign
-                    </button>
-                </td>
-            </tr>
-    </table> -->
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
                 <table ref="table">
@@ -44,78 +11,128 @@
                                         (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                         : '')
                                     + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
-                                <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>  
-                                {{column.label}}
+                                <!-- <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>   -->
+                                <span style="float:left;padding-top: 2px;">
+                                  {{column.label}}
+                                </span>
+                                    
+                                <div v-if="index == columns.length-1" class="col pl-0 dropdown">
+                                    <b-button class="rounded-circle m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                                    </b-button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Calls</a>
+                                        <a class="dropdown-item" href="#">Sales</a>
+                                        <a class="dropdown-item" href="#">Calls</a>
+                                        <a class="dropdown-item" href="#">Sales</a>
+                                    </div>
+                                </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                             <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
-                                <span v-if="column.field == 'all'">
+                                <!-- <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
-                                </span>
-                                <span v-else-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
+                                </span> -->
+
+                                <span v-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
+
                                     <a class="View" :href="'/workstation/' + row.id" title="View"></a>
-                                    <a v-if="editing_row === true" class="Edit" href="#" @click="submitEdit(row.id)" title="Save"></a>
+
+                                    <a 
+                                      href="#"
+                                      title="Save"
+                                      class="Save"
+                                      @click="submitEdit(row.id)"  
+                                      v-if="editing_row === true && row_id === row.id" 
+                                    >
+                                    </a>
                                     <a v-else class="Edit" href="#" @click="showEdit(row.id)" title="Edit"></a>
-                                    <a class="Delete" href="#" @click="deleteItem(row.id)" title="Delete" v-if="role == 1 || role == 2"></a>
+                                    
+                                    <a v-if="editing_row === true && row_id === row.id" class="Cancel" href="#"  @click="cancelEdit(row.id)" title="Cancel Edit"></a>
+
+                                    <a v-if="editing_row === false && ( row_id === null || row_id != row.id)" class="Delete" href="#" @click="deleteItem(row.id)" title="Delete"></a>
                                 </span>
+
                                 <span v-else>
                                     <span v-for="(item, k) in module_items" :key="k">
                                       <span v-if="item.item.id == row.id">
                                         <span v-for="(custom_field, j) in custom_fields" :key="j">
                                           <span v-if="column.field == custom_field.name && item.item.id == row.id">
-                                            <span v-if="column.field == 'source'">
 
-                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value.name }}</span>
-                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value.name }}</span>
-                                              <select v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value.id"  class="form-control">
-                                                  <option value="">- Please Choose Source</option>
-                                                  <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
+                                            <span v-if="column.field == 'source'">
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value.name  }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value.name  }}
+                                                </span>
+                                              </span>
+                                              <select v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                  <option :value="null">- Please Choose Source</option>
+                                                  <option :value="{ id : item.id, name : item.name }" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
                                               </select>
                                             </span>
 
                                             <span v-else-if="column.field == 'product'">
-                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value.name }}</span>
-                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value.name }}</span>
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value.name  }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value.name  }}
+                                                </span>
+                                              </span>
                                               <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control">
-                                                  <option value="">- Please Choose Package</option>
+                                                  <option :value="null">- Please Choose Package</option>
                                                   <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
                                               </select>
                                             </span>
 
                                             <span v-else-if="column.field == 'owner'">
-                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
-                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
-                                              </span>
-                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
-                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
+                                                </span>
                                               </span>
                                               <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control">
-                                                  <option value="">- Please Choose Lead Owner </option>
-                                                  <option :value="{id: item.id, name : item.name, lastname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                                  <option :value="null">- Please Choose Lead Owner </option>
+                                                  <option :value="{id: item.id, name : item.name, surname : item.lastname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                               </select>
                                             </span>
 
                                             <span v-else-if="column.field == 'assignee'">
-                                              <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
-                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
-                                              </span>
-                                              <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
-                                                {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.lastname  }}
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
+                                                </span>
                                               </span>
                                               <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control">
-                                                  <option value="">- Please Choose Assignee</option>
-                                                  <option :value="{id: item.id, name : item.name, lastname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
+                                                  <option :value="null">- Please Choose Assignee</option>
+                                                  <option :value="{id: item.id, name : item.name, surname : item.lastname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                               </select>
                                             </span>
 
                                             <span v-else-if="column.field == 'status'">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value  }}
+                                                </span>
+                                              </span>
                                                 <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
-                                                    <option value="">- Please Choose Status </option>
+                                                    <option :value="null">- Please Choose Status </option>
                                                     <option value="1">Active</option>
                                                     <option value="2">Inactive</option>
                                                     <option value="3">Canceled</option>
@@ -124,10 +141,16 @@
                                             </span>
 
                                             <span v-else-if="column.field == 'title'">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                                <span v-if="item.item[column.field].meta_value !== null">
+                                                  <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                    {{ item.item[column.field].meta_value }}
+                                                  </span>
+                                                  <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                    {{ item.item[column.field].meta_value  }}
+                                                  </span>
+                                                </span>
                                                 <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
-                                                    <option value="">- Please Choose Status </option>
+                                                    <option :value="null">- Please Choose Status </option>
                                                     <option value="Dr">Dr</option>
                                                     <option value="Mr">Mr</option>
                                                     <option value="Mrs">Mrs</option>
@@ -137,8 +160,14 @@
                                             </span>
 
                                             <span v-else-if="column.field == 'gender'">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value  }}
+                                                </span>
+                                              </span>
                                                 <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
                                                     <option value="">- Please Choose Status </option>
                                                     <option value="Male">Male</option>
@@ -147,8 +176,14 @@
                                             </span>
 
                                             <span v-else>
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">{{ item.item[column.field].meta_value }}</span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">{{ item.item[column.field].meta_value }}</span>
+                                              <span v-if="item.item[column.field].meta_value !== null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                  {{ item.item[column.field].meta_value }}
+                                                </span>
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                  {{ item.item[column.field].meta_value  }}
+                                                </span>
+                                              </span>
                                                 <input  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control">
                                             </span>
 
@@ -194,89 +229,6 @@
                 </ul>
             </div>
         </div>
-        <!-- Modal Start Summary-->
-
-        <div>
-            <b-modal
-            id="update-user-modal"
-            ref="modalUpdateUser"
-            :title="'Update Item'"
-            size="lg"
-            header-text-variant="light"
-            header-bg-variant="warning"
-            @ok="handleOk"
-            >
-                <a-card :title="'Update Item'">
-                    <form ref="form" @submit.stop.prevent="handleSubmit">
-                        <div :class="{'input': true, 'form-group' :true }">
-                            <label class="col-lg-4 control-label">Title
-                                <input type="text" id="Name"  name="Name" v-model="user.title" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Name
-                                <input type="text" id="Name"  name="Name" v-model="user.name"  class="form-control">
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Surname
-                                <input type="text" id="Surname"  name="Surname" v-model="user.surname"  class="form-control">
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Instagram Account
-                                <input type="text" id="Account"  name="Account" v-model="user.instagram_account" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Email
-                                <input type="text" id="email"  name="Email" v-model="user.email"  v-validate="'email'" class="form-control">
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Mobile number
-                                <input type="text" id="work_number"  name="Mobile" v-model="user.phone_number" v-validate="'min:10'" class="form-control">
-                                <span id="error" v-show="errors.has('Mobile')" class="help-block">{{ errors.first('Mobile') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Country
-                                <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">City
-                                <input type="text" id="City"  name="City" v-model="user.city" class="form-control">
-                            </label>
-                            <label class="col-lg-4 control-label">Package
-                                <select type="text" id="package"  name="Package" v-model="user.product"   class="form-control">
-                                    <option value="">- Please Choose Package</option>
-                                    <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-                                </select>
-                                <span id="error" v-show="errors.has('Package')" class="help-block">{{ errors.first('Package') }}</span>
-                            </label>
-                            <label class="col-lg-4 control-label">Owner
-                                <select type="text" id="role"  name="Owner" v-model="user.owner" class="form-control">
-                                    <option value="">- Please Choose Lead Owner </option>
-                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Assigned To
-                                <select type="text" id="Assignee"  name="Assignee" v-model="user.assignee"  class="form-control">
-                                    <option value="">- Please Choose Assignee</option>
-                                    <option :value="{id: item.id, name : item.name, surname : item.surname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Lead Source
-                                <select type="text" id="Source"  name="Source" v-model="user.source"  class="form-control">
-                                    <option value="">- Please Choose Source</option>
-                                    <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
-                                </select>
-                            </label>
-                            <label class="col-lg-4 control-label">Status
-                                <select type="text" id="status"  name="Status" v-model="user.status"  class="form-control">
-                                    <option value="">- Please Choose Status </option>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                    <option value="Canceled">Canceled</option>
-                                    <option value="Disabled">Disabled</option>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
-                </a-card>
-            </b-modal>
-        </div>
-        <!-- Modal -->
     </div>
 </template>
 <script>
@@ -452,6 +404,18 @@ export default {
             }
         },
         showEdit(row_id){
+            var vm = this;
+            this.editing_row = !this.editing_row;
+
+            if(this.editing_row === false){
+              this.row_id = null;
+            }else{
+              this.row_id = row_id;
+            }
+            
+            // this.$bvModal.show('update-user-modal');
+        },
+        cancelEdit(row_id){
             var vm = this;
             this.editing_row = !this.editing_row;
 
@@ -738,6 +702,28 @@ export default {
 }
 </script>
 <style scoped>
+.btn-secondary{
+    color: #fff;
+    background-color: #f6f8f9;
+    border-color: #f6f8f9;
+    padding: 0px 6px;
+}
+.btn-secondary img{
+    width: 11px;
+}
+th .dropdown{
+  width: 25%;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
 .no-box-shadow {
     box-shadow: none !important;
 }
@@ -810,15 +796,37 @@ table tr td span.actions a{
     height: 35px;
     float: left;
 }
+table tr td a.Save{
+    background-image: url('/images/DataTables/New/Check Icon.svg');
+    background-size: 25px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Save:hover,
+table tr td a.Save:active{
+    background-image: url('/images/DataTables/New/Check Icon Hover.svg');
+    background-size: 25px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Cancel{
+    background-image: url('/images/DataTables/New/Cancel Icon.svg');
+    background-size: 25px 35px;
+    background-repeat: no-repeat;
+}
+table tr td a.Cancel:hover,
+table tr td a.Cancel:active{
+    background-image: url('/images/DataTables/New/Cancel Hover.svg');
+    background-size: 25px 35px;
+    background-repeat: no-repeat;
+}
 table tr td a.View{
-    background-image: url('/images/DataTables/View_Icon_Active.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/View Icon.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 table tr td a.View:hover,
 table tr td a.View:active{
-    background-image: url('/images/DataTables/View_Icon.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/View Icon Hover.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 .alert {
@@ -831,14 +839,14 @@ table tr td a.View:active{
     float: left;
 }
 table tr td a.Delete{
-    background-image: url('/images/DataTables/Delete_Icon.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/Delete Icon.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 table tr td a.Delete:hover,
 table tr td a.Delete:active{
-    background-image: url('/images/DataTables/Delete_Icon_Active.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 .uploaded-files a{
@@ -853,7 +861,7 @@ table tr td a.Delete:active{
     height: 46px;
     margin: 0;
     box-shadow: none;
-    background-image: url('/images/DataTables/Delete_Icon.svg');
+    background-image: url('/images/DataTables/New/Delete Icon.svg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -865,19 +873,19 @@ table tr td a.Delete:active{
     height: 46px;
     margin: 0;
     box-shadow: none;
-    background-image: url('/images/DataTables/Delete_Icon_Active.svg');
+    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 table tr td a.Edit{
-    background-image: url('/images/DataTables/Edit_Icon.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/Edit Icon_1.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 table tr td a.Edit:hover,
 table tr td a.Edit:active{
-    background-image: url('/images/DataTables/Edit_Icon_Active.svg');
-    background-size: 36px 35px;
+    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');
+    background-size: 25px 35px;
     background-repeat: no-repeat;
 }
 .control-label{
