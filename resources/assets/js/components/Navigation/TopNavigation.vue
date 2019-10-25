@@ -81,12 +81,22 @@ select.month-selector {
   background-repeat: no-repeat;
 }
 .callIcons li .call{
-  background-image: url('/images/icons/Asset 59.svg') !important;
+  background-image: url('/images/icons/Call/Start Call.svg') !important;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .callIcons li .call:hover{
-  background-image: url('/images/icons/Asset 58.svg') !important;
+  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li .end-call{
+  background-image: url('/images/icons/Call/End Call.svg') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.callIcons li .end-call:hover{
+  background-image: url('/images/icons/Call/End Call Hover.svg') !important;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -105,7 +115,9 @@ select.month-selector {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.callIcons button.status, .callIcons button.call {
+.callIcons button.status, 
+.callIcons button.call, 
+.callIcons button.end-call {
   padding: 31px;
   margin-top: -11px;
   margin-left: -7px;
@@ -153,15 +165,15 @@ select.month-selector {
 							>General</a>
 						</li>
 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3">
+						<!-- <li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3" style="display:none;">
 							<a 
 								href="#" 
 								@click="showScripts();" 
 								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : scripts_active }"
-							>Scripts</a>
-						</li>
+							>Scripts ss</a>
+						</li> -->
 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3">
+						<li v-if="active == 'workstation' && auto_dialer_settings.disabled == 1" class="nav-item d-none d-sm-inline-block px-3">
 							<a 
 								href="#" 
 								@click="showDialer();" 
@@ -213,11 +225,12 @@ select.month-selector {
 						<li class="nav-item d-sm-inline-block">
 							<a href="#" class="nav-link search p-0"></a>
 						</li>
-						<li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
+						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
-						</li>
-						<li class="nav-item d-sm-inline-block">
-		    			<button id="show-btn" class="nav-link border-0 bg-transparent call" @click="endCall()"></button>
+						</li> -->
+						<li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
+		    			<button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
+		    			<button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
 						</li>
 					</ul>				
 				</div>
@@ -240,6 +253,7 @@ select.month-selector {
         call_back_date : '',
         call_back_time : '',
         call_back_notes : '',
+        auto_dialer_settings: [],
         general_active : false,
         active_calls_active : false,
         active_calls : false,
@@ -296,10 +310,13 @@ select.month-selector {
     },
 
 		mounted() {
-			this.current_user = JSON.parse(this.logged_user);
+      this.current_user = JSON.parse(this.logged_user);
+      
 			var d = new Date();
 
 			this.month = d.getMonth() + 1;
+
+      this.getDialerSettings();
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -312,6 +329,20 @@ select.month-selector {
 		computed: {},
     
 	  methods: {
+      getDialerSettings(){
+        var vm = this;
+        axios.get('/roles/get-dialer-permissions/' + this.current_user.role_id).then(function (response) {
+            
+            if(response.data.success == true){
+
+                vm.auto_dialer_settings = response.data.permissions;
+
+            }else{
+                vm.$Progress.fail();
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving Dialer settings, please try again','warning');
+            }
+        });
+      },
 			showFilter(){
 				this.top_nav_show_filter = !this.top_nav_show_filter;
 				Fire.$emit('ShowFilter');
@@ -319,10 +350,12 @@ select.month-selector {
       
       endCall() {
         Fire.$emit('CallEnded');
+        this.is_oncall = false;
       },
 
       startCall() {
         Fire.$emit('CallStarted');
+        this.is_oncall = true;
       },
 
       hideModal() {

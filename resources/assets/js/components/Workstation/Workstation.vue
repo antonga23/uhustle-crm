@@ -698,45 +698,7 @@ a.down-scroll:hover{
   <div id="workstation"> 
     <!-- Scripts Section Starts --> 
     <div class="scripts" v-if="scripts == true"> 
-      <div :class="{ 'row mx-0' : true }" data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" style="margin-top: 6%"> 
-        <div class="col-lg-12 px-0"> 
-          <p class="heading px-0">Calls</p> 
-        </div> 
-
-        <div class="row mx-0 justify-content-between"> 
-          <div class="col-auto pl-0">
-            <div class="card client"> 
-              <div class="card-body"> 
-                <p class="card-text font-weight-bolder">Cashed Out</p> 
-              </div> 
-            </div> 
-          </div> 
-
-          <div class="col-auto"> 
-            <div class="card product"> 
-              <div class="card-body"> 
-                <p class="card-text font-weight-bolder">Upsell</p> 
-              </div> 
-            </div> 
-          </div> 
-
-          <div class="col-auto"> 
-            <div class="card time"> 
-              <div class="card-body font-weight-bolder"> 
-                <p class="card-text">Not Interested</p> 
-              </div> 
-            </div> 
-          </div> 
-
-          <div class="col-auto pr-0"> 
-            <div class="card activity"> 
-              <div class="card-body"> 
-                <p class="card-text font-weight-bolder">More Info</p> 
-              </div> 
-            </div> 
-          </div> 
-        </div>
-      </div> 
+      <scripts /> 
     </div>   
     <!-- Scripts Section ends --> 
 
@@ -1083,12 +1045,6 @@ a.down-scroll:hover{
                         /> 
                       </label> 
                     </div>
-
-                    <!-- <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
-                      <label class="col-lg-12 control-label pr-0">
-                        <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>
-                      </label> 
-                    </div>   -->
                   </div> 
 
                   <div class="col-lg-8 pr-0"> 
@@ -1175,20 +1131,6 @@ a.down-scroll:hover{
                 aria-labelledby="three-tab" 
               > 
                 <div class=""> 
-                  <!-- <div class="verticalChart w-100"> 
-                    <div class="singleBar" v-for="bar in comments_graph"> 
-                      <div class="bar"> 
-                        <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                          <span clas="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                        </div> 
-                      </div> 
-
-                      <div class="title">{{ bar.type }}</div>
-
-                      <div class="clearfix"></div> 
-                    </div> 
-                  </div> -->
-
                   <div class="row mx-0 justify-content-between align-items-center summary">
                     <div class="col-auto pl-0">
                       <p>220 reviews</p>
@@ -1381,6 +1323,7 @@ a.down-scroll:hover{
             </div> 
           </div>  
         </div>
+        <!-- Activities Starts End -->
 
         <!-- Deals Starts -->
         <div class="row mx-0 mb-0 deals"> 
@@ -1598,73 +1541,8 @@ a.down-scroll:hover{
         <div class="col-lg-12 tip call-status" style="padding-top:10px;"> 
           <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1> 
         </div> 
-
-        <div class="col-lg-3 col-md-3 idle-footer" v-if="!show_edication_blocks"> 
-          <p>Show Education</p> 
-          <a href="#" class="down-scroll d-block" @click="show_edication_blocks = true;"> 
-            <img src="/images/Idle_Pages_Assest/Asset 120.png" alt="Scroll Down" /> 
-          </a> 
-        </div> 
-
-        <div class="col-lg-3 col-md-3 idle-footer"  v-if="show_edication_blocks"> 
-          <p>Hide Education</p> 
-          <a href="#" class="down-scroll d-block" @click="show_edication_blocks = false;"> 
-            <img src="/images/Idle_Pages_Assest/Asset 119.png" alt="Scroll Down" /> 
-          </a> 
-        </div> 
       </div> 
-
-      <div class="row idle-education justify-content-center" v-if="show_edication_blocks"> 
-        <div class="col-lg-10"> 
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
-            <p>Education</p> 
-            <a href="#" class="down-scroll d-block"> 
-              <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
-            <p>Clients</p> 
-            <a href="#" class="down-scroll d-block"> 
-              <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
-            <p>Commission</p> 
-            <a href="#" class="down-scroll d-block"> 
-              <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 108.svg" width="71" height="60" /> 
-            <p>Upselling</p> 
-            <a href="#" class="down-scroll d-block"> 
-                <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 107.svg" width="71" height="60" /> 
-            <p>Breaking the Ice</p> 
-            <a href="#" class="down-scroll d-block"> 
-              <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-          
-          <div class="col-lg-4 text-center"> 
-            <img src="/images/Idle_Pages_Assest/Asset 106.svg" width="71" height="60" /> 
-            <p>Callbacks</p> 
-            <a href="#" class="down-scroll d-block"> 
-              <img src="/images/Idle_Pages_Assest/Asset 119.png" /> 
-            </a> 
-          </div> 
-        </div> 
-      </div> 
+      <education v-if="has_education"/>
     </div> 
     <!-- Dialer Section Ends --> 
 
@@ -2072,20 +1950,6 @@ a.down-scroll:hover{
                     aria-labelledby="three-tab" 
                     style="height: 349px;"
                   >
-                    <!-- <div class="verticalChart"> 
-                      <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
-                        <div class="bar"> 
-                          <div class="value w-100" :style="'height: ' + bar.percentage + '%;'"> 
-                            <span class="w-100 d-inline" style="color: rgb(45, 137, 239);">{{ bar.percentage +'%' }}</span> 
-                          </div> 
-                        </div> 
-
-                        <div class="title">{{ bar.type }}</div> 
-                      </div> 
-
-                      <div class="clearfix"></div> 
-                    </div> -->
-
                     <div class="row mx-0 justify-content-between align-items-center summary">
                       <div class="col-auto pl-0">
                         <p>220 reviews</p>
@@ -2179,150 +2043,11 @@ a.down-scroll:hover{
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-6" style="padding-left: 3%;">
-              <div class="card left mt-3 tab-card">
-                <div class="card-header tab-card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                    <li class="nav-item left">
-                      <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
-                        <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/>
-                        <span class="left">Feedback Summary</span>
-                        <span class="right">{{ comments.total_comments }}</span>
-                      </a>
-                    </li>
-
-                    <li class="nav-item right">
-                      <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
-                        <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
-                        <span class="left">Email Client</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
-                    <div class="">
-                      <!-- <div class="verticalChart">
-                        <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
-                          <div class="bar">
-                            <div class="value" :style="'height: ' + bar.percentage + '%;'">
-                              <span style="color: rgb(45, 137, 239); display: inline;">{{ bar.percentage +'%' }}</span>
-                            </div>
-                          </div>
-
-                          <div class="title">{{ bar.type }}</div>
-                        </div>
-
-                        <div class="clearfix"></div>
-                      </div> -->
-
-                      <div class="row mx-0 justify-content-between align-items-center summary">
-                        <div class="col-auto pl-0">
-                          <p>220 reviews</p>
-                        </div>
-
-                        <div class="col-auto px-0">
-                          <div class="row mx-0 mb-0">
-                            <div class="col-auto px-0">
-                              <p>Called: 600</p>
-                            </div>
-                            <div class="col-auto pr-0">
-                              <p>Answered: 50</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
-                        <div class="col-12 px-0">
-                          <div class="row mx-0 mb-0 align-items-center">
-                            <div class="col-12 align-content-end px-0">
-                              <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
-                            </div>
-
-                            <div class="col px-0">
-                              <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
-                            </div>
-
-                            <div class="col-11 pr-0 pl-4">
-                              <div class="progress-bar w-100">
-                                <span class="tank" :style="'width:' + '{{ stat.percent }}' + '%'"></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>           
-                  </div>
-
-                  <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
-
-                    <div class="row mx-0 align-items-center">
-                      <div class="col-auto pl-0">
-                        <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
-                      </div>
-                      <div class="col-auto pl-0 mb-2 pr-1">
-                        <button 
-                          type="submit" 
-                          class="btn btn-default m-0 border-0 text-capitalize" 
-                          @click=""
-                        >Introduce Stock</button>
-                      </div>
-                      <div class="col-auto px-1">
-                        <button 
-                          type="submit" 
-                          class="btn btn-default m-0 border-0 text-capitalize" 
-                          @click=""
-                        >First time sell</button>
-                      </div>
-                      <div class="col-auto px-1">
-                        <button 
-                          type="submit" 
-                          class="btn btn-default m-0 border-0 text-capitalize" 
-                          @click=""
-                        >Up sell</button>
-                      </div>
-                      <div class="col-auto pr-0 pl-1">
-                        <button 
-                          type="submit" 
-                          class="btn btn-default m-0 border-0 text-capitalize" 
-                          @click=""
-                        >Extra Info</button>
-                      </div>
-                    </div>
-
-                    <textarea 
-                      id="message-body"  
-                      name="message"
-                      class="form-control border-0"
-                      placeholder="Write comment here..."/>
-                  </div> 
-
-                  <div class="flex-shrink-1 text-right">
-                    <button 
-                      id="submit-btn" 
-                      type="submit" 
-                      class="btn py-0 my-0" 
-                      @click="sendEmail()"
-                    >
-                      <img 
-                        src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
-                        class="icon" 
-                        width="76"
-                      />
-                    </button>
-                  </div> 
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </b-modal>
     </div>
+
     <input type="hidden" @click="startCall()" ref="callBtn" />
     
   </div>
@@ -2333,7 +2058,8 @@ a.down-scroll:hover{
     import { DatePicker,TimePicker  } from 'ant-design-vue';
     import { Bar } from 'vue-chartjs';
     import { BarChart } from 'vue-morris';
-    import NotesStats from './NotesStats.vue';
+    import Scripts from './Scripts.vue';
+    import Education from './Education.vue';
     import FlipCountdown from 'vue2-flip-countdown';
     import DataTable from '../DataTables/CallLogsDataTable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
@@ -2346,8 +2072,9 @@ a.down-scroll:hover{
             VclFacebook,
             VclInstagram,
             VclTable,
+            Scripts,
+            Education,
             'datatable' : DataTable,
-            'notes-stats' : NotesStats 
         },
         mounted() {
             console.log('Workstation Mounted');
@@ -2382,7 +2109,7 @@ a.down-scroll:hover{
                 vm.idle = true;
                 vm.scripts = false;
                 vm.active_calls = false;
-                vm.startCall();
+                vm.$refs.callBtn.click();
             });
 
             Fire.$on('CallEnded', function(){
@@ -2445,7 +2172,7 @@ a.down-scroll:hover{
             general: false,
             active_calls: false,
             calling: false,
-            show_edication_blocks: false,
+            has_education: true,
             idle: false,
             added_time: false,
             choose_comment_type: false,
@@ -2598,7 +2325,6 @@ a.down-scroll:hover{
                 axios.get('/calls/list').then(function (response) { 
                     vm.conferences = response.data.conferences;
                     vm.show_page_loader = false;
-                    console.log(vm.conferences);
                 });
                 // setInterval(function(){ 
                 //     axios.get('/calls/list').then(function (response) { 
@@ -2760,7 +2486,7 @@ a.down-scroll:hover{
 
                     Device.on('ready',function (device) {
                         vm.call_status = 'Device Ready';
-                        vm.$refs.callBtn.click();
+                        // vm.$refs.callBtn.click();
                     });
 
                     Device.on('error',function (error) {

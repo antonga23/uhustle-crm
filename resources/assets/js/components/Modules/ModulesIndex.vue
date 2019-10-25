@@ -301,13 +301,6 @@ table.listing tr  th{
             <div class="row stats ml-1 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
-                    <!-- <data-table-editable 
-                        :role="role_id" 
-                        :active_users="JSON.parse(active_users)" 
-                        :active_roles="JSON.parse(active_roles)" 
-                        :sources="JSON.parse(sources)" 
-                        :packages="JSON.parse(packages)"
-                    /> -->
                         
                     <datatable 
                         v-if="!show_page_loader" 
