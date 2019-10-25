@@ -50,12 +50,6 @@
     color: #fff !important;
     padding: 4px 17px 6px !important;
 	}
-  .form-control {
-    border-radius: 25px;
-    padding: 7px;
-    height: 28px !important;
-    font-size: 9px;
-  }
   .user-roles .tab-pane .row{
     margin-right: 0;
     margin-left: 0;
@@ -92,10 +86,6 @@
   .card-body .form-group{
     margin-left: 0%;
   }
-  .divider-line { 
-    height: 1px; 
-    background-color: #999; 
-  } 
   .expand-toggle {
     background: #fff;
     box-shadow: none;

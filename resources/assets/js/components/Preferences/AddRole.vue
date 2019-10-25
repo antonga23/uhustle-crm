@@ -1,13 +1,14 @@
 <style scoped>
   .form-control {
     border-radius: 50rem;
-    padding: 11px 18px;
-    font-size: 9px;
+    padding: 11px 18px!important;
+    font-size: 12px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
     border-color: #999999;
     margin-bottom: 17px;
+    font-family: 'Rubik', sans-serif;
   }
   label {
     font-family: 'Rubik', sans-serif;

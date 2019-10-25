@@ -1,13 +1,17 @@
 <style scoped>
+  .tab-pane.card-body{
+    padding: 4.4% 5.6% 6.8%;
+  }
   .form-control {
     border-radius: 50rem;
-    padding: 11px 18px;
-    font-size: 9px;
+    padding: 11px 18px!important;
+    font-size: 12px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
     border-color: #999999;
     margin-bottom: 17px;
+    font-family: 'Rubik', sans-serif;
   }
   label {
     font-family: 'Rubik', sans-serif;
@@ -35,12 +39,12 @@
   }
 </style>
 <template>
-  <div>
+  <div id="api-integration">
     <b-card no-body>
       <b-tabs pills card>
         <b-tab :title="api.name"  v-for="(api,index) in apis" :key="index" :active="(index == 0)? true : false">
-          <div class="col-lg-6">
-            <b-container fluid>
+          <div class="col-lg-6 px-0">
+            <b-container fluid class="px-0">
               <div v-for="(attr,i) in api.attributes"  :key="i">
                 <div v-if="attr.key != 'default_dialing_api' && attr.key != 'default_payment_api'">
                   <label for="input-none">{{ attr.display_name }}</label>
