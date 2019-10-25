@@ -86,6 +86,594 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var vue_clickaway__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-clickaway */ "./node_modules/vue-clickaway/dist/vue-clickaway.common.js");
+/* harmony import */ var vue_clickaway__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_clickaway__WEBPACK_IMPORTED_MODULE_0__);
+
+
+//
+
+var script = {
+  name: "VSelect",
+  mixins: [vue_clickaway__WEBPACK_IMPORTED_MODULE_0__["mixin"]],
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    disabledProp: {
+      type: String,
+      default: "disabled"
+    },
+    labelTitle: {
+      type: String,
+      default: "Nothing selected"
+    },
+    labelNotFound: {
+      type: String,
+      default: "No results matched"
+    },
+    labelSearchPlaceholder: {
+      type: String,
+      default: "Search"
+    },
+    options: {
+      type: Array,
+      default: function () { return []; }
+    },
+    searchable: {
+      type: Boolean,
+      default: false
+    },
+    showDefaultOption: {
+      type: Boolean,
+      default: false
+    },
+    textProp: {
+      type: String,
+      default: "text"
+    },
+    value: {
+      type: [Object, String, Number],
+      default: null
+    },
+    valueProp: {
+      type: String,
+      default: "value"
+    }
+  },
+  data: function data() {
+    return {
+      show: false,
+      selectedValue: null,
+      searchValue: "",
+      typeAheadPointer: -1
+    };
+  },
+  computed: {
+    title: function title() {
+      return this.selectedValue
+        ? this.getOptionLabel(this.selectedValue)
+        : this.labelTitle;
+    },
+    filteredOptions: function filteredOptions() {
+      var this$1 = this;
+
+      if (this.searchable && this.searchValue.length > 0) {
+        return this.options.filter(function (item) {
+          if (typeof item === "object") {
+            return (
+              item[this$1.textProp]
+                .toLowerCase()
+                .indexOf(this$1.searchValue.toLowerCase()) !== -1
+            );
+          } else {
+            return (
+              item.toLowerCase().indexOf(this$1.searchValue.toLowerCase()) !== -1
+            );
+          }
+        });
+      }
+      return this.options;
+    },
+    reversedOptions: function reversedOptions() {
+      return [].concat( this.filteredOptions ).reverse();
+    },
+    lastOptionIndex: function lastOptionIndex() {
+      return this.filteredOptions.length - 1;
+    }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler: function handler(newVal) {
+        var this$1 = this;
+
+        var index = this.options.findIndex(function (op) { return this$1.isEqualOption(op, newVal); }
+        );
+        this.onSelect(newVal, index);
+      }
+    }
+  },
+  methods: {
+    onSelect: function onSelect(option, index) {
+      if (option && !option[this.disabledProp]) {
+        this.selectedValue = option;
+        this.typeAheadPointer = index;
+        this.hideDropdown();
+        this.$emit("input", option, option[this.valueProp], index);
+      } else if (option === null) {
+        this.selectedValue = null;
+      }
+    },
+    onEscape: function onEscape() {
+      this.hideDropdown();
+    },
+    typeAheadUp: function typeAheadUp() {
+      var this$1 = this;
+
+      if (!this.show) {
+        this.show = true;
+      }
+      if (this.typeAheadPointer > 0) {
+        var nextPointer = this.typeAheadPointer - 1;
+        var option = this.filteredOptions[nextPointer];
+        var isDisabled = option ? option[this.disabledProp] || false : false;
+        if (!isDisabled) {
+          this.typeAheadPointer--;
+        } else {
+          this.typeAheadPointer--;
+          this.typeAheadUp();
+        }
+      } else {
+        var nextEnabledOption = this.reversedOptions.findIndex(
+          function (o) { return o[this$1.disabledProp] !== true; }
+        );
+        this.typeAheadPointer = this.lastOptionIndex - nextEnabledOption;
+      }
+    },
+    typeAheadDown: function typeAheadDown() {
+      var this$1 = this;
+
+      if (!this.show) {
+        this.show = true;
+      }
+      if (this.typeAheadPointer < this.lastOptionIndex) {
+        var nextPointer = this.typeAheadPointer + 1;
+        var option = this.filteredOptions[nextPointer];
+        var isDisabled = option ? option[this.disabledProp] || false : false;
+        if (!isDisabled) {
+          this.typeAheadPointer++;
+        } else {
+          this.typeAheadPointer++;
+          this.typeAheadDown();
+        }
+      } else {
+        var nextEnabledOption = this.filteredOptions.findIndex(
+          function (o) { return o[this$1.disabledProp] !== true; }
+        );
+        this.typeAheadPointer = nextEnabledOption;
+      }
+    },
+    typeAheadSelect: function typeAheadSelect() {
+      if (this.filteredOptions[this.typeAheadPointer]) {
+        this.onSelect(
+          this.filteredOptions[this.typeAheadPointer],
+          this.typeAheadPointer
+        );
+      }
+    },
+    hideDropdown: function hideDropdown() {
+      this.show = false;
+      this.searchValue = "";
+    },
+    getOptionLabel: function getOptionLabel(option) {
+      if (typeof option === "object") {
+        return option[this.textProp];
+      }
+      return option;
+    },
+    isSelectedOption: function isSelectedOption(option, index) {
+      if (this.typeAheadPointer === -1 && this.selectedValue) {
+        return this.isEqualOption(option, this.selectedValue);
+      }
+      return this.typeAheadPointer === index;
+    },
+    isEqualOption: function isEqualOption(a, b) {
+      if (a && b && typeof a === "object" && typeof b === "object") {
+        return (
+          a[this.textProp] === b[this.textProp] &&
+          a[this.valueProp] === b[this.valueProp]
+        );
+      }
+      return a === b;
+    },
+    toggle: function toggle() {
+      if (!this.disabled) {
+        this.show = !this.show;
+      }
+    }
+  }
+};
+
+/* script */
+            var __vue_script__ = script;
+            
+/* template */
+var __vue_render__ = function() {
+  var _vm = this;
+  var _h = _vm.$createElement;
+  var _c = _vm._self._c || _h;
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "on-clickaway",
+          rawName: "v-on-clickaway",
+          value: _vm.hideDropdown,
+          expression: "hideDropdown"
+        }
+      ],
+      staticClass: "v-select",
+      class: { disabled: _vm.disabled },
+      on: {
+        keyup: function($event) {
+          if (
+            "keyCode" in $event &&
+            _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])
+          ) {
+            return null
+          }
+          return _vm.onEscape($event)
+        },
+        keydown: [
+          function($event) {
+            if (
+              "keyCode" in $event &&
+              _vm._k($event.keyCode, "up", 38, $event.key, ["Up", "ArrowUp"])
+            ) {
+              return null
+            }
+            $event.preventDefault();
+            return _vm.typeAheadUp($event)
+          },
+          function($event) {
+            if (
+              "keyCode" in $event &&
+              _vm._k($event.keyCode, "down", 40, $event.key, [
+                "Down",
+                "ArrowDown"
+              ])
+            ) {
+              return null
+            }
+            $event.preventDefault();
+            return _vm.typeAheadDown($event)
+          },
+          function($event) {
+            if (
+              "keyCode" in $event &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            $event.preventDefault();
+            return _vm.typeAheadSelect($event)
+          }
+        ]
+      }
+    },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "v-select-toggle",
+          attrs: { type: "button" },
+          on: { click: _vm.toggle }
+        },
+        [
+          _c("div", [_vm._v(_vm._s(_vm.title))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "arrow-down" })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.show,
+              expression: "show"
+            }
+          ],
+          staticClass: "v-dropdown-container"
+        },
+        [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.searchable,
+                  expression: "searchable"
+                }
+              ],
+              staticClass: "v-bs-searchbox"
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchValue,
+                    expression: "searchValue"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  placeholder: _vm.labelSearchPlaceholder,
+                  type: "text",
+                  autofocus: ""
+                },
+                domProps: { value: _vm.searchValue },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.searchValue = $event.target.value;
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            [
+              _c(
+                "li",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.searchable && _vm.filteredOptions.length === 0,
+                      expression: "searchable && filteredOptions.length === 0"
+                    }
+                  ],
+                  staticClass: "v-dropdown-item"
+                },
+                [
+                  _vm._v(
+                    _vm._s(_vm.labelNotFound) +
+                      ' "' +
+                      _vm._s(_vm.searchValue) +
+                      '"'
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm.showDefaultOption
+                ? _c(
+                    "li",
+                    { staticClass: "v-dropdown-item disabled default-option" },
+                    [_vm._v(_vm._s(_vm.labelTitle))]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.filteredOptions, function(option, index) {
+                return _c(
+                  "li",
+                  {
+                    key: "v-select-" + index,
+                    staticClass: "v-dropdown-item",
+                    class: {
+                      selected: _vm.isSelectedOption(option, index),
+                      disabled: option[_vm.disabledProp]
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.onSelect(option, index)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.getOptionLabel(option)))]
+                )
+              })
+            ],
+            2
+          )
+        ]
+      )
+    ]
+  )
+};
+var __vue_staticRenderFns__ = [];
+__vue_render__._withStripped = true;
+
+  /* style */
+  var __vue_inject_styles__ = function (inject) {
+    if (!inject) { return }
+    inject("data-v-138dff1d_0", { source: "\n*[data-v-138dff1d] {\n  box-sizing: border-box;\n}\ninput[data-v-138dff1d] {\n  width: 100%;\n}\nul[data-v-138dff1d] {\n  font-size: 12px;\n  color: #424242;\n  text-align: left;\n  list-style: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  padding: 0px;\n  margin: 2px 0px 0px 0px;\n}\n.v-select[data-v-138dff1d] {\n  position: relative;\n  width: 100%;\n  height: 30px;\n  cursor: pointer;\n}\n.v-select.disabled[data-v-138dff1d] {\n    cursor: not-allowed;\n}\n.v-select.disabled .v-select-toggle[data-v-138dff1d] {\n      background-color: #f8f9fa;\n      border-color: #f8f9fa;\n      opacity: 0.65;\n      cursor: not-allowed;\n}\n.v-select.disabled .v-select-toggle[data-v-138dff1d]:focus {\n        outline: 0 !important;\n}\n.v-select-toggle[data-v-138dff1d] {\n  display: flex;\n  justify-content: space-between;\n  user-select: none;\n  padding: 0.375rem 0.75rem;\n  color: #212529;\n  background-color: #f8f9fa;\n  border-color: #d3d9df;\n  width: 100%;\n  text-align: right;\n  white-space: nowrap;\n  border: 1px solid transparent;\n  padding: 0.375rem 0.75rem;\n  font-size: 12px;\n  font-family: inherit, sans-serif;\n  line-height: 1.5;\n  border-radius: 0.25rem;\n  transition: background-color, border-color, box-shadow, 0.15s ease-in-out;\n  cursor: pointer;\n}\n.v-select-toggle[data-v-138dff1d]:hover {\n    background-color: #e2e6ea;\n    border-color: #dae0e5;\n}\n.arrow-down[data-v-138dff1d] {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 0.255em;\n  margin-top: 7px;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n}\n.v-dropdown-container[data-v-138dff1d] {\n  position: absolute;\n  width: 100%;\n  background: red;\n  padding: 0.5rem 0;\n  margin: 0.125rem 0 0;\n  color: #212529;\n  text-align: left;\n  list-style: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  border-radius: 0.25rem;\n  border: 1px solid rgba(0, 0, 0, 0.15);\n  z-index: 1000;\n}\n.v-dropdown-item[data-v-138dff1d] {\n  text-decoration: none;\n  line-height: 25px;\n  padding: 0.5rem 1.25rem;\n  user-select: none;\n}\n.v-dropdown-item[data-v-138dff1d]:hover:not(.default-option) {\n    background-color: #f8f9fa;\n}\n.v-dropdown-item.disabled[data-v-138dff1d] {\n    color: #9a9b9b;\n}\n.v-dropdown-item.selected[data-v-138dff1d] {\n    background-color: #007bff;\n    color: #fff;\n}\n.v-dropdown-item.selected[data-v-138dff1d]:hover {\n      background-color: #007bff;\n      color: #fff;\n}\n.v-dropdown-item.disabled[data-v-138dff1d] {\n    cursor: not-allowed;\n}\n.v-dropdown-item.disabled[data-v-138dff1d]:hover {\n      background-color: #fff;\n}\n.v-bs-searchbox[data-v-138dff1d] {\n  padding: 4px 8px;\n}\n.v-bs-searchbox .form-control[data-v-138dff1d] {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n/*# sourceMappingURL=vue-bootstrap-select.vue.map */", map: {"version":3,"sources":["/Users/luissandoval/Documents/Me/Github/vue-bootstrap-select/src/vue-bootstrap-select.vue","vue-bootstrap-select.vue"],"names":[],"mappings":";AAqPA;EACA,uBAAA;CACA;AAEA;EACA,YAAA;CACA;AAEA;EACA,gBAAA;EACA,eAAA;EACA,iBAAA;EACA,iBAAA;EACA,uBAAA;EACA,6BAAA;EACA,aAAA;EACA,wBAAA;CACA;AAEA;EACA,mBAAA;EACA,YAAA;EACA,aAAA;EACA,gBAAA;CAgBA;AApBA;IAOA,oBAAA;CAYA;AAnBA;MAUA,0BAAA;MACA,sBAAA;MACA,cAAA;MACA,oBAAA;CAKA;AAlBA;QAgBA,sBAAA;CACA;AAKA;EACA,cAAA;EACA,+BAAA;EACA,kBAAA;EACA,0BAAA;EACA,eAAA;EACA,0BAAA;EACA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,oBAAA;EACA,8BAAA;EACA,0BAAA;EACA,gBAAA;EACA,iCAAA;EACA,iBAAA;EACA,uBAAA;EACA,0EAAA;EACA,gBAAA;CAMA;AAxBA;IAqBA,0BAAA;IACA,sBAAA;CACA;AAGA;EACA,sBAAA;EACA,SAAA;EACA,UAAA;EACA,qBAAA;EACA,gBAAA;EACA,wBAAA;EACA,YAAA;EACA,wBAAA;EACA,sCAAA;EACA,iBAAA;EACA,qCAAA;CACA;AAEA;EACA,mBAAA;EACA,YAAA;EACA,gBAAA;EACA,kBAAA;EACA,qBAAA;EACA,eAAA;EACA,iBAAA;EACA,iBAAA;EACA,uBAAA;EACA,6BAAA;EACA,uBAAA;EACA,sCAAA;EACA,cAAA;CACA;AAEA;EACA,sBAAA;EACA,kBAAA;EACA,wBAAA;EACA,kBAAA;CA2BA;AA/BA;IAOA,0BAAA;CACA;AARA;IAWA,eAAA;CACA;AAZA;IAeA,0BAAA;IACA,YAAA;CAMA;AAtBA;MAmBA,0BAAA;MACA,YAAA;CACA;AArBA;IAyBA,oBAAA;CAKA;AA9BA;MA4BA,uBAAA;CACA;AAIA;EACA,iBAAA;CAeA;AAhBA;IAIA,eAAA;IACA,YAAA;IACA,0BAAA;IACA,gBAAA;IACA,iBAAA;IACA,eAAA;IACA,uBAAA;IACA,6BAAA;IACA,0BAAA;IACA,uBAAA;IACA,yEAAA;CACA;;ACjRA,oDAAoD","file":"vue-bootstrap-select.vue","sourcesContent":[null,"* {\n  box-sizing: border-box; }\n\ninput {\n  width: 100%; }\n\nul {\n  font-size: 12px;\n  color: #424242;\n  text-align: left;\n  list-style: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  padding: 0px;\n  margin: 2px 0px 0px 0px; }\n\n.v-select {\n  position: relative;\n  width: 100%;\n  height: 30px;\n  cursor: pointer; }\n  .v-select.disabled {\n    cursor: not-allowed; }\n    .v-select.disabled .v-select-toggle {\n      background-color: #f8f9fa;\n      border-color: #f8f9fa;\n      opacity: 0.65;\n      cursor: not-allowed; }\n      .v-select.disabled .v-select-toggle:focus {\n        outline: 0 !important; }\n\n.v-select-toggle {\n  display: flex;\n  justify-content: space-between;\n  user-select: none;\n  padding: 0.375rem 0.75rem;\n  color: #212529;\n  background-color: #f8f9fa;\n  border-color: #d3d9df;\n  width: 100%;\n  text-align: right;\n  white-space: nowrap;\n  border: 1px solid transparent;\n  padding: 0.375rem 0.75rem;\n  font-size: 12px;\n  font-family: inherit, sans-serif;\n  line-height: 1.5;\n  border-radius: 0.25rem;\n  transition: background-color, border-color, box-shadow, 0.15s ease-in-out;\n  cursor: pointer; }\n  .v-select-toggle:hover {\n    background-color: #e2e6ea;\n    border-color: #dae0e5; }\n\n.arrow-down {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 0.255em;\n  margin-top: 7px;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent; }\n\n.v-dropdown-container {\n  position: absolute;\n  width: 100%;\n  background: red;\n  padding: 0.5rem 0;\n  margin: 0.125rem 0 0;\n  color: #212529;\n  text-align: left;\n  list-style: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  border-radius: 0.25rem;\n  border: 1px solid rgba(0, 0, 0, 0.15);\n  z-index: 1000; }\n\n.v-dropdown-item {\n  text-decoration: none;\n  line-height: 25px;\n  padding: 0.5rem 1.25rem;\n  user-select: none; }\n  .v-dropdown-item:hover:not(.default-option) {\n    background-color: #f8f9fa; }\n  .v-dropdown-item.disabled {\n    color: #9a9b9b; }\n  .v-dropdown-item.selected {\n    background-color: #007bff;\n    color: #fff; }\n    .v-dropdown-item.selected:hover {\n      background-color: #007bff;\n      color: #fff; }\n  .v-dropdown-item.disabled {\n    cursor: not-allowed; }\n    .v-dropdown-item.disabled:hover {\n      background-color: #fff; }\n\n.v-bs-searchbox {\n  padding: 4px 8px; }\n  .v-bs-searchbox .form-control {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }\n\n/*# sourceMappingURL=vue-bootstrap-select.vue.map */"]}, media: undefined });
+
+  };
+  /* scoped */
+  var __vue_scope_id__ = "data-v-138dff1d";
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* component normalizer */
+  function __vue_normalize__(
+    template, style, script$$1,
+    scope, functional, moduleIdentifier,
+    createInjector, createInjectorSSR
+  ) {
+    var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
+
+    // For security concerns, we use only base name in production mode.
+    component.__file = "/Users/luissandoval/Documents/Me/Github/vue-bootstrap-select/src/vue-bootstrap-select.vue";
+
+    if (!component.render) {
+      component.render = template.render;
+      component.staticRenderFns = template.staticRenderFns;
+      component._compiled = true;
+
+      if (functional) { component.functional = true; }
+    }
+
+    component._scopeId = scope;
+
+    {
+      var hook;
+      if (style) {
+        hook = function(context) {
+          style.call(this, createInjector(context));
+        };
+      }
+
+      if (hook !== undefined) {
+        if (component.functional) {
+          // register for functional component in vue file
+          var originalRender = component.render;
+          component.render = function renderWithStyleInjection(h, context) {
+            hook.call(context);
+            return originalRender(h, context)
+          };
+        } else {
+          // inject component registration as beforeCreate hook
+          var existing = component.beforeCreate;
+          component.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+      }
+    }
+
+    return component
+  }
+  /* style inject */
+  function __vue_create_injector__() {
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var styles = __vue_create_injector__.styles || (__vue_create_injector__.styles = {});
+    var isOldIE =
+      typeof navigator !== 'undefined' &&
+      /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+
+    return function addStyle(id, css) {
+      if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) { return } // SSR styles are present.
+
+      var group = isOldIE ? css.media || 'default' : id;
+      var style = styles[group] || (styles[group] = { ids: [], parts: [], element: undefined });
+
+      if (!style.ids.includes(id)) {
+        var code = css.source;
+        var index = style.ids.length;
+
+        style.ids.push(id);
+
+        if (isOldIE) {
+          style.element = style.element || document.querySelector('style[data-group=' + group + ']');
+        }
+
+        if (!style.element) {
+          var el = style.element = document.createElement('style');
+          el.type = 'text/css';
+
+          if (css.media) { el.setAttribute('media', css.media); }
+          if (isOldIE) {
+            el.setAttribute('data-group', group);
+            el.setAttribute('data-next-index', '0');
+          }
+
+          head.appendChild(el);
+        }
+
+        if (isOldIE) {
+          index = parseInt(style.element.getAttribute('data-next-index'));
+          style.element.setAttribute('data-next-index', index + 1);
+        }
+
+        if (style.element.styleSheet) {
+          style.parts.push(code);
+          style.element.styleSheet.cssText = style.parts
+            .filter(Boolean)
+            .join('\n');
+        } else {
+          var textNode = document.createTextNode(code);
+          var nodes = style.element.childNodes;
+          if (nodes[index]) { style.element.removeChild(nodes[index]); }
+          if (nodes.length) { style.element.insertBefore(textNode, nodes[index]); }
+          else { style.element.appendChild(textNode); }
+        }
+      }
+    }
+  }
+  /* style inject SSR */
+  
+
+  
+  var component = __vue_normalize__(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    __vue_create_injector__,
+    undefined
+  );
+
+// Import vue component
+
+// install function executed by Vue.use()
+function install(Vue) {
+  if (install.installed) { return; }
+  install.installed = true;
+  Vue.component('VueBootstrapSelect', component);
+}
+
+// Create module definition for Vue.use()
+var plugin = {
+  install: install,
+};
+
+// To auto-install when vue is found
+/* global window global */
+var GlobalVue = null;
+if (typeof window !== 'undefined') {
+  GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+  GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+  GlobalVue.use(plugin);
+}
+
+// It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = component;
+
+/* harmony default export */ __webpack_exports__["default"] = (component);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/@ant-design/colors/lib/generate.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@ant-design/colors/lib/generate.js ***!
@@ -65548,10 +66136,10 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*!**************************************************!*\
   !*** ./node_modules/ant-design-vue/package.json ***!
   \**************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"ant-design-vue@^1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"range\",\"registry\":true,\"raw\":\"ant-design-vue@^1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"^1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"^1.3.13\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_shasum\":\"63bfeba6c0b46101abf1cebb1ad1da13a46be932\",\"_spec\":\"ant-design-vue@^1.3.13\",\"_where\":\"/var/www/uhustle-app\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"bundleDependencies\":false,\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"deprecated\":false,\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
+module.exports = JSON.parse("{\"_args\":[[\"ant-design-vue@1.3.13\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"ant-design-vue@1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"ant-design-vue@1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"1.3.13\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_spec\":\"1.3.13\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
 
 /***/ }),
 
@@ -73116,6 +73704,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DataTables/ListingDataTableEditable */ "./resources/assets/js/components/DataTables/ListingDataTableEditable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @alfsnd/vue-bootstrap-select */ "./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js");
 //
 //
 //
@@ -73450,6 +74039,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -73463,6 +74118,7 @@ __webpack_require__.r(__webpack_exports__);
     VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclFacebook"],
     VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclInstagram"],
     VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclTable"],
+    VSelect: _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_6__["default"],
     AddModuleItem: _Modules_AddModuleItem__WEBPACK_IMPORTED_MODULE_2__["default"],
     DataTableEditable: _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_4__["default"],
     'datatable': _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -73526,6 +74182,8 @@ __webpack_require__.r(__webpack_exports__);
       add_user: false,
       show_page_loader: false,
       Toast: null,
+      selectedAssignees: null,
+      selectedOwners: null,
       columns: [// {
         //     label: '',  // Column name
         //     field: 'all',  // Field name from row
@@ -133870,7 +134528,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-6f97a8da]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-6f97a8da]{\n    float: right;\n}\np.card-text[data-v-6f97a8da]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\n    background: #fff;\n    padding: 0px 3%;\n}\n.green[data-v-6f97a8da]{\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-6f97a8da]{\n    cursor: pointer;\n    margin-right: 15px;\n}\n.control-label[data-v-6f97a8da]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\n    background: orange !important;\n}\n.card-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-6f97a8da]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\r\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\r\n    border-radius: 27px;\r\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\r\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\r\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\r\n    color: #fff;\r\n    width: 100%;\r\n    margin-right: 0;\r\n    text-align: left;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    margin-top: 0;\n}\n.card-body p strong[data-v-6f97a8da]{\r\n    float: right;\n}\np.card-text[data-v-6f97a8da]{\r\n    font-size: 16px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 100%;\r\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\r\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\r\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\r\n    background: #fff;\r\n    padding: 0px 3%;\n}\n.green[data-v-6f97a8da]{\r\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\r\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\r\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\r\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\r\n    list-style: none;\r\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 11%;\r\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\r\n    list-style: none;\r\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 11%;\r\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    padding-top: 6px;\r\n    padding-right: 6px;\r\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-6f97a8da]{\r\n    cursor: pointer;\r\n    margin-right: 15px;\n}\n.control-label[data-v-6f97a8da]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\r\n    background: orange !important;\n}\n.card-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\r\n    transition: padding 0.3s;\r\n    overflow-y: scroll;\r\n    height: 380px;\n}\r\n", ""]);
 
 // exports
 
@@ -133908,7 +134566,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-ccb78764] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\ntable td[data-v-ccb78764]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] {\r\n    position: sticky;\r\n    position: -webkit-sticky;\r\n    top: 0;\r\n    background: white;\r\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\r\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\r\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\r\n  width: 25%;\r\n  padding: 0;\r\n  margin: 0;\r\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\r\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Talking.svg');\r\n    background-size: 75%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\r\n    background-image: url('/images/icons/No Talking.svg');\r\n    background-size: 90%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\r\ntable tr td a.View[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\r\ntable tr td a.Delete[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\r\ntable tr td a.Edit[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\r\ntable tr td a.Whisper[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\r\ntable tr td a.Barge[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\r\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\r\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\r\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\r\n    /* table-layout: fixed; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\r\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\r\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\r\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\r\n    height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\r\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\r\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\r\ntable th.sorting-asc[data-v-ccb78764]:after,\r\ntable th.sorting-desc[data-v-ccb78764]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\r\ntable td[data-v-ccb78764]:last-child {\r\n    padding-right: 14px;\r\n    padding-left: 11px;\r\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\r\ntable td[data-v-ccb78764]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -133927,7 +134585,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 12px;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\ntable td[data-v-6263b939]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\r\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\r\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\r\n  width: 25%;\r\n  padding: 0;\r\n  margin: 0;\r\n  float: right;\n}\nthead th[data-v-6263b939] {\r\n    position: sticky;\r\n    position: -webkit-sticky;\r\n    top: 0;\r\n    background: white;\r\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\r\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\r\n    display: block;\r\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n    border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n    font-size: 13px;\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\r\n    width: 98%;\r\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\r\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/New/Check Icon.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\r\ntable tr td a.Save[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\r\ntable tr td a.Cancel[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/New/View Icon.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\r\n    position: relative;\r\n    padding: 0.75rem 1.25rem;\r\n    margin-bottom: 1rem;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    width: 100%;\r\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\r\n    display: flex;\r\n    width: 90%;\r\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\r\n.uploaded-files .Delete[data-v-6263b939]:active{\r\n    background-color: transparent;\r\n    border: none;\r\n    width: 49px;\r\n    height: 46px;\r\n    margin: 0;\r\n    box-shadow: none;\r\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\r\n    background-size: 25px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-6263b939]{\r\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n    /* table-layout: fixed; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n    height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n    font-size: 12px;\r\n    border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\r\n   font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-6263b939]:first-child,\r\ntable td[data-v-6263b939]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -133965,7 +134623,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\ntable tr td a.View[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\ntable tr td a.Delete[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\ntable tr td a.Edit[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\n.table-footer .datatable-length[data-v-25cd21a6] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\ntable th.sorting-asc[data-v-25cd21a6]:after,\ntable th.sorting-desc[data-v-25cd21a6]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\ntable td[data-v-25cd21a6]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\ntable td[data-v-25cd21a6]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\r\ntable tr td a.View[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\r\ntable tr td a.Delete[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\r\ntable tr td a.Edit[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\r\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\r\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\r\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\r\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\r\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\r\n.table-footer .datatable-length[data-v-25cd21a6] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\r\n    height: 35px;\r\n    font-size: 11px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\r\ntable th.sorting-desc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\r\ntable th.sorting-asc[data-v-25cd21a6]:after,\r\ntable th.sorting-desc[data-v-25cd21a6]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\r\ntable td[data-v-25cd21a6]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\r\ntable td[data-v-25cd21a6]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -133984,7 +134642,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-3f7b2f16] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] {\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {\n    align-items: center;\n    display: flex;\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\n    width: 28px;\n    margin-top: 0px;\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{\n    padding: 0px 7px;\n    width: 41px;\n    display: block;\n    height: 46px;\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,\ntable tr td a.View[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,\ntable tr td a.Delete[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,\ntable tr td a.Edit[data-v-3f7b2f16]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\n    /* table-layout: fixed; */\n    /* border-collapse: separate; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\n.table-footer .datatable-length[data-v-3f7b2f16] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\n     height: 35px;\n    font-size: 14px;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 25px 0px 25px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-3f7b2f16] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\n    font-size: 12px;\n     border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{\n    color: #1890ff !important;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\ntable th.sorting-asc[data-v-3f7b2f16]:after,\ntable th.sorting-desc[data-v-3f7b2f16]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\ntable td[data-v-3f7b2f16]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\ntable td[data-v-3f7b2f16]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\nthead th[data-v-3f7b2f16] {\r\n    position: sticky;\r\n    position: -webkit-sticky;\r\n    top: 0;\r\n    background: white;\r\n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] {\r\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {\r\n    align-items: center;\r\n    display: flex;\r\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{\r\n    width: 28px;\r\n    margin-top: 0px;\r\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{\r\n    padding: 0px 7px;\r\n    width: 41px;\r\n    display: block;\r\n    height: 46px;\r\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,\r\ntable tr td a.View[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,\r\ntable tr td a.Delete[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,\r\ntable tr td a.Edit[data-v-3f7b2f16]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{\r\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{\r\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {\r\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {\r\n    /* table-layout: fixed; */\r\n    /* border-collapse: separate; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {\r\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {\r\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],\r\n.table-footer .datatable-length[data-v-3f7b2f16] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {\r\n     height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-3f7b2f16] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n     border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\r\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {\r\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {\r\n    font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],\r\ntable th.sorting-desc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{\r\n    color: #1890ff !important;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,\r\ntable th.sorting-asc[data-v-3f7b2f16]:after,\r\ntable th.sorting-desc[data-v-3f7b2f16]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,\r\ntable td[data-v-3f7b2f16]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-3f7b2f16]:first-child,\r\ntable td[data-v-3f7b2f16]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -134022,7 +134680,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\n        background: #B3B3B3 !important;\n        border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar {\n        width: 5px !important;\n        height: 5px;\n}\n.row[data-v-78f6706a]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-78f6706a]{\n    list-style: none;\n}\n.top-section li[data-v-78f6706a]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-78f6706a]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-78f6706a]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-78f6706a]{\n    color: #fff;\n}\n.card-title[data-v-78f6706a] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-78f6706a]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-78f6706a]{\n    color: #fff;\n}\nh5 .icon[data-v-78f6706a]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-78f6706a]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\n    float: right;\n}\np.card-text[data-v-78f6706a]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-78f6706a]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-78f6706a]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-78f6706a]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-78f6706a]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-78f6706a] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\n    float: right;\n}\n.truncate[data-v-78f6706a] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-78f6706a]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\n    height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-78f6706a]{\n    color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\n    color:red !important;\n}.card-text-small[data-v-78f6706a]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\n    width: 12%;\n}\n.badge img[data-v-78f6706a]{\n    width: 100%;\n}\nul.headings[data-v-78f6706a]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-78f6706a]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-78f6706a]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\n    cursor: pointer;\n    margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\n    padding: 23px 4% 0;\n}\n.control-label[data-v-78f6706a]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-78f6706a]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\n    background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\r\n        background: #B3B3B3 !important;\r\n        border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar {\r\n        width: 5px !important;\r\n        height: 5px;\n}\n.row[data-v-78f6706a]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-78f6706a]{\r\n    list-style: none;\n}\n.top-section li[data-v-78f6706a]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-78f6706a]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-78f6706a]{\r\n    border-radius: 27px;\r\n    border: none;\n}\n.card-body[data-v-78f6706a]{\r\n    color: #fff;\n}\n.card-title[data-v-78f6706a] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-78f6706a]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-78f6706a]{\r\n    color: #fff;\n}\nh5 .icon[data-v-78f6706a]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-78f6706a]{\r\n    color: #fff;\r\n    width: 100%;\r\n    margin-right: 0;\r\n    text-align: left;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\r\n    float: right;\n}\np.card-text[data-v-78f6706a]{\r\n    font-size: 16px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 100%;\r\n    float: right;\n}\np.card-text span[data-v-78f6706a]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-78f6706a]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-78f6706a]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-78f6706a]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-78f6706a] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\r\n    float: right;\n}\n.truncate[data-v-78f6706a] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-78f6706a]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\r\n    height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\r\n    background: #fff;    \r\n    margin-left: -53px;\r\n    margin-right: -66px;\r\n    padding: 0px 37px;\n}\n.green[data-v-78f6706a]{\r\n    color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\r\n    color:red !important;\n}.card-text-small[data-v-78f6706a]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\r\n    width: 12%;\n}\n.badge img[data-v-78f6706a]{\r\n    width: 100%;\n}\nul.headings[data-v-78f6706a]{\r\n    list-style: none;\r\n    padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 11%;\r\n    text-align: left;\n}\nul.items[data-v-78f6706a]{\r\n    list-style: none;\r\n    padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 11%;\r\n    text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    /* padding-top: 6px; */\r\n    padding-right: 6px;\r\n    width: 100%;\n}\ntable.listing[data-v-78f6706a]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\r\n    cursor: pointer;\r\n    margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\r\n    padding: 23px 4% 0;\n}\n.control-label[data-v-78f6706a]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-78f6706a]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\r\n    background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\r\n    transition: padding 0.3s;\r\n    overflow-y: scroll;\r\n    height: 380px;\n}\r\n/* assignees section */\n.pt-40[data-v-78f6706a] {\r\n    padding-top: 40px;\n}\n.grey-bg-color[data-v-78f6706a] {\r\n        background-color: #EBEFF3 !important;\n}\n.row.v-select.v-select-toggle[data-v-78f6706a] {\r\n     border-radius: 50rem !important;\r\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n}\n.v-select-toggle[data-v-78f6706a]:focus {\r\n    outline: 0 !important;\n}\n.btn-default.cancel-assign[data-v-78f6706a] {\r\n        border-radius: 50rem !important;\r\n        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n        background: #ffffff;\r\n        font-size: 10px;\r\n        color: #989899;\r\n        text-transform: uppercase;\r\n        padding: 10px 20px;\r\n        letter-spacing: 0.05em;\r\n        font-weight: 600;\n}\n.btn-default.assign[data-v-78f6706a] {\r\n       border-radius: 50rem !important;\r\n       font-size: 10px;\r\n        background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\r\n        font-weight: 600;\r\n        text-transform: uppercase;\r\n        padding: 10px 20px;\r\n        letter-spacing: 0.05em;\r\n        color: #ffffff;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -134041,7 +134699,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover,\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\n  background-size: 90px;\n  background-position: -10px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\n  background-size: 64px;\n  background-repeat: no-repeat;\n  background-position: 3px;\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 63px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -200px!important;\n  top: 26px;\n  background: #fff;\n  color: #000;\n  font-size: 18px;\n  letter-spacing:0.05em;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: 44px!important;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-size: 90px;\r\n  background-position: -10px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height: 75px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Training Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Contacts icon.svg') !important\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/Users Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -200px!important;\r\n  top: 26px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 18px;\r\n  letter-spacing:0.05em;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -134079,7 +134737,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 32px;\n  letter-spacing: 0.1em;\n\tfont-family: 'Montserrat, Bold', sans-serif;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 2px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\n  width: 43px;\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 60.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Call/Start Call.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Call/End Call.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], \n.callIcons button.call[data-v-6ec57eb6], \n.callIcons button.end-call[data-v-6ec57eb6] {\n  padding: 31px;\n  margin-top: -11px;\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 32px;\r\n  letter-spacing: 0.1em;\r\n\tfont-family: 'Montserrat, Bold', sans-serif;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/Start Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/End Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], \r\n.callIcons button.call[data-v-6ec57eb6], \r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -134098,7 +134756,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n*[data-v-26869335] {\n  will-change: height;\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  perspective: 1000px;\n}\n.expand-enter-active[data-v-26869335],\n.expand-leave-active[data-v-26869335] {\n  transition: height 0.5s ease-in-out;\n  overflow: hidden;\n}\n.expand-enter[data-v-26869335],\n.expand-leave-to[data-v-26869335] {\n  height: 0;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-26869335] {\r\n  will-change: height;\r\n  transform: translateZ(0);\r\n  -webkit-backface-visibility: hidden;\r\n          backface-visibility: hidden;\r\n  perspective: 1000px;\n}\n.expand-enter-active[data-v-26869335],\r\n.expand-leave-active[data-v-26869335] {\r\n  transition: height 0.5s ease-in-out;\r\n  overflow: hidden;\n}\n.expand-enter[data-v-26869335],\r\n.expand-leave-to[data-v-26869335] {\r\n  height: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -134269,7 +134927,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb {\n        background: #B3B3B3 !important;\n        border-radius: 5px !important;\n}\n.row[data-v-d5c2b830]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830]{\n    list-style: none;\n}\n.top-section li[data-v-d5c2b830]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-d5c2b830]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-d5c2b830]{\n    text-align: center;\n}\n.card-body p[data-v-d5c2b830]{\n    color: #fff;\n    width: 68%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: 0;\n    font-size: 11px;\n}\n.card-title[data-v-d5c2b830] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-d5c2b830]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-d5c2b830]{\n    color: #fff;\n}\nh5 .icon[data-v-d5c2b830]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830]{           \n    font-size: 15px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 29%;\n    float: right;\n}\np.card-text span[data-v-d5c2b830]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-d5c2b830]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-d5c2b830]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830]{\n    float: right;\n}\n.truncate[data-v-d5c2b830] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-d5c2b830]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830], .show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830]{\n    height: 318px !important;\n}\n#top-section[data-v-d5c2b830]{\n    background: #fff;    \n    margin-left: -53px;\n    margin-right: -66px;\n    padding: 0px 37px;\n}\n.green[data-v-d5c2b830]{\n    color:#00a25a !important;\n}\n.red[data-v-d5c2b830]{\n    color:red !important;\n}.card-text-small[data-v-d5c2b830]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-d5c2b830]{\n    width: 12%;\n}\n.badge img[data-v-d5c2b830]{\n    width: 100%;\n}\nul.filters[data-v-d5c2b830]{\n    list-style: none;\n    padding: 0;\n}\nul.filters li[data-v-d5c2b830]{\n   width: 10%;\n}\nul.headings[data-v-d5c2b830]{\n    list-style: none;\n    padding-left: 90px;\n    display: block;\n    width: 100%;\n    height: 39px;\n    margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 15%;\n    text-align: left;\n}\nul.items[data-v-d5c2b830]{\n    list-style: none;\n    padding-left: 1px;\n    display: block;\n    width: 100%;\n    height: 39px;\n    margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 14%;\n    text-align: left;\n}\nul.items li.actions[data-v-d5c2b830]{\n    padding-left: 22px;\n    width: 10%;\n    text-align: right;\n}\nul.items li.active[data-v-d5c2b830]{\n    padding-left: 16px;\n    width: 12%;\n}\nul.items li.name[data-v-d5c2b830]{\n    width: 20%;\n    padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830]{\n    padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830]{\n    padding-left: 17px;\n    padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830]{\n    width: 1%;\n    margin-right: 10px;\n    margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830]{\n    padding-left: 11px;\n    padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 100%;\n    margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-d5c2b830]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830]{\n    cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\n    padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-d5c2b830]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\n    background: orange !important;\n}\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb {\r\n        background: #B3B3B3 !important;\r\n        border-radius: 5px !important;\n}\n.row[data-v-d5c2b830]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830]{\r\n    list-style: none;\n}\n.top-section li[data-v-d5c2b830]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-d5c2b830]{\r\n    border-radius: 27px;\r\n    border: none;\n}\n.card-body[data-v-d5c2b830]{\r\n    text-align: center;\n}\n.card-body p[data-v-d5c2b830]{\r\n    color: #fff;\r\n    width: 68%;\r\n    margin-right: 0;\r\n    text-align: right;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    font-size: 11px;\n}\n.card-title[data-v-d5c2b830] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-d5c2b830]{\r\n    color: #fff;\n}\nh5 .icon[data-v-d5c2b830]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830]{           \r\n    font-size: 15px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 29%;\r\n    float: right;\n}\np.card-text span[data-v-d5c2b830]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-d5c2b830]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-d5c2b830]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830]{\r\n    float: right;\n}\n.truncate[data-v-d5c2b830] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-d5c2b830]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830], .show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830]{\r\n    height: 318px !important;\n}\n#top-section[data-v-d5c2b830]{\r\n    background: #fff;    \r\n    margin-left: -53px;\r\n    margin-right: -66px;\r\n    padding: 0px 37px;\n}\n.green[data-v-d5c2b830]{\r\n    color:#00a25a !important;\n}\n.red[data-v-d5c2b830]{\r\n    color:red !important;\n}.card-text-small[data-v-d5c2b830]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-d5c2b830]{\r\n    width: 12%;\n}\n.badge img[data-v-d5c2b830]{\r\n    width: 100%;\n}\nul.filters[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding: 0;\n}\nul.filters li[data-v-d5c2b830]{\r\n   width: 10%;\n}\nul.headings[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding-left: 90px;\r\n    display: block;\r\n    width: 100%;\r\n    height: 39px;\r\n    margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 15%;\r\n    text-align: left;\n}\nul.items[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding-left: 1px;\r\n    display: block;\r\n    width: 100%;\r\n    height: 39px;\r\n    margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 14%;\r\n    text-align: left;\n}\nul.items li.actions[data-v-d5c2b830]{\r\n    padding-left: 22px;\r\n    width: 10%;\r\n    text-align: right;\n}\nul.items li.active[data-v-d5c2b830]{\r\n    padding-left: 16px;\r\n    width: 12%;\n}\nul.items li.name[data-v-d5c2b830]{\r\n    width: 20%;\r\n    padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830]{\r\n    padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830]{\r\n    padding-left: 17px;\r\n    padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830]{\r\n    width: 1%;\r\n    margin-right: 10px;\r\n    margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830]{\r\n    padding-left: 11px;\r\n    padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    padding-top: 6px;\r\n    padding-right: 6px;\r\n    width: 100%;\r\n    margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-d5c2b830]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830]{\r\n    cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\r\n    padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-d5c2b830]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\r\n    background: orange !important;\n}\r\n", ""]);
 
 // exports
 
@@ -134288,7 +134946,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \n  float: left; \n  display: block; \n  border-radius: 25px; \n  box-shadow: 0px 1px 6px 0px #4a4a4a; \n  margin: 0 10px 19px 10px; \n  max-width: 30.333333%; \n  padding: 25px;\n} \n", ""]);
+exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n} \r\n", ""]);
 
 // exports
 
@@ -134307,7 +134965,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#workstation .general-section-stats[data-v-f3210f20],\n#workstation .scripts[data-v-f3210f20] {\n  height:100vh;\n  overflow-y: scroll;\n}\n.row[data-v-f3210f20]{ \n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\n  padding-top: 69px;\n  padding-left: 5%;\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\n  padding-left: 5%;\n  padding-right: 5%;\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {\n  padding-left: 3%;\n  padding-right:3%;\n}\n.top-section .col[data-v-f3210f20]{\n  padding: 0 10px; \n  border-left: 1px solid rgba(0,52,73,1);\n}\n.top-section p.bottom[data-v-f3210f20]{\n  font-size: 19px; \n  font-weight: 700; \n  letter-spacing: 0.05em;\n  color: rgba(30,34,83,1);\n}\n.top-section p.top[data-v-f3210f20]{ \n  font-size: 13px; \n  color: rgba(78,77,77,1);\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif; \n  padding-bottom:20px;\n  margin-bottom:0;\n}\n.card[data-v-f3210f20]{ \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.5rem; \n  border-bottom: 1px solid #fff; \n  font-size:14px;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \n  width: 15px; \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \n  font-size: 32px; \n  color: #fff; \n  font-weight: bolder; \n  line-height:1em;\n}\np.card-link[data-v-f3210f20]{ \n  font-size: 16px; \n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\n  padding-left:3%;\n  padding-right: 3%;\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\n  background-color: #f6f8f9;\n  padding-left:3%;\n  padding-right: 3%;\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \n  border-radius: 25px;\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); \n  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);\n}\n.stats .card h5[data-v-f3210f20]{ \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \n  width: 25px; \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.75rem; \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \n  float: right;\n}\n.truncate[data-v-f3210f20] { \n  white-space: nowrap; \n  overflow: hidden; \n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \n  font-size: 18px; \n  margin-right: 30px;\n  float: left; \n  width: 12%; \n  margin-top: 11px; \n  color: #003449;     \n  letter-spacing: 2.2px;\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\n  float: left; \n  margin-top: 11px; \n  width: 57%; \n  font-size: 10px; \n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \n  float: right; \n  margin-top: 11px; \n  font-size: 10px; \n  text-align: left; \n  width: 22%;\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], .callback-capture[data-v-f3210f20] {\n  background: #f4f4f4;\n  border-radius: 50rem;\n  height:50px;\n}\n.choose-comment-type[data-v-f3210f20]{\n  height: 50px; \n  width: 50px; \n  padding: 11px; \n  margin: 0 10px 0 0; \n  background: #f4f4f4; \n  border-radius: 50rem!important; \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \n  height: 50px;\n  padding: 11px; \n  margin: 0; \n  border-radius: 9px; \n  background: #f4f4f4;\n  cursor: pointer; \n  float: left;\n}\n.keys[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif;\n  font-size: 8px;\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {\n  color: #666;\n  letter-spacing: 0.05em;\n  font-size:12px;\n  font-family: 'Rubik', sans-serif;\n}\n#submit-btn img[data-v-f3210f20]{ \n  margin-top: -15px; \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 34px 0; \n  background-image: url(/images/call/Call_Background.svg) !important; \n  background-size: cover; \n  background-repeat: no-repeat;\n  max-height:120vh; \n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \n  padding: 7px; \n  background-image: url(/images/call/Call_Logo.svg) !important; \n  background-size: 75%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \n  margin-bottom: 40px; \n  background-size: 20%; \n  background-repeat: no-repeat; \n  background-position: center 1px; \n  margin-bottom: 40px; \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \n  border-bottom: 1px solid #fff; \n  margin-bottom: 10px;     \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \n  color: #fff; \n  font-size: 1.6rem; \n  letter-spacing: 6px; \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \n  margin-bottom: 10px;     \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \n  background-image: url('/images/call/1@4x.png') !important; \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\n  background-image: url('/images/graph_grid.png') !important; \n  background-repeat: repeat-x; \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n  width: 14%; \n  float: left; \n  margin-left: 6.5%; \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0;\n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n  margin-top: 5px; \n  text-align: center; \n  color: #003449; \n  font-size: 18px; \n  font-weight: 900; \n  letter-spacing: 2.2px; \n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \n  max-height:880.84px; \n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \n  max-height:35px; \n  overflow:hidden; \n  padding:0px; \n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -38px; \n  right: -62px; \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -1px; \n  right: 14px; \n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \np.maximize a[data-v-f3210f20]{ \n  color: #fff;  \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \n  font-size: 17px; \n  border-bottom: 1px solid #003449; \n  margin-bottom: 18px; \n  color: #003449; \n  letter-spacing: 1.42px;\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \n  border:0;\n  box-shadow:0 0 10px rgba(0,0,0,0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \n  flex: 1 1 auto; \n  padding: 3.25rem; \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \n  color: #fff;\n  border-bottom: 1px solid #fff; \n  padding-bottom: 5px; \n  font-size: 32px; \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 6%; \n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \n  background-size: 100%; \n  background-repeat: no-repeat; \n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \n  padding: 7px; \n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \n  background-size: 100%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \n  padding: 7px; \n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \n  background-size: 33%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \n  margin: 0 auto; \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \n  margin: 0 auto; \n  text-align: center; \n  font-size: 12px; \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover{ \n  background: #00344a; \n  color: #ffffff;    border: none !important; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  font-weight: 700; \n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \n  background: #ffffff; \n  color: #00344a; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \n  border-radius: 50%; \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n.pulse[data-v-f3210f20] { \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \n  width: 20px; \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \n  font-size: 55px; \n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \n  border-top-left-radius: 19px; \n  border-top-right-radius: 19px; \n  padding: 0 11px 11px; \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \n  border-bottom: none; \n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\n  border: 0;\n  background-color: #fff;\n  color:#7f8080;\n  letter-spacing:0.05em;\n  text-align:center;\n  padding-top:0;\n  padding-bottom:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-f3210f20]{\n  box-shadow: inset -7px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-f3210f20]{\n  box-shadow: -10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-f3210f20]{\n  box-shadow: inset 7px -10px 10px #f5f5f5;\n  border-top-right-radius: 25px;\n  border-top-left-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Seven\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Seven\"][data-v-f3210f20]{\n  box-shadow: inset -7px -10px 10px #f5f5f5;\n  border-bottom-right-radius: 25px;\n  border-top-left-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Eight\"][data-v-f3210f20]{\n  box-shadow: 10px -10px 10px #f5f5f5;\n  border-top-left-radius: 25px;\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Eight\"][data-v-f3210f20]{\n  box-shadow: inset 7px -10px 10px #f5f5f5;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n.activities .card-header[data-v-f3210f20], .deals .card-header[data-v-f3210f20]{\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], .deals .card-header-tabs[data-v-f3210f20] {\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {\n  font-size: 10px; \n  letter-spacing: 0.05em;\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {\n  font-size: 10px; \n  letter-spacing: 0.05em;\n  color: #999999;\n  font-family: 'Rubik', sans-serif;\n}\n.deals #eight input[data-v-f3210f20], .deals #eight textarea[data-v-f3210f20], .deals #eight select[data-v-f3210f20] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  letter-spacing: 0.05em;\n  font-family: 'Rubik', sans-serif;\n  font-size: 12px;\n  padding: 10px 20px!important;\n}\n.deals #eight textarea[data-v-f3210f20] {\n  border-radius: 25px;\n  height: 94px!important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  letter-spacing: 0.05em;\n  color: #999999;\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {\n  font-size: 10px;\n  text-transform:uppercase;\n  letter-spacing: 0.05em;\n  font-weight: 700;\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \n  font-size: 14px; \n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \n  color: rgb(129, 130, 132); \n  font-size: 13px;\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \n  border-style: none !important; \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \n  overflow-y: scroll; \n  height: 70vh; \n  padding-top: 6px;\n  padding-right: 3%; \n  padding-bottom: 6px;\n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] {\n  color: #818284;\n  font-size: 15px;\n}\n.stat-perc[data-v-f3210f20] {\n  letter-spacing: 0.1em;\n  font-size: 16px;\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  color: #333333;\n  font-family: 'Rubik', sans-serif; \n  font-size: 18px;\n}\n.progress-bar[data-v-f3210f20]{\n\tbackground: #E6E6E6;\n\tborder-radius: 5px;\n  height: 12px;\n}\n.tank[data-v-f3210f20]{\n\tbackground:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;\n\tborder-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 12px;\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {\n  letter-spacing: 0.05em;\n  color: #999999;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20]{\n  color: #808080;\n  letter-spacing: 0.05em;\n}\n#four .btn-default[data-v-f3210f20] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  font-family: 'Rubik', sans-serif; \n  font-size: 12px;\n  letter-spacing: 0.05em;\n  border-radius: 50rem!important;\n}\n#four textarea[data-v-f3210f20] {\n  background-color: #F9F9F9;\n  border-radius: 10px;\n  height: 163px!important;\n  overflow-y: auto;\n}\n.scroll-hidden[data-v-f3210f20]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n#workstation .general-section-stats[data-v-f3210f20],\r\n#workstation .scripts[data-v-f3210f20] {\r\n  height:100vh;\r\n  overflow-y: scroll;\n}\n.row[data-v-f3210f20]{ \r\n  margin-bottom: 3.5vh;\n}\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-top: 69px;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {\r\n  padding-left: 3%;\r\n  padding-right:3%;\n}\n.top-section .col[data-v-f3210f20]{\r\n  padding: 0 10px; \r\n  border-left: 1px solid rgba(0,52,73,1);\n}\n.top-section p.bottom[data-v-f3210f20]{\r\n  font-size: 19px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em;\r\n  color: rgba(30,34,83,1);\n}\n.top-section p.top[data-v-f3210f20]{ \r\n  font-size: 13px; \r\n  color: rgba(78,77,77,1);\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif; \r\n  padding-bottom:20px;\r\n  margin-bottom:0;\n}\n.card[data-v-f3210f20]{ \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size:14px;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n}\n.product[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149,240,1) 100% ) ;\n}\n.activity[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n}\n.time[data-v-f3210f20]{ \r\n  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n}\nh5[data-v-f3210f20]{ \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20]{ \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20]{ \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height:1em;\n}\np.card-link[data-v-f3210f20]{ \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] {\r\n  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {\r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {\r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {\r\n  background-color: #f6f8f9;\r\n  padding-left:3%;\r\n  padding-right: 3%;\r\n  padding-bottom: 3%;\n}\n.stats .card[data-v-f3210f20]{ \r\n  border-radius: 25px;\r\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);\n}\n.stats .card h5[data-v-f3210f20]{ \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20]{ \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20]{ \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item[data-v-f3210f20]{\r\n  padding: 0 1.25rem !important;\n}\n.list-group-item p strong[data-v-f3210f20]{ \r\n  font-size: 18px; \r\n  margin-right: 30px;\r\n  float: left; \r\n  width: 12%; \r\n  margin-top: 11px; \r\n  color: #003449;     \r\n  letter-spacing: 2.2px;\r\n  font-family: 'Montserrat', sans-serif;\n}\n.comment-notes[data-v-f3210f20]{\r\n  float: left; \r\n  margin-top: 11px; \r\n  width: 57%; \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20]{     \r\n  float: right; \r\n  margin-top: 11px; \r\n  font-size: 10px; \r\n  text-align: left; \r\n  width: 22%;\r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], .callback-capture[data-v-f3210f20] {\r\n  background: #f4f4f4;\r\n  border-radius: 50rem;\r\n  height:50px;\n}\n.choose-comment-type[data-v-f3210f20]{\r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem!important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20]{ \r\n  height: 50px;\r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4;\r\n  cursor: pointer; \r\n  float: left;\n}\n.keys[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 8px;\r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {\r\n  color: #666;\r\n  letter-spacing: 0.05em;\r\n  font-size:12px;\r\n  font-family: 'Rubik', sans-serif;\n}\n#submit-btn img[data-v-f3210f20]{ \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], .show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20]{ \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat;\r\n  max-height:120vh; \r\n  transition:all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20]{ \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20]{ \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20]{ \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20]{ \r\n  margin-bottom: 10px;     \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20]{ \r\n  background-image: url('/images/call/1@4x.png') !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20]{ \r\n  background-image: url('/images/call/2@4x.png') !important;\n}\n.tip-c[data-v-f3210f20]{ \r\n  background-image: url('/images/call/3@4x.png') !important;\n}\n.tip-d[data-v-f3210f20]{ \r\n  background-image: url('/images/call/4@4x.png') !important;\n}\n.tip-e[data-v-f3210f20]{ \r\n  background-image: url('/images/call/5@4x.png') !important;\n}\n.tip-f[data-v-f3210f20]{ \r\n  background-image: url('/images/call/6@4x.png') !important;\n}\n.verticalChart[data-v-f3210f20] {\r\n  background-image: url('/images/graph_grid.png') !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0;\r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: 'Montserrat', sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20]{ \r\n  max-height:880.84px; \r\n  transition:all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height:35px; \r\n  overflow:hidden; \r\n  padding:0px; \r\n  background-color:transparent;\n}\np.minimize[data-v-f3210f20]{     \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20]{ \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20]{ \r\n  color: #fff;  \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20]{ \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px;\r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border:0;\r\n  box-shadow:0 0 10px rgba(0,0,0,0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff;\r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20]{ \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition:all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20]{     \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20]{ \r\n  padding: 7px; \r\n  background-image: url('/images/Idle_Pages_Assest/Asset 11900.svg') !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20]{ \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20]{ \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover{ \r\n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover{ \r\n  background: #00344a; \r\n  color: #ffffff;    border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204,169,44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204,169,44, 0);\n}\n}\n.tab-content[data-v-f3210f20]{ \r\n  padding: 1rem;\n}\n.final-modal .row-a[data-v-f3210f20]{\r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20]{ \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20]{ \r\n  font-size: 55px; \r\n  color: #FF933A;\n}\n.final-modal .card-header[data-v-f3210f20]{     \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20]{ \r\n  border-bottom: none; \r\n  background: #fff;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {\r\n  border: 0;\r\n  background-color: #fff;\r\n  color:#7f8080;\r\n  letter-spacing:0.05em;\r\n  text-align:center;\r\n  padding-top:0;\r\n  padding-bottom:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"One\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Three\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: -10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Two\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Four\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-top-right-radius: 25px;\r\n  border-top-left-radius:0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Five\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Seven\"][data-v-f3210f20]{\r\n  box-shadow: inset -7px -10px 10px #f5f5f5;\r\n  border-bottom-right-radius: 25px;\r\n  border-top-left-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: 10px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 25px;\r\n  border-top-right-radius: 25px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Six\"][data-v-f3210f20], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"false\"][aria-controls=\"Eight\"][data-v-f3210f20]{\r\n  box-shadow: inset 7px -10px 10px #f5f5f5;\r\n  border-top-left-radius: 0;\r\n  border-top-right-radius: 0;\n}\n.activities .card-header[data-v-f3210f20], .deals .card-header[data-v-f3210f20]{\r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], .deals .card-header-tabs[data-v-f3210f20] {\r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {\r\n  font-size: 10px; \r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif;\n}\n.deals #eight input[data-v-f3210f20], .deals #eight textarea[data-v-f3210f20], .deals #eight select[data-v-f3210f20] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  letter-spacing: 0.05em;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  padding: 10px 20px!important;\n}\n.deals #eight textarea[data-v-f3210f20] {\r\n  border-radius: 25px;\r\n  height: 94px!important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {\r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  font-size: 10px;\r\n  text-transform: uppercase;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  letter-spacing: 0.05em;\r\n  color: #999999;\r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 700;\r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20]{ \r\n  font-size: 14px; \r\n  padding-left: 10px;\n}\n#two label[data-v-f3210f20]{ \r\n  color: rgb(129, 130, 132); \r\n  font-size: 13px;\r\n  font-weight: 200;\n}\n.vc-reset[data-v-f3210f20], .vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20]{ \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px;\r\n  padding-right: 3%; \r\n  padding-bottom: 6px;\r\n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] {\r\n  color: #818284;\r\n  font-size: 15px;\n}\n.stat-perc[data-v-f3210f20] {\r\n  letter-spacing: 0.1em;\r\n  font-size: 16px;\r\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  color: #333333;\r\n  font-family: 'Rubik', sans-serif; \r\n  font-size: 18px;\n}\n.progress-bar[data-v-f3210f20]{\r\n\tbackground: #E6E6E6;\r\n\tborder-radius: 5px;\r\n  height: 12px;\n}\n.tank[data-v-f3210f20]{\r\n\tbackground:  linear-gradient(to right, #00FFDD 0%, #5A6FF0 100%) !important;\r\n\tborder-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 12px;\r\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {\r\n  letter-spacing: 0.05em;\r\n  color: #999999;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20]{\r\n  color: #808080;\r\n  letter-spacing: 0.05em;\n}\n#four .btn-default[data-v-f3210f20] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  font-family: 'Rubik', sans-serif; \r\n  font-size: 12px;\r\n  letter-spacing: 0.05em;\r\n  border-radius: 50rem!important;\n}\n#four textarea[data-v-f3210f20] {\r\n  background-color: #F9F9F9;\r\n  border-radius: 10px;\r\n  height: 163px!important;\r\n  overflow-y: auto;\n}\n.scroll-hidden[data-v-f3210f20]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    /* padding-top: 6px; */\r\n    padding-right: 6px;\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -234851,10 +235509,10 @@ exports.default = WSTransport;
 /*!*************************************************!*\
   !*** ./node_modules/twilio-client/package.json ***!
   \*************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, browser, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"twilio-client\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"twilio-client\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"\",\"saveSpec\":null,\"fetchSpec\":\"latest\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_shasum\":\"4784f78e0e58e55e460f6b388676c9dc79a70d53\",\"_spec\":\"twilio-client\",\"_where\":\"/var/www/uhustle-app\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"bundleDependencies\":false,\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"deprecated\":false,\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
+module.exports = JSON.parse("{\"_args\":[[\"twilio-client@1.7.5\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"twilio-client@1.7.5\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"twilio-client@1.7.5\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"1.7.5\",\"saveSpec\":null,\"fetchSpec\":\"1.7.5\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_spec\":\"1.7.5\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
 
 /***/ }),
 
@@ -247021,6 +247679,100 @@ var reactiveProp = {
 
 /***/ }),
 
+/***/ "./node_modules/vue-clickaway/dist/vue-clickaway.common.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue-clickaway/dist/vue-clickaway.common.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+Vue = 'default' in Vue ? Vue['default'] : Vue;
+
+var version = '2.2.2';
+
+var compatible = (/^2\./).test(Vue.version);
+if (!compatible) {
+  Vue.util.warn('VueClickaway ' + version + ' only supports Vue 2.x, and does not support Vue ' + Vue.version);
+}
+
+
+
+// @SECTION: implementation
+
+var HANDLER = '_vue_clickaway_handler';
+
+function bind(el, binding, vnode) {
+  unbind(el);
+
+  var vm = vnode.context;
+
+  var callback = binding.value;
+  if (typeof callback !== 'function') {
+    if (true) {
+      Vue.util.warn(
+        'v-' + binding.name + '="' +
+        binding.expression + '" expects a function value, ' +
+        'got ' + callback
+      );
+    }
+    return;
+  }
+
+  // @NOTE: Vue binds directives in microtasks, while UI events are dispatched
+  //        in macrotasks. This causes the listener to be set up before
+  //        the "origin" click event (the event that lead to the binding of
+  //        the directive) arrives at the document root. To work around that,
+  //        we ignore events until the end of the "initial" macrotask.
+  // @REFERENCE: https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
+  // @REFERENCE: https://github.com/simplesmiler/vue-clickaway/issues/8
+  var initialMacrotaskEnded = false;
+  setTimeout(function() {
+    initialMacrotaskEnded = true;
+  }, 0);
+
+  el[HANDLER] = function(ev) {
+    // @NOTE: this test used to be just `el.containts`, but working with path is better,
+    //        because it tests whether the element was there at the time of
+    //        the click, not whether it is there now, that the event has arrived
+    //        to the top.
+    // @NOTE: `.path` is non-standard, the standard way is `.composedPath()`
+    var path = ev.path || (ev.composedPath ? ev.composedPath() : undefined);
+    if (initialMacrotaskEnded && (path ? path.indexOf(el) < 0 : !el.contains(ev.target))) {
+      return callback.call(vm, ev);
+    }
+  };
+
+  document.documentElement.addEventListener('click', el[HANDLER], false);
+}
+
+function unbind(el) {
+  document.documentElement.removeEventListener('click', el[HANDLER], false);
+  delete el[HANDLER];
+}
+
+var directive = {
+  bind: bind,
+  update: function(el, binding) {
+    if (binding.value === binding.oldValue) return;
+    bind(el, binding);
+  },
+  unbind: unbind,
+};
+
+var mixin = {
+  directives: { onClickaway: directive },
+};
+
+exports.version = version;
+exports.directive = directive;
+exports.mixin = mixin;
+
+/***/ }),
+
 /***/ "./node_modules/vue-content-loading/dist/vuecontentloading.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-content-loading/dist/vuecontentloading.js ***!
@@ -255607,7 +256359,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                        24h help line\n                                    "
+              "\r\n                                        24h help line\r\n                                    "
             )
           ]
         ),
@@ -255623,7 +256375,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                        Technical assistance\n                                    "
+              "\r\n                                        Technical assistance\r\n                                    "
             )
           ]
         ),
@@ -255639,7 +256391,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                        Advice on installation\n                                    "
+              "\r\n                                        Advice on installation\r\n                                    "
             )
           ]
         )
@@ -255681,7 +256433,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Guidance through sales\n                            "
+              "\r\n                                Guidance through sales\r\n                            "
             )
           ]
         ),
@@ -255698,7 +256450,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                What to say\n                            "
+              "\r\n                                What to say\r\n                            "
             )
           ]
         ),
@@ -255715,7 +256467,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                When to say it\n                            "
+              "\r\n                                When to say it\r\n                            "
             )
           ]
         )
@@ -255757,7 +256509,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                    Bringing clients to you\n                                "
+              "\r\n                                    Bringing clients to you\r\n                                "
             )
           ]
         ),
@@ -255774,7 +256526,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                    Bringing clients to you\n                                "
+              "\r\n                                    Bringing clients to you\r\n                                "
             )
           ]
         ),
@@ -255791,7 +256543,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                    Bringing clients to you\n                                "
+              "\r\n                                    Bringing clients to you\r\n                                "
             )
           ]
         )
@@ -256447,127 +257199,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "plr-3" }, [
+  return _c("div", [
     _c(
       "div",
       {
-        staticClass: "row",
-        staticStyle: { "margin-top": "2%" },
+        staticClass:
+          "row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0",
         attrs: { id: "top-section" }
       },
       [
-        _c(
-          "div",
-          {
-            staticClass: "filter-card",
-            on: {
-              click: function($event) {
-                return _vm.filterItems(-1)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "card sales-amount" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("p", { staticClass: "card-text-small" }, [
-                  _vm._v("All  "),
-                  _c("strong", [_vm._v(" " + _vm._s(_vm.items.length) + " ")])
-                ])
+        _c("div", { staticClass: "col-12 plr-3" }, [
+          _c("div", { staticClass: "row mb-0 pb-4 pt-40 horizontal-scroll" }, [
+            _c("div", { staticClass: "col-7" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-4" },
+                  [
+                    _vm._v(
+                      "\n                           Assignees:\n                             "
+                    ),
+                    _c("v-select", {
+                      attrs: {
+                        options: [
+                          { value: 1, text: "Manager" },
+                          { value: 2, text: "Account Manager" },
+                          { value: 3, text: "Team Lead" }
+                        ]
+                      },
+                      model: {
+                        value: _vm.selectedAssignees,
+                        callback: function($$v) {
+                          _vm.selectedAssignees = $$v
+                        },
+                        expression: "selectedAssignees"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-4" },
+                  [
+                    _vm._v(
+                      "\n                            Owners: \n                             "
+                    ),
+                    _c("v-select", {
+                      attrs: {
+                        options: [
+                          { value: 1, text: "Item 1" },
+                          { value: 2, text: "Item 2" }
+                        ]
+                      },
+                      model: {
+                        value: _vm.selectedOwners,
+                        callback: function($$v) {
+                          _vm.selectedOwners = $$v
+                        },
+                        expression: "selectedOwners"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(0)
               ])
             ])
-          ]
-        ),
-        _vm._v(" "),
-        _vm.role_id == 1 || _vm.role_id == 2
-          ? _c(
-              "div",
-              {
-                staticClass: "filter-card",
-                on: {
-                  click: function($event) {
-                    return _vm.filterItems(1)
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "card ave-time" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("p", { staticClass: "card-text-small" }, [
-                      _vm._v("Assigned "),
-                      _c("strong", [_vm._v(" " + _vm._s(_vm.count_assigned))])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.role_id == 1 || _vm.role_id == 1
-          ? _c(
-              "div",
-              {
-                staticClass: "filter-card",
-                on: {
-                  click: function($event) {
-                    return _vm.filterItems(0)
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "card con-ratio" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("p", { staticClass: "card-text-small" }, [
-                      _vm._v("Unassigned"),
-                      _c("strong", [_vm._v(_vm._s(_vm.count_unassigned))])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._l(_vm.filter_data, function(item, index) {
-          return _c(
-            "div",
-            {
-              key: index,
-              staticClass: "filter-card",
-              on: {
-                click: function($event) {
-                  return _vm.applyFilter({ filter: item })
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card con-ratio" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("a", {
-                    staticClass: "close",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteFilter(item.id)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text-small" }, [
-                    _vm._v(_vm._s(item.title)),
-                    _c("strong", [_vm._v(_vm._s(item.counts))])
-                  ])
-                ])
-              ])
-            ]
-          )
-        })
-      ],
-      2
+          ])
+        ])
+      ]
     ),
     _vm._v(" "),
-    _c("hr", { staticStyle: { "margin-bottom": "2%" } }),
+    _c("hr", { staticClass: "plr-3", staticStyle: { "margin-bottom": "2%" } }),
     _vm._v(" "),
     !_vm.add_user
-      ? _c("div", [
+      ? _c("div", { staticClass: "plr-3" }, [
           _c(
             "div",
             { staticClass: "row stats ml-1 scroll-hidden horizontal-scroll" },
@@ -256618,7 +257327,38 @@ var render = function() {
         )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "row mt-3" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-default cancel-assign w-100 m-0",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("Cancel")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-default assign w-100 m-0",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("Assign")]
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -303349,8 +304089,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/uhustle-app/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/uhustle-app/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

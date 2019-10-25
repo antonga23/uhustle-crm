@@ -258,10 +258,75 @@ table.listing tr  th{
     overflow-y: scroll;
     height: 380px;
 }
+/* assignees section */
+.pt-40 {
+    padding-top: 40px;
+}
+ .grey-bg-color {
+        background-color: #EBEFF3 !important;
+    }
+.v-select-toggle {
+     border-radius: 50rem !important;
+    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+}
+.v-select-toggle:focus {
+    outline: 0 !important;
+}
+
+  .btn-default.cancel-assign {
+        border-radius: 50rem !important;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        background: #ffffff;
+        font-size: 10px;
+        color: #989899;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+    }
+   .btn-default.assign {
+       border-radius: 50rem !important;
+       font-size: 10px;
+        background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        letter-spacing: 0.05em;
+        color: #ffffff;
+   }
+
 </style>
 <template>
-    <div class="plr-3">
-        <div id="top-section" class="row" style="margin-top:2%;">
+    <div >
+        <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
+            <div class="col-12 plr-3">
+                <div class="row mb-0 pb-4 pt-40 horizontal-scroll">
+                    <div class="col-7">
+                       <div class="row">
+                           <div class="col-4">
+                               Assignees:
+                                 <v-select :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
+                            </div>
+                            <div class="col-4">
+                                Owners: 
+                                 <v-select :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
+                            </div>
+                            <div class="col-4">
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- <div id="top-section" class="row" style="margin-top:2%; display:none;">
 
           <div class="filter-card"  @click="filterItems(-1)">
             <div class="card sales-amount">
@@ -295,9 +360,9 @@ table.listing tr  th{
                 </div>
             </div>
           </div>
-        </div>
-        <hr style="margin-bottom: 2%;">
-        <div v-if="!add_user">
+        </div> -->
+        <hr class="plr-3" style="margin-bottom: 2%;">
+        <div v-if="!add_user" class="plr-3">
             <div class="row stats ml-1 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
@@ -339,6 +404,7 @@ table.listing tr  th{
     import DataTable from '../DataTables/ListingDataTable';
     import DataTableEditable from '../DataTables/ListingDataTableEditable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
+    import VSelect from '@alfsnd/vue-bootstrap-select';
     export default {
         extends: Bar,
         components: { 
@@ -346,6 +412,7 @@ table.listing tr  th{
             VclFacebook,
             VclInstagram,
             VclTable,
+            VSelect,
             AddModuleItem,
             DataTableEditable,
             'datatable' : DataTable
@@ -431,6 +498,8 @@ table.listing tr  th{
                 add_user: false,
                 show_page_loader: false,
                 Toast: null,
+                selectedAssignees: null,
+                selectedOwners: null,
                 columns:[
                     // {
                     //     label: '',  // Column name
