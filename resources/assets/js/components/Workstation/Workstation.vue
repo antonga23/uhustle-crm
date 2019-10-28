@@ -4,18 +4,16 @@
   height:100vh;
   overflow-y: scroll;
 }
-.row{ 
-  margin-bottom: 3.5vh;  
-}
 .general-section-stats .agent-stats-1 {
-  padding-top: 69px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: 4.85%;
+  padding-bottom:4.9%;
+  padding-left: 6.4%;
+  padding-right: 6.4%;
 }
 .general-section-stats .agent-stats-2 {
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 30px;
+  padding-left: 6.4%;
+  padding-right: 6.4%;
+  padding-bottom: 4.95%;
 }
 .scripts {
   padding-left: 3%;
@@ -42,6 +40,21 @@
 .card{ 
   border-radius: 25px;
 } 
+.client-details {
+  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);
+  padding-left:4.7%;
+  padding-right: 4.7%;
+  padding-bottom: 3%;
+}
+.client-details .card {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.client-details .card-body {
+  padding: 1.25rem;
+}
 .client-details .card-title { 
   margin-bottom: 0.75rem; 
   padding-bottom: 0.5rem; 
@@ -79,30 +92,30 @@ p.card-link{
   font-size: 16px; 
   color: #fff; 
 } 
-.client-details {
-  background-image: linear-gradient(180deg,#fff 30%,#f6f8f9 30%);
-  padding-left:3%;
-  padding-right: 3%;
-  padding-bottom: 30px;
-}
-.client-details .card {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-.client-details .card-body {
-  padding: 1.25rem;
-}
 .stats.final-modal {
   background-color: #f6f8f9;
-  padding-left:3%;
-  padding-right: 3%;
-  padding-bottom: 3%;
+  padding-left:5.2%;
+  padding-right: 5.2%;
+  padding-bottom: 6%;
+}
+.stats.final-modal .card-deck {
+  margin-bottom:3%;
 }
 .stats .card{ 
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
   -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+  margin-left:1.9%;
+  margin-right:1.9%;
 } 
+.stats.final-modal .card .tab-content {
+  padding-left: 6.8%;
+  padding-right: 6.8%;
+  padding-top:6.1%;
+  padding-bottom:3.5%;
+}
 .stats .card h5{ 
   color: #818284; 
 } 
@@ -115,6 +128,15 @@ p.card-link{
   padding-bottom: 0.75rem; 
   border-bottom: 1px solid #cdcdcf; 
 } 
+.stats.final-modal .card .tab-content #two .col-lg-8 {
+  margin-top:20px;
+}
+.stats.final-modal .card .tab-content #two .col-lg-8 {
+ padding-left: 7.5%;
+}
+.stats.final-modal .card .tab-content #two .col-lg-8 p {
+  border-bottom: 1px solid #CDCDCF;
+}
 span.right{ 
   float: right; 
 } 
@@ -157,6 +179,9 @@ span.right{
   border-radius: 50rem;
   height:50px;
 }
+.notes-capture {
+  margin-top: 7.3%;
+}
 .choose-comment-type{
   height: 50px; 
   width: 50px; 
@@ -177,6 +202,12 @@ span.right{
   float: left; 
 } 
 .keys {
+  margin-bottom: 14%;
+}
+.keys .col {
+  padding-left: 7px;
+}
+.keys p{
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
   font-size: 8px;
@@ -187,6 +218,10 @@ span.right{
   letter-spacing: 0.05em;
   font-size:12px;
   font-family: 'Rubik', sans-serif;
+}
+.callback-date {
+  padding-top: 11.5%;
+  margin-bottom:11%!important;
 }
 #submit-btn img{ 
   margin-top: -15px; 
@@ -359,6 +394,9 @@ p.maximize a{
 .scripts .card { 
   border:0;
   box-shadow:0 0 10px rgba(0,0,0,0.1);
+  -moz-box-shadow:0 0 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow:0 0 10px rgba(0,0,0,0.1);
+  -o-box-shadow:0 0 10px rgba(0,0,0,0.1);
 } 
 .scripts .card-body { 
   flex: 1 1 auto; 
@@ -425,6 +463,9 @@ a.down-scroll:hover{
   display: block; 
   border-radius: 25px; 
   box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -webkit-box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -moz-box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -o-box-shadow: 0px 1px 6px 0px #4a4a4a; 
   margin: 0 10px 19px 10px; 
   max-width: 30.333333%; 
   padding: 25px;
@@ -437,6 +478,7 @@ a.down-scroll:hover{
   font-weight: 700; 
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
   -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
+  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
 } 
 .btn-active { 
@@ -446,6 +488,7 @@ a.down-scroll:hover{
   font-size: 12px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
   -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
+  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
 } 
  
@@ -466,32 +509,44 @@ a.down-scroll:hover{
  
 @-webkit-keyframes pulse { 
   0% { 
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
     -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
+    -o-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
   } 
   70% { 
-    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    -o-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
   } 
   100% { 
-    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1); 
+    box-shadow: 0 0 0 0 rgba(255,147, 58,1); 
+    -webkit-box-shadow: 0 0 0 0 rgba(255,147, 58,1);
+    -moz-box-shadow: 0 0 0 0 rgba(255,147, 58,1);
+    -o-box-shadow: 0 0 0 0 rgba(255,147, 58,1);
   } 
 } 
 @keyframes pulse { 
   0% { 
-    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    -o-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
     box-shadow: 0 0 0 0 rgba(204,169,44, 0.4); 
   } 
   70% { 
+    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
     -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
+    -o-box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
     box-shadow: 0 0 0 10px rgba(204,169,44, 0); 
   } 
   100% { 
-    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    -o-box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
     box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
   } 
 } 
-.tab-content{ 
-  padding: 1rem; 
-}
 .final-modal .row-a{
   border-bottom: 1px solid #e3e3e3; 
 } 
@@ -524,49 +579,79 @@ a.down-scroll:hover{
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{
   box-shadow: 10px -10px 10px #f5f5f5;
+  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
+  -moz-box-shadow: 10px -10px 10px #f5f5f5;
+  -o-box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
   box-shadow: inset -7px -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset -7px -10px 10px #f5f5f5;
+  -moz-box-shadow: inset -7px -10px 10px #f5f5f5;
+  -o-box-shadow: inset -7px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius:0;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{
+  -webkit-box-shadow: -10px -10px 10px #f5f5f5;
+  -moz-box-shadow: -10px -10px 10px #f5f5f5;
+  -o-box-shadow: -10px -10px 10px #f5f5f5;
   box-shadow: -10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
   box-shadow: inset 7px -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
+  -moz-box-shadow: inset 7px -10px 10px #f5f5f5;
+  -o-box-shadow: inset 7px -10px 10px #f5f5f5;
   border-top-right-radius: 25px;
   border-top-left-radius:0;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Seven"]{
   box-shadow: 10px -10px 10px #f5f5f5;
+  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
+  -moz-box-shadow: 10px -10px 10px #f5f5f5;
+  -o-box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Seven"]{
   box-shadow: inset -7px -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset -7px -10px 10px #f5f5f5;
+  -moz-box-shadow: inset -7px -10px 10px #f5f5f5;
+  -o-box-shadow: inset -7px -10px 10px #f5f5f5;
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Eight"]{
   box-shadow: 10px -10px 10px #f5f5f5;
+  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
+  -moz-box-shadow: 10px -10px 10px #f5f5f5;
+  -o-box-shadow: 10px -10px 10px #f5f5f5;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
   box-shadow: inset 7px -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
+  -moz-box-shadow: inset 7px -10px 10px #f5f5f5;
+  -o-box-shadow: inset 7px -10px 10px #f5f5f5;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.activities {
+ margin-bottom:3.2%;
 }
 .activities .card-header, .deals .card-header{
   background: #fff;
 }
 .activities .card-header-tabs, .deals .card-header-tabs {
   box-shadow: inset 0 -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset 0 -10px 10px #f5f5f5;
+  -moz-box-shadow: inset 0 -10px 10px #f5f5f5;
+  -o-box-shadow: inset 0 -10px 10px #f5f5f5;
 }
 .deals #eight p {
   font-size: 10px; 
@@ -582,6 +667,8 @@ a.down-scroll:hover{
 .deals #eight input, .deals #eight textarea, .deals #eight select {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   color: #003449;
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
@@ -600,7 +687,9 @@ a.down-scroll:hover{
   font-size: 10px;
   text-transform: uppercase;
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);
   letter-spacing: 0.05em;
   color: #999999;
   padding: 9px;
@@ -674,6 +763,8 @@ a.down-scroll:hover{
 #four .btn-default {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   font-family: 'Rubik', sans-serif; 
   font-size: 12px;
   letter-spacing: 0.05em;
@@ -684,6 +775,13 @@ a.down-scroll:hover{
   border-radius: 10px;
   height: 163px!important;
   overflow-y: auto;
+}
+textarea::placeholder {
+  font-size: 12px; 
+  font-weight: 300; 
+  font-family: 'Rubik', sans-serif; 
+  font-style: italic; 
+  color: #999999; 
 }
 </style> 
 <template> 
@@ -734,7 +832,7 @@ a.down-scroll:hover{
 
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
-      <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">
+      <div class="row mx-0 justify-content-between top-section agent-stats-1">
         <div class="col"> 
           <p class="top">First Name</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
@@ -771,7 +869,7 @@ a.down-scroll:hover{
         </div> 
       </div>
 
-      <div class="row pt-4 mx-0 justify-content-between top-section agent-stats-2">
+      <div class="row mx-0 justify-content-between top-section agent-stats-2">
         <div class="col"> 
           <p class="top">Email</p> 
           <p class="bottom mb-0">{{ lead_info.lead_source.phone }}</p> 
@@ -869,9 +967,9 @@ a.down-scroll:hover{
         </div> 
       </div>       
 
-      <div class="side-indentation stats final-modal">
-        <div class="card-deck mx-0 mb-0"> 
-          <div class="card left mt-3 border-0 mr-4 ml-0 tab-card"> 
+      <div class="stats final-modal">
+        <div class="card-deck mx-0"> 
+          <div class="card left border-0 mb-0 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -890,7 +988,7 @@ a.down-scroll:hover{
                       class="icon" 
                       width="60"
                     /> 
-                    <span>Agent Notes</span>
+                    <span>Agents Notes</span>
                   </a> 
                 </li> 
 
@@ -918,75 +1016,79 @@ a.down-scroll:hover{
 
             <div class="tab-content" id="myTabContent"> 
               <div 
-                class="tab-pane fade show active p-3" 
+                class="tab-pane fade show active" 
                 id="one" 
                 role="tabpanel" 
                 aria-labelledby="one-tab"
               > 
-                <div class="notes-roll"> 
-                  <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
-                    <li 
-                      v-for="comment in comments.comments" 
-                      class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
-                      :key="comment.id"
-                    > 
-                      <p class="m-0"> 
-                        <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                        <span class="comment-notes d-block"> 
-                          {{ comment.description }}  
-                          <a 
-                            href="#" 
-                            role="button"
-                            @click="editComment(comment)" 
-                            :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
-                            v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
-                          > 
-                            <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
-                          </a> 
-                        </span> 
-                        <span class="author d-block"> 
-                          {{ comment.created_at }} <br/> 
-                          <small>{{ comment.user_name }}</small> 
-                        </span> 
-                      </p> 
-                    </li> 
-                  </ul> 
-                </div> 
-
-                <div class="d-flex notes-capture"> 
-                  <div class="flex-shrink-1">
-                    <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                      <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
-                    </b-button>
-                  </div>
-                  <div class="flex-grow-1 mr-2"> 
-                    <input 
-                      class="comment-desc d-block w-100 border-0" 
-                      type="text" 
-                      v-model="comment.comment_description" 
-                      placeholder="Write comment here"
-                    /> 
-                  </div>
-                  <div class="flex-shrink-1">
-                    <button 
-                      id="submit-btn" 
-                      type="submit" 
-                      class="btn p-0 m-0" 
-                      @click="addComment()"
-                    >
-                      <img 
-                        src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
-                        class="icon" 
-                        width="76"
-                      />
-                    </button>
+                <div class="d-flex flex-wrap align-content-between">
+                  <div class="notes-roll w-100"> 
+                    <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
+                      <li 
+                        v-for="comment in comments.comments" 
+                        class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                        :key="comment.id"
+                      > 
+                        <p class="m-0"> 
+                          <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
+                          <span class="comment-notes d-block"> 
+                            {{ comment.description }}  
+                            <a 
+                              href="#" 
+                              role="button"
+                              @click="editComment(comment)" 
+                              :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                              v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                            > 
+                              <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
+                            </a> 
+                          </span> 
+                          <span class="author d-block"> 
+                            {{ comment.created_at }} <br/> 
+                            <small>{{ comment.user_name }}</small> 
+                          </span> 
+                        </p> 
+                      </li> 
+                    </ul> 
                   </div> 
+
+                  <div class="notes-capture w-100 row mx-0 mb-0">
+                    <div class="col-auto px-0">
+                      <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
+                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
+                      </b-button>
+                    </div>
+
+                    <div class="col px-0"> 
+                      <input 
+                        class="comment-desc d-block w-100 border-0" 
+                        type="text" 
+                        v-model="comment.comment_description" 
+                        placeholder="Write comment here"
+                      /> 
+                    </div>
+
+                    <div class="col-auto px-0">
+                      <button 
+                        id="submit-btn" 
+                        type="submit" 
+                        class="btn p-0 m-0" 
+                        @click="addComment()"
+                      >
+                        <img 
+                          src="/images/icons/workstation/Submit.svg" 
+                          alt="Icon" 
+                          class="icon" 
+                          width="76"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>             
               </div>
 
               <div 
-                class="tab-pane fade pt-0 px-3 pb-3" 
+                class="tab-pane fade pt-0" 
                 id="two" 
                 role="tabpanel" 
                 aria-labelledby="two-tab"
@@ -995,7 +1097,7 @@ a.down-scroll:hover{
                   <div class="col-lg-4 px-0"> 
                     <div class="row mx-0">
                       <div class="col-7 px-0">
-                        <div class="row mx-0 align-items-center">
+                        <div class="row mx-0 align-items-center keys">
                           <div class="col-auto px-0">
                             <img src="/images/icons/circle.svg" 
                               alt="Icon" 
@@ -1003,12 +1105,12 @@ a.down-scroll:hover{
                               width="17"/>
                           </div>
 
-                          <div class="col pr-0 pl-2">
-                            <p class="keys mb-0">Today</p>
+                          <div class="col pr-0">
+                            <p class="mb-0">Today</p>
                           </div>
                         </div>
 
-                        <div class="row mx-0 align-items-center">
+                        <div class="row mx-0 align-items-center keys">
                           <div class="col-auto px-0">
                             <img src="/images/icons/grey dot.svg" 
                             alt="Icon" 
@@ -1017,14 +1119,14 @@ a.down-scroll:hover{
                             style="vertical-align: baseline;"/>
                           </div>
 
-                          <div class="col pr-0 pl-2">
-                            <p class="keys mb-0">Recommended Callback</p>
+                          <div class="col pr-0">
+                            <p class="mb-0">Recommended Callback</p>
                           </div>
                         </div>
                       </div>
 
                       <div class="col-5 pr-0">
-                        <div class="row mx-0 align-items-start">
+                        <div class="row mx-0 align-items-start keys">
                           <div class="col-auto px-0">
                             <img src="/images/icons/blue dot.svg" 
                               alt="Icon" 
@@ -1033,12 +1135,12 @@ a.down-scroll:hover{
                               style="vertical-align: text-top;"/>
                           </div>
 
-                          <div class="col pr-0 pl-2">
-                            <p class="keys mb-0">Scheduled Callbacks</p>
+                          <div class="col pr-0">
+                            <p class="mb-0">Scheduled Callbacks</p>
                           </div>
                         </div>
 
-                        <div class="row mx-0 align-items-start">
+                        <div class="row mx-0 align-items-start keys">
                           <div class="col-auto px-0">
                             <img src="/images/icons/Orange Dot_Big.svg" 
                               alt="Icon" 
@@ -1046,14 +1148,14 @@ a.down-scroll:hover{
                               width="8"
                               style="vertical-align: text-top;"/>
                           </div>
-                          <div class="col pr-0 pl-2">
-                            <p class="keys mb-0">Tasks</p>
+                          <div class="col pr-0">
+                            <p class="mb-0">Tasks</p>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }" class="callback-date"> 
                       <label class="control-label p-0 callback-label">Date of Callbacks 
                         <a-date-picker 
                           v-model='selected_date' 
@@ -1065,7 +1167,7 @@ a.down-scroll:hover{
                       </label> 
                     </div> 
                        
-                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }" class="callback-time"> 
                       <label class="control-label pl-0 callback-label">Time of Callback 
                         <a-time-picker 
                           v-model='selected_time' 
@@ -1084,7 +1186,7 @@ a.down-scroll:hover{
                   </div> 
 
                   <div class="col-lg-8 pr-0"> 
-                    <p>Callback Calendar</p>
+                    <p class="mb-0">Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
@@ -1125,7 +1227,7 @@ a.down-scroll:hover{
             </div> 
           </div>
  
-          <div class="card left mt-3 mr-0 ml-4 border-0 tab-card"> 
+          <div class="card left mr-0 mb-0 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -1262,31 +1364,31 @@ a.down-scroll:hover{
                   name="message"
                   class="form-control border-0"
                   placeholder="Write comment here..."/>
-              </div> 
 
-              <div class="flex-shrink-1 text-right">
-                <button 
-                  id="submit-btn" 
-                  type="submit" 
-                  class="btn py-0 my-0" 
-                  @click="sendEmail()"
-                >
-                  <img 
-                    src="/images/icons/workstation/Submit.svg" 
-                    alt="Icon" 
-                    class="icon" 
-                    width="76"
-                  />
-                </button>
+                <div class="row mx-0 justify-content-end">
+                  <button 
+                    id="submit-btn" 
+                    type="submit" 
+                    class="btn p-0 mb-0 mx-0" 
+                    @click="sendEmail()"
+                  >
+                    <img 
+                      src="/images/icons/workstation/Submit.svg" 
+                      alt="Icon" 
+                      class="icon" 
+                      width="76"
+                    />
+                  </button>
+                </div>
               </div> 
             </div> 
           </div>
         </div>
 
         <!-- Activities Starts -->
-        <div class="row mx-0 mb-0 activities"> 
+        <div class="row mx-0 activities"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card left border-0 mx-0 mb-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
@@ -1377,7 +1479,7 @@ a.down-scroll:hover{
         <!-- Deals Starts -->
         <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card left border-0 mx-0 mb-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
