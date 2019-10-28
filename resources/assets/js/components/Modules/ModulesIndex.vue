@@ -265,13 +265,6 @@ table.listing tr  th{
  .grey-bg-color {
         background-color: #EBEFF3 !important;
     }
-.v-select-toggle {
-     border-radius: 50rem !important;
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-}
-.v-select-toggle:focus {
-    outline: 0 !important;
-}
 
   .btn-default.cancel-assign {
         border-radius: 50rem !important;
@@ -301,22 +294,22 @@ table.listing tr  th{
         <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
             <div class="col-12 plr-3">
                 <div class="row mb-0 pb-4 pt-40 horizontal-scroll">
-                    <div class="col-7">
+                    <div class="col-12">
                        <div class="row">
-                           <div class="col-4">
-                               Assignees:
-                                 <v-select :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
+                           <div class="col-auto">
+                               <span class="ml-3">Assignees:</span>
+                                 <v-select searchable=true :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
                             </div>
-                            <div class="col-4">
-                                Owners: 
-                                 <v-select :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
+                            <div class="col-auto">
+                                <span class="ml-3">Owners: </span>
+                                 <v-select  searchable=true :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
                             </div>
-                            <div class="col-4">
+                            <div class="col-auto">
                                 <div class="row mt-3">
-                                    <div class="col-6">
+                                    <div class="col-auto">
                                         <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-auto">
                                         <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
                                     </div>
                                 </div>

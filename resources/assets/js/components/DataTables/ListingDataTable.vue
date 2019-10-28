@@ -1139,7 +1139,7 @@ table th.sorting-desc:after {
 }
 
 table tbody tr:hover {
-    background-color: #EEE;
+    background-color: #f7f7f7;
 }
 
 table th:last-child,

@@ -153,7 +153,34 @@ body {
   .close:after {
     transform: rotate(-45deg);
   }
+  .v-dropdown-item {
+    line-height: 10px !important;
+  }
   
+.v-select-toggle {
+  border-radius: 50rem !important;
+  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  background-color: #fff !important;
+  border-color: #fff !important;
+  width: 200px !important;
+} 
+.v-bs-searchbox::-webkit-input-placeholder  {
+  font-size: 11px !important;
+  font-family: 'Rubik', sans-serif !important;
+  color: rgba(0, 0, 0, 0.65) !important;
+  letter-spacing: 0 !important;
+}
+
+.v-dropdown-container, .v-select-toggle:focus {
+  border-radius: 14px !important;
+  width: 200px !important;
+}
+
+.v-select-toggle:focus {
+  outline: 0 !important;
+}
+
+
 /* Transitions */
 .bounce-enter-active {
     animation: bounce-in .5s;
@@ -345,6 +372,20 @@ body {
 .form-control {
   height: auto!important;
   padding: 0.75rem!important;
+}
+
+select.form-control, input.form-control {
+  border-radius: 10px;
+  padding: 5px !important;
+  height: 33px !important;
+}
+
+.v-bs-searchbox input.form-control {
+  height: 25px !important;
+}
+select.form-control:focus, input.form-control:focus {
+  outline: 0 !important;
+  border: 0!important;
 }
 
 .terms {
