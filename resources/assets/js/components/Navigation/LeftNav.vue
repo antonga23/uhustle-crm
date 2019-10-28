@@ -24,6 +24,8 @@
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory:hover,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover,
@@ -37,13 +39,14 @@
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  background-size: 90px;
-  background-position: -10px;
+  background-size: 63px;
+  background-position: 5px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts,
@@ -53,77 +56,106 @@
   background-size: 64px;
   background-repeat: no-repeat;
   background-position: 3px;
-  min-height: 75px;
+  min-height:64px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
-  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Workstation_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
-  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Work Station Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
-  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Dashboard_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
-  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Dashboard Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
-  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Social Board_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
-  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Social Board Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
-  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Call history_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
-  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Call History Icon.svg') !important;
+  transition: background-image .3s ease;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory:hover {
+  background-image: url('/images/icons/left-sidebar/no-shadows/Inventory_active.svg') !important;
+  transition: background-image .3s ease;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory {
+  background-image: url('/images/icons/left-sidebar/shadows/Inventory.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
-  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Transactions_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
-  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Transactions Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
-  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Training_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
-  background-image: url('/images/icons/SVG/Training Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Training Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
-  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Contact_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
-  background-image: url('/images/icons/SVG/Contacts icon.svg') !important
+  background-image: url('/images/icons/left-sidebar/shadows/Contacts icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
-  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Leads_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
-  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Leads Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
-  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Users_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
-  background-image: url('/images/icons/SVG/Users Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Users Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/no-shadows/System pref_active.svg') !important;
+  transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/System Preferences Icon.svg') !important;
+  transition: background-image .3s ease;
 }
 .main-sidebar {
   width: 63px!important;
@@ -135,7 +167,7 @@
 .nav-link span{
   position: relative;
   left: -200px!important;
-  top: 26px;
+  top: 19px;
   background: #fff;
   color: #000;
   font-size: 18px;
@@ -156,6 +188,12 @@
   padding: 18px 35px 18px 40px;
   left: 44px!important;
 }
+.sidebar-collapse .nav-link span {
+  top: 2px;
+}
+.sidebar-collapse .nav-link:hover span {
+  padding: 16px 35px 16px 40px;
+}
 /*Nav Ends*/
 </style>
 <template>
@@ -163,7 +201,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary">
       <!-- Brand Logo -->
-      <a href="/workstation" class="brand-link mt-3">
+      <a href="/workstation" class="brand-link">
         <img class="logo" src="/images/SVG_Images/Logo.svg">
       </a>
 
@@ -222,6 +260,16 @@
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
                 <span>Call History</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a 
+                href="/inventory" 
+                title="Inventory" 
+                :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
+                class="w-100 m-0 p-0 rounded-0">
+                <span>Inventory</span>
               </a>
             </li>
 
