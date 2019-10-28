@@ -44,10 +44,6 @@ select.month-selector {
   margin-left: 0!important;
   margin-right: 0!important;
 }
-.callIcons li{
-  width: 43px;
-  margin-left: 15px !important;
-}
 .callIcons li a{
   background-repeat: no-repeat;
   color: black;
@@ -56,13 +52,17 @@ select.month-selector {
   background-position: center center !important;
 }
 .callIcons li a.search{
-  background-image: url('/images/icons/Asset 60.svg') !important;
-  background-size: contain;
+  background-image: url('/images/icons/top-nav/Search.svg') !important;
+  background-size: 15px!important;
   background-repeat: no-repeat;
+  border-radius: 50rem;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
 }
 .callIcons li a.search:hover{
   background-image: url('/images/icons/Asset 61.svg') !important;
-  background-size: contain;
+  background-size: 170%!important;
   background-repeat: no-repeat;
 }
 .callIcons li.idle .status{
@@ -81,17 +81,24 @@ select.month-selector {
   background-repeat: no-repeat;
 }
 .callIcons li .call{
-  background-image: url('/images/icons/Call/Start Call.svg') !important;
-  background-size: contain;
+  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;
+  background-size: 25px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .callIcons li .call:hover{
   background-image: url('/images/icons/Call/Start Call Hover.svg') !important;
-  background-size: contain;
+  background-size: 170%;
   background-repeat: no-repeat;
 }
+.callIcons li button.call {
+	border-radius: 50rem;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
+}
 .callIcons li .end-call{
-  background-image: url('/images/icons/Call/End Call.svg') !important;
+  background-image: url('/images/icons/top-nav/End_Call.svg') !important;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -115,8 +122,7 @@ select.month-selector {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.callIcons button.status, 
-.callIcons button.call, 
+.callIcons button.status,
 .callIcons button.end-call {
   padding: 31px;
   margin-top: -11px;
@@ -212,10 +218,8 @@ select.month-selector {
 				<div class="col-auto px-0" v-if="active == 'call-history'">
 					<ul class="navbar-nav callIcons">
 						<li class="nav-item d-sm-inline-block">
+							<input placeholder="Search"/>
 							<a href="#" class="nav-link search p-0"></a>
-						</li>
-						<li class="nav-item d-sm-inline-block">
-							<a href="#" class="nav-link filter p-0"></a>
 						</li>
 					</ul>				
 				</div>
@@ -223,6 +227,7 @@ select.month-selector {
 				<div class="col-auto px-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav callIcons">
 						<li class="nav-item d-sm-inline-block">
+							<input placeholder="Search"/>
 							<a href="#" class="nav-link search p-0"></a>
 						</li>
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
