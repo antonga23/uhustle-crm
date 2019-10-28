@@ -2,8 +2,9 @@
 @section('content')
 	<workstation-index 
 		active="workstation" 
+		custom_fields="{{ json_encode($custom_fields) }}" 
 		auto_dialer_settings="{{ json_encode($auto_dialer_settings) }}" 
-		lead_id="{{ $lead_id }}" 
+		item_id="{{ $item_id }}" 
 		user_name="{{ Auth::user()->name . ' ' . Auth::user()->lastname }}" 
 		role_id="{{ Auth::user()->role_id }}"
 		user_id="{{ Auth::user()->id }}">
