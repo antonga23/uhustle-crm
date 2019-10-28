@@ -51,6 +51,8 @@
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-left:2%;
+  margin-right:2%;
 }
 .client-details .card-body {
   padding: 1.25rem;
@@ -110,7 +112,7 @@ p.card-link{
   margin-left:1.9%;
   margin-right:1.9%;
 } 
-.stats.final-modal .card .tab-content {
+.stats.final-modal .card-deck .card .tab-content {
   padding-left: 6.8%;
   padding-right: 6.8%;
   padding-top:6.1%;
@@ -145,62 +147,62 @@ span.right{
   overflow: hidden; 
   text-overflow: ellipsis; 
 } 
-
-.list-group-item{
-  padding: 0 1.25rem !important;
-} 
-.list-group-item p strong{ 
-  font-size: 18px; 
-  margin-right: 30px;
-  float: left; 
-  width: 12%; 
-  margin-top: 11px; 
-  color: #003449;     
-  letter-spacing: 2.2px;
-  font-family: 'Montserrat', sans-serif; 
+.list-group.border-top {
+  border-color: #CDCDCF;
+}
+.list-group-item {
+  padding-top:1.9%;
+  padding-bottom:1.9%;
+}
+.list-group-item .comment-type{ 
+  font-size: 18px;
+  color: #333333;     
+  letter-spacing: 0.1em; 
 }
 .comment-notes{
-  float: left; 
-  margin-top: 11px; 
-  width: 57%; 
-  font-size: 10px; 
-  color: #7f99a4; 
+  font-size: 12px; 
+  color: #999999; 
+  font-family: 'Rubik', sans-serif;
 } 
-.author{     
-  float: right; 
-  margin-top: 11px; 
-  font-size: 10px; 
-  text-align: left; 
-  width: 22%;
-  color: #7f99a4; 
+.authored{      
+  font-size: 12px;
+  color: #818284;
+  font-family: 'Rubik', sans-serif; 
 } 
 .notes-capture, .callback-capture {
-  background: #f4f4f4;
+  background: #f9f9f9;
   border-radius: 50rem;
-  height:50px;
+  height:62px;
 }
 .notes-capture {
   margin-top: 7.3%;
 }
 .choose-comment-type{
-  height: 50px; 
-  width: 50px; 
-  padding: 11px; 
-  margin: 0 10px 0 0; 
-  background: #f4f4f4; 
+  height: 62px; 
+  width: 62px;
+  background: #F9F9F9; 
   border-radius: 50rem!important; 
   cursor: pointer; 
 } 
-
 .comment-desc{ 
-  height: 50px;
+  height: 62px;
   padding: 11px; 
   margin: 0; 
   border-radius: 9px; 
-  background: #f4f4f4;
+  background: #F9F9F9;
   cursor: pointer; 
   float: left; 
 } 
+.comment-desc::placeholder {
+  font-size: 12px; 
+  font-weight: 300; 
+  font-family: 'Rubik', sans-serif; 
+  font-style: italic; 
+  color: #999999; 
+}
+.notes-capture .submit-column {
+  height:62px;
+}
 .keys {
   margin-bottom: 14%;
 }
@@ -224,8 +226,8 @@ span.right{
   margin-bottom:11%!important;
 }
 #submit-btn img{ 
-  margin-top: -15px; 
-  margin-right: -15px; 
+  margin-top: -17px; 
+  margin-right: -17px; 
 } 
 .btn-secondary { 
   color: #fff; 
@@ -644,6 +646,12 @@ a.down-scroll:hover{
 .activities {
  margin-bottom:3.2%;
 }
+.activities .card .tab-pane, .deals .card .tab-pane {
+  padding-left: 4.5%;
+  padding-right: 4.5%;
+  padding-top:3.2%;
+  padding-bottom:9%;
+}
 .activities .card-header, .deals .card-header{
   background: #fff;
 }
@@ -755,6 +763,8 @@ a.down-scroll:hover{
 .email-desc {
   letter-spacing: 0.05em;
   color: #999999;
+  font-family: 'Rubik', sans-serif; 
+  font-size: 12px;
 }
 #four .text-uppercase.font-weight-bold{
   color: #808080;
@@ -1023,39 +1033,47 @@ textarea::placeholder {
               > 
                 <div class="d-flex flex-wrap align-content-between">
                   <div class="notes-roll w-100"> 
-                    <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
+                    <p class="text-right">{{ comments.comments.length }} comments</p>
+                    <ul class="list-group w-100 border-top" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
                       <li 
                         v-for="comment in comments.comments" 
-                        class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                        class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0 pl-0" 
                         :key="comment.id"
                       > 
-                        <p class="m-0"> 
-                          <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                          <span class="comment-notes d-block"> 
-                            {{ comment.description }}  
-                            <a 
-                              href="#" 
-                              role="button"
-                              @click="editComment(comment)" 
-                              :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
-                              v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
-                            > 
-                              <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
-                            </a> 
-                          </span> 
-                          <span class="author d-block"> 
-                            {{ comment.created_at }} <br/> 
-                            <small>{{ comment.user_name }}</small> 
-                          </span> 
-                        </p> 
+                        <div class="row mx-0 align-items-center">
+                          <div class="col-auto pl-0">
+                            <p class="font-weight-bold m-0 comment-type">{{ comment.comment_type }}</p>  
+                          </div>
+
+                          <div class="col">
+                            <p class="comment-notes d-block mb-0"> 
+                              {{ comment.description }}  
+                              <a 
+                                href="#" 
+                                role="button"
+                                @click="editComment(comment)" 
+                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
+                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
+                              > 
+                                <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
+                              </a> 
+                            </p> 
+                          </div>
+
+                          <div class="col-auto aign-self-end pr-0">
+                            <p class="authored d-block w-100 mb-0"> 
+                              {{ comment.created_at }} 
+                            </p> 
+                          </div>
+                        </div>
                       </li> 
                     </ul> 
                   </div> 
 
                   <div class="notes-capture w-100 row mx-0 mb-0">
                     <div class="col-auto px-0">
-                      <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
+                      <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" class="border-0 m-0 p-0"> 
+                        <img src="/images/icons/add_Button.svg" alt="Icon" class="icon w-100"/> 
                       </b-button>
                     </div>
 
@@ -1068,18 +1086,18 @@ textarea::placeholder {
                       /> 
                     </div>
 
-                    <div class="col-auto px-0">
+                    <div class="col-auto submit-column px-0">
                       <button 
                         id="submit-btn" 
                         type="submit" 
-                        class="btn p-0 m-0" 
+                        class="btn border-0 p-0 m-0" 
                         @click="addComment()"
                       >
                         <img 
                           src="/images/icons/workstation/Submit.svg" 
                           alt="Icon" 
                           class="icon" 
-                          width="76"
+                          width="94"
                         />
                       </button>
                     </div>
@@ -1218,7 +1236,7 @@ textarea::placeholder {
                         src="/images/icons/workstation/Submit.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="76"
+                        width="94"
                       />
                     </button> 
                   </div>
@@ -1376,7 +1394,7 @@ textarea::placeholder {
                       src="/images/icons/workstation/Submit.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="76"
+                      width="94"
                     />
                   </button>
                 </div>
@@ -1435,7 +1453,7 @@ textarea::placeholder {
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="five" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1456,11 +1474,12 @@ textarea::placeholder {
                     :total-rows="rows"
                     :per-page="perPage"
                     aria-controls="my-table"
+                    class="mt-0"
                   ></b-pagination>             
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="six" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -1527,7 +1546,7 @@ textarea::placeholder {
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="seven" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1535,7 +1554,7 @@ textarea::placeholder {
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="eight" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -2024,7 +2043,7 @@ textarea::placeholder {
                             src="/images/icons/workstation/Submit.svg" 
                             alt="Icon" 
                             class="icon" 
-                            width="76"
+                            width="94"
                           />
                         </button>
                       </div> 
@@ -2102,7 +2121,7 @@ textarea::placeholder {
                             src="/images/icons/workstation/Submit.svg" 
                             alt="Icon" 
                             class="icon" 
-                            width="76"
+                            width="94"
                           />
                         </button> 
                       </div>
@@ -2264,7 +2283,7 @@ textarea::placeholder {
                             src="/images/icons/workstation/Submit.svg" 
                             alt="Icon" 
                             class="icon" 
-                            width="76"
+                            width="94"
                           />
                         </button>
                       </div>
@@ -2352,10 +2371,10 @@ textarea::placeholder {
                   </div>
 
                   <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <p class="email-desc font-weight-light font-italic">Choose a tempalte or write your own email to Client</p>
+                    <p class="email-desc font-weight-light font-italic">Choose a template or write your own email to Client</p>
 
                     <div class="row mx-0 align-items-center">
-                      <div class="col-auto pl-0">
+                      <div class="col-auto pl-0 pr-1">
                         <p class="text-uppercase font-weight-bold mb-0">Templates:</p>
                       </div>
                       <div class="col-auto pl-0 mb-2 pr-1">
@@ -2406,7 +2425,7 @@ textarea::placeholder {
                         src="/images/icons/workstation/Submit.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="76"
+                        width="94"
                       />
                     </button>
                   </div> 
