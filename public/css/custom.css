@@ -574,6 +574,9 @@ border-radius: 25px;
   background-image: none !important;
 }
 
+.notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
+  background-color: #ff933a !important;
+}
 
 .filter-content .custom-control-label::after {
   width: 10px;

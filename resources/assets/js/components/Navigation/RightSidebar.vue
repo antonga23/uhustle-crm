@@ -234,7 +234,14 @@
         margin: 5px 0 15px 0;
         font-size: 9px;
     }
-    
+    .btn-info {
+        height: 24px !important;
+        background: #F98B39 !important;
+        border-color: #F98B39 !important;
+        color: #fff !important;
+        padding: 4px 17px 6px !important;
+        border-radius: 24px !important;
+    }
     .settings .row.border-bottom,
     .notifications .row.border-bottom {
         border-color: #cdccce;
@@ -698,6 +705,8 @@
         border-radius: 50%!important;
         background-color: #ff933a !important;
     }
+
+    
     
     .reminders input.list-input:focus {
         border: 1px solid rgba(28, 35, 49, 0.5);
@@ -1043,7 +1052,7 @@
                                     <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
                                         <p class="d-block w-100 title" title="Personal Information">Account Information</p>
                                         <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                                            <div :class="{'input': true, 'form-group w-100' :true }">
+                                            <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }">
                                                 <label class="col-lg-12 control-label w-100 p-0">
                                                     <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox>
                                                 </label>
