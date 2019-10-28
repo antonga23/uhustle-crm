@@ -243,6 +243,19 @@
     font-family: 'Rubik', sans-serif;
     color: #808080;
   }
+  a.Edit{
+    background-image: url('/images/DataTables/Edit_Icon.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    width:20px;
+    height:20px;
+  }
+  a.Edit:hover,
+  a.Edit:active{
+      background-image: url('/images/DataTables/Edit_Icon_Active.svg');
+      background-size: 20px;
+      background-repeat: no-repeat;
+  }
 </style>
 <template>
   <div id="dashboard">
@@ -559,9 +572,12 @@
                   <p class="mb-0">This is a test</p>
                 </div>
 
-                <div class="row mx-0 justify-content-between">
-                  <div class="col-auto pl-0">
-                    <p>23 Jul</p>
+                <div class="row mx-0 justify-content-between align-items-center">
+                  <div class="col-auto pl-0 mb-2">
+                    <div class="row mx-0 align-items-center">
+                      <p class="d-inline-block mr-2 mb-0">23 Jul</p> 
+                      <a class="d-inline-block Edit" href="#" @click="showEdit()" title="Edit"></a>
+                    </div>
                   </div>
 
                   <div class="col-auto pr-0">
