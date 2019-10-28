@@ -98,6 +98,7 @@
     .status {
         display: none;
     }
+
     
     .status.active {
         width: 76px;
@@ -247,6 +248,12 @@
         border-color: #cdccce;
         padding: 21px 0px 16px 0;
     }
+    .notification-popup {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
+            border-radius: 30px;
+            width: 100% !important;
+
+    }
     
     .settings .row p.description {
         font-size: 9px;
@@ -314,11 +321,21 @@
         padding: 8px 15px!important;
     }
     
-    .btn-orange {
+    .btn-orange, .btn-orange-active {
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-        padding: 8px 15px;
+        font-size: 10px;
+        border-radius: 50rem!important;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.05em;
+    }
+
+    .btn-white {
+         background: #fff;
+        border: transparent !important;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -425,7 +442,7 @@
     
     .notifications .btn-default {
         padding: 6px 25px 6px 18px;
-        font-size: 9px;
+        font-size: 12px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -438,15 +455,15 @@
     .notifications .card h3,
     .notifications .card h3 a {
         color: #00344a;
-        font-size: 16px;
-        letter-spacing: 2.2px;
+        font-size: 14px;
+        /* letter-spacing: 2.2px; */
         font-weight: 600;
     }
     
     .notifications .card p.call_back_time {
         color: #00344a;
-        font-size: 14px;
-        letter-spacing: 2.2px;
+        font-size: 12px;
+        /* letter-spacing: 2.2px; */
     }
     
     .personal-info .row.mx-0.border-left,
@@ -1240,23 +1257,25 @@
 
                         <div v-if="notifications_on == true" class="notifications">
                             <div class="row mx-0">
-                                <h2 class="w-100">
+                                <h3 class="w-100">
                   Notifications 
-                </h2>
-                                <div class="w-100">
+                </h3>
+            
+                                <div class="w-100 mt-0">
                                     <label class="col-lg-3 control-label w-100 p-0">
-                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0">Callbacks</button>
+                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
                                     </label>
                                     <label @click="showMessages" class="col-lg-3 control-label w-100 p-0">
-                                        <button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0">Messages</button>
+                                        <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
                                     </label>
                                 </div>
                             </div>
-
+                            <hr>
                             <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
                                 <div v-if="call_backs.length > 0">
-                                    <div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
+                                    <div class="card w-100 notification-popup" v-for="call_back in call_backs" :key="call_back.id">
                                         <div class="card-body">
+                                       
                                             <h3 class="d-block d-block w-100">
                         <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
                       </h3>
@@ -1266,7 +1285,7 @@
                                 </div>
 
                                 <div v-else>
-                                    <div class="card">
+                                    <div class="card notification-popup">
                                         <div class="card-body">
                                             <p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
                                         </div>
@@ -1275,14 +1294,19 @@
                             </div>
 
                             <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                                <div class="card w-100">
-                                    <div class="card-body">
+                                <div class="col-12 card notification-popup w-100">
+                                    <div class="row card-body">
+                                         <div class="col-2">
+                                        <img src="/images/icons/user_icon@4x.png" width="50">
+                                        </div>
+                                        <div class="col-10">
                                         <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                                        <p class="call_back_time d-block w-100 mt-0" title="Personal Information">Lorem Ipsum dolor sit amet, c...</p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="card">
+                                <div class="card notification-popup">
                                     <div class="card-body">
                                         <h3 class="d-block">
                       Steve Hughes 
@@ -1291,14 +1315,14 @@
                                     </div>
                                 </div>
 
-                                <div class="card">
+                                <div class="card notification-popup">
                                     <div class="card-body">
                                         <h3 class="d-block">Steve Hughes</h3>
                                         <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
                                     </div>
                                 </div>
 
-                                <div class="card">
+                                <div class="card notification-popup">
                                     <div class="card-body">
                                         <h3 class="d-block">Steve Hughes</h3>
                                         <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
