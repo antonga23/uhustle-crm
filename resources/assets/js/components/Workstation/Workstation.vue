@@ -984,7 +984,7 @@ textarea::placeholder {
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="one-tab" 
                     data-toggle="tab" 
                     href="#one" 
@@ -1250,7 +1250,7 @@ textarea::placeholder {
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="three-tab" 
                     data-toggle="tab" 
                     href="#three" 
@@ -1258,7 +1258,11 @@ textarea::placeholder {
                     aria-controls="Three" 
                     aria-selected="true"
                   > 
-                    <img src="/images/icons/workstation/Feedback_summary.svg" alt="Icon" class="icon" width="60"/> 
+                    <img 
+                      src="/images/icons/workstation/Feedback_summary.svg" 
+                      alt="Icon" 
+                      class="icon" 
+                      width="60"/> 
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
@@ -1411,7 +1415,7 @@ textarea::placeholder {
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#five" 
@@ -1503,7 +1507,7 @@ textarea::placeholder {
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#seven" 
@@ -1951,7 +1955,7 @@ textarea::placeholder {
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="one-tab" 
                         data-toggle="tab" 
                         href="#one" 
@@ -2137,7 +2141,7 @@ textarea::placeholder {
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="three-tab" 
                         data-toggle="tab" 
                         href="#three" 
@@ -2298,16 +2302,40 @@ textarea::placeholder {
                 <div class="card-header tab-card-header">
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item left">
-                      <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="true">
-                        <img src="/images/workstation/Feedback_Summary.svg" alt="Icon" class="icon" width="23"/>
+                      <a 
+                        class="nav-link active" 
+                        id="three-tab" 
+                        data-toggle="tab" 
+                        href="#three" 
+                        role="tab" 
+                        aria-controls="Three" 
+                        aria-selected="true"
+                      >
+                        <img 
+                          src="/images/workstation/Feedback_Summary.svg" 
+                          alt="Icon" 
+                          class="icon" 
+                          width="23"/>
                         <span class="left">Feedback Summary</span>
                         <span class="right">{{ comments.total_comments }}</span>
                       </a>
                     </li>
 
                     <li class="nav-item right">
-                      <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">
-                        <img src="/images/workstation/Email_Client.svg" alt="Icon" class="icon" width="23"/>
+                      <a 
+                        class="nav-link" 
+                        id="four-tab" 
+                        data-toggle="tab" 
+                        href="#four" 
+                        role="tab" 
+                        
+                        aria-controls="Four" aria-selected="false"
+                      >
+                        <img 
+                          src="/images/workstation/Email_Client.svg" 
+                          alt="Icon" 
+                          class="icon" 
+                          width="23"/>
                         <span class="left">Email Client</span>
                       </a>
                     </li>
@@ -2315,7 +2343,12 @@ textarea::placeholder {
                 </div>
 
                 <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active p-3" id="three" role="tabpanel" aria-labelledby="three-tab" style="height: 349px;"> 
+                  <div 
+                    class="tab-pane fade show active p-3" 
+                    id="three" 
+                    role="tabpanel" 
+                    aria-labelledby="three-tab"
+                  > 
                     <div class="">
                       <!-- <div class="verticalChart">
                         <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index">
@@ -2348,7 +2381,11 @@ textarea::placeholder {
                         </div>
                       </div>
 
-                      <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                      <div 
+                        v-for="(stat, index) in callStats" 
+                        :key="index" 
+                        class="row mx-0 mb-1 align-items-center"
+                      >
                         <div class="col-12 px-0">
                           <div class="row mx-0 mb-0 align-items-center">
                             <div class="col-12 align-content-end px-0">
