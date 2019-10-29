@@ -1,7 +1,7 @@
 <style scoped>
-  .main-header, .top-nav, .row.stats {
-    padding-left: 5.2%;
-    padding-right: 5.2%;
+  .header, .top-nav, .row.stats {
+    padding-left: 5.2%!important;
+    padding-right: 5.2%!important;
   }
   .top-menu {
     display: flex;
@@ -26,34 +26,26 @@
   }
   ul.top-menu li.item{
     float: left;
-    margin-left: 10px;
+    margin-left: 1.6%;
+    margin-right: 1.6%;
     margin-bottom: 8px;
+    font-size:16px;
   }
   ul.top-menu li.item a{
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    padding: 4px 16px;
+    padding: 4px 28px;
+    text-decoration: none;
     box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
   }
   ul.top-menu li.item a.active{
-    color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    padding: 4px 16px;
-    background: #F98B39;
+    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
     color: #fff !important;
-    box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    text-decoration: none;
   }
-	.navbar-nav a.active{    
-		border-radius: 26px;
-    margin: 5px 8px 8px 55px !important;
-    height: 29px !important;
-    background: #F98B39 !important;
-    border-color: #F98B39 !important;
-    color: #fff !important;
-    padding: 4px 17px 6px !important;
-	}
   .user-roles .tab-pane .row{
     margin-right: 0;
     margin-left: 0;
@@ -70,6 +62,9 @@
     font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
@@ -79,6 +74,9 @@
     text-transform:uppercase;
     font-size: 10px;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
   .btn-block {
     display: block;
@@ -142,7 +140,7 @@
 </style>
 <template>
   <div id="preferences">
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+		<nav class="header navbar navbar-expand navbar-white navbar-light">
 			<!-- Left navbar links -->
       <ul class="navbar-nav left">
         <li class="nav-item d-none d-sm-inline-block title">
@@ -152,8 +150,8 @@
 		</nav>
 
     <div class="row mx-0 top-nav">
-      <ul class="top-menu">
-        <li class="item">
+      <ul class="top-menu w-100">
+        <li class="item ml-0">
           <a 
             href="#" 
             @click="showModulePreferences('roles', 'roles', null);" 
@@ -186,7 +184,7 @@
           >{{ module.display_name }}</a>
         </li>
 
-        <li class="item">
+        <li class="item mr-0">
           <a 
             role="button" 
             rel="addModuleLink" 
@@ -207,20 +205,23 @@
           <b-card no-body>
             <b-tabs card>
               <b-tab 
-                :title="role.display_name" 
-                @click="editRole(role)" 
                 v-for="(role,index) in roles" 
                 :key="index" 
                 :active="(index == 0)? true : false"
               >   
+                <template v-slot:title>
+                  <a @click="editRole(role)">{{ role.display_name }}</a>
+                  <img v-if="role[index] == active" @click="deleteRole(role)" src="images/icons/delete.svg" width="16"/>
+                </template>
+
                 <div class="row mx-0 edit-role" v-if="role_edit">
                   <edit-role :role="role" />
                 </div>
 
                 <div class="row justify-content-end mx-0">
                   <div class="col-6 text-right px-0">
-                    <b-button class="btn btn-danger my-0" @click="deleteRole(role)">Delete</b-button>
-                    <b-button class="btn btn-default my-0" @click="updateRole(role)">Cancel</b-button>
+                    <!-- <b-button class="btn btn-danger my-0" @click="deleteRole(role)">Delete</b-button> -->
+                    <b-button class="btn btn-default my-0 ml-0" @click="updateRole(role)">Cancel</b-button>
                     <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="updateRole(role)">Update</b-button>
                   </div>
 
@@ -351,7 +352,11 @@
                 </transition>
               </b-tab>
 
-              <b-tab :title="'+'" @click="addRole">
+              <b-tab>
+                <template v-slot:title>
+                  <img @click="addRole" src="images/icons/Field_Add.svg" width="16"/>
+                </template>
+
                 <div class="row mx-0" v-if="role_add">
                   <add-role/>
                 </div>

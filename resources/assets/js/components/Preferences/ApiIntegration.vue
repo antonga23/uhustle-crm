@@ -28,6 +28,9 @@
     font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
@@ -37,6 +40,9 @@
     text-transform:uppercase;
     font-size: 10px;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
 </style>
 <template>
@@ -66,8 +72,8 @@
               </div>
 
               <div class="row justify-content-end mx-0">
-                <b-button class="btn-default" @click="updateDetails()">Cancel</b-button>
-                <b-button class="btn-primary font-weight-bold" @click="updateDetails()">Update</b-button>
+                <b-button class="btn-default ml-0 my-0" @click="updateDetails()">Cancel</b-button>
+                <b-button class="btn-primary font-weight-bold mr-0 my-0" @click="updateDetails()">Update</b-button>
               </div>
             </b-container>
           </div>

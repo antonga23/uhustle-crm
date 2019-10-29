@@ -100,7 +100,7 @@
   transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory {
-  background-image: url('/images/icons/left-sidebar/shadows/Inventory.svg') !important;
+  background-image: url('/images/icons/left-sidebar/shadows/Inventory_Icon.svg') !important;
   transition: background-image .3s ease;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
