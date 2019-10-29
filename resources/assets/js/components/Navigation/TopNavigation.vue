@@ -51,19 +51,48 @@ select.month-selector {
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
-.callIcons li a.search{
+.callIcons .search .col-auto {
+  padding-right:41%;
+}
+.callIcons .search a{
+  background-color: #fff;
   background-image: url('/images/icons/top-nav/Search.svg') !important;
   background-size: 15px!important;
   background-repeat: no-repeat;
   border-radius: 50rem;
-	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
 	width: 48px;
 	height: 48px;
 }
-.callIcons li a.search:hover{
+.callIcons .search a:hover{
   background-image: url('/images/icons/Asset 61.svg') !important;
   background-size: 170%!important;
   background-repeat: no-repeat;
+}
+.callIcons .search input {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding:14px 0 14px;
+  right: -40px;
+  position: absolute;
+  top: -24px;
+  width:0;
+  transition: width 2s;
+}
+.callIcons .search:hover input {
+  width:auto;
+  padding:14px 40px 14px 15px;
+}
+.callIcons .search input::placeholder {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
 }
 .callIcons li.idle .status{
   background-image: url('/images/icons/Asset 55.svg') !important;
@@ -93,7 +122,7 @@ select.month-selector {
 }
 .callIcons li button.call {
 	border-radius: 50rem;
-	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
 	width: 48px;
 	height: 48px;
 }
@@ -116,11 +145,6 @@ select.month-selector {
   padding: 14px;
   margin-top: 5px;
   margin-left: 20px;
-}
-.callIcons li a.filter{
-  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .callIcons button.status,
 .callIcons button.end-call {
@@ -217,18 +241,32 @@ select.month-selector {
 
 				<div class="col-auto px-0" v-if="active == 'call-history'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block">
-							<input placeholder="Search"/>
-							<a href="#" class="nav-link search p-0"></a>
+						<li class="nav-item d-sm-inline-block search">
+							<div class="row mx-0 align-items-center">
+                <div class="col px-0">
+                  <input placeholder="Search" class="border-0 rounded-pill"/>
+                </div>
+
+                <div class="col-auto pl-0">
+                  <a href="#" class="nav-link p-0"></a>
+                </div>
+              </div>
 						</li>
 					</ul>				
 				</div>
 
 				<div class="col-auto px-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block">
-							<input placeholder="Search"/>
-							<a href="#" class="nav-link search p-0"></a>
+						<li class="nav-item d-sm-inline-block search">
+              <div class="row mx-0 align-items-center">
+                <div class="col px-0">
+                  <input placeholder="Search" class="border-0 rounded-pill"/>
+                </div>
+
+                <div class="col-auto pl-0">
+                  <a href="#" class="nav-link p-0"></a>
+                </div>
+              </div>
 						</li>
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
