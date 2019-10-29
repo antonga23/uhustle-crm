@@ -107,10 +107,8 @@
     }
     
     .add-new-top-section {
-        width: 100px;
         float: right;
         border-radius: 50%;
-        background-color: #EBEFF3;
     }
     
     h5 {
@@ -339,18 +337,7 @@
         overflow: auto;
         flex-wrap: nowrap;
     }
-    
-    @media screen and (min-width: 1353px) and (max-width:1543px) {
-        .card .card-text {
-            font-size: 26px;
-        }
-    }
-    
-    @media screen and (max-width: 1352px) {
-        .card .card-text {
-            font-size: 16px;
-        }
-    }
+
     
     .col-lg-auto .btn.btn-secondary {
         width: 40px;
@@ -367,6 +354,36 @@
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
         background-color: #fff;
     }
+
+    /* Media Queries */
+       @media screen and (min-width: 1353px) and (max-width:1543px) {
+        .card .card-text {
+            font-size: 20px;
+        }
+    }
+    
+    @media screen and (max-width: 1500px) {
+        .card .card-text {
+            font-size: 16px;
+        }
+        .card-text-small {
+            font-size: 12px;
+        }
+
+        .card {
+           min-width: 150px !important;
+        }
+
+        .add-new-top-section img.icon {
+            width: 12px !important; 
+        }
+
+        .add-new-top-section .dropdown {
+            top: -10px;
+        }
+    }
+
+
 </style>
 <template>
     <div class="">
