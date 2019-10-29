@@ -1,4 +1,8 @@
 <style scoped>
+#preferences {
+  height:100vh;
+  overflow-y: auto;
+}
   .tab-pane{
     padding: 4.4% 5.6% 6.8%;
   }
@@ -10,14 +14,18 @@
     margin-bottom: 25px
   }
   .col, .col-sm-1, .col-sm-2, .col-sm-3, td {
-    padding-right: 1.4%;
-    padding-left: 1.4%;
+    padding-right: 1.2%;
+    padding-left: 1.2%;
+  }
+  table {
+    width:max-content;
   }
   td {
     vertical-align:baseline;
+    padding-bottom:1.1%;
   }
   .scrollable{
-    height: 789px;
+    height: 500px;
     overflow: auto;
   }
   .nav-link a {
@@ -236,112 +244,116 @@
             </b-row>
           </b-container> -->
 
-          <table class="scrollable">
-            <tr 
-              v-for="(field, index) in module.module_fields" 
-              :key="index"
-            >
-              <td class="pl-0">
-                <label for="input-none">Field name:</label>
-                <a-input 
-                  id="input-none" 
-                  v-model="field.display_name" 
-                  v-validate="'required'" 
-                  :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
-                ></a-input>
-                <span 
-                  v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
-                  class="help-block"
-                >{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
-              </td>
+          <div class="scrollable">
+            <table>
+              <tr 
+                v-for="(field, index) in module.module_fields" 
+                :key="index"
+              >
+                <td class="pt-0 pl-0">
+                  <label for="input-none">Field name:</label>
+                  <a-input 
+                    id="input-none" 
+                    v-model="field.display_name" 
+                    v-validate="'required'" 
+                    :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
+                    class="w-100"
+                  ></a-input>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
+                </td>
 
-              <td>
-                <label for="input-none" class="w-100">Field type:</label>
-                <a-select 
-                  v-model="field.type" 
-                  placeholder="Select"
-                >
-                  <a-select-option 
-                    :value="type.value" 
-                    v-for="(type, index) in types" 
-                    :key="index"
-                  >{{ type.text }}</a-select-option>
-                </a-select>
-                <span 
-                  v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
-                  class="help-block"
-                >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
-              </td>
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Field type:</label>
+                  <a-select 
+                    v-model="field.type" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="type.value" 
+                      v-for="(type, index) in types" 
+                      :key="index"
+                    >{{ type.text }}</a-select-option>
+                  </a-select>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                </td>
 
-              <td>
-                <label for="input-none" class="w-100">Required:</label>
-                <a-select 
-                  v-model="field.required" 
-                  placeholder="Select"
-                  class="w-100"
-                >
-                  <a-select-option value="1">Yes</a-select-option>
-                  <a-select-option value="0">No</a-select-option>
-                </a-select>
-                <span 
-                  v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
-                  class="help-block"
-                >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
-              </td>
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Required:</label>
+                  <a-select 
+                    v-model="field.required" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option value="1">Yes</a-select-option>
+                    <a-select-option value="0">No</a-select-option>
+                  </a-select>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                </td>
 
-              <td>
-                <label for="input-none">Can Read:</label>
-                <a-select 
-                  mode="multiple"
-                  v-model="field.can_read" 
-                  placeholder="Select"
-                  class="w-100"
-                >
-                  <a-select-option 
-                    :value="role.id" 
-                    v-for="(role, index) in roles" 
-                    :key="index"
-                  >{{ role.display_name }}</a-select-option>
-                </a-select>
-              </td>
+                <td class="pt-0">
+                  <label for="input-none">Can Read:</label>
+                  <a-select 
+                    mode="multiple"
+                    v-model="field.can_read" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="role.id" 
+                      v-for="(role, index) in roles" 
+                      :key="index"
+                    >{{ role.display_name }}</a-select-option>
+                  </a-select>
+                </td>
 
-              <td>
-                <label for="input-none" class="w-100">Can Edit:</label>
-                <a-select 
-                  mode="multiple"
-                  v-model="field.can_edit" 
-                  placeholder="Select"
-                  class="w-100"
-                >
-                  <a-select-option 
-                    :value="role.id" 
-                    v-for="(role, index) in roles" 
-                    :key="index"
-                  >{{ role.display_name }}</a-select-option>
-                </a-select>
-              </td>
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Can Edit:</label>
+                  <a-select 
+                    mode="multiple"
+                    v-model="field.can_edit" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="role.id" 
+                      v-for="(role, index) in roles" 
+                      :key="index"
+                    >{{ role.display_name }}</a-select-option>
+                  </a-select>
+                </td>
 
-              <td class="pr-0">
-                <b-button
-                  v-if="(index + 1) < module.module_fields.length" 
-                  @click="removeField(index)"
-                  class="icon m-0 p-0"
-                >
-                  <img src="images/icons/Field_Delete.svg" width="19"/>
-                </b-button>
+                <td class="pt-0">
+                  <b-button
+                    v-if="(index + 1) < module.module_fields.length" 
+                    @click="removeField(index)"
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                  </b-button>
 
-                <b-button 
-                  v-else 
-                  @click="addField()" 
-                  class="icon m-0 p-0"
-                >
-                  <img src="images/icons/Field_Add.svg" width="19"/>
-                </b-button>
-              </td>
-            </tr>
-          </table>
+                  <b-button 
+                    v-else 
+                    @click="addField()" 
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Add.svg" width="19"/>
+                  </b-button>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-          <b-row class="mx-0 justify-content-end">
+          <b-row class="mx-0 mt-4 justify-content-end">
             <b-button variant="default" @click="editModule()" class="my-0">Cancel</b-button>
             <b-button variant="primary" @click="editModule()" class="font-weight-bold my-0">Update</b-button>
           </b-row>

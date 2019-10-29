@@ -423,6 +423,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 ::-webkit-scrollbar {
   width: 6px;
+  height:6px;
   right: 5px;
 }
 ::-webkit-scrollbar-track {

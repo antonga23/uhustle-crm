@@ -77727,6 +77727,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -134373,7 +134385,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.4%;\n  padding-left: 1.4%;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 789px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\ninput[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
+exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\r\n  height:100vh;\r\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\r\n    padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\r\n    color: #dc3545;\r\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\r\n    margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\r\n    padding-right: 1.2%;\r\n    padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\r\n    width:-webkit-max-content;\r\n    width:-moz-max-content;\r\n    width:max-content;\n}\ntd[data-v-37c5ed24] {\r\n    vertical-align:baseline;\r\n    padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\r\n    height: 500px;\r\n    overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\r\n    color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\r\n    margin-top:1.6%;\n}\ninput[data-v-37c5ed24] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    padding: 11px 18px!important;\r\n    font-size: 12px;\r\n    color: #003449;\r\n    border-color: #ccc;\r\n    margin-bottom: 17px;\r\n    font-family: 'Rubik', sans-serif;\r\n    height:auto!important;\n}\nlabel[data-v-37c5ed24] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 10px;\r\n    color: #999999;\r\n    margin-bottom:7px;\n}\nh5[data-v-37c5ed24] {\r\n    font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\r\n    margin-top:3.7%;\r\n    margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\r\n    background: #fff;\r\n    color: #999999;    \r\n    border: none!important;\r\n    padding: 11px 14px 10px;\r\n    font-size: 10px;\r\n    text-transform:uppercase;\r\n    border-radius: 50rem!important;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\r\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\r\n    border-radius: 50rem!important;\r\n    text-transform:uppercase;\r\n    font-size: 10px;\r\n    padding: 11px 14px 10px;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\r\n    line-height: 1em;\r\n    background: transparent;\r\n    border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -263611,338 +263623,348 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "table",
-                    { staticClass: "scrollable" },
-                    _vm._l(_vm.module.module_fields, function(field, index) {
-                      return _c("tr", { key: index }, [
-                        _c(
-                          "td",
-                          { staticClass: "pl-0" },
-                          [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Field name:")
-                            ]),
-                            _vm._v(" "),
-                            _c("a-input", {
-                              directives: [
+                  _c("div", { staticClass: "scrollable" }, [
+                    _c(
+                      "table",
+                      _vm._l(_vm.module.module_fields, function(field, index) {
+                        return _c("tr", { key: index }, [
+                          _c(
+                            "td",
+                            { staticClass: "pt-0 pl-0" },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Field name:")
+                              ]),
+                              _vm._v(" "),
+                              _c("a-input", {
+                                directives: [
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: "'required'"
+                                  }
+                                ],
+                                staticClass: "w-100",
+                                attrs: {
+                                  id: "input-none",
+                                  "data-vv-name":
+                                    "Field " + (index + 1) + "'s Name"
+                                },
+                                model: {
+                                  value: field.display_name,
+                                  callback: function($$v) {
+                                    _vm.$set(field, "display_name", $$v)
+                                  },
+                                  expression: "field.display_name"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
                                 {
-                                  name: "validate",
-                                  rawName: "v-validate",
-                                  value: "required",
-                                  expression: "'required'"
-                                }
-                              ],
-                              attrs: {
-                                id: "input-none",
-                                "data-vv-name":
-                                  "Field " + (index + 1) + "'s Name"
-                              },
-                              model: {
-                                value: field.display_name,
-                                callback: function($$v) {
-                                  _vm.$set(field, "display_name", $$v)
-                                },
-                                expression: "field.display_name"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.errors.has(
-                                      "Field " + (index + 1) + "'s Name"
-                                    ),
-                                    expression:
-                                      "errors.has('Field ' + (index + 1) +'\\'s Name')"
-                                  }
-                                ],
-                                staticClass: "help-block"
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.errors.first(
-                                      "Field " + (index + 1) + "'s Name"
-                                    )
-                                  )
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "w-100",
-                                attrs: { for: "input-none" }
-                              },
-                              [_vm._v("Field type:")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a-select",
-                              {
-                                attrs: { placeholder: "Select" },
-                                model: {
-                                  value: field.type,
-                                  callback: function($$v) {
-                                    _vm.$set(field, "type", $$v)
-                                  },
-                                  expression: "field.type"
-                                }
-                              },
-                              _vm._l(_vm.types, function(type, index) {
-                                return _c(
-                                  "a-select-option",
-                                  { key: index, attrs: { value: type.value } },
-                                  [_vm._v(_vm._s(type.text))]
-                                )
-                              }),
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.errors.has(
-                                      "Field " + (index + 1) + "'s Type"
-                                    ),
-                                    expression:
-                                      "errors.has('Field ' + (index + 1) +'\\'s Type')"
-                                  }
-                                ],
-                                staticClass: "help-block"
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.errors.first(
-                                      "Field " + (index + 1) + "'s Type"
-                                    )
-                                  )
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "w-100",
-                                attrs: { for: "input-none" }
-                              },
-                              [_vm._v("Required:")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a-select",
-                              {
-                                staticClass: "w-100",
-                                attrs: { placeholder: "Select" },
-                                model: {
-                                  value: field.required,
-                                  callback: function($$v) {
-                                    _vm.$set(field, "required", $$v)
-                                  },
-                                  expression: "field.required"
-                                }
-                              },
-                              [
-                                _c(
-                                  "a-select-option",
-                                  { attrs: { value: "1" } },
-                                  [_vm._v("Yes")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a-select-option",
-                                  { attrs: { value: "0" } },
-                                  [_vm._v("No")]
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.errors.has(
-                                      "Field " + (index + 1) + "'s Type"
-                                    ),
-                                    expression:
-                                      "errors.has('Field ' + (index + 1) +'\\'s Type')"
-                                  }
-                                ],
-                                staticClass: "help-block"
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.errors.first(
-                                      "Field " + (index + 1) + "'s Type"
-                                    )
-                                  )
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Can Read:")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a-select",
-                              {
-                                staticClass: "w-100",
-                                attrs: {
-                                  mode: "multiple",
-                                  placeholder: "Select"
-                                },
-                                model: {
-                                  value: field.can_read,
-                                  callback: function($$v) {
-                                    _vm.$set(field, "can_read", $$v)
-                                  },
-                                  expression: "field.can_read"
-                                }
-                              },
-                              _vm._l(_vm.roles, function(role, index) {
-                                return _c(
-                                  "a-select-option",
-                                  { key: index, attrs: { value: role.id } },
-                                  [_vm._v(_vm._s(role.display_name))]
-                                )
-                              }),
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "w-100",
-                                attrs: { for: "input-none" }
-                              },
-                              [_vm._v("Can Edit:")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a-select",
-                              {
-                                staticClass: "w-100",
-                                attrs: {
-                                  mode: "multiple",
-                                  placeholder: "Select"
-                                },
-                                model: {
-                                  value: field.can_edit,
-                                  callback: function($$v) {
-                                    _vm.$set(field, "can_edit", $$v)
-                                  },
-                                  expression: "field.can_edit"
-                                }
-                              },
-                              _vm._l(_vm.roles, function(role, index) {
-                                return _c(
-                                  "a-select-option",
-                                  { key: index, attrs: { value: role.id } },
-                                  [_vm._v(_vm._s(role.display_name))]
-                                )
-                              }),
-                              1
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "pr-0" },
-                          [
-                            index + 1 < _vm.module.module_fields.length
-                              ? _c(
-                                  "b-button",
-                                  {
-                                    staticClass: "icon m-0 p-0",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.removeField(index)
-                                      }
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has(
+                                        "Field " + (index + 1) + "'s Name"
+                                      ),
+                                      expression:
+                                        "errors.has('Field ' + (index + 1) +'\\'s Name')"
                                     }
-                                  },
-                                  [
-                                    _c("img", {
-                                      attrs: {
-                                        src: "images/icons/Field_Delete.svg",
-                                        width: "19"
-                                      }
-                                    })
-                                  ]
-                                )
-                              : _c(
-                                  "b-button",
-                                  {
-                                    staticClass: "icon m-0 p-0",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.addField()
-                                      }
+                                  ],
+                                  staticClass: "help-block"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.errors.first(
+                                        "Field " + (index + 1) + "'s Name"
+                                      )
+                                    )
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pt-0" },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: { for: "input-none" }
+                                },
+                                [_vm._v("Field type:")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: { placeholder: "Select" },
+                                  model: {
+                                    value: field.type,
+                                    callback: function($$v) {
+                                      _vm.$set(field, "type", $$v)
+                                    },
+                                    expression: "field.type"
+                                  }
+                                },
+                                _vm._l(_vm.types, function(type, index) {
+                                  return _c(
+                                    "a-select-option",
+                                    {
+                                      key: index,
+                                      attrs: { value: type.value }
+                                    },
+                                    [_vm._v(_vm._s(type.text))]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has(
+                                        "Field " + (index + 1) + "'s Type"
+                                      ),
+                                      expression:
+                                        "errors.has('Field ' + (index + 1) +'\\'s Type')"
                                     }
+                                  ],
+                                  staticClass: "help-block"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.errors.first(
+                                        "Field " + (index + 1) + "'s Type"
+                                      )
+                                    )
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pt-0" },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: { for: "input-none" }
+                                },
+                                [_vm._v("Required:")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: { placeholder: "Select" },
+                                  model: {
+                                    value: field.required,
+                                    callback: function($$v) {
+                                      _vm.$set(field, "required", $$v)
+                                    },
+                                    expression: "field.required"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "1" } },
+                                    [_vm._v("Yes")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "0" } },
+                                    [_vm._v("No")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has(
+                                        "Field " + (index + 1) + "'s Type"
+                                      ),
+                                      expression:
+                                        "errors.has('Field ' + (index + 1) +'\\'s Type')"
+                                    }
+                                  ],
+                                  staticClass: "help-block"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.errors.first(
+                                        "Field " + (index + 1) + "'s Type"
+                                      )
+                                    )
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pt-0" },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Can Read:")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: {
+                                    mode: "multiple",
+                                    placeholder: "Select"
                                   },
-                                  [
-                                    _c("img", {
-                                      attrs: {
-                                        src: "images/icons/Field_Add.svg",
-                                        width: "19"
+                                  model: {
+                                    value: field.can_read,
+                                    callback: function($$v) {
+                                      _vm.$set(field, "can_read", $$v)
+                                    },
+                                    expression: "field.can_read"
+                                  }
+                                },
+                                _vm._l(_vm.roles, function(role, index) {
+                                  return _c(
+                                    "a-select-option",
+                                    { key: index, attrs: { value: role.id } },
+                                    [_vm._v(_vm._s(role.display_name))]
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pt-0" },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: { for: "input-none" }
+                                },
+                                [_vm._v("Can Edit:")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  staticClass: "w-100",
+                                  attrs: {
+                                    mode: "multiple",
+                                    placeholder: "Select"
+                                  },
+                                  model: {
+                                    value: field.can_edit,
+                                    callback: function($$v) {
+                                      _vm.$set(field, "can_edit", $$v)
+                                    },
+                                    expression: "field.can_edit"
+                                  }
+                                },
+                                _vm._l(_vm.roles, function(role, index) {
+                                  return _c(
+                                    "a-select-option",
+                                    { key: index, attrs: { value: role.id } },
+                                    [_vm._v(_vm._s(role.display_name))]
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "pt-0" },
+                            [
+                              index + 1 < _vm.module.module_fields.length
+                                ? _c(
+                                    "b-button",
+                                    {
+                                      staticClass: "icon m-0 p-0",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removeField(index)
+                                        }
                                       }
-                                    })
-                                  ]
-                                )
-                          ],
-                          1
-                        )
-                      ])
-                    }),
-                    0
-                  ),
+                                    },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src: "images/icons/Field_Delete.svg",
+                                          width: "19"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                : _c(
+                                    "b-button",
+                                    {
+                                      staticClass: "icon m-0 p-0",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.addField()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src: "images/icons/Field_Add.svg",
+                                          width: "19"
+                                        }
+                                      })
+                                    ]
+                                  )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "b-row",
-                    { staticClass: "mx-0 justify-content-end" },
+                    { staticClass: "mx-0 mt-4 justify-content-end" },
                     [
                       _c(
                         "b-button",
