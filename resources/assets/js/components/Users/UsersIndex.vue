@@ -3,6 +3,14 @@
         background: #B3B3B3 !important;
         border-radius: 5px !important;
     }
+    .horizontal-scroll::-webkit-scrollbar {
+        width: 5px !important;
+        height: 5px;
+    }
+
+   .grey-bg-color {
+        background-color: #EBEFF3 !important;
+    }
     
 .row{
     margin-bottom: 1%; 
@@ -22,8 +30,11 @@ li p.bottom{
     font-weight: 900;
 }
 .card{
-    border-radius: 27px;
     border: none;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
 }
 .card-body{
     text-align: center;
@@ -294,9 +305,11 @@ table.listing tr  th{
 }
 </style>
 <template>
-    <div class="plr-3">
-        <div id="top-section" class="row" style="margin-top:2%;">
-          <div class="col-lg-2" @click="getUsers()">
+
+    <div>      
+        <div class="grey-bg-color">
+        <div id="top-section" class="row plr-3" style="margin-top:2%;">
+          <div class="col" @click="getUsers()">
             <div class="card call-backs">
               <div class="card-body">
 
@@ -312,7 +325,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2" @click="getUsers(1)">
+          <div class="col" @click="getUsers(1)">
             <div class="card call-backs">
               <div class="card-body">
 
@@ -327,7 +340,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2"  @click="getUsers(2)">
+          <div class="col"  @click="getUsers(2)">
             <div class="card sales-amount">
               <div class="card-body">
 
@@ -342,7 +355,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2" @click="getUsers(3)">
+          <div class="col" @click="getUsers(3)">
             <div class="card ave-time">
               <div class="card-body">
 
@@ -357,7 +370,7 @@ table.listing tr  th{
               </div>
             </div>
           </div>
-          <div class="col-lg-2" @click="getUsers(4)">
+          <div class="col" @click="getUsers(4)">
             <div class="card con-ratio">
               <div class="card-body">
 
@@ -373,9 +386,11 @@ table.listing tr  th{
             </div>
           </div>
         </div>
+    </div>
+    <div class="plr-3">
         <hr style="margin-bottom: 2%;">
         <div v-if="!add_user">
-            <div class="row stats scroll-hidden horizontal-scroll">
+            <div class="row stats pt-0 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
                     <datatable v-if="!show_page_loader" id="datatable" :rows="users.all_users" :columns="columns" :role="current_user.role_id" :users="users"  title=""></datatable>
@@ -440,6 +455,7 @@ table.listing tr  th{
                     </div>
                 </div>
             </a-card>
+        </div>
         </div>
     </div>
 </template>

@@ -726,6 +726,14 @@ table tr td {
 
 }
 
+  @media screen and (max-width: 1500px) {
+        table tr td {
+            font-size: 12px !important;
+            padding: 5px 0px 5px 0px !important;
+        }
+  }
+
+
 table tr td a i {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.54);
@@ -810,8 +818,8 @@ table td:last-child {
     background-image: none !important;
 }
 
-table th:first-child,
+/* table th:first-child,
 table td:first-child {
     padding-left: 25px;
-}
+} */
 </style>
