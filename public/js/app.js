@@ -69108,6 +69108,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -70805,19 +70806,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuse.js */ "./node_modules/fuse.js/src/fuse.js");
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuse_js__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -133903,7 +133891,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 3%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n\n/* Media Queries */\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 20px;\n}\n}\n@media screen and (max-width: 1500px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n.card-text-small[data-v-507c5f96] {\n        font-size: 12px;\n}\n.card[data-v-507c5f96] {\n       min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n        width: 12px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n        top: -10px;\n}\n}\n\n\n", ""]);
+exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 20px 3%;\n}\n.row[data-v-507c5f96] {\n    margin-bottom: 3%;\n}\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 200px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n    color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n}\np.card-text[data-v-507c5f96] {\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n    font-family: 'Montserrat bold', sans-serif;\n    letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n.show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 36px;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n\n/* Media Queries */\n@media screen and (min-width: 1353px) and (max-width:1543px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 20px;\n}\n}\n@media screen and (max-width: 1500px) {\n.card .card-text[data-v-507c5f96] {\n        font-size: 16px;\n}\n.card-text-small[data-v-507c5f96] {\n        font-size: 12px;\n}\n.card[data-v-507c5f96] {\n       min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n        width: 12px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n        top: -10px;\n        right: -10px;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -133960,7 +133948,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-ccb78764]::-webkit-scrollbar-thumb {\r\n        background: #B3B3B3 !important;\r\n        border-radius: 5px !important;\n}\n.no-box-shadow[data-v-ccb78764] {\r\n      box-shadow: none !important;\n}\nthead th[data-v-ccb78764] {\r\n    position: sticky;\r\n    position: -webkit-sticky;\r\n    top: 0;\r\n    background: white;\r\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\r\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\r\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\r\n  width: 25%;\r\n  padding: 0;\r\n  margin: 0;\r\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\r\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Talking.svg');\r\n    background-size: 75%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\r\n    background-image: url('/images/icons/No Talking.svg');\r\n    background-size: 90%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\r\ntable tr td a.View[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\r\ntable tr td a.Delete[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\r\ntable tr td a.Edit[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\r\ntable tr td a.Whisper[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\r\ntable tr td a.Barge[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\r\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\r\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\r\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\r\n    /* table-layout: fixed; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\r\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\r\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\r\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\r\n    height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\ntable tr td a i[data-v-ccb78764] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\r\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\r\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\r\ntable th.sorting-asc[data-v-ccb78764]:after,\r\ntable th.sorting-desc[data-v-ccb78764]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\r\ntable td[data-v-ccb78764]:last-child {\r\n    padding-right: 14px;\r\n    padding-left: 11px;\r\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\r\ntable td[data-v-ccb78764]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] {\r\n    position: sticky;\r\n    position: -webkit-sticky;\r\n    top: 0;\r\n    background: white;\r\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\r\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\r\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\r\n  width: 25%;\r\n  padding: 0;\r\n  margin: 0;\r\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\r\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\r\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\r\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\r\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Talking.svg');\r\n    background-size: 75%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\r\n    background-image: url('/images/icons/No Talking.svg');\r\n    background-size: 90%;\r\n    background-repeat: no-repeat;\r\n    display: block;\r\n    width: 100%;\r\n    height: 38px;\r\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\r\ntable tr td a.View[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\r\ntable tr td a.Delete[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\r\ntable tr td a.Edit[data-v-ccb78764]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\r\ntable tr td a.Whisper[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Whisper.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 30px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\r\ntable tr td a.Barge[data-v-ccb78764]:active{\r\n    background-image: url('/images/icons/Barge.svg');\r\n    background-size: 31px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\r\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\r\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\r\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\r\n    /* table-layout: fixed; */\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\r\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\r\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\r\n.table-footer .datatable-length[data-v-ccb78764] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\r\n    height: 35px;\r\n    font-size: 14px;\r\n    color: #003449;\r\n    display: table-cell;\r\n    font-family: 'Rubik', sans-serif !important;\r\n    padding: 25px 0px 25px 0px;\r\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] {\r\n        font-size: 12px;\r\n        padding: 5px 0px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    border-bottom: 1px solid #B3B3B3;\r\n    padding-left: 0;\r\n    width: auto;\r\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\r\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\r\n    font-size: 12px;\r\n    font-weight: 600;\r\n    color: #A6A6A6;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    /* height: 56px; */\r\n    /* padding-left: 14px; */\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: left center;\r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\r\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\r\ntable th.sorting-asc[data-v-ccb78764]:after,\r\ntable th.sorting-desc[data-v-ccb78764]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\r\ntable td[data-v-ccb78764]:last-child {\r\n    padding-right: 14px;\r\n    padding-left: 11px;\r\n    background-image: none !important;\n}\ntable th[data-v-ccb78764]:first-child,\r\ntable td[data-v-ccb78764]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -251601,248 +251589,242 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "horizontal-scroll no-box-shadow material-table" },
-    [
-      _c("table", { ref: "table" }, [
-        _c("thead", [
-          _c(
-            "tr",
-            _vm._l(_vm.columns, function(column, index) {
-              return _c(
-                "th",
-                {
-                  key: index,
-                  class:
-                    (column.sortable ? "sorting " : "") +
-                    (_vm.sortColumn === index
-                      ? _vm.sortType === "desc"
-                        ? "sorting-desc"
-                        : "sorting-asc"
-                      : "") +
-                    (column.numeric ? " numeric" : ""),
-                  style: { width: column.width ? column.width : "auto" },
-                  on: {
-                    click: function($event) {
-                      return _vm.sort(index)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "span",
-                    { staticStyle: { float: "left", "padding-top": "2px" } },
-                    [
-                      _vm._v(
-                        "\n                      " +
-                          _vm._s(column.label) +
-                          "\n                    "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  index == _vm.columns.length - 1
-                    ? _c(
-                        "div",
-                        { staticClass: "col pl-0 dropdown" },
-                        [
-                          _c(
-                            "b-button",
-                            {
-                              staticClass: "rounded-circle m-0",
-                              attrs: {
-                                "data-toggle": "dropdown",
-                                "aria-haspopup": "true",
-                                "aria-expanded": "false"
-                              }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "icon",
-                                staticStyle: { width: "10px" },
-                                attrs: {
-                                  src: "/images/workstation/Asset 28@4x.png",
-                                  alt: "Icon"
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(0, true)
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ]
-              )
-            }),
-            0
-          )
-        ]),
-        _vm._v(" "),
+  return _c("div", { staticClass: "no-box-shadow material-table" }, [
+    _c("table", { ref: "table" }, [
+      _c("thead", [
         _c(
-          "tbody",
-          _vm._l(_vm.paginated, function(row, index) {
+          "tr",
+          _vm._l(_vm.columns, function(column, index) {
             return _c(
-              "tr",
+              "th",
               {
                 key: index,
-                class: _vm.onClick ? "clickable" : "",
+                class:
+                  (column.sortable ? "sorting " : "") +
+                  (_vm.sortColumn === index
+                    ? _vm.sortType === "desc"
+                      ? "sorting-desc"
+                      : "sorting-asc"
+                    : "") +
+                  (column.numeric ? " numeric" : ""),
+                style: { width: column.width ? column.width : "auto" },
                 on: {
                   click: function($event) {
-                    return _vm.click(row, index)
+                    return _vm.sort(index)
                   }
                 }
               },
-              _vm._l(_vm.columns, function(column, i) {
-                return _c(
-                  "td",
-                  { key: i, class: column.numeric ? "numeric" : "" },
+              [
+                _c(
+                  "span",
+                  { staticStyle: { float: "left", "padding-top": "2px" } },
                   [
-                    column.field == "full_name"
-                      ? _c("span", [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.collect(row, column.field)) +
-                              "\n                    "
-                          )
-                        ])
-                      : column.field == "status"
-                      ? _c("span", { class: _vm.collect(row, column.field) })
-                      : column.field == "actions" &&
-                        (_vm.role == 1 || _vm.role == 2)
-                      ? _c("span", { staticClass: "actions" }, [
-                          _vm._v(
-                            "\n                         \n                    "
-                          )
-                        ])
-                      : _c("span", [
-                          _vm._v(_vm._s(_vm.collect(row, column.field)))
-                        ])
+                    _vm._v(
+                      "\n                      " +
+                        _vm._s(column.label) +
+                        "\n                    "
+                    )
                   ]
-                )
-              }),
-              0
+                ),
+                _vm._v(" "),
+                index == _vm.columns.length - 1
+                  ? _c(
+                      "div",
+                      { staticClass: "col pl-0 dropdown" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            staticClass: "rounded-circle m-0",
+                            attrs: {
+                              "data-toggle": "dropdown",
+                              "aria-haspopup": "true",
+                              "aria-expanded": "false"
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              staticStyle: { width: "10px" },
+                              attrs: {
+                                src: "/images/workstation/Asset 28@4x.png",
+                                alt: "Icon"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0, true)
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]
             )
           }),
           0
         )
       ]),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm.paginate
-        ? _c("div", { staticClass: "table-footer" }, [
-            _c("div", { staticClass: "datatable-length" }, [
-              _c("label", [
-                _c("span", [_vm._v("Rows per page:")]),
-                _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.paginated, function(row, index) {
+          return _c(
+            "tr",
+            {
+              key: index,
+              class: _vm.onClick ? "clickable" : "",
+              on: {
+                click: function($event) {
+                  return _vm.click(row, index)
+                }
+              }
+            },
+            _vm._l(_vm.columns, function(column, i) {
+              return _c(
+                "td",
+                { key: i, class: column.numeric ? "numeric" : "" },
+                [
+                  column.field == "full_name"
+                    ? _c("span", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.collect(row, column.field)) +
+                            "\n                    "
+                        )
+                      ])
+                    : column.field == "status"
+                    ? _c("span", { class: _vm.collect(row, column.field) })
+                    : column.field == "actions" &&
+                      (_vm.role == 1 || _vm.role == 2)
+                    ? _c("span", { staticClass: "actions" }, [
+                        _vm._v(
+                          "\n                         \n                    "
+                        )
+                      ])
+                    : _c("span", [
+                        _vm._v(_vm._s(_vm.collect(row, column.field)))
+                      ])
+                ]
+              )
+            }),
+            0
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _vm.paginate
+      ? _c("div", { staticClass: "table-footer" }, [
+          _c("div", { staticClass: "datatable-length" }, [
+            _c("label", [
+              _c("span", [_vm._v("Rows per page:")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "browser-default",
+                  on: { change: _vm.onTableLength }
+                },
+                [
+                  _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "40" } }, [_vm._v("40")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "-1" } }, [_vm._v("All")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "datatable-info" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(
+                  (_vm.currentPage - 1) * _vm.currentPerPage
+                    ? (_vm.currentPage - 1) * _vm.currentPerPage
+                    : 1
+                ) +
+                " -" +
+                _vm._s(
+                  Math.min(
+                    _vm.processedRows.length,
+                    _vm.currentPerPage * _vm.currentPage
+                  )
+                ) +
+                " of " +
+                _vm._s(_vm.processedRows.length) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("ul", { staticClass: "material-pagination" }, [
+              _c("li", [
                 _c(
-                  "select",
+                  "a",
                   {
-                    staticClass: "browser-default",
-                    on: { change: _vm.onTableLength }
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.previousPage($event)
+                      }
+                    }
                   },
                   [
-                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "40" } }, [_vm._v("40")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "-1" } }, [_vm._v("All")])
+                    _c("img", {
+                      staticClass: "chevron",
+                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.nextPage($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "chevron",
+                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                    })
                   ]
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "datatable-info" }, [
-              _vm._v(
-                "\n            " +
-                  _vm._s(
-                    (_vm.currentPage - 1) * _vm.currentPerPage
-                      ? (_vm.currentPage - 1) * _vm.currentPerPage
-                      : 1
-                  ) +
-                  " -" +
-                  _vm._s(
-                    Math.min(
-                      _vm.processedRows.length,
-                      _vm.currentPerPage * _vm.currentPage
-                    )
-                  ) +
-                  " of " +
-                  _vm._s(_vm.processedRows.length) +
-                  "\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("ul", { staticClass: "material-pagination" }, [
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "waves-effect btn-flat",
-                      attrs: { href: "javascript:undefined", tabindex: "0" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.previousPage($event)
-                        }
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/left arrow.svg" }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "waves-effect btn-flat",
-                      attrs: { href: "javascript:undefined", tabindex: "0" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.nextPage($event)
-                        }
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/right arrow.svg" }
-                      })
-                    ]
-                  )
-                ])
-              ])
             ])
           ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", [
-        _c("input", {
-          ref: "callJoinBtn",
-          attrs: { type: "hidden" },
-          on: {
-            click: function($event) {
-              return _vm.startCall()
-            }
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", [
+      _c("input", {
+        ref: "callJoinBtn",
+        attrs: { type: "hidden" },
+        on: {
+          click: function($event) {
+            return _vm.startCall()
           }
-        })
-      ])
-    ]
-  )
+        }
+      })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -251864,51 +251846,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
         _vm._v("Sales")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "padding-bottom-18" }, [
-      _c("div", { staticClass: "col pl-0 dropdown" }, [
-        _c(
-          "a",
-          {
-            staticClass: "m-0",
-            attrs: {
-              "data-toggle": "dropdown",
-              "aria-haspopup": "true",
-              "aria-expanded": "false"
-            }
-          },
-          [
-            _c("img", {
-              staticClass: "icon",
-              staticStyle: { width: "15px" },
-              attrs: { src: "/images/icons/add_Button.svg", alt: "Icon" }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown-menu" }, [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Calls")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Sales")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Calls")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Sales")
-          ])
-        ])
       ])
     ])
   }

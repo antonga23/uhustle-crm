@@ -384,6 +384,7 @@
 
         .add-new-top-section .dropdown {
             top: -10px;
+            right: -10px;
         }
     }
 

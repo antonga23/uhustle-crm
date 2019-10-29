@@ -1,5 +1,5 @@
 <template>
-    <div class="horizontal-scroll no-box-shadow material-table">
+    <div class="no-box-shadow material-table">
         <table ref="table">
             <thead>
                 <tr>
@@ -43,19 +43,6 @@
                 </tr>
             </tbody>
         </table>
-        <div class="padding-bottom-18">
-                   <div class="col pl-0 dropdown">
-                        <a class="m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="/images/icons/add_Button.svg" alt="Icon" class="icon" style="width: 15px;" />
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Calls</a>
-                            <a class="dropdown-item" href="#">Sales</a>
-                            <a class="dropdown-item" href="#">Calls</a>
-                            <a class="dropdown-item" href="#">Sales</a>
-                        </div>
-                    </div>
-                </div>
         <div class="table-footer" v-if="paginate">
             <div class="datatable-length">
                 <label>
@@ -508,14 +495,6 @@ export default {
 }
 </script>
 <style scoped>
-.horizontal-scroll::-webkit-scrollbar-thumb {
-        background: #B3B3B3 !important;
-        border-radius: 5px !important;
-} 
-
-.no-box-shadow {
-      box-shadow: none !important;
-}
 
 thead th {
     position: sticky;
@@ -809,6 +788,12 @@ table tr td {
     min-width: 150px;
 
 }
+ @media screen and (max-width: 1500px) {
+     table tr td {
+        font-size: 12px;
+        padding: 5px 0px 5px 0px;
+     }
+ }
 
 table tr td a i {
     font-size: 18px;
