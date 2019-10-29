@@ -208,17 +208,17 @@ class UserController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
-		$id = $request_user['user_id'];
+        $id = $request_user['user_id'];
         $name = $data['name'];
-		$lastname = $data['lastname'];
-		$nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
-		$email = $data['email'];
-		$work_number = $data['work_number'];
-		$personal_number = $data['personal_number'];
-		$address = $data['address'];
-		$role_id = $data['role_id'];
-		$notifications = 1;
-		$password_confirmation = $data['password_confirmation'];
+        $lastname = $data['lastname'];
+        $nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
+        $email = $data['email'];
+        $work_number = $data['work_number'];
+        $personal_number = $data['personal_number'];
+        $address = $data['address'];
+        $role_id = $data['role_id'];
+        $notifications = 1;
+        $password_confirmation = $data['password_confirmation'];
 
         $validator = \Validator::make($request->all(), [
             'email' => 'required|email|max:255|unique:users,email',
@@ -260,17 +260,18 @@ class UserController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
-		$id = $data['id'];
+        $id = $data['id'];
         $name = $data['name'];
-		$role_id = $data['role_id'];
-		$lastname = $data['lastname'];
-		$nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
-		$email = $data['email'];
-		$work_number = $data['work_number'];
-		$personal_number = $data['personal_number'];
-		$address = $data['address'];
-		$notifications = (isset($data['notifications'])) ? $data['notifications'] : 1;
-		$activated = $data['activated'];
+        $role_id = $data['role_id'];
+        $lastname = $data['lastname'];
+        $nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
+        $email = $data['email'];
+        $work_number = $data['work_number'];
+        $personal_number = $data['personal_number'];
+        $address = $data['address'];
+        $notifications = (isset($data['notifications'])) ? $data['notifications'] : 1;
+        $activated = $data['activated'];
+        $password_confirmation = $data['password_confirmation'];
 
         $validator = \Validator::make($request->all(), [
             'email' => 'required|email|max:255|unique:users,email,'. $id,
@@ -294,6 +295,7 @@ class UserController extends Controller
                     'address' => $address,
                     'notifications' => $notifications,
                     'activated' => $activated,
+                    'password' => bcrypt($password_confirmation),
                 ]);
 
                 $user = User::with('role')->find($id);
@@ -312,11 +314,11 @@ class UserController extends Controller
         $request_user = ['user_id' => Auth::user()->id, 'name' => Auth::user()->name . ' ' . Auth::user()->lastname];
 
         $data = $request->all();
-		$id = $request_user['user_id'];
+        $id = $request_user['user_id'];
         $old_password = $data['old_password'];
-		$password = $data['password'];
-		$password_confirmation = $data['password_confirmation'];
-		$notifications = $data['notifications'];
+        $password = $data['password'];
+        $password_confirmation = $data['password_confirmation'];
+        $notifications = $data['notifications'];
 
         $validator = \Validator::make($data, [
             'old_password' => 'current_password',

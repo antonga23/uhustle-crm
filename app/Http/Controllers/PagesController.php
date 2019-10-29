@@ -9,8 +9,13 @@ use App\SystemSettings;
 use App\DialerPermissions;
 use App\Comment;
 use App\Module;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
 use App\User;
 use App\Role;
+use App\Product;
+use App\LeadSource;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,19 +38,27 @@ class PagesController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-   public function index($lead_id = null)
+   public function index($item_id = null)
    {
       $auto_dialer_settings = DialerPermissions::where(['role_id' => Auth::user()->role_id])->first();
 
-      if(is_null($lead_id)){
+      if(is_null($item_id)){
+
          return view('pages.workstation')
             ->with(['active'=> 'workstation'])
             ->with(['lead_id'=> ''])
             ->with(['auto_dialer_settings' => $auto_dialer_settings]);
+
       }else{
+
+        $module_item = ModuleItem::find($item_id);
+        
+        $custom_fields = ModuleCustomFields::where(['module_id' => $module_item['module_id']])->get();
+        
          return view('pages.workstation')
             ->with(['active'=> 'workstation'])
-            ->with(['lead_id'=> $lead_id])
+            ->with(['item_id'=> $item_id])
+            ->with(['custom_fields'=> $custom_fields])
             ->with(['auto_dialer_settings' => $auto_dialer_settings]);
       }
    }
@@ -87,6 +100,12 @@ class PagesController extends Controller
       $active_users = User::where(['activated' => 1])->get();
 
       $active_roles = Role::where(['status' => 1])->get();
+      
+      $sources = LeadSource::get();
+
+      $packages = Product::get();
+
+      $custom_fields = ModuleCustomFields::where(['module_id' => $module->id])->get();
 
       $custom_filters = StoredFilter::with('attributes')->where(['user_id' => Auth::user()->id])->where(['type' => 'leads'])->get();
       
@@ -130,12 +149,16 @@ class PagesController extends Controller
       return view('pages.modules')->with([
          'active'=> $type,
          'module' => $module,
+         'sources' => json_encode($sources),
+         'packages' => json_encode($packages),
          'active_users' => json_encode($active_users),
          'active_roles' => json_encode($active_roles),
+         'custom_fields' => json_encode($custom_fields),
          'custom_filters' => json_encode($data),
          'has_interaction' => session('CommentExist')
       ]);
    }
+
 
    public function contacts()
    {

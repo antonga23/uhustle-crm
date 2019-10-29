@@ -1,4 +1,12 @@
 <style scoped>
+
+    .scroll-hidden{
+        overflow-y: scroll;
+        height: 70vh;
+        /* padding-top: 6px; */
+        padding-right: 6px;
+        width: 100%;
+    }
     .horizontal-scroll::-webkit-scrollbar {
         width: 5px !important;
         height: 3px;
@@ -32,10 +40,6 @@
     
     #top-section {
         padding: 20px 3%;
-    }
-    
-    .row.stats {
-        padding: 0 3%
     }
     
     .row {
@@ -304,9 +308,9 @@
     .scroll-hidden {
         overflow-y: scroll;
         height: 70vh;
-        padding-top: 6px;
+        /* padding-top: 6px; */
         padding-right: 6px;
-        width: 104%;
+        width: 100%;
     }
     
     table.listing {
@@ -487,7 +491,7 @@
                 </div>
             </div>
         </div>
-        <div class="row stats mt-4 mx-0" v-if="conferences.length > 0">
+        <div class="row stats mt-4 mx-0 scroll-hidden horizontal-scroll" v-if="conferences.length > 0">
             <div class="col-lg-12 px-0">
                 <div class="card-body padding-bottom-18">
                     <data-table  id="datatable" :rows="conferences" :columns="columns"></data-table>
@@ -644,7 +648,7 @@
                         field: 'actions',  // Field name from row
                         numeric: false, // Affects sorting
                         html: false,    // Escapes output if false.
-                        sortable:false
+                        sortable:false,
                     },
                 ],
                 Toast: null

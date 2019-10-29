@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Role;
+use App\Product;
+use App\User;
+use App\LeadSource;
 use App\Module;
 use App\ModuleCustomFields;
 use App\ModuleItem;
@@ -219,6 +222,181 @@ class ModuleController extends Controller
         }
     }
 
+    public function getItem($item_id = null){
+
+      $module_item = ModuleItem::with('item_meta')->where(['id' => $item_id])->get();
+
+      $compact_item = $this->compactModuleItems($module_item);
+
+      $item = $compact_item['items'][0];
+
+      return ['success' => true, 'item' => $item];
+    }
+
+    public function getItems($module = null){
+      $module = Module::with('module_fields')->where(['tag' => $module])->first();
+
+      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take(50);
+
+      $items = $this->compactModuleItems($module_items);
+
+      return $items;
+    }
+
+   public function compactModuleItems($module_items = null){
+      
+      $data = [];
+
+      $display_data = [];
+
+      $count_assigned = 0;
+
+      $count_unassigned = 0;
+
+      foreach ($module_items as $key => $item) {
+
+         $item_temp = new \StdClass();
+
+         $display_item_temp = new \StdClass();
+
+         $fields_array = [];
+
+         $display_array = [];
+
+         foreach ($item->item_meta as $k => $meta) {
+
+           $meta_name = ModuleCustomFields::where(['id' => $meta->custom_field_id])
+                                            ->select('id','name','display_name', 'can_edit', 'can_read')
+                                            ->first();
+
+            if($meta_name->id == $meta->custom_field_id){
+
+
+              $fields_array['id'] = $item->id;
+
+              $display_array['id'] = $item->id;
+
+              if($meta_name->name == 'assignee'){ 
+                
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+                
+                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+                $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
+                    'meta_id' => $meta->id,
+                    'meta_value' => $user
+                  ];
+
+              }else if ($meta_name->name == 'owner'){
+
+                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+
+                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+                $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
+                    'meta_id' => $meta->id,
+                    'meta_value' =>  $user
+                  ];
+              }else if ($meta_name->name == 'product'){
+
+                $product = Product::where(['id' => $meta->custom_field_value])->first();
+
+                $display_array[$meta_name->name] = $product['name'];
+
+                $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
+                    'meta_id' => $meta->id,
+                    'meta_value' => $product
+                  ];
+
+              }else if ($meta_name->name == 'source'){
+
+                $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->select('id','name')->first();
+
+                $display_array[$meta_name->name] = $lead_source['name'];
+
+                $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
+                    'meta_id' => $meta->id,
+                    'meta_value' => $lead_source
+                  ];
+
+              }else if ($meta_name->name == 'status'){
+                
+                switch ($meta->custom_field_value) {
+                  case 0:
+                     $status = 'Canceled';
+                    break;
+                  case 1:
+                      $status = 'Active';
+                    break;
+                  case 2:
+                      $status = 'Inactive';
+                    break;
+                  case 3:
+                      $status = 'Disabled';
+                    break;
+                  
+                  default:
+                      $status = 'Active';
+                    break;
+                }
+
+                $display_array[$meta_name->name] = $status;
+
+                $fields_array[$meta_name->name] =  [
+                  'custom_field_id' => $meta->custom_field_id,
+                  'meta_id' => $meta->id,
+                  'meta_value' => $meta->custom_field_value
+                ];
+                
+              }else{
+
+                $display_array[$meta_name->name] = $meta->custom_field_value;
+
+                $fields_array[$meta_name->name] = [
+                  'custom_field_id' => $meta->custom_field_id,
+                  'meta_id' => $meta->id,
+                  'meta_value' =>$meta->custom_field_value
+                ];
+              }
+
+              if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
+                $fields_array['assigned'] = true;
+                $display_array['assigned'] = true;
+                $count_assigned++;
+              }else if($meta_name->name == 'assignee' && $meta->custom_field_value == '0' && $item->id == $meta->item_id){
+                $fields_array['assigned'] = false;
+                $count_unassigned++;
+              }else if($meta_name->name == 'assignee' && is_null($meta->custom_field_value) && $item->id == $meta->item_id){
+                $fields_array['assigned'] = false;
+                $display_array['assigned'] = false;
+                $count_unassigned++;
+              }
+              
+            }
+         }
+
+         $item_temp->item = $fields_array;
+
+        //  $display_item_temp->item = $display_array;
+
+         array_push($data, $item_temp);
+
+         array_push($display_data, $display_array);
+      }
+      
+      return [ 
+              'success' => true,
+              'items' => $data, 
+              'display_items' => $display_data,  
+              'count_assigned' => $count_assigned, 
+              'count_unassigned' => $count_unassigned, 
+          ];
+   }
+
     public function addItem(Request $request){
 
       $item = $request->item;
@@ -245,5 +423,59 @@ class ModuleController extends Controller
           DB::rollback();
           return array('success' =>false, 'message' => $e->getMessage());
       }
+    }
+
+    public function deleteItem($id = null){
+
+      try{
+        DB::beginTransaction();
+
+        ModuleItem::find($id)->delete();;
+
+        ModuleItemMeta::where(['item_id' => $id])->delete();
+
+        DB::commit();
+        return array('success' => true, 'message' => 'Item successfully deleted.' );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+    }
+
+    public function updateItem(Request $request){
+
+      $item_data = $request->all();
+
+      try{
+        DB::beginTransaction();
+
+        foreach($item_data as $key => $item){
+          switch ($key) {
+            case 'source':
+            case 'product':
+            case 'assignee':
+            case 'owner':
+                ModuleItemMeta::where(['id' => $item['meta_id']])->update([
+                  'custom_field_value' => $item['meta_value']['id']
+                ]);
+              break;
+            
+            default:
+                ModuleItemMeta::where(['id' => $item['meta_id']])->update([
+                  'custom_field_value' => $item['meta_value']
+                ]);
+              break;
+          }
+        }
+
+        DB::commit();
+        return array('success' => true, 'message' => 'Item successfully update.' );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+
     }
 }

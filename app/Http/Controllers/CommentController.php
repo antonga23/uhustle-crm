@@ -8,6 +8,11 @@ use Session;
 use App\Task;
 use App\Lead;
 use App\Comment;
+use App\Twillio;
+use App\Module;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -38,26 +43,16 @@ class CommentController extends Controller
             'type' => 'required'
         ]);
 
-        $source = $request->type == "task" ? Task::find($request->id) : Lead::find($request->id);
+        $source = ModuleItem::find($request->id);
 
-        $source_type = $request->type == "task" ? 'App\Task' : 'App\Lead'; 
-
-        // $exists = Comment::where([
-        //     'source_type' => 'App\Lead' , 
-        //     'source_id' => $request->id , 
-        //     'user_id' => $request_user['user_id'],
-        // ])->whereDate('created_at', Carbon::today())->count();
-
-        // if($exists > 0){
-        //     return array('success' =>false, 'message' => 'Please edit existing comment.');
-        // }
+        $source_type = $request->type; 
 
         try{
             DB::beginTransaction();
             $comment = Comment::create([
                 'description' => $request->description,
-                'comment_type' => $request->comment_type,
-                'source_type' => $source_type , 
+                'comment_type' => $request->comment_type['short'],
+                'source_type' => $request->type , 
                 'source_id' => $request->id , 
                 'user_id' => $request_user['user_id'],
                 'user_name' => $request_user['name'] 
@@ -93,9 +88,9 @@ class CommentController extends Controller
 
     }
 
-    public function getStatsTypeById($type = 'lead', $id = null){
+    public function getStatsTypeById($type = 'customer', $id = null){
 
-        $source_type = ( $type == "task" ) ? 'App\Task' : 'App\Lead'; 
+        $source_type = $type; 
 
         $total_comments = Comment::where(['source_type' => $source_type])->where(['source_id' => $id])->count();
 
@@ -126,9 +121,15 @@ class CommentController extends Controller
             array_push($comments_graph, $data);
         }
 
+        $total_calls = Twillio::where(['lead_id' => $id])->count();
+
+        $total_answered_calls = Twillio::where(['lead_id' => $id])->where(['answered' => 1])->count();
+        
         return array(
             'success' => true, 
-            'total_comments' => $total_comments, 
+            'total_calls' => ( $total_calls > 0 )? $total_calls : 0 , 
+            'total_answered_calls' => ( $total_answered_calls > 0 )? $total_answered_calls : 0 , 
+            'total_comments' => ( $total_comments > 0 )? $total_comments : 0 , 
             'comments' => $comments, 
             'comments_graph' => $comments_graph
         );

@@ -19,8 +19,12 @@
       active="{{ $active }}" 
 			module="{{ $module }}"
 			user_id="{{ Auth::user()->id }}"
+			role_id="{{ Auth::user()->role_id }}"
+			sources="{{ $sources }}"
+			packages="{{ $packages }}"
 			active_users="{{ $active_users }}"
 			active_roles="{{ $active_roles }}"
+			custom_fields="{{ $custom_fields }}"
 			custom_filters="{{ $custom_filters }}" >
 	</modules>
 @endsection

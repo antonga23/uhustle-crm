@@ -12,6 +12,10 @@
 */
 
 use App\Lead;
+use App\ModuleItem;
+use App\ModuleItemMeta;
+use App\ModuleCustomFields;
+use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
     return redirect('/login');;
@@ -21,17 +25,104 @@ Route::get('/home', function () {
     return redirect('/dashaboard');
 });
 
-Route::get('/update-leads',  function(){
-	$leads = Lead::whereIn('user_assigned', [25, 23, 16])->orWhereIn('user_created_id', [25, 23, 16])->get();
-	$user = User::whereIn()->get();
+Route::get('/move-leads',  function(){
+	$leads = Lead::get();
+	
 	try{
-		DB::beginTransaction();
-		foreach ($leads as $key => $value) {
-			Lead::find($value->id)->update([
-				'user_assigned' => 53,
-				'user_created_id' => 53,
-			]);
-		}
+
+    DB::beginTransaction();
+    
+		foreach ($leads as $key => $lead) {
+      Log::info($lead->id);
+			if($lead->is_client == 1){
+        $module_id = 2;
+      } else {
+        $module_id = 1;
+      }
+
+      $module_item = ModuleItem::create([
+        'module_id' => $module_id
+      ]);
+
+      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+
+      foreach($module_fields as $key => $value){
+        
+        switch ($value->name) {
+          case 'source':
+              $insert = $lead->source;
+            break;
+          case 'title':
+              $insert = $lead->title;
+            break;
+          case 'name':
+              $insert = $lead->name;
+            break;
+          case 'surname':
+              $insert = $lead->surname;
+            break; 
+          case 'gender':
+              $insert = $lead->gender;
+            break;
+          case 'age':
+              $insert = $lead->age;
+            break;
+          case 'phone_number':
+              $insert = $lead->phone_number;
+            break;
+          case 'email':
+              $insert = $lead->email;
+            break;
+          case 'city':
+              $insert = $lead->city;
+            break;
+          case 'country':
+              $insert = $lead->country;
+            break;
+          case 'instagram_account':
+              $insert = $lead->account;
+            break;
+          case 'rating':
+              $insert = $lead->rating;
+            break; 
+          case 'product':
+              $insert = $lead->product_id;
+            break;
+          case 'start_at':
+              $insert = $lead->start_date;
+            break;
+          case 'expires_at':
+              $insert = $lead->expires_at;
+            break;
+          case 'total':
+              $insert = $lead->total;
+            break;
+          case 'transaction_number':
+              $insert = $lead->trans_num;
+            break; 
+          case 'assignee':
+              $insert = $lead->user_assigned;
+            break;
+          case 'owner':
+              $insert = $lead->user_created_id;
+            break;
+          case 'status':
+              $insert = $lead->user_created_id;
+            break;             
+
+          default:
+            # code...
+            break;
+        }
+
+        ModuleItemMeta::create([
+          'item_id' => $module_item->id,
+          'custom_field_id' => $value->id,
+          'custom_field_value' => $insert,
+        ]);
+      }
+    }
+    
 		DB::commit();
 
 		echo 'Done';
@@ -167,6 +258,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-permissions', 'RoleController@getPermissions');
 	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
+	Route::get('/get-dialer-permissions/{role_id}', 'RoleController@getDialerPermissions');
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
@@ -190,6 +282,7 @@ Route::group(['prefix' => 'comments'], function () {
 // Modules Routes
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
+  Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');
   Route::get('/destroy/{id}', 'ModuleController@destroy');
@@ -197,10 +290,14 @@ Route::group(['prefix' => 'modules'], function () {
   Route::post('/check-exist', 'ModuleController@checkExist');
 
   // Items
+  Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
+  Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
+  Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');
+  Route::get('/test', 'PagesController@compactModuleItems');
 });
 
 // API Integration Routes

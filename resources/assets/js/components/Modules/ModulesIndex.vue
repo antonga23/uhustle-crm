@@ -222,7 +222,7 @@ ul.items li a:hover{
 .scroll-hidden{
     overflow-y: scroll;
     height: 70vh;
-    padding-top: 6px;
+    /* padding-top: 6px; */
     padding-right: 6px;
     width: 100%;
 }
@@ -263,26 +263,26 @@ table.listing tr  th{
     <div class="plr-3">
         <div id="top-section" class="row" style="margin-top:2%;">
 
-          <div class="filter-card"  @click="getUsers(-1)">
+          <div class="filter-card"  @click="filterItems(-1)">
             <div class="card sales-amount">
               <div class="card-body">
-                <p class="card-text-small">All  <strong> {{ users.count_leads }} </strong> </p>
+                <p class="card-text-small">All  <strong> {{ items.length }} </strong> </p>
               </div>
             </div>
           </div>
 
-          <div class="filter-card" @click="getUsers(1)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="filterItems(1)" v-if="role_id == 1 || role_id == 2">
             <div class="card ave-time">
               <div class="card-body">
-                <p class="card-text-small">Assigned <strong> {{ users.count_assigned }}</strong></p>               
+                <p class="card-text-small">Assigned <strong> {{ count_assigned }}</strong></p>               
               </div>
             </div>
           </div>
 
-          <div class="filter-card" @click="getUsers(0)" v-if="current_user.role_id == 1">
+          <div class="filter-card" @click="filterItems(0)" v-if="role_id == 1 || role_id == 1">
             <div class="card con-ratio">
               <div class="card-body">
-                <p class="card-text-small">Unassigned<strong>{{ users.count_unassigned }}</strong></p>
+                <p class="card-text-small">Unassigned<strong>{{ count_unassigned }}</strong></p>
               </div>
             </div>
           </div>
@@ -301,12 +301,33 @@ table.listing tr  th{
             <div class="row stats ml-1 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12 pl-0">
                     <vcl-table v-if="show_page_loader" ></vcl-table>
-                    <datatable v-if="!show_page_loader" id="datatable" :rows="users.leads" :columns="columns" :role="current_user.role_id" :users="users" title=""></datatable>
+                        
+                    <datatable 
+                        v-if="!show_page_loader" 
+                        id="datatable" 
+                        :rows="display_items" 
+                        :module_items="items" 
+                        :columns="columns" 
+                        :custom_fields="module_custom_fields" 
+                        :role="role_id" 
+                        :active_users="JSON.parse(active_users)" 
+                        :active_roles="JSON.parse(active_roles)" 
+                        :sources="JSON.parse(sources)" 
+                        :packages="JSON.parse(packages)"
+                        title=""
+                      >
+                      </datatable>
                 </div>
             </div>
         </div>
         <div v-else>
-            <add-module-item :module="module" :active_users="JSON.parse(active_users)" :active_roles="JSON.parse(active_roles)" />
+            <add-module-item 
+                :module="module" 
+                :active_users="JSON.parse(active_users)" 
+                :active_roles="JSON.parse(active_roles)" 
+                :sources="JSON.parse(sources)" 
+                :packages="JSON.parse(packages)" 
+              />
         </div>
     </div>
 </template>
@@ -316,6 +337,7 @@ table.listing tr  th{
     import { BarChart } from 'vue-morris';
     import AddModuleItem from '../Modules/AddModuleItem';
     import DataTable from '../DataTables/ListingDataTable';
+    import DataTableEditable from '../DataTables/ListingDataTableEditable';
     import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
     export default {
         extends: Bar,
@@ -325,6 +347,7 @@ table.listing tr  th{
             VclInstagram,
             VclTable,
             AddModuleItem,
+            DataTableEditable,
             'datatable' : DataTable
         },
         mounted() {
@@ -334,10 +357,14 @@ table.listing tr  th{
             
             vm.filter_data = JSON.parse(vm.custom_filters);
 
-            vm.getUsers(-1);
+            vm.module_custom_fields = JSON.parse(vm.custom_fields);
+
+            vm.getItems();
+
+            vm.prepColums();
 
             Fire.$on('SaveFilter', function(data){
-                      console.log('in filters', data);
+              console.log('in filters', data);
               vm.filter_data = data.filters;
             });
               
@@ -350,7 +377,7 @@ table.listing tr  th{
             });
 
             Fire.$on('ReloadLeads', function(data){
-              vm.getUsers(-1);
+              vm.getItems();
             });
 
             vm.Toast = vm.$swal.mixin({
@@ -362,19 +389,25 @@ table.listing tr  th{
         },
         created: function () {
         },
-        props: ['module', 'active', 'custom_filters', 'user_id','active_users','active_roles'],
+        props: [
+          'module', 
+          'active', 
+          'custom_filters', 
+          'custom_fields', 
+          'user_id',
+          'sources',
+          'packages',
+          'active_users',
+          'active_roles', 
+          'role_id'
+        ],
         data: function(){
             return {
-                users : {
-                    leads: [],
-                    count_leads: '',
-                    count_unassigned: '',
-                    count_assigned: '',
-                    sources: [],
-                    packages: [],
-                    assignees: [],
-                    lead_owners: [],
-                },
+                items : [],
+                display_items : [],
+                chached_display_items : [],
+                count_assigned : 0,
+                count_unassigned : 0,
 				        user: {
                     name: '',
                     surname: '',
@@ -394,106 +427,66 @@ table.listing tr  th{
                 },
                 current_user: [],
                 filter_data: [],
+                module_custom_fields: [],
                 add_user: false,
                 show_page_loader: false,
                 Toast: null,
                 columns:[
-                    {
-                        label: '',  // Column name
-                        field: 'all',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:false
-                    },
-                    {
-                        label: 'FULL NAME',  // Column name
-                        field: 'full_name',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'EMAIL',  // Column name
-                        field: 'email',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'OWNER',  // Column name
-                        field: 'creator',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ASSIGNEE',  // Column name
-                        field: 'assignee',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'MOBILE #',  // Column name
-                        field: 'phone_number',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'PACKAGE',  // Column name
-                        field: 'product',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true,
-                        exportable: true
-                    },
-                    {
-                        label: 'TRIAL STARTS',  // Column name
-                        field: 'start_date',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'TRIAL ENDS',  // Column name
-                        field: 'expires_at',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'DAYS REMAINING',  // Column name
-                        field: 'days_remaining',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'LAST ACTIVITY',  // Column name
-                        field: 'last_activity',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'STATUS',  // Column name
-                        field: 'status',  // Field name from row
-                        numeric: true, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
-                    {
-                        label: 'ACTIONS',  // Column name
-                        field: 'actions',  // Field name from row
-                        numeric: false, // Affects sorting
-                        html: false,    // Escapes output if false.
-                        sortable:true
-                    },
+                    // {
+                    //     label: '',  // Column name
+                    //     field: 'all',  // Field name from row
+                    //     numeric: false, // Affects sorting
+                    //     html: false,    // Escapes output if false.
+                    //     sortable:false
+                    // }
                 ]
             }
         },
         methods: {
+            prepColums(){
+              var vm = this;
+              this.module_custom_fields.map( (field) => {
+                vm.columns.push(
+                    {
+                        label: field.display_name.toUpperCase(),  // Column name
+                        field: field.name,  // Field name from row
+                        numeric: false, // Affects sorting
+                        html: false,    // Escapes output if false.
+                        sortable:true
+                    });
+                  
+              });
+
+              this.columns.push(
+                {
+                    label: 'ACTIONS',  // Column name
+                    field: 'actions',  // Field name from row
+                    numeric: false, // Affects sorting
+                    html: false,    // Escapes output if false.
+                    sortable:true
+                },
+              );
+              
+            },
+            filterItems(type){
+              this.display_items = this.chached_display_items;
+              var filtered = this.display_items.filter( (item) => {
+                  if(type == -1){
+                    return item;
+                  }else if(type == 1){
+                    if(item.assigned == true){
+                      return item;
+                    }
+                  }else if(type == 0){
+                    if(item.assigned == false){
+                      return item;
+                    }
+                  }
+                });
+
+              this.display_items = filtered;
+              // console.log(filtered);
+            },
             getLastCommentDade(comments){
                 if(comments.length > 0){
                     var i = comments.length - 1;
@@ -521,31 +514,31 @@ table.listing tr  th{
             str_pad_left(string,pad,length) {
                 return (new Array(length+1).join(pad)+string).slice(-length);
             },
-            getUsers(role){
+            getItems(){
                 var vm = this;
 
-                if(role == -1){
-                    var endpoint = '/leads/get-lead-counts';
-                }else if(role == 0 || role == 1){
-                    var endpoint = '/leads/get-lead-counts/' + role;
-                }
+                var endpoint = '/modules/get-items/' + vm.active;
 
                 vm.show_page_loader = true;
+
                 vm.$Progress.start();
 
                 axios.get(endpoint).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.users.leads = response.data.leads;
-                        vm.users.count_leads = response.data.count_leads;
-                        vm.users.count_unassigned = response.data.count_unassigned;
-                        vm.users.count_assigned = response.data.count_assigned;
-                        vm.users.lead_owners = response.data.lead_owners;
-                        vm.users.assignees = response.data.assignees;
-                        vm.users.packages = response.data.packages;
-                        vm.users.sources = response.data.sources;
+
+                        vm.items = response.data.items;
+
+                        vm.display_items = response.data.display_items;
+                        
+                        vm.chached_display_items = response.data.display_items;
+
+                        vm.count_assigned = response.data.count_assigned;
+
+                        vm.count_unassigned = response.data.count_unassigned;
                         
                         vm.show_page_loader = false;
+
                         vm.$Progress.finish();
                     }else{
                         vm.show_page_loader = false;
@@ -553,33 +546,7 @@ table.listing tr  th{
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
                     }
                 });
-            },
-            getUsersSilently(role = ''){
-                var vm = this;
-
-                if(role == 1){
-                    var endpoint = '/leads/get-lead-counts';
-                }else{
-                    var endpoint = '/leads/get-lead-counts/' + role;
-                }
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.users.leads = response.data.leads;
-                        vm.users.count_leads = response.data.count_leads;
-                        vm.users.count_unassigned = response.data.count_unassigned;
-                        vm.users.count_assigned = response.data.count_assigned;
-                        vm.users.lead_owners = response.data.lead_owners;
-                        vm.users.assignees = response.data.assignees;
-                        vm.users.packages = response.data.packages;
-                        vm.users.sources = response.data.sources;
-                        
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },			
+            },		
             createUser(){
                 var vm = this;  
                 vm.$Progress.start();
@@ -608,20 +575,20 @@ table.listing tr  th{
                     }
                 });
             },
-            applyFilter(filter){
-                var vm = this;
-                vm.$Progress.start();
-                axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
-                    if(response.data.success == true){
-                        vm.users.leads = response.data.leads;
-                        Fire.$emit('CustomFilterApplied', filter);
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                        vm.$Progress.fail();
-                    }
-                });
-            },
+            // applyFilter(filter){
+            //     var vm = this;
+            //     vm.$Progress.start();
+            //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
+            //         if(response.data.success == true){
+            //             vm.users.leads = response.data.leads;
+            //             Fire.$emit('CustomFilterApplied', filter);
+            //             vm.$Progress.finish();
+            //         }else{
+            //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+            //             vm.$Progress.fail();
+            //         }
+            //     });
+            // },
             deleteFilter(id){
                 this.$swal.fire({
                     title: 'Are you sure?',
