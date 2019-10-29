@@ -77739,6 +77739,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -78021,6 +78029,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -134385,7 +134402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\r\n  height:100vh;\r\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\r\n    padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\r\n    color: #dc3545;\r\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\r\n    margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\r\n    padding-right: 1.2%;\r\n    padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\r\n    width:-webkit-max-content;\r\n    width:-moz-max-content;\r\n    width:max-content;\n}\ntd[data-v-37c5ed24] {\r\n    vertical-align:baseline;\r\n    padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\r\n    height: 500px;\r\n    overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\r\n    color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\r\n    margin-top:1.6%;\n}\ninput[data-v-37c5ed24] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    padding: 11px 18px!important;\r\n    font-size: 12px;\r\n    color: #003449;\r\n    border-color: #ccc;\r\n    margin-bottom: 17px;\r\n    font-family: 'Rubik', sans-serif;\r\n    height:auto!important;\n}\nlabel[data-v-37c5ed24] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 10px;\r\n    color: #999999;\r\n    margin-bottom:7px;\n}\nh5[data-v-37c5ed24] {\r\n    font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\r\n    margin-top:3.7%;\r\n    margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\r\n    background: #fff;\r\n    color: #999999;    \r\n    border: none!important;\r\n    padding: 11px 14px 10px;\r\n    font-size: 10px;\r\n    text-transform:uppercase;\r\n    border-radius: 50rem!important;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\r\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\r\n    border-radius: 50rem!important;\r\n    text-transform:uppercase;\r\n    font-size: 10px;\r\n    padding: 11px 14px 10px;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\r\n    line-height: 1em;\r\n    background: transparent;\r\n    border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\r\n  height:100vh;\r\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\r\n    padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\r\n    color: #dc3545;\r\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\r\n    margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\r\n    padding-right: 1.2%;\r\n    padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\r\n    width:-webkit-max-content;\r\n    width:-moz-max-content;\r\n    width:max-content;\n}\ntd[data-v-37c5ed24] {\r\n    vertical-align:baseline;\r\n    padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\r\n    height: 500px;\r\n    overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\r\n    color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\r\n    margin-top:1.6%;\n}\ninput[data-v-37c5ed24] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    padding: 11px 18px!important;\r\n    font-size: 12px;\r\n    color: #003449;\r\n    border-color: #ccc;\r\n    margin-bottom: 17px;\r\n    font-family: 'Rubik', sans-serif;\r\n    height:auto!important;\n}\nlabel[data-v-37c5ed24] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 10px;\r\n    color: #999999;\r\n    margin-bottom:7px;\n}\nh5[data-v-37c5ed24] {\r\n    font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\r\n    margin-top:3.7%;\r\n    margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\r\n    background: #fff;\r\n    color: #999999;    \r\n    border: none!important;\r\n    padding: 11px 14px 10px;\r\n    font-size: 10px;\r\n    text-transform:uppercase;\r\n    border-radius: 50rem!important;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\r\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\r\n    border-radius: 50rem!important;\r\n    text-transform:uppercase;\r\n    font-size: 10px;\r\n    padding: 11px 14px 10px;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\r\n    line-height: 1em;\r\n    background: transparent;\r\n    border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\r\n    margin-left:20px;\r\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    border-radius: 50rem;\n}\r\n", ""]);
 
 // exports
 
@@ -134423,7 +134440,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n    font-size:16px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 28px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n    font-size:16px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 28px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
 
 // exports
 
@@ -264303,20 +264320,18 @@ var render = function() {
                                             [_vm._v(_vm._s(role.display_name))]
                                           ),
                                           _vm._v(" "),
-                                          role[index] == _vm.active
-                                            ? _c("img", {
-                                                attrs: {
-                                                  src:
-                                                    "images/icons/delete.svg",
-                                                  width: "16"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.deleteRole(role)
-                                                  }
-                                                }
-                                              })
-                                            : _vm._e()
+                                          _c("img", {
+                                            staticClass: "d-none",
+                                            attrs: {
+                                              src: "images/icons/delete.svg",
+                                              width: "16"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteRole(role)
+                                              }
+                                            }
+                                          })
                                         ]
                                       },
                                       proxy: true
@@ -264969,6 +264984,7 @@ var render = function() {
                                     fn: function() {
                                       return [
                                         _c("img", {
+                                          staticClass: "ml-0",
                                           attrs: {
                                             src: "images/icons/Field_Add.svg",
                                             width: "16"
@@ -264982,7 +264998,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                2426828766
+                                3289111906
                               )
                             },
                             [

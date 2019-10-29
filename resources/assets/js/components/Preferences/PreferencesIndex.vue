@@ -82,6 +82,15 @@
     display: block;
     width: 98%;
   }
+  .nav-link.active img {
+    margin-left:20px;
+    display: inline-block!important;
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    border-radius: 50rem;
+  }
   .add-module-btn {
     box-shadow:none!important;
   }
@@ -211,7 +220,7 @@
               >   
                 <template v-slot:title>
                   <a @click="editRole(role)">{{ role.display_name }}</a>
-                  <img v-if="role[index] == active" @click="deleteRole(role)" src="images/icons/delete.svg" width="16"/>
+                  <img @click="deleteRole(role)" src="images/icons/delete.svg" width="16" class="d-none"/>
                 </template>
 
                 <div class="row mx-0 edit-role" v-if="role_edit">
@@ -354,7 +363,7 @@
 
               <b-tab>
                 <template v-slot:title>
-                  <img @click="addRole" src="images/icons/Field_Add.svg" width="16"/>
+                  <img @click="addRole" src="images/icons/Field_Add.svg" width="16" class="ml-0"/>
                 </template>
 
                 <div class="row mx-0" v-if="role_add">

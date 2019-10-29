@@ -88,6 +88,14 @@
     background: transparent;
     border: none;
   }
+  .nav-link.active img {
+    margin-left:20px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    border-radius: 50rem;
+  }
 </style>
 <template>
   <div id="edit-module">
