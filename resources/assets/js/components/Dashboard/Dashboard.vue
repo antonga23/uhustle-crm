@@ -337,7 +337,7 @@
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
                     <a 
-                      class="nav-link py-0" 
+                      class="nav-link active py-0" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#one" 
@@ -401,7 +401,7 @@
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
                     <a 
-                      class="nav-link py-0" 
+                      class="nav-link active py-0" 
                       id="three-tab" 
                       data-toggle="tab" 
                       href="#three" 

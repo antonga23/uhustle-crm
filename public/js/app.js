@@ -249484,7 +249484,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticClass: "nav-link py-0",
+                    staticClass: "nav-link active py-0",
                     attrs: {
                       id: "one-tab",
                       "data-toggle": "tab",
@@ -249617,7 +249617,7 @@ var staticRenderFns = [
               _c(
                 "a",
                 {
-                  staticClass: "nav-link py-0",
+                  staticClass: "nav-link active py-0",
                   attrs: {
                     id: "three-tab",
                     "data-toggle": "tab",
