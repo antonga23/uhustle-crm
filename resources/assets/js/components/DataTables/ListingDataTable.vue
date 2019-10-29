@@ -888,6 +888,13 @@ table tr td a.Edit:active{
     background-size: 25px 35px;
     background-repeat: no-repeat;
 }
+ @media screen and (max-width: 1500px) {
+     table tr td {
+        font-size: 12px !important;
+        padding: 5px 0px 5px 0px !important;
+     }
+ }
+
 .control-label{
     float: left;
 }
@@ -1148,8 +1155,8 @@ table td:last-child {
     background-image: none !important;
 }
 
-table th:first-child,
+/* table th:first-child,
 table td:first-child {
     padding-left: 25px;
-}
+} */
 </style>
