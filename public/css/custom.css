@@ -360,6 +360,9 @@ label:not(.form-check-label):not(.custom-file-label) {
   border-radius: 0px !important;
 }
 
+.ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #F28821 !important;
+}
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-title-wrapper .vc-title {
