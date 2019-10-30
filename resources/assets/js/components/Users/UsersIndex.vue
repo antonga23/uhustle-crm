@@ -347,6 +347,23 @@ table.listing tr th {
 .modal-body {
   background: orange !important;
 }
+
+.add-new-top-section .dropdown {
+            top: -10px;
+        }
+
+  @media screen and (max-width: 1500px) {
+    
+        .add-new-top-section img.icon {
+            width: 36px !important; 
+        }
+
+        .add-new-top-section .dropdown {
+            top: -10px;
+            right: 10px;
+        }
+    }
+
 </style>
 <template>
   <div>
@@ -356,7 +373,7 @@ table.listing tr th {
           <div class="row mb-0 pb-4 horizontal-scroll-thinner">
             <div class="col-auto pl-0" @click="getUsers()">
               <div class="card mb-0 call-backs">
-                <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">All</p>
                   </div>
@@ -368,7 +385,7 @@ table.listing tr th {
             </div>
             <div class="col-auto" @click="getUsers(1)">
               <div class="card mb-0 call-backs">
-                <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Admin</p>
                   </div>
@@ -380,7 +397,7 @@ table.listing tr th {
             </div>
             <div class="col-auto" @click="getUsers(2)">
               <div class="card mb-0 sales-amount">
-                <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Account Managers</p>
                   </div>
@@ -392,7 +409,7 @@ table.listing tr th {
             </div>
             <div class="col-auto" @click="getUsers(3)">
               <div class="card mb-0 ave-time">
-                <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Team Leaders</p>
                   </div>
@@ -404,7 +421,7 @@ table.listing tr th {
             </div>
             <div class="col-auto" @click="getUsers(4)">
               <div class="card mb-0 con-ratio">
-                <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Agents</p>
                   </div>
@@ -425,19 +442,19 @@ table.listing tr th {
                   class="card-body row right align-items-center justify-content-between mx-0 p-3"
                 >
                   <div class="col pl-0 dropdown">
-                    <b-button
-                      class="rounded-circle m-0"
+                    <a
+                      class=""
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       <img
-                        src="/images/workstation/Asset 28@4x.png"
+                        src="/images/icons/Call-History-Add-Icon.svg"
                         alt="Icon"
                         class="icon"
-                        style="width: 20px;"
+                        style="width: 60px;"
                       />
-                    </b-button>
+                    </a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="#">Calls</a>
                       <a class="dropdown-item" href="#">Sales</a>
