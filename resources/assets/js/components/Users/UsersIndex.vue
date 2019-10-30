@@ -43,7 +43,7 @@ li p.bottom {
   border-radius: 10px;
   border: none;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
+  min-width: 150px;
 }
 .card-body {
   text-align: center;
@@ -55,6 +55,7 @@ li p.bottom {
   text-align: right;
   float: left;
   margin-bottom: 0;
+  line-height: 14px;
 }
 .card-title {
   margin-bottom: 0.75rem;
@@ -226,7 +227,7 @@ span.right {
 }
 
 .card .card-text {
-  font-size: 36px;
+  font-size: 32px;
   line-height: 1em;
 }
 
@@ -353,8 +354,8 @@ table.listing tr th {
       <div id="top-section" class="row plr-3" style="margin-top:2%;">
         <div class="col-11">
           <div class="row mb-0 pb-4 horizontal-scroll-thinner">
-            <div class="col pl-0" @click="getUsers()">
-              <div class="card call-backs">
+            <div class="col-auto pl-0" @click="getUsers()">
+              <div class="card mb-0 call-backs">
                 <div class="card-body row align-items-center justify-content-between mx-0 p-3">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">All</p>
@@ -365,8 +366,8 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col" @click="getUsers(1)">
-              <div class="card call-backs">
+            <div class="col-auto" @click="getUsers(1)">
+              <div class="card mb-0 call-backs">
                 <div class="card-body row align-items-center justify-content-between mx-0 p-3">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Admin</p>
@@ -377,8 +378,8 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col" @click="getUsers(2)">
-              <div class="card sales-amount">
+            <div class="col-auto" @click="getUsers(2)">
+              <div class="card mb-0 sales-amount">
                 <div class="card-body row align-items-center justify-content-between mx-0 p-3">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Account Managers</p>
@@ -389,8 +390,8 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col" @click="getUsers(3)">
-              <div class="card ave-time">
+            <div class="col-auto" @click="getUsers(3)">
+              <div class="card mb-0 ave-time">
                 <div class="card-body row align-items-center justify-content-between mx-0 p-3">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Team Leaders</p>
@@ -401,8 +402,8 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col" @click="getUsers(4)">
-              <div class="card con-ratio">
+            <div class="col-auto" @click="getUsers(4)">
+              <div class="card mb-0 con-ratio">
                 <div class="card-body row align-items-center justify-content-between mx-0 p-3">
                   <div class="col pl-0">
                     <p class="card-text-small text-left">Agents</p>
@@ -452,7 +453,6 @@ table.listing tr th {
       </div>
     </div>
     <div class="plr-3">
-      <hr style="margin-bottom: 2%;" />
       <div v-if="!add_user">
         <div class="row stats pt-0 scroll-hidden horizontal-scroll">
           <div class="col-lg-12">
