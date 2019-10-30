@@ -4,7 +4,7 @@
     overflow: auto;
   }
   h1 {
-    font-size: 20px;
+    font-size: 1.04vw;
     font-family: 'Rubik', sans-serif;
     padding-left: 5.2%;
     padding-right: 5.2%;
@@ -23,7 +23,7 @@
   select.rounded-pill{
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    font-size: 16px;
+    font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
     padding:9px 17px 7px;
     color: #333333;
@@ -44,24 +44,24 @@
     margin-right: 0.9%;
   }
   #top-section .agent-stats .card .card-numeral {
-    font-size: 30px;
+    font-size: 1.58vw;
     line-height: 1em;
     letter-spacing: 0.1em;
     color: #333333;
   }
   #top-section .agent-stats .card .card-desc {
-    font-size: 18px;
+    font-size: 0.82vw;
     font-family: 'Rubik', sans-serif;
     line-height: 1em;
     color: #333333;
-    margin-top: 4px;
+    margin-top: 8px;
   }
   #top-section .agent-stats .card .card-stat {
-    font-size: 21px;
+    font-size: 0.71vw;
     font-family: 'Rubik', sans-serif;
     line-height: 1em;
     letter-spacing: 0.1em;
-    margin-top: 5px;
+    margin-top: 12px;
   }
   .agent-graphs {
     margin-top:3.4%;
@@ -77,11 +77,11 @@
     padding-top:12px;
   }
   .agent-graphs .tab-pane {
-    padding:5% 8.5%;
+    padding:2.5% 8.5% 5%;
   }
   .nav.nav-tabs.card-header-tabs .nav-link {
     color: #808080;
-    font-size: 14px;
+    font-size: 0.73vw;
   }
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{ 
     box-shadow: 10px -10px 10px #f5f5f5; 
@@ -121,20 +121,20 @@
     padding-right: 1.7%;
   }
   .agent-details .bottom-row{
-    margin-top: 4.7%;
+    margin-top: 3.8%;
   }
   .agent-details .bottom-row .col {
     padding-left: 1.7%;
     padding-right: 1.7%;
   }
   .agent-details .card {
-    padding: 5% 7%!important;
+    padding: 5% 7% 5.7%!important;
     border-radius: 15px!important;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .agent-details .card .heading {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Rubik', sans-serif;
     color: #B3B3B3;
     margin-bottom: 8px;
@@ -143,18 +143,20 @@
     font-size: 30px;
     color: #1A1C43;
     line-height: 1em;
+    margin-top:7px;
   }
   .legend {
     margin-bottom:3.1%;
   }
   .legend p {
     font-family: 'Rubik', sans-serif;
-    font-size: 14px;
+    font-size: 0.7vw;
     color:#999999;
   }
   .comparison-month {
-    color: #1C2331;
-    font-size: 13px;
+    color:#999999;;
+    font-size: 0.7vw;
+    font-family: 'Rubik', sans-serif;
   }
   .progress-bar{
     background: #F2F2F2;
@@ -187,6 +189,7 @@
   .card.target .heading {
     font-size: 18px;
     color: #fff;
+    margin-bottom:20px;
   }
   
   #dash-activities {
@@ -207,7 +210,7 @@
     border-color: #003449;
   }
   #dash-activities h4 {
-    font-size: 16px;
+    font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
   }
   .calendar .card {
@@ -289,7 +292,7 @@
 </style>
 <template>
   <div id="dashboard">
-    <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1>
+    <!-- <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1> -->
     <div id="dash-container">
       <div id="top-section" class="row mx-0">
         <div class="col-12 px-0">
@@ -405,11 +408,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="9">
                       <p class="d-inline-block mb-0">Calls</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="9">
                       <p class="d-inline-block mb-0">Sales</p>
                     </div>
                   </div>
@@ -469,11 +472,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="9">
                       <p class="d-inline-block mb-0">Answers</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="9">
                       <p class="d-inline-block mb-0">Dialling</p>
                     </div>
                   </div>
@@ -507,11 +510,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="9">
                       <p class="d-inline-block mb-0">2018</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="9">
                       <p class="d-inline-block mb-0">2019</p>
                     </div>
                   </div>
