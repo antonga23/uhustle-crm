@@ -80559,6 +80559,210 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -80570,42 +80774,42 @@ __webpack_require__.r(__webpack_exports__);
     VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclFacebook"],
     VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclInstagram"],
     VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclTable"],
-    'datatable': _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
+    datatable: _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
-    console.log('Component mounted');
+    console.log("Component mounted");
     this.current_user = JSON.parse(this.logged_user);
     this.getUsers();
     var vm = this;
-    Fire.$on('AddingUser', function (data) {
+    Fire.$on("AddingUser", function (data) {
       vm.add_user = !vm.add_user;
     });
-    Fire.$on('ReloadUsers', function (data) {
+    Fire.$on("ReloadUsers", function (data) {
       vm.getUsers();
     });
-    Fire.$on('FilterData', function (data) {
+    Fire.$on("FilterData", function (data) {
       vm.applyFilter(data);
     });
     this.Toast = this.$swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000
     });
   },
   created: function created() {},
-  props: ['logged_user'],
+  props: ["logged_user"],
   data: function data() {
     return {
       users: {
         all_users: [],
-        count_all: '',
-        manager: '',
-        account_manager: '',
-        team_leader: '',
-        agent: '',
-        roles: '',
-        current_user: ''
+        count_all: "",
+        manager: "",
+        account_manager: "",
+        team_leader: "",
+        agent: "",
+        roles: "",
+        current_user: ""
       },
       user: {
         leads: [],
@@ -80614,14 +80818,14 @@ __webpack_require__.r(__webpack_exports__);
       current_user: {},
       add_user: false,
       show_page_loader: false,
-      avatarUrl: '/images/avatars/',
-      noImageUrl: '/images/icons/user_icon@4x.png',
+      avatarUrl: "/images/avatars/",
+      noImageUrl: "/images/icons/user_icon@4x.png",
       bulk_actions: "",
       Toast: null,
       columns: [{
-        label: 'FULL NAME',
+        label: "FULL NAME",
         // Column name
-        field: 'full_name',
+        field: "full_name",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80629,9 +80833,9 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
-        label: 'EMAIL',
+        label: "EMAIL",
         // Column name
-        field: 'email',
+        field: "email",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80639,9 +80843,9 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
-        label: 'ROLE',
+        label: "ROLE",
         // Column name
-        field: 'role',
+        field: "role",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80649,9 +80853,9 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
-        label: 'CONTACT NUMBER',
+        label: "CONTACT NUMBER",
         // Column name
-        field: 'personal_number',
+        field: "personal_number",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80660,9 +80864,9 @@ __webpack_require__.r(__webpack_exports__);
         sortable: true,
         exportable: true
       }, {
-        label: 'LAST ACTIVE',
+        label: "LAST ACTIVE",
         // Column name
-        field: 'updated_at',
+        field: "updated_at",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80670,9 +80874,9 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
-        label: 'STATUS',
+        label: "STATUS",
         // Column name
-        field: 'status',
+        field: "status",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80680,9 +80884,9 @@ __webpack_require__.r(__webpack_exports__);
         // Escapes output if false.
         sortable: true
       }, {
-        label: 'ACTIONS',
+        label: "ACTIONS",
         // Column name
-        field: 'actions',
+        field: "actions",
         // Field name from row
         numeric: false,
         // Affects sorting
@@ -80696,20 +80900,20 @@ __webpack_require__.r(__webpack_exports__);
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
-      var finalTime = this.str_pad_left(minutes, '0', 2) + ':' + this.str_pad_left(seconds, '0', 2);
+      var finalTime = this.str_pad_left(minutes, "0", 2) + ":" + this.str_pad_left(seconds, "0", 2);
       return finalTime;
     },
     str_pad_left: function str_pad_left(string, pad, length) {
       return (new Array(length + 1).join(pad) + string).slice(-length);
     },
     getUsers: function getUsers() {
-      var role = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var role = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
       var vm = this;
 
-      if (role == '') {
-        var endpoint = '/users/get-user-counts';
+      if (role == "") {
+        var endpoint = "/users/get-user-counts";
       } else {
-        var endpoint = '/users/get-user-counts/' + role;
+        var endpoint = "/users/get-user-counts/" + role;
       }
 
       vm.show_page_loader = true;
@@ -80728,7 +80932,7 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           vm.show_page_loader = false;
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while retrieving call log, please try again", "warning");
         }
       });
     },
@@ -80739,10 +80943,10 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       this.$validator.validateAll().then(function (result) {
         if (!result) {} else {
-          axios.post('/users/create', _this.user).then(function (response) {
+          axios.post("/users/create", _this.user).then(function (response) {
             if (response.data.success == true) {
               vm.Toast.fire({
-                type: 'success',
+                type: "success",
                 title: response.data.message
               });
               vm.$Progress.finish();
@@ -80752,17 +80956,17 @@ __webpack_require__.r(__webpack_exports__);
                 clients: []
               };
               vm.getUsers();
-              Fire.$emit('DoneAddingUser');
+              Fire.$emit("DoneAddingUser");
             }
 
-            if (response.data.errors.email[0] != '') {
+            if (response.data.errors.email[0] != "") {
               vm.$Progress.fail();
-              vm.$swal('Failed', response.data.errors.email[0], 'warning');
+              vm.$swal("Failed", response.data.errors.email[0], "warning");
             }
 
             if (response.data.success == false) {
               vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
             }
           });
         }
@@ -80773,7 +80977,7 @@ __webpack_require__.r(__webpack_exports__);
       this.user = user;
       this.user.leads = leads;
       this.user.clients = clients;
-      this.$bvModal.show('update-user-modal');
+      this.$bvModal.show("update-user-modal");
     },
     handleOk: function handleOk(bvModalEvt) {
       // Prevent modal from closing
@@ -80786,25 +80990,25 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       this.$validator.validateAll().then(function (result) {
         if (!result) {} else {
-          axios.post('/users/update', vm.user).then(function (response) {
+          axios.post("/users/update", vm.user).then(function (response) {
             if (response.data.success == true) {
               vm.Toast.fire({
-                type: 'success',
+                type: "success",
                 title: response.data.message
               });
               vm.getUsers();
-              vm.$bvModal.hide('update-user-modal');
+              vm.$bvModal.hide("update-user-modal");
               vm.user = {
                 leads: [],
                 clients: []
               };
               vm.$Progress.finish();
-            } else if (response.data.errors.email[0] != '') {
+            } else if (response.data.errors.email[0] != "") {
               vm.$Progress.fail();
-              vm.$swal('Failed', response.data.errors.email[0], 'warning');
+              vm.$swal("Failed", response.data.errors.email[0], "warning");
             } else {
               vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
             }
           });
         }
@@ -134292,7 +134496,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb {\r\n        background: #B3B3B3 !important;\r\n        border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\r\n        width: 5px !important;\r\n        height: 5px;\n}\n.grey-bg-color[data-v-d5c2b830] {\r\n        background-color: #EBEFF3 !important;\n}\n.row[data-v-d5c2b830]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830]{\r\n    list-style: none;\n}\n.top-section li[data-v-d5c2b830]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-d5c2b830]{\r\n    border: none;\r\n    border-radius: 10px;\r\n    border: none;\r\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n    min-width: 200px;\n}\n.card-body[data-v-d5c2b830]{\r\n    text-align: center;\n}\n.card-body p[data-v-d5c2b830]{\r\n    color: #fff;\r\n    width: 68%;\r\n    margin-right: 0;\r\n    text-align: right;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    font-size: 11px;\n}\n.card-title[data-v-d5c2b830] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-d5c2b830]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-d5c2b830]{\r\n    color: #fff;\n}\nh5 .icon[data-v-d5c2b830]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830]{           \r\n    font-size: 15px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 29%;\r\n    float: right;\n}\np.card-text span[data-v-d5c2b830]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-d5c2b830]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-d5c2b830]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830]{\r\n    float: right;\n}\n.truncate[data-v-d5c2b830] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-d5c2b830]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830], .show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830]{\r\n    height: 318px !important;\n}\n#top-section[data-v-d5c2b830]{\r\n    background: #fff;    \r\n    margin-left: -53px;\r\n    margin-right: -66px;\r\n    padding: 0px 37px;\n}\n.green[data-v-d5c2b830]{\r\n    color:#00a25a !important;\n}\n.red[data-v-d5c2b830]{\r\n    color:red !important;\n}.card-text-small[data-v-d5c2b830]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-d5c2b830]{\r\n    width: 12%;\n}\n.badge img[data-v-d5c2b830]{\r\n    width: 100%;\n}\nul.filters[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding: 0;\n}\nul.filters li[data-v-d5c2b830]{\r\n   width: 10%;\n}\nul.headings[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding-left: 90px;\r\n    display: block;\r\n    width: 100%;\r\n    height: 39px;\r\n    margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 15%;\r\n    text-align: left;\n}\nul.items[data-v-d5c2b830]{\r\n    list-style: none;\r\n    padding-left: 1px;\r\n    display: block;\r\n    width: 100%;\r\n    height: 39px;\r\n    margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 14%;\r\n    text-align: left;\n}\nul.items li.actions[data-v-d5c2b830]{\r\n    padding-left: 22px;\r\n    width: 10%;\r\n    text-align: right;\n}\nul.items li.active[data-v-d5c2b830]{\r\n    padding-left: 16px;\r\n    width: 12%;\n}\nul.items li.name[data-v-d5c2b830]{\r\n    width: 20%;\r\n    padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830]{\r\n    padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830]{\r\n    padding-left: 17px;\r\n    padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830]{\r\n    width: 1%;\r\n    margin-right: 10px;\r\n    margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830]{\r\n    padding-left: 11px;\r\n    padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    padding-top: 6px;\r\n    padding-right: 6px;\r\n    width: 100%;\r\n    margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-d5c2b830]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830]{\r\n    cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\r\n    padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-d5c2b830]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\r\n    background: orange !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb, .horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb {\r\n  background: #b3b3b3 !important;\r\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\r\n  width: 5px !important;\r\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar {\r\n  width: 5px !important;\r\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]{\r\n    overflow: auto;\r\n    flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] {\r\n  background-color: #ebeff3 !important;\n}\n.row[data-v-d5c2b830] {\r\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] {\r\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] {\r\n  float: left;\r\n  margin-right: 52px;\r\n  padding: 6px 83px 3px 15px;\r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] {\r\n  margin-bottom: 0;\r\n  font-size: 19px;\r\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] {\r\n  border: none;\r\n  border-radius: 10px;\r\n  border: none;\r\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n  min-width: 200px;\n}\n.card-body[data-v-d5c2b830] {\r\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] {\r\n  color: #fff;\r\n  width: 100%;\r\n  margin-right: 0;\r\n  text-align: right;\r\n  float: left;\r\n  margin-bottom: 0;\n}\n.card-title[data-v-d5c2b830] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(255, 164, 128, 1) 0%,\r\n    rgba(255, 128, 134, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.sales[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(159, 204, 226, 1) 0%,\r\n    rgba(4, 149, 240, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(221, 192, 241, 1) 0%,\r\n    rgba(160, 117, 209, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(101, 215, 207, 1) 0%,\r\n    rgba(111, 148, 211, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(226, 111, 145, 1) 0%,\r\n    rgba(239, 84, 128, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(97, 167, 221, 1) 0%,\r\n    rgba(99, 101, 202, 1) 100%\r\n  );\r\n  color: #fff;\n}\nh5[data-v-d5c2b830] {\r\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] {\r\n  width: 15px;\r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] {\r\n  color: #fff;\r\n  font-weight: bolder;\r\n  margin: 0;\r\n  width: 100%;\r\n  float: right;\r\n  font-family: \"Montserrat bold\", sans-serif;\r\n  letter-spacing: 1.2px;\n}\np.card-text span[data-v-d5c2b830] {\r\n  font-size: 19px;\r\n  color: #333333;\r\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] {\r\n  font-size: 22px;\r\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] {\r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] {\r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] {\r\n  width: 25px;\r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830] {\r\n  float: right;\n}\n.truncate[data-v-d5c2b830] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] {\r\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] {\r\n  font-size: 25px;\r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] {\r\n  float: left;\r\n  display: block;\r\n  height: 50px;\r\n  width: 50px;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] {\r\n  display: block;\r\n  height: 50px;\r\n  width: 75%;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  border: none;\r\n  cursor: pointer;\r\n  float: left;\n}\n#send-btn[data-v-d5c2b830] {\r\n  height: 50px;\r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active,\r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830],\r\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] {\r\n  height: 318px !important;\n}\r\n\r\n/* #top-section{\r\n    background: #fff;    \r\n    margin-left: -53px;\r\n    margin-right: -66px;\r\n    padding: 0px 37px;\r\n\r\n} */\n.green[data-v-d5c2b830] {\r\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] {\r\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] {\r\n  font-size: 36px;\r\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] {\r\n  margin-top: -7px;\r\n  color: #3b3b3b;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  letter-spacing: 1.2px;\n}\n.badge[data-v-d5c2b830] {\r\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] {\r\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] {\r\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding-left: 90px;\r\n  display: block;\r\n  width: 100%;\r\n  height: 39px;\r\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  width: 15%;\r\n  text-align: left;\n}\nul.items[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding-left: 1px;\r\n  display: block;\r\n  width: 100%;\r\n  height: 39px;\r\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #003449;\r\n  width: 14%;\r\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] {\r\n  padding-left: 22px;\r\n  width: 10%;\r\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] {\r\n  padding-left: 16px;\r\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] {\r\n  width: 20%;\r\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] {\r\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] {\r\n  padding-left: 17px;\r\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] {\r\n  width: 1%;\r\n  margin-right: 10px;\r\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] {\r\n  padding-left: 11px;\r\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover {\r\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] {\r\n  overflow-y: scroll;\r\n  height: 70vh;\r\n  padding-top: 6px;\r\n  padding-right: 6px;\r\n  width: 100%;\r\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] {\r\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] {\r\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\r\n  padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830] {\r\n  float: left;\r\n  height: 77px;\n}\n.help-block[data-v-d5c2b830] {\r\n  color: red;\r\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\r\n  background: orange !important;\n}\r\n", ""]);
 
 // exports
 
@@ -266376,150 +266580,221 @@ var render = function() {
           attrs: { id: "top-section" }
         },
         [
-          _c(
-            "div",
-            {
-              staticClass: "col",
-              on: {
-                click: function($event) {
-                  return _vm.getUsers()
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card call-backs" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text-small text-left" }, [
-                    _vm._v("\n                All\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.users.count_all) +
-                        "\n            "
-                    )
-                  ])
-                ])
-              ])
-            ]
-          ),
+          _c("div", { staticClass: "col-11" }, [
+            _c(
+              "div",
+              { staticClass: "row mb-0 pb-4 horizontal-scroll-thinner" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col pl-0",
+                    on: {
+                      click: function($event) {
+                        return _vm.getUsers()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card call-backs" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-body row align-items-center justify-content-between mx-0 p-3"
+                        },
+                        [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col pr-0" }, [
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.users.count_all))
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col",
+                    on: {
+                      click: function($event) {
+                        return _vm.getUsers(1)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card call-backs" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-body row align-items-center justify-content-between mx-0 p-3"
+                        },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col pr-0" }, [
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.users.manager))
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col",
+                    on: {
+                      click: function($event) {
+                        return _vm.getUsers(2)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card sales-amount" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-body row align-items-center justify-content-between mx-0 p-3"
+                        },
+                        [
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col pr-0" }, [
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.users.account_manager))
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col",
+                    on: {
+                      click: function($event) {
+                        return _vm.getUsers(3)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card ave-time" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-body row align-items-center justify-content-between mx-0 p-3"
+                        },
+                        [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col pr-0" }, [
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.users.team_leader))
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col",
+                    on: {
+                      click: function($event) {
+                        return _vm.getUsers(4)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card con-ratio" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-body row align-items-center justify-content-between mx-0 p-3"
+                        },
+                        [
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col pr-0" }, [
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(_vm.users.agent))
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col",
-              on: {
-                click: function($event) {
-                  return _vm.getUsers(1)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card call-backs" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text-small text-left" }, [
-                    _vm._v("\n                Admin\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.users.manager) +
-                        "\n            "
-                    )
-                  ])
+          _c("div", { staticClass: "col-1" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12 pr-0" }, [
+                _c("div", { staticClass: "mb-0 add-new-top-section" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row right align-items-center justify-content-between mx-0 p-3"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col pl-0 dropdown" },
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              staticClass: "rounded-circle m-0",
+                              attrs: {
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                staticStyle: { width: "20px" },
+                                attrs: {
+                                  src: "/images/workstation/Asset 28@4x.png",
+                                  alt: "Icon"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(5)
+                        ],
+                        1
+                      )
+                    ]
+                  )
                 ])
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col",
-              on: {
-                click: function($event) {
-                  return _vm.getUsers(2)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card sales-amount" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text-small text-left" }, [
-                    _vm._v("\n                Account Managers\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.users.account_manager) +
-                        " \n            "
-                    )
-                  ])
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col",
-              on: {
-                click: function($event) {
-                  return _vm.getUsers(3)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card ave-time" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text-small text-left" }, [
-                    _vm._v("\n                  Team Leaders\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.users.team_leader) +
-                        " \n            "
-                    )
-                  ])
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col",
-              on: {
-                click: function($event) {
-                  return _vm.getUsers(4)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card con-ratio" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text-small text-left" }, [
-                    _vm._v("\n                  Agents\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.users.agent) +
-                        " \n            "
-                    )
-                  ])
-                ])
-              ])
-            ]
-          )
+            ])
+          ])
         ]
       )
     ]),
@@ -266582,7 +266857,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-12 control-label" },
                             [
-                              _vm._v("Role\n                        "),
+                              _vm._v("\n              Role\n              "),
                               _c(
                                 "select",
                                 {
@@ -266625,7 +266900,7 @@ var render = function() {
                                 },
                                 [
                                   _c("option", { attrs: { value: "" } }, [
-                                    _vm._v("- Please Choose Role ")
+                                    _vm._v("- Please Choose Role")
                                   ]),
                                   _vm._v(" "),
                                   _vm._l(_vm.users.roles, function(
@@ -266668,7 +266943,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v("Name\n                        "),
+                              _vm._v("\n              Name\n              "),
                               _c("input", {
                                 directives: [
                                   {
@@ -266722,7 +266997,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v("Surname\n                        "),
+                              _vm._v("\n              Surname\n              "),
                               _c("input", {
                                 directives: [
                                   {
@@ -266777,7 +267052,7 @@ var render = function() {
                             { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
-                                "Prefered Nickname\n                        "
+                                "\n              Prefered Nickname\n              "
                               ),
                               _c("input", {
                                 directives: [
@@ -266815,7 +267090,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-4 control-label" },
                             [
-                              _vm._v("Email\n                        "),
+                              _vm._v("\n              Email\n              "),
                               _c("input", {
                                 directives: [
                                   {
@@ -266876,7 +267151,7 @@ var render = function() {
                             { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
-                                "Work Telephone\n                        "
+                                "\n              Work Telephone\n              "
                               ),
                               _c("input", {
                                 directives: [
@@ -266938,7 +267213,7 @@ var render = function() {
                             { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
-                                "Cellphone number\n                        "
+                                "\n              Cellphone number\n              "
                               ),
                               _c("input", {
                                 directives: [
@@ -267003,7 +267278,7 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-12 control-label" },
                             [
-                              _vm._v("Address\n                        "),
+                              _vm._v("\n              Address\n              "),
                               _c("textarea", {
                                 directives: [
                                   {
@@ -267053,7 +267328,9 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-3 control-label" },
                             [
-                              _vm._v("Username\n                        "),
+                              _vm._v(
+                                "\n              Username\n              "
+                              ),
                               _c("input", {
                                 directives: [
                                   {
@@ -267112,7 +267389,9 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-3 control-label" },
                             [
-                              _vm._v("New Password "),
+                              _vm._v(
+                                "\n              New Password\n              "
+                              ),
                               _c("em", [
                                 _c("small", [_vm._v("Default: P@ssword")])
                               ]),
@@ -267182,7 +267461,7 @@ var render = function() {
                             { staticClass: "col-lg-3 control-label" },
                             [
                               _vm._v(
-                                "Confirm New Password\n                        "
+                                "\n              Confirm New Password\n              "
                               ),
                               _c("input", {
                                 directives: [
@@ -267261,11 +267540,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [
-                                  _vm._v(
-                                    "\n                            Add User\n                        "
-                                  )
-                                ]
+                                [_vm._v("Add User")]
                               )
                             ]
                           )
@@ -267281,7 +267556,74 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("All")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Admin")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Account Managers")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [
+        _vm._v("Team Leaders")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col pl-0" }, [
+      _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Agents")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown-menu" }, [
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Calls")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Sales")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Calls")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Sales")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
