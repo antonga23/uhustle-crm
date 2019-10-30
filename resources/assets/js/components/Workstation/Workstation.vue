@@ -5,8 +5,8 @@
   overflow-y: scroll;
 }
 .general-section-stats .agent-stats-1 {
-  padding-top: 4.85%;
-  padding-bottom:4.9%;
+  padding-top: 2%;
+  padding-bottom:3.5%;
   padding-left: 6.4%;
   padding-right: 6.4%;
 }
@@ -21,7 +21,7 @@
 }
 .top-section .col{
   padding: 0 10px; 
-  border-left: 1px solid rgba(0,52,73,1); 
+  border-left: 1px solid rgba(78,77,77,1); 
 }
 .top-section p.bottom{
   font-size: 19px; 
@@ -30,11 +30,11 @@
   color: rgba(30,34,83,1); 
 } 
 .top-section p.top{ 
-  font-size: 13px; 
+  font-size: 12px; 
   color: rgba(78,77,77,1);
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif; 
-  padding-bottom:20px;
+  padding-bottom:10px;
   margin-bottom:0;
 } 
 .card{ 
@@ -55,13 +55,13 @@
   margin-right:2%;
 }
 .client-details .card-body {
-  padding: 1.25rem;
+  padding: 7% 10%;
 }
 .client-details .card-title { 
-  margin-bottom: 0.75rem; 
+  margin-bottom: 8%; 
   padding-bottom: 0.5rem; 
   border-bottom: 1px solid #fff; 
-  font-size:14px;
+  font-size:12px;
   font-family: 'Rubik', sans-serif;
   letter-spacing: 0.05em;
 } 
@@ -85,13 +85,13 @@ h5 .icon{
   margin: -5px 15px 0 0; 
 } 
 p.card-text{ 
-  font-size: 32px; 
+  font-size: 28px; 
   color: #fff; 
   font-weight: bolder; 
   line-height:1em;
 } 
 p.card-link{ 
-  font-size: 16px; 
+  font-size: 12px; 
   color: #fff; 
 } 
 .stats.final-modal {
