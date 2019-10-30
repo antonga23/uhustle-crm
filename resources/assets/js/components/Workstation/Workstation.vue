@@ -24,13 +24,13 @@
   border-left: 1px solid rgba(78,77,77,1); 
 }
 .top-section p.bottom{
-  font-size: 19px; 
+  font-size: 0.99vwx; 
   font-weight: 700; 
   letter-spacing: 0.05em;
   color: rgba(30,34,83,1); 
 } 
 .top-section p.top{ 
-  font-size: 12px; 
+  font-size: 0.63vw; 
   color: rgba(78,77,77,1);
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif; 
@@ -61,7 +61,7 @@
   margin-bottom: 8%; 
   padding-bottom: 0.5rem; 
   border-bottom: 1px solid #fff; 
-  font-size:12px;
+  font-size:0.63vw;
   font-family: 'Rubik', sans-serif;
   letter-spacing: 0.05em;
 } 
@@ -85,13 +85,13 @@ h5 .icon{
   margin: -5px 15px 0 0; 
 } 
 p.card-text{ 
-  font-size: 28px; 
+  font-size: 1.46vw; 
   color: #fff; 
   font-weight: bolder; 
   line-height:1em;
 } 
 p.card-link{ 
-  font-size: 12px; 
+  font-size: 0.63vw; 
   color: #fff; 
 } 
 .stats.final-modal {
@@ -104,11 +104,7 @@ p.card-link{
   margin-bottom:3%;
 }
 .stats .card{ 
-  border-radius: 25px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
-  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
-  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
-  -o-box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+  background-color: transparent;
   margin-left:1.9%;
   margin-right:1.9%;
 } 
@@ -117,6 +113,10 @@ p.card-link{
   padding-right: 6.8%;
   padding-top:6.1%;
   padding-bottom:3.5%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .stats .card h5{ 
   color: #818284; 
@@ -155,17 +155,17 @@ span.right{
   padding-bottom:1.9%;
 }
 .list-group-item .comment-type{ 
-  font-size: 18px;
+  font-size: 0.94vw;
   color: #333333;     
   letter-spacing: 0.1em; 
 }
 .comment-notes{
-  font-size: 12px; 
+  font-size: 0.63vw; 
   color: #999999; 
   font-family: 'Rubik', sans-serif;
 } 
 .authored{      
-  font-size: 12px;
+  font-size: 0.63vw;
   color: #818284;
   font-family: 'Rubik', sans-serif; 
 } 
@@ -194,7 +194,7 @@ span.right{
   float: left; 
 } 
 .comment-desc::placeholder {
-  font-size: 12px; 
+  font-size: 0.63vw; 
   font-weight: 300; 
   font-family: 'Rubik', sans-serif; 
   font-style: italic; 
@@ -212,7 +212,7 @@ span.right{
 .keys p{
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
-  font-size: 8px;
+  font-size: 0.42vw;
   color: #808080;
 }
 .callback-label {
@@ -565,6 +565,7 @@ a.down-scroll:hover{
   border-top-right-radius: 19px; 
   padding: 0 11px 11px; 
   border-color: transparent; 
+  background-color: transparent;
 } 
 .final-modal .card-header a[aria-selected="true"]{ 
   border-bottom: none; 
@@ -572,7 +573,6 @@ a.down-scroll:hover{
 } 
 .nav.nav-tabs.card-header-tabs li a {
   border: 0;
-  background-color: #fff;
   color:#7f8080;
   letter-spacing:0.05em;
   text-align:center;
@@ -662,12 +662,12 @@ a.down-scroll:hover{
   -o-box-shadow: inset 0 -10px 10px #f5f5f5;
 }
 .deals #eight p {
-  font-size: 10px; 
+  font-size: 0.52vw; 
   letter-spacing: 0.05em;
   color: 808080;
 }
 .deals #eight label {
-  font-size: 10px; 
+  font-size: 0.52vw; 
   letter-spacing: 0.05em;
   color: #999999;
   font-family: 'Rubik', sans-serif; 
@@ -680,7 +680,7 @@ a.down-scroll:hover{
   color: #003449;
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
-  font-size: 12px;
+  font-size: 0.63vw;
   padding: 10px 20px!important;
 }
 .deals #eight textarea {
@@ -710,12 +710,12 @@ a.down-scroll:hover{
   padding: 9px;
 }
 .nav-tabs .nav-link span{ 
-  font-size: 14px; 
+  font-size: 0.73vw; 
   padding-left: 10px; 
 }
 #two label{ 
   color: rgb(129, 130, 132); 
-  font-size: 13px;
+  font-size: 0.68vw;
   font-weight: 200; 
 } 
 .vc-reset, .vc-reset * { 
@@ -739,14 +739,14 @@ a.down-scroll:hover{
 }
 .stat-perc {
   letter-spacing: 0.1em;
-  font-size: 16px;
+  font-size: 0.83vw;
   color: #808080;
 }
 .summary-abr {
   letter-spacing: 0.05em;
   color: #333333;
   font-family: 'Rubik', sans-serif; 
-  font-size: 18px;
+  font-size: 0.95vw;
 }
 .progress-bar{
 	background: #E6E6E6;
@@ -764,7 +764,7 @@ a.down-scroll:hover{
   letter-spacing: 0.05em;
   color: #999999;
   font-family: 'Rubik', sans-serif; 
-  font-size: 12px;
+  font-size: 0.63vw;
 }
 #four .text-uppercase.font-weight-bold{
   color: #808080;
@@ -776,7 +776,7 @@ a.down-scroll:hover{
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   font-family: 'Rubik', sans-serif; 
-  font-size: 12px;
+  font-size: 0.63vw;
   letter-spacing: 0.05em;
   border-radius: 50rem!important;
 }
@@ -787,11 +787,18 @@ a.down-scroll:hover{
   overflow-y: auto;
 }
 textarea::placeholder {
-  font-size: 12px; 
+  font-size: 0.63vw; 
   font-weight: 300; 
   font-family: 'Rubik', sans-serif; 
   font-style: italic; 
   color: #999999; 
+}
+.templates {
+  font-size: 0.63vw;
+}
+.callback-calendar-heading {
+  color: rgba(28, 35, 49, 0.5);
+  padding-bottom: 2.5%;
 }
 </style> 
 <template> 
@@ -979,7 +986,7 @@ textarea::placeholder {
 
       <div class="stats final-modal">
         <div class="card-deck mx-0"> 
-          <div class="card left border-0 mb-0 ml-0 tab-card"> 
+          <div class="card left border-0 mb-0 shadow-none ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -1204,7 +1211,7 @@ textarea::placeholder {
                   </div> 
 
                   <div class="col-lg-8 pr-0"> 
-                    <p class="mb-0">Callback Calendar</p>
+                    <p class="mb-0 callback-calendar-heading">Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
@@ -1349,7 +1356,7 @@ textarea::placeholder {
 
                 <div class="row mx-0 align-items-center">
                   <div class="col-auto pl-0">
-                    <p class="text-uppercase font-weight-bold mb-2">Templates:</p>
+                    <p class="text-uppercase font-weight-bold mb-2 templates">Templates:</p>
                   </div>
                   <div class="col-auto pl-0 mb-2 pr-1">
                     <button 
