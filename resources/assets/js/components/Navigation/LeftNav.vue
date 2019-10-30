@@ -166,11 +166,11 @@
 }
 .nav-link span{
   position: relative;
-  left: -200px!important;
+  left: 40px!important;
   top: 19px;
   background: #fff;
   color: #000;
-  font-size: 18px;
+  font-size: 0px;
   letter-spacing:0.05em;
   color: #003549;
   border-radius: 0 50rem 50rem 0;
@@ -187,6 +187,7 @@
   overflow:visible;
   padding: 18px 35px 18px 40px;
   left: 44px!important;
+  font-size: 18px;
 }
 .sidebar-collapse .nav-link span {
   top: 2px;

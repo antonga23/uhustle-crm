@@ -17,20 +17,20 @@
     .main-sidebar,
     .main-sidebar:before {
         transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
-        width: 417px!important;
+        width: 21.718%!important;
     }
     
     .sidebar-collapse .main-sidebar,
     .sidebar-collapse .main-sidebar:before {
         margin-left: 0!important;
-        margin-right: -208px!important;
+        margin-right: -10.833%!important;
     }
     
     @media (max-width: 991.98px) {
         .main-sidebar,
         .main-sidebar:before {
             margin-left: -0!important;
-            margin-left: -208px!important;
+            margin-left: -10.833%!important;
         }
         .sidebar-open .main-sidebar,
         .sidebar-open .main-sidebar:before {
@@ -628,7 +628,7 @@
     
     .menu-toggle {
         position: absolute;
-        right: 417px;
+        right: 100%;
         overflow: visible;
         background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;
         background-size: 140px;

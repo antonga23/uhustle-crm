@@ -438,7 +438,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 @media (min-width: 992px) {
   .sidebar-mini.sidebar-collapse #content-wrapper.content-wrapper {
-    margin-left: 63px!important;
+    margin-left: 3.281%!important;
   }
 }
 @media (min-width: 768px) {
@@ -446,8 +446,8 @@ label:not(.form-check-label):not(.custom-file-label) {
   .sidebar-collapse .main-footer,
   .sidebar-collapse .main-header {
     transition: margin-right 0.3s ease-in-out;
-    margin-left: 63px!important; 
-    margin-right: 209px;
+    margin-left: 3.281%!important; 
+    margin-right: 10.885%;
   }
 }
 
@@ -456,8 +456,8 @@ label:not(.form-check-label):not(.custom-file-label) {
   .main-footer,
   .main-header {
     transition: margin-right 0.3s ease-in-out;
-    margin-left: 63px!important; 
-    margin-right: 417px;
+    margin-left: 3.281%!important; 
+    margin-right: 21.718%;
   }
 }
 
