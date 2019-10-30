@@ -354,7 +354,6 @@ table.listing tr  th{
             </div>
           </div>
         </div> -->
-        <hr class="plr-3" style="margin-bottom: 2%;">
         <div v-if="!add_user" class="plr-3">
             <div class="row stats ml-1 scroll-hidden horizontal-scroll">
                 <div class="col-lg-12 pl-0">
