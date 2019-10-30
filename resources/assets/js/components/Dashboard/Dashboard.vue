@@ -112,8 +112,20 @@
   .agent-details {
     margin-top: 3.1%;
   }
+  .agent-details .container-row .col, .agent-details .container-row .col-3{
+    padding-left: 1.3%;
+    padding-right: 1.3%;
+  }
+  .agent-details .top-row .col {
+    padding-left: 1.7%;
+    padding-right: 1.7%;
+  }
   .agent-details .bottom-row{
     margin-top: 4.7%;
+  }
+  .agent-details .bottom-row .col {
+    padding-left: 1.7%;
+    padding-right: 1.7%;
   }
   .agent-details .card {
     padding: 5% 7%!important;
@@ -214,11 +226,6 @@
     font-family: 'Rubik', sans-serif;
     font-size: 10px;
   }
-  .to-dos {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left:40px;
-  }
   .reminders p {
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
@@ -255,6 +262,29 @@
       background-image: url('/images/DataTables/Edit_Icon_Active.svg');
       background-size: 20px;
       background-repeat: no-repeat;
+  }
+  .callbacks-to-dos {
+    max-height: 414px;
+    overflow-y: auto;
+  }
+  .callbacks-to-dos .border-top {
+    border-color: #CDCDCF;
+  }
+  .callbacks-to-dos .task-time {
+    font-size: 14px;
+    color: #818284;
+    padding-right:3.5%;
+  }
+  .callbacks-to-dos .task-description {
+    height:22px;
+    font-size: 11px;
+    font-weight:500;
+    font-family: 'Rubik', sans-serif;
+    color: #6B6B6B;
+    padding-left:3.5%;
+  }
+  .active-task {
+    background-color:rgba(255,147,58,0.5);
   }
 </style>
 <template>
@@ -453,13 +483,13 @@
                       <div class="row mx-0 justify-content-between">
                         <div class="col-6 px-1">
                           <div class="progress-bar h-100">
-                            <span class="w-100 tank answers" :style="'height:' + '{{ comparison.answers }}' + '%'"></span>
+                            <span class="w-100 tank answers" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
                         </div>
 
                         <div class="col-6 px-1">
                           <div class="progress-bar h-100">
-                            <span class="w-100 tank dialing" :style="'height:' + '{{ comparison.dialing }}' + '%'"></span>
+                            <span class="w-100 tank dialing" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
                         </div>
                       </div>
@@ -492,7 +522,7 @@
         </div>
 
         <div class="col-12 px-0 agent-details">
-          <div class="row mx-0">
+          <div class="row container-row mx-0">
             <div class="col-3 pl-0">
               <div class="card h-100 border-0 target reached">
                 <div class="card-text">
@@ -534,7 +564,7 @@
                   </div>
                 </div>
                 
-                <div class="col p-0">
+                <div class="col">
                   <div class="card border-0 mb-0">
                     <p class="w-100 mb-0 text-capitalize heading">Commission</p>
                     <p class="w-100 mb-0 font-weight-bold detail">$420.23</p>
@@ -592,6 +622,21 @@
             <div class="col border-right to-dos">
               <h4 class="mb-2 font-weight-regular">Callbacks</h4>
               <h4 class="font-weight-regular">Thursday 11/06</h4>
+
+              <div class="callbacks-to-dos">
+                <table class="w-100">
+                  <div v-for="(task, index) in tasks" :key="index">
+                    <tr class="border-top">
+                      <td rowspan="2" width="13.609%" class="task-time">{{ task.time }}</td>
+                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
+                    </tr>
+
+                    <tr class="w-100">
+                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
+                    </tr>
+                  </div>
+                </table>
+              </div>
             </div>
 
             <div class="col pr-0 reminders">
@@ -669,6 +714,32 @@
           { month: "Aug", answers: 25, dialing: 65 },
           { month: "Sept", answers: 5, dialing: 65 },
           { month: "Oct", answers: 15, dialing: 65 },
+        ],
+        tasks: [
+          { time: '00:00', task: null},
+          { time: '01:00', task: null},
+          { time: '02:00', task: null},
+          { time: '03:00', task: null},
+          { time: '04:00', task: null},
+          { time: '05:00', task: null},
+          { time: '06:00', task: null},
+          { time: '07:00', task: null},
+          { time: '08:00', task: 'This is a task'},
+          { time: '09:00', task: null},
+          { time: '10:00', task: null},
+          { time: '11:00', task: null},
+          { time: '12:00', task: null},
+          { time: '13:00', task: null},
+          { time: '14:00', task: null},
+          { time: '15:00', task: null},
+          { time: '16:00', task: null},
+          { time: '17:00', task: null},
+          { time: '18:00', task: null},
+          { time: '19:00', task: null},
+          { time: '20:00', task: null},
+          { time: '21:00', task: null},
+          { time: '22:00', task: null},
+          { time: '23:00', task: null},
         ]
       }
     },
