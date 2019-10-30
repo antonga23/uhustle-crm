@@ -29,12 +29,12 @@
     margin-left: 1.6%;
     margin-right: 1.6%;
     margin-bottom: 8px;
-    font-size:16px;
+    font-size:14px;
   }
   ul.top-menu li.item a{
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    padding: 4px 28px;
+    padding: 4px 22px;
     text-decoration: none;
     box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
@@ -158,7 +158,7 @@
       </ul>
 		</nav>
 
-    <div class="row mx-0 top-nav">
+    <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0">
           <a 

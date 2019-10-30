@@ -17,144 +17,15 @@
 .nav-sidebar > .nav-item {
   width: 63px;
 }
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link:hover {
   background-size: 63px;
   background-position: 5px;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;
 }
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  background-size: 64px;
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link {
   background-repeat: no-repeat;
-  background-position: 3px;
   min-height:64px;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Workstation_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
-  background-image: url('/images/icons/left-sidebar/shadows/Work Station Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Dashboard_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
-  background-image: url('/images/icons/left-sidebar/shadows/Dashboard Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Social Board_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
-  background-image: url('/images/icons/left-sidebar/shadows/Social Board Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Call history_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
-  background-image: url('/images/icons/left-sidebar/shadows/Call History Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Inventory_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory {
-  background-image: url('/images/icons/left-sidebar/shadows/Inventory_Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Transactions_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
-  background-image: url('/images/icons/left-sidebar/shadows/Transactions Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Training_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
-  background-image: url('/images/icons/left-sidebar/shadows/Training Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Contact_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
-  background-image: url('/images/icons/left-sidebar/shadows/Contacts icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Leads_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
-  background-image: url('/images/icons/left-sidebar/shadows/Leads Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/Users_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
-  background-image: url('/images/icons/left-sidebar/shadows/Users Icon.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  background-image: url('/images/icons/left-sidebar/no-shadows/System pref_active.svg') !important;
-  transition: background-image .3s ease;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  background-image: url('/images/icons/left-sidebar/shadows/System Preferences Icon.svg') !important;
   transition: background-image .3s ease;
 }
 .main-sidebar {
@@ -219,6 +90,7 @@
                 title="Dashboard" 
                 :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Dashboard Icon.svg"/>
                 <span>Dashboard</span>
               </a>
             </li>
@@ -230,6 +102,7 @@
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Work Station Icon.svg"/>
                 <span>Workstation</span>
               </a>
             </li>
@@ -240,6 +113,7 @@
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Contacts icon.svg"/>
                 <span>Contacts</span>
               </a>
             </li>
@@ -250,6 +124,7 @@
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg"/>
                 <span>Leads</span>
               </a>
             </li>
@@ -260,6 +135,7 @@
                 title="Call History" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Call History Icon.svg"/>
                 <span>Call History</span>
               </a>
             </li>
@@ -270,6 +146,7 @@
                 title="Inventory" 
                 :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Inventory_Icon.svg"/>
                 <span>Inventory</span>
               </a>
             </li>
@@ -280,6 +157,7 @@
                 title="Transactions" 
                 :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Transactions Icon.svg"/>
                 <span>Transactions</span>
               </a>
             </li>
@@ -290,6 +168,7 @@
                 title="Social Board" 
                 :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Social Board Icon.svg"/>
                 <span>Social Board</span>
               </a>
             </li> -->
@@ -301,6 +180,7 @@
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0" 
                 disabled>
+                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg"/>
                 <span>Education</span>
               </a>
             </li>
@@ -311,6 +191,7 @@
                 title="Users" 
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/Users Icon.svg"/>
                 <span>Users</span>
               </a>
             </li>
@@ -321,6 +202,7 @@
                 title="System Preferences" 
                 :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/shadows/System Preferences Icon.svg"/>
                 <span>System Preferences</span>
               </a>
             </li>

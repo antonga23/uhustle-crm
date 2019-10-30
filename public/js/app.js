@@ -73935,124 +73935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -134270,7 +134152,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover,\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-size: 63px;\r\n  background-position: 5px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-size: 64px;\r\n  background-repeat: no-repeat;\r\n  background-position: 3px;\r\n  min-height:64px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Workstation_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Work Station Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Dashboard_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Dashboard Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Social Board_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Social Board Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Call history_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Call History Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Inventory_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.inventory[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Inventory_Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Transactions_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Transactions Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Training_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Training Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Contact_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Contacts icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Leads_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Leads Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Users_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/Users Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10]:hover {\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/System pref_active.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences[data-v-57a1bf10] {\r\n  background-image: url('/images/icons/left-sidebar/shadows/System Preferences Icon.svg') !important;\r\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: 40px!important;\r\n  top: 19px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 0px;\r\n  letter-spacing:0.05em;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\r\n  font-size: 18px;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\r\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\r\n  padding: 16px 35px 16px 40px;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 53px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 63px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\r\n  background-size: 63px;\r\n  background-position: 5px;\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\r\n  background-repeat: no-repeat;\r\n  min-height:64px;\r\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 63px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: 40px!important;\r\n  top: 19px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 0px;\r\n  letter-spacing:0.05em;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: 44px!important;\r\n  font-size: 18px;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\r\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\r\n  padding: 16px 35px 16px 40px;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -134441,7 +134323,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n    font-size:16px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 28px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n    font-size:14px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
 
 // exports
 
@@ -256898,7 +256780,16 @@ var render = function() {
                     },
                     attrs: { href: "/dashboard", title: "Dashboard" }
                   },
-                  [_c("span", [_vm._v("Dashboard")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "/images/icons/left-sidebar/shadows/Dashboard Icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Dashboard")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256918,7 +256809,16 @@ var render = function() {
                       id: "workstation"
                     }
                   },
-                  [_c("span", [_vm._v("Workstation")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "/images/icons/left-sidebar/shadows/Work Station Icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Workstation")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256934,7 +256834,16 @@ var render = function() {
                     },
                     attrs: { href: "/modules/contacts", title: "Contacts" }
                   },
-                  [_c("span", [_vm._v("Contacts")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "/images/icons/left-sidebar/shadows/Contacts icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Contacts")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256949,7 +256858,15 @@ var render = function() {
                     },
                     attrs: { href: "/modules/leads", title: "Leads" }
                   },
-                  [_c("span", [_vm._v("Leads")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/left-sidebar/shadows/Leads Icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Leads")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256965,7 +256882,16 @@ var render = function() {
                     },
                     attrs: { href: "/call-history", title: "Call History" }
                   },
-                  [_c("span", [_vm._v("Call History")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "/images/icons/left-sidebar/shadows/Call History Icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Call History")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256981,7 +256907,16 @@ var render = function() {
                     },
                     attrs: { href: "/inventory", title: "Inventory" }
                   },
-                  [_c("span", [_vm._v("Inventory")])]
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "/images/icons/left-sidebar/shadows/Inventory_Icon.svg"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Inventory")])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -256998,7 +256933,16 @@ var render = function() {
                         },
                         attrs: { href: "/transactions", title: "Transactions" }
                       },
-                      [_c("span", [_vm._v("Transactions")])]
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "/images/icons/left-sidebar/shadows/Transactions Icon.svg"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Transactions")])
+                      ]
                     )
                   ])
                 : _vm._e(),
@@ -257022,7 +256966,16 @@ var render = function() {
                         disabled: ""
                       }
                     },
-                    [_c("span", [_vm._v("Education")])]
+                    [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "/images/icons/left-sidebar/shadows/Leads Icon.svg"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Education")])
+                    ]
                   )
                 ]
               ),
@@ -257040,7 +256993,16 @@ var render = function() {
                         },
                         attrs: { href: "/users", title: "Users" }
                       },
-                      [_c("span", [_vm._v("Users")])]
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "/images/icons/left-sidebar/shadows/Users Icon.svg"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Users")])
+                      ]
                     )
                   ])
                 : _vm._e(),
@@ -257061,7 +257023,16 @@ var render = function() {
                           title: "System Preferences"
                         }
                       },
-                      [_c("span", [_vm._v("System Preferences")])]
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "/images/icons/left-sidebar/shadows/System Preferences Icon.svg"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("System Preferences")])
+                      ]
                     )
                   ])
                 : _vm._e()
@@ -264156,7 +264127,7 @@ var render = function() {
   return _c("div", { attrs: { id: "preferences" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row mx-0 top-nav" }, [
+    _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
       _c(
         "ul",
         { staticClass: "top-menu w-100" },
