@@ -8,7 +8,7 @@
     font-family: 'Rubik', sans-serif;
     padding-left: 5.2%;
     padding-right: 5.2%;
-    margin-top:3.9%;
+    margin-top:1%;
   }
   #dash-container {
     padding-left: 5.2%;
@@ -30,7 +30,7 @@
   }
   .divider-line {
     height: 1px;
-    background-color: #003449;
+    background-color: #7f99a4;
   }
   #top-section .agent-stats {
     margin-top:2.5%;
@@ -134,16 +134,30 @@
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .agent-details .card .heading {
-    font-size: 18px;
+    font-size: 0.94vw;
     font-family: 'Rubik', sans-serif;
     color: #B3B3B3;
-    margin-bottom: 8px;
+    margin-bottom: 3%;
   }
   .agent-details .card .detail {
-    font-size: 30px;
+    font-size: 1.57vw;
     color: #1A1C43;
     line-height: 1em;
     margin-top:7px;
+  }
+  #three .col {
+    padding-left:3.6%;
+    padding-right:3.6%;
+  }
+  #three .col:first-child {
+    padding-left:0;
+  }
+  #three .col:last-child {
+    padding-right:0;
+  }
+  #three .col-6 {
+    padding-left:5px;
+    padding-right:5px;
   }
   .legend {
     margin-bottom:3.1%;
@@ -157,12 +171,14 @@
     color:#999999;;
     font-size: 0.7vw;
     font-family: 'Rubik', sans-serif;
+    margin-top:20%;
   }
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
     max-width:24px;
     justify-content: flex-end;
+    margin:0 auto;
   }
   .tank{
     border-top-left-radius: 50rem;
@@ -187,9 +203,9 @@
     background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;
   }
   .card.target .heading {
-    font-size: 18px;
+    font-size: 0.94vw;
     color: #fff;
-    margin-bottom:20px;
+    margin-bottom:8%;
   }
   
   #dash-activities {
@@ -213,6 +229,9 @@
     font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
   }
+  #dash-activities .calendar h4 {
+    margin-left:4.3%;
+  }
   .calendar .card {
     padding: 6% 5%!important;
   }
@@ -223,7 +242,7 @@
   .calendar .card-title {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.63vw;
   }
   .calendar p {
     font-family: 'Rubik', sans-serif;
@@ -274,7 +293,7 @@
     border-color: #CDCDCF;
   }
   .callbacks-to-dos .task-time {
-    font-size: 14px;
+    font-size: 0.73vw;
     color: #818284;
     padding-right:3.5%;
   }
@@ -482,15 +501,15 @@
                   </div>
 
                   <div class="row justify-content-between mx-0">
-                    <div class="col-2 px-2" v-for="(comparison, index) in comparisons" :key="index">
+                    <div class="col" v-for="(comparison, index) in comparisons" :key="index">
                       <div class="row mx-0 justify-content-between">
-                        <div class="col-6 px-1">
+                        <div class="col-6 pl-0">
                           <div class="progress-bar h-100">
                             <span class="w-100 tank answers" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
                         </div>
 
-                        <div class="col-6 px-1">
+                        <div class="col-6 pr-0">
                           <div class="progress-bar h-100">
                             <span class="w-100 tank dialing" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
@@ -595,8 +614,7 @@
               <h4 class="font-weight-regular">Filter</h4>
               <vc-calendar 
                 class="border-0" 
-                :attributes='attrs' 
-                title-position="right" 
+                :attributes='attrs'
                 is-expanded 
                 :popover="true" />
               

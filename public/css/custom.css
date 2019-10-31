@@ -441,17 +441,24 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 /*end Register Stepper*/
 /*vc calendar styling*/
+.vc-header {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
 .vc-title-wrapper .vc-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 13px;
+  font-size: 0.68vw;
   letter-spacing: 0.05em;
   color: rgba(28, 35, 49, 0.5);
+}
+.vc-grid-container {
+  padding: 0!important;
 }
 .vc-svg-icon {
   color: rgba(28, 35, 49, 0.5);
 }
 .vc-day .vc-h-full {
-  padding:0.5em;
+  padding:13.5%;
 }
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{
 	color: #1e2331;
@@ -462,7 +469,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 .vc-day-content.vc-font-medium{
   font-family: Montserrat, sans-serif;
   color: #1e2331;
-  font-size: 14px;
+  font-size: 0.74vw;
   font-weight:400;
 }
 .vc-rounded-full {
