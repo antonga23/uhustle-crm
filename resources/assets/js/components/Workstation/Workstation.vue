@@ -114,7 +114,10 @@ p.card-link{
   padding-top:6.1%;
   padding-bottom:3.5%;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px 10px #e6e6e6;
+  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+  -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+  -o-box-shadow: 0 0 20px 10px #e6e6e6;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -564,7 +567,7 @@ a.down-scroll:hover{
   border-top-left-radius: 19px; 
   border-top-right-radius: 19px; 
   padding: 0 11px 11px; 
-  border-color: transparent; 
+  border: 0; 
   background-color: transparent;
 } 
 .final-modal .card-header a[aria-selected="true"]{ 
@@ -576,75 +579,28 @@ a.down-scroll:hover{
   color:#7f8080;
   letter-spacing:0.05em;
   text-align:center;
-  padding-top:0;
-  padding-bottom:0;
+  padding-top:19px;
+  padding-bottom:12px;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
-  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
-  -moz-box-shadow: 10px -10px 10px #f5f5f5;
-  -o-box-shadow: 10px -10px 10px #f5f5f5;
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"]{
+  box-shadow: -5px -8px 10px #e6e6e6, 5px -8px 10px #e6e6e6;
+  -webkit-box-shadow: -5px -8px 10px #e6e6e6, 5px -8px 10px #e6e6e6;
+  -moz-box-shadow: -5px -8px 10px #e6e6e6, 5px -8px 10px #e6e6e6;
+  -o-box-shadow: -5px -8px 10px #e6e6e6, 5px -8px 10px #e6e6e6;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
-  box-shadow: inset -7px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset -7px -10px 10px #f5f5f5;
-  -moz-box-shadow: inset -7px -10px 10px #f5f5f5;
-  -o-box-shadow: inset -7px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius:0;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{
-  -webkit-box-shadow: -10px -10px 10px #f5f5f5;
-  -moz-box-shadow: -10px -10px 10px #f5f5f5;
-  -o-box-shadow: -10px -10px 10px #f5f5f5;
-  box-shadow: -10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
-  box-shadow: inset 7px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
-  -moz-box-shadow: inset 7px -10px 10px #f5f5f5;
-  -o-box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-top-right-radius: 25px;
-  border-top-left-radius:0;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Seven"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
-  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
-  -moz-box-shadow: 10px -10px 10px #f5f5f5;
-  -o-box-shadow: 10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Seven"]{
-  box-shadow: inset -7px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset -7px -10px 10px #f5f5f5;
-  -moz-box-shadow: inset -7px -10px 10px #f5f5f5;
-  -o-box-shadow: inset -7px -10px 10px #f5f5f5;
-  border-bottom-right-radius: 25px;
-  border-top-left-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Eight"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
-  -webkit-box-shadow: 10px -10px 10px #f5f5f5;
-  -moz-box-shadow: 10px -10px 10px #f5f5f5;
-  -o-box-shadow: 10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
-  box-shadow: inset 7px -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
-  -moz-box-shadow: inset 7px -10px 10px #f5f5f5;
-  -o-box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 .activities {
  margin-bottom:3.2%;
+}
+.activities .tab-content, .deals .tab-content {
+  background: #fff;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 0 20px 10px #e6e6e6;
+  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+  -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+  -o-box-shadow: 0 0 20px 10px #e6e6e6;
 }
 .activities .card .tab-pane, .deals .card .tab-pane {
   padding-left: 4.5%;
@@ -652,14 +608,11 @@ a.down-scroll:hover{
   padding-top:3.2%;
   padding-bottom:9%;
 }
-.activities .card-header, .deals .card-header{
-  background: #fff;
-}
 .activities .card-header-tabs, .deals .card-header-tabs {
-  box-shadow: inset 0 -10px 10px #f5f5f5;
-  -webkit-box-shadow: inset 0 -10px 10px #f5f5f5;
-  -moz-box-shadow: inset 0 -10px 10px #f5f5f5;
-  -o-box-shadow: inset 0 -10px 10px #f5f5f5;
+  box-shadow: inset 0 -10px 10px #e6e6e6;
+  -webkit-box-shadow: inset 0 -10px 10px #e6e6e6;
+  -moz-box-shadow: inset 0 -10px 10px #e6e6e6;
+  -o-box-shadow: inset 0 -10px 10px #e6e6e6;
 }
 .deals #eight p {
   font-size: 0.52vw; 
@@ -1000,12 +953,12 @@ textarea::placeholder {
                     aria-selected="true"
                   > 
                     <img 
-                      src="/images/icons/workstation/Agent_Notes.svg" 
+                      src="/images/icons/workstation/Agent Notes.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="60"
+                      width="13%"
                     /> 
-                    <span>Agents Notes</span>
+                    <span>Agent Notes</span>
                   </a> 
                 </li> 
 
@@ -1020,10 +973,10 @@ textarea::placeholder {
                     aria-selected="false"
                   > 
                     <img 
-                      src="/images/icons/workstation/Schedual_Callback.svg" 
+                      src="/images/icons/workstation/Schedule Callback.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="60"
+                      width="13%"
                     /> 
                     <span>Schedule Callback</span> 
                   </a> 
@@ -1031,7 +984,7 @@ textarea::placeholder {
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
                 class="tab-pane fade show active" 
                 id="one" 
@@ -1252,7 +1205,7 @@ textarea::placeholder {
             </div> 
           </div>
  
-          <div class="card left mr-0 mb-0 border-0 tab-card"> 
+          <div class="card left mr-0 mb-0 border-0 shadow-none tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
@@ -1266,10 +1219,10 @@ textarea::placeholder {
                     aria-selected="true"
                   > 
                     <img 
-                      src="/images/icons/workstation/Feedback_summary.svg" 
+                      src="/images/icons/workstation/Feeback Summary.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="60"/> 
+                      width="13%"/> 
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
@@ -1283,14 +1236,14 @@ textarea::placeholder {
                     aria-controls="Four" 
                     aria-selected="false"
                   > 
-                    <img src="/images/icons/workstation/Email_Client.svg" alt="Icon" class="icon" width="60"/> 
+                    <img src="/images/icons/workstation/Email Client.svg" alt="Icon" class="icon" width="13%"/> 
                     <span class="left">Email Client</span> 
                   </a> 
                 </li> 
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
                 class="tab-pane fade show active p-3" 
                 id="three" 
@@ -1417,7 +1370,7 @@ textarea::placeholder {
         <!-- Activities Starts -->
         <div class="row mx-0 activities"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left border-0 mx-0 mb-0 tab-card"> 
+            <div class="card left border-0 shadow-none mx-0 mb-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
@@ -1434,7 +1387,7 @@ textarea::placeholder {
                         src="/images/icons/workstation/Open Activities.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Open Activities</span> 
                     </a> 
@@ -1451,10 +1404,10 @@ textarea::placeholder {
                       aria-selected="false"
                     > 
                       <img 
-                        src="/images/icons/workstation/Closed_activites.svg" 
+                        src="/images/icons/workstation/Closed Activities.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Closed Activities</span> 
                     </a> 
@@ -1462,7 +1415,7 @@ textarea::placeholder {
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="five" role="tabpanel" 
@@ -1509,7 +1462,7 @@ textarea::placeholder {
         <!-- Deals Starts -->
         <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left border-0 mx-0 mb-0 tab-card"> 
+            <div class="card left border-0 shadow-none mx-0 mb-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
@@ -1526,7 +1479,7 @@ textarea::placeholder {
                         src="/images/icons/workstation/Deals.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Deals</span> 
                     </a> 
@@ -1547,7 +1500,6 @@ textarea::placeholder {
                         alt="Icon" 
                         class="icon" 
                         width="36"
-                        style="margin-top:11px; margin-bottom:11px;"
                       /> 
                       <span>Create a Deal</span> 
                     </a> 
@@ -1555,7 +1507,7 @@ textarea::placeholder {
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="seven" role="tabpanel" 
@@ -1575,106 +1527,101 @@ textarea::placeholder {
                     <div class="col-7 pl-0">
                       <div class="row mx-0">
                         <div class="col-6 pl-0">
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name
-                            <input 
-                              type="text" 
-                              id="agent-name"  
-                              name="AgentName"
-                              class="form-control border-0 rounded-pill"/>
-                          </label>
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name
-                            <input 
-                              type="text" 
-                              id="deal-name"  
-                              name="DealName"
-                              class="form-control border-0 rounded-pill"/>
-                          </label>
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date
-                            <input 
-                              type="date" 
-                              id="closing-date"  
-                              name="ClosingDate"
-                              class="form-control border-0 rounded-pill"/>
-                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name</label>
+                          <input 
+                            type="text" 
+                            id="agent-name"  
+                            name="AgentName"
+                            class="form-control border-0 rounded-pill"/>
+
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name</label>
+                          <input 
+                            type="text" 
+                            id="deal-name"  
+                            name="DealName"
+                            class="form-control border-0 rounded-pill"/>
+                          
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date</label>
+                          <input 
+                            type="date" 
+                            id="closing-date"  
+                            name="ClosingDate"
+                            class="form-control border-0 rounded-pill"/>
                         </div>
                         <div class="col-6 pr-0">
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type
-                            <select class="custom-select rounded-pill border-0">
-                              <option selected>-None-</option>
-                              <option value="1">Existing Business</option>
-                              <option value="2">New Business</option>
-                            </select>
-                          </label>
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source
-                            <select class="custom-select rounded-pill border-0">
-                              <option selected>-None-</option>
-                              <option value="1">Advertising</option>
-                              <option value="2">Cold Call</option>
-                              <option value="3">Employee Referral</option>
-                              <option value="4">External Referral</option>
-                              <option value="5">Online Store</option>
-                            </select>
-                          </label>
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount
-                            <input 
-                              type="number" 
-                              id="amount"  
-                              name="Amount"
-                              class="form-control border-0 rounded-pill"/>
-                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>
+                          <select class="custom-select rounded-pill border-0">
+                            <option selected>-None-</option>
+                            <option value="1">Existing Business</option>
+                            <option value="2">New Business</option>
+                          </select>
+
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source</label>
+                          <select class="custom-select rounded-pill border-0">
+                            <option selected>-None-</option>
+                            <option value="1">Advertising</option>
+                            <option value="2">Cold Call</option>
+                            <option value="3">Employee Referral</option>
+                            <option value="4">External Referral</option>
+                            <option value="5">Online Store</option>
+                          </select>
+                          
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount</label>
+                          <input 
+                            type="number" 
+                            id="amount"  
+                            name="Amount"
+                            class="form-control border-0 rounded-pill"/>
                         </div>
 
                         <div class="col-12 px-0">
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information
-                            <textarea 
-                              id="info"  
-                              name="Info"
-                              class="form-control border-0"/>
-                          </label>
+                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information</label>
+                          <textarea 
+                            id="info"  
+                            name="Info"
+                            class="form-control border-0"/>
                         </div>
                       </div>
-
                     </div>
 
                     <div class="col-3">
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage
-                        <select class="custom-select rounded-pill border-0">
-                          <option selected>-None-</option>
-                          <option value="1">Qualification</option>
-                          <option value="2">Needs Analysis</option>
-                          <option value="3">Value Proposition</option>
-                          <option value="4">Proposal</option>
-                          <option value="5">Negotiation</option>
-                        </select>
-                      </label>
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)
-                        <input 
-                          type="text" 
-                          id="probability"  
-                          name="Probability"
-                          class="form-control border-0 rounded-pill"/>
-                      </label>
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue
-                        <input 
-                          type="number" 
-                          id="revenue"  
-                          name="Revenue"
-                          class="form-control border-0 rounded-pill"/>
-                      </label>
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name
-                        <input 
-                          type="text" 
-                          id="contact-name"  
-                          name="ContactName"
-                          class="form-control border-0 rounded-pill"/>
-                      </label>
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number
-                        <input 
-                          type="tel" 
-                          id="contact-number"  
-                          name="ContactNumber"
-                          class="form-control border-0 rounded-pill"/>
-                      </label>
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage</label>
+                      <select class="custom-select rounded-pill border-0">
+                        <option selected>-None-</option>
+                        <option value="1">Qualification</option>
+                        <option value="2">Needs Analysis</option>
+                        <option value="3">Value Proposition</option>
+                        <option value="4">Proposal</option>
+                        <option value="5">Negotiation</option>
+                      </select>
+                      
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)</label>
+                      <input 
+                        type="text" 
+                        id="probability"  
+                        name="Probability"
+                        class="form-control border-0 rounded-pill"/>
+                      
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue</label>
+                      <input 
+                        type="number" 
+                        id="revenue"  
+                        name="Revenue"
+                        class="form-control border-0 rounded-pill"/>
+                      
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>
+                      <input 
+                        type="text" 
+                        id="contact-name"  
+                        name="ContactName"
+                        class="form-control border-0 rounded-pill"/>
+                      
+                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number</label>
+                      <input 
+                        type="tel" 
+                        id="contact-number"  
+                        name="ContactNumber"
+                        class="form-control border-0 rounded-pill"/>
                     </div>
 
                     <div class="col-2 align-self-end pr-0">
@@ -1956,8 +1903,8 @@ textarea::placeholder {
           </div>     
 
           <div class="row stats final-modal"> 
-            <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+            <div class="col-lg-6 p-0"> 
+              <div class="card left mt-3 border-0 shadow-none tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
@@ -1970,7 +1917,7 @@ textarea::placeholder {
                         aria-controls="One" 
                         aria-selected="true"
                       > 
-                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="60"/> 
+                        <img src="/images/icons/workstation/Agent Notes.svg" alt="Icon" class="icon" width="13%"/> 
                         <span>Agent Notes</span>  
                       </a> 
                     </li> 
@@ -1984,14 +1931,14 @@ textarea::placeholder {
                         aria-controls="Two" 
                         aria-selected="false"
                       > 
-                        <img src="/images/icons/workstation/Schedual_Callback.svg" alt="Icon" class="icon" width="60"/> 
+                        <img src="/images/icons/workstation/Schedule Callback.svg" alt="Icon" class="icon" width="13%"/> 
                         <span>Schedule Callback</span> 
                       </a> 
                     </li> 
                   </ul> 
                 </div> 
 
-                <div class="tab-content" id="myTabContent"> 
+                <div class="tab-content h-100" id="myTabContent"> 
                   <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
                     <div class="notes-roll"> 
                       <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
@@ -2142,8 +2089,8 @@ textarea::placeholder {
               </div> 
             </div> 
 
-            <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+            <div class="col-lg-6 p-0"> 
+              <div class="card left mt-3 border-0 shadow-none tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
@@ -2157,13 +2104,12 @@ textarea::placeholder {
                         aria-selected="true"
                       > 
                         <img 
-                          src="/images/workstation/Feedback_Summary.svg" 
+                          src="/images/workstation/Feeback Summary.svg" 
                           alt="Icon" 
                           class="icon"
                           width="23"
                         /> 
-                        <span class="left">Feedback Summary</span> 
-                        <span class="right">{{ comments.total_comments }}</span> 
+                        <span class="left">Feedback Summary</span>
                       </a> 
                     </li> 
                     <li class="nav-item right"> 
@@ -2177,7 +2123,7 @@ textarea::placeholder {
                         aria-selected="false"
                       > 
                         <img 
-                          src="/images/workstation/Email_Client.svg" 
+                          src="/images/workstation/Email Client.svg" 
                           alt="Icon" 
                           class="icon" 
                           width="23"
@@ -2188,13 +2134,12 @@ textarea::placeholder {
                   </ul> 
                 </div> 
 
-                <div class="tab-content" id="myTabContent"> 
+                <div class="tab-content h-100" id="myTabContent"> 
                   <div 
                     class="tab-pane fade show active p-3" 
                     id="three" 
                     role="tabpanel" 
-                    aria-labelledby="three-tab" 
-                    style="height: 349px;"
+                    aria-labelledby="three-tab"
                   >
                     <!-- <div class="verticalChart"> 
                       <div class="singleBar" v-for="(bar,index) in comments_graph" :key="index"> 
@@ -2305,7 +2250,7 @@ textarea::placeholder {
             </div>
 
             <div class="col-lg-6" style="padding-left: 3%;">
-              <div class="card left mt-3 tab-card">
+              <div class="card left mt-3 shadow-none tab-card">
                 <div class="card-header tab-card-header">
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item left">
@@ -2319,7 +2264,7 @@ textarea::placeholder {
                         aria-selected="true"
                       >
                         <img 
-                          src="/images/workstation/Feedback_Summary.svg" 
+                          src="/images/workstation/Feeback Summary.svg" 
                           alt="Icon" 
                           class="icon" 
                           width="23"/>
@@ -2339,7 +2284,7 @@ textarea::placeholder {
                         aria-controls="Four" aria-selected="false"
                       >
                         <img 
-                          src="/images/workstation/Email_Client.svg" 
+                          src="/images/workstation/Email Client.svg" 
                           alt="Icon" 
                           class="icon" 
                           width="23"/>
@@ -2349,7 +2294,7 @@ textarea::placeholder {
                   </ul>
                 </div>
 
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content h-100" id="myTabContent">
                   <div 
                     class="tab-pane fade show active p-3" 
                     id="three" 
