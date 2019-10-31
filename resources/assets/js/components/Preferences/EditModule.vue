@@ -1,14 +1,14 @@
 <style scoped>
-#preferences {
-  height:100vh;
-  overflow-y: auto;
-}
+  #preferences {
+    height:100vh;
+    overflow-y: auto;
+  }
   .tab-pane{
     padding: 4.4% 5.6% 6.8%;
   }
   .help-block{
     color: #dc3545;
-    font-size: 12px;
+    font-size: 0.63vw;
   }
   .b-container{
     margin-bottom: 25px
@@ -22,6 +22,7 @@
   }
   td {
     vertical-align:baseline;
+    padding-top:1%;
     padding-bottom:1.1%;
   }
   .scrollable{
@@ -34,23 +35,32 @@
   .add-fields {
     margin-top:1.6%;
   }
-  input {
+  .col-sm-6 input {
     border-radius: 50rem;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     padding: 11px 18px!important;
-    font-size: 12px;
+    font-size: 0.63vw;
     color: #003449;
     border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
     height:auto!important;
   }
+  .scrollable input{
+    font-size: 0.63vw;
+    color: #003449;
+    font-family: 'Rubik', sans-serif;
+    height:auto!important;
+    border:0;
+    margin-left:8px;
+  }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 10px;
+    font-size: 0.52vw;
     color: #999999;
     margin-bottom:7px;
+    margin-left:17px;
   }
   h5 {
     font-size: 16px;
@@ -64,7 +74,7 @@
     color: #999999;    
     border: none!important;
     padding: 11px 14px 10px;
-    font-size: 10px;
+    font-size: 0.52vw;
     text-transform:uppercase;
     border-radius: 50rem!important;
     line-height:1em;
@@ -77,7 +87,7 @@
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 10px;
+    font-size: 0.52vw;
     padding: 11px 14px 10px;
     line-height:1em;
     margin-left: 0.9%;
@@ -96,6 +106,18 @@
     -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
     border-radius: 50rem;
   }
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
+  tr:last-child {
+    border-bottom: 0;
+  }
+  .truncate {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
 </style>
 <template>
   <div id="edit-module">
@@ -107,7 +129,7 @@
             <img @click="deleteModule()" src="images/icons/delete.svg" width="16"/>
           </template>
 
-          <div class="row mx-0 align-items-center fields-divider">
+          <div class="row my-0 mx-0 align-items-center fields-divider">
             <div class="col-auto pl-0">
               <h5 class="mb-0">Module Information</h5>
             </div>
@@ -258,14 +280,14 @@
                 v-for="(field, index) in module.module_fields" 
                 :key="index"
               >
-                <td class="pt-0 pl-0">
-                  <label for="input-none">Field name:</label>
+                <td class="pl-0">
+                  <label for="input-none w-100">Field name:</label>
                   <a-input 
                     id="input-none" 
                     v-model="field.display_name" 
                     v-validate="'required'" 
                     :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
-                    class="w-100"
+                    class="border-0"
                   ></a-input>
                   <span 
                     v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
@@ -273,12 +295,12 @@
                   >{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
                 </td>
 
-                <td class="pt-0">
-                  <label for="input-none" class="w-100">Field type:</label>
+                <td>
+                  <label for="input-none" class="w-100 ml-0">Field type:</label>
                   <a-select 
                     v-model="field.type" 
                     placeholder="Select"
-                    class="w-100"
+                    class="border-0"
                   >
                     <a-select-option 
                       :value="type.value" 
@@ -292,12 +314,12 @@
                   >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
                 </td>
 
-                <td class="pt-0">
-                  <label for="input-none" class="w-100">Required:</label>
+                <td>
+                  <label for="input-none" class="w-100 ml-0">Required:</label>
                   <a-select 
                     v-model="field.required" 
                     placeholder="Select"
-                    class="w-100"
+                    class="border-0 w-100"
                   >
                     <a-select-option value="1">Yes</a-select-option>
                     <a-select-option value="0">No</a-select-option>
@@ -308,13 +330,13 @@
                   >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
                 </td>
 
-                <td class="pt-0">
-                  <label for="input-none">Can Read:</label>
+                <td>
+                  <label for="input-none" class="w-100 ml-1">Can Read:</label>
                   <a-select 
                     mode="multiple"
                     v-model="field.can_read" 
                     placeholder="Select"
-                    class="w-100"
+                    class="border-0 w-100"
                   >
                     <a-select-option 
                       :value="role.id" 
@@ -324,13 +346,13 @@
                   </a-select>
                 </td>
 
-                <td class="pt-0">
-                  <label for="input-none" class="w-100">Can Edit:</label>
+                <td>
+                  <label for="input-none" class="w-100 ml-1">Can Edit:</label>
                   <a-select 
                     mode="multiple"
                     v-model="field.can_edit" 
                     placeholder="Select"
-                    class="w-100"
+                    class="border-0 w-100"
                   >
                     <a-select-option 
                       :value="role.id" 
@@ -340,7 +362,7 @@
                   </a-select>
                 </td>
 
-                <td class="pt-0">
+                <td>
                   <b-button
                     v-if="(index + 1) < module.module_fields.length" 
                     @click="removeField(index)"

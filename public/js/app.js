@@ -76844,6 +76844,134 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -76871,7 +76999,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       types: [{
         value: null,
-        text: 'Please select'
+        text: 'Select'
       }, {
         value: 'text',
         text: 'Text'
@@ -76979,6 +77107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -77190,6 +77319,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -77257,6 +77387,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -77830,6 +77982,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -77912,6 +78068,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -134228,7 +134389,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\ninput[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\nh5[data-v-e8b89162] {\n  font-size: 16px;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 0.63vw;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\ntable[data-v-e8b89162] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-e8b89162] {\n  vertical-align:baseline;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n.add-fields[data-v-e8b89162] {\n  border-color: #ccc;\n}\n.add-fields[data-v-e8b89162]:last-child {\n  border: 0!important;\n}\n.col-sm-6 input[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\n.col input[data-v-e8b89162], .col-sm-1[data-v-e8b89162], .col-sm-2[data-v-e8b89162], .col-sm-3 input[data-v-e8b89162] {\n  font-size: 0.63vw;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\nh5[data-v-e8b89162] {\n  font-size: 0.83vw;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
 
 // exports
 
@@ -134247,7 +134408,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
 
 // exports
 
@@ -134266,7 +134427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
 
 // exports
 
@@ -134285,7 +134446,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\r\n  height:100vh;\r\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\r\n    padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\r\n    color: #dc3545;\r\n    font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\r\n    margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\r\n    padding-right: 1.2%;\r\n    padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\r\n    width:-webkit-max-content;\r\n    width:-moz-max-content;\r\n    width:max-content;\n}\ntd[data-v-37c5ed24] {\r\n    vertical-align:baseline;\r\n    padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\r\n    height: 500px;\r\n    overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\r\n    color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\r\n    margin-top:1.6%;\n}\ninput[data-v-37c5ed24] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    padding: 11px 18px!important;\r\n    font-size: 12px;\r\n    color: #003449;\r\n    border-color: #ccc;\r\n    margin-bottom: 17px;\r\n    font-family: 'Rubik', sans-serif;\r\n    height:auto!important;\n}\nlabel[data-v-37c5ed24] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 10px;\r\n    color: #999999;\r\n    margin-bottom:7px;\n}\nh5[data-v-37c5ed24] {\r\n    font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\r\n    margin-top:3.7%;\r\n    margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\r\n    background: #fff;\r\n    color: #999999;    \r\n    border: none!important;\r\n    padding: 11px 14px 10px;\r\n    font-size: 10px;\r\n    text-transform:uppercase;\r\n    border-radius: 50rem!important;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\r\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\r\n    border-radius: 50rem!important;\r\n    text-transform:uppercase;\r\n    font-size: 10px;\r\n    padding: 11px 14px 10px;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\r\n    line-height: 1em;\r\n    background: transparent;\r\n    border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\r\n    margin-left:20px;\r\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    border-radius: 50rem;\n}\r\n", ""]);
+exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\n  height:100vh;\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 0.63vw;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.2%;\n  padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n  padding-top:1%;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 500px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\n.col-sm-6 input[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.scrollable input[data-v-37c5ed24]{\n  font-size: 0.63vw;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n  margin-left:8px;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left:17px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\n  margin-left:20px;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\ntr[data-v-37c5ed24] {\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-37c5ed24]:last-child {\n  border-bottom: 0;\n}\n.truncate[data-v-37c5ed24] {\n  max-width: 200px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n", ""]);
 
 // exports
 
@@ -134304,7 +134465,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.ant-switch.ant-switch-checked[data-v-81b88ba4] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -134323,7 +134484,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n    font-size:14px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 16px;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n    color: #999999;\n    margin-top: 4.6%;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
 
 // exports
 
@@ -262683,7 +262844,8 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "row mx-0 align-items-center fields-divider"
+                      staticClass:
+                        "row mt-0 mx-0 align-items-center fields-divider"
                     },
                     [
                       _c("div", { staticClass: "col-auto pl-0" }, [
@@ -262790,11 +262952,14 @@ var render = function() {
                   _vm._l(_vm.new_module.module_fields, function(field, index) {
                     return _c(
                       "b-row",
-                      { key: index, staticClass: "mx-0 add-fields" },
+                      {
+                        key: index,
+                        staticClass: "mx-0 border-bottom add-fields"
+                      },
                       [
                         _c(
                           "b-col",
-                          { staticClass: "pl-0", attrs: { sm: "3" } },
+                          { staticClass: "pt-0 pl-0", attrs: { sm: "3" } },
                           [
                             _c("label", { attrs: { for: "input-none" } }, [
                               _vm._v("Field name:")
@@ -262856,15 +263021,20 @@ var render = function() {
                           "b-col",
                           { attrs: { sm: "2" } },
                           [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Field type:")
-                            ]),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "w-100 ml-0",
+                                attrs: { for: "input-none" }
+                              },
+                              [_vm._v("Field type:")]
+                            ),
                             _vm._v(" "),
                             _c(
                               "a-select",
                               {
-                                staticClass: "w-100",
-                                attrs: { placeholder: "Please select" },
+                                staticClass: "border-0",
+                                attrs: { placeholder: "Select" },
                                 model: {
                                   value: field.type,
                                   callback: function($$v) {
@@ -262917,15 +263087,20 @@ var render = function() {
                           "b-col",
                           { attrs: { sm: "1" } },
                           [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Required:")
-                            ]),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "w-100 ml-0",
+                                attrs: { for: "input-none" }
+                              },
+                              [_vm._v("Required:")]
+                            ),
                             _vm._v(" "),
                             _c(
                               "a-select",
                               {
-                                staticClass: "w-100",
-                                attrs: { placeholder: "Please select" },
+                                staticClass: "border-0 w-100",
+                                attrs: { placeholder: "Select" },
                                 model: {
                                   value: field.required,
                                   callback: function($$v) {
@@ -262983,17 +263158,22 @@ var render = function() {
                         _c(
                           "b-col",
                           [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Can Read:")
-                            ]),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "w-100 ml-1",
+                                attrs: { for: "input-none" }
+                              },
+                              [_vm._v("Can Read:")]
+                            ),
                             _vm._v(" "),
                             _c(
                               "a-select",
                               {
-                                staticClass: "w-100",
+                                staticClass: "border-0 w-100",
                                 attrs: {
                                   mode: "multiple",
-                                  placeholder: "Please select multiple"
+                                  placeholder: "Select"
                                 },
                                 model: {
                                   value: field.can_read,
@@ -263020,17 +263200,22 @@ var render = function() {
                           "b-col",
                           { staticClass: "pr-0" },
                           [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Can Edit:")
-                            ]),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "w-100 ml-1",
+                                attrs: { for: "input-none" }
+                              },
+                              [_vm._v("Can Edit:")]
+                            ),
                             _vm._v(" "),
                             _c(
                               "a-select",
                               {
-                                staticClass: "w-100",
+                                staticClass: "w-100 border-0",
                                 attrs: {
                                   mode: "multiple",
-                                  placeholder: "Please select multiple"
+                                  placeholder: "Select"
                                 },
                                 model: {
                                   value: field.can_edit,
@@ -263512,7 +263697,8 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "row mx-0 align-items-center fields-divider"
+                      staticClass:
+                        "row my-0 mx-0 align-items-center fields-divider"
                     },
                     [
                       _c("div", { staticClass: "col-auto pl-0" }, [
@@ -263630,11 +263816,13 @@ var render = function() {
                         return _c("tr", { key: index }, [
                           _c(
                             "td",
-                            { staticClass: "pt-0 pl-0" },
+                            { staticClass: "pl-0" },
                             [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Field name:")
-                              ]),
+                              _c(
+                                "label",
+                                { attrs: { for: "input-none w-100" } },
+                                [_vm._v("Field name:")]
+                              ),
                               _vm._v(" "),
                               _c("a-input", {
                                 directives: [
@@ -263645,7 +263833,7 @@ var render = function() {
                                     expression: "'required'"
                                   }
                                 ],
-                                staticClass: "w-100",
+                                staticClass: "border-0",
                                 attrs: {
                                   id: "input-none",
                                   "data-vv-name":
@@ -263692,12 +263880,11 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "td",
-                            { staticClass: "pt-0" },
                             [
                               _c(
                                 "label",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "w-100 ml-0",
                                   attrs: { for: "input-none" }
                                 },
                                 [_vm._v("Field type:")]
@@ -263706,7 +263893,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "border-0",
                                   attrs: { placeholder: "Select" },
                                   model: {
                                     value: field.type,
@@ -263761,12 +263948,11 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "td",
-                            { staticClass: "pt-0" },
                             [
                               _c(
                                 "label",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "w-100 ml-0",
                                   attrs: { for: "input-none" }
                                 },
                                 [_vm._v("Required:")]
@@ -263775,7 +263961,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "border-0 w-100",
                                   attrs: { placeholder: "Select" },
                                   model: {
                                     value: field.required,
@@ -263833,16 +264019,20 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "td",
-                            { staticClass: "pt-0" },
                             [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Can Read:")
-                              ]),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "w-100 ml-1",
+                                  attrs: { for: "input-none" }
+                                },
+                                [_vm._v("Can Read:")]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "border-0 w-100",
                                   attrs: {
                                     mode: "multiple",
                                     placeholder: "Select"
@@ -263870,12 +264060,11 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "td",
-                            { staticClass: "pt-0" },
                             [
                               _c(
                                 "label",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "w-100 ml-1",
                                   attrs: { for: "input-none" }
                                 },
                                 [_vm._v("Can Edit:")]
@@ -263884,7 +264073,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "w-100",
+                                  staticClass: "border-0 w-100",
                                   attrs: {
                                     mode: "multiple",
                                     placeholder: "Select"
@@ -263912,7 +264101,6 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "td",
-                            { staticClass: "pt-0" },
                             [
                               index + 1 < _vm.module.module_fields.length
                                 ? _c(
@@ -264449,7 +264637,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "p-0 expand-toggle",
+                                                  "py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -264713,7 +264901,7 @@ var render = function() {
                                                         }
                                                       ],
                                                       staticClass:
-                                                        "p-0 expand-toggle",
+                                                        "py-0 pr-0 expand-toggle",
                                                       attrs: {
                                                         block: "",
                                                         href: "#",
