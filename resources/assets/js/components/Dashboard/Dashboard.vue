@@ -14,7 +14,7 @@
     padding-left: 5.2%;
     padding-right: 5.2%;
     background-color: #F7F7F7;
-    margin-top: 3.7%;
+    margin-top: 1%;
   }
   #top-section {
     padding-top:1%;
