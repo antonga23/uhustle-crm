@@ -17,8 +17,8 @@
     
     .main-sidebar,
     .main-sidebar:before {
-        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
-        width: 417px!important;
+        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important; 
+        width: 21.718%!important; 
     }
     
     .sidebar-collapse .main-sidebar,
@@ -409,13 +409,24 @@
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         letter-spacing: 0.05em;
     }
+    .notifications-close img {
+        width: 20px;
+        top: 5px;
+        position: relative;
+    }
     
-    .btn-has-new {
-        background-image: url('/images/icons/Dot.png') !important;
+    .btn-has-new-dot {
+        background-image: url('/images/icons/Red-Notification-Dot.svg') !important;
         background-size: 12px 12px;
         background-repeat: no-repeat;
         background-position: right top;
-    }
+        width: 13px;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+        left: 66px;
+        top: -5px;
+        }
 
      .btn-has-new-messages {
         background-image: url('/images/icons/blue dot.svg') !important;
@@ -535,7 +546,7 @@
     }
 
     .card-body-notifications {
-        padding: 12px 22px;
+        padding: 11px 10px;
     }
     .card-body-notifications img {
         padding-right: 10px;
@@ -674,15 +685,15 @@
     }
     
     .menu-toggle {
-        position: absolute;
-        right: 417px;
-        overflow: visible;
-        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;
-        background-size: 140px;
+       position: absolute; 
+        right: 100%; 
+        overflow: visible; 
+        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important; 
+        background-size: 120px;
         background-repeat: no-repeat;
         background-position: -15px;
-        height: 120px;
-        width: 80px;
+        height: 73px;
+        width: 66px;
     }
     
     .sidebar-collapse .menu-toggle {
@@ -951,7 +962,7 @@
                 <a href="#" data-toggle="push-menu" class="menu-toggle">
                 </a>
                 <div class="sidebar-menu grey-scroll" data-widget="tree">
-                    <div class="open-sidenav">
+                    <div class="open-sidenav mt-3">
                         <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav col-auto">
@@ -1278,18 +1289,20 @@
                             </div>
                         </div>
 
-                        <div v-if="notifications_on == true" class="notifications">
+                        <div v-if="notifications_on == true" class="notifications p-2">
                             <div class="row mx-0">
                                 <h3 class="w-100 mb-2">
-                  Notifications 
-                </h3>
+                                Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg"></span>
+                                </h3>
             
                                 <div class="w-100 mt-0">
                                     <label class="col-lg-3 mt-0 control-label w-100 p-0">
                                         <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
                                     <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0">
                                         <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
                                 </div>
                             </div>
@@ -1308,19 +1321,18 @@
                                 </div>
 
                                 <div v-else>
-                                    <div class="card notification-popup">
+                                    <div class="notification-popup">
                                         <div class="card-body-notifications">
-                                            <p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
+                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                                  <div class="col-12 mb-3 notification-popup w-100">
+                                  <div class="col-12 notification-popup w-100">
                                     <div class="row card-body-notifications">
-                                        <div class="col-auto pl-1 btn-has-new-messages">
-                                            2
+                                        <div class="col-auto pl-1 btn-has-new-messages">  
                                         </div>
                                         <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
                                         <div class="col-auto p-0">
@@ -1329,10 +1341,9 @@
                                         </div>
                                     </div>
                                     </div>
-                                        <div class="col-12 mb-3 notification-popup w-100">
+                                        <div class="col-12 notification-popup w-100">
                                     <div class="row card-body-notifications">
                                         <div class="col-auto pl-1 btn-has-new-messages">
-                                            1
                                         </div>
                                         <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
                                         <div class="col-auto p-0">
