@@ -75742,6 +75742,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -76107,6 +76155,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -134305,7 +134364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n      right: 0!important;\n      left: auto;\n      overflow: visible;\n      position: absolute;\n      top: 0;\n      right: 0 !important;\n      bottom: 0;\n      z-index: 830;\n      transition: right 0.3s ease-in-out;\n      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n      transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\n      width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n      margin-left: 0!important;\n      margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n      .main-sidebar[data-v-48ad9a74]:before {\n          margin-left: -0!important;\n          margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n      .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n          margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n      overflow: visible;\n}\np[data-v-48ad9a74] {\n      color: #9fb3bb;\n      margin: 0;\n}\nh2[data-v-48ad9a74] {\n      color: #003449;\n      font-size: 29px;\n      letter-spacing: 4.2px;\n      font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n      color: #1a1c43;\n      font-size: 16px;\n      letter-spacing: 0.05em;\n      font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n      float: right;\n      cursor: pointer;\n      margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n      color: inherit;\n      font-weight: 200;\n      padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\n      border-bottom: 1px solid #f4f4f5;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n      color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n      font-size: 14px;\n      color: #1e2331;\n      font-family: 'Rubik', sans-serif;\n      padding-top: 6px;\n      letter-spacing: 0.05em;\n      position: relative;\n      top: 16%;\n}\n.help-block[data-v-48ad9a74] {\n      color: red;\n}\n.status[data-v-48ad9a74] {\n      display: none;\n}\n.status.active[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: #00d68f;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: orange;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n  .status.offline[data-v-48ad9a74]:hover {\n      color: #3b3b3b;\n      cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n      display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n      padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.p-34[data-v-48ad9a74] {\n      padding: 0px 34px;\n}\n.pl-34[data-v-48ad9a74] {\n      padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n      margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n      background: #f7f6fb;\n      border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important;\n      border-radius: 5px;\n      background: rgb(114, 218, 126);\n      height: 8px;\n      transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n      font-weight: 900;\n      font-size: 16px;\n      color: #1a1c43;\n      margin-top: -8px;\n      letter-spacing: 0.1em;\n      font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n      font-size: 12px;\n      font-family: 'Rubik', sans-serif;\n      letter-spacing: 0.05em;\n      color: #1e2331;\n      padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n      display: block;\n      position: relative;\n      background: #ff8234;\n      color: #fff;\n      height: 62px;\n      text-align: center;\n      font-size: 17px;\n      padding: 18px 9px;\n      width: 62px;\n      transform: rotate(45deg);\n      /* Standard syntax */\n      margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n      transform: rotate(0deg);\n      /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n      margin-bottom: 10px;\n      font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n      margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n  .general-system-prefs[data-v-48ad9a74],\n  .notifications .w-100[data-v-48ad9a74] {\n      margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n      border-radius: 50%;\n      width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n      margin: 5px 0 15px 0;\n      font-size: 9px;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n  .notifications .row.border-bottom[data-v-48ad9a74] {\n      border-color: #cdccce;\n      padding: 21px 0px 16px 0;\n}\n.settings .row p.description[data-v-48ad9a74] {\n      font-size: 9px;\n      display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n  .themes label[data-v-48ad9a74]:nth-child(2),\n  .language label[data-v-48ad9a74],\n  .notifications label[data-v-48ad9a74],\n  .action-btns label[data-v-48ad9a74]:first-child,\n  .action-btns label[data-v-48ad9a74]:nth-child(2) {\n      margin-right: 8px;\n      float: left;\n}\n.control-label[data-v-48ad9a74] {\n      color: #989899;\n      font-family: 'Rubik', sans-serif;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n      text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      border: transparent !important;\n      border-radius: 5px !important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n  .language .btn-default[data-v-48ad9a74],\n  .language .btn-active[data-v-48ad9a74] {\n      border-radius: 50rem!important;\n      padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.orange-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-blue[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.blue-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-dark[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.dark-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-has-new[data-v-48ad9a74] {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n      margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n      background-image: url('/images/icons/Asset 67.svg') !important;\n      background-size: contain;\n      background-repeat: no-repeat;\n      height: 100px;\n      background-position: center;\n      margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n      padding: 6px 25px 6px 18px;\n      font-size: 9px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n      list-style: none;\n}\n.notifications .card h3[data-v-48ad9a74],\n  .notifications .card h3 a[data-v-48ad9a74] {\n      color: #00344a;\n      font-size: 16px;\n      letter-spacing: 2.2px;\n      font-weight: 600;\n}\n.notifications .card p.call_back_time[data-v-48ad9a74] {\n      color: #00344a;\n      font-size: 14px;\n      letter-spacing: 2.2px;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n  .account-info .row.mx-0.border-left[data-v-48ad9a74] {\n      border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\n      color: #7f8080;\n      padding-bottom: 16px;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74] {\n      width: 46px;\n      border-radius: 50%;\n}\n.update-user[data-v-48ad9a74], .update-filter[data-v-48ad9a74], .save-filter[data-v-48ad9a74] {\n      margin: 0px 0px 5px 0px;\n}\n.row.cal-height[data-v-48ad9a74] {\n      max-height: 390px;\n}\n.final-modal[data-v-48ad9a74] {\n      padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n      width: 100%;\n      border-bottom: 1px solid #cdccce;\n      margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n      width: 20px;\n      margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n      font-size: 55px;\n      color: #FF933A;\n}\n.card-header[data-v-48ad9a74] {\n      color: rgba(28, 35, 49, 0.5);\n      border-bottom: 0.5px solid #f4f4f5 !important;\n      background-color: #fff !important;\n      font-size: 10px;\n      font-weight: 600;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n      padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n      border: none;\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74] {\n      font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n      padding: 10px 12px!important;\n      font-size: 12px;\n      box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n      color: #193246;\n      font-weight: 600;\n      margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n      height: 100px !important;\n      border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n      margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n      padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n  .stats-section .calls[data-v-48ad9a74],\n  .search-input[data-v-48ad9a74],\n  .filter-search[data-v-48ad9a74],\n  .filter-by[data-v-48ad9a74] {\n      padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74],\n  p.badges[data-v-48ad9a74] {\n      border-bottom: 0.5px solid #f4f4f5;\n      margin-bottom: 5px;\n      padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n  .export-btn[data-v-48ad9a74] {\n      width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n      margin-top: 17px;\n}\n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n      position: relative;\n      top: -7px;\n      right: 15px;\n      font-size: 9px;\n      color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\n      position: absolute;\n      right: 417px;\n      overflow: visible;\n      background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\n      background-size: 140px;\n      background-repeat: no-repeat;\n      background-position: -15px;\n      height: 120px;\n      width: 80px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\n      background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n      border-radius: 25px;\n}\n.reminders .tabs[data-v-48ad9a74],\n  .filter-content .tabs[data-v-48ad9a74] {\n      width: 100%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n  .reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n      border-radius: 50%!important;\n      border: 1px solid #ededed;\n      box-shadow: none;\n      background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;\n      background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n  .reminders .custom-control-label[data-v-48ad9a74]::before {\n      width: 20px;\n      height: 20px;\n      top: 6px;\n      left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n      font-size: 14px;\n      font-family: 'Rubik', sans-serif;\n      color: #7f8080;\n      padding-left: 37px!important;\n      width: 90%;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n  .nav-link[data-v-48ad9a74]:focus {\n      outline: 0 !important;\n      box-shadow: none !important;\n      border: 0 !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n      background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;\n      border-radius: 50%!important;\n      background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n      border-radius: 50%!important;\n      background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n      border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.tasks-circle[data-v-48ad9a74] {\n      font-size: 16px;\n      margin-right: 12px;\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n      background: #B3B3B3 !important;\n      border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n      color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n      color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n      font-size: 10px;\n}\n.task-date-div[data-v-48ad9a74] {\n      border: 1px solid #efefef;\n      border-radius: 20px;\n      padding-left: 6px;\n}\n.inner-box-shadow[data-v-48ad9a74] {\n      box-shadow: 0px 0px 14px 1px rgba(227, 223, 227, 1);\n}\n.middle-box-shadow[data-v-48ad9a74] {\n      box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n      width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n      border-radius: 50rem !important;\n      font-size: 10px;\n      color: #989899;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n      font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74], .btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] {\n      font-size: 10px;\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      font-weight: 600;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n}\n.btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] {\n      padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n      float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n      padding: 11px;\n      border-radius: 50rem;\n      box-shadow: none;\n      transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover {\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] {\n      font-size: 16px;\n      color: #171717 !important;\n      font-family: 'Rubik', sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n      border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n      display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n      margin-left: -27px;\n      margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74], .saved-results[data-v-48ad9a74] {\n      border-radius: 14px;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      margin: 20px;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      font-size: 14px;\n      padding-left: 28px;\n      font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      font-size: 12px;\n      padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n      padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      font-size: 12px;\n      border-radius: 14px;\n      padding: 10px;\n      font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n  .save-text[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      font-size: 12px;\n      font-family: 'Rubik', sans-serif;\n      font-weight: 300;\n      font-style: italic;\n      border-radius: 14px;\n      padding: 10px;\n}\n.row.filter-content .search-text::-webkit-input-placeholder .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n      font-size: 12px !important;\n      font-family: 'Rubik', sans-serif !important;\n      color: rgba(0, 0, 0, 0.65) !important;\n      letter-spacing: 0 !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n      font-size: 11px !important;\n      font-family: 'Rubik', sans-serif !important;\n      color: rgba(0, 0, 0, 0.65) !important;\n      letter-spacing: 0 !important;\n}\n.filter-results[data-v-48ad9a74] {\n      max-height: 200px;\n      overflow: auto;\n      margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n          font-size: 12px !important;\n          font-family: 'Rubik', sans-serif;\n}\n.filter-container[data-v-48ad9a74] {\n      overflow: auto;\n}\n@media screen and (max-width:1368px ) {\n.filter-container[data-v-48ad9a74] {\n       max-height: 450px;\n}\n}\n@media screen and (min-width:1400px ) {\n.filter-container[data-v-48ad9a74] {\n       max-height: 650px;\n}\n}\n.position-bottom[data-v-48ad9a74] {\n      position: absolute;\n      bottom: 20px;\n}\ninput.search-text[data-v-48ad9a74]:focus,\n  input.save-text[data-v-48ad9a74]:focus {\n      outline: 0 !important;\n      border: 0 !important;\n}\n  /*End Right Component*/\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n      right: 0!important;\n      left: auto;\n      overflow: visible;\n      position: absolute;\n      top: 0;\n      right: 0 !important;\n      bottom: 0;\n      z-index: 830;\n      transition: right 0.3s ease-in-out;\n      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n      -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n      transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;\n      width: 417px!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n      margin-left: 0!important;\n      margin-right: -208px!important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n      .main-sidebar[data-v-48ad9a74]:before {\n          margin-left: -0!important;\n          margin-left: -208px!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n      .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n          margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n      overflow: visible;\n}\np[data-v-48ad9a74] {\n      color: #9fb3bb;\n      margin: 0;\n}\nh2[data-v-48ad9a74] {\n      color: #003449;\n      font-size: 29px;\n      letter-spacing: 4.2px;\n      font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n      color: #1a1c43;\n      font-size: 16px;\n      letter-spacing: 0.05em;\n      font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n      float: right;\n      cursor: pointer;\n      margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n      color: inherit;\n      font-weight: 200;\n      padding-top: 3px;\n}\n.open-sidenav .navbar[data-v-48ad9a74] {\n      border-bottom: 1px solid #f4f4f5;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n      color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n      font-size: 14px;\n      color: #1e2331;\n      font-family: 'Rubik', sans-serif;\n      padding-top: 6px;\n      letter-spacing: 0.05em;\n      position: relative;\n      top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n      color: red;\n}\n.status[data-v-48ad9a74] {\n      display: none;\n}\n.status.active[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: #00d68f;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n      width: 76px;\n      text-align: center;\n      border-radius: 8px;\n      display: block;\n      background: orange;\n      padding: 4px 3px;\n      line-height: 20px;\n      color: #fff;\n      text-transform: uppercase;\n      font-size: 12px;\n      float: left;\n      margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n  .status.offline[data-v-48ad9a74]:hover {\n      color: #3b3b3b;\n      cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n      display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n      padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.p-34[data-v-48ad9a74] {\n      padding: 0px 34px;\n}\n.pl-34[data-v-48ad9a74] {\n      padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n      margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n      background: #f7f6fb;\n      border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important;\n      border-radius: 5px;\n      background: rgb(114, 218, 126);\n      height: 8px;\n      transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n      font-weight: 900;\n      font-size: 16px;\n      color: #1a1c43;\n      margin-top: -8px;\n      letter-spacing: 0.1em;\n      font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n      font-size: 12px;\n      font-family: 'Rubik', sans-serif;\n      letter-spacing: 0.05em;\n      color: #1e2331;\n      padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n      display: block;\n      position: relative;\n      background: #ff8234;\n      color: #fff;\n      height: 62px;\n      text-align: center;\n      font-size: 17px;\n      padding: 18px 9px;\n      width: 62px;\n      transform: rotate(45deg);\n      /* Standard syntax */\n      margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n      transform: rotate(0deg);\n      /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n      border-bottom: 1px solid #cdccce;\n      margin-bottom: 10px;\n      font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n      margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n  .general-system-prefs[data-v-48ad9a74],\n  .notifications .w-100[data-v-48ad9a74] {\n      margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n      border-radius: 50%;\n      width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n      margin: 5px 0 15px 0;\n      font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n      height: 24px !important;\n      background: #F98B39 !important;\n      border-color: #F98B39 !important;\n      color: #fff !important;\n      padding: 4px 17px 6px !important;\n      border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n  .notifications .row.border-bottom[data-v-48ad9a74] {\n      border-color: #cdccce;\n      padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n          border-radius: 21px;\n          width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n      font-size: 9px;\n      display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n  .themes label[data-v-48ad9a74]:nth-child(2),\n  .language label[data-v-48ad9a74],\n  .notifications label[data-v-48ad9a74],\n  .action-btns label[data-v-48ad9a74]:first-child,\n  .action-btns label[data-v-48ad9a74]:nth-child(2) {\n      margin-right: 8px;\n      float: left;\n}\n.control-label[data-v-48ad9a74] {\n      color: #989899;\n      font-family: 'Rubik', sans-serif;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n      text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      border: transparent !important;\n      border-radius: 5px !important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 10px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n      background: #00344a;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 6px 12px 6px 10px;\n      font-size: 0.6vw;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n  .language .btn-default[data-v-48ad9a74],\n  .language .btn-active[data-v-48ad9a74] {\n      border-radius: 50rem!important;\n      padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74], .btn-orange-active[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-white[data-v-48ad9a74] {\n       background: #fff;\n      border: transparent !important;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.orange-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-blue[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.blue-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-dark[data-v-48ad9a74] {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.dark-btn[data-v-48ad9a74]:hover {\n      background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;\n      color: #ffffff;\n      border: transparent !important;\n      padding: 8px 15px;\n      font-size: 10px;\n      border-radius: 50rem!important;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n      letter-spacing: 0.05em;\n}\n.btn-has-new[data-v-48ad9a74] {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n      background-image: url('/images/icons/blue dot.svg') !important;\n      background-size: 69% 34%;\n      background-repeat: no-repeat;\n      background-position: left top;\n      color: #ffffff;\n      font-size: 10px;\n      text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Dot.png') !important;\n      background-size: 12px 12px;\n      background-repeat: no-repeat;\n      background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n      margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n      background-image: url('/images/icons/Asset 67.svg') !important;\n      background-size: contain;\n      background-repeat: no-repeat;\n      height: 100px;\n      background-position: center;\n      margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n      background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n      padding: 6px 25px 6px 18px;\n      font-size: 12px;\n      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n      list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n  .notifications .card-body-notifications h3 a[data-v-48ad9a74], .caller-name[data-v-48ad9a74] {\n      color: #333333;\n      font-size: 0.7vw;\n      /* letter-spacing: 2.2px; */\n      font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n      float: right;\n      font-size: 0.6vw;\n      color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n      color: #808080;\n      font-size: 0.7vw;\n      /* letter-spacing: 2.2px; */\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n  .account-info .row.mx-0.border-left[data-v-48ad9a74] {\n      border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] {\n      color: #7f8080;\n      padding-bottom: 16px;\n      font-size: 12px;\n      letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74] {\n      width: 30px;\n      border-radius: 50%;\n}\n.update-user[data-v-48ad9a74], .update-filter[data-v-48ad9a74], .save-filter[data-v-48ad9a74] {\n      margin: 0px 0px 5px 0px;\n}\n.row.cal-height[data-v-48ad9a74] {\n      max-height: 390px;\n}\n.final-modal[data-v-48ad9a74] {\n      padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n      width: 100%;\n      border-bottom: 1px solid #cdccce;\n      margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n      width: 20px;\n      margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n      font-size: 55px;\n      color: #FF933A;\n}\n.card-header[data-v-48ad9a74] {\n      color: rgba(28, 35, 49, 0.5);\n      border-bottom: 0.5px solid #f4f4f5 !important;\n      background-color: #fff !important;\n      font-size: 10px;\n      font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n      padding: 12px 22px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n      padding-right: 10px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n      padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n      -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n      border-bottom: none;\n      background: #fff;\n      padding: 6px 12px;\n      box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n      -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n      border: none;\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n      color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n      background: #fff;\n      padding: 6px 12px;\n      font-size: 16px;\n}\n.final-modal input[data-v-48ad9a74] {\n      font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n      padding: 10px 12px!important;\n      font-size: 12px;\n      box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n      color: #193246;\n      font-weight: 600;\n      margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n      height: 100px !important;\n      border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n      margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n      padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n  .stats-section .calls[data-v-48ad9a74],\n  .search-input[data-v-48ad9a74],\n  .filter-search[data-v-48ad9a74],\n  .filter-by[data-v-48ad9a74] {\n      padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74],\n  p.badges[data-v-48ad9a74] {\n      border-bottom: 0.5px solid #f4f4f5;\n      margin-bottom: 5px;\n      padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n  .export-btn[data-v-48ad9a74] {\n      width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n      margin-top: 17px;\n}\n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n      position: relative;\n      top: -7px;\n      right: 15px;\n      font-size: 9px;\n      color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\n      position: absolute;\n      right: 417px;\n      overflow: visible;\n      background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;\n      background-size: 140px;\n      background-repeat: no-repeat;\n      background-position: -15px;\n      height: 120px;\n      width: 80px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\n      background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n      border-radius: 25px;\n}\n.reminders .tabs[data-v-48ad9a74],\n  .filter-content .tabs[data-v-48ad9a74] {\n      width: 100%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] {\n      box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n  .reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n      border-radius: 50%!important;\n      border: 1px solid #ededed;\n      box-shadow: none;\n      background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;\n      background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n  .reminders .custom-control-label[data-v-48ad9a74]::before {\n      width: 20px;\n      height: 20px;\n      top: 6px;\n      left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n      font-size: 14px;\n      font-family: 'Rubik', sans-serif;\n      color: #7f8080;\n      padding-left: 37px!important;\n      width: 90%;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n  .nav-link[data-v-48ad9a74]:focus {\n      outline: 0 !important;\n      box-shadow: none !important;\n      border: 0 !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n      background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;\n      border-radius: 50%!important;\n      background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n      border-radius: 50%!important;\n      background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n      border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.tasks-circle[data-v-48ad9a74] {\n      font-size: 16px;\n      margin-right: 12px;\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n      background: #B3B3B3 !important;\n      border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n      color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n      color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n      font-size: 10px;\n}\n.task-date-div[data-v-48ad9a74] {\n      border: 1px solid #efefef;\n      border-radius: 20px;\n      padding-left: 6px;\n}\n.inner-box-shadow[data-v-48ad9a74] {\n      box-shadow: 0px 0px 14px 1px rgba(227, 223, 227, 1);\n}\n.middle-box-shadow[data-v-48ad9a74] {\n      box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n      width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n      border-radius: 50rem !important;\n      font-size: 10px;\n      color: #989899;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n      font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74], .btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] {\n      font-size: 10px;\n      background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n      font-weight: 600;\n      text-transform: uppercase;\n      padding: 10px 20px;\n      letter-spacing: 0.05em;\n}\n.btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] {\n      padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n      float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n      padding: 11px;\n      border-radius: 50rem;\n      box-shadow: none;\n      transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover {\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] {\n      font-size: 16px;\n      color: #171717 !important;\n      font-family: 'Rubik', sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n      border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n      display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n      margin-left: -27px;\n      margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74], .saved-results[data-v-48ad9a74] {\n      border-radius: 14px;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      margin: 20px;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      font-size: 14px;\n      padding-left: 28px;\n      font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n      font-size: 12px;\n      padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n      padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      font-size: 12px;\n      border-radius: 14px;\n      padding: 10px;\n      font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n  .save-text[data-v-48ad9a74] {\n      border: 0;\n      box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n      font-size: 12px;\n      font-family: 'Rubik', sans-serif;\n      font-weight: 300;\n      font-style: italic;\n      border-radius: 14px;\n      padding: 10px;\n}\n.row.filter-content .search-text::-webkit-input-placeholder .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n      font-size: 12px !important;\n      font-family: 'Rubik', sans-serif !important;\n      color: rgba(0, 0, 0, 0.65) !important;\n      letter-spacing: 0 !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n      font-size: 11px !important;\n      font-family: 'Rubik', sans-serif !important;\n      color: rgba(0, 0, 0, 0.65) !important;\n      letter-spacing: 0 !important;\n}\n.filter-results[data-v-48ad9a74] {\n      max-height: 200px;\n      overflow: auto;\n      margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n          font-size: 12px !important;\n          font-family: 'Rubik', sans-serif;\n}\n.filter-container[data-v-48ad9a74] {\n      overflow: auto;\n}\n@media screen and (max-width:1368px ) {\n.filter-container[data-v-48ad9a74] {\n       max-height: 450px;\n}\n}\n@media screen and (min-width:1400px ) {\n.filter-container[data-v-48ad9a74] {\n       max-height: 650px;\n}\n}\n.position-bottom[data-v-48ad9a74] {\n      position: absolute;\n      bottom: 20px;\n}\ninput.search-text[data-v-48ad9a74]:focus,\n  input.save-text[data-v-48ad9a74]:focus {\n      outline: 0 !important;\n      border: 0 !important;\n}\n  /*End Right Component*/\n", ""]);
 
 // exports
 
@@ -134324,7 +134383,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 32px;\r\n  letter-spacing: 0.1em;\r\n\tfont-family: 'Montserrat, Bold', sans-serif;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/Start Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/End Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], \r\n.callIcons button.call[data-v-6ec57eb6], \r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 23px 4% 0;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\na.add-new[data-v-6ec57eb6] {\r\n\tborder-radius: 50rem !important;\r\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    background: #ffffff;\r\n    font-size: 16px;\r\n    color: #989899;\r\n    letter-spacing: 0.05em;\r\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 32px;\r\n  letter-spacing: 0.1em;\r\n\tfont-family: 'Montserrat, Bold', sans-serif;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 2px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li[data-v-6ec57eb6]{\r\n  width: 43px;\r\n  margin-left: 15px !important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons li a.search[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 60.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li a.search[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/Start Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Call/End Call.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.callIcons li a.filter[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons button.status[data-v-6ec57eb6], \r\n.callIcons button.call[data-v-6ec57eb6], \r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  padding: 31px;\r\n  margin-top: -11px;\r\n  margin-left: -7px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -257153,7 +257212,7 @@ var render = function() {
                                   src:
                                     "/images/icons/right-sidebar/Notifications_Active.svg",
                                   alt: "Notification Bell",
-                                  width: "50"
+                                  width: "43"
                                 }
                               })
                             : _vm.notifications_on == false &&
@@ -257165,7 +257224,7 @@ var render = function() {
                                   src:
                                     "/images/icons/right-sidebar/Notification.svg",
                                   alt: "Notification Bell",
-                                  width: "50"
+                                  width: "43"
                                 }
                               })
                             : (_vm.notifications_on == false &&
@@ -257177,7 +257236,7 @@ var render = function() {
                                   src:
                                     "/images/icons/right-sidebar/Notifications_red.svg",
                                   alt: "Notification Bell",
-                                  width: "50"
+                                  width: "43"
                                 }
                               })
                             : _vm._e()
@@ -257205,7 +257264,7 @@ var render = function() {
                                   src:
                                     "/images/icons/right-sidebar/Setting.svg",
                                   alt: "Settings Cog",
-                                  width: "50"
+                                  width: "43"
                                 }
                               })
                             : _c("img", {
@@ -257213,7 +257272,7 @@ var render = function() {
                                   src:
                                     "/images/icons/right-sidebar/Settings_Active.svg",
                                   alt: "Settings Cog",
-                                  width: "50"
+                                  width: "43"
                                 }
                               })
                         ]
@@ -258283,6 +258342,7 @@ var render = function() {
                                     _c(
                                       "div",
                                       {
+                                        staticClass: "notifications-checkbox",
                                         class: {
                                           input: true,
                                           "form-group w-100": true
@@ -259724,22 +259784,24 @@ var render = function() {
               _vm.notifications_on == true
                 ? _c("div", { staticClass: "notifications" }, [
                     _c("div", { staticClass: "row mx-0" }, [
-                      _c("h2", { staticClass: "w-100" }, [
+                      _c("h3", { staticClass: "w-100 mb-2" }, [
                         _vm._v("\n              Notifications \n            ")
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "w-100" }, [
+                      _c("div", { staticClass: "w-100 mt-0" }, [
                         _c(
                           "label",
-                          { staticClass: "col-lg-3 control-label w-100 p-0" },
+                          {
+                            staticClass: "col-lg-3 mt-0 control-label w-100 p-0"
+                          },
                           [
                             _c(
                               "button",
                               {
-                                staticClass: "w-100 m-0",
+                                staticClass: "w-100 m-0 btn-white",
                                 class: {
                                   btn: true,
-                                  "btn-active": _vm.callbacks_on,
+                                  "btn-orange-active": _vm.callbacks_on,
                                   "btn-default border-0": !_vm.callbacks_on,
                                   "btn-has-new": _vm.call_backs.length > 0
                                 },
@@ -259754,17 +259816,18 @@ var render = function() {
                         _c(
                           "label",
                           {
-                            staticClass: "col-lg-3 control-label w-100 p-0",
+                            staticClass:
+                              "col-lg-3 mt-0 control-label w-100 p-0",
                             on: { click: _vm.showMessages }
                           },
                           [
                             _c(
                               "button",
                               {
-                                staticClass: "w-100 m-0",
+                                staticClass: "w-100 m-0 btn-white",
                                 class: {
                                   btn: true,
-                                  "btn-active": _vm.messages_on,
+                                  "btn-orange-active": _vm.messages_on,
                                   "btn-default border-0": !_vm.messages_on,
                                   "btn-has-new": _vm.unread_messages >= 1
                                 },
@@ -259777,6 +259840,8 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
                     _vm.callbacks_on == true && _vm.messages_on == false
                       ? _c("div", { staticClass: "row mx-0" }, [
                           _vm.call_backs.length > 0
@@ -259787,57 +259852,65 @@ var render = function() {
                                     "div",
                                     {
                                       key: call_back.id,
-                                      staticClass: "card w-100"
+                                      staticClass:
+                                        "card w-100 notification-popup"
                                     },
                                     [
-                                      _c("div", { staticClass: "card-body" }, [
-                                        _c(
-                                          "h3",
-                                          {
-                                            staticClass: "d-block d-block w-100"
-                                          },
-                                          [
-                                            _c(
-                                              "a",
-                                              {
-                                                staticClass: "d-block w-100",
-                                                attrs: {
-                                                  href:
-                                                    "/workstation/" +
-                                                    call_back.lead.id
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    call_back.lead.name +
-                                                      " " +
-                                                      call_back.lead.surname
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "card-body-notifications"
+                                        },
+                                        [
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass:
+                                                "d-block d-block w-100"
+                                            },
+                                            [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass: "d-block w-100",
+                                                  attrs: {
+                                                    href:
+                                                      "/workstation/" +
+                                                      call_back.lead.id
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      call_back.lead.name +
+                                                        " " +
+                                                        call_back.lead.surname
+                                                    )
                                                   )
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "call_back_time d-block w-100",
-                                            attrs: {
-                                              title: "Personal Information"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(call_back.call_date) +
-                                                " @ " +
-                                                _vm._s(call_back.call_time)
-                                            )
-                                          ]
-                                        )
-                                      ])
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "p",
+                                            {
+                                              staticClass:
+                                                "call_back_time d-block w-100",
+                                              attrs: {
+                                                title: "Personal Information"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(call_back.call_date) +
+                                                  " @ " +
+                                                  _vm._s(call_back.call_time)
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
                                     ]
                                   )
                                 }),
@@ -259851,11 +259924,7 @@ var render = function() {
                       ? _c("div", { staticClass: "row mx-0" }, [
                           _vm._m(6),
                           _vm._v(" "),
-                          _vm._m(7),
-                          _vm._v(" "),
-                          _vm._m(8),
-                          _vm._v(" "),
-                          _vm._m(9)
+                          _vm._m(7)
                         ])
                       : _vm._e()
                   ])
@@ -259867,7 +259936,7 @@ var render = function() {
                       _c("div", { staticClass: "col-lg-12 p-34" }, [
                         _c("div", { staticClass: "row p-0" }, [
                           _c("div", { staticClass: "col-lg-12" }, [
-                            _vm._m(10),
+                            _vm._m(8),
                             _vm._v(" "),
                             _c("div", { staticClass: "progress-bar w-100" }, [
                               _c("span", {
@@ -259878,11 +259947,11 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(11),
+                        _vm._m(9),
                         _vm._v(" "),
-                        _vm._m(12),
+                        _vm._m(10),
                         _vm._v(" "),
-                        _vm._m(13)
+                        _vm._m(11)
                       ])
                     ]),
                     _vm._v(" "),
@@ -259898,7 +259967,7 @@ var render = function() {
                                 "card left mt-3 p-34 tab-card border-0 shadow-none"
                             },
                             [
-                              _vm._m(14),
+                              _vm._m(12),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -260031,7 +260100,7 @@ var render = function() {
                                                 staticClass: "row filter-search"
                                               },
                                               [
-                                                _vm._m(15),
+                                                _vm._m(13),
                                                 _vm._v(" "),
                                                 _c(
                                                   "div",
@@ -260123,10 +260192,10 @@ var render = function() {
                                                       "table",
                                                       { staticClass: "tg" },
                                                       [
-                                                        _vm._m(16),
+                                                        _vm._m(14),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(17),
+                                                          _vm._m(15),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -260258,7 +260327,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(18),
+                                                          _vm._m(16),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -260391,7 +260460,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(19),
+                                                          _vm._m(17),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -260522,7 +260591,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(20),
+                                                          _vm._m(18),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -260653,7 +260722,7 @@ var render = function() {
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("tr", [
-                                                          _vm._m(21),
+                                                          _vm._m(19),
                                                           _vm._v(" "),
                                                           _c(
                                                             "td",
@@ -260884,7 +260953,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _c("tr", [
-                                                                _vm._m(22),
+                                                                _vm._m(20),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "td",
@@ -261468,7 +261537,7 @@ var render = function() {
                                     src:
                                       "/images/icons/right-sidebar/Notifications_Active.svg",
                                     alt: "Notification Bell",
-                                    width: "50"
+                                    width: "43"
                                   }
                                 })
                               : _vm.notifications_on == false &&
@@ -261480,7 +261549,7 @@ var render = function() {
                                     src:
                                       "/images/icons/right-sidebar/Notification.svg",
                                     alt: "Notification Bell",
-                                    width: "50"
+                                    width: "43"
                                   }
                                 })
                               : (_vm.notifications_on == false &&
@@ -261492,7 +261561,7 @@ var render = function() {
                                     src:
                                       "/images/icons/right-sidebar/Notifications_red.svg",
                                     alt: "Notification Bell",
-                                    width: "50"
+                                    width: "43"
                                   }
                                 })
                               : _vm._e()
@@ -261518,7 +261587,7 @@ var render = function() {
                               attrs: {
                                 src: "/images/icons/right-sidebar/Setting.svg",
                                 alt: "Settings Cog",
-                                width: "50"
+                                width: "43"
                               }
                             })
                           ]
@@ -261916,8 +261985,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
+    return _c("div", { staticClass: "card notification-popup" }, [
+      _c("div", { staticClass: "card-body-notifications" }, [
         _c(
           "p",
           {
@@ -261933,39 +262002,35 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card w-100" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", { staticClass: "d-block" }, [_vm._v("Steve Hughes")]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time d-block w-100",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", { staticClass: "d-block" }, [
-          _vm._v("\n                  Steve Hughes \n                ")
+    return _c("div", { staticClass: "col-12 mb-3 notification-popup w-100" }, [
+      _c("div", { staticClass: "row card-body-notifications" }, [
+        _c("div", { staticClass: "col-auto pl-1 btn-has-new-messages" }, [
+          _vm._v(
+            "\n                                        2\n                                    "
+          )
         ]),
         _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time d-block w-100",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
+        _c("div", { staticClass: "col-auto p-0" }, [
+          _c("img", {
+            attrs: { src: "/images/icons/user_icon@4x.png", width: "50" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto p-0" }, [
+          _c("p", { staticClass: "d-block mb-1" }, [
+            _c("span", { staticClass: "caller-name" }, [_vm._v("Agnes Dean")]),
+            _c("span", { staticClass: "caller-time" }, [_vm._v("15:46")])
+          ]),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass: "call_back_time d-block w-100 mt-0",
+              attrs: { title: "Personal Information" }
+            },
+            [_vm._v("Lorem Ipsum dolor sit amet, c...")]
+          )
+        ])
       ])
     ])
   },
@@ -261973,37 +262038,35 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", { staticClass: "d-block" }, [_vm._v("Steve Hughes")]),
+    return _c("div", { staticClass: "col-12 mb-3 notification-popup w-100" }, [
+      _c("div", { staticClass: "row card-body-notifications" }, [
+        _c("div", { staticClass: "col-auto pl-1 btn-has-new-messages" }, [
+          _vm._v(
+            "\n                                        1\n                                    "
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time d-block w-100",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h3", { staticClass: "d-block" }, [_vm._v("Steve Hughes")]),
+        _c("div", { staticClass: "col-auto p-0" }, [
+          _c("img", {
+            attrs: { src: "/images/icons/user_icon@4x.png", width: "50" }
+          })
+        ]),
         _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass: "call_back_time d-block w-100",
-            attrs: { title: "Personal Information" }
-          },
-          [_vm._v("Mon 22 March @ 12:22pm")]
-        )
+        _c("div", { staticClass: "col-auto p-0" }, [
+          _c("p", { staticClass: "d-block mb-1" }, [
+            _c("span", { staticClass: "caller-name" }, [_vm._v("Justin Hill")]),
+            _c("span", { staticClass: "caller-time" }, [_vm._v("12:37")])
+          ]),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass: "call_back_time d-block w-100 mt-0",
+              attrs: { title: "Personal Information" }
+            },
+            [_vm._v("Lorem Ipsum dolor sit amet, c...")]
+          )
+        ])
       ])
     ])
   },
@@ -262473,7 +262536,7 @@ var render = function() {
                           {
                             staticClass: "nav-link",
                             class: {
-                              "nav-link top-link d-block text-center": true,
+                              "nav-link top-link d-block text-center add-new": true,
                               active: _vm.adding_user
                             },
                             attrs: { href: "#" },
