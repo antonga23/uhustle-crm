@@ -55,7 +55,7 @@ li p.bottom {
   margin-right: 0; 
   text-align: right; 
   float: left; 
-  margin-bottom: 0; 
+  margin-bottom: -6px;
   line-height: 14px; 
 } 
 .card-title { 
@@ -375,10 +375,10 @@ table.listing tr th {
             <div class="col-auto pl-0" @click="getUsers()"> 
               <div class="card mb-0 call-backs"> 
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"> 
-                  <div class="col pl-0"> 
+                  <div class="col-auto pl-0"> 
                     <p class="card-text-small text-left">All</p> 
                   </div> 
-                  <div class="col pr-0"> 
+                  <div class="col-auto pr-0"> 
                     <p class="card-text">{{ users.count_all }}</p> 
                   </div> 
                 </div> 
@@ -387,10 +387,10 @@ table.listing tr th {
             <div class="col-auto" @click="getUsers(1)"> 
               <div class="card mb-0 call-backs"> 
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"> 
-                  <div class="col pl-0"> 
+                  <div class="col-auto pl-0"> 
                     <p class="card-text-small text-left">Admin</p> 
                   </div> 
-                  <div class="col pr-0"> 
+                  <div class="col-auto pr-0"> 
                     <p class="card-text">{{ users.manager }}</p> 
                   </div> 
                 </div> 
@@ -399,10 +399,10 @@ table.listing tr th {
             <div class="col-auto" @click="getUsers(2)"> 
               <div class="card mb-0 sales-amount"> 
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"> 
-                  <div class="col pl-0"> 
+                  <div class="col-auto pl-0"> 
                     <p class="card-text-small text-left">Account Managers</p> 
                   </div> 
-                  <div class="col pr-0"> 
+                  <div class="col-auto pr-0"> 
                     <p class="card-text">{{ users.account_manager }}</p> 
                   </div> 
                 </div> 
@@ -411,10 +411,10 @@ table.listing tr th {
             <div class="col-auto" @click="getUsers(3)"> 
               <div class="card mb-0 ave-time"> 
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"> 
-                  <div class="col pl-0"> 
+                  <div class="col-auto pl-0"> 
                     <p class="card-text-small text-left">Team Leaders</p> 
                   </div> 
-                  <div class="col pr-0"> 
+                  <div class="col-auto pr-0"> 
                     <p class="card-text">{{ users.team_leader }}</p> 
                   </div> 
                 </div> 
@@ -423,10 +423,10 @@ table.listing tr th {
             <div class="col-auto" @click="getUsers(4)"> 
               <div class="card mb-0 con-ratio"> 
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"> 
-                  <div class="col pl-0"> 
+                  <div class="col-auto pl-0"> 
                     <p class="card-text-small text-left">Agents</p> 
                   </div> 
-                  <div class="col pr-0"> 
+                  <div class="col-auto pr-0"> 
                     <p class="card-text">{{ users.agent }}</p> 
                   </div> 
                 </div> 
