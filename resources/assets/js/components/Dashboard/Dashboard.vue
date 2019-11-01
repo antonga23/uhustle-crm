@@ -30,7 +30,7 @@
   }
   .divider-line {
     height: 1px;
-    background-color: #7f99a4;
+    background-color: #ccc;
   }
   #top-section .agent-stats {
     margin-top:2.5%;
@@ -67,14 +67,19 @@
     margin-top:3.4%;
   }
   .agent-graphs .card {
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-left: 1.7%;
     margin-right: 1.7%;
+    background-color: transparent;
   }
   .agent-graphs .tab-content {
     padding-top:12px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #fff;
+    box-shadow: 0 0 20px 10px #e6e6e6;
+    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+    -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+    -o-box-shadow: 0 0 20px 10px #e6e6e6;
   }
   .agent-graphs .tab-pane {
     padding:2.5% 8.5% 5%;
@@ -83,32 +88,23 @@
     color: #808080;
     font-size: 0.73vw;
   }
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{ 
-    box-shadow: 10px -10px 10px #f5f5f5; 
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{ 
-    box-shadow: inset -7px -10px 10px #f5f5f5;
-    border-top-left-radius: 25px; 
-    border-top-right-radius:0; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
-    box-shadow: -10px -10px 10px #f5f5f5; 
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{ 
-    box-shadow: inset 7px -10px 10px #f5f5f5; 
-    border-top-right-radius: 25px; 
-    border-top-left-radius:0; 
+  .nav.nav-tabs.card-header-tabs .nav-link .icon {
+    padding-top:18px;
+    padding-bottom:18px;
   }
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], 
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"],
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
+    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+  } 
   .card .card-header.tab-card-header {
-    background-color: #fff;
+    background-color: transparent;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
   }
-  
   .agent-details {
     margin-top: 3.1%;
   }
@@ -384,7 +380,7 @@
 
         <div class="col-12 px-0 agent-graphs">
           <div class="card-deck mx-0">
-            <div class="card my-0 ml-0 border-0 tab-card"> 
+            <div class="card my-0 ml-0 border-0 shadow-none tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 p-0"> 
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
@@ -397,7 +393,7 @@
                       aria-controls="One" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Cash_vs Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="37"/> 
                       <span class="w-50">Calls vs Sales</span>
                     </a> 
                   </li> 
@@ -411,7 +407,7 @@
                       aria-controls="Two" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Monthly_Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="37"/> 
                       <span>Monthly Sales</span> 
                     </a> 
                   </li> 
@@ -448,7 +444,7 @@
               </div> 
             </div>
 
-            <div class="card my-0 mr-0 border-0 tab-card"> 
+            <div class="card my-0 mr-0 border-0 shadow-none tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 p-0"> 
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
@@ -461,7 +457,7 @@
                       aria-controls="Three" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Answers_vs_dialing.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="37"/> 
                       <span class="w-50">Answers vs Dialing</span>
                     </a> 
                   </li> 
@@ -475,7 +471,7 @@
                       aria-controls="Four" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="37"/> 
                       <span>Commissions</span> 
                     </a> 
                   </li> 
