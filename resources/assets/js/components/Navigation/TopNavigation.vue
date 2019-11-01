@@ -1,3 +1,4 @@
+<!-- 28/10/19 -->
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
@@ -5,6 +6,16 @@
 }
 .navbar-nav li.title{
   line-height: 20px;
+}
+
+a.add-new {
+	border-radius: 50rem !important;
+    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    font-size: 16px;
+    color: #989899;
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 li.title a strong{
   color: #003549;
@@ -232,7 +243,7 @@ select.month-selector {
 							<a 
 								href="#" 
 								@click="addNew();" 
-								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : adding_user }" 
+								:class="{ 'nav-link top-link d-block text-center add-new' : true, 'active' : adding_user }" 
 								class="nav-link"
 							>Add New</a>
 						</li>
