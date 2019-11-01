@@ -1221,7 +1221,7 @@ a.down-scroll:hover{
         </div>
 
         <!-- Activities Starts -->
-        <!-- Yong <div class="row mx-0 mb-0 activities"> 
+        <div class="row mx-0 mb-0 activities"> 
           <div class="col-lg-12 px-0"> 
             <div class="card left mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
@@ -1313,7 +1313,7 @@ a.down-scroll:hover{
         <!-- Activities Starts End -->
 
         <!-- Deals Starts -->
-        <!-- Yong <div class="row mx-0 mb-0 deals"> 
+        <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
             <div class="card left mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
@@ -1506,7 +1506,7 @@ a.down-scroll:hover{
               </div> 
             </div> 
           </div>  
-        </div> -->
+        </div>
         <!-- Deals Ends -->
       </div>
     </div> 
