@@ -24,6 +24,9 @@
 .top-section .col{
   padding: 0 10px; 
   border-left: 1px solid rgba(0,52,73,1); 
+  min-height: 71px;
+  margin-bottom: 57px;
+  min-width: 150px;
 }
 .top-section p.bottom{
   font-size: 19px; 
@@ -678,6 +681,14 @@ a.down-scroll:hover{
     padding-right: 6px;
     width: 100%;
 }
+.dropdown-menu {
+    width: 191px;
+    padding: 17px;
+    font-size: 13px;
+}
+.comment_review p{
+  width: 100%;
+}
 </style> 
 <template> 
   <div id="workstation"> 
@@ -690,77 +701,41 @@ a.down-scroll:hover{
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">
-        <div class="col"> 
-          <p class="top">First Name</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
-        </div> 
-        
-        <div class="col"> 
-          <p class="top">Last Name</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.surname }}</p> 
-        </div> 
+        <div  v-for="(custom_field, index) in item_custom_fields" :key="index">
+          <div  v-for="(item, name, i) in module_item" :key="i">
+            
+            <div  v-if="item.custom_field_id == custom_field.id">
+              
+              <div class="col" v-if="name == 'source' && item.meta_value !== null"> 
+                <p class="top">{{ custom_field.display_name }}</p> 
+                <p class="bottom mb-0">{{ item.meta_value.name }}</p> 
+              </div> 
+              
+              <div class="col" v-else-if="name == 'product' && item.meta_value !== null"> 
+                <p class="top">{{ custom_field.display_name }}</p> 
+                <p class="bottom mb-0">{{ item.meta_value.name }}</p> 
+              </div> 
+              
+              <div class="col" v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"> 
+                <p class="top">{{ custom_field.display_name }}</p> 
+                <p class="bottom mb-0">{{ item.meta_value.name + ' ' + item.meta_value.surname }}</p> 
+              </div> 
+              
+              <div class="col truncate" v-else-if="name == 'email' && item.meta_value !== null"> 
+                <p class="top">{{ custom_field.display_name }}</p> 
+                <p class="bottom mb-0">{{ item.meta_value }}</p> 
+              </div> 
 
-        <div class="col"> 
-          <p class="top">Contact OWner</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
+              <div class="col" v-else-if="item.meta_value !== null"> 
+                <p class="top">{{ custom_field.display_name }}</p> 
+                <p class="bottom mb-0">{{ item.meta_value }}</p> 
+              </div> 
 
-        <div class="col"> 
-          <p class="top">Contact Source</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
-        </div>
-        
-        <div class="col"> 
-          <p class="top">Successful</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col"> 
-          <p class="top">Due</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col"> 
-          <p class="top">Area</p> 
-          <p class="bottom mb-0">{{ lead_info.city }}</p> 
+            </div> 
+          </div> 
         </div> 
       </div>
 
-      <div class="row pt-4 mx-0 justify-content-between top-section agent-stats-2">
-        <div class="col"> 
-          <p class="top">Email</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.phone }}</p> 
-        </div> 
-        
-        <div class="col"> 
-          <p class="top">Phone</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col"> 
-          <p class="top">Contact Status</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col"> 
-          <p class="top">Last Answer</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count_sales }}</p> 
-        </div>
-
-        <div class="col"> 
-          <p class="top">Best Time</p>
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col"> 
-          <p class="top">Avg. Call length</p> 
-          <p class="bottom mb-0">{{ lead_info.lead_source.name }}</p> 
-        </div> 
-        <div class="col"> 
-          <p class="top">Client ID</p> 
-          <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-      </div> 
 
       <div class="card-deck client-details mx-0"> 
         <div class="card border-0 mb-0 ml-0 client"> 
@@ -771,16 +746,16 @@ a.down-scroll:hover{
             </h5> 
             <p 
               class="card-text truncate mb-2" 
-              :title="lead_info.name + ' ' + lead_info.surname"
-            >{{ this.lead_info.name + ' ' + lead_info.surname }}</p> 
+              :title="module_item.name.meta_value + ' ' + module_item.surname.meta_value"
+            >{{ module_item.name.meta_value + ' ' + module_item.surname.meta_value }}</p> 
             <div class="truncate w-100">
-              <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>
-              <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>
-              <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p> 
+              <p v-if="module_item.age.meta_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.age.meta_value }}</p>
+              <p v-if="module_item.country.meta_value" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ module_item.country.meta_value }}</p>
+              <p v-if="module_item.city.meta_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.city.meta_value }}</p> 
             </div> 
           </div> 
         </div>
-
+ 
         <div class="card border-0 product mb-0"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
@@ -789,12 +764,12 @@ a.down-scroll:hover{
             </h5> 
             <p 
               class="card-text truncate mb-2" 
-              :title="lead_info.product.description + '. ' + lead_info.product.price "
-            >{{ lead_info.product.name }}</p> 
+              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.price "
+            >{{ module_item.product.meta_value.name }}</p> 
             <p 
               class="card-link truncate w-100 mb-0" 
-              :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "
-            >{{ lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price  }}</p>  
+              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price"
+            >{{ module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price  }}</p>  
           </div> 
         </div>
 
@@ -802,10 +777,10 @@ a.down-scroll:hover{
           <div class="card-body"> 
             <h5 class="card-title"> 
               <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
-              Activity 
+              Last Called by
             </h5> 
-            <p class="card-text mb-2">Off-line</p> 
-            <p class="card-link mb-0">Online 2 Days ago</p>  
+            <p class="card-text mb-2">John Hill</p> 
+            <p class="card-link mb-0">21-05-2019</p>  
           </div> 
         </div> 
 
@@ -817,12 +792,12 @@ a.down-scroll:hover{
             </h5> 
             <p class="card-text mb-2">11:20</p>
             <div class="truncate"> 
-              <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p> 
-              <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>  
+              <p v-if="module_item.city.meta_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.city.meta_value }}</p> 
+              <p v-if="module_item.country.meta_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.country.meta_value }}</p>  
             </div>
           </div> 
-        </div> 
-      </div>       
+        </div>
+      </div>
 
       <div class="side-indentation stats final-modal">
         <div class="card-deck mx-0 mb-0"> 
@@ -877,9 +852,10 @@ a.down-scroll:hover{
                 id="one" 
                 role="tabpanel" 
                 aria-labelledby="one-tab"
+                 
               > 
                 <div class="notes-roll"> 
-                  <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
+                  <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;" v-if="!review_comment"> 
                     <li 
                       v-for="comment in comments.comments" 
                       class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
@@ -889,15 +865,6 @@ a.down-scroll:hover{
                         <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
                         <span class="comment-notes d-block"> 
                           {{ comment.description }}  
-                          <a 
-                            href="#" 
-                            role="button"
-                            @click="editComment(comment)" 
-                            :class="{ 'edit-comment': true, 'pulse-round': edit_comment }" 
-                            v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"
-                          > 
-                            <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/> 
-                          </a> 
                         </span> 
                         <span class="author d-block"> 
                           {{ comment.created_at }} <br/> 
@@ -906,13 +873,48 @@ a.down-scroll:hover{
                       </p> 
                     </li> 
                   </ul> 
+
+                  <a-card title="COMMENT" style="width: 100%;height: 365px;" v-else>
+                    <div class="row comment_review">
+                      <p ><small>Tag</small></p>
+                      <p>{{ comment.comment_type.short }} <span>( {{ comment.comment_type.long }} )</span></p>
+
+                      <p><small>Comment</small></p>
+                      <p>{{ comment.comment_description }}</p>
+                    </div>
+                    <div class="row" >
+                      <a-button type="primary" html-type="submit" @click="review_comment = false">
+                        Cancel
+                      </a-button>
+                      <a-button type="primary" html-type="submit" @click="addComment">
+                        Save
+                      </a-button>
+                    </div>
+                  </a-card>
                 </div> 
 
-                <div class="d-flex notes-capture"> 
+                <div class="d-flex notes-capture" v-if="!review_comment"> 
                   <div class="flex-shrink-1">
-                    <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"> 
-                      <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
-                    </b-button>
+                    <div class="col pl-0 dropdown">
+
+                      <b-button 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false"
+                        :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }"
+                        > 
+                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon w-100"/> 
+                      </b-button>
+                      <div class="dropdown-menu">
+                          <div class="d-block"> 
+                            <div class="row"> 
+                              <div class="col-lg-12" v-for="(type, index) in comment_types" :key="index"> 
+                                <b-form-radio v-model="comment.comment_type" name="some-radios" :value="type">{{ type.long }}</b-form-radio> 
+                              </div> 
+                            </div> 
+                          </div> 
+                      </div>
+                  </div>
                   </div>
                   <div class="flex-grow-1 mr-2"> 
                     <input 
@@ -927,7 +929,7 @@ a.down-scroll:hover{
                       id="submit-btn" 
                       type="submit" 
                       class="btn p-0 m-0" 
-                      @click="addComment()"
+                      @click="prepComment()"
                     >
                       <img 
                         src="/images/icons/workstation/Submit.svg" 
@@ -1118,35 +1120,35 @@ a.down-scroll:hover{
                 <div class=""> 
                   <div class="row mx-0 justify-content-between align-items-center summary">
                     <div class="col-auto pl-0">
-                      <p>220 reviews</p>
+                      <p>{{ comments.total_comments }} review(s)</p>
                     </div>
 
                     <div class="col-auto px-0">
                       <div class="row mx-0 mb-0">
                         <div class="col-auto px-0">
-                          <p>Called: 600</p>
+                          <p>Called: {{ comments.total_calls }}</p>
                         </div>
                         <div class="col-auto pr-0">
-                          <p>Answered: 50</p>
+                          <p>Answered: {{ comments.total_answered_calls }}</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">
+                  <div v-for="(stat, index) in comments.comments_graph" :key="index" class="row mx-0 mb-1 align-items-center">
                     <div class="col-12 px-0">
                       <div class="row mx-0 mb-0 align-items-center">
                         <div class="col-12 align-content-end px-0">
-                          <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>
+                          <p class="text-right mb-0 stat-perc">{{ stat.percentage }}%</p>
                         </div>
 
                         <div class="col px-0">
-                          <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>
+                          <p class="mb-0 summary-abr">{{ stat.type }}</p>
                         </div>
 
                         <div class="col-11 pr-0 pl-4">
                           <div class="progress-bar w-100">
-                            <span class="tank" :style="{width: + stat.percent + '%'}"></span>
+                            <span class="tank" :style="{width: + stat.percentage + '%'}"></span>
                           </div>
                         </div>
                       </div>
@@ -1219,7 +1221,7 @@ a.down-scroll:hover{
         </div>
 
         <!-- Activities Starts -->
-        <div class="row mx-0 mb-0 activities"> 
+        <!-- Yong <div class="row mx-0 mb-0 activities"> 
           <div class="col-lg-12 px-0"> 
             <div class="card left mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
@@ -1307,11 +1309,11 @@ a.down-scroll:hover{
               </div> 
             </div> 
           </div>  
-        </div>
+        </div> -->
         <!-- Activities Starts End -->
 
         <!-- Deals Starts -->
-        <div class="row mx-0 mb-0 deals"> 
+        <!-- Yong <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
             <div class="card left mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
@@ -1504,7 +1506,7 @@ a.down-scroll:hover{
               </div> 
             </div> 
           </div>  
-        </div>
+        </div> -->
         <!-- Deals Ends -->
       </div>
     </div> 
@@ -1532,19 +1534,19 @@ a.down-scroll:hover{
     <!-- Dialer Section Ends --> 
 
     <!-- Active calls Section Starts --> 
-    <div class="" v-if="active_calls == true"> 
+    <!-- Yong <div class="" v-if="active_calls == true"> 
       <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%"> 
         <div class="col-lg-12"> 
           <vcl-table v-if="show_page_loader === true"></vcl-table> 
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable> 
         </div> 
       </div> 
-    </div> 
+    </div>  -->
     <!-- Active calls Section Ends --> 
 
     <!-- Modals Section Starts --> 
     <div> 
-      <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal"> 
+      <!-- Yong <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal"> 
         <div class="d-block"> 
           <div class="row"> 
             <div class="col-lg-6"> 
@@ -1787,7 +1789,7 @@ a.down-scroll:hover{
                           id="submit-btn" 
                           type="submit" 
                           class="btn " 
-                          @click="addComment()"
+                          @click="prepComment()"
                         >
                           <img 
                             src="/images/icons/workstation/Submit.svg" 
@@ -2030,7 +2032,7 @@ a.down-scroll:hover{
             </div>
           </div>
         </div>
-      </b-modal>
+      </b-modal> -->
     </div>
 
     <input type="hidden" @click="startCall()" ref="callBtn" />
@@ -2064,15 +2066,20 @@ a.down-scroll:hover{
         mounted() {
             console.log('Workstation Mounted');
             var vm = this;
+
+            vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
             
-            if( vm.lead_id != ''){
-                vm.enqueueLead(vm.lead_id);
+            vm.item_custom_fields = JSON.parse(vm.custom_fields);
+            
+            if( vm.item_id != ''){
+                vm.enqueueLead(vm.item_id);
                 vm.general = true;
                 vm.active_calls = false;
                 Fire.$emit('ShowGeneral');
             }else{
               if( this.role_id == 1 || this.role_id == 2 ){
                 vm.active_calls = true;
+                vm.getActiveCalls();
                 Fire.$emit('ShowActiveCalls');
               }else{
                 vm.general = false;
@@ -2082,12 +2089,8 @@ a.down-scroll:hover{
                 Fire.$emit('ShowActiveCalls');
               }
             }
-            
-            vm.getActiveCalls();
 
             vm.prepDates();
-
-            vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
 
             Fire.$on('CallStarted', function(){
                 vm.general = false;
@@ -2137,20 +2140,16 @@ a.down-scroll:hover{
             });
         },
         created: function () {
+          this.getComments(this.item_id);
         },
-        props: ['user_name','user_id', 'role_id','lead_id','auto_dialer_settings'],
+        props: ['user_name','user_id', 'role_id','item_id','auto_dialer_settings', 'custom_fields'],
         data: function(){
           return {
-            lead : {},
+            module_item : {},
             conferences: [],
-            lead_info : {
-                lead_source: {},
-                product: {},
-            },
-            call_counts : {},
-            product : {},
+            item_custom_fields : {},
+            review_comment : false,
             comments : {},
-            comments_graph : {},
             notes_data: [],
             minimized: false,
             scripts: false,
@@ -2171,8 +2170,38 @@ a.down-scroll:hover{
             comment:{
                 id: '',
                 comment_description :'',
-                comment_type :''
+                comment_type :null
             },
+            comment_types: [
+              {
+                short: 'A',
+                long: 'Answered',
+              },
+              {
+                short: 'NA',
+                long: 'No Answer',
+              },
+              {
+                short: 'VM',
+                long: 'Voicemail',
+              },
+              {
+                short: 'LB',
+                long: 'Language Barrier',
+              },
+              {
+                short: 'NI',
+                long: 'Not Interested',
+              },
+              {
+                short: 'PTP',
+                long: 'Promise To Pay',
+              },
+              {
+                short: 'S',
+                long: 'Sale',
+              }
+            ],
             call_back:{
                 id: '',
                 note :'',
@@ -2262,13 +2291,6 @@ a.down-scroll:hover{
               }
             ],
             Toast: null,
-            callStats: [
-              {abbreviation: 'NA', percent: 53},
-              {abbreviation: 'FT', percent: 9},
-              {abbreviation: 'LB', percent: 4},
-              {abbreviation: 'MI', percent: 30},
-              {abbreviation: 'VM', percent: 15}
-            ],
             activityItems: [
               { statusColor: '#f42222', status: 'Not Started', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
               { statusColor: '#00d58e', status: 'Finished', subject: 40, dueDate: 'Dickerson', activityOwner: 'Macdonald', timeModified: '' },
@@ -2424,10 +2446,10 @@ a.down-scroll:hover{
                 this.set_time = 2  * 60 * 1000;
                 this.added_time = true;
             },
-            enqueueLead(lead_id = ''){
+            enqueueLead(item_id = ''){
                 var vm = this;
 
-                var end_point_choice = '/leads/get/' + lead_id;
+                var end_point_choice = '/modules/get-item/' + item_id;
               
                 vm.show_page_loader = true;
 
@@ -2436,20 +2458,16 @@ a.down-scroll:hover{
                 axios.get(end_point_choice).then(function (response) {
                     
                     if(response.data.success == true){
-                        vm.lead = response.data;
-                        vm.lead_info = response.data.lead;
-                        vm.call_counts = response.data.call_counts;
-                        vm.product = response.data.product;
-                        vm.comments = response.data.comments;
-                        vm.comments_graph = response.data.comments.comments_graph;
-                        vm.comment.comment_description = '';
-                        vm.comment.comment_type = '';
-                        vm.added_time = false;
-                        vm.continues = false;
+                      
+                        vm.module_item = response.data.item.item;
                         
-                        Fire.$emit('AfterLeadEnqueue', {'lead_id' : vm.lead_info.id, 'contact_number' : vm.lead_info.phone_number });
+                        Fire.$emit('AfterLeadEnqueue', {
+                          'lead_id' :  vm.module_item.id, 
+                          'contact_number' :  vm.module_item.phone_number 
+                        });
 
                         vm.show_page_loader = false;
+                        
                         vm.$Progress.finish();
 
                         if(vm.role_id == vm.dialer_settings.role_id && vm.dialer_settings.disabled == 1){
@@ -2575,19 +2593,37 @@ a.down-scroll:hover{
                     } 
                 }); 
             }, 
-            addComment(){ 
+            prepComment(){ 
                 var vm = this; 
  
-                if(vm.comment.comment_type == ''){ 
+                if(vm.comment.comment_type === null){ 
                     vm.$swal('Please note','Please choose a lead status to proceed [+]','warning'); 
                     vm.choose_comment_type = true; 
                     return false; 
                 } 
  
                 var form_data = { 
-                        id : this.lead_info.id, 
-                        type: 'lead', 
-                        comment_id: this.comment.id, 
+                    id : this.module_item.id, 
+                    type: 'customer', 
+                    comment_id: this.comment.id, 
+                    comment_type: this.comment.comment_type.short, 
+                    description: this.comment.comment_description 
+                } 
+                vm.review_comment = true
+            }, 
+            addComment(){ 
+                var vm = this; 
+ 
+                if(vm.comment.comment_type === null){ 
+                    vm.$swal('Please note','Please choose a lead status to proceed [+]','warning'); 
+                    vm.choose_comment_type = true;
+                    vm.review_comment = false; 
+                    return false; 
+                } 
+ 
+                var form_data = { 
+                        id : this.module_item.id, 
+                        type: 'customer', 
                         comment_type: this.comment.comment_type, 
                         description: this.comment.comment_description 
                     } 
@@ -2603,10 +2639,11 @@ a.down-scroll:hover{
                 axios.post(endpoint, form_data).then(function (response) { 
                      
                     if(response.data.success == true){ 
-                        vm.enqueueLead(vm.lead_info.id); 
                         vm.Toast.fire({ type: 'success', title: response.data.message }); 
-                        vm.edit_comment = false; 
+                        vm.edit_comment = false;
+                        vm.review_comment = false; 
                         vm.continues = true; 
+                        vm.getComments(vm.module_item.id);
                         vm.$Progress.finish(); 
                     }else{ 
                         vm.$Progress.fail(); 
@@ -2616,28 +2653,20 @@ a.down-scroll:hover{
                         vm.$swal('Failed', response.data.message,'warning'); 
                     } 
                 }); 
-            }, 
-            editComment(in_comment){ 
-                this.edit_comment = true; 
-                this.comment.id = in_comment.id; 
-                this.comment.comment_description = in_comment.description; 
-                this.comment.comment_type = in_comment.comment_type; 
-            }, 
-            getComments(){ 
+            },
+            getComments(item_id){ 
                 var vm = this; 
  
-                if(vm.comment.comment_type == ''){ 
-                    vm.$swal('Please note','Please choose your comment type to process','warning'); 
-                    return false; 
-                } 
- 
-                axios.post('/comments/get/lead/' + this.lead_info.id).then(function (response) { 
+                axios.get('/comments/get/customer/' + item_id).then(function (response) { 
                      
                     if(response.data.success == true){ 
                         vm.comments.comments = response.data.comments 
                         vm.comments.comments_graph = response.data.comments_graph; 
+                        vm.comments.total_comments = response.data.total_comments; 
+                        vm.comments.total_calls = response.data.total_calls; 
+                        vm.comments.total_answered_calls = response.data.total_answered_calls; 
                         vm.comment.comment_description = ''; 
-                        vm.comment.comment_type = ''; 
+                        vm.comment.comment_type = null; 
                     }else{ 
                         vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning'); 
                     } 
