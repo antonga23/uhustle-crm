@@ -290,6 +290,7 @@ Route::group(['prefix' => 'modules'], function () {
   Route::post('/check-exist', 'ModuleController@checkExist');
 
   // Items
+  Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
   Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');

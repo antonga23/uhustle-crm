@@ -222,6 +222,17 @@ class ModuleController extends Controller
         }
     }
 
+    public function getItem($item_id = null){
+
+      $module_item = ModuleItem::with('item_meta')->where(['id' => $item_id])->get();
+
+      $compact_item = $this->compactModuleItems($module_item);
+
+      $item = $compact_item['items'][0];
+
+      return ['success' => true, 'item' => $item];
+    }
+
     public function getItems($module = null){
       $module = Module::with('module_fields')->where(['tag' => $module])->first();
 
@@ -272,6 +283,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
                 $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
                     'meta_id' => $meta->id,
                     'meta_value' => $user
                   ];
@@ -283,6 +295,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
                 $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
                     'meta_id' => $meta->id,
                     'meta_value' =>  $user
                   ];
@@ -293,6 +306,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $product['name'];
 
                 $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
                     'meta_id' => $meta->id,
                     'meta_value' => $product
                   ];
@@ -304,6 +318,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $lead_source['name'];
 
                 $fields_array[$meta_name->name] = [
+                    'custom_field_id' => $meta->custom_field_id,
                     'meta_id' => $meta->id,
                     'meta_value' => $lead_source
                   ];
@@ -332,6 +347,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $status;
 
                 $fields_array[$meta_name->name] =  [
+                  'custom_field_id' => $meta->custom_field_id,
                   'meta_id' => $meta->id,
                   'meta_value' => $meta->custom_field_value
                 ];
@@ -341,6 +357,7 @@ class ModuleController extends Controller
                 $display_array[$meta_name->name] = $meta->custom_field_value;
 
                 $fields_array[$meta_name->name] = [
+                  'custom_field_id' => $meta->custom_field_id,
                   'meta_id' => $meta->id,
                   'meta_value' =>$meta->custom_field_value
                 ];

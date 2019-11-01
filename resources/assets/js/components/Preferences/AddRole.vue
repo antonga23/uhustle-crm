@@ -6,9 +6,10 @@
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
-    border-color: #999999;
+    border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
+    height:auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;
@@ -18,6 +19,12 @@
   }
   .btn-primary {
     border-radius: 50rem!important;
+    text-transform:uppercase;
+    font-size: 10px;
+    padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
 </style>
 <template>
@@ -37,7 +44,9 @@
           <label v-if="status == 0">Inactive</label>
           <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
 
-          <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add Role</b-button>
+          <div class="row mx-0 justify-content-end">
+            <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add Role</b-button>
+          </div>
         </b-col>
       </b-row>
     </b-container>
