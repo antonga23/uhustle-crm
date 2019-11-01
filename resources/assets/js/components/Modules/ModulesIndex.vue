@@ -172,10 +172,8 @@ span.right{
 }
 
 #top-section{
-  background: #fff;    
-  margin-left: -53px;
-  margin-right: -66px;
-  padding: 0px 37px;
+  background: #fff;
+  padding: 0px 6.7%;
 
 }
 .green{
@@ -263,8 +261,8 @@ table.listing tr  th{
   padding-top: 40px;
 }
 .grey-bg-color {
-      background-color: #EBEFF3 !important;
-  }
+  background-color: #EBEFF3 !important;
+}
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
@@ -287,12 +285,16 @@ table.listing tr  th{
   letter-spacing: 0.05em;
   color: #ffffff;
 }
+#bottom-section {
+  padding-left: 5.6%;
+  padding-right: 5.6%;
+}
 
 </style>
 <template>
-  <div >
+  <div>
     <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-12 plr-3">
+      <div class="col-12 px-0">
         <div class="row mb-0 pb-4 pt-40 horizontal-scroll">
           <div class="col-12">
             <div class="row">
@@ -353,8 +355,8 @@ table.listing tr  th{
         </div>
       </div>
     </div> -->
-    <div v-if="!add_user" class="plr-3">
-      <div class="row stats ml-1 scroll-hidden horizontal-scroll">
+    <div v-if="!add_user" id="bottom-section">
+      <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">
           <vcl-table v-if="show_page_loader" ></vcl-table>
               
