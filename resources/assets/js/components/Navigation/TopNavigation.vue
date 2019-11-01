@@ -2,7 +2,7 @@
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
-  padding: 23px 4% 0;
+  padding: 23px 4% 0.3%;
 }
 .navbar-nav li.title{
   line-height: 20px;

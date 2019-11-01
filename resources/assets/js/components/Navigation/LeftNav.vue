@@ -18,6 +18,9 @@
   width: 50px;
   margin-left:6px;
 }
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img {
+  padding:8px;
+}
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link:hover {
   background-size: 50px;
@@ -90,7 +93,7 @@
                 title="Dashboard" 
                 :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Dashboard Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Dashboard.svg" width="52"/>
                 <span>Dashboard</span>
               </a>
             </li>
@@ -102,7 +105,7 @@
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Work Station Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Workstation.svg" width="52"/>
                 <span>Workstation</span>
               </a>
             </li>
@@ -113,7 +116,7 @@
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Contacts icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Contacts.svg" width="52"/>
                 <span>Contacts</span>
               </a>
             </li>
@@ -124,7 +127,7 @@
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Leads</span>
               </a>
             </li>
@@ -135,7 +138,7 @@
                 title="Call History" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Call History Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Call history.svg" width="52"/>
                 <span>Call History</span>
               </a>
             </li>
@@ -146,7 +149,7 @@
                 title="Inventory" 
                 :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Inventory_Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Inventory.svg" width="52"/>
                 <span>Inventory</span>
               </a>
             </li>
@@ -157,7 +160,7 @@
                 title="Transactions" 
                 :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Transactions Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Transactions.svg" width="52"/>
                 <span>Transactions</span>
               </a>
             </li>
@@ -168,7 +171,7 @@
                 title="Social Board" 
                 :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Social Board Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Social Board.svg" width="52"/>
                 <span>Social Board</span>
               </a>
             </li> -->
@@ -180,7 +183,7 @@
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0" 
                 disabled>
-                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Education</span>
               </a>
             </li>
@@ -191,7 +194,7 @@
                 title="Users" 
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Users Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Users.svg" width="52"/>
                 <span>Users</span>
               </a>
             </li>
@@ -202,7 +205,7 @@
                 title="System Preferences" 
                 :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/System Preferences Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/System Pref.svg" width="52"/>
                 <span>System Preferences</span>
               </a>
             </li>
