@@ -788,12 +788,7 @@ textarea::placeholder {
         <div class="col"> 
           <p class="top">Successful</p> 
           <p class="bottom mb-0">{{ call_counts.call_count }}</p> 
-        </div> 
-
-        <div class="col" v-else-if="item.meta_value !== null"> 
-          <p class="top">{{ custom_field.display_name }}</p> 
-          <p class="bottom mb-0">{{ item.meta_value }}</p> 
-        </div> 
+        </div>  
       </div>
 
       <div class="row mx-0 justify-content-between top-section agent-stats-2">
