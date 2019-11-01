@@ -4,17 +4,17 @@
     overflow: auto;
   }
   h1 {
-    font-size: 20px;
+    font-size: 1.04vw;
     font-family: 'Rubik', sans-serif;
     padding-left: 5.2%;
     padding-right: 5.2%;
-    margin-top:3.9%;
+    margin-top:1%;
   }
   #dash-container {
     padding-left: 5.2%;
     padding-right: 5.2%;
     background-color: #F7F7F7;
-    margin-top: 3.7%;
+    margin-top: 1%;
   }
   #top-section {
     padding-top:1%;
@@ -23,14 +23,14 @@
   select.rounded-pill{
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    font-size: 16px;
+    font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
     padding:9px 17px 7px;
     color: #333333;
   }
   .divider-line {
     height: 1px;
-    background-color: #003449;
+    background-color: #ccc;
   }
   #top-section .agent-stats {
     margin-top:2.5%;
@@ -44,111 +44,137 @@
     margin-right: 0.9%;
   }
   #top-section .agent-stats .card .card-numeral {
-    font-size: 30px;
+    font-size: 1.58vw;
     line-height: 1em;
     letter-spacing: 0.1em;
     color: #333333;
   }
   #top-section .agent-stats .card .card-desc {
-    font-size: 18px;
+    font-size: 0.82vw;
     font-family: 'Rubik', sans-serif;
     line-height: 1em;
     color: #333333;
-    margin-top: 4px;
+    margin-top: 8px;
   }
   #top-section .agent-stats .card .card-stat {
-    font-size: 21px;
+    font-size: 0.71vw;
     font-family: 'Rubik', sans-serif;
     line-height: 1em;
     letter-spacing: 0.1em;
-    margin-top: 5px;
+    margin-top: 12px;
   }
   .agent-graphs {
     margin-top:3.4%;
   }
   .agent-graphs .card {
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-left: 1.7%;
     margin-right: 1.7%;
+    background-color: transparent;
   }
   .agent-graphs .tab-content {
     padding-top:12px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #fff;
+    box-shadow: 0 0 20px 10px #e6e6e6;
+    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+    -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+    -o-box-shadow: 0 0 20px 10px #e6e6e6;
   }
   .agent-graphs .tab-pane {
-    padding:5% 8.5%;
+    padding:2.5% 8.5% 5%;
   }
   .nav.nav-tabs.card-header-tabs .nav-link {
     color: #808080;
-    font-size: 14px;
+    font-size: 0.73vw;
   }
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{ 
-    box-shadow: 10px -10px 10px #f5f5f5; 
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{ 
-    box-shadow: inset -7px -10px 10px #f5f5f5;
-    border-top-left-radius: 25px; 
-    border-top-right-radius:0; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
-    box-shadow: -10px -10px 10px #f5f5f5; 
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-  } 
-  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{ 
-    box-shadow: inset 7px -10px 10px #f5f5f5; 
-    border-top-right-radius: 25px; 
-    border-top-left-radius:0; 
+  .nav.nav-tabs.card-header-tabs .nav-link .icon {
+    padding-top:18px;
+    padding-bottom:18px;
   }
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], 
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"],
+  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
+    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+  } 
   .card .card-header.tab-card-header {
-    background-color: #fff;
+    background-color: transparent;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
   }
-  
   .agent-details {
     margin-top: 3.1%;
   }
+  .agent-details .container-row .col, .agent-details .container-row .col-3{
+    padding-left: 1.3%;
+    padding-right: 1.3%;
+  }
+  .agent-details .top-row .col {
+    padding-left: 1.7%;
+    padding-right: 1.7%;
+  }
   .agent-details .bottom-row{
-    margin-top: 4.7%;
+    margin-top: 3.8%;
+  }
+  .agent-details .bottom-row .col {
+    padding-left: 1.7%;
+    padding-right: 1.7%;
   }
   .agent-details .card {
-    padding: 5% 7%!important;
+    padding: 5% 7% 5.7%!important;
     border-radius: 15px!important;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .agent-details .card .heading {
-    font-size: 20px;
+    font-size: 0.94vw;
     font-family: 'Rubik', sans-serif;
     color: #B3B3B3;
-    margin-bottom: 8px;
+    margin-bottom: 3%;
   }
   .agent-details .card .detail {
-    font-size: 30px;
+    font-size: 1.57vw;
     color: #1A1C43;
     line-height: 1em;
+    margin-top:7px;
+  }
+  #three .col {
+    padding-left:3.6%;
+    padding-right:3.6%;
+  }
+  #three .col:first-child {
+    padding-left:0;
+  }
+  #three .col:last-child {
+    padding-right:0;
+  }
+  #three .col-6 {
+    padding-left:5px;
+    padding-right:5px;
   }
   .legend {
     margin-bottom:3.1%;
   }
   .legend p {
     font-family: 'Rubik', sans-serif;
-    font-size: 14px;
+    font-size: 0.7vw;
     color:#999999;
   }
   .comparison-month {
-    color: #1C2331;
-    font-size: 13px;
+    color:#999999;;
+    font-size: 0.7vw;
+    font-family: 'Rubik', sans-serif;
+    margin-top:20%;
   }
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
     max-width:24px;
     justify-content: flex-end;
+    margin:0 auto;
   }
   .tank{
     border-top-left-radius: 50rem;
@@ -173,8 +199,9 @@
     background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;
   }
   .card.target .heading {
-    font-size: 18px;
+    font-size: 0.94vw;
     color: #fff;
+    margin-bottom:8%;
   }
   
   #dash-activities {
@@ -195,8 +222,11 @@
     border-color: #003449;
   }
   #dash-activities h4 {
-    font-size: 16px;
+    font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
+  }
+  #dash-activities .calendar h4 {
+    margin-left:4.3%;
   }
   .calendar .card {
     padding: 6% 5%!important;
@@ -208,16 +238,11 @@
   .calendar .card-title {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.63vw;
   }
   .calendar p {
     font-family: 'Rubik', sans-serif;
     font-size: 10px;
-  }
-  .to-dos {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left:40px;
   }
   .reminders p {
     font-size: 16px;
@@ -243,10 +268,46 @@
     font-family: 'Rubik', sans-serif;
     color: #808080;
   }
+  a.Edit{
+    background-image: url('/images/DataTables/Edit_Icon.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    width:20px;
+    height:20px;
+  }
+  a.Edit:hover,
+  a.Edit:active{
+      background-image: url('/images/DataTables/Edit_Icon_Active.svg');
+      background-size: 20px;
+      background-repeat: no-repeat;
+  }
+  .callbacks-to-dos {
+    max-height: 414px;
+    overflow-y: auto;
+  }
+  .callbacks-to-dos .border-top {
+    border-color: #CDCDCF;
+  }
+  .callbacks-to-dos .task-time {
+    font-size: 0.73vw;
+    color: #818284;
+    padding-right:3.5%;
+  }
+  .callbacks-to-dos .task-description {
+    height:22px;
+    font-size: 11px;
+    font-weight:500;
+    font-family: 'Rubik', sans-serif;
+    color: #6B6B6B;
+    padding-left:3.5%;
+  }
+  .active-task {
+    background-color:rgba(255,147,58,0.5);
+  }
 </style>
 <template>
   <div id="dashboard">
-    <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1>
+    <!-- <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1> -->
     <div id="dash-container">
       <div id="top-section" class="row mx-0">
         <div class="col-12 px-0">
@@ -319,12 +380,12 @@
 
         <div class="col-12 px-0 agent-graphs">
           <div class="card-deck mx-0">
-            <div class="card my-0 ml-0 border-0 tab-card"> 
+            <div class="card my-0 ml-0 border-0 shadow-none tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 p-0"> 
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
                     <a 
-                      class="nav-link py-0" 
+                      class="nav-link active py-0" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#one" 
@@ -332,7 +393,7 @@
                       aria-controls="One" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Cash_vs Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="37"/> 
                       <span class="w-50">Calls vs Sales</span>
                     </a> 
                   </li> 
@@ -346,7 +407,7 @@
                       aria-controls="Two" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Monthly_Sales.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="37"/> 
                       <span>Monthly Sales</span> 
                     </a> 
                   </li> 
@@ -362,11 +423,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="9">
                       <p class="d-inline-block mb-0">Calls</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="9">
                       <p class="d-inline-block mb-0">Sales</p>
                     </div>
                   </div>
@@ -383,12 +444,12 @@
               </div> 
             </div>
 
-            <div class="card my-0 mr-0 border-0 tab-card"> 
+            <div class="card my-0 mr-0 border-0 shadow-none tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 p-0"> 
                 <ul class="nav nav-tabs card-header-tabs text-center mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item w-50"> 
                     <a 
-                      class="nav-link py-0" 
+                      class="nav-link active py-0" 
                       id="three-tab" 
                       data-toggle="tab" 
                       href="#three" 
@@ -396,7 +457,7 @@
                       aria-controls="Three" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Answers_vs_dialing.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="37"/> 
                       <span class="w-50">Answers vs Dialing</span>
                     </a> 
                   </li> 
@@ -410,7 +471,7 @@
                       aria-controls="Four" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="60"/> 
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="37"/> 
                       <span>Commissions</span> 
                     </a> 
                   </li> 
@@ -426,27 +487,27 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="9">
                       <p class="d-inline-block mb-0">Answers</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="9">
                       <p class="d-inline-block mb-0">Dialling</p>
                     </div>
                   </div>
 
                   <div class="row justify-content-between mx-0">
-                    <div class="col-2 px-2" v-for="(comparison, index) in comparisons" :key="index">
+                    <div class="col" v-for="(comparison, index) in comparisons" :key="index">
                       <div class="row mx-0 justify-content-between">
-                        <div class="col-6 px-1">
+                        <div class="col-6 pl-0">
                           <div class="progress-bar h-100">
-                            <span class="w-100 tank answers" :style="'height:' + '{{ comparison.answers }}' + '%'"></span>
+                            <span class="w-100 tank answers" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
                         </div>
 
-                        <div class="col-6 px-1">
+                        <div class="col-6 pr-0">
                           <div class="progress-bar h-100">
-                            <span class="w-100 tank dialing" :style="'height:' + '{{ comparison.dialing }}' + '%'"></span>
+                            <span class="w-100 tank dialing" :style="{height: + comparison.answers + '%'}"></span>
                           </div>
                         </div>
                       </div>
@@ -464,11 +525,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="9">
                       <p class="d-inline-block mb-0">2018</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="17">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="9">
                       <p class="d-inline-block mb-0">2019</p>
                     </div>
                   </div>
@@ -479,7 +540,7 @@
         </div>
 
         <div class="col-12 px-0 agent-details">
-          <div class="row mx-0">
+          <div class="row container-row mx-0">
             <div class="col-3 pl-0">
               <div class="card h-100 border-0 target reached">
                 <div class="card-text">
@@ -521,7 +582,7 @@
                   </div>
                 </div>
                 
-                <div class="col p-0">
+                <div class="col">
                   <div class="card border-0 mb-0">
                     <p class="w-100 mb-0 text-capitalize heading">Commission</p>
                     <p class="w-100 mb-0 font-weight-bold detail">$420.23</p>
@@ -549,8 +610,7 @@
               <h4 class="font-weight-regular">Filter</h4>
               <vc-calendar 
                 class="border-0" 
-                :attributes='attrs' 
-                title-position="right" 
+                :attributes='attrs'
                 is-expanded 
                 :popover="true" />
               
@@ -559,9 +619,12 @@
                   <p class="mb-0">This is a test</p>
                 </div>
 
-                <div class="row mx-0 justify-content-between">
-                  <div class="col-auto pl-0">
-                    <p>23 Jul</p>
+                <div class="row mx-0 justify-content-between align-items-center">
+                  <div class="col-auto pl-0 mb-2">
+                    <div class="row mx-0 align-items-center">
+                      <p class="d-inline-block mr-2 mb-0">23 Jul</p> 
+                      <a class="d-inline-block Edit" href="#" @click="showEdit()" title="Edit"></a>
+                    </div>
                   </div>
 
                   <div class="col-auto pr-0">
@@ -576,6 +639,21 @@
             <div class="col border-right to-dos">
               <h4 class="mb-2 font-weight-regular">Callbacks</h4>
               <h4 class="font-weight-regular">Thursday 11/06</h4>
+
+              <div class="callbacks-to-dos">
+                <table class="w-100">
+                  <div v-for="(task, index) in tasks" :key="index">
+                    <tr class="border-top">
+                      <td rowspan="2" width="13.609%" class="task-time">{{ task.time }}</td>
+                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
+                    </tr>
+
+                    <tr class="w-100">
+                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
+                    </tr>
+                  </div>
+                </table>
+              </div>
             </div>
 
             <div class="col pr-0 reminders">
@@ -653,6 +731,32 @@
           { month: "Aug", answers: 25, dialing: 65 },
           { month: "Sept", answers: 5, dialing: 65 },
           { month: "Oct", answers: 15, dialing: 65 },
+        ],
+        tasks: [
+          { time: '00:00', task: null},
+          { time: '01:00', task: null},
+          { time: '02:00', task: null},
+          { time: '03:00', task: null},
+          { time: '04:00', task: null},
+          { time: '05:00', task: null},
+          { time: '06:00', task: null},
+          { time: '07:00', task: null},
+          { time: '08:00', task: 'This is a task'},
+          { time: '09:00', task: null},
+          { time: '10:00', task: null},
+          { time: '11:00', task: null},
+          { time: '12:00', task: null},
+          { time: '13:00', task: null},
+          { time: '14:00', task: null},
+          { time: '15:00', task: null},
+          { time: '16:00', task: null},
+          { time: '17:00', task: null},
+          { time: '18:00', task: null},
+          { time: '19:00', task: null},
+          { time: '20:00', task: null},
+          { time: '21:00', task: null},
+          { time: '22:00', task: null},
+          { time: '23:00', task: null},
         ]
       }
     },
