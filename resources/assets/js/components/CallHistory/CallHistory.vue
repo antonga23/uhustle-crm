@@ -39,12 +39,12 @@
     }
     
     #top-section {
-        padding: 20px 3%;
+        padding: 10px 3%;
     }
     
-    .row {
+    /* .row {
         margin-bottom: 3%;
-    }
+    } */
     
     .top-section {
         list-style: none;
@@ -66,7 +66,7 @@
         border-radius: 10px;
         border: none;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;
-        min-width: 200px;
+        min-width: 150px;
     }
  
     .ca .card-title {
@@ -111,10 +111,8 @@
     }
     
     .add-new-top-section {
-        width: 100px;
         float: right;
         border-radius: 50%;
-        background-color: #EBEFF3;
     }
     
     h5 {
@@ -134,6 +132,7 @@
         float: left;
         margin-bottom: -10px;
         word-break: keep-all;
+        line-height: 14px;
     }
     
     p.card-text {
@@ -255,6 +254,7 @@
     
     .grey-bg-color {
         background-color: #EBEFF3;
+        margin-top: 28px;
     }
     
     .card-text-small {
@@ -335,7 +335,7 @@
     }
     
     .card .card-text {
-        font-size: 36px;
+        font-size: 32px;
         line-height: 1em;
     }
     
@@ -343,18 +343,7 @@
         overflow: auto;
         flex-wrap: nowrap;
     }
-    
-    @media screen and (min-width: 1353px) and (max-width:1543px) {
-        .card .card-text {
-            font-size: 26px;
-        }
-    }
-    
-    @media screen and (max-width: 1352px) {
-        .card .card-text {
-            font-size: 16px;
-        }
-    }
+
     
     .col-lg-auto .btn.btn-secondary {
         width: 40px;
@@ -371,16 +360,55 @@
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
         background-color: #fff;
     }
+
+     .add-new-top-section .dropdown {
+         top: -10px;
+     }
+
+     .plr-3 {
+    padding: 23px 4% 0;
+    }
+
+    /* Media Queries */
+       @media screen and (min-width: 1353px) and (max-width:1543px) {
+        .card .card-text {
+            font-size: 20px;
+        }
+    }
+    
+    @media screen and (max-width: 1500px) {
+        .card .card-text {
+            font-size: 16px;
+        }
+        .card-text-small {
+            font-size: 12px;
+        }
+
+        .card {
+           min-width: 150px !important;
+        }
+
+        .add-new-top-section img.icon {
+            width: 36px !important; 
+        }
+
+        .add-new-top-section .dropdown {
+            top: -10px;
+            right: 10px;
+        }
+    }
+
+
 </style>
 <template>
     <div class="">
 
         <div id="top-section" class="row pb-0 mb-0 align-items-center grey-bg-color justify-content-between mx-0">
             <div class="col-11">
-                <div class="row mb-0 pb-4 horizontal-scroll">
-                    <div class="col pl-0">
+                <div class="row mb-0 pb-3 horizontal-scroll">
+                    <div class="col-auto pl-0">
                         <div class="card mb-0 calls">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                            <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Calls</p>
                                 </div>
@@ -390,9 +418,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         <div class="card mb-0 sales">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                           <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Sales</p>
                                 </div>
@@ -402,9 +430,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         <div class="card mb-0 sales-amount">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                           <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Amount</p>
                                 </div>
@@ -414,9 +442,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         <div class="card mb-0 call-backs">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                           <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Callbacks</p>
                                 </div>
@@ -426,9 +454,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         <div class="card mb-0 ave-time">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                           <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Av. Time</p>
                                 </div>
@@ -438,9 +466,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         <div class="card mb-0 con-ratio">
-                            <div class="card-body row align-items-center justify-content-between mx-0 p-3">
+                           <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                                 <div class="col pl-0">
                                     <p class="card-text-small text-left">Con. Ratio</p>
                                 </div>
@@ -456,11 +484,11 @@
                 <div class="row">
                     <div class="col-12 pr-0">
                         <div class="mb-0 add-new-top-section">
-                            <div class="card-body row right align-items-center justify-content-between mx-0 p-3">
+                            <div class="card-body row right align-items-center justify-content-between mx-0 p-0">
                                 <div class="col pl-0 dropdown">
-                                    <b-button class="rounded-circle m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 20px;" />
-                                    </b-button>
+                                    <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/images/icons/Call-History-Add-Icon.svg" alt="Icon" class="icon" style="width: 60px;" />
+                                    </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Calls</a>
                                         <a class="dropdown-item" href="#">Sales</a>
@@ -474,12 +502,28 @@
                 </div>
             </div>
         </div>
-        <div class="row stats mt-4 mx-0 scroll-hidden horizontal-scroll" v-if="conferences.length > 0">
+        <div class="plr-3">
+        <div class="row stats mx-0 scroll-hidden horizontal-scroll" v-if="conferences.length > 0">
             <div class="col-lg-12 px-0">
                 <div class="card-body padding-bottom-18">
                     <data-table  id="datatable" :rows="conferences" :columns="columns"></data-table>
                 </div>
             </div>
+            <!-- <div class="col-lg-1 px-0">
+                <div class="padding-bottom-18">
+                   <div class="col pl-0 dropdown">
+                        <a class="m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/images/icons/add_Button.svg" alt="Icon" class="icon" style="width: 15px;" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Calls</a>
+                            <a class="dropdown-item" href="#">Sales</a>
+                            <a class="dropdown-item" href="#">Calls</a>
+                            <a class="dropdown-item" href="#">Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div class="row stats mt-4 mx-0" v-else>
             <div class="card left w-100">
@@ -489,6 +533,7 @@
                     </ul>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </template>

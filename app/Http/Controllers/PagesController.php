@@ -38,19 +38,30 @@ class PagesController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-   public function index($lead_id = null)
+   public function index($item_id = null)
    {
       $auto_dialer_settings = DialerPermissions::where(['role_id' => Auth::user()->role_id])->first();
 
-      if(is_null($lead_id)){
-         return view('pages.workstation')
-            ->with(['active'=> 'workstation'])
-            ->with(['lead_id'=> ''])
-            ->with(['auto_dialer_settings' => $auto_dialer_settings]);
+      if(is_null($item_id)){
+          $custom_fields = [];
+          $item_id = null;
+          return view('pages.workstation')
+              ->with(['active'=> 'workstation'])
+              ->with(['item_id'=> $item_id])
+              ->with(['custom_fields'=> $custom_fields])
+              ->with(['lead_id'=> ''])
+              ->with(['auto_dialer_settings' => $auto_dialer_settings]);
+
       }else{
+
+        $module_item = ModuleItem::find($item_id);
+        
+        $custom_fields = ModuleCustomFields::where(['module_id' => $module_item['module_id']])->get();
+        
          return view('pages.workstation')
             ->with(['active'=> 'workstation'])
-            ->with(['lead_id'=> $lead_id])
+            ->with(['item_id'=> $item_id])
+            ->with(['custom_fields'=> $custom_fields])
             ->with(['auto_dialer_settings' => $auto_dialer_settings]);
       }
    }

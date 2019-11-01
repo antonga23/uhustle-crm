@@ -888,6 +888,13 @@ table tr td a.Edit:active{
     background-size: 25px 35px;
     background-repeat: no-repeat;
 }
+ @media screen and (max-width: 1500px) {
+     table tr td {
+        font-size: 12px !important;
+        padding: 5px 0px 5px 0px !important;
+     }
+ }
+
 .control-label{
     float: left;
 }
@@ -1058,10 +1065,10 @@ table {
 table tr td {
     height: 35px;
     font-size: 14px;
-    color: #003449;
+    color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 25px 0px 25px 0px;
+    padding: 10px 0px 10px 0px;
     min-width: 150px;
 }
 
@@ -1072,7 +1079,7 @@ table tr td a i {
 
 table tr {
     font-size: 12px;
-    border-bottom: 1px solid #B3B3B3;
+    border-bottom: 1px solid #f2f2f2;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
@@ -1139,7 +1146,7 @@ table th.sorting-desc:after {
 }
 
 table tbody tr:hover {
-    background-color: #EEE;
+    background-color: #f7f7f7;
 }
 
 table th:last-child,
@@ -1148,8 +1155,8 @@ table td:last-child {
     background-image: none !important;
 }
 
-table th:first-child,
+/* table th:first-child,
 table td:first-child {
     padding-left: 25px;
-}
+} */
 </style>
