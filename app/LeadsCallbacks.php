@@ -23,6 +23,6 @@ class LeadsCallbacks extends Model
 
     public function lead()
     {
-        return $this->belongsTo('App\Lead', 'lead_id');
+        return $this->belongsTo('App\ModuleItem', 'lead_id');
     }
 }

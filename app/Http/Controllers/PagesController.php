@@ -47,6 +47,8 @@ class PagesController extends Controller
          return view('pages.workstation')
             ->with(['active'=> 'workstation'])
             ->with(['lead_id'=> ''])
+            ->with(['item_id'=> null])
+            ->with(['custom_fields'=> []])
             ->with(['auto_dialer_settings' => $auto_dialer_settings]);
 
       }else{

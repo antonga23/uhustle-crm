@@ -76497,8 +76497,7 @@ __webpack_require__.r(__webpack_exports__);
       this.active_calls_active = true;
       this.general_active = false;
       this.scripts_active = false;
-      this.dialer_active = false;
-      Fire.$emit('ShowActiveCalls');
+      this.dialer_active = false; // Fire.$emit('ShowActiveCalls');
     },
     showGeneral: function showGeneral() {
       this.general_active = true;
@@ -83137,7 +83136,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     });
   },
   created: function created() {
-    this.getComments(this.item_id);
+    if (this.item_id != '') {
+      this.getComments(this.item_id);
+    }
   },
   props: ['user_name', 'user_id', 'role_id', 'item_id', 'auto_dialer_settings', 'custom_fields'],
   data: function data() {
@@ -83504,7 +83505,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         vm.call_back.date = vm.selected_date.format('YYYY-MM-DD');
         vm.call_back.time = vm.selected_time.format('hh:mm');
         vm.call_back.user_id = vm.user_id;
-        vm.call_back.lead_id = vm.lead_info.id;
+        vm.call_back.lead_id = vm.module_item.id;
         this.$validator.validateAll().then(function (result) {
           if (!result) {} else {
             axios.post('/leads/setcallback', vm.call_back).then(function (response) {
