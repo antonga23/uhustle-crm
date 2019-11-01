@@ -43,13 +43,14 @@ class PagesController extends Controller
       $auto_dialer_settings = DialerPermissions::where(['role_id' => Auth::user()->role_id])->first();
 
       if(is_null($item_id)){
-
-         return view('pages.workstation')
-            ->with(['active'=> 'workstation'])
-            ->with(['lead_id'=> ''])
-            ->with(['item_id'=> null])
-            ->with(['custom_fields'=> []])
-            ->with(['auto_dialer_settings' => $auto_dialer_settings]);
+          $custom_fields = [];
+          $item_id = null;
+          return view('pages.workstation')
+              ->with(['active'=> 'workstation'])
+              ->with(['item_id'=> $item_id])
+              ->with(['custom_fields'=> $custom_fields])
+              ->with(['lead_id'=> ''])
+              ->with(['auto_dialer_settings' => $auto_dialer_settings]);
 
       }else{
 
