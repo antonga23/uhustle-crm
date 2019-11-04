@@ -290,7 +290,7 @@ table.listing tr  th{
 </style>
 <template>
   <div>
-    <div id="top-section" class="row mb-0 grey-bg-color align-items-center justify-content-between mx-0">
+    <div id="top-section" class="row mb-3 grey-bg-color align-items-center justify-content-between mx-0">
       <div class="col-12 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
           <div class="col-12">
