@@ -976,7 +976,7 @@ table {
     justify-content: flex-end;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     color: rgba(0, 0, 0, 0.54);
 }
 
@@ -993,7 +993,7 @@ table {
     width: 46px;
 }
 .table-footer label {
-    font-size: 12px;
+    font-size: 0.63vw;
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
@@ -1042,7 +1042,7 @@ table {
     border-bottom: none;
     height: auto;
     line-height: normal;
-    font-size: 12px;
+    font-size: 0.63vw;
     width: 40px;
     text-align: right;
 }
@@ -1064,8 +1064,13 @@ table {
 
 table tr td {
     height: 35px;
+<<<<<<< HEAD
     font-size: 14px;
     color: #1c2331;
+=======
+    font-size: 0.73vw;
+    color: #003449;
+>>>>>>> 99a889ea6cd34a7badc71ddef468f08f2b43a6e1
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
     padding: 10px 0px 10px 0px;
@@ -1078,12 +1083,16 @@ table tr td a i {
 }
 
 table tr {
+<<<<<<< HEAD
     font-size: 12px;
     border-bottom: 1px solid #f2f2f2;
+=======
+    font-size: 0.63vw;
+    border-bottom: 1px solid #B3B3B3;
+>>>>>>> 99a889ea6cd34a7badc71ddef468f08f2b43a6e1
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
-
 }
 
 table thead tr:first-child {
@@ -1091,7 +1100,7 @@ table thead tr:first-child {
 }
 
 table th {
-   font-size: 12px;
+   font-size: 0.63vw;
     font-weight: 600;
     color: #A6A6A6;
     cursor: pointer;
