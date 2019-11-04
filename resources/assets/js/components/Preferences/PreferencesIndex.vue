@@ -29,7 +29,6 @@
     margin-left: 1.6%;
     margin-right: 1.6%;
     margin-bottom: 8px;
-    font-size:14px;
   }
   ul.top-menu li.item a{
     color: rgba(0, 0, 0, 0.5);
@@ -40,18 +39,20 @@
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    font-size:0.73vw;
   }
   ul.top-menu li.item a.active{
     background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
     color: #fff !important;
     text-decoration: none;
+    font-weight: 500;
   }
   .user-roles .tab-pane .row{
     margin-right: 0;
     margin-left: 0;
   }
   h5 {
-    font-size: 16px;
+    font-size: 0.83vw;
   }
 
   .btn-default{
@@ -110,9 +111,10 @@
     border-right: 0;
     border-color: #ccc;
     font-family: 'Rubik', sans-serif;
-    font-size:14px;
+    font-size:0.73vw;
     color: #999999;
     margin-top: 4.6%;
+    padding-left:25px;
   }
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled):active, 
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active, 
@@ -128,6 +130,9 @@
     color: #999999;
     font-family: 'Rubik', sans-serif;
     font-size:14px;
+  }
+  .custom-checkbox .custom-control-label {
+    font-weight: 0.73vw;
   }
   .collapse.show .card {
     border-radius: 25px;
@@ -259,7 +264,7 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="p-0 expand-toggle"
+                        class="py-0 pr-0 expand-toggle"
                       >
                         Dialer
                         <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -311,7 +316,7 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="p-0 expand-toggle"
+                          class="py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <!-- <img src="images/icons/up.svg" width="11"> -->
