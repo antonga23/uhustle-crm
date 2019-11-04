@@ -471,7 +471,7 @@ select.month-selector {
 				this.general_active = false;
 				this.scripts_active = false;
 				this.dialer_active = false;
-				Fire.$emit('ShowActiveCalls');
+				// Fire.$emit('ShowActiveCalls');
       },
       
 			showGeneral(){

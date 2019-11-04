@@ -17,6 +17,7 @@ use App\LeadsCallbacks;
 use App\Product;
 use App\Twillio;
 use App\Role;
+use App\ModuleItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -615,9 +616,25 @@ class LeadController extends Controller
 
     public function getUserCallBacks(){
 
-        $call_backs = LeadsCallbacks::with('lead')->where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
 
-        return array('success' => true, 'call_backs' => $call_backs);
+        $data = [];
+        foreach ($call_backs as $key => $value) {
+
+          $temp = new \StdClass();
+
+          $lead = ModuleItem::with('item_meta')->find($value->lead_id);
+
+          $temp->lead = $lead;
+          $temp->call_date = $value->call_date;
+          $temp->call_time = $value->call_time;
+          $temp->notes = $value->notes;
+
+          array_push($data, $temp);
+
+        }
+
+        return array('success' => true, 'call_backs' => $data);
     }
 
     public function getLeadsCount($type = null){

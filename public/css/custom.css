@@ -712,7 +712,7 @@ border-radius: 25px;
 #api-integration .nav-link{
   padding: 23px 23px 16px 30px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 0.94vw;
   color: #999999;
 }
 #preferences .nav-tabs #__BVID__134___BV_tab_button__ {
@@ -750,53 +750,54 @@ border-radius: 25px;
 }
 #edit-module .ant-select-selection--single, 
 #add-module .ant-select-selection--single{
-  border-radius: 50rem;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  border-color: #cccccc;
-  height:auto!important;
-  padding: 11px 18px!important;
+  border: 0;
 }
 .ant-select-selection__rendered {
   line-height:1em!important;
 }
 #edit-module .ant-select-selection--multiple, 
 #add-module .ant-select-selection--multiple{
-  border-radius: 25px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  padding: 12px 15px;
-  border-color: #cccccc;
+  border:0;
 }
 #edit-module .ant-select-selection-selected-value, 
 #add-module .ant-select-selection-selected-value{
-  font-size: 12px;
+  font-size: 0.63vw;
   color: #003449;
   font-family: 'Rubik', sans-serif;
 }
 #edit-module .ant-select-selection__placeholder, 
 #add-module .ant-select-selection__placeholder{
-  font-size: 12px;
+  font-size: 0.63vw;
   font-weight: 300;
   font-family: 'Rubik', sans-serif;
   font-style: italic;
   color: #999999;
 }
+#edit-module .ant-select-selection--single .ant-select-selection__rendered, 
+#add-module .ant-select-selection--single .ant-select-selection__rendered,
 #edit-module .ant-select-selection--multiple .ant-select-selection__rendered, 
 #add-module .ant-select-selection--multiple .ant-select-selection__rendered{
   margin-left: 0;
-  margin-right: 0;
+}
+#edit-module .ant-select-selection--multiple, 
+#add-module .ant-select-selection--multiple{
+  max-width:200px;
 }
 #edit-module .ant-select-selection__choice, 
 #add-module .ant-select-selection__choice{
-  width:100%;
   background-color: #fff;
   border: 0;
-  font-size: 12px;
+  font-size: 0.63vw;
   color: #333333;
   font-family: 'Rubik', sans-serif;
-  padding-left: 0;
-  padding-right: 0;
+}
+#edit-module .ant-select-arrow,
+#add-module .ant-select-arrow {
+  top: 15%;
+}
+#edit-module .ant-select-selection__choice,
+#add-module .ant-select-selection__choice {
+  margin-top: 0;
 }
 .ant-select-dropdown{
   border-radius: 25px!important;
@@ -805,7 +806,7 @@ border-radius: 25px;
   padding: 6.8% 6.5%!important;
 }
 .ant-select-dropdown-menu-item{
-  font-size: 12px;
+  font-size: 0.63vw;
   color: #999999;
   font-family: 'Rubik', sans-serif;
   padding-left:0!important;
