@@ -969,7 +969,7 @@ table {
     justify-content: flex-end;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     color: rgba(0, 0, 0, 0.54);
 }
 
@@ -986,7 +986,7 @@ table {
     width: 46px;
 }
 .table-footer label {
-    font-size: 12px;
+    font-size: 0.63vw;
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
@@ -1035,7 +1035,7 @@ table {
     border-bottom: none;
     height: auto;
     line-height: normal;
-    font-size: 12px;
+    font-size: 0.63vw;
     width: 40px;
     text-align: right;
 }
@@ -1057,7 +1057,7 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 14px;
+    font-size: 0.73vw;
     color: #003449;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
@@ -1071,12 +1071,11 @@ table tr td a i {
 }
 
 table tr {
-    font-size: 12px;
+    font-size: 0.63vw;
     border-bottom: 1px solid #B3B3B3;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
-
 }
 
 table thead tr:first-child {
@@ -1084,7 +1083,7 @@ table thead tr:first-child {
 }
 
 table th {
-   font-size: 12px;
+   font-size: 0.63vw;
     font-weight: 600;
     color: #A6A6A6;
     cursor: pointer;
