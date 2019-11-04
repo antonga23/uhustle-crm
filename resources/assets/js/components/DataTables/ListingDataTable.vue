@@ -1064,13 +1064,8 @@ table {
 
 table tr td {
     height: 35px;
-<<<<<<< HEAD
-    font-size: 14px;
-    color: #1c2331;
-=======
     font-size: 0.73vw;
     color: #003449;
->>>>>>> 99a889ea6cd34a7badc71ddef468f08f2b43a6e1
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
     padding: 10px 0px 10px 0px;
@@ -1083,13 +1078,8 @@ table tr td a i {
 }
 
 table tr {
-<<<<<<< HEAD
-    font-size: 12px;
-    border-bottom: 1px solid #f2f2f2;
-=======
     font-size: 0.63vw;
     border-bottom: 1px solid #B3B3B3;
->>>>>>> 99a889ea6cd34a7badc71ddef468f08f2b43a6e1
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
