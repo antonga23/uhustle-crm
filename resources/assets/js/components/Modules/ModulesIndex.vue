@@ -170,8 +170,7 @@ span.right{
 
 #top-section{
   background: #fff;
-  padding: 0px 6.7%;
-
+  padding: 17px 6.7%;
 }
 .green{
   color:#00a25a !important;
@@ -256,8 +255,6 @@ table.listing tr  th{
 /* assignees section */
 .grey-bg-color {
   background-color: #EBEFF3 !important;
-  padding-top: 17px;
-  padding-bottom:17px;
 }
 .grey-bg-color span{
   font-family: 'Rubik', sans-serif;
@@ -267,7 +264,7 @@ table.listing tr  th{
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
-  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-size: 10px;
   color: #989899;
@@ -287,14 +284,13 @@ table.listing tr  th{
   color: #ffffff;
 }
 #bottom-section {
-  padding-left: 5.6%;
-  padding-right: 5.6%;
+  padding-left: 4%;
 }
 
 </style>
 <template>
   <div>
-    <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
+    <div id="top-section" class="row mb-0 grey-bg-color align-items-center justify-content-between mx-0">
       <div class="col-12 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
           <div class="col-12">
@@ -358,7 +354,7 @@ table.listing tr  th{
         </div>
       </div>
     </div> -->
-    <div v-if="!add_user" id="bottom-section">
+    <div v-if="!add_user" id="bottom-section" class="pr-0">
       <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">
           <vcl-table v-if="show_page_loader" ></vcl-table>
