@@ -172,8 +172,9 @@ body {
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background-color: #fff !important;
-  border-color: #fff !important;
+  border: none!important;
   width: 200px !important;
+  padding:11px 17px!important;
 } 
 .v-bs-searchbox::-webkit-input-placeholder  {
   font-size: 11px !important;
