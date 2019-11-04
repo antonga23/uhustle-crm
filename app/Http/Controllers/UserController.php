@@ -368,15 +368,9 @@ class UserController extends Controller
 
         $user_role = Auth::user()->role_id;
 
-        if($user_role == 1){
-            $system_preferences = SystemSettings::where(['system_setting' => 1])->get();
-        }else{
-            $system_preferences = [];
-        }
-
         $preferences = SystemSettings::where(['user_id' => $user_id])->get();
 
-        return array('success' =>true,'system_preferences' => $system_preferences,'preferences' => $preferences);
+        return array('success' =>true,'preferences' => $preferences);
     }
 
     public function updatePreferences(Request $request){

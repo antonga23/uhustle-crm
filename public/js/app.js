@@ -76618,7 +76618,6 @@ __webpack_require__.r(__webpack_exports__);
       packages: [],
       filters: [],
       preferences: [],
-      system_preferences: [],
       roles: [],
       attrs: [{
         key: 'today',
@@ -76776,7 +76775,6 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       axios.get('/get-preferences').then(function (response) {
         vm.preferences = response.data.preferences;
-        vm.system_preferences = response.data.system_preferences;
         vm.system_preferences.forEach(function (preference) {
           if (preference.setting == 'auto_dialer') {
             vm.system_settings.auto_dialer.value = preference.value;
@@ -260266,273 +260264,275 @@ var render = function() {
                                           _c(
                                             "div",
                                             { staticClass: "row mx-0" },
-                                            _vm._l(
-                                              _vm.system_preferences,
-                                              function(setting, index) {
-                                                return _c(
-                                                  "div",
-                                                  {
-                                                    key: index,
-                                                    class: {
-                                                      input: true,
-                                                      "form-group": true
-                                                    }
-                                                  },
-                                                  [
-                                                    setting.setting ==
-                                                    "auto_dialer"
-                                                      ? _c("div", [
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-5 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                                        Auto Dialing\n                                                        "
-                                                              ),
-                                                              _c(
-                                                                "select",
-                                                                {
-                                                                  directives: [
-                                                                    {
-                                                                      name:
-                                                                        "model",
-                                                                      rawName:
-                                                                        "v-model",
-                                                                      value:
-                                                                        _vm
-                                                                          .system_settings
-                                                                          .auto_dialer
-                                                                          .value,
-                                                                      expression:
-                                                                        "system_settings.auto_dialer.value"
-                                                                    }
-                                                                  ],
-                                                                  staticClass:
-                                                                    "form-control border-0 rounded-pill",
-                                                                  attrs: {
-                                                                    id:
-                                                                      "auto_dialler"
-                                                                  },
-                                                                  on: {
-                                                                    change: [
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        var $$selectedVal = Array.prototype.filter
-                                                                          .call(
-                                                                            $event
-                                                                              .target
-                                                                              .options,
-                                                                            function(
-                                                                              o
-                                                                            ) {
-                                                                              return o.selected
-                                                                            }
-                                                                          )
-                                                                          .map(
-                                                                            function(
-                                                                              o
-                                                                            ) {
-                                                                              var val =
-                                                                                "_value" in
-                                                                                o
-                                                                                  ? o._value
-                                                                                  : o.value
-                                                                              return val
-                                                                            }
-                                                                          )
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .system_settings
-                                                                            .auto_dialer,
-                                                                          "value",
-                                                                          $event
-                                                                            .target
-                                                                            .multiple
-                                                                            ? $$selectedVal
-                                                                            : $$selectedVal[0]
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.applySetting()
-                                                                      }
-                                                                    ]
+                                            _vm._l(_vm.preferences, function(
+                                              setting,
+                                              index
+                                            ) {
+                                              return _c(
+                                                "div",
+                                                {
+                                                  key: index,
+                                                  class: {
+                                                    input: true,
+                                                    "form-group": true
+                                                  }
+                                                },
+                                                [
+                                                  setting.setting ==
+                                                  "max_table_row"
+                                                    ? _c("div", [
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "col-lg-5 control-label w-100 p-0"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                        Max number of rows for tables\n                                                        "
+                                                            ),
+                                                            _c(
+                                                              "select",
+                                                              {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm
+                                                                        .system_settings
+                                                                        .max_table_row
+                                                                        .value,
+                                                                    expression:
+                                                                      "system_settings.max_table_row.value"
                                                                   }
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "option",
-                                                                    {
-                                                                      attrs: {
-                                                                        value:
-                                                                          "on"
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "On"
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "option",
-                                                                    {
-                                                                      attrs: {
-                                                                        value:
-                                                                          "off"
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "Off"
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "label",
-                                                            {
-                                                              staticClass:
-                                                                "col-lg-6 control-label w-100 p-0"
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                                        Apply To\n                                                        "
-                                                              ),
-                                                              _c(
-                                                                "select",
-                                                                {
-                                                                  directives: [
-                                                                    {
-                                                                      name:
-                                                                        "model",
-                                                                      rawName:
-                                                                        "v-model",
-                                                                      value:
-                                                                        _vm
-                                                                          .system_settings
-                                                                          .auto_dialer
-                                                                          .applies_to,
-                                                                      expression:
-                                                                        "system_settings.auto_dialer.applies_to"
-                                                                    }
-                                                                  ],
-                                                                  staticClass:
-                                                                    "form-control border-0 rounded-pill",
-                                                                  attrs: {
-                                                                    id:
-                                                                      "auto_dialler"
-                                                                  },
-                                                                  on: {
-                                                                    change: [
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        var $$selectedVal = Array.prototype.filter
-                                                                          .call(
-                                                                            $event
-                                                                              .target
-                                                                              .options,
-                                                                            function(
-                                                                              o
-                                                                            ) {
-                                                                              return o.selected
-                                                                            }
-                                                                          )
-                                                                          .map(
-                                                                            function(
-                                                                              o
-                                                                            ) {
-                                                                              var val =
-                                                                                "_value" in
-                                                                                o
-                                                                                  ? o._value
-                                                                                  : o.value
-                                                                              return val
-                                                                            }
-                                                                          )
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .system_settings
-                                                                            .auto_dialer,
-                                                                          "applies_to",
-                                                                          $event
-                                                                            .target
-                                                                            .multiple
-                                                                            ? $$selectedVal
-                                                                            : $$selectedVal[0]
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.applySetting()
-                                                                      }
-                                                                    ]
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._l(
-                                                                    _vm.roles,
-                                                                    function(
-                                                                      role,
-                                                                      index
-                                                                    ) {
-                                                                      return _c(
-                                                                        "option",
-                                                                        {
-                                                                          key: index,
-                                                                          domProps: {
-                                                                            value:
-                                                                              role.id
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            _vm._s(
-                                                                              role.display_name
-                                                                            )
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    }
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "option",
-                                                                    {
-                                                                      attrs: {
-                                                                        value:
-                                                                          "-1"
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "Everyone"
-                                                                      )
-                                                                    ]
-                                                                  )
                                                                 ],
-                                                                2
-                                                              )
-                                                            ]
-                                                          )
-                                                        ])
-                                                      : _vm._e()
-                                                  ]
-                                                )
-                                              }
-                                            ),
+                                                                staticClass:
+                                                                  "form-control border-0 rounded-pill",
+                                                                attrs: {
+                                                                  id:
+                                                                    "auto_dialler"
+                                                                },
+                                                                on: {
+                                                                  change: [
+                                                                    function(
+                                                                      $event
+                                                                    ) {
+                                                                      var $$selectedVal = Array.prototype.filter
+                                                                        .call(
+                                                                          $event
+                                                                            .target
+                                                                            .options,
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            return o.selected
+                                                                          }
+                                                                        )
+                                                                        .map(
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            var val =
+                                                                              "_value" in
+                                                                              o
+                                                                                ? o._value
+                                                                                : o.value
+                                                                            return val
+                                                                          }
+                                                                        )
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .system_settings
+                                                                          .max_table_row,
+                                                                        "value",
+                                                                        $event
+                                                                          .target
+                                                                          .multiple
+                                                                          ? $$selectedVal
+                                                                          : $$selectedVal[0]
+                                                                      )
+                                                                    },
+                                                                    function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.applySetting()
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "50"
+                                                                    }
+                                                                  },
+                                                                  [_vm._v("50")]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "100"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "100"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "150"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "150"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "200"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "200"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "250"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "250"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "300"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "300"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "350"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "350"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "400"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "400"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "450"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "450"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "500"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "500"
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "option",
+                                                                  {
+                                                                    attrs: {
+                                                                      value:
+                                                                        "1000"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "1000"
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ])
+                                                    : _vm._e()
+                                                ]
+                                              )
+                                            }),
                                             0
                                           )
                                         ]
@@ -260548,7 +260548,10 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "row mx-0 preferences border-bottom" },
+                      {
+                        staticClass: "row mx-0 preferences border-bottom",
+                        staticStyle: { display: "none" }
+                      },
                       [
                         _c(
                           "div",
@@ -260957,7 +260960,10 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "row mx-0 language border-bottom" },
+                      {
+                        staticClass: "row mx-0 language border-bottom",
+                        staticStyle: { display: "none" }
+                      },
                       [
                         _c(
                           "div",
@@ -261138,72 +261144,74 @@ var render = function() {
                                         }),
                                         0
                                       )
-                                    : _c("div", { staticClass: "row mx-0" }, [
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row mx-0" }, [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "col-auto control-label py-0 pl-0 pr-2 language"
+                                      },
+                                      [
                                         _c(
-                                          "label",
+                                          "button",
                                           {
-                                            staticClass:
-                                              "col-auto control-label py-0 pl-0 pr-2 language"
+                                            staticClass: "m-0",
+                                            class: {
+                                              btn: true,
+                                              "btn-active": true
+                                            },
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.applySetting({
+                                                  type: "language",
+                                                  value: "english"
+                                                })
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("English")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "col-auto control-label py-0 pr-0 pl-2"
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "m-0",
+                                            class: {
+                                              btn: true,
+                                              "btn-active": false,
+                                              "btn-default": true
+                                            },
+                                            attrs: { type: "submit" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.applySetting({
+                                                  type: "language",
+                                                  value: "spanish"
+                                                })
+                                              }
+                                            }
                                           },
                                           [
-                                            _c(
-                                              "button",
-                                              {
-                                                staticClass: "m-0",
-                                                class: {
-                                                  btn: true,
-                                                  "btn-active": true
-                                                },
-                                                attrs: { type: "submit" },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.applySetting({
-                                                      type: "language",
-                                                      value: "english"
-                                                    })
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v("English")]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass:
-                                              "col-auto control-label py-0 pr-0 pl-2"
-                                          },
-                                          [
-                                            _c(
-                                              "button",
-                                              {
-                                                staticClass: "m-0",
-                                                class: {
-                                                  btn: true,
-                                                  "btn-active": false,
-                                                  "btn-default": true
-                                                },
-                                                attrs: { type: "submit" },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.applySetting({
-                                                      type: "language",
-                                                      value: "spanish"
-                                                    })
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                                Spanish\n                                            "
-                                                )
-                                              ]
+                                            _vm._v(
+                                              "\n                                                Spanish\n                                            "
                                             )
                                           ]
                                         )
-                                      ])
+                                      ]
+                                    )
+                                  ])
                                 ]
                               )
                             : _vm._e()
@@ -261222,7 +261230,11 @@ var render = function() {
                           _c(
                             "h3",
                             { staticClass: "d-block w-100 text-center" },
-                            [_vm._v("\n              Logout \n            ")]
+                            [
+                              _vm._v(
+                                "\n                              Logout \n                            "
+                              )
+                            ]
                           )
                         ])
                       : _vm._e()

@@ -1157,20 +1157,22 @@
                                     <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
                                         <div class="row mx-0 mb-4 pb-0 pl-4">
                                             <div class="row mx-0">
-                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in system_preferences" :key="index">
-                                                    <div v-if="setting.setting == 'auto_dialer'">
+                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
+                                                    <div v-if="setting.setting == 'max_table_row'">
                                                         <label class="col-lg-5 control-label w-100 p-0">
-                                                            Auto Dialing
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option value="on">On</option>
-                                                                <option value="off">Off</option>
-                                                            </select>
-                                                        </label>
-                                                        <label class="col-lg-6 control-label w-100 p-0">
-                                                            Apply To
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.applies_to" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option :value="role.id" v-for="(role, index) in roles" :key="index">{{ role.display_name }}</option>
-                                                                <option value="-1">Everyone</option>
+                                                            Max number of rows for tables
+                                                            <select id="auto_dialler" v-model="system_settings.max_table_row.value" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                                <option value="150">150</option>
+                                                                <option value="200">200</option>
+                                                                <option value="250">250</option>
+                                                                <option value="300">300</option>
+                                                                <option value="350">350</option>
+                                                                <option value="400">400</option>
+                                                                <option value="450">450</option>
+                                                                <option value="500">500</option>
+                                                                <option value="1000">1000</option>
                                                             </select>
                                                         </label>
                                                     </div>
@@ -1181,7 +1183,7 @@
                                 </transition-expand>
                             </div>
 
-                            <div class="row mx-0 preferences border-bottom">
+                            <div class="row mx-0 preferences border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Themes</h3>
@@ -1241,8 +1243,8 @@
                                     </div>
                                 </transition-expand>
                             </div>
-
-                            <div class="row mx-0 language border-bottom">
+                            
+                            <div class="row mx-0 language border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Language</h3>
@@ -1267,7 +1269,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mx-0" v-else>
+                                        <div class="row mx-0">
                                             <label class="col-auto control-label py-0 pl-0 pr-2 language">
                                                 <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="m-0">English</button>
                                             </label>
@@ -1284,8 +1286,8 @@
                             <div class="row logout-wrapper" v-if="profile_on == false">
                                 <a href="/logout" id="logout" class="w-100 d-block"></a>
                                 <h3 class="d-block w-100 text-center">
-                  Logout 
-                </h3>
+                                  Logout 
+                                </h3>
                             </div>
                         </div>
 
@@ -1313,8 +1315,8 @@
                                         <div class="card-body-notifications">
                                        
                                             <h3 class="d-block d-block w-100">
-                        <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-                      </h3>
+                                              <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
+                                            </h3>
                                             <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
                                         </div>
                                     </div>
@@ -1340,8 +1342,8 @@
                                             <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
                                         </div>
                                     </div>
-                                    </div>
-                                        <div class="col-12 notification-popup w-100">
+                                  </div>
+                                  <div class="col-12 notification-popup w-100">
                                     <div class="row card-body-notifications">
                                         <div class="col-auto pl-1 btn-has-new-messages">
                                         </div>
@@ -1351,9 +1353,7 @@
                                             <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
                                         </div>
                                     </div>
-                                    </div>
-                                
-
+                                  </div>
                             </div>
                         </div>
 
@@ -1418,37 +1418,37 @@
                                     <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
                                         <div class="card-header tab-card-header p-0">
                                             <span class="nav-link active border-0 pl-0" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true">
-                            <span class="left">Calendar</span>
+                                              <span class="left">Calendar</span>
                                             </span>
                                             <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
-                        <li class="nav-item left w-50">
-                          <a 
-                            class="nav-link active border-0" 
-                            id="calendar-tab" 
-                            data-toggle="tab" 
-                            href="#calendar" 
-                            role="tab" 
-                            aria-controls="Calendar" 
-                            aria-selected="true"
-                          >
-                            <span class="left description">Calendar</span>
-                          </a>
-                        </li>
+                                              <li class="nav-item left w-50">
+                                                <a 
+                                                  class="nav-link active border-0" 
+                                                  id="calendar-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#calendar" 
+                                                  role="tab" 
+                                                  aria-controls="Calendar" 
+                                                  aria-selected="true"
+                                                >
+                                                  <span class="left description">Calendar</span>
+                                                </a>
+                                              </li>
 
-                        <li class="nav-item right w-50">
-                          <a 
-                            class="nav-link" 
-                            id="search-panel-tab" 
-                            data-toggle="tab" 
-                            href="#search-panel" 
-                            role="tab" 
-                            aria-controls="Search" 
-                            aria-selected="false"
-                          >
-                            <span class="left description">Search</span>
-                          </a>
-                        </li>
-                      </ul> -->
+                                              <li class="nav-item right w-50">
+                                                <a 
+                                                  class="nav-link" 
+                                                  id="search-panel-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#search-panel" 
+                                                  role="tab" 
+                                                  aria-controls="Search" 
+                                                  aria-selected="false"
+                                                >
+                                                  <span class="left description">Search</span>
+                                                </a>
+                                              </li>
+                                            </ul> -->
                                         </div>
 
                                         <div class="tab-content" id="myTabContent">
@@ -1799,7 +1799,6 @@
                 packages: [],
                 filters: [],
                 preferences: [],
-                system_preferences: [],
                 roles: [],
                 attrs: [{
                     key: 'today',
@@ -1983,7 +1982,6 @@
 
                     axios.get('/get-preferences').then(function(response) {
                         vm.preferences = response.data.preferences;
-                        vm.system_preferences = response.data.system_preferences;
                         vm.system_preferences.forEach(function(preference) {
                             if (preference.setting == 'auto_dialer') {
                                 vm.system_settings.auto_dialer.value = preference.value;
