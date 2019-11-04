@@ -366,8 +366,6 @@ class UserController extends Controller
     public function getPreferences(){
         $user_id = Auth::user()->id;
 
-        $user_role = Auth::user()->role_id;
-
         $preferences = SystemSettings::where(['user_id' => $user_id])->get();
 
         return array('success' =>true,'preferences' => $preferences);
@@ -379,23 +377,9 @@ class UserController extends Controller
         $data = $request->all();
         $system_settings = $request['system_settings'];
         $user_settings = $request['user_settings'];
-        
-        $user_role = Auth::user()->role_id;
 
         try{
             DB::beginTransaction();
-
-            if($user_role == 1){
-                $current_auto_dialer = SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->first();
-                
-                $previous_value = $current_auto_dialer->value;
-                SystemSettings::where(['system_setting' => 1])->where(['setting' => 'auto_dialer'])->update([
-                    'value' => $system_settings['auto_dialer']['value'],
-                    'previous_value' => $current_auto_dialer->value,
-                    'modified_by' => $user_id,
-                    'applies_to_role' => $system_settings['auto_dialer']['applies_to'],
-                ]);
-            }
 
             $check = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'language'])->count();
             if($check > 0){
@@ -433,6 +417,23 @@ class UserController extends Controller
                 ]);
             }
 
+            $check = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'max_table_rows'])->count();
+            if($check > 0){
+                $prev_value = SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'max_table_rows'])->first();
+                
+                SystemSettings::where(['user_id' => $user_id])->where(['setting' => 'max_table_rows'])->update([
+                    'value' => $user_settings['max_table_rows'],
+                    'previous_value' => $prev_value->value,
+                    'modified_by' => $user_id,
+                ]);
+            }else{
+                SystemSettings::create([
+                    'user_id' => $user_id,
+                    'setting' => 'max_table_rows',
+                    'value' => $user_settings['max_table_rows'],
+                    'modified_by' => $user_id,
+                ]);
+            }
             DB::commit();
             return array('success' => true,'message' => 'Preferences updated successfully');
         }catch(\QueryException $e){

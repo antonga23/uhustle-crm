@@ -12,6 +12,7 @@ use App\Module;
 use App\ModuleCustomFields;
 use App\ModuleItem;
 use App\ModuleItemMeta;
+use App\SystemSettings;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -234,9 +235,17 @@ class ModuleController extends Controller
     }
 
     public function getItems($module = null){
+
+      $user_id = Auth::user()->id;
+
+      $preferences = SystemSettings::where(['user_id' => Auth::user()->id])
+                                    ->where(['setting' => 'max_table_rows'])
+                                    ->select('value')
+                                    ->first();
+
       $module = Module::with('module_fields')->where(['tag' => $module])->first();
 
-      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take(50);
+      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take($preferences['value']);
 
       $items = $this->compactModuleItems($module_items);
 

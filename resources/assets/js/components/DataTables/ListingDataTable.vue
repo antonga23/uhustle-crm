@@ -11,7 +11,7 @@
                                         (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                         : '')
                                     + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
-                                <!-- <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>   -->
+                                <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>  
                                 <span style="float:left;padding-top: 2px;">
                                   {{column.label}}
                                 </span>
@@ -33,9 +33,9 @@
                     <tbody>
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                             <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
-                                <!-- <span v-if="column.field == 'all'">
+                                <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
-                                </span> -->
+                                </span>
 
                                 <span v-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
 
@@ -202,7 +202,7 @@
             <div class="datatable-length">
                 <label>
                     <span>Rows per page:</span>
-                    <select class="browser-default" @change="onTableLength">
+                    <select class="browser-default" v-model="rowsToShow" @change="onTableLength">
                         <option value="15">15</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
@@ -336,6 +336,7 @@ export default {
             sortType: 'asc',
             searching: false,
             searchInput: '',
+            rowsToShow:15,
             Toast: '',
             winstaUpload: '/images/winsta-uploads/'
         }
@@ -381,14 +382,18 @@ export default {
         },
         selectAll(e){
             if(e == 'select_all'){
-                this.rows.map((lead) => {
-                    this.selected.push(lead.lead.id);
+                this.rows.map((lead, index) => {
+                  if(index <= this.rowsToShow){
+                    
+                    this.selected.push(lead.id)
+                  }
                 });
                 this.show_mass_assign = true;
             }else{
                 this.selected = [];
                 this.show_mass_assign = false;
             }
+            console.log(this.selected);
         },
         getDaysRemaining(lead){
             if(lead.expires_at){ 

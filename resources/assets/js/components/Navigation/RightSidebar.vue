@@ -1158,10 +1158,10 @@
                                         <div class="row mx-0 mb-4 pb-0 pl-4">
                                             <div class="row mx-0">
                                                 <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
-                                                    <div v-if="setting.setting == 'max_table_row'">
-                                                        <label class="col-lg-5 control-label w-100 p-0">
+                                                    <div v-if="setting.setting == 'max_table_rows'">
+                                                        <label class="col-lg-12 control-label w-100 p-0">
                                                             Max number of rows for tables
-                                                            <select id="auto_dialler" v-model="system_settings.max_table_row.value" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
+                                                            <select id="auto_dialler" v-model="user_settings.max_table_rows" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
                                                                 <option value="50">50</option>
                                                                 <option value="100">100</option>
                                                                 <option value="150">150</option>
@@ -1815,17 +1815,11 @@
                     product_id: '',
                     status: '',
                 },
-                system_settings: {
-                    id: '',
-                    auto_dialer: {
-                        value: '',
-                        applies_to: ''
-                    }
-                },
                 user_settings: {
                     id: '',
                     theme: 'orange',
-                    language: 'english'
+                    language: 'english',
+                    max_table_rows: 50
                 },
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',

@@ -301,12 +301,35 @@ table.listing tr  th{
             <div class="row mx-0">
               <div class="col-auto">
                 <span class="ml-3">Assignees:</span>
-                <v-select searchable=true :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
+                <a-select 
+                  mode="multiple"
+                  v-model="assignees" 
+                  placeholder="Select"
+                  class="border-0 w-100"
+                >
+                  <a-select-option 
+                    :value="user.id" 
+                    v-for="(user, index) in user_options" 
+                    :key="index"
+                  >{{ user.name }}</a-select-option>
+                </a-select>
               </div>
 
               <div class="col-auto">
                 <span class="ml-3">Owners: </span>
-                <v-select  searchable=true :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
+
+                <a-select 
+                  mode="multiple"
+                  v-model="assignees" 
+                  placeholder="Select"
+                  class="border-0 w-100"
+                >
+                  <a-select-option 
+                    :value="user.id" 
+                    v-for="(user, index) in user_options" 
+                    :key="index"
+                  >{{ user.name }}</a-select-option>
+                </a-select>
               </div>
 
               <div class="col-auto">
@@ -426,6 +449,9 @@ table.listing tr  th{
 
       vm.prepColums();
 
+      vm.prepUserOptions(JSON.parse(vm.active_users));
+
+
       Fire.$on('SaveFilter', function(data){
         console.log('in filters', data);
         vm.filter_data = data.filters;
@@ -466,6 +492,8 @@ table.listing tr  th{
     ],
     data: function(){
       return {
+        assignees: [],
+        owners: [],
         items : [],
         display_items : [],
         chached_display_items : [],
@@ -489,6 +517,8 @@ table.listing tr  th{
           assigned: [],
         },
         current_user: [],
+        users: [],
+        user_options: [],
         filter_data: [],
         module_custom_fields: [],
         add_user: false,
@@ -497,17 +527,25 @@ table.listing tr  th{
         selectedAssignees: null,
         selectedOwners: null,
         columns:[
-          // {
-          //     label: '',  // Column name
-          //     field: 'all',  // Field name from row
-          //     numeric: false, // Affects sorting
-          //     html: false,    // Escapes output if false.
-          //     sortable:false
-          // }
+          {
+              label: '',  // Column name
+              field: 'all',  // Field name from row
+              numeric: false, // Affects sorting
+              html: false,    // Escapes output if false.
+              sortable:false
+          }
         ]
       }
     },
     methods: {
+      prepUserOptions(users){
+        users.map((user) => {
+          this.user_options.push({
+            id: user.id,
+            name: user.name + ' ' + user.lastname ,
+          });
+        });
+      },
       prepColums(){
         var vm = this;
         this.module_custom_fields.map( (field) => {
