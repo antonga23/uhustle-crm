@@ -232,7 +232,7 @@ Route::group(['prefix' => 'leads'], function () {
   Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
-	Route::post('mass-assign', 'LeadController@massAssign');
+	Route::post('mass-assign', 'ModuleController@massAssign');
 });
 
  // Filters Routes 

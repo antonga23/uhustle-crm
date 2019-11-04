@@ -320,7 +320,7 @@ table.listing tr  th{
 
                 <a-select 
                   mode="multiple"
-                  v-model="assignees" 
+                  v-model="owners" 
                   placeholder="Select"
                   class="border-0 w-100"
                 >
@@ -338,7 +338,7 @@ table.listing tr  th{
                     <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
                   </div>
                   <div class="col-auto">
-                    <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
+                    <button type="submit" class="btn btn-default assign w-100 m-0" @click="assign()">Assign</button>
                   </div>
                 </div>
               </div>
@@ -538,6 +538,9 @@ table.listing tr  th{
       }
     },
     methods: {
+      assign(){
+        Fire.$emit('MassAssign');
+      },
       prepUserOptions(users){
         users.map((user) => {
           this.user_options.push({

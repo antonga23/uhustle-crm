@@ -72325,6 +72325,9 @@ __webpack_require__.r(__webpack_exports__);
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
+    Fire.$on('MassAssign', function () {
+      vm.assignTo();
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -72407,8 +72410,8 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       axios.post('/leads/mass-assign', {
         lead_ids: vm.selected,
-        'user_assigned': vm.selected_assignees,
-        'lead_owner': vm.selected_owners
+        'user_assigned': vm.assignees,
+        'lead_owner': vm.sowners
       }).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
@@ -74423,6 +74426,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    assign: function assign() {
+      Fire.$emit('MassAssign');
+    },
     prepUserOptions: function prepUserOptions(users) {
       var _this = this;
 
@@ -258248,11 +258254,11 @@ var render = function() {
                         staticClass: "border-0 w-100",
                         attrs: { mode: "multiple", placeholder: "Select" },
                         model: {
-                          value: _vm.assignees,
+                          value: _vm.owners,
                           callback: function($$v) {
-                            _vm.assignees = $$v
+                            _vm.owners = $$v
                           },
-                          expression: "assignees"
+                          expression: "owners"
                         }
                       },
                       _vm._l(_vm.user_options, function(user, index) {
@@ -258268,7 +258274,27 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("div", { staticClass: "row mt-3" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-default assign w-100 m-0",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              return _vm.assign()
+                            }
+                          }
+                        },
+                        [_vm._v("Assign")]
+                      )
+                    ])
+                  ])
+                ])
               ])
             ])
           ])
@@ -258334,29 +258360,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
-      _c("div", { staticClass: "row mt-3" }, [
-        _c("div", { staticClass: "col-auto" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-default cancel-assign w-100 m-0",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Cancel")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-auto" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-default assign w-100 m-0",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Assign")]
-          )
-        ])
-      ])
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default cancel-assign w-100 m-0",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Cancel")]
+      )
     ])
   }
 ]

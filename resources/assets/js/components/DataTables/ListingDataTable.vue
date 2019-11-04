@@ -281,13 +281,19 @@ export default {
         var vm = this;
         Fire.$on('Export', function(){
             vm.exportExcel();
-        });        
+        });
+
         Fire.$on('Print', function(){        
             vm.print();
         });
+
         Fire.$on('Search', function(data){
             vm.searching = true;    
             vm.searchInput = data.search_term;
+        });
+
+        Fire.$on('MassAssign', function(){
+            vm.assignTo();
         });
 
         this.Toast = vm.$swal.mixin({
@@ -368,7 +374,7 @@ export default {
         },
         assignTo(){
             var vm = this;
-            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.selected_assignees, 'lead_owner' : vm.selected_owners }).then(function (response) {
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.assignees, 'lead_owner' : vm.sowners }).then(function (response) {
                     
                 if(response.data.success == true){
                     vm.Toast.fire({ type: 'success', title: response.data.message });
