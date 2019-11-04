@@ -14,7 +14,6 @@
     padding-left: 5.2%;
     padding-right: 5.2%;
     background-color: #F7F7F7;
-    margin-top: 1%;
   }
   #top-section {
     padding-top:1%;
@@ -172,7 +171,7 @@
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
-    max-width:24px;
+    max-width:20px;
     justify-content: flex-end;
     margin:0 auto;
   }
@@ -414,7 +413,7 @@
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="one" 
@@ -478,7 +477,7 @@
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="three" 
