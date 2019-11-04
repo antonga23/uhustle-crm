@@ -815,10 +815,10 @@ a.down-scroll:hover{
                     aria-selected="true"
                   > 
                     <img 
-                      src="/images/icons/workstation/Agent_Notes.svg" 
+                      src="/images/icons/workstation/Agent Notes.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="60"
+                      width="13%"
                     /> 
                     <span>Agent Notes</span>
                   </a> 
@@ -835,10 +835,10 @@ a.down-scroll:hover{
                     aria-selected="false"
                   > 
                     <img 
-                      src="/images/icons/workstation/Schedual_Callback.svg" 
+                      src="/images/icons/workstation/Schedule Callback.svg" 
                       alt="Icon" 
                       class="icon" 
-                      width="60"
+                      width="13%"
                     /> 
                     <span>Schedule Callback</span> 
                   </a> 
@@ -1089,7 +1089,7 @@ a.down-scroll:hover{
                     aria-controls="Three" 
                     aria-selected="true"
                   > 
-                    <img src="/images/icons/workstation/Feedback_summary.svg" alt="Icon" class="icon" width="60"/> 
+                    <img src="/images/icons/workstation/Feeback Summary.svg" alt="Icon" class="icon" width="13%"/> 
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
@@ -1103,7 +1103,7 @@ a.down-scroll:hover{
                     aria-controls="Four" 
                     aria-selected="false"
                   > 
-                    <img src="/images/icons/workstation/Email_Client.svg" alt="Icon" class="icon" width="60"/> 
+                    <img src="/images/icons/workstation/Email Client.svg" alt="Icon" class="icon" width="13%"/> 
                     <span class="left">Email Client</span> 
                   </a> 
                 </li> 
@@ -1240,7 +1240,7 @@ a.down-scroll:hover{
                         src="/images/icons/workstation/Open Activities.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Open Activities</span> 
                     </a> 
@@ -1257,10 +1257,10 @@ a.down-scroll:hover{
                       aria-selected="false"
                     > 
                       <img 
-                        src="/images/icons/workstation/Closed_activites.svg" 
+                        src="/images/icons/workstation/Closed Activities.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Closed Activities</span> 
                     </a> 
@@ -1332,7 +1332,7 @@ a.down-scroll:hover{
                         src="/images/icons/workstation/Deals.svg" 
                         alt="Icon" 
                         class="icon" 
-                        width="60"
+                        width="13%"
                       /> 
                       <span>Deals</span> 
                     </a> 
@@ -1711,7 +1711,7 @@ a.down-scroll:hover{
                         aria-controls="One" 
                         aria-selected="true"
                       > 
-                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="60"/> 
+                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="13%"/> 
                         <span>Agent Notes</span>  
                       </a> 
                     </li> 
@@ -1725,7 +1725,7 @@ a.down-scroll:hover{
                         aria-controls="Two" 
                         aria-selected="false"
                       > 
-                        <img src="/images/icons/workstation/Schedual_Callback.svg" alt="Icon" class="icon" width="60"/> 
+                        <img src="/images/icons/workstation/Schedule Callback.svg" alt="Icon" class="icon" width="13%"/> 
                         <span>Schedule Callback</span> 
                       </a> 
                     </li> 
@@ -1898,7 +1898,7 @@ a.down-scroll:hover{
                         aria-selected="true"
                       > 
                         <img 
-                          src="/images/workstation/Feedback_Summary.svg" 
+                          src="/images/workstation/Feeback Summary.svg" 
                           alt="Icon" 
                           class="icon"
                           width="23"
@@ -1918,7 +1918,7 @@ a.down-scroll:hover{
                         aria-selected="false"
                       > 
                         <img 
-                          src="/images/workstation/Email_Client.svg" 
+                          src="/images/workstation/Email Client.svg" 
                           alt="Icon" 
                           class="icon" 
                           width="23"
