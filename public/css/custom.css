@@ -682,31 +682,32 @@ border-radius: 25px;
 }
 
 /* Preferences table styling */
-#preferences .card {
+#preferences .card, #transactions .card{
   border: 0;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
-#preferences .tab-content {
+#preferences .tab-content, #transactions .tab-content {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-#preferences .card-header {
+#preferences .card-header, #transactions .card-header {
   padding-left: 0;
   padding-right: 0;
   padding-bottom:11px;
   border: 0; 
   background-color: transparent;
 }
-#preferences .card-header-tabs {
+#preferences .card-header-tabs, #transactions .card-header-tabs {
   margin-right: 0;
   margin-left: 0;
   /* margin-bottom: -32px; */
 }
 #preferences .nav-tabs .nav-link, 
-#api-integration .nav-link{
+#api-integration .nav-link,
+#transactions .nav-tabs .nav-link {
   padding: 23px 23px 16px 30px;
   font-weight: 700;
   font-size: 0.94vw;
@@ -716,11 +717,13 @@ border-radius: 25px;
   padding: 23px 30px 16px 30px;
 }
 #preferences .nav-tabs .nav-link.active, 
-#api-integration .nav-link.active{
+#api-integration .nav-link.active,
+#transactions .nav-tabs .nav-link.active {
   color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"], 
-#api-integration .nav-link[aria-selected="true"]{
+#api-integration .nav-link[aria-selected="true"],
+#transactions .nav-tabs .nav-link[aria-selected="true"]{
   box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   -webkit-box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   border-top-left-radius: 25px;
