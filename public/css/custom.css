@@ -472,7 +472,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-bg-blue-600 {
   border: 2px solid #ff931e !important;
-  padding:15px;
+  padding:14px;
 }
 .vc-bg-orange-200 {
   background-color: rgba(238, 244, 241, 0.5)!important;
@@ -532,7 +532,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   .sidebar-collapse .main-header {
     transition: margin-right 0.5s ease-in-out;
     margin-left: 56px!important; 
-    margin-right: 16.718%;
+    margin-right: 7.95%;
   }
 }
 
@@ -542,7 +542,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   .main-header {
     transition: margin-right 0.5s ease-in-out;
     margin-left: 56px!important; 
-    margin-right: 16.718%;
+    margin-right: 7.95%;
   }
 }
 

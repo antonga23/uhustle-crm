@@ -24,14 +24,14 @@
   .sidebar-collapse .main-sidebar,
   .sidebar-collapse .main-sidebar:before {
     margin-left: 0!important;
-    margin-right: -10.833%!important;
+    margin-right: -8.833%!important;
   }
   
   @media (max-width: 991.98px) {
     .main-sidebar,
     .main-sidebar:before {
       margin-left: -0!important;
-      margin-left: -10.833%!important;
+      margin-left: -8.833%!important;
     }
     .sidebar-open .main-sidebar,
     .sidebar-open .main-sidebar:before {
@@ -100,7 +100,6 @@
     display: none;
   }
 
-  
   .status.active {
     width: 76px;
     text-align: center;
@@ -501,16 +500,11 @@
   }
   
   .small-avatar img {
-    width: 20%;
     border-radius: 50%;
   }
     
   .update-user, .update-filter, .save-filter {
     margin: 0px 0px 5px 0px;
-  }
-  
-  .final-modal {
-    padding: 0 0 1rem;
   }
   
   .final-modal .row-a {
@@ -750,8 +744,6 @@
     background-color: #ff933a !important;
   }
 
-  
-  
   .reminders input.list-input:focus {
     border: 1px solid rgba(28, 35, 49, 0.5);
   }
@@ -915,7 +907,7 @@
   }
 
   .saved-results {
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     font-family: 'Rubik', sans-serif;
   }
   
@@ -945,6 +937,13 @@
     outline: 0 !important;
     border: 0 !important;
   }
+
+  .cal-height p {
+    font-size: 10px;
+    border-color: #CDCDCF;
+    font-family: 'Rubik', sans-serif;
+    color: #808080;
+  }
   /*End Right Component*/
 </style>
 <template>
@@ -955,7 +954,7 @@
         <a href="#" data-toggle="push-menu" class="menu-toggle"></a>
         <div class="sidebar-menu grey-scroll" data-widget="tree">
           <div class="open-sidenav mt-3">
-            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between"> 
+            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between align-items-center"> 
               <!-- Right Side Of Navbar --> 
               <ul class="navbar-nav col-auto"> 
                 <li class="nav-item"> 
@@ -975,18 +974,19 @@
               </ul> 
 
               <ul class="navbar-nav col-auto text-right pr-0"> 
-                <div class="row mx-0 justify-content-end"> 
+                <div class="row mx-0 justify-content-end align-items-center"> 
                   <li class="nav-item name-li col-auto px-0" v-if="user.nickname != null && user.nickname != ''"> 
                     <a class="nav-link name" href="#" @click="showSettings()">{{ user.nickname }}</a> 
                   </li> 
 
                   <li class="nav-item name-li col-auto px-0" v-else> 
-                    <a class="nav-link name" href="#" @click="showSettings()">{{ user.name }}</a> 
+                    <a class="nav-link p-0 name" href="#" @click="showSettings()">{{ user.name }}</a> 
                   </li> 
+
                   <li class="nav-item col-auto pr-0"> 
-                    <a class="nav-link icon pt-0 px-0 small-avatar" href="#" @click="showSettings()"> 
-                      <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar"> 
-                      <img v-else :src="noImageUrl"> 
+                    <a class="nav-link icon py-0 pl-0 small-avatar" href="#" @click="showSettings()"> 
+                      <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" width="30"> 
+                      <img v-else :src="noImageUrl"  width="30"> 
                     </a> 
                   </li> 
                 </div> 
@@ -1090,6 +1090,7 @@
                   <div class="">
                     <h3 class="mb-0">Account</h3>
                   </div>
+
                   <div class="col-auto">
                     <img @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
                     <img @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
@@ -1132,6 +1133,7 @@
                       <div class="col-auto pl-0 pr-2">
                         <button type="submit" class="btn btn-default cancel-user w-100 m-0" @click="updateUser('account')">Cancel</button>
                       </div>
+
                       <div class="col-auto pr-0 pl-2">
                         <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="updateUser('account')">Update</button>
                       </div>
@@ -1145,9 +1147,21 @@
                   <div class="">
                     <h3 class="d-block mb-0">Settings</h3>
                   </div>
+
                   <div class="col-auto">
-                    <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                    <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
+                    <img 
+                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-if="system_settings_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
+                    >
+                    <img 
+                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-else 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg"
+                      alt="Account Edit Off" width="30"
+                    >
                   </div>
                 </div>
                 
@@ -1184,11 +1198,24 @@
                   <div class="">
                     <h3 class="d-block mb-0">Themes</h3>
                   </div>
+
                   <div class="col-auto">
-                    <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                    <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
+                    <img 
+                      @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-if="system_settings_on == false" 
+                      src="/images/icons/settings edit buttin@4x.png" 
+                      alt="Account Edit Off" 
+                      width="30"
+                    >
+                    <img 
+                      @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" 
+                      v-else 
+                      src="/images/icons/right-sidebar/Close Edit Icon.svg" 
+                      alt="Account Edit Off" width="30"
+                    >
                   </div>
                 </div>
+
                 <transition-expand>
                   <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
                     <div class="row mx-0 mb-4 pb-0 pl-4">
@@ -1196,18 +1223,35 @@
                         <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
                           <div v-if="setting.setting == 'theme' && setting.system_setting != 1" class="row mx-0">
                             <label class="col-auto control-label p-0">
-                              <button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" class="m-0 rounded-pill">
-                                  Orange
+                              <button 
+                                v-on:click="applySetting({ type : 'theme', value : 'orange'})" 
+                                type="submit" 
+                                :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" 
+                                class="m-0 rounded-pill"
+                              >
+                                Orange
                               </button>
                             </label>
+
                             <label class="col-auto control-label p-0">
-                              <button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" class="m-0 rounded-pill">
-                                  Blue
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'blue'})" 
+                                type="submit" 
+                                :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" 
+                                class="m-0 rounded-pill"
+                              >
+                                Blue
                               </button>
                             </label>
+
                             <label class="col-auto control-label p-0">
-                              <button v-on:click="applySetting({type : 'theme', value  : 'dark'})" type="submit" :class="{ 'btn dark-btn': true, 'btn-dark' : (setting.value == 'dark')? true : false , 'btn-default' : (setting.value != 'dark')? true : false  }" class="m-0 rounded-pill">
-                                  Dark
+                              <button 
+                                v-on:click="applySetting({type : 'theme', value  : 'dark'})" 
+                                type="submit" 
+                                :class="{ 'btn dark-btn': true, 'btn-dark' : (setting.value == 'dark')? true : false , 'btn-default' : (setting.value != 'dark')? true : false  }" 
+                                class="m-0 rounded-pill"
+                              >
+                                Dark
                               </button>
                             </label>
                           </div>
@@ -1245,11 +1289,13 @@
                   <div class="">
                     <h3 class="d-block mb-0">Language</h3>
                   </div>
+
                   <div class="col-auto">
                     <img @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
                     <img @click="expanded = false;language_settings_on = false;account_on = false;profile_on = false;system_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
                   </div>
                 </div>
+
                 <transition-expand>
                   <div v-if="expanded == true && language_settings_on == true" class="w-100 general-system-prefs">
                     <div v-if="preferences.length > 0">
@@ -1416,38 +1462,7 @@
 
                 <div class="row mx-0 cal-height">
                   <div class="col-lg-12 final-modal border-0">
-                    <p>Calendar</p>
-
-                    <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
-                      <li class="nav-item left w-50">
-                        <a 
-                          class="nav-link active border-0" 
-                          id="calendar-tab" 
-                          data-toggle="tab" 
-                          href="#calendar" 
-                          role="tab" 
-                          aria-controls="Calendar" 
-                          aria-selected="true"
-                        >
-                          <span class="left description">Calendar</span>
-                        </a>
-                      </li>
-
-                      <li class="nav-item right w-50">
-                        <a 
-                          class="nav-link" 
-                          id="search-panel-tab" 
-                          data-toggle="tab" 
-                          href="#search-panel" 
-                          role="tab" 
-                          aria-controls="Search" 
-                          aria-selected="false"
-                        >
-                          <span class="left description">Search</span>
-                        </a>
-                      </li>
-                    </ul> -->
-
+                    <p class="border-bottom mt-3">Calendar</p>
                     <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />
                   </div>
                 </div>
@@ -1467,6 +1482,7 @@
                                       Callback Steven
                                     </label>
                                   </div>
+
                                   <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                 </div>
                               </div>
@@ -1481,6 +1497,7 @@
                                       Callback Justine
                                     </label>
                                   </div>
+
                                   <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">3 Aug</span></div>
                                 </div>
                               </div>
@@ -1504,6 +1521,7 @@
                                 </div>
                               </div>
                             </li>
+
                             <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                               <div class="col-12">
                                 <div class="row mx-0">
@@ -1531,7 +1549,7 @@
           <div class="closed-sidenav pr-3 d-none">
             <div class="row mx-0 align-items-center border-bottom justify-content-between pb-2">
               <div class="col pl-0">
-                <div class="row mx-0">
+                <div class="row mx-0 align-items-center">
                   <div class="nav-item col-auto px-0">
                     <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showNotifications()">
                       <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="26%">
@@ -1550,8 +1568,8 @@
 
               <div class="nav-item col-auto pr-0">
                 <a class="nav-link icon p-0 small-avatar" href="#" @click="showSettings()">
-                  <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-                  <img v-else :src="noImageUrl">
+                  <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar" width="30">
+                  <img v-else :src="noImageUrl" width="30">
                 </a>
               </div>
             </div>
@@ -1621,7 +1639,7 @@
                 </b-tab>
               </b-tabs>
             </div>
-        </div>
+          </div>
       </section>
     </aside>
   </div>
