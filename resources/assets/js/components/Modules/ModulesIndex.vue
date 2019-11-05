@@ -524,8 +524,6 @@ table.listing tr  th{
         add_user: false,
         show_page_loader: false,
         Toast: null,
-        selectedAssignees: null,
-        selectedOwners: null,
         columns:[
           {
               label: '',  // Column name
@@ -539,8 +537,10 @@ table.listing tr  th{
     },
     methods: {
       assign(){
-        Fire.$emit('MassAssign');
-        console.log('Just Change');
+        Fire.$emit('MassAssign', {
+          assignees: this.assignees,
+          owners: this.owners
+        });
       },
       prepUserOptions(users){
         users.map((user) => {

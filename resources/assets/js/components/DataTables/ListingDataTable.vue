@@ -292,7 +292,9 @@ export default {
             vm.searchInput = data.search_term;
         });
 
-        Fire.$on('MassAssign', function(){
+        Fire.$on('MassAssign', function(data){
+            vm.assignees = data.assignees,
+            vm.owners = data.owners
             vm.assignTo();
         });
 
@@ -374,15 +376,15 @@ export default {
         },
         assignTo(){
             var vm = this;
-            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.assignees, 'lead_owner' : vm.sowners }).then(function (response) {
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.assignees, 'lead_owner' : vm.owners }).then(function (response) {
                     
                 if(response.data.success == true){
+                    Fire.$emit('ReloadLeads');
                     vm.Toast.fire({ type: 'success', title: response.data.message });
                     vm.$Progress.finish();
-                    Fire.$emit('ReloadLeads');
                 }else{
                     vm.$Progress.fail();
-                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    vm.$swal('Failed', response.data.message,'warning');
                 }
             });
         },
@@ -462,40 +464,6 @@ export default {
                   vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
               }
           });
-        },
-        handleOk(bvModalEvt) {
-            // Prevent modal from closing
-            bvModalEvt.preventDefault()
-            // Trigger submit handler
-            this.handleSubmit()
-        },
-        handleSubmit(){
-            var vm = this;  
-            vm.$Progress.start();
-            this.$validator.validateAll().then((result) => {
-                    if(!result){
-                    }else{
-                        axios.post('/leads/update',vm.user).then(function (response) {
-                                
-                            if(response.data.success == true){
-                                vm.Toast.fire({ type: 'success', title: response.data.message });
-                                Fire.$emit('ReloadLeads');
-                                vm.$bvModal.hide('update-user-modal');
-                                vm.user = {
-                                    comments: [],
-                                    assigned: [],
-                                };
-                                vm.$Progress.finish();
-                            }else if(response.data.errors.email[0] != ''){
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', response.data.errors.email[0] ,'warning');
-                            }else{
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                            }
-                        });
-                    }
-            });
         },
         deleteItem(id){
             var vm = this;  
