@@ -497,6 +497,7 @@ thead th {
     width: 28px; 
     margin-top: 0px; 
     border-radius: 50%; 
+    margin-right: 10px;
 } 
 table tr td a.Canceled{ 
     color: red; 
@@ -509,9 +510,9 @@ table tr td a.Active{
 } 
 table tr td span.actions a{ 
     padding: 0px 7px; 
-    width: 41px; 
+    width: 30px; 
     display: block; 
-    height: 46px; 
+    height: 30px; 
     float: left; 
 } 
 table tr td a.View{ 
@@ -526,7 +527,7 @@ table tr td a.View:active{
     background-repeat: no-repeat; 
 } 
 table tr td a.Delete{ 
-    background-image: url('/images/DataTables/Delete_Icon.svg'); 
+    background-image: url('/images/icons/Delete_No_Drop.svg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
 } 
@@ -537,7 +538,7 @@ table tr td a.Delete:active{
     background-repeat: no-repeat; 
 } 
 table tr td a.Edit{ 
-    background-image: url('/images/DataTables/Edit_Icon.svg'); 
+    background-image: url('/images/icons/Edit_No_Drop.svg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
 } 
