@@ -1,9 +1,11 @@
 <style scoped>
 .main-header.navbar.navbar-expand {
-  padding: 23px 4% 0;
+  padding: 0 4%;
 }
-.navbar-nav li.title{
-  line-height: 20px;
+.navbar .title h1{
+  color: #003549;
+  font-size: 1.67vw;
+  letter-spacing: 0.1em;
 }
 .callIcons li a{
   background-repeat: no-repeat;
@@ -50,13 +52,25 @@
   padding:14px 40px 14px 15px;
 }
 .callIcons .search input::placeholder {
-  font-size: 12px;
+  font-size: 0.63vw;
   font-weight: 300;
   font-family: 'Rubik', sans-serif;
   font-style: italic;
 }
+.trans-tabs {
+  padding-left:5.2%;
+  padding-right:5.2%;
+}
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
+}
+.nav-link.active img {
+  display:inline-block!important;
+  margin-left: 20px;
+}
+.deal-name {
+  font-size: 0.83vw;
+  margin-bottom:3.9%;
 }
 </style>
 <template>
@@ -64,7 +78,7 @@
 		<nav class="main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between">
     <!-- Left navbar links -->
       <div class="nav-item d-none d-sm-inline-block title col px-0">
-        <a href="#" class="nav-link"><strong>Transactions</strong></a>
+        <h1 class="nav-link font-weight-bold">Transactions</h1>
       </div>
 
       <div class="col-auto nav-item pr-0">
@@ -85,20 +99,14 @@
 		</nav>
 
     <div>
-      <div class="row stats scroll-hidden">
-        <div class="col-lg-12">
+      <div class="row mx-0 trans-tabs">
+        <div class="col-lg-12 px-0">
           <b-card no-body>
             <b-tabs card>
-              <b-tab
-                v-for="(action,index) in transactions" 
-                :key="index" 
-                :active="(index == 0)? true : false"
-              >
+              <b-tab active>
                 <template v-slot:title>
-                  <a @click="editAction(action)">{{ action.display_name }}</a>
-                  <img v-if="action === 'Paid'" src="images/icons/transactions/Paid.svg" width="16"/>
-                  <img v-else-if="action === 'Pending'" src="images/icons/transactions/Pending.svg" width="16"/>
-                  <img v-else-if="action === 'Rejected'" src="images/icons/transactions/Rejected.svg" width="16"/>
+                  <h5 class="d-inline-block">Paid</h5>
+                  <img src="images/icons/transactions/Paid.svg" width="16" class="d-none"/>
                 </template>
 
                 <transition name="fade">
@@ -108,12 +116,49 @@
 
               <b-tab>
                 <template v-slot:title>
-                  <h5>Create a deal</h5><img @click="addDeal" src="images/icons/Field_Add.svg" width="16" class="ml-0"/>
+                  <h5 class="d-inline-block">Pending</h5>
+                  <img src="images/icons/transactions/Pending.svg" width="16" class="d-none"/>
                 </template>
 
-                <div class="row mx-0" v-if="deal_add">
-                  <createDeal/>
-                </div>
+                <transition name="fade">
+                  <p>this is content</p>
+                </transition>
+              </b-tab>
+
+              <b-tab>
+                <template v-slot:title>
+                  <h5 class="d-inline-block">Due</h5>
+                  <img src="images/icons/transactions/Pending.svg" width="16" class="d-none"/>
+                </template>
+
+                <transition name="fade">
+                  <p>this is content</p>
+                </transition>
+              </b-tab>
+
+              <b-tab>
+                <template v-slot:title>
+                  <h5 class="d-inline-block">Rejected</h5>
+                  <img src="images/icons/transactions/Rejected.svg" width="16" class="d-none"/>
+                </template>
+
+                <transition name="fade">
+                  <p>this is content</p>
+                </transition>
+              </b-tab>
+
+              <b-tab>
+                <template v-slot:title>
+                  <h5 class="d-inline-block">Create a deal</h5>
+                  <img src="images/icons/Field_Add.svg" width="16"/>
+                </template>
+
+                <transition name="fade">
+                  <div>
+                    <h5 class="deal-name">Peter Andrews</h5>
+                    <create-deal/>
+                  </div>
+                </transition>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -130,7 +175,7 @@
   import { BarChart } from 'vue-morris';
   import DataTable from '../DataTables/TransactionsDataTable';
   import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
-  import {createDeal} from './createDeal';
+  import CreateDeal from './createDeal';
   export default {
     extends: Bar,
     components: { 
@@ -139,7 +184,7 @@
       VclInstagram,
       VclTable,
       'datatable' : DataTable,
-      createDeal
+      CreateDeal
     },
     mounted() {
       console.log('Component mounted');
@@ -276,10 +321,7 @@
             numeric: false, // Affects sorting
             html: false,    // Escapes output if false.
             sortable:true
-          },
-          transactions [
-            { display_name: 'Paid', display_name: 'Pending', display_name: 'Rejected' }
-          ]
+          }
         ]
       }
     },
@@ -312,17 +354,6 @@
             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
           }
         });
-      },	
-      editAction(edit_action = null){
-        var vm = this;
-        vm.edit_action = edit_action;
-        vm.action_edit = true;
-        vm.deal_add = false;
-      },
-      addDeal () {
-        var vm = this;
-        vm.deal_add = true;
-        vm.deal_edit = false;
       }
     }
   }

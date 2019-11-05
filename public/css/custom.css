@@ -707,8 +707,12 @@ border-radius: 25px;
 }
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
-#transactions .nav-tabs .nav-link {
+#transactions .trans-tabs .nav-link{
   padding: 23px 23px 16px 30px;
+}
+#preferences .nav-tabs .nav-link, 
+#api-integration .nav-link,
+#transactions .trans-tabs .nav-link h5{
   font-weight: 700;
   font-size: 0.94vw;
   color: #999999;
@@ -718,7 +722,7 @@ border-radius: 25px;
 }
 #preferences .nav-tabs .nav-link.active, 
 #api-integration .nav-link.active,
-#transactions .nav-tabs .nav-link.active {
+#transactions .nav-tabs .nav-link.active h5{
   color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"], 
