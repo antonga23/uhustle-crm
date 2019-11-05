@@ -42,6 +42,9 @@ label{
   font-weight: 700;
   padding: 9px;
 }
+p {
+  
+}
 </style>
 
 <template>
