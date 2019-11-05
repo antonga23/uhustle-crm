@@ -74428,6 +74428,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     assign: function assign() {
       Fire.$emit('MassAssign');
+      console.log('Just Change');
     },
     prepUserOptions: function prepUserOptions(users) {
       var _this = this;

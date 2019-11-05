@@ -540,6 +540,7 @@ table.listing tr  th{
     methods: {
       assign(){
         Fire.$emit('MassAssign');
+        console.log('Just Change');
       },
       prepUserOptions(users){
         users.map((user) => {
