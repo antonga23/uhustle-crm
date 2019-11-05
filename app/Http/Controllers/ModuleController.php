@@ -12,6 +12,7 @@ use App\Module;
 use App\ModuleCustomFields;
 use App\ModuleItem;
 use App\ModuleItemMeta;
+use App\SystemSettings;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -234,9 +235,17 @@ class ModuleController extends Controller
     }
 
     public function getItems($module = null){
+
+      $user_id = Auth::user()->id;
+
+      $preferences = SystemSettings::where(['user_id' => Auth::user()->id])
+                                    ->where(['setting' => 'max_table_rows'])
+                                    ->select('value')
+                                    ->first();
+
       $module = Module::with('module_fields')->where(['tag' => $module])->first();
 
-      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take(50);
+      $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module['id']])->get()->take($preferences['value']);
 
       $items = $this->compactModuleItems($module_items);
 
@@ -476,6 +485,52 @@ class ModuleController extends Controller
           DB::rollback();
           return array('success' =>false, 'message' => $e->getMessage());
       }
-
     }
+
+    public function massAssign(Request $request){
+      $data = $request->all();
+      dd($data);
+      $num_leads = count($data['lead_ids']);
+
+      $num_user_assigned = count($data['user_assigned']);
+
+      $num_lead_owner = count($data['lead_owner']);
+
+      $remainder = $num_leads % $num_user_assigned;
+
+      $owner_modulus = $num_leads % $num_lead_owner;
+
+      if($remainder == 0){
+          $num_in_batch = $num_leads / $num_user_assigned;
+
+          $batches = $num_leads / $num_in_batch;
+      }else{
+          for ($z =  1; $z <= $remainder; $z++) {
+              # code...
+          }
+      }
+
+      try{
+          DB::beginTransaction();
+          for ( $i = 0; $i < 5; $i++ ) {
+              if( !is_null($data['user_assigned'])){
+                  $lead = Lead::find($value)->update([
+                      'user_assigned' => $data['user_assigned'],
+                  ]);
+              }
+              
+              if( !is_null($data['lead_owner'])){
+                  $lead = Lead::find($value)->update([
+                      'user_created_id' => $data['lead_owner'],
+                  ]);
+              }
+          }
+          DB::commit();
+          return array('success' => true, 'message' => 'Leads successfully assigned');
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+  }
 }

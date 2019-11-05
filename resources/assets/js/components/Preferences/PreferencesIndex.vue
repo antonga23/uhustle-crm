@@ -1,16 +1,21 @@
 <style scoped>
-  .main-header, .top-nav, .row.stats {
-    padding-left: 5.2%;
-    padding-right: 5.2%;
+  .header, .top-nav, .row.stats {
+    padding-left: 5.2%!important;
+    padding-right: 5.2%!important;
+  }
+  .top-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
   .navbar {
     padding: 0;
   }
 	/*Right Component*/
-	li.title a {
-		color: #003449;
-		font-size: 25px;
-    letter-spacing: 4.2px;
+	li.title h1 {
+		color: #003549;
+    font-size: 32px;
+    letter-spacing: 0.1em;
   }
   div.top-nav{
     margin-top: 15px;
@@ -21,40 +26,33 @@
   }
   ul.top-menu li.item{
     float: left;
-    margin-left: 10px;
+    margin-left: 1.6%;
+    margin-right: 1.6%;
     margin-bottom: 8px;
   }
   ul.top-menu li.item a{
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    padding: 4px 16px;
+    padding: 4px 22px;
+    text-decoration: none;
     box-shadow: 0 0 7px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    font-size:0.73vw;
   }
   ul.top-menu li.item a.active{
-    color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    padding: 4px 16px;
-    background: #F98B39;
+    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
     color: #fff !important;
-    box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    text-decoration: none;
+    font-weight: 500;
   }
-	.navbar-nav a.active{    
-		border-radius: 26px;
-    margin: 5px 8px 8px 55px !important;
-    height: 29px !important;
-    background: #F98B39 !important;
-    border-color: #F98B39 !important;
-    color: #fff !important;
-    padding: 4px 17px 6px !important;
-	}
   .user-roles .tab-pane .row{
     margin-right: 0;
     margin-left: 0;
   }
   h5 {
-    font-size: 16px;
+    font-size: 0.83vw;
   }
 
   .btn-default{
@@ -65,6 +63,9 @@
     font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
@@ -74,10 +75,25 @@
     text-transform:uppercase;
     font-size: 10px;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
   .btn-block {
     display: block;
     width: 98%;
+  }
+  .nav-link.active img {
+    margin-left:20px;
+    display: inline-block!important;
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    border-radius: 50rem;
+  }
+  .add-module-btn {
+    box-shadow:none!important;
   }
   .tab-pane.card-body {
     padding:4.4% 5.6% 6.8%;
@@ -93,11 +109,19 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-color: #999;
+    border-color: #ccc;
     font-family: 'Rubik', sans-serif;
-    font-size:14px;
+    font-size:0.73vw;
     color: #999999;
     margin-top: 4.6%;
+    padding-left:25px;
+  }
+  .expand-toggle.btn-secondary:not(:disabled):not(.disabled):active, 
+  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active, 
+  .show > .expand-toggle.btn-secondary.dropdown-toggle {
+    background: #fff;
+    border-color: #fff;
+    color: #999999;
   }
   .expand-toggle[aria-expanded="true"] {
     border-bottom: 0;
@@ -107,9 +131,12 @@
     font-family: 'Rubik', sans-serif;
     font-size:14px;
   }
+  .custom-checkbox .custom-control-label {
+    font-weight: 0.73vw;
+  }
   .collapse.show .card {
     border-radius: 25px;
-    border: 1px solid #999999!important;
+    border: 1px solid #ccc!important;
   }
   .collapse.show .card-body{
     padding: 1.15% 2.5% 1.85%;
@@ -127,18 +154,18 @@
 </style>
 <template>
   <div id="preferences">
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+		<nav class="header navbar navbar-expand navbar-white navbar-light">
 			<!-- Left navbar links -->
-        <ul class="navbar-nav left">
-          <li class="nav-item d-none d-sm-inline-block title">
-            <a href="#" class="nav-link font-weight-bold p-0">Preferences</a>
-          </li> 
-        </ul>
+      <ul class="navbar-nav left">
+        <li class="nav-item d-none d-sm-inline-block title">
+          <h1 class="font-weight-bold p-0">System Preferences</h1>
+        </li> 
+      </ul>
 		</nav>
 
-    <div class="row mx-0 top-nav">
-      <ul class="top-menu">
-        <li class="item">
+    <div class="row mx-0 my-0 top-nav">
+      <ul class="top-menu w-100">
+        <li class="item ml-0">
           <a 
             href="#" 
             @click="showModulePreferences('roles', 'roles', null);" 
@@ -171,14 +198,16 @@
           >{{ module.display_name }}</a>
         </li>
 
-        <li class="item">
+        <li class="item mr-0">
           <a 
             role="button" 
             rel="addModuleLink" 
-            @click="showModulePreferences('add_module','add_module', null);" 
-            :class="{ 'active' : ( active_module_name ===  'add_module')? true : false }" 
+            @click="showModulePreferences('add_module','add_module', null);"
             title="Add new Module"
-          >+ Add New</a>
+            class="p-0 add-module-btn"
+          >
+            <img src="images/icons/Module_Add.svg" width="47"/>
+          </a>
         </li>
       </ul>
     </div>
@@ -190,18 +219,23 @@
           <b-card no-body>
             <b-tabs card>
               <b-tab 
-                :title="role.display_name" 
-                @click="editRole(role)" 
                 v-for="(role,index) in roles" 
-                :key="index" :active="(index == 0)? true : false">   
+                :key="index" 
+                :active="(index == 0)? true : false"
+              >   
+                <template v-slot:title>
+                  <a @click="editRole(role)">{{ role.display_name }}</a>
+                  <img @click="deleteRole(role)" src="images/icons/delete.svg" width="16" class="d-none"/>
+                </template>
+
                 <div class="row mx-0 edit-role" v-if="role_edit">
                   <edit-role :role="role" />
                 </div>
 
                 <div class="row justify-content-end mx-0">
                   <div class="col-6 text-right px-0">
-                    <b-button class="btn btn-danger my-0" @click="deleteRole(role)">Delete</b-button>
-                    <b-button class="btn btn-default my-0" @click="updateRole(role)">Cancel</b-button>
+                    <!-- <b-button class="btn btn-danger my-0" @click="deleteRole(role)">Delete</b-button> -->
+                    <b-button class="btn btn-default my-0 ml-0" @click="updateRole(role)">Cancel</b-button>
                     <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="updateRole(role)">Update</b-button>
                   </div>
 
@@ -230,7 +264,7 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="p-0 expand-toggle"
+                        class="py-0 pr-0 expand-toggle"
                       >
                         Dialer
                         <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -282,7 +316,7 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="p-0 expand-toggle"
+                          class="py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -332,7 +366,11 @@
                 </transition>
               </b-tab>
 
-              <b-tab :title="'+'" @click="addRole">
+              <b-tab>
+                <template v-slot:title>
+                  <img @click="addRole" src="images/icons/Field_Add.svg" width="16" class="ml-0"/>
+                </template>
+
                 <div class="row mx-0" v-if="role_add">
                   <add-role/>
                 </div>
@@ -358,313 +396,313 @@
 </template>
 
 <script>
-    import { Bar } from 'vue-chartjs';
-    import { BarChart } from 'vue-morris';
-    import DataTable from '../DataTables/UsersDataTable';
-    import EditRole from './EditRole';
-    import AddRole from './AddRole';
-    import AddModule from './AddModule';
-    import EditModule from './EditModule';
-    import ApiIntegration from './ApiIntegration';
-    import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
-    export default {
-        extends: Bar,
-        components: { 
-            BarChart,
-            VclFacebook,
-            VclInstagram,
-            VclTable,
-            EditRole,
-            AddRole,
-            AddModule,
-            EditModule,
-            ApiIntegration,
-            'datatable' : DataTable
+  import { Bar } from 'vue-chartjs';
+  import { BarChart } from 'vue-morris';
+  import DataTable from '../DataTables/UsersDataTable';
+  import EditRole from './EditRole';
+  import AddRole from './AddRole';
+  import AddModule from './AddModule';
+  import EditModule from './EditModule';
+  import ApiIntegration from './ApiIntegration';
+  import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
+  export default {
+    extends: Bar,
+    components: { 
+      BarChart,
+      VclFacebook,
+      VclInstagram,
+      VclTable,
+      EditRole,
+      AddRole,
+      AddModule,
+      EditModule,
+      ApiIntegration,
+      'datatable' : DataTable
+    },
+    mounted() {
+      this.current_user = JSON.parse(this.logged_user);
+      this.getRoles();
+      this.getModules();
+      this.getPermissions();
+      this.getDialerPermissions();
+      this.getApis();
+
+      var vm = this;
+
+      Fire.$on('DoneAddingRole', function(){
+        vm.getRoles();
+        vm.getPermissions();
+        vm.getDialerPermissions();
+      });
+
+      Fire.$on('DoneEditingRole', function(){
+        vm.getRoles();
+        vm.getPermissions();
+        vm.getDialerPermissions();    
+      });
+
+      Fire.$on('DoneAddingModule', function(){
+        vm.getModules();
+      });
+
+      Fire.$on('AfterModuleDelete', function(){
+        vm.getModules();
+        vm.showModulePreferences('add_module','add_module', null);
+      });
+
+      Fire.$on('AfterUpdatingApis', function(){
+        vm.getApis();
+      });
+
+      this.Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    },
+    computed: {
+    },
+    props: ['logged_user'],
+    data: function(){
+      return {
+        edit_role: {
+          display_name : '',
+          description : '',
+          status : '',
         },
-        mounted() {
-            this.current_user = JSON.parse(this.logged_user);
-            this.getRoles();
-            this.getModules();
-            this.getPermissions();
-            this.getDialerPermissions();
-            this.getApis();
+        roles: null,
+        modules: null,
+        apis: null,
+        editing_module: null,
+        permissions:[],
+        dialer_permissions: null,
+        current_user: {},
+        add_user: false,
+        active_module_action: null,
+        active_module_name: 'roles',
+        show_page_loader: false,
+        role_edit: false,
+        role_add: false,
+        Toast: null,
+        dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
+        dialer_selected: [],
+        dialer_allSelected: false,
+        dialer_indeterminate: false,
+        flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
+        selected: [],
+        allSelected: false,
+        indeterminate: false
+      }
+    },
+    methods: {
+      toggleAll(){
 
-            var vm = this;
+      },
+      dialerToggleAll(checked) {
+        this.dialer_selected = checked ? this.dialer_options.slice() : []
+      },
+      secondsToMinues(time){
+        var minutes = Math.floor(time / 60);
+        var seconds = time - minutes * 60;
+        var finalTime = this.str_pad_left(minutes,'0',2) + ':' + this.str_pad_left(seconds,'0',2);
+        return finalTime;
+      },
+      str_pad_left(string,pad,length) {
+        return (new Array(length+1).join(pad)+string).slice(-length);
+      },
+      getRoles(){
+        var vm = this;
+        var endpoint = '/roles/get-all';
 
-            Fire.$on('DoneAddingRole', function(){
-                vm.getRoles();
-                vm.getPermissions();
-                vm.getDialerPermissions();
-            });
+        vm.show_page_loader = true;
+        vm.$Progress.start();
 
-            Fire.$on('DoneEditingRole', function(){
-                vm.getRoles();
-                vm.getPermissions();
-                vm.getDialerPermissions();    
-            });
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.roles = response.data.roles;
+            vm.editRole(vm.roles[0]);
+            vm.show_page_loader = false;
+            vm.$Progress.finish();
+          }else{
+            vm.show_page_loader = false;
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },	
+      getModules(){
+        var vm = this;
+        var endpoint = '/modules/get-all';
 
-            Fire.$on('DoneAddingModule', function(){
-                vm.getModules();
-            });
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.modules = response.data.modules;
+          }else{
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
+      getApis(){
+        var vm = this;
+        var endpoint = '/apis/get-all';
 
-            Fire.$on('AfterModuleDelete', function(){
-                vm.getModules();
-                vm.showModulePreferences('add_module','add_module', null);
-            });
+        vm.$Progress.start();
 
-            Fire.$on('AfterUpdatingApis', function(){
-                vm.getApis();
-            });
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.apis = response.data.apis;
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },	
+      getPermissions(){
+        var vm = this;
+        var endpoint = '/roles/get-permissions';
 
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-        computed: {
-        },
-        props: ['logged_user'],
-        data: function(){
-            return {
-                edit_role: {
-                    display_name : '',
-                    description : '',
-                    status : '',
-                },
-                roles: null,
-                modules: null,
-                apis: null,
-                editing_module: null,
-                permissions:[],
-                dialer_permissions: null,
-                current_user: {},
-                add_user: false,
-                active_module_action: null,
-                active_module_name: 'roles',
-                show_page_loader: false,
-                role_edit: false,
-                role_add: false,
-                Toast: null,
-                dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
-                dialer_selected: [],
-                dialer_allSelected: false,
-                dialer_indeterminate: false,
-                flavours: ['Orange', 'Grape', 'Apple', 'Lime', 'Very Berry'],
-                selected: [],
-                allSelected: false,
-                indeterminate: false
-            }
-        },
-        methods: {
-            toggleAll(){
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.permissions = response.data.permissions;
+          }else{
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
+      getDialerPermissions(){
+        var vm = this;
+        var endpoint = '/roles/get-dialer-permissions';
 
-            },
-            dialerToggleAll(checked) {
-                this.dialer_selected = checked ? this.dialer_options.slice() : []
-            },
-            secondsToMinues(time){
-                var minutes = Math.floor(time / 60);
-                var seconds = time - minutes * 60;
-                var finalTime = this.str_pad_left(minutes,'0',2) + ':' + this.str_pad_left(seconds,'0',2);
-                return finalTime;
-            },
-            str_pad_left(string,pad,length) {
-                    return (new Array(length+1).join(pad)+string).slice(-length);
-            },
-            getRoles(){
-                var vm = this;
-                var endpoint = '/roles/get-all';
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.dialer_permissions = response.data.permissions;
+          }else{
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
+      applyDialerPermissions(){
+        var vm = this;
+        var endpoint = '/roles/apply-dialer-permissions';
 
-                vm.show_page_loader = true;
-                vm.$Progress.start();
+        vm.$Progress.start();
 
-                axios.get(endpoint).then(function (response) {
+        axios.put(endpoint, {'permissions':vm.dialer_permissions}).then(function (response) {
+          if(response.data.success == true){
+            vm.dialer_permissions = response.data.permissions;
+            vm.Toast.fire({ type: 'success'});
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      },
+      editRole(edit_role = null){
+        var vm = this;
+        vm.edit_role = edit_role;
+        vm.role_edit = true;
+        vm.role_add = false;
+      },
+      addRole(){
+        var vm = this;
+        vm.role_add = true;
+        vm.role_edit = false;
+      },
+      updateRole(role){
+        Fire.$emit('UpdateRole', { 
+          'role' : role,
+        });
+      },
+      deleteRole(role){
+        var vm = this;  
+        vm.$swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#409EFF',
+          cancelButtonColor: '#F56C6C',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {  
+            vm.$Progress.start();
+
+            var end_point = '/roles/delete';
+            console.log(role);
+            axios.post(end_point,{ 'role' : role }).then(function (response) {
                     
-                    if(response.data.success == true){
-                        vm.roles = response.data.roles;
-                        vm.editRole(vm.roles[0]);
-                        vm.show_page_loader = false;
-                        vm.$Progress.finish();
-                    }else{
-                        vm.show_page_loader = false;
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },	
-            getModules(){
-                var vm = this;
-                var endpoint = '/modules/get-all';
+              if(response.data.success == true){
+                vm.$Progress.finish();
+                vm.Toast.fire({ type: 'success', title: response.data.message });
+                
+                Fire.$emit('DoneEditingRole');
+              }else {
+                vm.$Progress.fail();
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+              }
+            });
+          }
+        });
+      },
+      showModulePreferences(active_module, action, in_module){
+        Fire.$emit(action, { 'module' : in_module });
+        this.editing_module = in_module;
+        this.active_module_name = active_module;
+        this.active_module_action = action;
+      },
+      updatePermmissions(){
+        var vm = this;
+        var endpoint = '/roles/update-permissions';
 
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.modules = response.data.modules;
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
-            getApis(){
-                var vm = this;
-                var endpoint = '/apis/get-all';
+        vm.$Progress.start();
 
-                vm.$Progress.start();
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.apis = response.data.apis;
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },	
-            getPermissions(){
-                var vm = this;
-                var endpoint = '/roles/get-permissions';
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.permissions = response.data.permissions;
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
-            getDialerPermissions(){
-                var vm = this;
-                var endpoint = '/roles/get-dialer-permissions';
-
-                axios.get(endpoint).then(function (response) {
-                    
-                    if(response.data.success == true){
-                        vm.dialer_permissions = response.data.permissions;
-                    }else{
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
-            applyDialerPermissions(){
-                var vm = this;
-                var endpoint = '/roles/apply-dialer-permissions';
-
-                vm.$Progress.start();
-
-                axios.put(endpoint, {'permissions':vm.dialer_permissions}).then(function (response) {
-                    if(response.data.success == true){
-                        vm.dialer_permissions = response.data.permissions;
-                        vm.Toast.fire({ type: 'success'});
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            },
-            editRole(edit_role = null){
-                var vm = this;
-                vm.edit_role = edit_role;
-                vm.role_edit = true;
-                vm.role_add = false;
-            },
-            addRole(){
-                var vm = this;
-                vm.role_add = true;
-                vm.role_edit = false;
-            },
-            updateRole(role){
-                Fire.$emit('UpdateRole', { 
-                    'role' : role,
-                });
-            },
-            deleteRole(role){
-              var vm = this;  
-              vm.$swal.fire({
-                  title: 'Are you sure?',
-                  text: "You won't be able to revert this!",
-                  type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#409EFF',
-                  cancelButtonColor: '#F56C6C',
-                  confirmButtonText: 'Yes, delete it!'
-              }).then((result) => {
-                  if (result.value) {  
-                    vm.$Progress.start();
-
-                    var end_point = '/roles/delete';
-                    console.log(role);
-                    axios.post(end_point,{ 'role' : role }).then(function (response) {
-                            
-                        if(response.data.success == true){
-                            vm.$Progress.finish();
-                            vm.Toast.fire({ type: 'success', title: response.data.message });
-                            
-                            Fire.$emit('DoneEditingRole');
-                        }else {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                        }
-                    });
-                    }
-                });
-            },
-            showModulePreferences(active_module, action, in_module){
-                Fire.$emit(action, { 'module' : in_module });
-                this.editing_module = in_module;
-                this.active_module_name = active_module;
-                this.active_module_action = action;
-            },
-            updatePermmissions(){
-                var vm = this;
-                var endpoint = '/roles/update-permissions';
-
-                vm.$Progress.start();
-
-                axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
-                    if(response.data.success == true){
-                        vm.permissions = response.data.permissions;
-                        vm.Toast.fire({ type: 'success'});
-                        vm.$Progress.finish();
-                    }else{
-                        vm.$Progress.fail();
-                        vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-                    }
-                });
-            }
-        },
-        watch: {
-            selected(newVal, oldVal) {
-                // Handle changes in individual flavour checkboxes
-                if (newVal.length === 0) {
-                this.indeterminate = false
-                this.allSelected = false
-                } else if (newVal.length === this.flavours.length) {
-                this.indeterminate = false
-                this.allSelected = true
-                } else {
-                this.indeterminate = true
-                this.allSelected = false
-                }
-            },
-            dialer_selected(newVal, oldVal) {
-                // Handle changes in individual flavour checkboxes
-                if (newVal.length === 0) {
-                this.dialer_indeterminate = false
-                this.dialer_allSelected = false
-                } else if (newVal.length === this.flavours.length) {
-                this.dialer_indeterminate = false
-                this.dialer_allSelected = true
-                } else {
-                this.dialer_indeterminate = true
-                this.dialer_allSelected = false
-                }
-            }
+        axios.put(endpoint, {'permissions':vm.permissions}).then(function (response) {
+          if(response.data.success == true){
+            vm.permissions = response.data.permissions;
+            vm.Toast.fire({ type: 'success'});
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      }
+    },
+    watch: {
+      selected(newVal, oldVal) {
+        // Handle changes in individual flavour checkboxes
+        if (newVal.length === 0) {
+        this.indeterminate = false
+        this.allSelected = false
+        } else if (newVal.length === this.flavours.length) {
+        this.indeterminate = false
+        this.allSelected = true
+        } else {
+        this.indeterminate = true
+        this.allSelected = false
         }
+      },
+      dialer_selected(newVal, oldVal) {
+        // Handle changes in individual flavour checkboxes
+        if (newVal.length === 0) {
+        this.dialer_indeterminate = false
+        this.dialer_allSelected = false
+        } else if (newVal.length === this.flavours.length) {
+        this.dialer_indeterminate = false
+        this.dialer_allSelected = true
+        } else {
+        this.dialer_indeterminate = true
+        this.dialer_allSelected = false
+        }
+      }
     }
+  }
 </script>

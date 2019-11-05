@@ -1,8 +1,8 @@
 @extends('layouts.auth') @section('content')
 <div id="app">
-  <div class="main-wrapper vh-100" id="auth">
-    <div class="row justify-content-center align-items-center h-100 mx-0 ">
-      <div valign="top" class="col-lg-4 outer-login-container left-side">
+  <div class="main-wrapper min-vh-100" id="auth">
+    <div class="row justify-content-center align-items-center min-vh-100 mx-0 ">
+      <div class="col-lg-4 min-vh-100 outer-login-container left-side">
         <div class="row login justify-content-center inner-login-container mx-auto">
           <div class="col-lg-12 mb-0 p-0">
             <div class="row mx-0">
@@ -27,7 +27,7 @@
             <div class="col-10">
               <div class="row justify-content-center mx-auto">
                 <div class="col-lg-12 mb-4 p-0 center">
-                  <a class="navbar-brand" href="{{ url('/') }}">
+                  <a class="navbar-brand m-0 p-0" href="{{ url('/') }}">
                     <img id="top-landing-logo" src="/images/SVG_Images/Logo.svg" class=" lp-logo m-0">
                   </a>
                 </div>

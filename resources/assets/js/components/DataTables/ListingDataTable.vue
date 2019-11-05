@@ -11,7 +11,7 @@
                                         (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                         : '')
                                     + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
-                                <!-- <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>   -->
+                                <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>  
                                 <span style="float:left;padding-top: 2px;">
                                   {{column.label}}
                                 </span>
@@ -33,9 +33,9 @@
                     <tbody>
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                             <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
-                                <!-- <span v-if="column.field == 'all'">
+                                <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
-                                </span> -->
+                                </span>
 
                                 <span v-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
 
@@ -202,7 +202,7 @@
             <div class="datatable-length">
                 <label>
                     <span>Rows per page:</span>
-                    <select class="browser-default" @change="onTableLength">
+                    <select class="browser-default" v-model="rowsToShow" @change="onTableLength">
                         <option value="15">15</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
@@ -281,13 +281,19 @@ export default {
         var vm = this;
         Fire.$on('Export', function(){
             vm.exportExcel();
-        });        
+        });
+
         Fire.$on('Print', function(){        
             vm.print();
         });
+
         Fire.$on('Search', function(data){
             vm.searching = true;    
             vm.searchInput = data.search_term;
+        });
+
+        Fire.$on('MassAssign', function(){
+            vm.assignTo();
         });
 
         this.Toast = vm.$swal.mixin({
@@ -336,6 +342,7 @@ export default {
             sortType: 'asc',
             searching: false,
             searchInput: '',
+            rowsToShow:15,
             Toast: '',
             winstaUpload: '/images/winsta-uploads/'
         }
@@ -367,7 +374,7 @@ export default {
         },
         assignTo(){
             var vm = this;
-            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.selected_assignees, 'lead_owner' : vm.selected_owners }).then(function (response) {
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.assignees, 'lead_owner' : vm.sowners }).then(function (response) {
                     
                 if(response.data.success == true){
                     vm.Toast.fire({ type: 'success', title: response.data.message });
@@ -381,14 +388,18 @@ export default {
         },
         selectAll(e){
             if(e == 'select_all'){
-                this.rows.map((lead) => {
-                    this.selected.push(lead.lead.id);
+                this.rows.map((lead, index) => {
+                  if(index <= this.rowsToShow){
+                    
+                    this.selected.push(lead.id)
+                  }
                 });
                 this.show_mass_assign = true;
             }else{
                 this.selected = [];
                 this.show_mass_assign = false;
             }
+            console.log(this.selected);
         },
         getDaysRemaining(lead){
             if(lead.expires_at){ 
@@ -888,6 +899,13 @@ table tr td a.Edit:active{
     background-size: 25px 35px;
     background-repeat: no-repeat;
 }
+ @media screen and (max-width: 1500px) {
+     table tr td {
+        font-size: 12px !important;
+        padding: 5px 0px 5px 0px !important;
+     }
+ }
+
 .control-label{
     float: left;
 }
@@ -969,7 +987,7 @@ table {
     justify-content: flex-end;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     color: rgba(0, 0, 0, 0.54);
 }
 
@@ -986,7 +1004,7 @@ table {
     width: 46px;
 }
 .table-footer label {
-    font-size: 12px;
+    font-size: 0.63vw;
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
@@ -1035,7 +1053,7 @@ table {
     border-bottom: none;
     height: auto;
     line-height: normal;
-    font-size: 12px;
+    font-size: 0.63vw;
     width: 40px;
     text-align: right;
 }
@@ -1057,11 +1075,11 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 14px;
+    font-size: 0.73vw;
     color: #003449;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 25px 0px 25px 0px;
+    padding: 10px 0px 10px 0px;
     min-width: 150px;
 }
 
@@ -1071,12 +1089,11 @@ table tr td a i {
 }
 
 table tr {
-    font-size: 12px;
+    font-size: 0.63vw;
     border-bottom: 1px solid #B3B3B3;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
-
 }
 
 table thead tr:first-child {
@@ -1084,7 +1101,7 @@ table thead tr:first-child {
 }
 
 table th {
-   font-size: 12px;
+   font-size: 0.63vw;
     font-weight: 600;
     color: #A6A6A6;
     cursor: pointer;
@@ -1139,7 +1156,7 @@ table th.sorting-desc:after {
 }
 
 table tbody tr:hover {
-    background-color: #EEE;
+    background-color: #f7f7f7;
 }
 
 table th:last-child,
@@ -1148,8 +1165,8 @@ table td:last-child {
     background-image: none !important;
 }
 
-table th:first-child,
+/* table th:first-child,
 table td:first-child {
     padding-left: 25px;
-}
+} */
 </style>

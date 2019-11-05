@@ -1,3 +1,4 @@
+<!-- 31/10/2019 --> 
 <style scoped>
     .main-sidebar {
         right: 0!important;
@@ -16,21 +17,21 @@
     
     .main-sidebar,
     .main-sidebar:before {
-        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
-        width: 417px!important;
+        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important; 
+        width: 21.718%!important; 
     }
     
     .sidebar-collapse .main-sidebar,
     .sidebar-collapse .main-sidebar:before {
         margin-left: 0!important;
-        margin-right: -208px!important;
+        margin-right: -10.833%!important;
     }
     
     @media (max-width: 991.98px) {
         .main-sidebar,
         .main-sidebar:before {
             margin-left: -0!important;
-            margin-left: -208px!important;
+            margin-left: -10.833%!important;
         }
         .sidebar-open .main-sidebar,
         .sidebar-open .main-sidebar:before {
@@ -88,7 +89,7 @@
         padding-top: 6px;
         letter-spacing: 0.05em;
         position: relative;
-        top: 16%;
+        top: -4%;
     }
     
     .help-block {
@@ -98,6 +99,7 @@
     .status {
         display: none;
     }
+
     
     .status.active {
         width: 76px;
@@ -234,11 +236,24 @@
         margin: 5px 0 15px 0;
         font-size: 9px;
     }
-    
+    .btn-info {
+        height: 24px !important;
+        background: #F98B39 !important;
+        border-color: #F98B39 !important;
+        color: #fff !important;
+        padding: 4px 17px 6px !important;
+        border-radius: 24px !important;
+    }
     .settings .row.border-bottom,
     .notifications .row.border-bottom {
         border-color: #cdccce;
         padding: 21px 0px 16px 0;
+    }
+    .notification-popup {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
+            border-radius: 21px;
+            width: 100% !important;
+
     }
     
     .settings .row p.description {
@@ -294,7 +309,7 @@
         color: #ffffff;
         border: transparent !important;
         padding: 6px 12px 6px 10px;
-        font-size: 10px;
+        font-size: 0.6vw;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -307,11 +322,21 @@
         padding: 8px 15px!important;
     }
     
-    .btn-orange {
+    .btn-orange, .btn-orange-active {
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-        padding: 8px 15px;
+        font-size: 10px;
+        border-radius: 50rem!important;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.05em;
+    }
+
+    .btn-white {
+         background: #fff;
+        border: transparent !important;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -384,12 +409,33 @@
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         letter-spacing: 0.05em;
     }
+    .notifications-close img {
+        width: 20px;
+        top: 5px;
+        position: relative;
+    }
     
-    .btn-has-new {
-        background-image: url('/images/icons/Dot.png') !important;
+    .btn-has-new-dot {
+        background-image: url('/images/icons/Red-Notification-Dot.svg') !important;
         background-size: 12px 12px;
         background-repeat: no-repeat;
         background-position: right top;
+        width: 13px;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+        left: 66px;
+        top: -5px;
+        }
+
+     .btn-has-new-messages {
+        background-image: url('/images/icons/blue dot.svg') !important;
+        background-size: 69% 34%;
+        background-repeat: no-repeat;
+        background-position: left top;
+        color: #ffffff;
+        font-size: 10px;
+        text-align: center;
     }
     
     .btn-has-new:hover {
@@ -418,7 +464,7 @@
     
     .notifications .btn-default {
         padding: 6px 25px 6px 18px;
-        font-size: 9px;
+        font-size: 12px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -428,18 +474,23 @@
         list-style: none;
     }
     
-    .notifications .card h3,
-    .notifications .card h3 a {
-        color: #00344a;
-        font-size: 16px;
-        letter-spacing: 2.2px;
+    .notifications .card-body-notifications h3,
+    .notifications .card-body-notifications h3 a, .caller-name {
+        color: #333333;
+        font-size: 0.7vw;
+        /* letter-spacing: 2.2px; */
         font-weight: 600;
     }
+    .caller-time {
+        float: right;
+        font-size: 0.6vw;
+        color: #808080;
+    }
     
-    .notifications .card p.call_back_time {
-        color: #00344a;
-        font-size: 14px;
-        letter-spacing: 2.2px;
+    .notifications .card-body-notifications p.call_back_time {
+        color: #808080;
+        font-size: 0.7vw;
+        /* letter-spacing: 2.2px; */
     }
     
     .personal-info .row.mx-0.border-left,
@@ -455,7 +506,7 @@
     }
     
     .small-avatar img {
-        width: 46px;
+        width: 30px;
         border-radius: 50%;
     }
     
@@ -492,6 +543,13 @@
         background-color: #fff !important;
         font-size: 10px;
         font-weight: 600;
+    }
+
+    .card-body-notifications {
+        padding: 11px 10px;
+    }
+    .card-body-notifications img {
+        padding-right: 10px;
     }
     
     .final-modal .card-header {
@@ -627,15 +685,15 @@
     }
     
     .menu-toggle {
-        position: absolute;
-        right: 417px;
-        overflow: visible;
-        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;
-        background-size: 140px;
+       position: absolute; 
+        right: 100%; 
+        overflow: visible; 
+        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important; 
+        background-size: 120px;
         background-repeat: no-repeat;
         background-position: -15px;
-        height: 120px;
-        width: 80px;
+        height: 73px;
+        width: 66px;
     }
     
     .sidebar-collapse .menu-toggle {
@@ -698,6 +756,8 @@
         border-radius: 50%!important;
         background-color: #ff933a !important;
     }
+
+    
     
     .reminders input.list-input:focus {
         border: 1px solid rgba(28, 35, 49, 0.5);
@@ -902,22 +962,22 @@
                 <a href="#" data-toggle="push-menu" class="menu-toggle">
                 </a>
                 <div class="sidebar-menu grey-scroll" data-widget="tree">
-                    <div class="open-sidenav">
+                    <div class="open-sidenav mt-3">
                         <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav col-auto">
                                 <li class="nav-item">
                                     <a class="nav-link icon p-0 mr-2" href="#" @click="showNotifications()">
-                                        <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="50">
-                                        <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="50" class="inactive-icon">
-                                        <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="50" class="inactive-icon">
+                                        <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
+                                        <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
+                                        <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link icon p-0" href="#" @click="showSettings()">
-                                        <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="50" class="inactive-icon">
-                                        <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="50">
+                                        <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
+                                        <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="43">
                                     </a>
                                 </li>
                             </ul>
@@ -1043,7 +1103,7 @@
                                     <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
                                         <p class="d-block w-100 title" title="Personal Information">Account Information</p>
                                         <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                                            <div :class="{'input': true, 'form-group w-100' :true }">
+                                            <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }">
                                                 <label class="col-lg-12 control-label w-100 p-0">
                                                     <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox>
                                                 </label>
@@ -1097,20 +1157,22 @@
                                     <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
                                         <div class="row mx-0 mb-4 pb-0 pl-4">
                                             <div class="row mx-0">
-                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in system_preferences" :key="index">
-                                                    <div v-if="setting.setting == 'auto_dialer'">
-                                                        <label class="col-lg-5 control-label w-100 p-0">
-                                                            Auto Dialing
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option value="on">On</option>
-                                                                <option value="off">Off</option>
-                                                            </select>
-                                                        </label>
-                                                        <label class="col-lg-6 control-label w-100 p-0">
-                                                            Apply To
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.applies_to" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option :value="role.id" v-for="(role, index) in roles" :key="index">{{ role.display_name }}</option>
-                                                                <option value="-1">Everyone</option>
+                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
+                                                    <div v-if="setting.setting == 'max_table_rows'">
+                                                        <label class="col-lg-12 control-label w-100 p-0">
+                                                            Max number of rows for tables
+                                                            <select id="auto_dialler" v-model="user_settings.max_table_rows" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                                <option value="150">150</option>
+                                                                <option value="200">200</option>
+                                                                <option value="250">250</option>
+                                                                <option value="300">300</option>
+                                                                <option value="350">350</option>
+                                                                <option value="400">400</option>
+                                                                <option value="450">450</option>
+                                                                <option value="500">500</option>
+                                                                <option value="1000">1000</option>
                                                             </select>
                                                         </label>
                                                     </div>
@@ -1121,7 +1183,7 @@
                                 </transition-expand>
                             </div>
 
-                            <div class="row mx-0 preferences border-bottom">
+                            <div class="row mx-0 preferences border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Themes</h3>
@@ -1181,8 +1243,8 @@
                                     </div>
                                 </transition-expand>
                             </div>
-
-                            <div class="row mx-0 language border-bottom">
+                            
+                            <div class="row mx-0 language border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Language</h3>
@@ -1207,7 +1269,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mx-0" v-else>
+                                        <div class="row mx-0">
                                             <label class="col-auto control-label py-0 pl-0 pr-2 language">
                                                 <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="m-0">English</button>
                                             </label>
@@ -1224,77 +1286,74 @@
                             <div class="row logout-wrapper" v-if="profile_on == false">
                                 <a href="/logout" id="logout" class="w-100 d-block"></a>
                                 <h3 class="d-block w-100 text-center">
-                  Logout 
-                </h3>
+                                  Logout 
+                                </h3>
                             </div>
                         </div>
 
-                        <div v-if="notifications_on == true" class="notifications">
+                        <div v-if="notifications_on == true" class="notifications p-2">
                             <div class="row mx-0">
-                                <h2 class="w-100">
-                  Notifications 
-                </h2>
-                                <div class="w-100">
-                                    <label class="col-lg-3 control-label w-100 p-0">
-                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0">Callbacks</button>
+                                <h3 class="w-100 mb-2">
+                                Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg"></span>
+                                </h3>
+            
+                                <div class="w-100 mt-0">
+                                    <label class="col-lg-3 mt-0 control-label w-100 p-0">
+                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
-                                    <label @click="showMessages" class="col-lg-3 control-label w-100 p-0">
-                                        <button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0">Messages</button>
+                                    <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0">
+                                        <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
                                 </div>
                             </div>
-
+                            <hr>
                             <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
                                 <div v-if="call_backs.length > 0">
-                                    <div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
-                                        <div class="card-body">
+                                    <div class="card w-100 notification-popup" v-for="call_back in call_backs" :key="call_back.id">
+                                        <div class="card-body-notifications">
+                                       
                                             <h3 class="d-block d-block w-100">
-                        <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-                      </h3>
+                                              <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
+                                            </h3>
                                             <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div v-else>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
+                                    <div class="notification-popup">
+                                        <div class="card-body-notifications">
+                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                                <div class="card w-100">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                                  <div class="col-12 notification-popup w-100">
+                                    <div class="row card-body-notifications">
+                                        <div class="col-auto pl-1 btn-has-new-messages">  
+                                        </div>
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
+                                        <div class="col-auto p-0">
+                                            <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p>
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">
-                      Steve Hughes 
-                    </h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                                  </div>
+                                  <div class="col-12 notification-popup w-100">
+                                    <div class="row card-body-notifications">
+                                        <div class="col-auto pl-1 btn-has-new-messages">
+                                        </div>
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
+                                        <div class="col-auto p-0">
+                                            <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p>
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                                    </div>
-                                </div>
+                                  </div>
                             </div>
                         </div>
 
@@ -1359,37 +1418,37 @@
                                     <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
                                         <div class="card-header tab-card-header p-0">
                                             <span class="nav-link active border-0 pl-0" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true">
-                            <span class="left">Calendar</span>
+                                              <span class="left">Calendar</span>
                                             </span>
                                             <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
-                        <li class="nav-item left w-50">
-                          <a 
-                            class="nav-link active border-0" 
-                            id="calendar-tab" 
-                            data-toggle="tab" 
-                            href="#calendar" 
-                            role="tab" 
-                            aria-controls="Calendar" 
-                            aria-selected="true"
-                          >
-                            <span class="left description">Calendar</span>
-                          </a>
-                        </li>
+                                              <li class="nav-item left w-50">
+                                                <a 
+                                                  class="nav-link active border-0" 
+                                                  id="calendar-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#calendar" 
+                                                  role="tab" 
+                                                  aria-controls="Calendar" 
+                                                  aria-selected="true"
+                                                >
+                                                  <span class="left description">Calendar</span>
+                                                </a>
+                                              </li>
 
-                        <li class="nav-item right w-50">
-                          <a 
-                            class="nav-link" 
-                            id="search-panel-tab" 
-                            data-toggle="tab" 
-                            href="#search-panel" 
-                            role="tab" 
-                            aria-controls="Search" 
-                            aria-selected="false"
-                          >
-                            <span class="left description">Search</span>
-                          </a>
-                        </li>
-                      </ul> -->
+                                              <li class="nav-item right w-50">
+                                                <a 
+                                                  class="nav-link" 
+                                                  id="search-panel-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#search-panel" 
+                                                  role="tab" 
+                                                  aria-controls="Search" 
+                                                  aria-selected="false"
+                                                >
+                                                  <span class="left description">Search</span>
+                                                </a>
+                                              </li>
+                                            </ul> -->
                                         </div>
 
                                         <div class="tab-content" id="myTabContent">
@@ -1614,15 +1673,15 @@
                                 <div class="row">
                                     <div class="nav-item col-auto px-0">
                                         <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showNotifications()">
-                                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="50">
-                                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="50" class="inactive-icon">
-                                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="50" class="inactive-icon">
+                                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
+                                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
+                                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
                                         </a>
                                     </div>
 
                                     <div class="nav-item col-auto px-0">
                                         <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showSettings()">
-                                            <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="50" class="inactive-icon">
+                                            <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
                                         </a>
                                     </div>
                                 </div>
@@ -1740,7 +1799,6 @@
                 packages: [],
                 filters: [],
                 preferences: [],
-                system_preferences: [],
                 roles: [],
                 attrs: [{
                     key: 'today',
@@ -1757,17 +1815,11 @@
                     product_id: '',
                     status: '',
                 },
-                system_settings: {
-                    id: '',
-                    auto_dialer: {
-                        value: '',
-                        applies_to: ''
-                    }
-                },
                 user_settings: {
                     id: '',
                     theme: 'orange',
-                    language: 'english'
+                    language: 'english',
+                    max_table_rows: 50
                 },
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
@@ -1924,7 +1976,6 @@
 
                     axios.get('/get-preferences').then(function(response) {
                         vm.preferences = response.data.preferences;
-                        vm.system_preferences = response.data.system_preferences;
                         vm.system_preferences.forEach(function(preference) {
                             if (preference.setting == 'auto_dialer') {
                                 vm.system_settings.auto_dialer.value = preference.value;

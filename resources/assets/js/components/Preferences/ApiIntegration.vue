@@ -5,28 +5,33 @@
   .form-control {
     border-radius: 50rem;
     padding: 11px 18px!important;
-    font-size: 12px;
+    font-size: 0.63vw;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
-    border-color: #999999;
+    border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
+    height:auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 10px;
+    font-size: 0.52vw;
     color: #999999;
     margin-bottom:7px;
+    margin-left: 17px;
   }
   .btn-default{
     background: #fff;
     color: #999999;    
     border: none!important;
     padding: 11px 14px 10px;
-    font-size: 10px;
+    font-size: 0.52vw;
     text-transform:uppercase;
     border-radius: 50rem!important;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
@@ -34,8 +39,11 @@
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 10px;
+    font-size: 0.52vw;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
 </style>
 <template>
@@ -65,8 +73,8 @@
               </div>
 
               <div class="row justify-content-end mx-0">
-                <b-button class="btn-default" @click="updateDetails()">Cancel</b-button>
-                <b-button class="btn-primary font-weight-bold" @click="updateDetails()">Update</b-button>
+                <b-button class="btn-default ml-0 my-0" @click="updateDetails()">Cancel</b-button>
+                <b-button class="btn-primary font-weight-bold mr-0 my-0" @click="updateDetails()">Update</b-button>
               </div>
             </b-container>
           </div>
