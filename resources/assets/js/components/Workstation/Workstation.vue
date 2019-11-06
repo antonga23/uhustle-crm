@@ -4,9 +4,6 @@
   height:100vh;
   overflow-y: scroll;
 }
-.row{ 
-  margin-bottom: 3.5vh;  
-}
 .general-section-stats .agent-stats-1 {
   padding-top: 69px;
   padding-left: 5%;
@@ -694,6 +691,14 @@ a.down-scroll:hover{
   color: #666666;
   border-color: #ccc;
 }
+.dropdown-menu.show {
+  border-radius: 25px;
+  border: 0;
+  padding: 10px 20px 15px 15px;
+  color: #818284;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
 </style> 
 <template> 
   <div id="workstation"> 
@@ -735,7 +740,6 @@ a.down-scroll:hover{
                 <p class="top">{{ custom_field.display_name }}</p> 
                 <p class="bottom mb-0">{{ item.meta_value }}</p> 
               </div> 
-
             </div> 
           </div> 
         </div> 
@@ -860,6 +864,7 @@ a.down-scroll:hover{
                  
               > 
                 <div class="notes-roll"> 
+                  <p>{{ comments.length }} comments</p>
                   <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;" v-if="!review_comment"> 
                     <li 
                       v-for="comment in comments.comments" 
@@ -879,20 +884,24 @@ a.down-scroll:hover{
                     </li> 
                   </ul> 
 
-                  <a-card title="COMMENT" style="width: 100%;height: 365px;" v-else>
-                    <div class="row comment_review">
-                      <p ><small>Tag</small></p>
-                      <p>{{ comment.comment_type.short }} <span>( {{ comment.comment_type.long }} )</span></p>
+                  <a-card class="w-100 border-0" v-else>
+                    <template v-slot:title>
+                      <p class="text-uppercase text-center mb-0">Comment Posted</p>
+                    </template>
 
-                      <p><small>Comment</small></p>
-                      <p>{{ comment.comment_description }}</p>
+                    <div class="row mx-0 mb-0 comment_review">
+                      <p class="review-desc">Tag:</p>
+                      <p class="d-inline-content review-content">{{ comment.comment_type.short }} <span>( {{ comment.comment_type.long }} )</span></p>
+
+                      <p class="review-desc">Comment:</p>
+                      <p class="d-inline-content review-content">{{ comment.comment_description }}</p>
                     </div>
-                    <div class="row" >
-                      <a-button type="primary" html-type="submit" @click="review_comment = false">
+                    <div class="row mx-0 justify-content-end">
+                      <a-button type="default" html-type="submit" @click="review_comment = false" class="rounded-pill text-uppercase">
                         Cancel
                       </a-button>
-                      <a-button type="primary" html-type="submit" @click="addComment">
-                        Save
+                      <a-button type="primary" html-type="submit" @click="addComment" class="rounded-pill text-uppercase font-weight-bold">
+                        Confirm
                       </a-button>
                     </div>
                   </a-card>
