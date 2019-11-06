@@ -20,20 +20,21 @@
 }
 .top-section .col{
   padding: 0 10px; 
-  border-left: 1px solid rgba(0,52,73,1); 
+  /* border-left: 1px solid rgba(0,52,73,1); 
   min-height: 71px;
-  margin-bottom: 57px;
+  margin-bottom: 57px; */
   min-width: 150px;
 }
 .top-section p.bottom{
-  font-size: 19px; 
+  font-size: 1.5vw; 
   font-weight: 700; 
   letter-spacing: 0.05em;
-  color: rgba(30,34,83,1); 
+  color: #393a60;
+  
 } 
 .top-section p.top{ 
-  font-size: 13px; 
-  color: rgba(78,77,77,1);
+  font-size: 1.1vw; 
+  color: #747577;
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif; 
   padding-bottom:20px;
