@@ -496,7 +496,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   padding: 0;
 }
 .add-box-shadow.add-box-shadow.ant-card.ant-card-bordered.ant-card-wider-padding .ant-card-body {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .ant-calendar {

@@ -237,6 +237,13 @@ label {
   padding: 4.4% 5.6% 6.8%;
 }
 
+
+@media screen and (max-width: 1400px) {
+.add-box-shadow .small-screen-hide {
+  display: none;
+}
+}
+
 .add-box-shadow .add-user-form input,
 select,
 textarea {
@@ -528,7 +535,7 @@ table.listing tr th {
       </div>
       <div v-else>
         <a-card title="Add User" class="add-box-shadow">
-            <div class="divider-line"></div>
+            <div class="divider-line small-screen-hide"></div>
           <div class="w-100" style="margin-top: 20px;">
             <div class="add-user-form" :class="{'input': true, 'form-group' :true }">
               <label class="col-lg-4 control-label">
