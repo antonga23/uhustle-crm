@@ -480,6 +480,16 @@ label:not(.form-check-label):not(.custom-file-label) {
   border: 2px solid #FF933A;
   padding:19px;
 }
+
+.add-box-shadow .ant-card-head-title {
+  font-size: 0.83vw;
+}
+
+.add-box.shadow .ant-card-head div {
+  border-bottom: 0;
+}
+
+
 .ant-calendar {
   border-radius: 25px;
 }

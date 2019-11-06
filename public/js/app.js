@@ -73527,8 +73527,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$bvModal.show('update-user-modal');
     },
     handleOk: function handleOk(bvModalEvt) {
-      // Prevent modal from closing 
-      bvModalEvt.preventDefault(); // Trigger submit handler 
+      // Prevent modal from closing  
+      bvModalEvt.preventDefault(); // Trigger submit handler  
 
       this.handleSubmit();
     },
@@ -81422,6 +81422,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -135554,7 +135579,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\nthead th[data-v-3f7b2f16] { \r\n    position: sticky; \r\n    position: -webkit-sticky; \r\n    top: 0; \r\n    background: white; \r\n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] { \r\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] { \r\n    align-items: center; \r\n    display: flex; \r\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{ \r\n    width: 28px; \r\n    margin-top: 0px; \r\n    border-radius: 50%;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{ \r\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{ \r\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{ \r\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{ \r\n    padding: 0px 7px; \r\n    width: 41px; \r\n    display: block; \r\n    height: 46px; \r\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{ \r\n    background-image: url('/images/DataTables/View_Icon_Active.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover, \r\ntable tr td a.View[data-v-3f7b2f16]:active{ \r\n    background-image: url('/images/DataTables/View_Icon.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{ \r\n    background-image: url('/images/DataTables/Delete_Icon.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover, \r\ntable tr td a.Delete[data-v-3f7b2f16]:active{ \r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{ \r\n    background-image: url('/images/DataTables/Edit_Icon.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover, \r\ntable tr td a.Edit[data-v-3f7b2f16]:active{ \r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg'); \r\n    background-size: cover; \r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{ \r\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] { \r\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{ \r\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{ \r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] { \r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] { \r\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] { \r\n    margin: 0; \r\n    border: transparent 0 !important; \r\n    height: 48px; \r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] { \r\n    padding: 0 14px 0 24px; \r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] { \r\n    /* table-layout: fixed; */ \r\n    /* border-collapse: separate; */ \r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] { \r\n    height: 64px; \r\n    padding-left: 24px; \r\n    padding-right: 14px; \r\n    align-items: center; \r\n    display: flex; \r\n    -webkit-display: flex; \r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] { \r\n    display: -webkit-flex; \r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] { \r\n    min-width: 36px; \r\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] { \r\n    margin: 0; \r\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] { \r\n    color: rgba(0, 0, 0, 0.54); \r\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] { \r\n    height: 56px; \r\n    padding-left: 24px; \r\n    padding-right: 14px; \r\n    display: flex; \r\n    flex-direction: row; \r\n    justify-content: flex-end; \r\n    align-items: center; \r\n    font-size: 12px !important; \r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] { \r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] { \r\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] { \r\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] { \r\n    font-size: 12px; \r\n    color: rgba(0, 0, 0, 0.54); \r\n    display: flex; \r\n    /* works with row or column */ \r\n    flex-direction: row; \r\n    align-items: center; \r\n    justify-content: center; \r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] { \r\n    display: flex; \r\n    /* works with row or column */ \r\n    flex-direction: row; \r\n    align-items: center; \r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16], \r\n.table-footer .datatable-length[data-v-3f7b2f16] { \r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] { \r\n    display: flex; \r\n    -webkit-display: flex; \r\n    margin: 0; \r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] { \r\n    color: rgba(0, 0, 0, 0.54); \r\n    padding: 0 8px; \r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] { \r\n    margin: 0; \r\n    border-bottom: none; \r\n    height: auto; \r\n    line-height: normal; \r\n    font-size: 12px; \r\n    width: 40px; \r\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] { \r\n    background-color: transparent; \r\n    width: auto; \r\n    padding: 0; \r\n    border: 0; \r\n    border-radius: 0; \r\n    height: auto; \r\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] { \r\n    font-size: 20px; \r\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] { \r\n     height: 35px; \r\n    font-size: 14px; \r\n    color: #1c2331; \r\n    display: table-cell; \r\n    font-family: 'Rubik', sans-serif !important; \r\n    padding: 10px 0px 10px 0px; \r\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] { \r\n            font-size: 12px !important; \r\n            padding: 5px 0px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] { \r\n    font-size: 18px; \r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] { \r\n    font-size: 12px; \r\n     border-bottom: 1px solid #f2f2f2; \r\n    padding-left: 0; \r\n    width: auto; \r\n    white-space: nowrap; \r\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child { \r\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] { \r\n    font-size: 12px; \r\n    font-weight: 600; \r\n    color: #A6A6A6; \r\n    cursor: pointer; \r\n    white-space: nowrap; \r\n    padding: 0; \r\n    /* height: 56px; */ \r\n    /* padding-left: 14px; */ \r\n    vertical-align: middle; \r\n    outline: none !important; \r\n    overflow: hidden; \r\n    text-overflow: ellipsis; \r\n    background-size: 11px 12px; \r\n    background-repeat: no-repeat; \r\n    background-position: left center; \r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover { \r\n    overflow: visible; \r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16], \r\ntable th.sorting-desc[data-v-3f7b2f16] { \r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] { \r\n    color: rgba(0, 0, 0, 0.87); \r\n    background-image: url('/images/DataTables/Filter_1.svg') !important; \r\n    background-repeat: no-repeat; \r\n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] { \r\n    color: rgba(0, 0, 0, 0.87); \r\n    background-image: url('/images/DataTables/Filter_2.svg') !important; \r\n    background-repeat: no-repeat; \r\n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{ \r\n    color: #1890ff !important; \r\n    background-color: transparent; \r\n    text-decoration: none; \r\n    outline: none; \r\n    cursor: pointer; \r\n    transition: color 0.3s; \r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after, \r\ntable th.sorting-asc[data-v-3f7b2f16]:after, \r\ntable th.sorting-desc[data-v-3f7b2f16]:after { \r\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover { \r\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child, \r\ntable td[data-v-3f7b2f16]:last-child { \r\n    padding-right: 14px; \r\n    background-image: none !important;\n} \r\n \r\n/* table th:first-child, \r\ntable td:first-child { \r\n    padding-left: 25px; \r\n} */ \r\n", ""]);
+=======
+exports.push([module.i, "\nthead th[data-v-3f7b2f16] {  \r\n    position: sticky;  \r\n    position: -webkit-sticky;  \r\n    top: 0;  \r\n    background: white;  \r\n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] {  \r\n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {  \r\n    align-items: center;  \r\n    display: flex;  \r\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{  \r\n    width: 28px;  \r\n    margin-top: 0px;  \r\n    border-radius: 50%;  \r\n    margin-right: 10px;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{  \r\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{  \r\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{  \r\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{  \r\n    padding: 0px 7px;  \r\n    width: 30px;  \r\n    display: block;  \r\n    height: 30px;  \r\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{  \r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,  \r\ntable tr td a.View[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/DataTables/View_Icon.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{  \r\n    background-image: url('/images/icons/Delete_No_Drop.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,  \r\ntable tr td a.Delete[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{  \r\n    background-image: url('/images/icons/Edit_No_Drop3.png');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,  \r\ntable tr td a.Edit[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{  \r\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {  \r\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{  \r\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{  \r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {  \r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {  \r\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    border: transparent 0 !important;  \r\n    height: 48px;  \r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {  \r\n    padding: 0 14px 0 24px;  \r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {  \r\n    /* table-layout: fixed; */  \r\n    /* border-collapse: separate; */  \r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {  \r\n    height: 64px;  \r\n    padding-left: 24px;  \r\n    padding-right: 14px;  \r\n    align-items: center;  \r\n    display: flex;  \r\n    -webkit-display: flex;  \r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {  \r\n    display: -webkit-flex;  \r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {  \r\n    min-width: 36px;  \r\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {  \r\n    height: 56px;  \r\n    padding-left: 24px;  \r\n    padding-right: 14px;  \r\n    display: flex;  \r\n    flex-direction: row;  \r\n    justify-content: flex-end;  \r\n    align-items: center;  \r\n    font-size: 12px !important;  \r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {  \r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {  \r\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {  \r\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    display: flex;  \r\n    /* works with row or column */  \r\n    flex-direction: row;  \r\n    align-items: center;  \r\n    justify-content: center;  \r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {  \r\n    display: flex;  \r\n    /* works with row or column */  \r\n    flex-direction: row;  \r\n    align-items: center;  \r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],  \r\n.table-footer .datatable-length[data-v-3f7b2f16] {  \r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {  \r\n    display: flex;  \r\n    -webkit-display: flex;  \r\n    margin: 0;  \r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    padding: 0 8px;  \r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    border-bottom: none;  \r\n    height: auto;  \r\n    line-height: normal;  \r\n    font-size: 12px;  \r\n    width: 40px;  \r\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {  \r\n    background-color: transparent;  \r\n    width: auto;  \r\n    padding: 0;  \r\n    border: 0;  \r\n    border-radius: 0;  \r\n    height: auto;  \r\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {  \r\n    font-size: 20px;  \r\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {  \r\n     height: 35px;  \r\n    font-size: 14px;  \r\n    color: #1c2331;  \r\n    display: table-cell;  \r\n    font-family: 'Rubik', sans-serif !important;  \r\n    padding: 10px 0px 10px 0px;  \r\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] {  \r\n            font-size: 12px !important;  \r\n            padding: 5px 0px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] {  \r\n    font-size: 18px;  \r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n     border-bottom: 1px solid #f2f2f2;  \r\n    padding-left: 0;  \r\n    width: auto;  \r\n    white-space: nowrap;  \r\n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {  \r\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n    font-weight: 600;  \r\n    color: #A6A6A6;  \r\n    cursor: pointer;  \r\n    white-space: nowrap;  \r\n    padding: 0;  \r\n    /* height: 56px; */  \r\n    /* padding-left: 14px; */  \r\n    vertical-align: middle;  \r\n    outline: none !important;  \r\n    overflow: hidden;  \r\n    text-overflow: ellipsis;  \r\n    background-size: 11px 12px;  \r\n    background-repeat: no-repeat;  \r\n    background-position: left center;  \r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {  \r\n    overflow: visible;  \r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],  \r\ntable th.sorting-desc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);  \r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;  \r\n    background-repeat: no-repeat;  \r\n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);  \r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;  \r\n    background-repeat: no-repeat;  \r\n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{  \r\n    color: #1890ff !important;  \r\n    background-color: transparent;  \r\n    text-decoration: none;  \r\n    outline: none;  \r\n    cursor: pointer;  \r\n    transition: color 0.3s;  \r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,  \r\ntable th.sorting-asc[data-v-3f7b2f16]:after,  \r\ntable th.sorting-desc[data-v-3f7b2f16]:after {  \r\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {  \r\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,  \r\ntable td[data-v-3f7b2f16]:last-child {  \r\n    padding-right: 14px;  \r\n    background-image: none !important;\n}  \r\n  \r\n/* table th:first-child,  \r\ntable td:first-child {  \r\n    padding-left: 25px;  \r\n} */  \r\n", ""]);
+>>>>>>> 32f5a7ef724eecc188b9ff86ee6e6e017f9dbb9b
 
 // exports
 
@@ -135858,7 +135887,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb, .horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb { \r\n  background: #b3b3b3 !important; \r\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar { \r\n  width: 5px !important; \r\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar { \r\n  width: 5px !important; \r\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]{ \r\n    overflow: auto; \r\n    flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] { \r\n  background-color: #ebeff3 !important; \r\n  height: 99px;\n}\n.row[data-v-d5c2b830] { \r\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] { \r\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] { \r\n  float: left; \r\n  margin-right: 52px; \r\n  padding: 6px 83px 3px 15px; \r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] { \r\n  margin-bottom: 0; \r\n  font-size: 19px; \r\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] { \r\n  border: none; \r\n  border-radius: 10px; \r\n  border: none; \r\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); \r\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] { \r\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] { \r\n  color: #fff; \r\n  width: 100%; \r\n  margin-right: 0; \r\n  text-align: right; \r\n  float: left; \r\n  margin-bottom: -6px;\r\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(255, 164, 128, 1) 0%, \r\n    rgba(255, 128, 134, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.sales[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(159, 204, 226, 1) 0%, \r\n    rgba(4, 149, 240, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(221, 192, 241, 1) 0%, \r\n    rgba(160, 117, 209, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(101, 215, 207, 1) 0%, \r\n    rgba(111, 148, 211, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(226, 111, 145, 1) 0%, \r\n    rgba(239, 84, 128, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(97, 167, 221, 1) 0%, \r\n    rgba(99, 101, 202, 1) 100% \r\n  ); \r\n  color: #fff;\n}\nh5[data-v-d5c2b830] { \r\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] { \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] { \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  margin: 0; \r\n  width: 100%; \r\n  float: right; \r\n  font-family: \"Montserrat bold\", sans-serif; \r\n  letter-spacing: 1.2px;\n}\np.card-text span[data-v-d5c2b830] { \r\n  font-size: 19px; \r\n  color: #333333; \r\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] { \r\n  font-size: 22px; \r\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] { \r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] { \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] { \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830] { \r\n  float: right;\n}\n.truncate[data-v-d5c2b830] { \r\n  width: 250px; \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] { \r\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] { \r\n  font-size: 25px; \r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] { \r\n  float: left; \r\n  display: block; \r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] { \r\n  display: block; \r\n  height: 50px; \r\n  width: 75%; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  border: none; \r\n  cursor: pointer; \r\n  float: left;\n}\n#send-btn[data-v-d5c2b830] { \r\n  height: 50px; \r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active, \r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830], \r\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] { \r\n  height: 318px !important;\n} \r\n \r\n/* #top-section{ \r\n    background: #fff;     \r\n    margin-left: -53px; \r\n    margin-right: -66px; \r\n    padding: 0px 37px; \r\n \r\n} */\n.green[data-v-d5c2b830] { \r\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] { \r\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] { \r\n  font-size: 32px; \r\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] { \r\n  margin-top: -7px; \r\n  color: #3b3b3b; \r\n  font-family: \"Rubik\", sans-serif !important; \r\n  letter-spacing: 1.2px;\n}\n.badge[data-v-d5c2b830] { \r\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] { \r\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] { \r\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding-left: 90px; \r\n  display: block; \r\n  width: 100%; \r\n  height: 39px; \r\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #9fb3bb; \r\n  width: 15%; \r\n  text-align: left;\n}\nul.items[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding-left: 1px; \r\n  display: block; \r\n  width: 100%; \r\n  height: 39px; \r\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #003449; \r\n  width: 14%; \r\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] { \r\n  padding-left: 22px; \r\n  width: 10%; \r\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] { \r\n  padding-left: 16px; \r\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] { \r\n  width: 20%; \r\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] { \r\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] { \r\n  padding-left: 17px; \r\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] { \r\n  width: 1%; \r\n  margin-right: 10px; \r\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] { \r\n  padding-left: 11px; \r\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover { \r\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] { \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px; \r\n  padding-right: 6px; \r\n  width: 100%; \r\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] { \r\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #9fb3bb; \r\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] { \r\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] { \r\n  padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830] { \r\n  float: left; \r\n  height: 77px;\n}\n.help-block[data-v-d5c2b830] { \r\n  color: red; \r\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] { \r\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] { \r\n            top: -20px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] { \r\n            width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] { \r\n            top: -10px; \r\n            right: 10px;\n}\n} \r\n \r\n", ""]);
+=======
+exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb, .horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb { \r\n  background: #b3b3b3 !important; \r\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar { \r\n  width: 5px !important; \r\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar { \r\n  width: 5px !important; \r\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]{ \r\n    overflow: auto; \r\n    flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] { \r\n  background-color: #ebeff3 !important; \r\n  height: 99px;\n}\n.row[data-v-d5c2b830] { \r\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] { \r\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] { \r\n  float: left; \r\n  margin-right: 52px; \r\n  padding: 6px 83px 3px 15px; \r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] { \r\n  margin-bottom: 0; \r\n  font-size: 19px; \r\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] { \r\n  border: none; \r\n  border-radius: 10px; \r\n  border: none; \r\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); \r\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] { \r\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] { \r\n  color: #fff; \r\n  width: 100%; \r\n  margin-right: 0; \r\n  text-align: right; \r\n  float: left; \r\n  margin-bottom: -6px;\r\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(255, 164, 128, 1) 0%, \r\n    rgba(255, 128, 134, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.sales[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(159, 204, 226, 1) 0%, \r\n    rgba(4, 149, 240, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(221, 192, 241, 1) 0%, \r\n    rgba(160, 117, 209, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(101, 215, 207, 1) 0%, \r\n    rgba(111, 148, 211, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(226, 111, 145, 1) 0%, \r\n    rgba(239, 84, 128, 1) 100% \r\n  ); \r\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(97, 167, 221, 1) 0%, \r\n    rgba(99, 101, 202, 1) 100% \r\n  ); \r\n  color: #fff;\n}\nh5[data-v-d5c2b830] { \r\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] { \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] { \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  margin: 0; \r\n  width: 100%; \r\n  float: right; \r\n  font-family: \"Montserrat bold\", sans-serif; \r\n  letter-spacing: 1.2px;\n}\np.card-text span[data-v-d5c2b830] { \r\n  font-size: 19px; \r\n  color: #333333; \r\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] { \r\n  font-size: 22px; \r\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] { \r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] { \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] { \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830] { \r\n  float: right;\n}\n.truncate[data-v-d5c2b830] { \r\n  width: 250px; \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] { \r\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] { \r\n  font-size: 25px; \r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] { \r\n  float: left; \r\n  display: block; \r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] { \r\n  display: block; \r\n  height: 50px; \r\n  width: 75%; \r\n  padding: 11px; \r\n  margin: 10px 10px 10px 0; \r\n  background: #f6f8f9; \r\n  border-radius: 9px; \r\n  border: none; \r\n  cursor: pointer; \r\n  float: left;\n}\n#send-btn[data-v-d5c2b830] { \r\n  height: 50px; \r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active, \r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830], \r\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] { \r\n  height: 318px !important;\n}\nselect.form-control[data-v-d5c2b830], input.form-control[data-v-d5c2b830] {\r\n  border-radius: 50rem;\n}\nlabel[data-v-d5c2b830] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 0.52vw;\r\n    color: #999999;\r\n    margin-bottom: 20px;\n}\n.add-box-shadow[data-v-d5c2b830] {\r\n    box-shadow: 0 0 20px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);\r\n    border-bottom-left-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n    border: 0;\n}\n#text.control-label[data-v-d5c2b830] {\r\n    margin-left: 17px;\n}\r\n \r\n/* #top-section{ \r\n    background: #fff;     \r\n    margin-left: -53px; \r\n    margin-right: -66px; \r\n    padding: 0px 37px; \r\n \r\n} */\n.green[data-v-d5c2b830] { \r\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] { \r\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] { \r\n  font-size: 32px; \r\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] { \r\n  margin-top: -7px; \r\n  color: #3b3b3b; \r\n  font-family: \"Rubik\", sans-serif !important; \r\n  letter-spacing: 1.2px;\n}\n.badge[data-v-d5c2b830] { \r\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] { \r\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] { \r\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding-left: 90px; \r\n  display: block; \r\n  width: 100%; \r\n  height: 39px; \r\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #9fb3bb; \r\n  width: 15%; \r\n  text-align: left;\n}\nul.items[data-v-d5c2b830] { \r\n  list-style: none; \r\n  padding-left: 1px; \r\n  display: block; \r\n  width: 100%; \r\n  height: 39px; \r\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #003449; \r\n  width: 14%; \r\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] { \r\n  padding-left: 22px; \r\n  width: 10%; \r\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] { \r\n  padding-left: 16px; \r\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] { \r\n  width: 20%; \r\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] { \r\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] { \r\n  padding-left: 17px; \r\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] { \r\n  width: 1%; \r\n  margin-right: 10px; \r\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] { \r\n  padding-left: 11px; \r\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover { \r\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] { \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px; \r\n  padding-right: 6px; \r\n  width: 100%; \r\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] { \r\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] { \r\n  float: left; \r\n  font-weight: 700; \r\n  color: #9fb3bb; \r\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] { \r\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] { \r\n  padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830] { \r\n  float: left;\n}\n.help-block[data-v-d5c2b830] { \r\n  color: red; \r\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] { \r\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] { \r\n            top: -20px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] { \r\n            width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] { \r\n            top: -10px; \r\n            right: 10px;\n}\n} \r\n \r\n", ""]);
+>>>>>>> 32f5a7ef724eecc188b9ff86ee6e6e017f9dbb9b
 
 // exports
 
@@ -256049,9 +256082,9 @@ var render = function() {
               },
               [
                 _vm._v(
-                  " \n                    " +
+                  "  \n                    " +
                     _vm._s(column.label) +
-                    " \n                "
+                    "  \n                "
                 )
               ]
             )
@@ -256105,9 +256138,9 @@ var render = function() {
                                 })
                               : _c("img", { attrs: { src: _vm.noImageUrl } }),
                             _vm._v(
-                              " \n                            " +
+                              "  \n                            " +
                                 _vm._s(row.full_name) +
-                                " \n                        "
+                                "  \n                        "
                             )
                           ]
                         )
@@ -256115,41 +256148,41 @@ var render = function() {
                     : column.field == "role"
                     ? _c("span", [
                         _vm._v(
-                          " \n                        " +
+                          "  \n                        " +
                             _vm._s(row.role) +
-                            " \n                    "
+                            "  \n                    "
                         )
                       ])
                     : column.field == "email"
                     ? _c("span", [
                         _vm._v(
-                          " \n                        " +
+                          "  \n                        " +
                             _vm._s(row.email) +
-                            " \n                    "
+                            "  \n                    "
                         )
                       ])
                     : column.field == "personal_number"
                     ? _c("span", [
                         _vm._v(
-                          " \n                        " +
+                          "  \n                        " +
                             _vm._s(row.personal_number) +
-                            " \n                    "
+                            "  \n                    "
                         )
                       ])
                     : column.field == "updated_at"
                     ? _c("span", [
                         _vm._v(
-                          " \n                        " +
+                          "  \n                        " +
                             _vm._s(row.updated_at) +
-                            " \n                    "
+                            "  \n                    "
                         )
                       ])
                     : column.field == "status"
                     ? _c("span", [
                         _vm._v(
-                          " \n                       " +
+                          "  \n                       " +
                             _vm._s(row.status) +
-                            " \n                    "
+                            "  \n                    "
                         )
                       ])
                     : column.field == "actions" &&
@@ -256223,7 +256256,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "datatable-info" }, [
             _vm._v(
-              " \n            " +
+              "  \n            " +
                 _vm._s(
                   (_vm.currentPage - 1) * _vm.currentPerPage
                     ? (_vm.currentPage - 1) * _vm.currentPerPage
@@ -256238,7 +256271,7 @@ var render = function() {
                 ) +
                 " of " +
                 _vm._s(_vm.processedRows.length) +
-                " \n        "
+                "  \n        "
             )
           ]),
           _vm._v(" "),
@@ -256325,7 +256358,7 @@ var render = function() {
                 [
                   _c("div", { class: { input: true, "form-group": true } }, [
                     _c("label", { staticClass: "col-lg-12 control-label" }, [
-                      _vm._v("Role \n                            "),
+                      _vm._v("Role  \n                            "),
                       _c(
                         "select",
                         {
@@ -256394,7 +256427,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Name \n                            "),
+                      _vm._v("Name  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256436,7 +256469,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Surname \n                            "),
+                      _vm._v("Surname  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256478,7 +256511,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Nickname \n                            "),
+                      _vm._v("Nickname  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256507,7 +256540,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Email \n                            "),
+                      _vm._v("Email  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256549,7 +256582,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Work Telephone \n                            "),
+                      _vm._v("Work Telephone  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256599,7 +256632,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Cellphone number \n                            "),
+                      _vm._v(
+                        "Cellphone number  \n                            "
+                      ),
                       _c("input", {
                         directives: [
                           {
@@ -256649,7 +256684,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-12 control-label" }, [
-                      _vm._v("Address \n                            "),
+                      _vm._v("Address  \n                            "),
                       _c("textarea", {
                         directives: [
                           {
@@ -256691,7 +256726,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Username \n                            "),
+                      _vm._v("Username  \n                            "),
                       _c("input", {
                         directives: [
                           {
@@ -256794,7 +256829,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
                       _vm._v(
-                        "Confirm New Password \n                            "
+                        "Confirm New Password  \n                            "
                       ),
                       _c("input", {
                         directives: [
@@ -256851,7 +256886,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Status \n                            "),
+                      _vm._v("Status  \n                            "),
                       _c(
                         "select",
                         {
@@ -269056,10 +269091,7 @@ var render = function() {
             [
               _c(
                 "a-card",
-                {
-                  staticStyle: { "overflow-y": "scroll", height: "380px" },
-                  attrs: { title: "Add User" }
-                },
+                { staticClass: "add-box-shadow", attrs: { title: "Add User" } },
                 [
                   _c(
                     "div",
@@ -269074,7 +269106,7 @@ var render = function() {
                         [
                           _c(
                             "label",
-                            { staticClass: "col-lg-12 control-label" },
+                            { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(" \n              Role \n              "),
                               _c(
@@ -269549,7 +269581,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "label",
-                            { staticClass: "col-lg-3 control-label" },
+                            { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
                                 " \n              Username \n              "
@@ -269610,7 +269642,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "label",
-                            { staticClass: "col-lg-3 control-label" },
+                            { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
                                 " \n              New Password \n              "
@@ -269681,7 +269713,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "label",
-                            { staticClass: "col-lg-3 control-label" },
+                            { staticClass: "col-lg-4 control-label" },
                             [
                               _vm._v(
                                 " \n              Confirm New Password \n              "

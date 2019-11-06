@@ -212,6 +212,32 @@ span.right {
 #chartjs-size-monitor #bar-chart { 
   height: 318px !important; 
 } 
+
+select.form-control, input.form-control {
+  border-radius: 50rem;
+}
+
+label {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.52vw;
+    color: #999999;
+    margin-bottom: 20px;
+  
+}
+
+.add-box-shadow {
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0;
+}
+
+
+
+#text.control-label {
+    margin-left: 17px;
+}
  
 /* #top-section{ 
     background: #fff;     
@@ -339,7 +365,6 @@ table.listing tr th {
 } 
 .control-label { 
   float: left; 
-  height: 77px; 
 } 
 .help-block { 
   color: red; 
@@ -487,11 +512,11 @@ table.listing tr th {
           </div> 
         </div> 
       </div> 
-      <div v-else> 
-        <a-card title="Add User" style="overflow-y: scroll;height: 380px;"> 
+      <div v-else > 
+        <a-card title="Add User" class="add-box-shadow" > 
           <div class="w-100" style="margin-top: 20px;"> 
             <div :class="{'input': true, 'form-group' :true }"> 
-              <label class="col-lg-12 control-label"> 
+              <label class="col-lg-4 control-label"> 
                 Role 
                 <select 
                   type="text" 
@@ -615,7 +640,7 @@ table.listing tr th {
                   class="help-block" 
                 >{{ errors.first('Address') }}</span> 
               </label> 
-              <label class="col-lg-3 control-label"> 
+              <label class="col-lg-4 control-label"> 
                 Username 
                 <input 
                   type="text" 
@@ -631,7 +656,7 @@ table.listing tr th {
                   class="help-block" 
                 >{{ errors.first('Old Password') }}</span> 
               </label> 
-              <label class="col-lg-3 control-label"> 
+              <label class="col-lg-4 control-label"> 
                 New Password 
                 <em> 
                   <small>Default: P@ssword</small> 
@@ -651,7 +676,7 @@ table.listing tr th {
                   class="help-block" 
                 >{{ errors.first('New Password') }}</span> 
               </label> 
-              <label class="col-lg-3 control-label"> 
+              <label class="col-lg-4 control-label"> 
                 Confirm New Password 
                 <input 
                   type="password" 
