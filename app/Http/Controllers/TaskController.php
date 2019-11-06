@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use App\Task;
 use App\Activity;
 use App\Invoice;
@@ -20,7 +21,7 @@ class TaskController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth');
     }
     
     /**
@@ -50,13 +51,12 @@ class TaskController extends Controller
         $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
 
         $data = $request->all();
+        
         $title = $data['title'];
         $description = $data['description'];
-        $status = $data['status'];
-        $user_assigned_id = $data['user_assigned_id'];
-        $user_created_id = $data['user_created_id'];
-        $client_id = $data['client_id'];
-        $deadline = $data['deadline'];
+        $status = 0;
+        $user_created_id = Auth::user()->id;
+        $deadline = $data['date'];
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         try{
@@ -66,16 +66,13 @@ class TaskController extends Controller
                 'title' => $title,
                 'description' => $description,
                 'status' => $status,
-                'user_assigned_id' => $user_assigned_id,
                 'user_created_id' => $user_created_id,
-                'client_id' => $client_id,
-                'deadline' => Carbon::createFromFormat('d/m/Y', $deadline)->format('Y-m-d')
+                'deadline' => $deadline
             ]);
 
-            event(new \App\Events\TaskAction($task, $request_user,'created'));
-
             DB::commit();
-            return array('success' => true, 'task' => $task);
+
+            return array('success' => true, 'message' => 'Reminder added successfully');
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -99,10 +96,8 @@ class TaskController extends Controller
         $title = $data['title'];
         $description = $data['description'];
         $status = $data['status'];
-        $user_assigned_id = $data['user_assigned_id'];
-        $user_created_id = $data['user_created_id'];
-        $client_id = $data['client_id'];
-        $deadline = $data['deadline'];
+        $user_created_id = Auth::user()->id;
+        $deadline = $data['date'];
 
         try{
             DB::beginTransaction();
@@ -111,18 +106,12 @@ class TaskController extends Controller
                 'title' => $title,
                 'description' => $description,
                 'status' => $status,
-                'user_assigned_id' => $user_assigned_id,
-                'user_created_id' => $user_created_id,
-                'client_id' => $client_id,
-                'deadline' => Carbon::createFromFormat('d/m/Y', $deadline)->format('Y-m-d')
+                'deadline' => Carbon::createFromFormat("!Y-m-d", $deadline)
             ]);
 
-            $task = Task::where(['id' => $id])->get();
-
-            event(new \App\Events\TaskAction($task, $request_user,'updated'));
-
             DB::commit();
-            return array('success' => true, 'task' => Task::find($id));
+
+            return array('success' => true, 'message' => 'Reminder updated successfully');
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -245,5 +234,13 @@ class TaskController extends Controller
         event(new \App\Events\TaskAction($task, $request_user,'updated_time'));
 
         return array('success' => true, 'message' =>  'Time has been updated');
+    }
+
+    public function getUserTasks(){
+
+      $tasks = Task::where( ['user_created_id' => Auth::user()->id ])->get();
+
+      return array('success' => true, 'tasks' => $tasks);
+
     }
 }

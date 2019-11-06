@@ -1294,7 +1294,7 @@
                         <div v-if="notifications_on == true" class="notifications p-2">
                             <div class="row mx-0">
                                 <h3 class="w-100 mb-2">
-                                Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg"></span>
+                                  Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg" style="display:none;"></span>
                                 </h3>
             
                                 <div class="w-100 mt-0">
@@ -1302,18 +1302,19 @@
                                         <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
                                      <div class="btn-has-new-dot"></div>
                                     </label>
-                                    <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0">
+                                    <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0"  style="display:none;">
                                         <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
-                                     <div class="btn-has-new-dot"></div>
+                                        <div class="btn-has-new-dot"></div>
                                     </label>
                                 </div>
                             </div>
                             <hr>
+                             <!-- Continue here -->
                             <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
                                 <div v-if="call_backs.length > 0">
-                                    <div class="card w-100 notification-popup" v-for="call_back in call_backs" :key="call_back.id">
+                                    <div class="card w-100 notification-popup" v-for="(call_back, i) in call_backs" :key="i">
                                         <div class="card-body-notifications">
-                                       
+    
                                             <h3 class="d-block d-block w-100">
                                               <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
                                             </h3>
@@ -1594,72 +1595,99 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row p-34">
                                 <div class="col-lg-12 final-modal border-0">
                                     <div class="row mx-0 mb-4 reminders">
                                         <b-tabs content-class="mt-3" class="outer-box-shadow">
                                             <b-tab title="Callbacks" active>
-                                                <ul class="pl-0">
-                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
+                                                <ul class="pl-0" v-if="call_backs.length > 0">
+                                                    <li v-for="(call_back, i) in call_backs" :key="i" class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
                                                                 <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                    <input class="custom-control-input" id="callback1" type="checkbox">
+                                                                    <input class="custom-control-input" :id="'callback' + i" type="checkbox" v-model="call_back.status">
                                                                     <label class="pl-34 custom-control-label" for="callback1">
-                                                                        Callback Steven
+                                                                        {{ call_back.lead.name + ' ' +call_back.lead.surname }}
                                                                     </label>
                                                                 </div>
-                                                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">18 Jul</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                                                        <div class="col-12">
-                                                            <div class="row">
-                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                    <input class="custom-control-input" id="callback2" type="checkbox">
-                                                                    <label class="pl-34 custom-control-label" for="callback2">
-                                                                        Callback Justine
-                                                                    </label>
+                                                                <div class="col-4 task-date-div inner-box-shadow">
+                                                                  <span class="tasks-circle blue">&#11044;</span>
+                                                                  <span class="tasks-date">{{ call_back.call_date }} {{ call_back.call_time }}</span>
                                                                 </div>
-                                                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">3 Aug</span></div>
                                                             </div>
                                                         </div>
                                                     </li>
                                                 </ul>
+                                                <div v-else>
+                                                    <div class="notification-popup">
+                                                        <div class="card-body-notifications">
+                                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </b-tab>
                                             <b-tab title="Reminders">
-                                                <ul class="pl-0">
+                                                <ul class="pl-0"  v-if="tasks.length > 0 && !add_task">
                                                     <!--When adding a new task, the whole li tag should be added and change input ids -->
-                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
+                                                    <li v-for="(task, i) in tasks" :key="i" class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
                                                                 <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                    <input class="custom-control-input" id="task1" type="checkbox">
-                                                                    <label class="terms-text custom-control-label" for="task1">
-                                                                        <input type="text" value="1. To Do List" class="border-0 list-input">
+                                                                    <input class="custom-control-input"  v-model="task.status" :id="'task' + i" type="checkbox">
+                                                                    <label class="terms-text custom-control-label" :for="'task' + i">
+                                                                        <input type="text" v-model="task.title" class="border-0 list-input" @focus="editTaskCollapes(task.id)">
                                                                     </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                                                        <div class="col-12">
-                                                            <div class="row">
-                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                    <input class="custom-control-input" id="task2" type="checkbox">
-                                                                    <label class="terms-text custom-control-label" for="task2">
-                                                                        <input type="text" value="2. To Do List" class="border-0 list-input">
+                                                            <div class="row" v-if="edit_task && active_task_id == task.id">
+                                                                <div class="col-12 pl-0 custom-control custom-checkbox">
+                                                                    <label class="terms-text" :for="'task' + i" style="width:100%;">
+                                                                       <a-textarea v-model="task.description" placeholder="Description" autosize />
+                                                                    </label>
+                                                                    <label class="terms-text" :for="'task' + i" style="width:100%;">
+                                                                       <a-date-picker v-model="task.deadline" :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"  style="width:100%;" />
                                                                     </label>
                                                                 </div>
-                                                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">23 Jul</span></div>
+                                                            </div>
+                                                            <div class="row" v-if="edit_task && active_task_id == task.id">
+                                                                <div class="col-12 pl-0 custom-control">
+                                                                  <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="editTask(task)">Update</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="pl-0"  v-if="tasks.length == 0 || add_task">
+                                                    <!--When adding a new task, the whole li tag should be added and change input ids -->
+                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control">
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <div class="col-12 pl-0 custom-control">
+                                                                    <label class="terms-text" for="task1" style="width:100%;">
+                                                                        <input v-model="new_task.title" placeholder="Title" type="text" class="border-0 list-input">
+                                                                    </label>
+                                                                    <label class="terms-text" for="task1" style="width:100%;">
+                                                                       <a-textarea v-model="new_task.description" placeholder="Description" autosize />
+                                                                    </label>
+                                                                    <label class="terms-text" for="task1" style="width:100%;">
+                                                                       <a-date-picker v-model="new_task.date"  style="width:100%;" />
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12 pl-0 custom-control">
+                                                                  <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="submitTask">Add</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </b-tab>
-                                            <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task">
+                                            <a href="#" @click="addTask">
+                                              <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task">
+                                            </a>
                                         </b-tabs>
                                     </div>
                                 </div>
@@ -1766,6 +1794,7 @@
     from 'v-calendar'
     import TransitionHeight from '../Plugins/TransitionExpand.vue';
     import VueCircle from 'vue2-circle-progress'
+    import moment from 'moment'
     export default {
         props: ['auth_user', 'active'],
         components: {
@@ -1787,6 +1816,7 @@
                 callbacks_on: true,
                 messages_on: false,
                 call_backs: [],
+                tasks: [],
                 messages: [],
                 unread_messages: 1,
                 expanded: false,
@@ -1821,6 +1851,14 @@
                     language: 'english',
                     max_table_rows: 50
                 },
+                active_task_id: null,
+                edit_task: false,
+                add_task: false,
+                new_task: {
+                  title: '',
+                  description: '',
+                  date: moment()
+                },
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 fill: {
@@ -1842,6 +1880,8 @@
             this.user = JSON.parse(this.auth_user);
 
             vm.getUserCallBacks();
+
+            vm.getUserTasks();
 
             Fire.$on('AfterCallBackSet', function() {
                 vm.getUserCallBacks();
@@ -1881,265 +1921,328 @@
         },
 
         methods: {
+            moment,
             showNotifications() {
-                    this.notifications_on = !this.notifications_on;
-                    this.settings_on = false;
-                    this.profile_on = false;
-                },
-                filterProperties() {
-                    this.appendBorder = !this.appendBorder
-                    this.showFilters = !this.showFilters
-                   
-                },
-                 savedFilters() {
-                      this.appendBorder = !this.appendBorder
-                      this.showSavedFilters = !this.showSavedFilters
-                 },
-                showSettings() {
-                    this.settings_on = !this.settings_on;
-                    this.notifications_on = false;
-                    this.profile_on = false;
-                },
+                this.notifications_on = !this.notifications_on;
+                this.settings_on = false;
+                this.profile_on = false;
+            },
+            filterProperties() {
+                this.appendBorder = !this.appendBorder
+                this.showFilters = !this.showFilters
+                
+            },
+              savedFilters() {
+                  this.appendBorder = !this.appendBorder
+                  this.showSavedFilters = !this.showSavedFilters
+              },
+            showSettings() {
+                this.settings_on = !this.settings_on;
+                this.notifications_on = false;
+                this.profile_on = false;
+            },
 
-                showCallbacks() {
-                    this.callbacks_on = true;
-                    this.messages_on = false;
-                },
+            showCallbacks() {
+                this.callbacks_on = true;
+                this.messages_on = false;
+            },
 
-                showMessages() {
-                    this.callbacks_on = false;
-                    this.messages_on = true;
-                    this.unread_messages = 0;
-                },
+            showMessages() {
+                this.callbacks_on = false;
+                this.messages_on = true;
+                this.unread_messages = 0;
+            },
+            getUserCallBacks() {
 
-                getUserCallBacks() {
+                var vm = this;
 
-                    var vm = this;
+                axios.get('/leads/get-user-callbacks').then(function(response) {
+                    vm.call_backs = response.data.call_backs;
 
-                    axios.get('/leads/get-user-callbacks').then(function(response) {
-                        vm.call_backs = response.data.call_backs;
+                    vm.attrs = [{
+                        key: 'today',
+                        highlight: true,
+                        class: 'today_date',
+                        dates: new Date(),
+                    }];
 
-                        vm.attrs = [{
-                            key: 'today',
-                            highlight: true,
-                            class: 'today_date',
-                            dates: new Date(),
-                        }];
+                    vm.call_backs.forEach(function(call_back) {
 
-                        vm.call_backs.forEach(function(call_back) {
-
-                            vm.attrs.push({
-                                key: 'call_back' + call_back.id,
-                                highlight: 'red',
-                                class: 'call_back_date',
-                                dates: new Date(call_back.call_date),
-                                popover: {
-                                    label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time,
-                                },
-                            });
+                        vm.attrs.push({
+                            key: 'call_back' + call_back.id,
+                            highlight: 'red',
+                            class: 'call_back_date',
+                            dates: new Date(call_back.call_date),
+                            popover: {
+                                label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time,
+                            },
                         });
                     });
-                },
-                applySetting(settings = null) {
+                });
+            },
+            onChange(date, dateString) {
+              console.log(date, dateString);
+            },
+            getUserTasks() {
 
-                    var vm = this;
+                var vm = this;
 
-                    if (settings != null && settings.type == 'language') {
-                        vm.user_settings.language = settings.value;
-                    } else if (settings != null && settings.type == 'theme') {
-                        vm.user_settings.theme = settings.value;
+                axios.get('/tasks/get-user-tasks').then(function(response) {
+                    vm.tasks = response.data.tasks;
+                });
+            },
+            addTask(){
+              this.add_task = !this.add_task;
+            },
+            submitTask(){
+
+                var vm = this;
+
+                vm.$Progress.start();
+
+                axios.post('/tasks/create', {
+                  title: vm.new_task.title,
+                  description: vm.new_task.description,
+                  date: vm.new_task.date.format('YYYY-MM-DD')
+                }).then(function(response) {
+
+                    if (response.data.success == true) {
+                        vm.Toast.fire({
+                            type: 'success',
+                            title: response.data.message
+                        });
+                        vm.getUserTasks();
+                        vm.add_task = !vm.add_task;
+                        vm.$Progress.finish();
+                    } else {
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
                     }
+                });
+            },
+            editTask(task){
+                var vm = this;
+                console.log(task.id);
+                vm.$Progress.start();
 
-                    vm.$Progress.start();
+                axios.post('/tasks/update', {
+                  id: task.id,
+                  title: task.title,
+                  status: ( task.status ) ? 1 : 0,
+                  description: task.description,
+                  date: moment(task.deadline, 'YYYY-MM-DD') 
+                }).then(function(response) {
 
-                    axios.post('/update-preferences', {
-                        system_settings: vm.system_settings,
-                        user_settings: vm.user_settings
-                    }).then(function(response) {
-
-                        if (response.data.success == true) {
-                            vm.Toast.fire({
-                                type: 'success',
-                                title: response.data.message
-                            });
-                            vm.getPreferences();
-                            vm.$Progress.finish();
-                        } else {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
-                        }
-                    });
-                },
-                getPreferences() {
-
-                    var vm = this;
-
-                    axios.get('/get-preferences').then(function(response) {
-                        vm.preferences = response.data.preferences;
-                        vm.system_preferences.forEach(function(preference) {
-                            if (preference.setting == 'auto_dialer') {
-                                vm.system_settings.auto_dialer.value = preference.value;
-                                vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-                            }
+                    if (response.data.success == true) {
+                        vm.Toast.fire({
+                            type: 'success',
+                            title: response.data.message
                         });
-                        vm.preferences.forEach(function(preference) {
-                            vm.system_settings.id = preference.id;
-                            if (preference.setting == 'theme') {
-                                vm.user_settings.theme = preference.value;
-                            } else if (preference.setting == 'language') {
-                                vm.user_settings.language = preference.value;
-                            }
-                        });
-                    });
-                },
-
-                updateNotifications() {
-                    var vm = this;
-                    axios.post('/update-user', this.user).then(function(response) {
-
-                        if (response.data.success == true) {
-                            vm.Toast.fire({
-                                type: 'success',
-                                title: response.data.message
-                            });
-                            vm.user = response.data.user;
-                            vm.$Progress.finish();
-                        } else if (response.data.errors.email[0] != '') {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', response.data.errors.email[0], 'warning');
-                        } else {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                        }
-                    });
-                },
-
-                updateUser(type) {
-                    var vm = this;
-                    vm.$Progress.start();
-                    this.$validator.validateAll().then((result) => {
-                        if (!result) {
-
-                        } else {
-
-                            if (type == 'profile') {
-                                axios.post('/update-user', this.user).then(function(response) {
-
-                                    if (response.data.success == true) {
-                                        vm.Toast.fire({
-                                            type: 'success',
-                                            title: response.data.message
-                                        });
-                                        vm.user = response.data.user;
-                                        vm.$Progress.finish();
-                                    } else if (response.data.errors.email[0] != '') {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', response.data.errors.email[0], 'warning');
-                                    } else {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                                    }
-                                });
-                            } else {
-                                axios.post('/update-account', this.user).then(function(response) {
-
-                                    if (response.data.success === true) {
-                                        vm.Toast.fire({
-                                            type: 'success',
-                                            title: response.data.message
-                                        });
-                                        vm.user = response.data.user;
-                                        vm.$Progress.finish();
-                                    } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) {
-                                        vm.$swal('Failed', 'You old password is incorrect', 'warning');
-                                    } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) {
-                                        var this_error = '';
-                                        response.data.errors.password.forEach(function(error) {
-                                            this_error = this_error + error + '\n';
-                                        });
-                                        vm.$swal('Failed', this_error, 'warning');
-                                    } else {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                                    }
-                                });
-                            }
-                        }
-                    });
-                },
-
-                showUploader() {
-                    Fire.$emit('ShowAvatarUploader');
-                },
-
-                clearFilter() {
-                    this.filter = {
-                        title: '',
-                        search: '',
-                        user_created_id: '',
-                        user_assigned: '',
-                        source: '',
-                        product_id: '',
-                        status: ''
+                        vm.getUserTasks();
+                        vm.edit_task = false;
+                        vm.$Progress.finish();
+                    } else {
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
                     }
-                    this.show_filter_save = false;
-                },
+                });
+              this.edit_task = false;
+            },
+            editTaskCollapes(id){
+              this.edit_task = true;
+              this.active_task_id = id;
+            },
+            applySetting(settings = null) {
 
-                filterData() {
-                    var vm = this;
-                    Fire.$emit('FilterData', {
-                        'filter': vm.filter
+                var vm = this;
+
+                if (settings != null && settings.type == 'language') {
+                    vm.user_settings.language = settings.value;
+                } else if (settings != null && settings.type == 'theme') {
+                    vm.user_settings.theme = settings.value;
+                }
+
+                vm.$Progress.start();
+
+                axios.post('/update-preferences', {
+                    system_settings: vm.system_settings,
+                    user_settings: vm.user_settings
+                }).then(function(response) {
+
+                    if (response.data.success == true) {
+                        vm.Toast.fire({
+                            type: 'success',
+                            title: response.data.message
+                        });
+                        vm.getPreferences();
+                        vm.$Progress.finish();
+                    } else {
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+                    }
+                });
+            },
+            getPreferences() {
+
+                var vm = this;
+
+                axios.get('/get-preferences').then(function(response) {
+                    vm.preferences = response.data.preferences;
+                    vm.system_preferences.forEach(function(preference) {
+                        if (preference.setting == 'auto_dialer') {
+                            vm.system_settings.auto_dialer.value = preference.value;
+                            vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
+                        }
                     });
-                },
+                    vm.preferences.forEach(function(preference) {
+                        vm.system_settings.id = preference.id;
+                        if (preference.setting == 'theme') {
+                            vm.user_settings.theme = preference.value;
+                        } else if (preference.setting == 'language') {
+                            vm.user_settings.language = preference.value;
+                        }
+                    });
+                });
+            },
+            updateNotifications() {
+                var vm = this;
+                axios.post('/update-user', this.user).then(function(response) {
 
-                saveFilter() {
-                    var vm = this;
-                    vm.$validator.validateAll().then((result) => {
-                        if (!result) {} else {
-                            axios.post('/filters/create', {
-                                filter: this.filter,
-                                type: this.active
-                            }).then(function(response) {
+                    if (response.data.success == true) {
+                        vm.Toast.fire({
+                            type: 'success',
+                            title: response.data.message
+                        });
+                        vm.user = response.data.user;
+                        vm.$Progress.finish();
+                    } else if (response.data.errors.email[0] != '') {
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', response.data.errors.email[0], 'warning');
+                    } else {
+                        vm.$Progress.fail();
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+                    }
+                });
+            },
+            updateUser(type) {
+                var vm = this;
+                vm.$Progress.start();
+                this.$validator.validateAll().then((result) => {
+                    if (!result) {
+
+                    } else {
+
+                        if (type == 'profile') {
+                            axios.post('/update-user', this.user).then(function(response) {
+
+                                if (response.data.success == true) {
+                                    vm.Toast.fire({
+                                        type: 'success',
+                                        title: response.data.message
+                                    });
+                                    vm.user = response.data.user;
+                                    vm.$Progress.finish();
+                                } else if (response.data.errors.email[0] != '') {
+                                    vm.$Progress.fail();
+                                    vm.$swal('Failed', response.data.errors.email[0], 'warning');
+                                } else {
+                                    vm.$Progress.fail();
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+                                }
+                            });
+                        } else {
+                            axios.post('/update-account', this.user).then(function(response) {
 
                                 if (response.data.success === true) {
                                     vm.Toast.fire({
                                         type: 'success',
                                         title: response.data.message
                                     });
-
-                                    Fire.$emit('SaveFilter', {
-                                        'filters': response.data.filters
-                                    });
-
+                                    vm.user = response.data.user;
                                     vm.$Progress.finish();
+                                } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) {
+                                    vm.$swal('Failed', 'You old password is incorrect', 'warning');
+                                } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) {
+                                    var this_error = '';
+                                    response.data.errors.password.forEach(function(error) {
+                                        this_error = this_error + error + '\n';
+                                    });
+                                    vm.$swal('Failed', this_error, 'warning');
                                 } else {
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
                                     vm.$Progress.fail();
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
                                 }
                             });
                         }
-                    });
-                },
-
-                fireTableEvent(event = '') {
-                    Fire.$emit(event);
-                },
-
-                fireSearchEvent() {
-                    Fire.$emit('Search', {
-                        'search_term': this.filter.search
-                    });
-                },
-
-                progress(event, progress, stepValue) {
-                    console.log(stepValue);
-                    if (stepValue > 30) {
-                        this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e");
                     }
-                },
-                progress_end(event) {
-                    console.log("Circle progress end");
+                });
+            },
+            showUploader() {
+                Fire.$emit('ShowAvatarUploader');
+            },
+            clearFilter() {
+                this.filter = {
+                    title: '',
+                    search: '',
+                    user_created_id: '',
+                    user_assigned: '',
+                    source: '',
+                    product_id: '',
+                    status: ''
                 }
+                this.show_filter_save = false;
+            },
+            filterData() {
+                var vm = this;
+                Fire.$emit('FilterData', {
+                    'filter': vm.filter
+                });
+            },
+            saveFilter() {
+                var vm = this;
+                vm.$validator.validateAll().then((result) => {
+                    if (!result) {} else {
+                        axios.post('/filters/create', {
+                            filter: this.filter,
+                            type: this.active
+                        }).then(function(response) {
+
+                            if (response.data.success === true) {
+                                vm.Toast.fire({
+                                    type: 'success',
+                                    title: response.data.message
+                                });
+
+                                Fire.$emit('SaveFilter', {
+                                    'filters': response.data.filters
+                                });
+
+                                vm.$Progress.finish();
+                            } else {
+                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+                                vm.$Progress.fail();
+                            }
+                        });
+                    }
+                });
+            },
+            fireTableEvent(event = '') {
+                Fire.$emit(event);
+            },
+            fireSearchEvent() {
+                Fire.$emit('Search', {
+                    'search_term': this.filter.search
+                });
+            },
+            progress(event, progress, stepValue) {
+                console.log(stepValue);
+                if (stepValue > 30) {
+                    this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e");
+                }
+            },
+            progress_end(event) {
+                console.log("Circle progress end");
+            }
         },
 
         computed: {}

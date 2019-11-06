@@ -44,7 +44,7 @@ Route::get('/move-leads',  function(){
         'module_id' => $module_id
       ]);
 
-      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+      $module_fields = ModuleCustomFields::where([ 'module_id' => $module_id ])->get();
 
       foreach($module_fields as $key => $value){
         
@@ -206,10 +206,11 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-active', 'TaskController@getActive');
 	Route::post('/create', 'TaskController@store');
 	Route::post('/update', 'TaskController@update');
+	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
-    Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
-    Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
-    Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
+  Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
+  Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
+  Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
 });
 
 // Leads Routes
