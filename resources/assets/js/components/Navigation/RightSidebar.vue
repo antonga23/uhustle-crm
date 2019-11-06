@@ -57,7 +57,7 @@
   
   h3 {
     color: #1a1c43;
-    font-size: 16px;
+    font-size: 0.83vw;
     letter-spacing: 0.05em;
     font-weight: 700;
   }
@@ -110,7 +110,7 @@
     line-height: 20px;
     color: #fff;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 0.63vw;
     float: left;
     margin: 0;
   }
@@ -125,7 +125,7 @@
     line-height: 20px;
     color: #fff;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 0.63vw;
     float: left;
     margin: 0;
   }
@@ -238,6 +238,12 @@
     padding: 4px 17px 6px !important;
     border-radius: 24px !important;
   }
+  .settings, 
+  .stats-container,
+  .cal-height .col-lg-12.final-modal {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
   .settings .row.border-bottom,
   .notifications .row.border-bottom {
     border-color: #cdccce;
@@ -272,7 +278,7 @@
   .control-label {
     color: #989899;
     font-family: 'Rubik', sans-serif;
-    font-size: 12px;
+    font-size: 0.63vw;
     letter-spacing: 0.05em;
     text-align: left;
   }
@@ -458,7 +464,7 @@
     
   .notifications .btn-default {
     padding: 6px 25px 6px 18px;
-    font-size: 12px;
+    font-size: 0.63vw;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -489,13 +495,14 @@
   
   .personal-info .row.mx-0.border-left,
   .account-info .row.mx-0.border-left {
-    border-color: #cdccce
+    border-color: #cdccce;
+    padding-left: 8.9%!important;
   }
   
   .settings .title {
     color: #7f8080;
     padding-bottom: 16px;
-    font-size: 12px;
+    font-size: 0.63vw;
     letter-spacing: 0.05em;
   }
   
@@ -616,7 +623,7 @@
   
   .form-control {
     padding: 10px 12px!important;
-    font-size: 12px;
+    font-size: 0.63vw;
     box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
     color: #193246;
     font-weight: 600;
@@ -857,7 +864,7 @@
   }
   
   .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label {
-    font-size: 12px;
+    font-size: 0.63vw;
     padding-left: 20px;
   }
   
@@ -868,7 +875,7 @@
   .row.filter-content .search-criteria {
     border: 0;
     box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    font-size: 12px;
+    font-size: 0.63vw;
     border-radius: 14px;
     padding: 10px;
     font-family: 'Rubik', sans-serif !important;
@@ -878,7 +885,7 @@
   .save-text {
     border: 0;
     box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    font-size: 12px;
+    font-size: 0.63vw;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -887,7 +894,7 @@
   }
   
   .row.filter-content .search-text::-webkit-input-placeholder .save-text::-webkit-input-placeholder {
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     font-family: 'Rubik', sans-serif !important;
     color: rgba(0, 0, 0, 0.65) !important;
     letter-spacing: 0 !important;
@@ -1009,7 +1016,7 @@
                 <transition-expand>
                   <div v-if="expanded == true && profile_on == true" class="w-100 personal-info">
                     <p class="d-block w-100 title" title="Personal Information">Personal Information</p>
-                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
+                    <div class="row mx-0 border-left mb-4 pb-0">
                       <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
                         <label class="row justify-space-between align-items-center control-label text-center p-0 w-100 mx-0">
                           <div class="col-lg-6 pl-0 text-left">Profile Picture</div>
@@ -1099,8 +1106,8 @@
                 
                 <transition-expand>
                   <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
-                    <p class="d-block w-100 title" title="Personal Information">Account Information</p>
-                    <div class="row mx-0 border-left mb-4 pb-0 pl-4">
+                    <p class="d-block w-100 title" title="Account Information">Account Information</p>
+                    <div class="row mx-0 border-left mb-4 pb-0">
                       <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }">
                         <label class="col-lg-12 control-label w-100 p-0">
                           <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox>
@@ -1404,7 +1411,7 @@
 
               <div v-if="notifications_on == false && settings_on == false">
                 <div class="row mx-0 p-0 stats-section">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 stats-container">
                     <div class="row mx-0 p-0">
                       <div class="col-lg-12 px-0">
                         <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
