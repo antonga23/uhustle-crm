@@ -823,4 +823,6 @@ border-radius: 25px;
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   border: 0!important;
   font-family: 'Rubik', sans-serif !important;
+  max-width:128px;
+  color: #353C49;
 }

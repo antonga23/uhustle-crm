@@ -472,8 +472,25 @@ a.down-scroll:hover{
     box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
   } 
 } 
-.tab-content{ 
-  padding: 1rem; 
+.stats.final-modal .card {
+  border-radius: 0;
+  background: transparent;
+}
+.stats.final-modal .tab-card-header {
+  background: transparent;
+}
+.stats.final-modal .tab-content {
+  padding-top: 12px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0 0 20px 10px #e6e6e6;
+  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+  -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+  -o-box-shadow: 0 0 20px 10px #e6e6e6;
+}
+.stats.final-modal .tab-pane {
+  padding: 2.5% 8.5% 5%;
 }
 .final-modal .row-a{
   border-bottom: 1px solid #e3e3e3; 
@@ -567,12 +584,12 @@ a.down-scroll:hover{
   padding: 9px;
 }
 .nav-tabs .nav-link span{ 
-  font-size: 14px; 
+  font-size: 0.73vw;
   padding-left: 10px; 
 }
 #two label{ 
   color: rgb(129, 130, 132); 
-  font-size: 13px;
+  font-size: 0.68vw;
   font-weight: 200; 
 } 
 .vc-reset, .vc-reset * { 
@@ -591,19 +608,20 @@ a.down-scroll:hover{
   padding-left: 3%; 
 }
 .summary p {
-  color: #818284;
-  font-size: 15px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7vw;
+  color: #999999;
 }
 .stat-perc {
   letter-spacing: 0.1em;
-  font-size: 16px;
+  font-size: 0.85vw;
   color: #808080;
 }
 .summary-abr {
   letter-spacing: 0.05em;
   color: #333333;
   font-family: 'Rubik', sans-serif; 
-  font-size: 18px;
+  font-size: 0.95vw;
 }
 .progress-bar{
 	background: #E6E6E6;
@@ -620,16 +638,18 @@ a.down-scroll:hover{
 .email-desc {
   letter-spacing: 0.05em;
   color: #999999;
+  font-size: 0.73vw;
 }
 #four .text-uppercase.font-weight-bold{
   color: #808080;
   letter-spacing: 0.05em;
+  font-size: 0.73vw;
 } 
 #four .btn-default {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   font-family: 'Rubik', sans-serif; 
-  font-size: 12px;
+  font-size: 0.63vw;
   letter-spacing: 0.05em;
   border-radius: 50rem!important;
 }
@@ -654,6 +674,12 @@ a.down-scroll:hover{
 }
 .comment_review p{
   width: 100%;
+}
+.calendar-heading {
+  font-size: 0.73vw;
+  letter-spacing: 0.05em;
+  color: #666666;
+  border-color: #ccc;
 }
 </style> 
 <template> 
@@ -765,14 +791,14 @@ a.down-scroll:hover{
         </div>
       </div>
 
-      <div class="side-indentation stats final-modal">
+      <div class="stats final-modal">
         <div class="card-deck mx-0 mb-0"> 
-          <div class="card left mt-3 border-0 mr-4 ml-0 tab-card"> 
+          <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="one-tab" 
                     data-toggle="tab" 
                     href="#one" 
@@ -812,9 +838,9 @@ a.down-scroll:hover{
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
-                class="tab-pane fade show active p-3" 
+                class="tab-pane fade show active" 
                 id="one" 
                 role="tabpanel" 
                 aria-labelledby="one-tab"
@@ -909,7 +935,7 @@ a.down-scroll:hover{
               </div>
 
               <div 
-                class="tab-pane fade pt-0 px-3 pb-3" 
+                class="tab-pane fade" 
                 id="two" 
                 role="tabpanel" 
                 aria-labelledby="two-tab"
@@ -1001,7 +1027,7 @@ a.down-scroll:hover{
                   </div> 
 
                   <div class="col-lg-8 pr-0"> 
-                    <p>Callback Calendar</p>
+                    <p class="border-bottom calendar-heading mb-0 pb-2">Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
@@ -1042,12 +1068,12 @@ a.down-scroll:hover{
             </div> 
           </div>
  
-          <div class="card left mt-3 mr-0 ml-4 border-0 tab-card"> 
+          <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="three-tab" 
                     data-toggle="tab" 
                     href="#three" 
@@ -1076,9 +1102,9 @@ a.down-scroll:hover{
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
-                class="tab-pane fade show active p-3" 
+                class="tab-pane fade show active" 
                 id="three" 
                 role="tabpanel" 
                 aria-labelledby="three-tab" 
@@ -1123,7 +1149,7 @@ a.down-scroll:hover{
                 </div>
               </div>  
 
-              <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
+              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab"> 
                 <p class="email-desc font-weight-light font-italic">Choose a template or write your own email to Client</p>
 
                 <div class="row mx-0 align-items-center">
@@ -1165,22 +1191,22 @@ a.down-scroll:hover{
                   name="message"
                   class="form-control border-0"
                   placeholder="Write comment here..."/>
-              </div> 
 
-              <div class="flex-shrink-1 text-right">
-                <button 
-                  id="submit-btn" 
-                  type="submit" 
-                  class="btn py-0 my-0" 
-                  @click="sendEmail()"
-                >
-                  <img 
-                    src="/images/icons/workstation/Submit.svg" 
-                    alt="Icon" 
-                    class="icon" 
-                    width="76"
-                  />
-                </button>
+                <div class="flex-shrink-1 text-right">
+                  <button 
+                    id="submit-btn" 
+                    type="submit" 
+                    class="btn p-0 mb-0 mx-0" 
+                    @click="sendEmail()"
+                  >
+                    <img 
+                      src="/images/icons/workstation/Submit.svg" 
+                      alt="Icon" 
+                      class="icon" 
+                      width="76"
+                    />
+                  </button>
+                </div> 
               </div> 
             </div> 
           </div>
@@ -1189,12 +1215,12 @@ a.down-scroll:hover{
         <!-- Activities Starts -->
         <!-- Yong <div class="row mx-0 mb-0 activities"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card shadow-none mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#five" 
@@ -1236,7 +1262,7 @@ a.down-scroll:hover{
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="five" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1261,7 +1287,7 @@ a.down-scroll:hover{
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="six" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -1281,12 +1307,12 @@ a.down-scroll:hover{
         <!-- Deals Starts -->
         <!-- Yong <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card shadow-none mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#seven" 
@@ -1329,7 +1355,7 @@ a.down-scroll:hover{
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="seven" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1337,7 +1363,7 @@ a.down-scroll:hover{
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="eight" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -1664,12 +1690,12 @@ a.down-scroll:hover{
 
           <div class="row stats final-modal"> 
             <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card shadow-none mt-3 border-0 tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="one-tab" 
                         data-toggle="tab" 
                         href="#one" 
@@ -1699,7 +1725,7 @@ a.down-scroll:hover{
                 </div> 
 
                 <div class="tab-content" id="myTabContent"> 
-                  <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
+                  <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab"> 
                     <div class="notes-roll"> 
                       <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
                         <li 
@@ -1769,7 +1795,7 @@ a.down-scroll:hover{
                   </div> 
 
                   <div 
-                    class="tab-pane fade pt-0 px-3 pb-3" 
+                    class="tab-pane fade" 
                     id="two" 
                     role="tabpanel" 
                     aria-labelledby="two-tab"
@@ -1850,12 +1876,12 @@ a.down-scroll:hover{
             </div> 
 
             <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card shadow-none mt-3 border-0 tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="three-tab" 
                         data-toggle="tab" 
                         href="#three" 
@@ -1895,9 +1921,9 @@ a.down-scroll:hover{
                   </ul> 
                 </div> 
 
-                <div class="tab-content" id="myTabContent"> 
+                <div class="tab-content h-100" id="myTabContent"> 
                   <div 
-                    class="tab-pane fade show active p-3" 
+                    class="tab-pane fade show active" 
                     id="three" 
                     role="tabpanel" 
                     aria-labelledby="three-tab" 
@@ -1941,7 +1967,7 @@ a.down-scroll:hover{
                     </div>
                   </div>
 
-                  <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
+                  <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab"> 
                     <div class="row mb-0">
                       <div class="col-lg-4 pr-0">
                         <div class="row">
