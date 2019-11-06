@@ -72325,7 +72325,8 @@ __webpack_require__.r(__webpack_exports__);
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
-    Fire.$on('MassAssign', function () {
+    Fire.$on('MassAssign', function (data) {
+      vm.assignees = data.assignees, vm.owners = data.owners;
       vm.assignTo();
     });
     this.Toast = vm.$swal.mixin({
@@ -72411,18 +72412,18 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/leads/mass-assign', {
         lead_ids: vm.selected,
         'user_assigned': vm.assignees,
-        'lead_owner': vm.sowners
+        'lead_owner': vm.owners
       }).then(function (response) {
         if (response.data.success == true) {
+          Fire.$emit('ReloadLeads');
           vm.Toast.fire({
             type: 'success',
             title: response.data.message
           });
           vm.$Progress.finish();
-          Fire.$emit('ReloadLeads');
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$swal('Failed', response.data.message, 'warning');
         }
       });
     },
@@ -72497,41 +72498,6 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           vm.$Progress.fail();
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-        }
-      });
-    },
-    handleOk: function handleOk(bvModalEvt) {
-      // Prevent modal from closing
-      bvModalEvt.preventDefault(); // Trigger submit handler
-
-      this.handleSubmit();
-    },
-    handleSubmit: function handleSubmit() {
-      var vm = this;
-      vm.$Progress.start();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {} else {
-          axios.post('/leads/update', vm.user).then(function (response) {
-            if (response.data.success == true) {
-              vm.Toast.fire({
-                type: 'success',
-                title: response.data.message
-              });
-              Fire.$emit('ReloadLeads');
-              vm.$bvModal.hide('update-user-modal');
-              vm.user = {
-                comments: [],
-                assigned: []
-              };
-              vm.$Progress.finish();
-            } else if (response.data.errors.email[0] != '') {
-              vm.$Progress.fail();
-              vm.$swal('Failed', response.data.errors.email[0], 'warning');
-            } else {
-              vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-            }
-          });
         }
       });
     },
@@ -74410,8 +74376,6 @@ __webpack_require__.r(__webpack_exports__);
       add_user: false,
       show_page_loader: false,
       Toast: null,
-      selectedAssignees: null,
-      selectedOwners: null,
       columns: [{
         label: '',
         // Column name
@@ -74427,8 +74391,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     assign: function assign() {
-      Fire.$emit('MassAssign');
-      console.log('Just Change');
+      Fire.$emit('MassAssign', {
+        assignees: this.assignees,
+        owners: this.owners
+      });
     },
     prepUserOptions: function prepUserOptions(users) {
       var _this = this;

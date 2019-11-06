@@ -488,44 +488,67 @@ class ModuleController extends Controller
     }
 
     public function massAssign(Request $request){
+
       $data = $request->all();
-      dd($data);
+      
       $num_leads = count($data['lead_ids']);
 
       $num_user_assigned = count($data['user_assigned']);
 
       $num_lead_owner = count($data['lead_owner']);
 
-      $remainder = $num_leads % $num_user_assigned;
-
-      $owner_modulus = $num_leads % $num_lead_owner;
-
-      if($remainder == 0){
-          $num_in_batch = $num_leads / $num_user_assigned;
-
-          $batches = $num_leads / $num_in_batch;
-      }else{
-          for ($z =  1; $z <= $remainder; $z++) {
-              # code...
-          }
+      if($num_leads == 0){
+        return array('success' => false, 'message' => 'Please select at least one'.$num_leads);
       }
 
       try{
           DB::beginTransaction();
-          for ( $i = 0; $i < 5; $i++ ) {
-              if( !is_null($data['user_assigned'])){
-                  $lead = Lead::find($value)->update([
-                      'user_assigned' => $data['user_assigned'],
-                  ]);
+
+          if($num_user_assigned > 0){
+
+            $assignee_modulus = $num_leads % $num_user_assigned;
+            
+            if($assignee_modulus == 0){
+    
+              $num_in_batch = $num_leads / $num_user_assigned;
+    
+              $batches = $num_leads / $num_in_batch;
+    
+              $lead_id_index = 0;
+
+              for($i = 0; $i < $batches; $i++){
+
+                for($j = 0; $j < $num_in_batch; $j++){
+                  
+                  $item_id = $data['lead_ids'][$lead_id_index];
+
+                  $item = ModuleItem::find($item_id);
+                  
+                  $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                      ->where(['name' => 'assignee'])
+                                                      ->first();
+
+                  \Log::info($item_id);
+
+                  ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                                ->where(['item_id' => $item_id])
+                                ->update([
+                                  'custom_field_value' => $data['user_assigned'][$i]
+                                ]);
+
+                  $lead_id_index++;
+                }
+
               }
-              
-              if( !is_null($data['lead_owner'])){
-                  $lead = Lead::find($value)->update([
-                      'user_created_id' => $data['lead_owner'],
-                  ]);
-              }
+    
+            }else{
+
+            }
+    
           }
+
           DB::commit();
+
           return array('success' => true, 'message' => 'Leads successfully assigned');
 
       }catch(\QueryException $e){
