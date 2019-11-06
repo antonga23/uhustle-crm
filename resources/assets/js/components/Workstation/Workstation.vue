@@ -118,39 +118,40 @@ span.right{
   overflow: hidden; 
   text-overflow: ellipsis; 
 } 
-
-.list-group-item{
-  padding: 0 1.25rem !important;
-} 
-.list-group-item p strong{ 
-  font-size: 18px; 
-  margin-right: 30px;
-  float: left; 
-  width: 12%; 
-  margin-top: 11px; 
+.comments-list {
+  max-height: 290px;
+  overflow-y: auto;
+}
+.agent-comments {
+  border-color: #CDCDCF;
+  padding: 10px 0;
+}
+.comment-abbr{ 
+  font-size: 0.95vw; 
   color: #003449;     
-  letter-spacing: 2.2px;
-  font-family: 'Montserrat', sans-serif; 
+  letter-spacing: 0.1em;
+}
+.comments-length {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7vw;
+  color: #999999;
 }
 .comment-notes{
-  float: left; 
-  margin-top: 11px; 
-  width: 57%; 
-  font-size: 10px; 
+  font-size: 0.63vw; 
+  font-family: 'Rubik', sans-serif;
   color: #7f99a4; 
 } 
 .author{     
-  float: right; 
-  margin-top: 11px; 
   font-size: 10px; 
-  text-align: left; 
-  width: 22%;
   color: #7f99a4; 
 } 
 .notes-capture, .callback-capture {
   background: #f4f4f4;
   border-radius: 50rem;
   height:50px;
+}
+.notes-capture {
+  margin-top:8.7%;
 }
 .choose-comment-type{
   height: 50px; 
@@ -590,11 +591,23 @@ a.down-scroll:hover{
   font-size: 0.73vw;
   padding-left: 10px; 
 }
+#two .col-lg-4 {
+  margin-top: 6.5%;
+}
+#two .callback-legend {
+  margin-bottom: 18.5%;
+}
+#two .col-lg-4 .today, #two .col-lg-4 .recommended-call{
+  margin-bottom: 14px;
+}
 #two label{ 
   color: rgb(129, 130, 132); 
   font-size: 0.68vw;
   font-weight: 200; 
 } 
+#two .col-lg-8 {
+  padding-left: 7.8%;
+}
 .vc-reset, .vc-reset * { 
   border-style: none !important; 
   border-color: transparent !important; 
@@ -864,25 +877,28 @@ a.down-scroll:hover{
                  
               > 
                 <div class="notes-roll"> 
-                  <p>{{ comments.length }} comments</p>
-                  <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;" v-if="!review_comment"> 
-                    <li 
-                      v-for="comment in comments.comments" 
-                      class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                  <p class="text-right comments-length">{{ comments.comments.length }} comments</p>
+                  <div class="comments-list" v-if="!review_comment"> 
+                    <div 
+                      class="row border-top mx-0 align-items-end agent-comments" 
+                      v-for="comment in comments.comments"
                       :key="comment.id"
                     > 
-                      <p class="m-0"> 
-                        <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                        <span class="comment-notes d-block"> 
-                          {{ comment.description }}  
-                        </span> 
-                        <span class="author d-block"> 
-                          {{ comment.created_at }} <br/> 
-                          <small>{{ comment.user_name }}</small> 
-                        </span> 
-                      </p> 
-                    </li> 
-                  </ul> 
+                      <div class="col-2 pl-0"> 
+                        <p class="font-weight-bold mb-0 comment-abbr">{{ comment.comment_type }}</p> 
+                      </div>
+
+                      <div class="col"> 
+                        <p class="mb-0 comment-notes">{{ comment.description }}</p> 
+                      </div>
+
+                      <div class="col-auto">
+                        <p class="mb-0 author"> 
+                          {{ comment.created_at }} <br/>
+                        </p> 
+                      </div> 
+                    </div> 
+                  </div> 
 
                   <a-card class="w-100 border-0" v-else>
                     <template v-slot:title>
@@ -964,9 +980,9 @@ a.down-scroll:hover{
               >  
                 <div class="row mx-0 mb-0"> 
                   <div class="col-lg-4 px-0"> 
-                    <div class="row mx-0">
+                    <div class="row mx-0 callback-legend">
                       <div class="col-7 px-0">
-                        <div class="row mx-0 align-items-center">
+                        <div class="row mx-0 align-items-center today">
                           <div class="col-auto px-0">
                             <img src="/images/icons/circle.svg" 
                               alt="Icon" 
@@ -995,7 +1011,7 @@ a.down-scroll:hover{
                       </div>
 
                       <div class="col-5 pr-0">
-                        <div class="row mx-0 align-items-start">
+                        <div class="row mx-0 align-items-start recommended-call">
                           <div class="col-auto px-0">
                             <img src="/images/icons/blue dot.svg" 
                               alt="Icon" 
