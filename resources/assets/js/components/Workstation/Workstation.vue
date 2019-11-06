@@ -4,9 +4,6 @@
   height:100vh;
   overflow-y: scroll;
 }
-.row{ 
-  margin-bottom: 3.5vh;  
-}
 .general-section-stats .agent-stats-1 {
   padding-top: 69px;
   padding-left: 5%;
@@ -23,20 +20,21 @@
 }
 .top-section .col{
   padding: 0 10px; 
-  border-left: 1px solid rgba(0,52,73,1); 
+  /* border-left: 1px solid rgba(0,52,73,1); 
   min-height: 71px;
-  margin-bottom: 57px;
+  margin-bottom: 57px; */
   min-width: 150px;
 }
 .top-section p.bottom{
-  font-size: 19px; 
+  font-size: 1.5vw; 
   font-weight: 700; 
   letter-spacing: 0.05em;
-  color: rgba(30,34,83,1); 
+  color: #393a60;
+  
 } 
 .top-section p.top{ 
-  font-size: 13px; 
-  color: rgba(78,77,77,1);
+  font-size: 1.1vw; 
+  color: #747577;
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif; 
   padding-bottom:20px;
@@ -100,11 +98,6 @@ p.card-link{
   padding-left:3%;
   padding-right: 3%;
   padding-bottom: 3%;
-}
-.stats .card{ 
-  border-radius: 25px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
-  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); 
 } 
 .stats .card h5{ 
   color: #818284; 
@@ -126,39 +119,40 @@ span.right{
   overflow: hidden; 
   text-overflow: ellipsis; 
 } 
-
-.list-group-item{
-  padding: 0 1.25rem !important;
-} 
-.list-group-item p strong{ 
-  font-size: 18px; 
-  margin-right: 30px;
-  float: left; 
-  width: 12%; 
-  margin-top: 11px; 
+.comments-list {
+  max-height: 290px;
+  overflow-y: auto;
+}
+.agent-comments {
+  border-color: #CDCDCF;
+  padding: 10px 0;
+}
+.comment-abbr{ 
+  font-size: 0.95vw; 
   color: #003449;     
-  letter-spacing: 2.2px;
-  font-family: 'Montserrat', sans-serif; 
+  letter-spacing: 0.1em;
+}
+.comments-length {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7vw;
+  color: #999999;
 }
 .comment-notes{
-  float: left; 
-  margin-top: 11px; 
-  width: 57%; 
-  font-size: 10px; 
+  font-size: 0.63vw; 
+  font-family: 'Rubik', sans-serif;
   color: #7f99a4; 
 } 
 .author{     
-  float: right; 
-  margin-top: 11px; 
   font-size: 10px; 
-  text-align: left; 
-  width: 22%;
   color: #7f99a4; 
 } 
 .notes-capture, .callback-capture {
   background: #f4f4f4;
   border-radius: 50rem;
   height:50px;
+}
+.notes-capture {
+  margin-top:8.7%;
 }
 .choose-comment-type{
   height: 50px; 
@@ -179,6 +173,12 @@ span.right{
   cursor: pointer; 
   float: left; 
 } 
+.comment-desc::placeholder {
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
+  color: #999;
+  font-style: italic;
+}
 .keys {
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
@@ -477,8 +477,25 @@ a.down-scroll:hover{
     box-shadow: 0 0 0 0 rgba(204,169,44, 0); 
   } 
 } 
-.tab-content{ 
-  padding: 1rem; 
+.stats.final-modal .card {
+  border-radius: 0;
+  background: transparent;
+}
+.stats.final-modal .tab-card-header {
+  background: transparent;
+}
+.stats.final-modal .tab-content {
+  padding-top: 12px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0 0 20px 10px #e6e6e6;
+  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;
+  -moz-box-shadow: 0 0 20px 10px #e6e6e6;
+  -o-box-shadow: 0 0 20px 10px #e6e6e6;
+}
+.stats.final-modal .tab-pane {
+  padding: 2.5% 8.5% 5%;
 }
 .final-modal .row-a{
   border-bottom: 1px solid #e3e3e3; 
@@ -498,57 +515,28 @@ a.down-scroll:hover{
   border-color: transparent; 
 } 
 .final-modal .card-header a[aria-selected="true"]{ 
-  border-bottom: none; 
-  background: #fff; 
+  border-bottom: none;
 } 
+.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon{
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
 .nav.nav-tabs.card-header-tabs li a {
   border: 0;
-  background-color: #fff;
   color:#7f8080;
   letter-spacing:0.05em;
   text-align:center;
   padding-top:0;
   padding-bottom:0;
 }
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
+.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"]{
+  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+  background-color: #fff;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="One"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Three"]{
-  box-shadow: inset -7px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius:0;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{
-  box-shadow: -10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Two"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Four"]{
-  box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-top-right-radius: 25px;
-  border-top-left-radius:0;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Seven"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Five"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Seven"]{
-  box-shadow: inset -7px -10px 10px #f5f5f5;
-  border-bottom-right-radius: 25px;
-  border-top-left-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Eight"]{
-  box-shadow: 10px -10px 10px #f5f5f5;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Six"], .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="false"][aria-controls="Eight"]{
-  box-shadow: inset 7px -10px 10px #f5f5f5;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 .activities .card-header, .deals .card-header{
   background: #fff;
@@ -601,14 +589,26 @@ a.down-scroll:hover{
   padding: 9px;
 }
 .nav-tabs .nav-link span{ 
-  font-size: 14px; 
+  font-size: 0.73vw;
   padding-left: 10px; 
+}
+#two .col-lg-4 {
+  margin-top: 6.5%;
+}
+#two .callback-legend {
+  margin-bottom: 18.5%;
+}
+#two .col-lg-4 .today, #two .col-lg-4 .recommended-call{
+  margin-bottom: 14px;
 }
 #two label{ 
   color: rgb(129, 130, 132); 
-  font-size: 13px;
+  font-size: 0.68vw;
   font-weight: 200; 
 } 
+#two .col-lg-8 {
+  padding-left: 7.8%;
+}
 .vc-reset, .vc-reset * { 
   border-style: none !important; 
   border-color: transparent !important; 
@@ -625,19 +625,20 @@ a.down-scroll:hover{
   padding-left: 3%; 
 }
 .summary p {
-  color: #818284;
-  font-size: 15px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7vw;
+  color: #999999;
 }
 .stat-perc {
   letter-spacing: 0.1em;
-  font-size: 16px;
+  font-size: 0.85vw;
   color: #808080;
 }
 .summary-abr {
   letter-spacing: 0.05em;
   color: #333333;
   font-family: 'Rubik', sans-serif; 
-  font-size: 18px;
+  font-size: 0.95vw;
 }
 .progress-bar{
 	background: #E6E6E6;
@@ -654,16 +655,19 @@ a.down-scroll:hover{
 .email-desc {
   letter-spacing: 0.05em;
   color: #999999;
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
 }
 #four .text-uppercase.font-weight-bold{
   color: #808080;
   letter-spacing: 0.05em;
+  font-size: 0.73vw;
 } 
 #four .btn-default {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   font-family: 'Rubik', sans-serif; 
-  font-size: 12px;
+  font-size: 0.63vw;
   letter-spacing: 0.05em;
   border-radius: 50rem!important;
 }
@@ -672,6 +676,12 @@ a.down-scroll:hover{
   border-radius: 10px;
   height: 163px!important;
   overflow-y: auto;
+}
+#four textarea::placeholder {
+  color: #999999;
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
 }
 
 .scroll-hidden{
@@ -688,6 +698,20 @@ a.down-scroll:hover{
 }
 .comment_review p{
   width: 100%;
+}
+.calendar-heading {
+  font-size: 0.73vw;
+  letter-spacing: 0.05em;
+  color: #666666;
+  border-color: #ccc;
+}
+.dropdown-menu.show {
+  border-radius: 25px;
+  border: 0;
+  padding: 10px 20px 15px 15px;
+  color: #818284;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
 }
 </style> 
 <template> 
@@ -730,7 +754,6 @@ a.down-scroll:hover{
                 <p class="top">{{ custom_field.display_name }}</p> 
                 <p class="bottom mb-0">{{ item.meta_value }}</p> 
               </div> 
-
             </div> 
           </div> 
         </div> 
@@ -799,14 +822,14 @@ a.down-scroll:hover{
         </div>
       </div>
 
-      <div class="side-indentation stats final-modal">
+      <div class="stats final-modal">
         <div class="card-deck mx-0 mb-0"> 
-          <div class="card left mt-3 border-0 mr-4 ml-0 tab-card"> 
+          <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="one-tab" 
                     data-toggle="tab" 
                     href="#one" 
@@ -846,48 +869,56 @@ a.down-scroll:hover{
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
-                class="tab-pane fade show active p-3" 
+                class="tab-pane fade show active" 
                 id="one" 
                 role="tabpanel" 
                 aria-labelledby="one-tab"
                  
               > 
                 <div class="notes-roll"> 
-                  <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;" v-if="!review_comment"> 
-                    <li 
-                      v-for="comment in comments.comments" 
-                      class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0" 
+                  <p class="text-right comments-length">{{ comments.comments.length }} comments</p>
+                  <div class="comments-list" v-if="!review_comment"> 
+                    <div 
+                      class="row border-top mx-0 align-items-end agent-comments" 
+                      v-for="comment in comments.comments"
                       :key="comment.id"
                     > 
-                      <p class="m-0"> 
-                        <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>  
-                        <span class="comment-notes d-block"> 
-                          {{ comment.description }}  
-                        </span> 
-                        <span class="author d-block"> 
-                          {{ comment.created_at }} <br/> 
-                          <small>{{ comment.user_name }}</small> 
-                        </span> 
-                      </p> 
-                    </li> 
-                  </ul> 
+                      <div class="col-2 pl-0"> 
+                        <p class="font-weight-bold mb-0 comment-abbr">{{ comment.comment_type }}</p> 
+                      </div>
 
-                  <a-card title="COMMENT" style="width: 100%;height: 365px;" v-else>
-                    <div class="row comment_review">
-                      <p ><small>Tag</small></p>
-                      <p>{{ comment.comment_type.short }} <span>( {{ comment.comment_type.long }} )</span></p>
+                      <div class="col"> 
+                        <p class="mb-0 comment-notes">{{ comment.description }}</p> 
+                      </div>
 
-                      <p><small>Comment</small></p>
-                      <p>{{ comment.comment_description }}</p>
+                      <div class="col-auto">
+                        <p class="mb-0 author"> 
+                          {{ comment.created_at }} <br/>
+                        </p> 
+                      </div> 
+                    </div> 
+                  </div> 
+
+                  <a-card class="w-100 border-0" v-else>
+                    <template v-slot:title>
+                      <p class="text-uppercase text-center mb-0">Comment Posted</p>
+                    </template>
+
+                    <div class="row mx-0 mb-0 comment_review">
+                      <p class="review-desc">Tag:</p>
+                      <p class="d-inline-content review-content">{{ comment.comment_type.short }} <span>( {{ comment.comment_type.long }} )</span></p>
+
+                      <p class="review-desc">Comment:</p>
+                      <p class="d-inline-content review-content">{{ comment.comment_description }}</p>
                     </div>
-                    <div class="row" >
-                      <a-button type="primary" html-type="submit" @click="review_comment = false">
+                    <div class="row mx-0 justify-content-end">
+                      <a-button type="default" html-type="submit" @click="review_comment = false" class="rounded-pill text-uppercase">
                         Cancel
                       </a-button>
-                      <a-button type="primary" html-type="submit" @click="addComment">
-                        Save
+                      <a-button type="primary" html-type="submit" @click="addComment" class="rounded-pill text-uppercase font-weight-bold">
+                        Confirm
                       </a-button>
                     </div>
                   </a-card>
@@ -943,16 +974,16 @@ a.down-scroll:hover{
               </div>
 
               <div 
-                class="tab-pane fade pt-0 px-3 pb-3" 
+                class="tab-pane fade" 
                 id="two" 
                 role="tabpanel" 
                 aria-labelledby="two-tab"
               >  
                 <div class="row mx-0 mb-0"> 
                   <div class="col-lg-4 px-0"> 
-                    <div class="row mx-0">
+                    <div class="row mx-0 callback-legend">
                       <div class="col-7 px-0">
-                        <div class="row mx-0 align-items-center">
+                        <div class="row mx-0 align-items-center today">
                           <div class="col-auto px-0">
                             <img src="/images/icons/circle.svg" 
                               alt="Icon" 
@@ -981,7 +1012,7 @@ a.down-scroll:hover{
                       </div>
 
                       <div class="col-5 pr-0">
-                        <div class="row mx-0 align-items-start">
+                        <div class="row mx-0 align-items-start recommended-call">
                           <div class="col-auto px-0">
                             <img src="/images/icons/blue dot.svg" 
                               alt="Icon" 
@@ -1035,7 +1066,7 @@ a.down-scroll:hover{
                   </div> 
 
                   <div class="col-lg-8 pr-0"> 
-                    <p>Callback Calendar</p>
+                    <p class="border-bottom calendar-heading mb-0 pb-2">Callback Calendar</p>
                     <vc-date-picker 
                       v-model="dates" 
                       mode="multiple" 
@@ -1076,12 +1107,12 @@ a.down-scroll:hover{
             </div> 
           </div>
  
-          <div class="card left mt-3 mr-0 ml-4 border-0 tab-card"> 
+          <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
               <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
-                    class="nav-link" 
+                    class="nav-link active" 
                     id="three-tab" 
                     data-toggle="tab" 
                     href="#three" 
@@ -1110,9 +1141,9 @@ a.down-scroll:hover{
               </ul> 
             </div> 
 
-            <div class="tab-content" id="myTabContent"> 
+            <div class="tab-content h-100" id="myTabContent"> 
               <div 
-                class="tab-pane fade show active p-3" 
+                class="tab-pane fade show active" 
                 id="three" 
                 role="tabpanel" 
                 aria-labelledby="three-tab" 
@@ -1157,7 +1188,7 @@ a.down-scroll:hover{
                 </div>
               </div>  
 
-              <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab"> 
+              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab"> 
                 <p class="email-desc font-weight-light font-italic">Choose a template or write your own email to Client</p>
 
                 <div class="row mx-0 align-items-center">
@@ -1199,22 +1230,22 @@ a.down-scroll:hover{
                   name="message"
                   class="form-control border-0"
                   placeholder="Write comment here..."/>
-              </div> 
 
-              <div class="flex-shrink-1 text-right">
-                <button 
-                  id="submit-btn" 
-                  type="submit" 
-                  class="btn py-0 my-0" 
-                  @click="sendEmail()"
-                >
-                  <img 
-                    src="/images/icons/workstation/Submit.svg" 
-                    alt="Icon" 
-                    class="icon" 
-                    width="76"
-                  />
-                </button>
+                <div class="flex-shrink-1 text-right">
+                  <button 
+                    id="submit-btn" 
+                    type="submit" 
+                    class="btn p-0 mb-0 mx-0" 
+                    @click="sendEmail()"
+                  >
+                    <img 
+                      src="/images/icons/workstation/Submit.svg" 
+                      alt="Icon" 
+                      class="icon" 
+                      width="76"
+                    />
+                  </button>
+                </div> 
               </div> 
             </div> 
           </div>
@@ -1223,12 +1254,12 @@ a.down-scroll:hover{
         <!-- Activities Starts -->
         <!-- Yong <div class="row mx-0 mb-0 activities"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card shadow-none mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#five" 
@@ -1270,7 +1301,7 @@ a.down-scroll:hover{
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="five" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1295,7 +1326,7 @@ a.down-scroll:hover{
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="six" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -1315,12 +1346,12 @@ a.down-scroll:hover{
         <!-- Deals Starts -->
         <!-- Yong <div class="row mx-0 mb-0 deals"> 
           <div class="col-lg-12 px-0"> 
-            <div class="card left mt-3 border-0 tab-card"> 
+            <div class="card shadow-none mt-3 border-0 tab-card"> 
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0"> 
                 <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                   <li class="nav-item"> 
                     <a 
-                      class="nav-link" 
+                      class="nav-link active" 
                       id="one-tab" 
                       data-toggle="tab" 
                       href="#seven" 
@@ -1363,7 +1394,7 @@ a.down-scroll:hover{
 
               <div class="tab-content" id="myTabContent"> 
                 <div 
-                  class="tab-pane fade show active p-3" 
+                  class="tab-pane fade show active" 
                   id="seven" role="tabpanel" 
                   aria-labelledby="one-tab"
                 > 
@@ -1371,7 +1402,7 @@ a.down-scroll:hover{
                 </div>
 
                 <div 
-                  class="tab-pane fade pt-0 px-3 pb-3" 
+                  class="tab-pane fade" 
                   id="eight" 
                   role="tabpanel" 
                   aria-labelledby="two-tab"
@@ -1698,12 +1729,12 @@ a.down-scroll:hover{
 
           <div class="row stats final-modal"> 
             <div class="col-lg-6 p-0" style="padding-right: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card shadow-none mt-3 border-0 tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="one-tab" 
                         data-toggle="tab" 
                         href="#one" 
@@ -1733,7 +1764,7 @@ a.down-scroll:hover{
                 </div> 
 
                 <div class="tab-content" id="myTabContent"> 
-                  <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab"> 
+                  <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab"> 
                     <div class="notes-roll"> 
                       <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;"> 
                         <li 
@@ -1803,7 +1834,7 @@ a.down-scroll:hover{
                   </div> 
 
                   <div 
-                    class="tab-pane fade pt-0 px-3 pb-3" 
+                    class="tab-pane fade" 
                     id="two" 
                     role="tabpanel" 
                     aria-labelledby="two-tab"
@@ -1884,12 +1915,12 @@ a.down-scroll:hover{
             </div> 
 
             <div class="col-lg-6 p-0" style="padding-left: 3%;"> 
-              <div class="card left mt-3 border-0 tab-card"> 
+              <div class="card shadow-none mt-3 border-0 tab-card"> 
                 <div class="card-header tab-card-header"> 
                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
                     <li class="nav-item left"> 
                       <a 
-                        class="nav-link" 
+                        class="nav-link active" 
                         id="three-tab" 
                         data-toggle="tab" 
                         href="#three" 
@@ -1929,9 +1960,9 @@ a.down-scroll:hover{
                   </ul> 
                 </div> 
 
-                <div class="tab-content" id="myTabContent"> 
+                <div class="tab-content h-100" id="myTabContent"> 
                   <div 
-                    class="tab-pane fade show active p-3" 
+                    class="tab-pane fade show active" 
                     id="three" 
                     role="tabpanel" 
                     aria-labelledby="three-tab" 
@@ -1975,7 +2006,7 @@ a.down-scroll:hover{
                     </div>
                   </div>
 
-                  <div class="tab-pane fade pt-0 px-3 pb-3" id="two" role="tabpanel" aria-labelledby="two-tab"> 
+                  <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab"> 
                     <div class="row mb-0">
                       <div class="col-lg-4 pr-0">
                         <div class="row">
