@@ -488,7 +488,19 @@ label:not(.form-check-label):not(.custom-file-label) {
 .add-box.shadow .ant-card-head div {
   border-bottom: 0;
 }
+/* 
+.ant-select-remove-icon.anticon.anticon-close {
+  visibility: hidden;
+  position: relative;
+}
 
+.ant-select-remove-icon.anticon.anticon-close:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: url(/images/icons/Calling_Icon@4x.png);
+} */
 
 .ant-calendar {
   border-radius: 25px;
