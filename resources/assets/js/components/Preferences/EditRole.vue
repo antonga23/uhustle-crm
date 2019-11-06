@@ -6,9 +6,10 @@
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
-    border-color: #999999;
+    border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
+    height:auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;

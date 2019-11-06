@@ -1,4 +1,8 @@
 <style scoped>
+#preferences {
+  height:100vh;
+  overflow-y: auto;
+}
   .tab-pane{
     padding: 4.4% 5.6% 6.8%;
   }
@@ -9,13 +13,23 @@
   .b-container{
     margin-bottom: 25px
   }
-  .col {
-    padding-right: 1.3%;
-    padding-left: 1.3%;
+  .col, .col-sm-1, .col-sm-2, .col-sm-3, td {
+    padding-right: 1.2%;
+    padding-left: 1.2%;
+  }
+  table {
+    width:max-content;
+  }
+  td {
+    vertical-align:baseline;
+    padding-bottom:1.1%;
   }
   .scrollable{
-    height: 789px;
-    overflow: overlay;
+    height: 500px;
+    overflow: auto;
+  }
+  .nav-link a {
+    color: #1A1C43;
   }
   .add-fields {
     margin-top:1.6%;
@@ -27,9 +41,10 @@
     padding: 11px 18px!important;
     font-size: 12px;
     color: #003449;
-    border-color: #999999;
+    border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
+    height:auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;
@@ -52,6 +67,9 @@
     font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
@@ -61,18 +79,34 @@
     text-transform:uppercase;
     font-size: 10px;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
   .icon.btn-secondary {
     line-height: 1em;
     background: transparent;
     border: none;
   }
+  .nav-link.active img {
+    margin-left:20px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    border-radius: 50rem;
+  }
 </style>
 <template>
   <div id="edit-module">
     <b-card no-body>
       <b-tabs>
-        <b-tab :title="(module === null)? 'Add Module' : 'Update ' + module.display_name">
+        <b-tab>
+          <template v-slot:title>
+            <a href="#">{{ (module === null)? 'Add Module' : 'Update ' + module.display_name }}</a>
+            <img @click="deleteModule()" src="images/icons/delete.svg" width="16"/>
+          </template>
+
           <div class="row mx-0 align-items-center fields-divider">
             <div class="col-auto pl-0">
               <h5 class="mb-0">Module Information</h5>
@@ -115,13 +149,13 @@
             </div>
           </div>
 
-          <b-container fluid class="b-container p-0 scrollable">
+          <!-- <b-container fluid class="b-container p-0 scrollable">
             <b-row 
-              class="mx-0 add-fields" 
+              class="mx-0 flex-nowrap add-fields" 
               v-for="(field, index) in module.module_fields" 
               :key="index"
             >
-              <b-col class="pl-0">
+              <b-col sm="auto" class="pl-0">
                 <label for="input-none">Field name:</label>
                 <a-input 
                   id="input-none" 
@@ -135,12 +169,11 @@
                 >{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
               </b-col>
 
-              <b-col sm="2">
-                <label for="input-none">Field type:</label>
+              <b-col sm="auto">
+                <label for="input-none" class="w-100">Field type:</label>
                 <a-select 
                   v-model="field.type" 
-                  placeholder="Please select" 
-                  class="w-100"
+                  placeholder="Select"
                 >
                   <a-select-option 
                     :value="type.value" 
@@ -155,11 +188,10 @@
               </b-col>
 
               <b-col sm="auto">
-                <label for="input-none">Required:</label>
+                <label for="input-none" class="w-100">Required:</label>
                 <a-select 
                   v-model="field.required" 
-                  placeholder="Please select" 
-                  class="w-100"
+                  placeholder="Select"
                 >
                   <a-select-option value="1">Yes</a-select-option>
                   <a-select-option value="0">No</a-select-option>
@@ -170,13 +202,12 @@
                 >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
               </b-col>
 
-              <b-col>
-                <label for="input-none">Can Read:</label>
+              <b-col sm="auto">
+                <label for="input-none" class="w-100">Can Read:</label>
                 <a-select 
-                  mode="multiple" 
-                  class="w-100" 
+                  mode="multiple"
                   v-model="field.can_read" 
-                  placeholder="Please select multiple"
+                  placeholder="Select"
                 >
                   <a-select-option 
                     :value="role.id" 
@@ -186,13 +217,12 @@
                 </a-select>
               </b-col>
 
-              <b-col>
-                <label for="input-none">Can Edit:</label>
+              <b-col sm="auto">
+                <label for="input-none" class="w-100">Can Edit:</label>
                 <a-select 
-                  mode="multiple" 
-                  class="w-100" 
+                  mode="multiple"
                   v-model="field.can_edit" 
-                  placeholder="Please select multiple"
+                  placeholder="Select"
                 >
                   <a-select-option 
                     :value="role.id" 
@@ -220,12 +250,120 @@
                 </b-button>
               </b-col>
             </b-row>
-          </b-container>
+          </b-container> -->
 
-          <b-row class="mx-0 justify-content-end">
-            <b-button variant="default" @click="editModule()">Cancel</b-button>
-            <b-button variant="primary" @click="editModule()" class="font-weight-bold">Update</b-button>
-            <b-button variant="danger" @click="deleteModule()">Delete</b-button>
+          <div class="scrollable">
+            <table>
+              <tr 
+                v-for="(field, index) in module.module_fields" 
+                :key="index"
+              >
+                <td class="pt-0 pl-0">
+                  <label for="input-none">Field name:</label>
+                  <a-input 
+                    id="input-none" 
+                    v-model="field.display_name" 
+                    v-validate="'required'" 
+                    :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
+                    class="w-100"
+                  ></a-input>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Name') }}</span>
+                </td>
+
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Field type:</label>
+                  <a-select 
+                    v-model="field.type" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="type.value" 
+                      v-for="(type, index) in types" 
+                      :key="index"
+                    >{{ type.text }}</a-select-option>
+                  </a-select>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                </td>
+
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Required:</label>
+                  <a-select 
+                    v-model="field.required" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option value="1">Yes</a-select-option>
+                    <a-select-option value="0">No</a-select-option>
+                  </a-select>
+                  <span 
+                    v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
+                    class="help-block"
+                  >{{ errors.first('Field ' + (index + 1) +'\'s Type') }}</span>
+                </td>
+
+                <td class="pt-0">
+                  <label for="input-none">Can Read:</label>
+                  <a-select 
+                    mode="multiple"
+                    v-model="field.can_read" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="role.id" 
+                      v-for="(role, index) in roles" 
+                      :key="index"
+                    >{{ role.display_name }}</a-select-option>
+                  </a-select>
+                </td>
+
+                <td class="pt-0">
+                  <label for="input-none" class="w-100">Can Edit:</label>
+                  <a-select 
+                    mode="multiple"
+                    v-model="field.can_edit" 
+                    placeholder="Select"
+                    class="w-100"
+                  >
+                    <a-select-option 
+                      :value="role.id" 
+                      v-for="(role, index) in roles" 
+                      :key="index"
+                    >{{ role.display_name }}</a-select-option>
+                  </a-select>
+                </td>
+
+                <td class="pt-0">
+                  <b-button
+                    v-if="(index + 1) < module.module_fields.length" 
+                    @click="removeField(index)"
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                  </b-button>
+
+                  <b-button 
+                    v-else 
+                    @click="addField()" 
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Add.svg" width="19"/>
+                  </b-button>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <b-row class="mx-0 mt-4 justify-content-end">
+            <b-button variant="default" @click="editModule()" class="my-0">Cancel</b-button>
+            <b-button variant="primary" @click="editModule()" class="font-weight-bold my-0">Update</b-button>
           </b-row>
         </b-tab>
       </b-tabs>

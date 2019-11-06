@@ -24,9 +24,10 @@
     padding: 11px 18px!important;
     font-size: 12px;
     color: #003449;
-    border-color: #999999;
+    border-color: #ccc;
     margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
+    height: auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;
@@ -41,23 +42,14 @@
     margin-top:3.7%;
     margin-bottom:2.45%;
   }
-  .btn-default{
-    background: #fff;
-    color: #999999;    
-    border: none!important;
-    padding: 11px 14px 10px;
-    font-size: 10px;
-    text-transform:uppercase;
-    border-radius: 50rem!important;
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-  }
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
     font-size: 10px;
     padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
   }
   .icon.btn-secondary {
     line-height: 1em;
