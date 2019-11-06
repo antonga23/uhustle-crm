@@ -438,6 +438,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 .vc-header {
   padding-left: 0!important;
   padding-right: 0!important;
+  margin-bottom: 3.3%;
 }
 .vc-title-wrapper .vc-title {
   font-family: 'Rubik', sans-serif;
@@ -452,7 +453,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   color: rgba(28, 35, 49, 0.5);
 }
 .vc-day .vc-h-full {
-  padding:13.5%;
+  padding:2.5%;
 }
 .vc-weekday.vc-text-sm.vc-font-bold.vc-text-gray-500{
 	color: #1e2331;
@@ -463,7 +464,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 .vc-day-content.vc-font-medium{
   font-family: Montserrat, sans-serif;
   color: #1e2331;
-  font-size: 0.71vw;
+  font-size: 0.58vw;
   font-weight:400;
 }
 .vc-rounded-full {
@@ -475,7 +476,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-bg-blue-600 {
   border: 2px solid #ff931e !important;
-  padding:19px;
+  padding:14px;
 }
 .vc-bg-orange-200 {
   background-color: rgba(238, 244, 241, 0.5)!important;
@@ -520,8 +521,8 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height:6px;
+  width: 3px;
+  height:3px;
   right: 5px;
 }
 ::-webkit-scrollbar-track {
@@ -536,16 +537,16 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 @media (min-width: 992px) {
   .sidebar-mini.sidebar-collapse #content-wrapper.content-wrapper {
-    margin-left: 3.281%!important;
+    margin-left: 56px!important;
   }
 }
 @media (min-width: 768px) {
   .sidebar-collapse .content-wrapper,
   .sidebar-collapse .main-footer,
   .sidebar-collapse .main-header {
-    transition: margin-right 0.3s ease-in-out;
-    margin-left: 3.281%!important; 
-    margin-right: 10.885%;
+    transition: margin-right 0.5s ease-in-out;
+    margin-left: 56px!important; 
+    margin-right: 7.95%;
   }
 }
 
@@ -553,9 +554,9 @@ label:not(.form-check-label):not(.custom-file-label) {
   .content-wrapper,
   .main-footer,
   .main-header {
-    transition: margin-right 0.3s ease-in-out;
-    margin-left: 3.281%!important; 
-    margin-right: 21.718%;
+    transition: margin-right 0.5s ease-in-out;
+    margin-left: 56px!important; 
+    margin-right: 16.718%;
   }
 }
 
@@ -684,6 +685,10 @@ border-radius: 25px;
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
   background-image: none !important;
+}
+
+.notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
+  background-color: #ff933a !important;
 }
 
 .filter-content .custom-control-label::after {

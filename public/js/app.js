@@ -74761,6 +74761,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -135699,7 +135702,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  letter-spacing:0.05em;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 0.63vw;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\n  padding: 16px 35px 16px 40px;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  letter-spacing:0.05em;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 0.63vw;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\n  padding: 16px 35px 16px 40px;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -258434,7 +258437,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src:
-                          "/images/icons/left-sidebar/shadows/Dashboard Icon.svg",
+                          "/images/icons/left-sidebar/no-shadows/Dashboard.svg",
                         width: "52"
                       }
                     }),
@@ -258464,7 +258467,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src:
-                          "/images/icons/left-sidebar/shadows/Work Station Icon.svg",
+                          "/images/icons/left-sidebar/no-shadows/Workstation.svg",
                         width: "52"
                       }
                     }),
@@ -258490,7 +258493,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src:
-                          "/images/icons/left-sidebar/shadows/Contacts icon.svg",
+                          "/images/icons/left-sidebar/no-shadows/Contacts.svg",
                         width: "52"
                       }
                     }),
@@ -258514,8 +258517,7 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src:
-                          "/images/icons/left-sidebar/shadows/Leads Icon.svg",
+                        src: "/images/icons/left-sidebar/no-shadows/Leads.svg",
                         width: "52"
                       }
                     }),
@@ -258541,7 +258543,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src:
-                          "/images/icons/left-sidebar/shadows/Call History Icon.svg",
+                          "/images/icons/left-sidebar/no-shadows/Call history.svg",
                         width: "52"
                       }
                     }),
@@ -258567,7 +258569,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src:
-                          "/images/icons/left-sidebar/shadows/Inventory_Icon.svg",
+                          "/images/icons/left-sidebar/no-shadows/Inventory.svg",
                         width: "52"
                       }
                     }),
@@ -258594,7 +258596,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src:
-                              "/images/icons/left-sidebar/shadows/Transactions Icon.svg",
+                              "/images/icons/left-sidebar/no-shadows/Transactions.svg",
                             width: "52"
                           }
                         }),
@@ -258628,7 +258630,7 @@ var render = function() {
                       _c("img", {
                         attrs: {
                           src:
-                            "/images/icons/left-sidebar/shadows/Leads Icon.svg",
+                            "/images/icons/left-sidebar/no-shadows/Leads.svg",
                           width: "52"
                         }
                       }),
@@ -258656,7 +258658,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src:
-                              "/images/icons/left-sidebar/shadows/Users Icon.svg",
+                              "/images/icons/left-sidebar/no-shadows/Users.svg",
                             width: "52"
                           }
                         }),
@@ -258687,7 +258689,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src:
-                              "/images/icons/left-sidebar/shadows/System Preferences Icon.svg",
+                              "/images/icons/left-sidebar/no-shadows/System Pref.svg",
                             width: "52"
                           }
                         }),
