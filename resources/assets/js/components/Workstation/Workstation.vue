@@ -174,6 +174,12 @@ span.right{
   cursor: pointer; 
   float: left; 
 } 
+.comment-desc::placeholder {
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
+  color: #999;
+  font-style: italic;
+}
 .keys {
   letter-spacing: 0.05em;
   font-family: 'Rubik', sans-serif;
@@ -638,7 +644,8 @@ a.down-scroll:hover{
 .email-desc {
   letter-spacing: 0.05em;
   color: #999999;
-  font-size: 0.73vw;
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
 }
 #four .text-uppercase.font-weight-bold{
   color: #808080;
@@ -658,6 +665,12 @@ a.down-scroll:hover{
   border-radius: 10px;
   height: 163px!important;
   overflow-y: auto;
+}
+#four textarea::placeholder {
+  color: #999999;
+  font-size: 0.63vw;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
 }
 
 .scroll-hidden{
