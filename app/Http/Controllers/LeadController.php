@@ -17,6 +17,7 @@ use App\LeadsCallbacks;
 use App\Product;
 use App\Twillio;
 use App\Role;
+use App\ModuleItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -615,9 +616,25 @@ class LeadController extends Controller
 
     public function getUserCallBacks(){
 
-        $call_backs = LeadsCallbacks::with('lead')->where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
 
-        return array('success' => true, 'call_backs' => $call_backs);
+        $data = [];
+        foreach ($call_backs as $key => $value) {
+
+          $temp = new \StdClass();
+
+          $lead = ModuleItem::with('item_meta')->find($value->lead_id);
+
+          $temp->lead = $lead;
+          $temp->call_date = $value->call_date;
+          $temp->call_time = $value->call_time;
+          $temp->notes = $value->notes;
+
+          array_push($data, $temp);
+
+        }
+
+        return array('success' => true, 'call_backs' => $data);
     }
 
     public function getLeadsCount($type = null){
@@ -803,53 +820,6 @@ class LeadController extends Controller
             'sources' => LeadSource::get(), 
             'roles' => Role::get(), 
         );
-    }
-
-    public function massAssign(Request $request){
-        $data = $request->all();
-        
-        $num_leads = count($data['lead_ids']);
-
-        $num_user_assigned = count($data['user_assigned']);
-
-        $num_lead_owner = count($data['lead_owner']);
-
-        $remainder = $num_leads % $num_user_assigned;
-
-        $owner_modulus = $num_leads % $num_lead_owner;
-
-        if($remainder == 0){
-            $num_in_batch = $num_leads / $num_user_assigned;
-
-            $batches = $num_leads / $num_in_batch;
-        }else{
-            for ($z =  1; $z <= $remainder; $z++) {
-                # code...
-            }
-        }
-
-        try{
-            DB::beginTransaction();
-            for ( $i = 0; $i < 5; $i++ ) {
-                if( !is_null($data['user_assigned'])){
-                    $lead = Lead::find($value)->update([
-                        'user_assigned' => $data['user_assigned'],
-                    ]);
-                }
-                
-                if( !is_null($data['lead_owner'])){
-                    $lead = Lead::find($value)->update([
-                        'user_created_id' => $data['lead_owner'],
-                    ]);
-                }
-            }
-            DB::commit();
-            return array('success' => true, 'message' => 'Leads successfully assigned');
-
-        }catch(\QueryException $e){
-            DB::rollback();
-            return array('success' =>false, 'message' => $e->getMessage());
-        }
     }
 
 }

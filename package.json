@@ -10,6 +10,7 @@
     "watch-poll": "npm run watch --watch-poll"
   },
   "dependencies": {
+    "@alfsnd/vue-bootstrap-select": "^0.4.4",
     "@chenfengyuan/vue-countdown": "^1.1.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",

@@ -1,3 +1,4 @@
+<!-- 31/10/2019 --> 
 <style scoped>
     .main-sidebar {
         right: 0!important;
@@ -17,21 +18,21 @@
     
     .main-sidebar,
     .main-sidebar:before {
-        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;
-        width: 417px!important;
+        transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important; 
+        width: 21.718%!important; 
     }
     
     .sidebar-collapse .main-sidebar,
     .sidebar-collapse .main-sidebar:before {
         margin-left: 0!important;
-        margin-right: -208px!important;
+        margin-right: -10.833%!important;
     }
     
     @media (max-width: 991.98px) {
         .main-sidebar,
         .main-sidebar:before {
             margin-left: -0!important;
-            margin-left: -208px!important;
+            margin-left: -10.833%!important;
         }
         .sidebar-open .main-sidebar,
         .sidebar-open .main-sidebar:before {
@@ -89,7 +90,7 @@
         padding-top: 6px;
         letter-spacing: 0.05em;
         position: relative;
-        top: 16%;
+        top: -4%;
     }
     
     .help-block {
@@ -99,6 +100,7 @@
     .status {
         display: none;
     }
+
     
     .status.active {
         width: 76px;
@@ -151,11 +153,13 @@
     .p-34 {
         padding: 0px 34px;
     }
+    
     .pl-34 {
-      padding-left: 34px;
+        padding-left: 34px;
     }
+    
     .ml-12 {
-      margin-left: 12px;
+        margin-left: 12px;
     }
     
     .progress-bar {
@@ -233,11 +237,24 @@
         margin: 5px 0 15px 0;
         font-size: 9px;
     }
-    
+    .btn-info {
+        height: 24px !important;
+        background: #F98B39 !important;
+        border-color: #F98B39 !important;
+        color: #fff !important;
+        padding: 4px 17px 6px !important;
+        border-radius: 24px !important;
+    }
     .settings .row.border-bottom,
     .notifications .row.border-bottom {
         border-color: #cdccce;
         padding: 21px 0px 16px 0;
+    }
+    .notification-popup {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
+            border-radius: 21px;
+            width: 100% !important;
+
     }
     
     .settings .row p.description {
@@ -293,7 +310,7 @@
         color: #ffffff;
         border: transparent !important;
         padding: 6px 12px 6px 10px;
-        font-size: 10px;
+        font-size: 0.6vw;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -306,11 +323,21 @@
         padding: 8px 15px!important;
     }
     
-    .btn-orange {
+    .btn-orange, .btn-orange-active {
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-        padding: 8px 15px;
+        font-size: 10px;
+        border-radius: 50rem!important;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.05em;
+    }
+
+    .btn-white {
+         background: #fff;
+        border: transparent !important;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -323,13 +350,13 @@
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-          padding: 8px 15px;
+        padding: 8px 15px;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
     }
     
     .btn-blue {
@@ -362,13 +389,13 @@
         background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important;
         color: #ffffff;
         border: transparent !important;
-         padding: 8px 15px;
+        padding: 8px 15px;
         font-size: 10px;
         border-radius: 50rem!important;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
     }
     
     .dark-btn:hover {
@@ -381,14 +408,35 @@
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-         letter-spacing: 0.05em;
+        letter-spacing: 0.05em;
+    }
+    .notifications-close img {
+        width: 20px;
+        top: 5px;
+        position: relative;
     }
     
-    .btn-has-new {
-        background-image: url('/images/icons/Dot.png') !important;
+    .btn-has-new-dot {
+        background-image: url('/images/icons/Red-Notification-Dot.svg') !important;
         background-size: 12px 12px;
         background-repeat: no-repeat;
         background-position: right top;
+        width: 13px;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+        left: 66px;
+        top: -5px;
+        }
+
+     .btn-has-new-messages {
+        background-image: url('/images/icons/blue dot.svg') !important;
+        background-size: 69% 34%;
+        background-repeat: no-repeat;
+        background-position: left top;
+        color: #ffffff;
+        font-size: 10px;
+        text-align: center;
     }
     
     .btn-has-new:hover {
@@ -417,7 +465,7 @@
     
     .notifications .btn-default {
         padding: 6px 25px 6px 18px;
-        font-size: 9px;
+        font-size: 12px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -427,18 +475,23 @@
         list-style: none;
     }
     
-    .notifications .card h3,
-    .notifications .card h3 a {
-        color: #00344a;
-        font-size: 16px;
-        letter-spacing: 2.2px;
+    .notifications .card-body-notifications h3,
+    .notifications .card-body-notifications h3 a, .caller-name {
+        color: #333333;
+        font-size: 0.7vw;
+        /* letter-spacing: 2.2px; */
         font-weight: 600;
     }
+    .caller-time {
+        float: right;
+        font-size: 0.6vw;
+        color: #808080;
+    }
     
-    .notifications .card p.call_back_time {
-        color: #00344a;
-        font-size: 14px;
-        letter-spacing: 2.2px;
+    .notifications .card-body-notifications p.call_back_time {
+        color: #808080;
+        font-size: 0.7vw;
+        /* letter-spacing: 2.2px; */
     }
     
     .personal-info .row.mx-0.border-left,
@@ -454,12 +507,15 @@
     }
     
     .small-avatar img {
-        width: 46px;
+        width: 30px;
         border-radius: 50%;
     }
     
-    .update-user {
+    .update-user, .update-filter, .save-filter {
         margin: 0px 0px 5px 0px;
+    }
+    .row.cal-height {
+        max-height: 390px;
     }
     
     .final-modal {
@@ -488,6 +544,13 @@
         background-color: #fff !important;
         font-size: 10px;
         font-weight: 600;
+    }
+
+    .card-body-notifications {
+        padding: 11px 10px;
+    }
+    .card-body-notifications img {
+        padding-right: 10px;
     }
     
     .final-modal .card-header {
@@ -567,17 +630,18 @@
     }
     
     .form-control {
-           padding: 10px 12px!important;
-          font-size: 12px;
-          box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
-          color: #193246;
-          font-weight: 600;
-          margin-top: 6px;
+        padding: 10px 12px!important;
+        font-size: 12px;
+        box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
+        color: #193246;
+        font-weight: 600;
+        margin-top: 6px;
     }
-  textarea.form-control {
-    height: 100px !important;
-    border-radius: 15px;
-  }
+    
+    textarea.form-control {
+        height: 100px !important;
+        border-radius: 15px;
+    }
     
     .stats-section {
         margin-top: 25px;
@@ -622,15 +686,15 @@
     }
     
     .menu-toggle {
-        position: absolute;
-        right: 417px;
-        overflow: visible;
-        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;
-        background-size: 140px;
+       position: absolute; 
+        right: 100%; 
+        overflow: visible; 
+        background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important; 
+        background-size: 120px;
         background-repeat: no-repeat;
         background-position: -15px;
-        height: 120px;
-        width: 80px;
+        height: 73px;
+        width: 66px;
     }
     
     .sidebar-collapse .menu-toggle {
@@ -651,10 +715,13 @@
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     }
     
+    .filter-results .custom-control.custom-checkbox .custom-control-label:before,
     .reminders .custom-checkbox .custom-control-label::before {
         border-radius: 50%!important;
         border: 1px solid #ededed;
         box-shadow: none;
+        background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
+        background-size: cover;
     }
     
     .reminders .custom-control-label::after,
@@ -673,17 +740,25 @@
         width: 90%;
     }
     
-    .reminders input.list-input:focus, .nav-link:focus {
+    .reminders input.list-input:focus,
+    .nav-link:focus {
         outline: 0 !important;
         box-shadow: none !important;
         border: 0 !important;
     }
     
-    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
         background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important;
         border-radius: 50%!important;
         background-size: cover;
     }
+    
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+        border-radius: 50%!important;
+        background-color: #ff933a !important;
+    }
+
+    
     
     .reminders input.list-input:focus {
         border: 1px solid rgba(28, 35, 49, 0.5);
@@ -693,14 +768,20 @@
         font-size: 16px;
         margin-right: 12px;
     }
-
+    
+    .grey-scroll::-webkit-scrollbar-thumb {
+        background: #B3B3B3 !important;
+        border-radius: 5px !important;
+    }
+    
     .orange {
-      color: #ff933a;
+        color: #ff933a;
     }
     
     .blue {
-      color: #3fa9f5;
+        color: #3fa9f5;
     }
+    
     .tasks-date {
         font-size: 10px;
     }
@@ -710,12 +791,15 @@
         border-radius: 20px;
         padding-left: 6px;
     }
+    
     .inner-box-shadow {
-      box-shadow: 0px 0px 14px 1px rgba(227,223,227,1);
+        box-shadow: 0px 0px 14px 1px rgba(227, 223, 227, 1);
     }
+    
     .middle-box-shadow {
-      box-shadow: 0px 0px 14px 2px rgba(235,235,235,1);
+        box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);
     }
+    
     .nav-tabs .nav-item {
         width: 50%;
     }
@@ -730,7 +814,7 @@
         font-weight: 600;
     }
     
-    .btn-primary.update-user {
+    .btn-primary.update-user, .btn-primary.update-filter, .btn-primary.save-filter {
         font-size: 10px;
         background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
         font-weight: 600;
@@ -739,6 +823,13 @@
         letter-spacing: 0.05em;
     }
     
+  .btn-primary.update-filter, .btn-primary.save-filter {
+        padding: 6px 12px !important;
+    }
+    
+    .float-right {
+        float: right;
+    }
     .inactive-icon {
         padding: 11px;
         border-radius: 50rem;
@@ -751,7 +842,17 @@
     }
     
     .filter-heading {
-        font-size: 19px;
+        font-size: 16px;
+        color: #171717 !important;
+        font-family: 'Rubik', sans-serif !important;
+    }
+    
+    .filterborder {
+        border: 1px solid #fed6d6;
+    }
+    
+    .show {
+        display: block !important;
     }
     
     .row.filter-content {
@@ -759,33 +860,98 @@
         margin-right: -27px;
     }
     
-    .row.filter-content .custom-control.custom-checkbox {
+    .row.filter-content .custom-control.custom-checkbox, .saved-results {
         border-radius: 14px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        margin: 20px;
     }
     
     .row.filter-content .custom-control.custom-checkbox .custom-control-label {
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 28px;
+        font-family: 'Rubik', sans-serif !important;
+    }
+    
+    .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label {
+        font-size: 12px;
+        padding-left: 20px;
+    }
+    
+    .row.filter-content .filter-results .custom-control {
+        padding-left: 10px !important;
     }
     
     .row.filter-content .search-criteria {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         border-radius: 14px;
         padding: 10px;
+        font-family: 'Rubik', sans-serif !important;
     }
     
-    .row.filter-content .search-text {
+    .row.filter-content .search-text,
+    .save-text {
         border: 0;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-        font-size: 13px;
+        box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+        font-size: 12px;
         font-family: 'Rubik', sans-serif;
         font-weight: 300;
         font-style: italic;
         border-radius: 14px;
         padding: 10px;
+    }
+    
+    .row.filter-content .search-text::-webkit-input-placeholder .save-text::-webkit-input-placeholder {
+        font-size: 12px !important;
+        font-family: 'Rubik', sans-serif !important;
+        color: rgba(0, 0, 0, 0.65) !important;
+        letter-spacing: 0 !important;
+    }
+    
+    .save-text::-webkit-input-placeholder {
+        font-size: 11px !important;
+        font-family: 'Rubik', sans-serif !important;
+        color: rgba(0, 0, 0, 0.65) !important;
+        letter-spacing: 0 !important;
+    }
+    
+    .filter-results {
+        max-height: 200px;
+        overflow: auto;
+        margin-top: 20px;
+    }
+
+    .saved-results {
+            font-size: 12px !important;
+            font-family: 'Rubik', sans-serif;
+    }
+    
+    .filter-container {
+        overflow: auto;
+    }
+
+    @media screen and (max-width:1368px ) {
+         .filter-container {
+         max-height: 450px;
+         }
+    }
+
+     @media screen and (min-width:1400px ) {
+          .filter-container {
+         max-height: 650px;
+          }
+    }
+    
+    .position-bottom {
+        position: absolute;
+        bottom: 20px;
+    }
+    
+    input.search-text:focus,
+    input.save-text:focus {
+        outline: 0 !important;
+        border: 0 !important;
     }
     /*End Right Component*/
 </style>
@@ -796,23 +962,23 @@
             <section class="sidebar p-3">
                 <a href="#" data-toggle="push-menu" class="menu-toggle">
                 </a>
-                <div class="sidebar-menu" data-widget="tree">
-                    <div class="open-sidenav">
+                <div class="sidebar-menu grey-scroll" data-widget="tree">
+                    <div class="open-sidenav mt-3">
                         <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav col-auto">
                                 <li class="nav-item">
                                     <a class="nav-link icon p-0 mr-2" href="#" @click="showNotifications()">
-                                        <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="50">
-                                        <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="50" class="inactive-icon">
-                                        <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="50" class="inactive-icon">
+                                        <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
+                                        <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
+                                        <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link icon p-0" href="#" @click="showSettings()">
-                                        <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="50" class="inactive-icon">
-                                        <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="50">
+                                        <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
+                                        <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="43">
                                     </a>
                                 </li>
                             </ul>
@@ -938,7 +1104,7 @@
                                     <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
                                         <p class="d-block w-100 title" title="Personal Information">Account Information</p>
                                         <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                                            <div :class="{'input': true, 'form-group w-100' :true }">
+                                            <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }">
                                                 <label class="col-lg-12 control-label w-100 p-0">
                                                     <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox>
                                                 </label>
@@ -992,20 +1158,22 @@
                                     <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
                                         <div class="row mx-0 mb-4 pb-0 pl-4">
                                             <div class="row mx-0">
-                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in system_preferences" :key="index">
-                                                    <div v-if="setting.setting == 'auto_dialer'">
-                                                        <label class="col-lg-5 control-label w-100 p-0">
-                                                            Auto Dialing
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.value" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option value="on">On</option>
-                                                                <option value="off">Off</option>
-                                                            </select>
-                                                        </label>
-                                                        <label class="col-lg-6 control-label w-100 p-0">
-                                                            Apply To
-                                                            <select id="auto_dialler" v-model="system_settings.auto_dialer.applies_to" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                                <option :value="role.id" v-for="(role, index) in roles" :key="index">{{ role.display_name }}</option>
-                                                                <option value="-1">Everyone</option>
+                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
+                                                    <div v-if="setting.setting == 'max_table_rows'">
+                                                        <label class="col-lg-12 control-label w-100 p-0">
+                                                            Max number of rows for tables
+                                                            <select id="auto_dialler" v-model="user_settings.max_table_rows" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                                <option value="150">150</option>
+                                                                <option value="200">200</option>
+                                                                <option value="250">250</option>
+                                                                <option value="300">300</option>
+                                                                <option value="350">350</option>
+                                                                <option value="400">400</option>
+                                                                <option value="450">450</option>
+                                                                <option value="500">500</option>
+                                                                <option value="1000">1000</option>
                                                             </select>
                                                         </label>
                                                     </div>
@@ -1016,7 +1184,7 @@
                                 </transition-expand>
                             </div>
 
-                            <div class="row mx-0 preferences border-bottom">
+                            <div class="row mx-0 preferences border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Themes</h3>
@@ -1076,8 +1244,8 @@
                                     </div>
                                 </transition-expand>
                             </div>
-
-                            <div class="row mx-0 language border-bottom">
+                            
+                            <div class="row mx-0 language border-bottom" style="display:none;">
                                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                                     <div class="">
                                         <h3 class="d-block mb-0">Language</h3>
@@ -1102,7 +1270,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mx-0" v-else>
+                                        <div class="row mx-0">
                                             <label class="col-auto control-label py-0 pl-0 pr-2 language">
                                                 <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="m-0">English</button>
                                             </label>
@@ -1119,77 +1287,74 @@
                             <div class="row logout-wrapper" v-if="profile_on == false">
                                 <a href="/logout" id="logout" class="w-100 d-block"></a>
                                 <h3 class="d-block w-100 text-center">
-                  Logout 
-                </h3>
+                                  Logout 
+                                </h3>
                             </div>
                         </div>
 
-                        <div v-if="notifications_on == true" class="notifications">
+                        <div v-if="notifications_on == true" class="notifications p-2">
                             <div class="row mx-0">
-                                <h2 class="w-100">
-                  Notifications 
-                </h2>
-                                <div class="w-100">
-                                    <label class="col-lg-3 control-label w-100 p-0">
-                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0">Callbacks</button>
+                                <h3 class="w-100 mb-2">
+                                Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg"></span>
+                                </h3>
+            
+                                <div class="w-100 mt-0">
+                                    <label class="col-lg-3 mt-0 control-label w-100 p-0">
+                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
-                                    <label @click="showMessages" class="col-lg-3 control-label w-100 p-0">
-                                        <button type="submit" :class="{'btn' : true, 'btn-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0">Messages</button>
+                                    <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0">
+                                        <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
+                                     <div class="btn-has-new-dot"></div>
                                     </label>
                                 </div>
                             </div>
-
+                            <hr>
                             <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
                                 <div v-if="call_backs.length > 0">
-                                    <div class="card w-100" v-for="call_back in call_backs" :key="call_back.id">
-                                        <div class="card-body">
+                                    <div class="card w-100 notification-popup" v-for="call_back in call_backs" :key="call_back.id">
+                                        <div class="card-body-notifications">
+                                       
                                             <h3 class="d-block d-block w-100">
-                        <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-                      </h3>
+                                              <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
+                                            </h3>
                                             <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div v-else>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <p class="call_back_time d-block w-100" title="Personal Information">0 Callbacks at present</p>
+                                    <div class="notification-popup">
+                                        <div class="card-body-notifications">
+                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                                <div class="card w-100">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                                  <div class="col-12 notification-popup w-100">
+                                    <div class="row card-body-notifications">
+                                        <div class="col-auto pl-1 btn-has-new-messages">  
+                                        </div>
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
+                                        <div class="col-auto p-0">
+                                            <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p>
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">
-                      Steve Hughes 
-                    </h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
+                                  </div>
+                                  <div class="col-12 notification-popup w-100">
+                                    <div class="row card-body-notifications">
+                                        <div class="col-auto pl-1 btn-has-new-messages">
+                                        </div>
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
+                                        <div class="col-auto p-0">
+                                            <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p>
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="d-block">Steve Hughes</h3>
-                                        <p class="call_back_time d-block w-100" title="Personal Information">Mon 22 March @ 12:22pm</p>
-                                    </div>
-                                </div>
+                                  </div>
                             </div>
                         </div>
 
@@ -1200,7 +1365,7 @@
                                         <div class="col-lg-12">
                                             <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
                                             <div class="progress-bar w-100">
-                                                <span class="tank" :style="'width:' + 65 + '%'"></span>
+                                                <span class="tank" :style="{width: + 65 + '%'}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1249,47 +1414,47 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row cal-height">
                                 <div class="col-lg-12 final-modal border-0">
                                     <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
                                         <div class="card-header tab-card-header p-0">
                                             <span class="nav-link active border-0 pl-0" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true">
-                            <span class="left">Calendar</span>
+                                              <span class="left">Calendar</span>
                                             </span>
                                             <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
-                        <li class="nav-item left w-50">
-                          <a 
-                            class="nav-link active border-0" 
-                            id="calendar-tab" 
-                            data-toggle="tab" 
-                            href="#calendar" 
-                            role="tab" 
-                            aria-controls="Calendar" 
-                            aria-selected="true"
-                          >
-                            <span class="left description">Calendar</span>
-                          </a>
-                        </li>
+                                              <li class="nav-item left w-50">
+                                                <a 
+                                                  class="nav-link active border-0" 
+                                                  id="calendar-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#calendar" 
+                                                  role="tab" 
+                                                  aria-controls="Calendar" 
+                                                  aria-selected="true"
+                                                >
+                                                  <span class="left description">Calendar</span>
+                                                </a>
+                                              </li>
 
-                        <li class="nav-item right w-50">
-                          <a 
-                            class="nav-link" 
-                            id="search-panel-tab" 
-                            data-toggle="tab" 
-                            href="#search-panel" 
-                            role="tab" 
-                            aria-controls="Search" 
-                            aria-selected="false"
-                          >
-                            <span class="left description">Search</span>
-                          </a>
-                        </li>
-                      </ul> -->
+                                              <li class="nav-item right w-50">
+                                                <a 
+                                                  class="nav-link" 
+                                                  id="search-panel-tab" 
+                                                  data-toggle="tab" 
+                                                  href="#search-panel" 
+                                                  role="tab" 
+                                                  aria-controls="Search" 
+                                                  aria-selected="false"
+                                                >
+                                                  <span class="left description">Search</span>
+                                                </a>
+                                              </li>
+                                            </ul> -->
                                         </div>
 
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-                                                <vc-calendar class="border-0" :attributes='attrs' title-position="right" is-expanded :popover="true" />
+                                                <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />
                                             </div>
 
                                             <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
@@ -1439,11 +1604,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="callback1" type="checkbox">
-                                                                  <label class="pl-34 custom-control-label" for="callback1" >
-                                                                    Callback Steven
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="callback1" type="checkbox">
+                                                                    <label class="pl-34 custom-control-label" for="callback1">
+                                                                        Callback Steven
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                                             </div>
@@ -1452,11 +1617,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="callback2" type="checkbox">
-                                                                  <label class="pl-34 custom-control-label" for="callback2" >
-                                                                    Callback Justine
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="callback2" type="checkbox">
+                                                                    <label class="pl-34 custom-control-label" for="callback2">
+                                                                        Callback Justine
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">3 Aug</span></div>
                                                             </div>
@@ -1466,15 +1631,15 @@
                                             </b-tab>
                                             <b-tab title="Reminders">
                                                 <ul class="pl-0">
-                                                  <!--When adding a new task, the whole li tag should be added and change input ids -->
+                                                    <!--When adding a new task, the whole li tag should be added and change input ids -->
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="task1" type="checkbox">
-                                                                  <label class="terms-text custom-control-label" for="task1" >
-                                                                    <input type="text" value="1. To Do List" class="border-0 list-input">
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="task1" type="checkbox">
+                                                                    <label class="terms-text custom-control-label" for="task1">
+                                                                        <input type="text" value="1. To Do List" class="border-0 list-input">
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">18 Jul</span></div>
                                                             </div>
@@ -1483,11 +1648,11 @@
                                                     <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
                                                         <div class="col-12">
                                                             <div class="row">
-                                                              <div class="col-8 pl-0 custom-control custom-checkbox">
-                                                                <input class="custom-control-input" id="task2" type="checkbox">
-                                                                  <label class="terms-text custom-control-label" for="task2" >
-                                                                    <input type="text" value="2. To Do List" class="border-0 list-input">
-                                                                  </label>
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox">
+                                                                    <input class="custom-control-input" id="task2" type="checkbox">
+                                                                    <label class="terms-text custom-control-label" for="task2">
+                                                                        <input type="text" value="2. To Do List" class="border-0 list-input">
+                                                                    </label>
                                                                 </div>
                                                                 <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">23 Jul</span></div>
                                                             </div>
@@ -1509,15 +1674,15 @@
                                 <div class="row">
                                     <div class="nav-item col-auto px-0">
                                         <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showNotifications()">
-                                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="50">
-                                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="50" class="inactive-icon">
-                                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="50" class="inactive-icon">
+                                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
+                                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
+                                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
                                         </a>
                                     </div>
 
                                     <div class="nav-item col-auto px-0">
                                         <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showSettings()">
-                                            <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="50" class="inactive-icon">
+                                            <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
                                         </a>
                                     </div>
                                 </div>
@@ -1535,29 +1700,54 @@
                         <div class="row filter-content">
                             <b-tabs content-class="mt-3">
                                 <b-tab title="New">
-                                    <div class="filter-group">
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                                    <div class="filter-container grey-scroll">
+                                        <div class="filter-group">
+                                            <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                                <input :disabled="filterValue === ''" :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1">
+                                                <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
+                                            </div>
+                                            <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show:showFilters }">
+                                                <select class="search-criteria w-100 mb-2">
+                                                    <option selected>is equal to</option>
+                                                    <option value="1">contains</option>
+                                                    <option value="2">does not contain</option>
+                                                    <option value="3">begins with</option>
+                                                    <option value="3">ends with</option>
+                                                </select>
+                                                <input class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="filterValue" value="">
+                                            </div>
                                         </div>
-                                        <div class="ml-3 pt-2">
-                                            <select class="search-criteria w-100 mb-2">
-                                                <option selected>is equal to</option>
-                                                <option value="1">contains</option>
-                                                <option value="2">does not contain</option>
-                                                <option value="3">begins with</option>
-                                                <option value="3">ends with</option>
-                                            </select>
-                                            <input class="search-text w-100 mt-2" type="text" placeholder="Search...">
+                                        <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:filterValue != '' }" style="display:none;">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result1">
+                                                <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result2">
+                                                <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-2 mt-4 position-bottom justify-content-end">
+                                        <div class="col-7 pl-0 pr-2">
+                                            <input class="save-text w-100" type="text" placeholder="Custom Filter Name" value="">
+                                        </div>
+                                        <div class="col-5 pr-0 pl-2">
+                                            <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0">Save</button>
                                         </div>
                                     </div>
                                 </b-tab>
-
                                 <b-tab title="Saved" active>
-                                    <div class="saved-group">
-                                        <div class="my-2 p-2 custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing">
-                                            <label class="custom-control-label mx-0 pt-0" for="customControlAutosizing">Name</label>
+                                    <div class="saved-group filter-container grey-scroll">
+                                        <div @click="savedFilters()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
+                                            <input type="checkbox" :disabled="appendBorder === false" :checked="appendBorder !== false " class="custom-control-input mx-0" id="savedFilter1">
+                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Saved</label>
+                                        </div>
+                                        <div class="pl-34" style="display:none;" :class="{ show:showSavedFilters }">
+                                               <div class="saved-results p-2"><span class="orange pr-2">⬤</span>Name</div>
+                                               <div class="col-auto pr-0 pl-2 float-right">
+                                                <button type="submit" class="btn btn-primary update-filter mt-2 rounded-pill mr-4">Edit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </b-tab>
@@ -1610,7 +1800,6 @@
                 packages: [],
                 filters: [],
                 preferences: [],
-                system_preferences: [],
                 roles: [],
                 attrs: [{
                     key: 'today',
@@ -1627,24 +1816,24 @@
                     product_id: '',
                     status: '',
                 },
-                system_settings: {
-                    id: '',
-                    auto_dialer: {
-                        value: '',
-                        applies_to: ''
-                    }
-                },
                 user_settings: {
                     id: '',
                     theme: 'orange',
-                    language: 'english'
+                    language: 'english',
+                    max_table_rows: 50
                 },
                 avatarUrl: '/images/avatars/',
                 noImageUrl: '/images/icons/user_icon@4x.png',
                 fill: {
                     gradient: ["#a1ed1c", "#62d37e"]
                 },
-                p: 65
+                p: 65,
+
+                appendBorder: false,
+                showSavedFilters: false,
+                showFilters: false,
+                filterValue: ''
+
             }
         },
 
@@ -1698,7 +1887,15 @@
                     this.settings_on = false;
                     this.profile_on = false;
                 },
-
+                filterProperties() {
+                    this.appendBorder = !this.appendBorder
+                    this.showFilters = !this.showFilters
+                   
+                },
+                 savedFilters() {
+                      this.appendBorder = !this.appendBorder
+                      this.showSavedFilters = !this.showSavedFilters
+                 },
                 showSettings() {
                     this.settings_on = !this.settings_on;
                     this.notifications_on = false;
@@ -1780,7 +1977,6 @@
 
                     axios.get('/get-preferences').then(function(response) {
                         vm.preferences = response.data.preferences;
-                        vm.system_preferences = response.data.system_preferences;
                         vm.system_preferences.forEach(function(preference) {
                             if (preference.setting == 'auto_dialer') {
                                 vm.system_settings.auto_dialer.value = preference.value;

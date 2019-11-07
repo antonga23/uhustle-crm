@@ -18,7 +18,10 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    return redirect('/login');;
+    // return redirect('/login');
+
+    
+     return view('/welcome');
 });
 
 Route::get('/home', function () {
@@ -88,9 +91,6 @@ Route::get('/move-leads',  function(){
           case 'product':
               $insert = $lead->product_id;
             break;
-          case 'product_variant':
-              $insert = $lead->product_variant;
-            break;
           case 'start_at':
               $insert = $lead->start_date;
             break;
@@ -109,7 +109,7 @@ Route::get('/move-leads',  function(){
           case 'owner':
               $insert = $lead->user_created_id;
             break;
-          case 'owner':
+          case 'status':
               $insert = $lead->user_created_id;
             break;             
 
@@ -235,7 +235,7 @@ Route::group(['prefix' => 'leads'], function () {
   Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
-	Route::post('mass-assign', 'LeadController@massAssign');
+	Route::post('mass-assign', 'ModuleController@massAssign');
 });
 
  // Filters Routes 
@@ -261,6 +261,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-permissions', 'RoleController@getPermissions');
 	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
+	Route::get('/get-dialer-permissions/{role_id}', 'RoleController@getDialerPermissions');
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
@@ -292,8 +293,10 @@ Route::group(['prefix' => 'modules'], function () {
   Route::post('/check-exist', 'ModuleController@checkExist');
 
   // Items
+  Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
+  Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');
