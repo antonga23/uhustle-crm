@@ -561,10 +561,6 @@ label:not(.form-check-label):not(.custom-file-label) {
 .main-sidebar {
   height:100%;
 }
-.main-sidebar.sidebar-light-primary{
-  max-height: 100vh;
-  overflow-y: auto!important;
-}
 .sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
   transition: display 0.3s ease-in-out;
   max-width: 180px;
