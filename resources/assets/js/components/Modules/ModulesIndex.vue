@@ -232,60 +232,6 @@ table.listing tr  th{
 </style>
 <template>
   <div>
-<<<<<<< HEAD
-    <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-12 px-0">
-        <div class="row mx-0 mb-0 horizontal-scroll">
-          <div class="col-12">
-            <div class="row mx-0">
-              <div class="col-auto">
-                <span class="ml-3">Assignees:</span>
-                <a-select 
-                  mode="multiple"
-                  v-model="assignees" 
-                  placeholder="Select"
-                  class="border-0 w-100"
-                >
-                  <a-select-option 
-                    :value="user.id" 
-                    v-for="(user, index) in user_options" 
-                    :key="index"
-                  >{{ user.name }}</a-select-option>
-                </a-select>
-              </div>
-
-              <div class="col-auto">
-                <span class="ml-3">Owners: </span>
-
-                <a-select 
-                  mode="multiple"
-                  v-model="owners" 
-                  placeholder="Select"
-                  class="border-0 w-100"
-                >
-                  <a-select-option 
-                    :value="user.id" 
-                    v-for="(user, index) in user_options" 
-                    :key="index"
-                  >{{ user.name }}</a-select-option>
-                </a-select>
-              </div>
-
-              <div class="col-auto">
-                <div class="row mt-3">
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
-                  </div>
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-default assign w-100 m-0" @click="assign()">Assign</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
-=======
     <div id="top-section" class="row mb-3 grey-bg-color align-items-center mx-0">
       <div class="col-auto pl-0">
         <span class="ml-3">Assignees:</span>
@@ -304,7 +250,6 @@ table.listing tr  th{
       <div class="col-auto align-self-end pr-0">
         <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
       </div>
->>>>>>> 14a3886af8fd16c870b1d580f08713438927b0c1
     </div>
     <!-- <div id="top-section" class="row" style="margin-top:2%; display:none;">
       <div class="filter-card"  @click="filterItems(-1)">
