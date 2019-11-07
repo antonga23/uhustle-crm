@@ -275,7 +275,7 @@
                         <b-card>
                           <div v-for="(permission,k) in dialer_permissions" :key="k">
                             <div v-if="permission.role_id == role.id">
-                              <b-form-group class="mx-2 permissions">
+                              <b-form-group class="mx-2 mb-0 permissions">
                                 <a-row >
                                   <a-col :span="8">
                                     <b-form-checkbox 

@@ -16,7 +16,7 @@
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.52vw;
+    font-size: 10px;
     color: #999999;
     margin-bottom:7px;
     margin-left: 17px;
@@ -26,7 +26,7 @@
     color: #999999;    
     border: none!important;
     padding: 11px 14px 10px;
-    font-size: 0.52vw;
+    font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
     line-height:1em;
@@ -39,7 +39,7 @@
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 0.52vw;
+    font-size: 10px;
     padding: 11px 14px 10px;
     line-height:1em;
     margin-left: 0.9%;

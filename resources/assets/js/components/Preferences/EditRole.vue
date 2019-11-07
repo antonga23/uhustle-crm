@@ -13,7 +13,7 @@
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.52vw;;
+    font-size: 10px;
     color: #999999;
     margin-bottom:7px;
     margin-left: 17px;
