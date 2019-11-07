@@ -1,9 +1,4 @@
 <style scoped>
-#workstation .general-section-stats,
-#workstation .scripts {
-  height:100vh;
-  overflow-y: scroll;
-}
 .row{ 
   margin-bottom: 3.5vh;  
 }
