@@ -1,8 +1,4 @@
 <style scoped>
-  #dashboard {
-    height: 100vh;
-    overflow: auto;
-  }
   h1 {
     font-size: 1.04vw;
     font-family: 'Rubik', sans-serif;

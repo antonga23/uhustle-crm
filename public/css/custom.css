@@ -135,6 +135,10 @@ body {
 .content-wrapper {
     background: #fff !important;
 }
+.content-wrapper > .content {
+  max-height: 92.95vh;
+  overflow-y: auto;
+}
 
 .close {
     position: absolute;
@@ -525,7 +529,13 @@ label:not(.form-check-label):not(.custom-file-label) {
     margin-right: 417px;
   }
 }
-
+.main-sidebar {
+  height:100%;
+}
+.main-sidebar.sidebar-light-primary{
+  max-height: 100vh;
+  overflow-y: auto!important;
+}
 .sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
   transition: display 0.3s ease-in-out;
   max-width: 180px;

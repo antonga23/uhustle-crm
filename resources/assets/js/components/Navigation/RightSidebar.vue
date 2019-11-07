@@ -790,9 +790,9 @@
 </style>
 <template>
     <div>
-        <aside class="main-sidebar sidebar-light-primary h-100">
+        <aside class="main-sidebar sidebar-light-primary">
             <!-- Control sidebar content goes here -->
-            <section class="sidebar p-3 h-100">
+            <section class="sidebar p-3">
                 <a href="#" data-toggle="push-menu" class="menu-toggle">
                 </a>
                 <div class="sidebar-menu" data-widget="tree">
