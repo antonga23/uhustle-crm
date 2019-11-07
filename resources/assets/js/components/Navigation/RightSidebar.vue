@@ -9,9 +9,10 @@
         bottom: 0;
         z-index: 830;
         transition: right 0.3s ease-in-out;
-        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-        -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+        -o-box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
     }
     
     .main-sidebar,
