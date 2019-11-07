@@ -617,7 +617,10 @@ class LeadController extends Controller
 
     public function getUserCallBacks(){
 
-        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '>=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->get();
 
         $data = [];
         foreach ($call_backs as $key => $value) {
@@ -628,19 +631,21 @@ class LeadController extends Controller
 
           $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
 
-          $temp->lead = $this->compactModule($lead, $custom_fields);
-
           $db_date = new \DateTime($value->call_date);
-
-          $temp->call_date = date_format($db_date, 'd-m') ;
 
           $db_time = new \DateTime($value->call_time);
 
+          $temp->id = $value->id;
+
+          $temp->call_date = date_format($db_date, 'd-m') ;
+
           $temp->call_time = date_format($db_time, 'H:m') ;;
+
+          $temp->notes = $value->notes;
 
           $temp->status = $value->status;
 
-          $temp->notes = $value->notes;
+          $temp->lead = $this->compactModule($lead, $custom_fields);
 
           $temp->custom_fields = $custom_fields;
 
@@ -648,6 +653,66 @@ class LeadController extends Controller
         }
 
         return array('success' => true, 'call_backs' => $data);
+    }
+
+    public function getUserCallBacksToday(){
+
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->get();
+
+        $data = [];
+        foreach ($call_backs as $key => $value) {
+
+          $temp = new \StdClass();
+
+          $lead = ModuleItem::with('item_meta')->find($value->lead_id);
+
+          $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
+
+          $db_date = new \DateTime($value->call_date);
+
+          $db_time = new \DateTime($value->call_time);
+
+          $temp->id = $value->id;
+
+          $temp->call_date = date_format($db_date, 'Y-m-d') ;
+
+          $temp->call_time = date_format($db_time, 'H:m') ;;
+
+          $temp->notes = $value->notes;
+
+          $temp->status = $value->status;
+
+          $temp->lead = $this->compactModule($lead, $custom_fields);
+
+          $temp->custom_fields = $custom_fields;
+
+          array_push($data, $temp);
+        }
+
+        return array('success' => true, 'call_backs' => $data);
+    }
+
+    public function markCallBackComplete($id = null){
+      try{
+          DB::beginTransaction();
+
+          LeadsCallbacks::where(['id' => $id])->update([
+            'status' => 1,
+          ]);
+
+          DB::commit();
+
+          $call_backs = $this->getUserCallBacks();
+
+          return array('success' => true, 'call_backs' => $call_backs['call_backs']);
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
     }
 
     public function compactModule($module_item = null, $custom_fields = null){

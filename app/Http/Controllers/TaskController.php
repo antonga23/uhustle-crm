@@ -98,7 +98,7 @@ class TaskController extends Controller
         $status = $data['status'];
         $user_created_id = Auth::user()->id;
         $deadline = $data['date'];
-
+        
         try{
             DB::beginTransaction();
 
@@ -106,7 +106,7 @@ class TaskController extends Controller
                 'title' => $title,
                 'description' => $description,
                 'status' => $status,
-                'deadline' => Carbon::createFromFormat("!Y-m-d", $deadline)
+                'deadline' => date('Y-m-d',strtotime($deadline))
             ]);
 
             DB::commit();
@@ -152,93 +152,11 @@ class TaskController extends Controller
                 );
     }
 
-        /**
-     * Sees if the Settings from backend allows all to complete taks
-     * or only assigned user. if only assigned user:
-     * @param $id
-     * @param Request $request
-     * @return
-     * @internal param $ [Auth]  $id Checks Logged in users id
-     * @internal param $ [Model] $task->user_assigned_id Checks the id of the user assigned to the task
-     * If Auth and user_id allow complete else redirect back if all allowed excute
-     * else stmt
-     */
-    public function updateStatus($id, Request $request)
-    {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
-        Task::where(['id' => $id])->update([
-            'status' => 1
-        ]);
-
-        $task = Task::where(['id' => $id ])->first();
-
-        event(new \App\Events\TaskAction($task, $request_user,'updated_status'));
-
-        return array('success' => true, 'message' => 'Task complete');
-    }
-
-    /**
-     * @param $id
-     * @param Request $request
-     * @return mixed
-     */
-    public function updateAssign($id, Request $request)
-    {
-        $data = $request->all();
-        
-        $request_user = ['user_id' => $data['session_user_id'], 'name' => $data['session_user_name']];
-
-        Task::where(['id' => $id ])->update([
-            'user_assigned_id' => $data['user_assigned_id']
-        ]);
-
-        $task = Task::where(['id' => $id ])->first();
-        
-        event(new \App\Events\TaskAction($task, $request_user,'updated_assign'));
-
-        return array('success' => true, 'message' => 'New user assigned.');
-    }
-
-    /**
-     * @param $id
-     * @param Request $request
-     * @return mixed
-     */
-    public function updateTime($id, Request $request)
-    {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
-        $task = Task::findOrFail($id);
-
-        $invoice = $task->invoice;
-
-        if(!$invoice) {
-            $invoice = Invoice::create([
-                'status' => 'draft',
-                'client_id' => $task->client->id
-            ]);
-            $task->invoice_id = $invoice->id;
-            $task->save();
-        } 
-
-        InvoiceLine::create([
-            'title' => $request->title,
-            'comment' => $request->comment,
-            'quantity' => $request->quantity,
-            'type' => $request->type,
-            'price' => $request->price,
-            'invoice_id' => $invoice->id
-        ]);
-
-        event(new \App\Events\TaskAction($task, $request_user,'updated_time'));
-
-        return array('success' => true, 'message' =>  'Time has been updated');
-    }
-
     public function getUserTasks(){
 
-      $tasks = Task::where( ['user_created_id' => Auth::user()->id ])->get();
+      $tasks = Task::where( ['user_created_id' => Auth::user()->id ])
+                      ->where( ['status' => 0 ])
+                      ->orderBy('deadline', 'ASC')->get();
 
       return array('success' => true, 'tasks' => $tasks);
 

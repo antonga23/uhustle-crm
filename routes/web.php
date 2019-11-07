@@ -208,9 +208,6 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::post('/update', 'TaskController@update');
 	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
-  Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
-  Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
-  Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
 });
 
 // Leads Routes
@@ -227,7 +224,9 @@ Route::group(['prefix' => 'leads'], function () {
   Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
   Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
   Route::post('/setcallback', 'LeadController@setCallback');
+  Route::get('/mark-callback-complete/{id}', 'LeadController@markCallBackComplete');
   Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+  Route::get('/get-user-callbacks-today', 'LeadController@getUserCallBacksToday');
   Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
   Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
   Route::get('/get-client-counts', 'LeadController@getClientCount');

@@ -232,7 +232,6 @@ table.listing tr  th{
 </style>
 <template>
   <div>
-<<<<<<< HEAD
     <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
       <div class="col-12 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
@@ -285,26 +284,6 @@ table.listing tr  th{
           </div>
         </div>
       </div> 
-=======
-    <div id="top-section" class="row mb-3 grey-bg-color align-items-center mx-0">
-      <div class="col-auto pl-0">
-        <span class="ml-3">Assignees:</span>
-        <v-select searchable=true :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
-      </div>
-
-      <div class="col-auto">
-        <span class="ml-3">Owners: </span>
-        <v-select  searchable=true :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
-      </div>
-
-      <div class="col-auto align-self-end">
-        <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
-      </div>
-
-      <div class="col-auto align-self-end pr-0">
-        <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
-      </div>
->>>>>>> 14a3886af8fd16c870b1d580f08713438927b0c1
     </div>
     <!-- <div id="top-section" class="row" style="margin-top:2%; display:none;">
       <div class="filter-card"  @click="filterItems(-1)">
