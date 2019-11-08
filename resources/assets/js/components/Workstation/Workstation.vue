@@ -1,9 +1,4 @@
 <style scoped>  
-#workstation .general-section-stats,  
-#workstation .scripts {  
-  height: 100vh;  
-  overflow-y: scroll;  
-}  
 .general-section-stats .agent-stats-1 {  
   padding-top: 69px;  
   padding-left: 5%;  

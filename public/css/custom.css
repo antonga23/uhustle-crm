@@ -134,6 +134,11 @@ body {
 }
 .content-wrapper {
   background: #fff !important;
+  min-height:100px!important;
+}
+.content-wrapper .container-fluid {
+  max-height: 92.95vh;
+  overflow-y: auto;
 }
 
 .close {
@@ -572,13 +577,9 @@ label:not(.form-check-label):not(.custom-file-label) {
     margin-right: 16.718%;
   }
 }
-
-/* .sidebar-menu {
-  overflow-y: auto;
-  height: 100%;
-  overflow-x: hidden;
-} */
-
+.main-sidebar {
+  height:100%;
+}
 .sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
   transition: display 0.3s ease-in-out;
   max-width: 180px;
