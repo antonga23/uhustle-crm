@@ -381182,8 +381182,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : item.meta_value !== null
-                            ? _c(
+                            : _c(
                                 "div",
                                 { staticClass: "row mx-1 border-top-grey" },
                                 [
@@ -381216,7 +381215,6 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : _vm._e()
                         ])
                       : _vm._e()
                   ])

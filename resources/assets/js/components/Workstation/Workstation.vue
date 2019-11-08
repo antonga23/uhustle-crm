@@ -819,7 +819,7 @@ a.down-scroll:hover {
                   <p class="bottom mb-0">{{ item.meta_value }}</p>  
                 </div>  
               </div>  
-              <div class="row mx-1 border-top-grey" v-else-if="item.meta_value !== null">  
+              <div class="row mx-1 border-top-grey" v-else>  
                 <div class="col-4 border-right-grey p12-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
