@@ -510,9 +510,9 @@ table tr td a.Active{
 }  
 table tr td span.actions a{  
     padding: 0px 7px;  
-    width: 30px;  
+    width: 29px;  
     display: block;  
-    height: 30px;  
+    height: 29px;  
     float: left;  
 }  
 table tr td a.View{  
@@ -527,24 +527,24 @@ table tr td a.View:active{
     background-repeat: no-repeat;  
 }  
 table tr td a.Delete{  
-    background-image: url('/images/icons/Delete_No_Drop.svg');  
+    background-image: url('/images/icons/Bin_nodrop.svg');  
     background-size: cover;  
     background-repeat: no-repeat;  
 }  
 table tr td a.Delete:hover,  
 table tr td a.Delete:active{  
-    background-image: url('/images/DataTables/Delete_Icon_Active.svg');  
+    background-image: url('/images/icons/Bin_hover.svg');  
     background-size: cover;  
     background-repeat: no-repeat;  
 }  
 table tr td a.Edit{  
-    background-image: url('/images/icons/Edit_No_Drop3.png');  
+    background-image: url('/images/icons/No_Shadow.svg');  
     background-size: cover;  
     background-repeat: no-repeat;  
 }  
 table tr td a.Edit:hover,  
 table tr td a.Edit:active{  
-    background-image: url('/images/DataTables/Edit_Icon_Active.svg');  
+    background-image: url('/images/icons/_Hover_nodrop.svg');  
     background-size: cover;  
     background-repeat: no-repeat;  
 }  

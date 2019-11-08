@@ -405,7 +405,7 @@ body {
 
 select.form-control, input.form-control {
   border-radius: 10px;
-  padding: 5px !important;
+  padding:  5px 5px 5px 15px !important;
   height: 33px !important;
 }
 
@@ -488,12 +488,21 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 .add-box-shadow .ant-card-head-title {
   font-size: 0.83vw;
+  font-weight: 500;
+  font-family: Montserrat, sans-serif;
 }
 
 .add-box.shadow .ant-card-head div {
   border-bottom: 0;
 }
 
+.add-box-shadow.add-box-shadow.ant-card.ant-card-bordered.ant-card-wider-padding .ant-card-head {
+  border-bottom: 0 !important; 
+  padding: 0;
+}
+.add-box-shadow.add-box-shadow.ant-card.ant-card-bordered.ant-card-wider-padding .ant-card-body {
+  padding: 0 !important;
+}
 
 .ant-calendar {
   border-radius: 25px;
