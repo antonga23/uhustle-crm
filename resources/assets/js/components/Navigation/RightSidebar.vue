@@ -1,6 +1,5 @@
-<!-- 31/10/2019 --> 
-<style scoped>
-  .main-sidebar {
+<style scoped>  
+.main-sidebar {
     right: 0!important;
     left: auto;
     overflow: visible;
@@ -256,7 +255,6 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
     border-radius: 21px;
     width: 100% !important;
-
   }
     
   .settings .row p.description {
@@ -312,7 +310,7 @@
     color: #ffffff;
     border: transparent !important;
     padding: 6px 12px 6px 10px;
-    font-size: 0.6vw;
+    font-size: 0.63vw;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -480,7 +478,7 @@
   .notifications .card-body-notifications h3,
   .notifications .card-body-notifications h3 a, .caller-name {
     color: #333333;
-    font-size: 0.7vw;
+    font-size: 0.73vw;
     /* letter-spacing: 2.2px; */
     font-weight: 600;
   }
@@ -492,7 +490,7 @@
     
   .notifications .card-body-notifications p.call_back_time {
     color: #808080;
-    font-size: 0.7vw;
+    font-size: 0.73vw;
     /* letter-spacing: 2.2px; */
   }
   
@@ -954,1194 +952,1322 @@
     border: 0 !important;
   }
   /*End Right Component*/
-</style>
-<template>
-  <div>
-    <aside class="main-sidebar sidebar-light-primary">
-      <!-- Control sidebar content goes here -->
-      <section class="sidebar p-3">
-        <a href="#" data-toggle="push-menu" class="menu-toggle"></a>
-        <div class="sidebar-menu grey-scroll" data-widget="tree">
-          <div class="open-sidenav mt-3">
-            <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between">
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav col-auto">
-                    <li class="nav-item">
-                        <a class="nav-link icon p-0 mr-2" href="#" @click="showNotifications()">
-                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
-                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
-                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link icon p-0" href="#" @click="showSettings()">
-                            <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
-                            <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="43">
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav col-auto text-right pr-0">
-                    <div class="row mx-0 justify-content-end">
-                        <li class="nav-item name-li col-auto px-0" v-if="user.nickname != null && user.nickname != ''">
-                            <a class="nav-link name" href="#" @click="showSettings()">{{ user.nickname }}</a>
-                        </li>
-
-                        <li class="nav-item name-li col-auto px-0" v-else>
-                            <a class="nav-link name" href="#" @click="showSettings()">{{ user.name }}</a>
-                        </li>
-                        <li class="nav-item col-auto pr-0">
-                            <a class="nav-link icon pt-0 px-0 small-avatar" href="#" @click="showSettings()">
-                                <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-                                <img v-else :src="noImageUrl">
-                            </a>
-                        </li>
-                    </div>
-                </ul>
-            </nav>
-
-            <div v-if="settings_on == true" class="settings p-34">
-                <div class="row mx-0 border-bottom">
-                    <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
-                        <div class="">
-                            <h3 class="d-block mb-0">Profile </h3>
-                        </div>
-                        <div class="col-auto">
-                            <img @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;language_settings_on = false;" v-if="profile_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Profile Edit Off" width="30">
-                            <img @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Profile Edit Off" width="30">
-                        </div>
-                    </div>
-                    <transition-expand>
-                        <div v-if="expanded == true && profile_on == true" class="w-100 personal-info">
-                            <p class="d-block w-100 title" title="Personal Information">Personal Information</p>
-                            <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                                <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }">
-                                    <label class="row justify-space-between align-items-center control-label text-center p-0 w-100 mx-0">
-                                        <div class="col-lg-6 pl-0 text-left">Profile Picture</div>
-                                        <div class="col-lg-6 pr-0">
-                                            <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-                                            <img v-else :src="noImageUrl">
-                                            <button class="btn btn-info" type="button" @click="showUploader">Choose Image</button>
-                                        </div>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Name') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Name</span>
-                                        <input type="text" id="email" name="Name" v-model="user.name" v-validate="'required'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Surname</span>
-                                        <input type="text" id="email" name="Surname" v-model="user.lastname" v-validate="'required'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Prefered Nickname</span>
-                                        <input type="text" id="nickname" name="Nickname" v-model="user.nickname" v-validate="'required'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Nickname')" class="help-block">{{ errors.first('Nickname') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Email') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Email</span>
-                                        <input type="text" id="email" name="Email" v-model="user.email" v-validate="'required|email'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Work Tel') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Work Telephone</span>
-                                        <input type="text" id="work_number" name="Work Tel" v-model="user.work_number" v-validate="'required|numeric|min:10'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Work Telephone')" class="help-block">{{ errors.first('Work Tel') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Cell Number') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Cellphone number</span>
-                                        <input type="text" id="personal_number" name="Cell Number" v-model="user.personal_number" v-validate="'required|numeric|min:10'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100 mb-0' :true, 'has-error': errors.has('Address') }">
-                                    <label class="col-lg-12 control-label w-100 p-0 mb-0"><span class="ml-12">Address</span>
-                                        <textarea id="address" name="Address" v-model="user.address" v-validate="'required'" class="form-control border-0"></textarea>
-                                        <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end">
-                                <div class="col-auto pl-0 pr-2">
-                                    <button type="submit" class="btn btn-default cancel-user w-100 m-0" @click="updateUser('profile')">Cancel</button>
-                                </div>
-                                <div class="col-auto pr-0 pl-2">
-                                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="updateUser('profile')">Update</button>
-                                </div>
-                            </div>
-                        </div>
-                    </transition-expand>
-                </div>
-
-                <div class="row mx-0 border-bottom account-info">
-                    <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
-                        <div class="">
-                            <h3 class="mb-0">Account</h3>
-                        </div>
-                        <div class="col-auto">
-                            <img @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                            <img @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
-                        </div>
-                    </div>
-                    <transition-expand>
-                        <div v-if="expanded == true && account_on == true" class="w-100 mt-3">
-                            <p class="d-block w-100 title" title="Personal Information">Account Information</p>
-                            <div class="row mx-0 border-left mb-4 pb-0 pl-4">
-                                <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }">
-                                    <label class="col-lg-12 control-label w-100 p-0">
-                                        <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Old Password') }">
-                                    <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">Old Password</span>
-                                        <input type="password" id="email" name="Old Password" v-model="user.old_password" v-validate="'required|min:6'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('New Password') }">
-                                    <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">New Password</span>
-                                        <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'required|min:6'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>
-                                    </label>
-                                </div>
-
-                                <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Password Confirm') }">
-                                    <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">Confirm New Password</span>
-                                        <input type="password" id="password_confirm" name="Password Confirm" v-model="user.password_confirmation" v-validate="'required|min:6|confirmed:password'" class="form-control border-0 rounded-pill">
-                                        <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end">
-                                <div class="col-auto pl-0 pr-2">
-                                    <button type="submit" class="btn btn-default cancel-user w-100 m-0" @click="updateUser('account')">Cancel</button>
-                                </div>
-                                <div class="col-auto pr-0 pl-2">
-                                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="updateUser('account')">Update</button>
-                                </div>
-                            </div>
-                        </div>
-                    </transition-expand>
-                </div>
-
-                <div class="row mx-0 preferences border-bottom" v-if="user.role_id == 1">
-                    <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
-                        <div class="">
-                            <h3 class="d-block mb-0">Settings</h3>
-                        </div>
-                        <div class="col-auto">
-                            <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                            <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
-                        </div>
-                    </div>
-                    <transition-expand>
-                        <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
-                            <div class="row mx-0 mb-4 pb-0 pl-4">
-                                <div class="row mx-0">
-                                    <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index">
-                                        <div v-if="setting.setting == 'max_table_rows'">
-                                            <label class="col-lg-12 control-label w-100 p-0">
-                                                Max number of rows for tables
-                                                <select id="auto_dialler" v-model="user_settings.max_table_rows" class="form-control border-0 rounded-pill" v-on:change="applySetting()">
-                                                    <option value="50">50</option>
-                                                    <option value="100">100</option>
-                                                    <option value="150">150</option>
-                                                    <option value="200">200</option>
-                                                    <option value="250">250</option>
-                                                    <option value="300">300</option>
-                                                    <option value="350">350</option>
-                                                    <option value="400">400</option>
-                                                    <option value="450">450</option>
-                                                    <option value="500">500</option>
-                                                    <option value="1000">1000</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </transition-expand>
-                </div>
-
-                <div class="row mx-0 preferences border-bottom" style="display:none;">
-                    <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
-                        <div class="">
-                            <h3 class="d-block mb-0">Themes</h3>
-                        </div>
-                        <div class="col-auto">
-                            <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                            <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
-                        </div>
-                    </div>
-                    <transition-expand>
-                        <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs">
-                            <div class="row mx-0 mb-4 pb-0 pl-4">
-                                <div class="row mx-0" v-if="preferences.length > 0">
-                                    <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes">
-                                        <div v-if="setting.setting == 'theme' && setting.system_setting != 1" class="row mx-0">
-                                            <label class="col-auto control-label p-0">
-                                                <button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" class="m-0 rounded-pill">
-                                                    Orange
-                                                </button>
-                                            </label>
-                                            <label class="col-auto control-label p-0">
-                                                <button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" class="m-0 rounded-pill">
-                                                    Blue
-                                                </button>
-                                            </label>
-                                            <label class="col-auto control-label p-0">
-                                                <button v-on:click="applySetting({type : 'theme', value  : 'dark'})" type="submit" :class="{ 'btn dark-btn': true, 'btn-dark' : (setting.value == 'dark')? true : false , 'btn-default' : (setting.value != 'dark')? true : false  }" class="m-0 rounded-pill">
-                                                    Dark
-                                                </button>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mx-0" v-else>
-                                    <div class="w-100 themes">
-                                        <div class="row mx-0">
-                                            <label class="col-auto control-label py-0 pr-2 pl-0">
-                                                <button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" class="m-0 rounded-pill">
-                                                    Orange
-                                                </button>
-                                            </label>
-                                            <label class="col-auto control-label py-0 px-2">
-                                                <button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-default' : true }" class="m-0 rounded-pill">
-                                                    Blue
-                                                </button>
-                                            </label>
-                                            <label class="col-auto control-label py-0 pr-0 pl-2">
-                                                <button v-on:click="applySetting({type : 'theme', value  : 'dark'})" type="submit" :class="{ 'btn dark-btn': true, 'btn-default' :  true }" class="m-0 rounded-pill">
-                                                    Dark
-                                                </button>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </transition-expand>
-                </div>
-                
-                <div class="row mx-0 language border-bottom" style="display:none;">
-                    <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
-                        <div class="">
-                            <h3 class="d-block mb-0">Language</h3>
-                        </div>
-                        <div class="col-auto">
-                            <img @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30">
-                            <img @click="expanded = false;language_settings_on = false;account_on = false;profile_on = false;system_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30">
-                        </div>
-                    </div>
-                    <transition-expand>
-                        <div v-if="expanded == true && language_settings_on == true" class="w-100 general-system-prefs">
-                            <div v-if="preferences.length > 0">
-                                <div v-for="(setting, index) in preferences" :key="index" class="w-100 language">
-                                    <div v-if="setting.setting == 'language' && setting.system_setting != 1" class="row mx-0">
-                                        <label class="col-auto control-label p-0">
-                                            <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" class="m-0">English</button>
-                                        </label>
-                                        <label class="col-auto control-label p-0">
-                                            <button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" class="m-0">Spanish</button>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mx-0">
-                                <label class="col-auto control-label py-0 pl-0 pr-2 language">
-                                    <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="m-0">English</button>
-                                </label>
-                                <label class="col-auto control-label py-0 pr-0 pl-2">
-                                    <button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" class="m-0">
-                                        Spanish
-                                    </button>
-                                </label>
-                            </div>
-                        </div>
-                    </transition-expand>
-                </div>
-
-                <div class="row logout-wrapper" v-if="profile_on == false">
-                    <a href="/logout" id="logout" class="w-100 d-block"></a>
-                    <h3 class="d-block w-100 text-center">
-                      Logout 
-                    </h3>
-                </div>
-            </div>
-
-            <div v-if="notifications_on == true" class="notifications p-2">
-                <div class="row mx-0">
-                    <h3 class="w-100 mb-2">
-                    Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg"></span>
-                    </h3>
-
-                    <div class="w-100 mt-0">
-                        <label class="col-lg-3 mt-0 control-label w-100 p-0">
-                            <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button>
-                          <div class="btn-has-new-dot"></div>
-                        </label>
-                        <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0">
-                            <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button>
-                          <div class="btn-has-new-dot"></div>
-                        </label>
-                    </div>
-                </div>
-                <hr>
-                <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
-                    <div v-if="call_backs.length > 0">
-                        <div class="card w-100 notification-popup" v-for="call_back in call_backs" :key="call_back.id">
-                            <div class="card-body-notifications">
-                            
-                                <h3 class="d-block d-block w-100">
-                                  <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-                                </h3>
-                                <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div v-else>
-                        <div class="notification-popup">
-                            <div class="card-body-notifications">
-                                <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                      <div class="col-12 notification-popup w-100">
-                        <div class="row card-body-notifications">
-                            <div class="col-auto pl-1 btn-has-new-messages">  
-                            </div>
-                            <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
-                            <div class="col-auto p-0">
-                                <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p>
-                                <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
-                            </div>
-                        </div>
-                      </div>
-                      <div class="col-12 notification-popup w-100">
-                        <div class="row card-body-notifications">
-                            <div class="col-auto pl-1 btn-has-new-messages">
-                            </div>
-                            <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div>
-                            <div class="col-auto p-0">
-                                <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p>
-                                <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-            </div>
-
-            <div v-if="notifications_on == false && settings_on == false">
-              <div class="row p-0 stats-section">
-                  <div class="col-lg-12 p-34">
-                      <div class="row p-0">
-                          <div class="col-lg-12">
-                              <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p>
-                              <div class="progress-bar w-100">
-                                  <span class="tank" :style="{width: + 65 + '%'}"></span>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="row commission">
-                          <div class="col-lg-6">
-                              <p class="description">Commission</p>
-                              <p><span class="value">$1523</span></p>
-                          </div>
-
-                          <div class="col-lg-6 text-right">
-                              <p class="description">Con. Ratio</p>
-                              <p><span class="value">40%</span></p>
-                          </div>
-                      </div>
-
-                      <div class="row calls">
-                          <div class="col-lg-12">
-                              <p class="description">Calls</p>
-                          </div>
-
-                          <div class="col-lg-6">
-                              <p class="description">Leads</p>
-                              <p><span class="value">125</span></p>
-                          </div>
-
-                          <div class="col-lg-6 text-right">
-                              <p class="description">Called</p>
-                              <p><span class="value">25</span></p>
-                          </div>
-                      </div>
-
-                      <div class="row sales">
-                          <div class="col-lg-12">
-                              <p class="description">Sales</p>
-                          </div>
-                          <div class="col-lg-6">
-                              <p class="description">Quantity</p>
-                              <p><span class="value">54</span></p>
-                          </div>
-                          <div class="col-lg-6 text-right">
-                              <p class="description">Value</p>
-                              <p><span class="value">$2725</span></p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row cal-height">
-                <div class="col-lg-12 final-modal border-0">
-                  <div class="card left mt-3 p-34 tab-card border-0 shadow-none">
-                    <div class="card-header tab-card-header p-0">
-                        <span class="nav-link active border-0 pl-0" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true">
-                          <span class="left">Calendar</span>
-                        </span>
-                        <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist">
-                          <li class="nav-item left w-50">
-                            <a 
-                              class="nav-link active border-0" 
-                              id="calendar-tab" 
-                              data-toggle="tab" 
-                              href="#calendar" 
-                              role="tab" 
-                              aria-controls="Calendar" 
-                              aria-selected="true"
-                            >
-                              <span class="left description">Calendar</span>
-                            </a>
-                          </li>
-
-                          <li class="nav-item right w-50">
-                            <a 
-                              class="nav-link" 
-                              id="search-panel-tab" 
-                              data-toggle="tab" 
-                              href="#search-panel" 
-                              role="tab" 
-                              aria-controls="Search" 
-                              aria-selected="false"
-                            >
-                              <span class="left description">Search</span>
-                            </a>
-                          </li>
-                        </ul> -->
-                    </div>
-
-                    <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">
-                          <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />
-                      </div>
-
-                      <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="row search-input">
-                                <div class="col-lg-12">
-                                    <div :class="{'input search': true, 'form-group' :true }">
-                                        <input v-on:keyup="fireSearchEvent('Search')" placeholder="Search:" type="search" id="search" ref="search" name="Search" v-model="filter.search" class="form-control border-0">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row filter-search">
-                                <div class="col-lg-12">
-                                    <p class="heading">Filter Search</p>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div :class="{'input': true, 'form-group' :true }">
-                                        <button v-on:click="fireTableEvent('Print')" type="submit" class="btn btn-default m-0 print-btn">Print</button>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div :class="{'input': true, 'form-group' :true }">
-                                        <button v-on:click="fireTableEvent('Export')" type="submit" class="btn btn-default m-0 export-btn">Export</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row filter-by">
-                              <div class="col-lg-12">
-                                  <table class="tg">
-                                      <tr>
-                                          <td class="tg-0las">
-                                              <p class="heading">Filter By</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                          </td>
-                                      </tr>
-
-                                      <tr>
-                                          <td class="tg-0lax">
-                                              <p class="heading">Owner</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                              <select v-on:change="filterData()" type="text" id="role" name="Owner" v-model="filter.user_created_id" class="form-control border-0">
-                                                  <option value="">All </option>
-                                                  <option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                              </select>
-                                          </td>
-                                      </tr>
-
-                                      <tr>
-                                          <td class="tg-0lax">
-                                              <p class="heading">Assigned To</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                              <select v-on:change="filterData()" type="text" id="Assignee" name="Assignee" v-model="filter.user_assigned" class="form-control border-0">
-                                                  <option value="">All</option>
-                                                  <option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option>
-                                              </select>
-                                          </td>
-                                      </tr>
-
-                                      <tr>
-                                          <td class="tg-0lax">
-                                              <p class="heading">Lead Source</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                              <select type="text" v-on:change="filterData()" id="Source" name="Source" v-model="filter.source" class="form-control border-0">
-                                                  <option value="">All</option>
-                                                  <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
-                                              </select>
-                                          </td>
-                                      </tr>
-
-                                      <tr>
-                                          <td class="tg-0lax">
-                                              <p class="heading">Package</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                              <select type="text" v-on:change="filterData()" id="package" name="Package" v-model="filter.product_id" class="form-control border-0">
-                                                  <option value="">All</option>
-                                                  <option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-                                              </select>
-                                          </td>
-                                      </tr>
-
-                                      <tr>
-                                          <td class="tg-0lax">
-                                              <p class="heading">Status</p>
-                                          </td>
-                                          <td class="tg-1lax">
-                                              <select type="text" v-on:change="filterData()" id="role" name="Status" v-model="filter.status" class="form-control border-0">
-                                                  <option value="">All</option>
-                                                  <option value="1">Active</option>
-                                                  <option value="2">Inactive</option>
-                                                  <option value="0">Canceled</option>
-                                              </select>
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </div>
-
-                              <div class="col-lg-12 action-btns">
-                                  <div :class="{'input': true, 'form-group' :true }">
-                                      <label class="col-lg-3 control-label">
-                                          <button v-on:click="filterData()" type="submit" class="btn btn-default w-100 m-0">Apply</button>
-                                      </label>
-                                      <label class="col-lg-3 control-label">
-                                          <button v-on:click="clearFilter();" type="submit" class="btn btn-default w-100 m-0">Clear</button>
-                                      </label>
-                                      <div>
-                                          <table class="tg">
-                                              <tr>
-                                                  <td class="tg-0lax">
-                                                      <p class="heading">Save Search:</p>
-                                                  </td>
-                                                  <td class="tg-1lax">
-                                                      <input type="title" id="title" placeholder="Filter Title" ref="title" name="Filter Title" v-model="filter.title" v-validate="'required'" class="form-control border-0">
-                                                      <span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span>
-                                                  </td>
-                                                  <td>
-                                                      <button v-on:click="saveFilter" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" class="w-100 m-0">Save</button>
-                                                  </td>
-                                              </tr>
-                                          </table>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row p-34">
-                <div class="col-lg-12 final-modal border-0">
-                  <div class="row mx-0 mb-4 reminders">
-                    <b-tabs content-class="mt-3" class="outer-box-shadow">
-                      <b-tab title="Callbacks" active>
-                        <ul class="pl-0">
-                          <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                            <div class="col-12">
-                              <div class="row">
-                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                  <input class="custom-control-input" id="callback1" type="checkbox">
-                                  <label class="pl-34 custom-control-label" for="callback1">
-                                    Callback Steven
-                                  </label>
-                                </div>
-                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">18 Jul</span></div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                            <div class="col-12">
-                              <div class="row">
-                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                  <input class="custom-control-input" id="callback2" type="checkbox">
-                                  <label class="pl-34 custom-control-label" for="callback2">
-                                    Callback Justine
-                                  </label>
-                                </div>
-                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle blue">&#11044;</span><span class="tasks-date">3 Aug</span></div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </b-tab>
-                      <b-tab title="Reminders">
-                        <ul class="pl-0">
-                          <!--When adding a new task, the whole li tag should be added and change input ids -->
-                          <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                            <div class="col-12">
-                              <div class="row">
-                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                  <input class="custom-control-input" id="task1" type="checkbox">
-                                  <label class="terms-text custom-control-label" for="task1">
-                                    <input type="text" value="1. To Do List" class="border-0 list-input">
-                                  </label>
-                                </div>
-                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">18 Jul</span></div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox">
-                            <div class="col-12">
-                              <div class="row">
-                                <div class="col-8 pl-0 custom-control custom-checkbox">
-                                  <input class="custom-control-input" id="task2" type="checkbox">
-                                  <label class="terms-text custom-control-label" for="task2">
-                                    <input type="text" value="2. To Do List" class="border-0 list-input">
-                                  </label>
-                                </div>
-                                <div class="col-4 task-date-div inner-box-shadow"><span class="tasks-circle orange">&#11044;</span><span class="tasks-date">23 Jul</span></div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </b-tab>
-                      <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task">
-                    </b-tabs>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="closed-sidenav pr-3 d-none">
-            <div class="row mx-0 align-items-center border-bottom justify-content-between pb-2">
-              <div class="col pl-0">
-                <div class="row">
-                  <div class="nav-item col-auto px-0">
-                    <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showNotifications()">
-                      <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43">
-                      <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon">
-                      <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon">
-                    </a>
-                  </div>
-
-                  <div class="nav-item col-auto px-0">
-                    <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showSettings()">
-                      <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon">
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="nav-item col-auto pr-0">
-                <a class="nav-link icon p-0 small-avatar" href="#" @click="showSettings()">
-                  <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar">
-                  <img v-else :src="noImageUrl">
-                </a>
-              </div>
-            </div>
-
-            <p class="filter-heading mt-2 mb-3">Filter</p>
-            <div class="row filter-content">
-              <b-tabs content-class="mt-3">
-                <b-tab title="New">
-                  <div class="filter-container grey-scroll">
-                    <div class="filter-group">
-                      <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
-                        <input :disabled="filterValue === ''" :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1">
-                        <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
-                      </div>
-                      <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show:showFilters }">
-                        <select class="search-criteria w-100 mb-2">
-                          <option selected>is equal to</option>
-                          <option value="1">contains</option>
-                          <option value="2">does not contain</option>
-                          <option value="3">begins with</option>
-                          <option value="3">ends with</option>
-                        </select>
-                        <input class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="filterValue" value="">
-                      </div>
-                    </div>
-                    <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:filterValue != '' }" style="display:none;">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input mx-0" id="result1">
-                        <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
-                      </div>
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input mx-0" id="result2">
-                        <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row mx-2 mt-4 position-bottom justify-content-end">
-                    <div class="col-7 pl-0 pr-2">
-                      <input class="save-text w-100" type="text" placeholder="Custom Filter Name" value="">
-                    </div>
-                    <div class="col-5 pr-0 pl-2">
-                      <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0">Save</button>
-                    </div>
-                  </div>
-                </b-tab>
-                <b-tab title="Saved" active>
-                  <div class="saved-group filter-container grey-scroll">
-                    <div @click="savedFilters()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox">
-                      <input type="checkbox" :disabled="appendBorder === false" :checked="appendBorder !== false " class="custom-control-input mx-0" id="savedFilter1">
-                      <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Saved</label>
-                    </div>
-                    <div class="pl-34" style="display:none;" :class="{ show:showSavedFilters }">
-                      <div class="saved-results p-2"><span class="orange pr-2">⬤</span>Name</div>
-                      <div class="col-auto pr-0 pl-2 float-right">
-                        <button type="submit" class="btn btn-primary update-filter mt-2 rounded-pill mr-4">Edit</button>
-                      </div>
-                    </div>
-                  </div>
-                </b-tab>
-              </b-tabs>
-            </div>
-          </div>
-        </div>
-      </section>
-    </aside>
-  </div>
-</template>
-
-<script>
-    import {
-        setupCalendar, Calendar
-    }
-    from 'v-calendar'
-    import TransitionHeight from '../Plugins/TransitionExpand.vue';
-    import VueCircle from 'vue2-circle-progress'
-    export default {
-        props: ['auth_user', 'active'],
-        components: {
-            'transition-expand': TransitionHeight,
-            VueCircle
-        },
-        data: function() {
-            return {
-                user: {
-                    notifications: 1,
-                },
-                status: 'active',
-                notifications_on: false,
-                settings_on: false,
-                language_settings_on: false,
-                system_settings_on: false,
-                profile_on: false,
-                account_on: false,
-                callbacks_on: true,
-                messages_on: false,
-                call_backs: [],
-                messages: [],
-                unread_messages: 1,
-                expanded: false,
-                show_filter: false,
-                show_filter_save: false,
-                show: false,
-                lead_owners: [],
-                assignees: [],
-                sources: [],
-                packages: [],
-                filters: [],
-                preferences: [],
-                roles: [],
-                attrs: [{
-                    key: 'today',
-                    highlight: true,
-                    class: 'today_date',
-                    dates: new Date(),
-                }],
-                filter: {
-                    title: '',
-                    search: '',
-                    user_created_id: '',
-                    user_assigned: '',
-                    source: '',
-                    product_id: '',
-                    status: '',
-                },
-                user_settings: {
-                    id: '',
-                    theme: 'orange',
-                    language: 'english',
-                    max_table_rows: 50
-                },
-                avatarUrl: '/images/avatars/',
-                noImageUrl: '/images/icons/user_icon@4x.png',
-                fill: {
-                    gradient: ["#a1ed1c", "#62d37e"]
-                },
-                p: 65,
-
-                appendBorder: false,
-                showSavedFilters: false,
-                showFilters: false,
-                filterValue: ''
-
-            }
-        },
-
-        mounted() {
-            var vm = this;
-
-            this.user = JSON.parse(this.auth_user);
-
-            vm.getUserCallBacks();
-
-            Fire.$on('AfterCallBackSet', function() {
-                vm.getUserCallBacks();
-            });
-
-            Fire.$on('AvatarUploadComplete', function() {
-                axios.get('/get-current-user').then(function(response) {
-                    vm.user = response.data.user;
+</style> 
+<template> 
+    <div> 
+        <aside class="main-sidebar sidebar-light-primary"> 
+            <!-- Control sidebar content goes here --> 
+            <section class="sidebar p-3"> 
+                <a href="#" data-toggle="push-menu" class="menu-toggle"> 
+                </a> 
+                <div class="sidebar-menu grey-scroll" data-widget="tree"> 
+                    <div class="open-sidenav mt-3"> 
+                        <nav class="navbar navbar-expand-md navbar-light bg-white m-0 p-0 w-100 row justify-content-between"> 
+                            <!-- Right Side Of Navbar --> 
+                            <ul class="navbar-nav col-auto"> 
+                                <li class="nav-item"> 
+                                    <a class="nav-link icon p-0 mr-2" href="#" @click="showNotifications()"> 
+                                        <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43"> 
+                                        <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon"> 
+                                        <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon"> 
+                                    </a> 
+                                </li> 
+ 
+                                <li class="nav-item"> 
+                                    <a class="nav-link icon p-0" href="#" @click="showSettings()"> 
+                                        <img v-if="settings_on == false" src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon"> 
+                                        <img v-else src="/images/icons/right-sidebar/Settings_Active.svg" alt="Settings Cog" width="43"> 
+                                    </a> 
+                                </li> 
+                            </ul> 
+ 
+                            <ul class="navbar-nav col-auto text-right pr-0"> 
+                                <div class="row mx-0 justify-content-end"> 
+                                    <li class="nav-item name-li col-auto px-0" v-if="user.nickname != null && user.nickname != ''"> 
+                                        <a class="nav-link name" href="#" @click="showSettings()">{{ user.nickname }}</a> 
+                                    </li> 
+ 
+                                    <li class="nav-item name-li col-auto px-0" v-else> 
+                                        <a class="nav-link name" href="#" @click="showSettings()">{{ user.name }}</a> 
+                                    </li> 
+                                    <li class="nav-item col-auto pr-0"> 
+                                        <a class="nav-link icon pt-0 px-0 small-avatar" href="#" @click="showSettings()"> 
+                                            <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar"> 
+                                            <img v-else :src="noImageUrl"> 
+                                        </a> 
+                                    </li> 
+                                </div> 
+                            </ul> 
+                        </nav> 
+ 
+                        <div v-if="settings_on == true" class="settings p-34"> 
+                            <div class="row mx-0 border-bottom"> 
+                                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"> 
+                                    <div class=""> 
+                                        <h3 class="d-block mb-0">Profile </h3> 
+                                    </div> 
+                                    <div class="col-auto"> 
+                                        <img @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;language_settings_on = false;" v-if="profile_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Profile Edit Off" width="30"> 
+                                        <img @click="expanded = false;profile_on = false;account_on = false;system_settings_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Profile Edit Off" width="30"> 
+                                    </div> 
+                                </div> 
+                                <transition-expand> 
+                                    <div v-if="expanded == true && profile_on == true" class="w-100 personal-info"> 
+                                        <p class="d-block w-100 title" title="Personal Information">Personal Information</p> 
+                                        <div class="row mx-0 border-left mb-4 pb-0 pl-4"> 
+                                            <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Address') }"> 
+                                                <label class="row justify-space-between align-items-center control-label text-center p-0 w-100 mx-0"> 
+                                                    <div class="col-lg-6 pl-0 text-left">Profile Picture</div> 
+                                                    <div class="col-lg-6 pr-0"> 
+                                                        <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar"> 
+                                                        <img v-else :src="noImageUrl"> 
+                                                        <button class="btn btn-info" type="button" @click="showUploader">Choose Image</button> 
+                                                    </div> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Name') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Name</span> 
+                                                    <input type="text" id="email" name="Name" v-model="user.name" v-validate="'required'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Surname</span> 
+                                                    <input type="text" id="email" name="Surname" v-model="user.lastname" v-validate="'required'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Surname') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Prefered Nickname</span> 
+                                                    <input type="text" id="nickname" name="Nickname" v-model="user.nickname" v-validate="'required'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Nickname')" class="help-block">{{ errors.first('Nickname') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Email') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Email</span> 
+                                                    <input type="text" id="email" name="Email" v-model="user.email" v-validate="'required|email'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Work Tel') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Work Telephone</span> 
+                                                    <input type="text" id="work_number" name="Work Tel" v-model="user.work_number" v-validate="'required|numeric|min:10'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Work Telephone')" class="help-block">{{ errors.first('Work Tel') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Cell Number') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-2"><span class="ml-12">Cellphone number</span> 
+                                                    <input type="text" id="personal_number" name="Cell Number" v-model="user.personal_number" v-validate="'required|numeric|min:10'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100 mb-0' :true, 'has-error': errors.has('Address') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0 mb-0"><span class="ml-12">Address</span> 
+                                                    <textarea id="address" name="Address" v-model="user.address" v-validate="'required'" class="form-control border-0"></textarea> 
+                                                    <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span> 
+                                                </label> 
+                                            </div> 
+                                        </div> 
+ 
+                                        <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end"> 
+                                            <div class="col-auto pl-0 pr-2"> 
+                                                <button type="submit" class="btn btn-default cancel-user w-100 m-0" @click="updateUser('profile')">Cancel</button> 
+                                            </div> 
+                                            <div class="col-auto pr-0 pl-2"> 
+                                                <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="updateUser('profile')">Update</button> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </transition-expand> 
+                            </div> 
+ 
+                            <div class="row mx-0 border-bottom account-info"> 
+                                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"> 
+                                    <div class=""> 
+                                        <h3 class="mb-0">Account</h3> 
+                                    </div> 
+                                    <div class="col-auto"> 
+                                        <img @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;" v-if="account_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30"> 
+                                        <img @click="expanded = false;account_on = false;profile_on = false;system_settings_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30"> 
+                                    </div> 
+                                </div> 
+                                <transition-expand> 
+                                    <div v-if="expanded == true && account_on == true" class="w-100 mt-3"> 
+                                        <p class="d-block w-100 title" title="Personal Information">Account Information</p> 
+                                        <div class="row mx-0 border-left mb-4 pb-0 pl-4"> 
+                                            <div class="notifications-checkbox" :class="{'input': true, 'form-group w-100' :true }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0"> 
+                                                    <b-form-checkbox id="checkbox-1" v-model="user.notifications" name="checkbox-1" value="1" unchecked-value="0" @change="updateNotifications">Notifications</b-form-checkbox> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Old Password') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">Old Password</span> 
+                                                    <input type="password" id="email" name="Old Password" v-model="user.old_password" v-validate="'required|min:6'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('New Password') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">New Password</span> 
+                                                    <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'required|min:6'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span> 
+                                                </label> 
+                                            </div> 
+ 
+                                            <div :class="{'input': true, 'form-group w-100' :true, 'has-error': errors.has('Password Confirm') }"> 
+                                                <label class="col-lg-12 control-label w-100 p-0"><span class="ml-12">Confirm New Password</span> 
+                                                    <input type="password" id="password_confirm" name="Password Confirm" v-model="user.password_confirmation" v-validate="'required|min:6|confirmed:password'" class="form-control border-0 rounded-pill"> 
+                                                    <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span> 
+                                                </label> 
+                                            </div> 
+                                        </div> 
+ 
+                                        <div :class="{'input': true, 'form-group' :true }" class="row mx-0 pl-4 justify-content-end"> 
+                                            <div class="col-auto pl-0 pr-2"> 
+                                                <button type="submit" class="btn btn-default cancel-user w-100 m-0" @click="updateUser('account')">Cancel</button> 
+                                            </div> 
+                                            <div class="col-auto pr-0 pl-2"> 
+                                                <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="updateUser('account')">Update</button> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </transition-expand> 
+                            </div> 
+ 
+                            <div class="row mx-0 preferences border-bottom" v-if="user.role_id == 1"> 
+                                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"> 
+                                    <div class=""> 
+                                        <h3 class="d-block mb-0">Settings</h3> 
+                                    </div> 
+                                    <div class="col-auto"> 
+                                        <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30"> 
+                                        <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30"> 
+                                    </div> 
+                                </div> 
+                                <transition-expand> 
+                                    <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs"> 
+                                        <div class="row mx-0 mb-4 pb-0 pl-4"> 
+                                            <div class="row mx-0"> 
+                                                <div :class="{'input': true, 'form-group' :true }" v-for="(setting, index) in preferences" :key="index"> 
+                                                    <div v-if="setting.setting == 'max_table_rows'"> 
+                                                        <label class="col-lg-12 control-label w-100 p-0"> 
+                                                            Max number of rows for tables 
+                                                            <select id="auto_dialler" v-model="user_settings.max_table_rows" class="form-control border-0 rounded-pill" v-on:change="applySetting()"> 
+                                                                <option value="50">50</option> 
+                                                                <option value="100">100</option> 
+                                                                <option value="150">150</option> 
+                                                                <option value="200">200</option> 
+                                                                <option value="250">250</option> 
+                                                                <option value="300">300</option> 
+                                                                <option value="350">350</option> 
+                                                                <option value="400">400</option> 
+                                                                <option value="450">450</option> 
+                                                                <option value="500">500</option> 
+                                                                <option value="1000">1000</option> 
+                                                            </select> 
+                                                        </label> 
+                                                    </div> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </transition-expand> 
+                            </div> 
+ 
+                            <div class="row mx-0 preferences border-bottom" style="display:none;"> 
+                                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"> 
+                                    <div class=""> 
+                                        <h3 class="d-block mb-0">Themes</h3> 
+                                    </div> 
+                                    <div class="col-auto"> 
+                                        <img @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30"> 
+                                        <img @click="expanded = false;system_settings_on = false;account_on = false;profile_on = false;language_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30"> 
+                                    </div> 
+                                </div> 
+                                <transition-expand> 
+                                    <div v-if="expanded == true && system_settings_on == true" class="w-100 general-system-prefs"> 
+                                        <div class="row mx-0 mb-4 pb-0 pl-4"> 
+                                            <div class="row mx-0" v-if="preferences.length > 0"> 
+                                                <div v-for="(setting, index) in preferences" :key="index" class="w-100 themes"> 
+                                                    <div v-if="setting.setting == 'theme' && setting.system_setting != 1" class="row mx-0"> 
+                                                        <label class="col-auto control-label p-0"> 
+                                                            <button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' : (setting.value == 'orange')? true : false , 'btn-default' : (setting.value != 'orange')? true : false  }" class="m-0 rounded-pill"> 
+                                                                Orange 
+                                                            </button> 
+                                                        </label> 
+                                                        <label class="col-auto control-label p-0"> 
+                                                            <button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-blue' : (setting.value == 'blue')? true : false , 'btn-default' : (setting.value != 'blue')? true : false  }" class="m-0 rounded-pill"> 
+                                                                Blue 
+                                                            </button> 
+                                                        </label> 
+                                                        <label class="col-auto control-label p-0"> 
+                                                            <button v-on:click="applySetting({type : 'theme', value  : 'dark'})" type="submit" :class="{ 'btn dark-btn': true, 'btn-dark' : (setting.value == 'dark')? true : false , 'btn-default' : (setting.value != 'dark')? true : false  }" class="m-0 rounded-pill"> 
+                                                                Dark 
+                                                            </button> 
+                                                        </label> 
+                                                    </div> 
+                                                </div> 
+                                            </div> 
+ 
+                                            <div class="row mx-0" v-else> 
+                                                <div class="w-100 themes"> 
+                                                    <div class="row mx-0"> 
+                                                        <label class="col-auto control-label py-0 pr-2 pl-0"> 
+                                                            <button v-on:click="applySetting({ type : 'theme', value : 'orange'})" type="submit" :class="{ 'btn orange-btn': true, 'btn-orange' :true  }" class="m-0 rounded-pill"> 
+                                                                Orange 
+                                                            </button> 
+                                                        </label> 
+                                                        <label class="col-auto control-label py-0 px-2"> 
+                                                            <button v-on:click="applySetting({type : 'theme', value  : 'blue'})" type="submit" :class="{ 'btn blue-btn': true, 'btn-default' : true }" class="m-0 rounded-pill"> 
+                                                                Blue 
+                                                            </button> 
+                                                        </label> 
+                                                        <label class="col-auto control-label py-0 pr-0 pl-2"> 
+                                                            <button v-on:click="applySetting({type : 'theme', value  : 'dark'})" type="submit" :class="{ 'btn dark-btn': true, 'btn-default' :  true }" class="m-0 rounded-pill"> 
+                                                                Dark 
+                                                            </button> 
+                                                        </label> 
+                                                    </div> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </transition-expand> 
+                            </div> 
+                             
+                            <div class="row mx-0 language border-bottom" style="display:none;"> 
+                                <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"> 
+                                    <div class=""> 
+                                        <h3 class="d-block mb-0">Language</h3> 
+                                    </div> 
+                                    <div class="col-auto"> 
+                                        <img @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;" v-if="system_settings_on == false" src="/images/icons/settings edit buttin@4x.png" alt="Account Edit Off" width="30"> 
+                                        <img @click="expanded = false;language_settings_on = false;account_on = false;profile_on = false;system_settings_on = false;" v-else src="/images/icons/right-sidebar/Close Edit Icon.svg" alt="Account Edit Off" width="30"> 
+                                    </div> 
+                                </div> 
+                                <transition-expand> 
+                                    <div v-if="expanded == true && language_settings_on == true" class="w-100 general-system-prefs"> 
+                                        <div v-if="preferences.length > 0"> 
+                                            <div v-for="(setting, index) in preferences" :key="index" class="w-100 language"> 
+                                                <div v-if="setting.setting == 'language' && setting.system_setting != 1" class="row mx-0"> 
+                                                    <label class="col-auto control-label p-0"> 
+                                                        <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'english')? true : false, 'btn-default' : (setting.value != 'english')? true : false }" class="m-0">English</button> 
+                                                    </label> 
+                                                    <label class="col-auto control-label p-0"> 
+                                                        <button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  (setting.value == 'spanish')? true : false, 'btn-default' : (setting.value != 'spanish')? true : false }" class="m-0">Spanish</button> 
+                                                    </label> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+ 
+                                        <div class="row mx-0"> 
+                                            <label class="col-auto control-label py-0 pl-0 pr-2 language"> 
+                                                <button v-on:click="applySetting({type : 'language', value : 'english'})" type="submit" :class="{ 'btn' : true, 'btn-active' :  true }" class="m-0">English</button> 
+                                            </label> 
+                                            <label class="col-auto control-label py-0 pr-0 pl-2"> 
+                                                <button v-on:click="applySetting({type : 'language', value :'spanish'})" type="submit" :class="{ 'btn' : true, 'btn-active' : false , 'btn-default' : true }" class="m-0"> 
+                                                    Spanish 
+                                                </button> 
+                                            </label> 
+                                        </div> 
+                                    </div> 
+                                </transition-expand> 
+                            </div> 
+ 
+                            <div class="row logout-wrapper" v-if="profile_on == false"> 
+                                <a href="/logout" id="logout" class="w-100 d-block"></a> 
+                                <h3 class="d-block w-100 text-center"> 
+                                  Logout  
+                                </h3> 
+                            </div> 
+                        </div> 
+ 
+                        <div v-if="notifications_on == true" class="notifications p-2"> 
+                            <div class="row mx-0"> 
+                                <h3 class="w-100 mb-2"> 
+                                  Notifications <span class="notifications-close"><img src="/images/icons/close-icon.svg" style="display:none;"></span> 
+                                </h3> 
+             
+                                <div class="w-100 mt-0"> 
+                                    <label class="col-lg-3 mt-0 control-label w-100 p-0"> 
+                                        <button @click="showCallbacks" type="submit" :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }" class="w-100 m-0 btn-white">Callbacks</button> 
+                                     <div class="btn-has-new-dot"></div> 
+                                    </label> 
+                                    <label @click="showMessages" class="col-lg-3 mt-0 control-label w-100 p-0"  style="display:none;"> 
+                                        <button type="submit" :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }" class="w-100 m-0 btn-white">Messages</button> 
+                                        <div class="btn-has-new-dot"></div> 
+                                    </label> 
+                                </div> 
+                            </div> 
+                            <hr> 
+                             <!-- Continue here --> 
+                            <div v-if="callbacks_on == true && messages_on == false" class="row mx-0"> 
+                                <div v-if="call_backs.length > 0"> 
+                                    <div class="card w-100 notification-popup" v-for="(call_back, i) in call_backs" :key="i"> 
+                                        <div class="card-body-notifications"> 
+     
+                                            <h3 class="d-block d-block w-100"> 
+                                              <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a> 
+                                            </h3> 
+                                            <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+ 
+                                <div v-else> 
+                                    <div class="notification-popup"> 
+                                        <div class="card-body-notifications"> 
+                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div> 
+ 
+                            <div v-if="callbacks_on == false && messages_on == true" class="row mx-0"> 
+                                  <div class="col-12 notification-popup w-100"> 
+                                    <div class="row card-body-notifications"> 
+                                        <div class="col-auto pl-1 btn-has-new-messages">   
+                                        </div> 
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                                        <div class="col-auto p-0"> 
+                                            <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p> 
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
+                                        </div> 
+                                    </div> 
+                                  </div> 
+                                  <div class="col-12 notification-popup w-100"> 
+                                    <div class="row card-body-notifications"> 
+                                        <div class="col-auto pl-1 btn-has-new-messages"> 
+                                        </div> 
+                                        <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                                        <div class="col-auto p-0"> 
+                                            <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p> 
+                                            <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
+                                        </div> 
+                                    </div> 
+                                  </div> 
+                            </div> 
+                        </div> 
+ 
+                        <div v-if="notifications_on == false && settings_on == false"> 
+                            <div class="row p-0 stats-section"> 
+                                <div class="col-lg-12 p-34"> 
+                                    <div class="row p-0"> 
+                                        <div class="col-lg-12"> 
+                                            <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p> 
+                                            <div class="progress-bar w-100"> 
+                                                <span class="tank" :style="{width: + 65 + '%'}"></span> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+ 
+                                    <div class="row commission"> 
+                                        <div class="col-lg-6"> 
+                                            <p class="description">Commission</p> 
+                                            <p><span class="value">$1523</span></p> 
+                                        </div> 
+ 
+                                        <div class="col-lg-6 text-right"> 
+                                            <p class="description">Con. Ratio</p> 
+                                            <p><span class="value">40%</span></p> 
+                                        </div> 
+                                    </div> 
+ 
+                                    <div class="row calls"> 
+                                        <div class="col-lg-12"> 
+                                            <p class="description">Calls</p> 
+                                        </div> 
+ 
+                                        <div class="col-lg-6"> 
+                                            <p class="description">Leads</p> 
+                                            <p><span class="value">125</span></p> 
+                                        </div> 
+ 
+                                        <div class="col-lg-6 text-right"> 
+                                            <p class="description">Called</p> 
+                                            <p><span class="value">25</span></p> 
+                                        </div> 
+                                    </div> 
+ 
+                                    <div class="row sales"> 
+                                        <div class="col-lg-12"> 
+                                            <p class="description">Sales</p> 
+                                        </div> 
+                                        <div class="col-lg-6"> 
+                                            <p class="description">Quantity</p> 
+                                            <p><span class="value">54</span></p> 
+                                        </div> 
+                                        <div class="col-lg-6 text-right"> 
+                                            <p class="description">Value</p> 
+                                            <p><span class="value">$2725</span></p> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div> 
+ 
+                            <div class="row cal-height"> 
+                                <div class="col-lg-12 final-modal border-0"> 
+                                    <div class="card left mt-3 p-34 tab-card border-0 shadow-none"> 
+                                        <div class="card-header tab-card-header p-0"> 
+                                            <span class="nav-link active border-0 pl-0" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="Calendar" aria-selected="true"> 
+                                              <span class="left">Calendar</span> 
+                                            </span> 
+                                            <!-- <ul class="nav nav-tabs card-header-tabs mb-0" id="myTab" role="tablist"> 
+                                              <li class="nav-item left w-50"> 
+                                                <a  
+                                                  class="nav-link active border-0"  
+                                                  id="calendar-tab"  
+                                                  data-toggle="tab"  
+                                                  href="#calendar"  
+                                                  role="tab"  
+                                                  aria-controls="Calendar"  
+                                                  aria-selected="true" 
+                                                > 
+                                                  <span class="left description">Calendar</span> 
+                                                </a> 
+                                              </li> 
+ 
+                                              <li class="nav-item right w-50"> 
+                                                <a  
+                                                  class="nav-link"  
+                                                  id="search-panel-tab"  
+                                                  data-toggle="tab"  
+                                                  href="#search-panel"  
+                                                  role="tab"  
+                                                  aria-controls="Search"  
+                                                  aria-selected="false" 
+                                                > 
+                                                  <span class="left description">Search</span> 
+                                                </a> 
+                                              </li> 
+                                            </ul> --> 
+                                        </div> 
+ 
+                                        <div class="tab-content" id="myTabContent"> 
+                                            <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="calendar-tab"> 
+                                                <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" /> 
+                                            </div> 
+ 
+                                            <div class="tab-pane fade p-3 search" id="search-panel" role="tabpanel" aria-labelledby="search-panel-tab"> 
+                                                <div class="row"> 
+                                                    <div class="col-lg-12"> 
+                                                        <div class="row search-input"> 
+                                                            <div class="col-lg-12"> 
+                                                                <div :class="{'input search': true, 'form-group' :true }"> 
+                                                                    <input v-on:keyup="fireSearchEvent('Search')" placeholder="Search:" type="search" id="search" ref="search" name="Search" v-model="filter.search" class="form-control border-0"> 
+                                                                </div> 
+                                                            </div> 
+                                                        </div> 
+ 
+                                                        <div class="row filter-search"> 
+                                                            <div class="col-lg-12"> 
+                                                                <p class="heading">Filter Search</p> 
+                                                            </div> 
+ 
+                                                            <div class="col-lg-6"> 
+                                                                <div :class="{'input': true, 'form-group' :true }"> 
+                                                                    <button v-on:click="fireTableEvent('Print')" type="submit" class="btn btn-default m-0 print-btn">Print</button> 
+                                                                </div> 
+                                                            </div> 
+ 
+                                                            <div class="col-lg-6"> 
+                                                                <div :class="{'input': true, 'form-group' :true }"> 
+                                                                    <button v-on:click="fireTableEvent('Export')" type="submit" class="btn btn-default m-0 export-btn">Export</button> 
+                                                                </div> 
+                                                            </div> 
+                                                        </div> 
+ 
+                                                        <div class="row filter-by"> 
+                                                            <div class="col-lg-12"> 
+                                                                <table class="tg"> 
+                                                                    <tr> 
+                                                                        <td class="tg-0las"> 
+                                                                            <p class="heading">Filter By</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                        </td> 
+                                                                    </tr> 
+ 
+                                                                    <tr> 
+                                                                        <td class="tg-0lax"> 
+                                                                            <p class="heading">Owner</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                            <select v-on:change="filterData()" type="text" id="role" name="Owner" v-model="filter.user_created_id" class="form-control border-0"> 
+                                                                                <option value="">All </option> 
+                                                                                <option :value="item.id" v-for="(item,index) in lead_owners" :key="index">{{ item.name + ' ' + item.lastname }}</option> 
+                                                                            </select> 
+                                                                        </td> 
+                                                                    </tr> 
+ 
+                                                                    <tr> 
+                                                                        <td class="tg-0lax"> 
+                                                                            <p class="heading">Assigned To</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                            <select v-on:change="filterData()" type="text" id="Assignee" name="Assignee" v-model="filter.user_assigned" class="form-control border-0"> 
+                                                                                <option value="">All</option> 
+                                                                                <option :value="item.id" v-for="(item,index) in assignees" :key="index">{{ item.name + ' ' + item.lastname }}</option> 
+                                                                            </select> 
+                                                                        </td> 
+                                                                    </tr> 
+ 
+                                                                    <tr> 
+                                                                        <td class="tg-0lax"> 
+                                                                            <p class="heading">Lead Source</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                            <select type="text" v-on:change="filterData()" id="Source" name="Source" v-model="filter.source" class="form-control border-0"> 
+                                                                                <option value="">All</option> 
+                                                                                <option :value="item.id" v-for="(item,index) in sources" :key="index">{{ item.name}}</option> 
+                                                                            </select> 
+                                                                        </td> 
+                                                                    </tr> 
+ 
+                                                                    <tr> 
+                                                                        <td class="tg-0lax"> 
+                                                                            <p class="heading">Package</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                            <select type="text" v-on:change="filterData()" id="package" name="Package" v-model="filter.product_id" class="form-control border-0"> 
+                                                                                <option value="">All</option> 
+                                                                                <option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option> 
+                                                                            </select> 
+                                                                        </td> 
+                                                                    </tr> 
+ 
+                                                                    <tr> 
+                                                                        <td class="tg-0lax"> 
+                                                                            <p class="heading">Status</p> 
+                                                                        </td> 
+                                                                        <td class="tg-1lax"> 
+                                                                            <select type="text" v-on:change="filterData()" id="role" name="Status" v-model="filter.status" class="form-control border-0"> 
+                                                                                <option value="">All</option> 
+                                                                                <option value="1">Active</option> 
+                                                                                <option value="2">Inactive</option> 
+                                                                                <option value="0">Canceled</option> 
+                                                                            </select> 
+                                                                        </td> 
+                                                                    </tr> 
+                                                                </table> 
+                                                            </div> 
+ 
+                                                            <div class="col-lg-12 action-btns"> 
+                                                                <div :class="{'input': true, 'form-group' :true }"> 
+                                                                    <label class="col-lg-3 control-label"> 
+                                                                        <button v-on:click="filterData()" type="submit" class="btn btn-default w-100 m-0">Apply</button> 
+                                                                    </label> 
+                                                                    <label class="col-lg-3 control-label"> 
+                                                                        <button v-on:click="clearFilter();" type="submit" class="btn btn-default w-100 m-0">Clear</button> 
+                                                                    </label> 
+                                                                    <div> 
+                                                                        <table class="tg"> 
+                                                                            <tr> 
+                                                                                <td class="tg-0lax"> 
+                                                                                    <p class="heading">Save Search:</p> 
+                                                                                </td> 
+                                                                                <td class="tg-1lax"> 
+                                                                                    <input type="title" id="title" placeholder="Filter Title" ref="title" name="Filter Title" v-model="filter.title" v-validate="'required'" class="form-control border-0"> 
+                                                                                    <span id="error" v-show="errors.has('Filter Title')" class="help-block">{{ errors.first('Filter Title') }}</span> 
+                                                                                </td> 
+                                                                                <td> 
+                                                                                    <button v-on:click="saveFilter" type="submit" :class="{ 'btn btn-default' : true, 'btn-active': show_filter_save }" class="w-100 m-0">Save</button> 
+                                                                                </td> 
+                                                                            </tr> 
+                                                                        </table> 
+                                                                    </div> 
+                                                                </div> 
+                                                            </div> 
+                                                        </div> 
+                                                    </div> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div> 
+ 
+                            <div class="row p-34"> 
+                                <div class="col-lg-12 final-modal border-0"> 
+                                    <div class="row mx-0 mb-4 reminders"> 
+                                        <b-tabs content-class="mt-3" class="outer-box-shadow"> 
+                                            <b-tab title="Callbacks" active> 
+                                                <ul class="pl-0" v-if="call_backs.length > 0"> 
+                                                    <li v-for="(call_back, i) in call_backs" :key="i" class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"> 
+                                                        <div class="col-12"> 
+                                                            <div class="row"> 
+                                                                <div class="col-8 pl-0 custom-control custom-checkbox"> 
+                                                                    <input class="custom-control-input" :id="'callback' + i" type="checkbox" v-model="call_back.status" @click="markCallBackDone(call_back)"> 
+                                                                    <label class="pl-34 custom-control-label" :for="'callback' + i"> 
+                                                                        {{ call_back.lead.name + ' ' +call_back.lead.surname }} 
+                                                                    </label> 
+                                                                </div> 
+                                                                <div class="col-4 task-date-div inner-box-shadow"> 
+                                                                  <span class="tasks-circle blue">&#11044;</span> 
+                                                                  <span class="tasks-date">{{ call_back.call_date }} {{ call_back.call_time }}</span> 
+                                                                </div> 
+                                                            </div> 
+                                                        </div> 
+                                                    </li> 
+                                                </ul> 
+                                                <div v-else> 
+                                                    <div class="notification-popup"> 
+                                                        <div class="card-body-notifications"> 
+                                                            <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p> 
+                                                        </div> 
+                                                    </div> 
+                                                </div> 
+                                            </b-tab> 
+                                            <b-tab title="Reminders"> 
+                                                <ul class="pl-0"  v-if="tasks.length > 0 && !add_task"> 
+                                                    <!--When adding a new task, the whole li tag should be added and change input ids --> 
+                                                    <li v-for="(task, i) in tasks" :key="i" class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"> 
+                                                        <transition name="bounce">  
+                                                          <div class="col-12"> 
+                                                              <div class="row"> 
+                                                                  <div class="col-8 pl-0 custom-control custom-checkbox"> 
+                                                                      <input class="custom-control-input"  v-model="task.status" :id="'task' + i" type="checkbox" @click="editsTask(task,'status')"> 
+                                                                      <label class="terms-text custom-control-label" :for="'task' + i"> 
+                                                                          <input type="text" v-model="task.title" class="border-0 list-input" @focus="editTaskCollapes(task.id)"> 
+                                                                      </label> 
+                                                                  </div> 
+                                                                  <div class="col-4 task-date-div inner-box-shadow">
+                                                                    <span class="tasks-circle orange">&#11044;</span>
+                                                                    <span class="tasks-date">
+                                                                      {{ moment(task.deadline).format( 'DD MMM')  }}
+                                                                    </span>
+                                                                  </div> 
+                                                              </div> 
+                                                              <div class="row" v-if="edit_task && active_task_id == task.id"> 
+                                                                  <div class="col-12 pl-0 custom-control custom-checkbox"> 
+                                                                      <label class="terms-text" :for="'task' + i" style="width:100%;"> 
+                                                                        <a-textarea v-model="task.description" placeholder="Description" autosize /> 
+                                                                      </label> 
+                                                                      <label class="terms-text" :for="'task' + i" style="width:100%;"> 
+                                                                        <a-date-picker v-model="task.deadline" :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"  style="width:100%;" /> 
+                                                                      </label> 
+                                                                  </div> 
+                                                              </div> 
+                                                              <div class="row" v-if="edit_task && active_task_id == task.id"> 
+                                                                  <div class="col-12 pl-0 custom-control"> 
+                                                                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="editTask(task)">Update</button> 
+                                                                  </div> 
+                                                              </div> 
+                                                          </div> 
+                                                        </transition>
+                                                    </li> 
+                                                </ul> 
+                                                <ul class="pl-0"  v-if="tasks.length == 0 || add_task"> 
+                                                    <!--When adding a new task, the whole li tag should be added and change input ids --> 
+                                                    <li class="my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control"> 
+                                                        <transition name="bounce">
+                                                          <div class="col-12"> 
+                                                              <div class="row"> 
+                                                                  <div class="col-12 pl-0 custom-control"> 
+                                                                      <label class="terms-text" for="task1" style="width:100%;"> 
+                                                                          <input v-model="new_task.title" placeholder="Title" type="text" class="border-0 list-input"> 
+                                                                      </label> 
+                                                                      <label class="terms-text" for="task1" style="width:100%;"> 
+                                                                        <a-textarea v-model="new_task.description" placeholder="Description" autosize /> 
+                                                                      </label> 
+                                                                      <label class="terms-text" for="task1" style="width:100%;"> 
+                                                                        <a-date-picker v-model="new_task.date"  style="width:100%;" /> 
+                                                                      </label> 
+                                                                  </div> 
+                                                              </div> 
+                                                              <div class="row"> 
+                                                                  <div class="col-12 pl-0 custom-control"> 
+                                                                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="submitTask">Add</button> 
+                                                                  </div> 
+                                                              </div> 
+                                                          </div> 
+                                                        </transition>
+                                                    </li> 
+                                                </ul> 
+                                            </b-tab> 
+                                            <a href="#" @click="addTask"> 
+                                              <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task"> 
+                                            </a> 
+                                        </b-tabs> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+ 
+                    <div class="closed-sidenav pr-3 d-none"> 
+                        <div class="row mx-0 align-items-center border-bottom justify-content-between pb-2"> 
+                            <div class="col pl-0"> 
+                                <div class="row"> 
+                                    <div class="nav-item col-auto px-0"> 
+                                        <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showNotifications()"> 
+                                            <img v-if="notifications_on == true" src="/images/icons/right-sidebar/Notifications_Active.svg" alt="Notification Bell" width="43"> 
+                                            <img v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0" src="/images/icons/right-sidebar/Notification.svg" alt="Notification Bell" width="43" class="inactive-icon"> 
+                                            <img v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0" src="/images/icons/right-sidebar/Notifications_red.svg" alt="Notification Bell" width="43" class="inactive-icon"> 
+                                        </a> 
+                                    </div> 
+ 
+                                    <div class="nav-item col-auto px-0"> 
+                                        <a class="nav-link icon p-0" href="#" data-toggle="push-menu" @click="showSettings()"> 
+                                            <img src="/images/icons/right-sidebar/Setting.svg" alt="Settings Cog" width="43" class="inactive-icon"> 
+                                        </a> 
+                                    </div> 
+                                </div> 
+                            </div> 
+ 
+                            <div class="nav-item col-auto pr-0"> 
+                                <a class="nav-link icon p-0 small-avatar" href="#" @click="showSettings()"> 
+                                    <img v-if="user.avatar != '' && user.avatar != null" :src="avatarUrl + user.id + '/' + user.avatar"> 
+                                    <img v-else :src="noImageUrl"> 
+                                </a> 
+                            </div> 
+                        </div> 
+ 
+                        <p class="filter-heading mt-2 mb-3">Filter</p> 
+                        <div class="row filter-content"> 
+                            <b-tabs content-class="mt-3"> 
+                                <b-tab title="New"> 
+                                    <div class="filter-container grey-scroll"> 
+                                        <div class="filter-group"> 
+                                            <div @click="filterProperties()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox"> 
+                                                <input :disabled="filterValue === ''" :checked="filterValue != ''" type="checkbox" class="custom-control-input mx-0" id="newFilter1"> 
+                                                <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label> 
+                                            </div> 
+                                            <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show:showFilters }"> 
+                                                <select class="search-criteria w-100 mb-2"> 
+                                                    <option selected>is equal to</option> 
+                                                    <option value="1">contains</option> 
+                                                    <option value="2">does not contain</option> 
+                                                    <option value="3">begins with</option> 
+                                                    <option value="3">ends with</option> 
+                                                </select> 
+                                                <input class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="filterValue" value=""> 
+                                            </div> 
+                                        </div> 
+                                        <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:filterValue != '' }" style="display:none;"> 
+                                            <div class="custom-control custom-checkbox"> 
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result1"> 
+                                                <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label> 
+                                            </div> 
+                                            <div class="custom-control custom-checkbox"> 
+                                                <input type="checkbox" class="custom-control-input mx-0" id="result2"> 
+                                                <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                    <div class="row mx-2 mt-4 position-bottom justify-content-end"> 
+                                        <div class="col-7 pl-0 pr-2"> 
+                                            <input class="save-text w-100" type="text" placeholder="Custom Filter Name" value=""> 
+                                        </div> 
+                                        <div class="col-5 pr-0 pl-2"> 
+                                            <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0">Save</button> 
+                                        </div> 
+                                    </div> 
+                                </b-tab> 
+                                <b-tab title="Saved" active> 
+                                    <div class="saved-group filter-container grey-scroll"> 
+                                        <div @click="savedFilters()" :class="{ filterborder:appendBorder }" class="my-2 p-2 custom-control custom-checkbox"> 
+                                            <input type="checkbox" :disabled="appendBorder === false" :checked="appendBorder !== false " class="custom-control-input mx-0" id="savedFilter1"> 
+                                            <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Saved</label> 
+                                        </div> 
+                                        <div class="pl-34" style="display:none;" :class="{ show:showSavedFilters }"> 
+                                               <div class="saved-results p-2"><span class="orange pr-2">⬤</span>Name</div> 
+                                               <div class="col-auto pr-0 pl-2 float-right"> 
+                                                <button type="submit" class="btn btn-primary update-filter mt-2 rounded-pill mr-4">Edit</button> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </b-tab> 
+                            </b-tabs> 
+                        </div> 
+                    </div> 
+                </div> 
+            </section> 
+        </aside> 
+    </div> 
+</template> 
+ 
+<script> 
+    import { 
+        setupCalendar, Calendar 
+    } 
+    from 'v-calendar' 
+    import TransitionHeight from '../Plugins/TransitionExpand.vue'; 
+    import VueCircle from 'vue2-circle-progress' 
+    import moment from 'moment' 
+    export default { 
+        props: ['auth_user', 'active'], 
+        components: { 
+            'transition-expand': TransitionHeight, 
+            VueCircle 
+        }, 
+        data: function() { 
+            return { 
+                user: { 
+                    notifications: 1, 
+                }, 
+                status: 'active', 
+                notifications_on: false, 
+                settings_on: false, 
+                language_settings_on: false, 
+                system_settings_on: false, 
+                profile_on: false, 
+                account_on: false, 
+                callbacks_on: true, 
+                messages_on: false, 
+                call_backs: [], 
+                tasks: [], 
+                messages: [], 
+                unread_messages: 1, 
+                expanded: false, 
+                show_filter: false, 
+                show_filter_save: false, 
+                show: false, 
+                lead_owners: [], 
+                assignees: [], 
+                sources: [], 
+                packages: [], 
+                filters: [], 
+                preferences: [], 
+                roles: [], 
+                attrs: [{ 
+                    key: 'today', 
+                    highlight: true, 
+                    class: 'today_date', 
+                    dates: new Date(), 
+                }], 
+                filter: { 
+                    title: '', 
+                    search: '', 
+                    user_created_id: '', 
+                    user_assigned: '', 
+                    source: '', 
+                    product_id: '', 
+                    status: '', 
+                }, 
+                user_settings: { 
+                    id: '', 
+                    theme: 'orange', 
+                    language: 'english', 
+                    max_table_rows: 50 
+                }, 
+                active_task_id: null, 
+                edit_task: false, 
+                add_task: false, 
+                new_task: { 
+                  title: '', 
+                  description: '', 
+                  date: moment() 
+                }, 
+                avatarUrl: '/images/avatars/', 
+                noImageUrl: '/images/icons/user_icon@4x.png', 
+                fill: { 
+                    gradient: ["#a1ed1c", "#62d37e"] 
+                }, 
+                p: 65, 
+ 
+                appendBorder: false, 
+                showSavedFilters: false, 
+                showFilters: false, 
+                filterValue: '' 
+ 
+            } 
+        }, 
+ 
+        mounted() { 
+            var vm = this; 
+ 
+            this.user = JSON.parse(this.auth_user); 
+ 
+            vm.getUserCallBacks(); 
+ 
+            vm.getUserTasks(); 
+ 
+            Fire.$on('AfterCallBackSet', function() { 
+                vm.getUserCallBacks(); 
+            }); 
+ 
+            Fire.$on('AvatarUploadComplete', function() { 
+                axios.get('/get-current-user').then(function(response) { 
+                    vm.user = response.data.user; 
+                }); 
+            }); 
+ 
+            Fire.$on('ShowFilter', function() { 
+                vm.show_filter = !vm.show_filter; 
+            }); 
+ 
+            Fire.$on('CustomFilterApplied', function(data) { 
+                vm.filter = data.filter; 
+                vm.show_filter = true; 
+            }); 
+ 
+            Fire.$on('OnEditTask', function(data) { 
+                vm.task = data.task;
+                vm.editTask(vm.task, data.mode);
+            }); 
+ 
+            Fire.$on('OnAddTask', function(data) { 
+                vm.new_task = data.new_task;
+                vm.submitTask();
+                vm.add_task = false;
+            }); 
+ 
+            axios.get('/leads/get-select-options').then(function(response) { 
+                vm.lead_owners = response.data.lead_owners; 
+                vm.assignees = response.data.assignees; 
+                vm.sources = response.data.sources; 
+                vm.packages = response.data.packages; 
+                vm.roles = response.data.roles; 
+            }); 
+ 
+            vm.getPreferences(); 
+ 
+            this.Toast = this.$swal.mixin({ 
+                toast: true, 
+                position: 'top-end', 
+                showConfirmButton: false, 
+                timer: 3000 
+            }); 
+        }, 
+ 
+        methods: { 
+            moment, 
+            showNotifications() { 
+                this.notifications_on = !this.notifications_on; 
+                this.settings_on = false; 
+                this.profile_on = false; 
+            }, 
+            filterProperties() { 
+                this.appendBorder = !this.appendBorder 
+                this.showFilters = !this.showFilters 
+                 
+            }, 
+            savedFilters() { 
+                this.appendBorder = !this.appendBorder 
+                this.showSavedFilters = !this.showSavedFilters 
+            }, 
+            showSettings() { 
+                this.settings_on = !this.settings_on; 
+                this.notifications_on = false; 
+                this.profile_on = false; 
+            }, 
+ 
+            showCallbacks() { 
+                this.callbacks_on = true; 
+                this.messages_on = false; 
+            }, 
+ 
+            showMessages() { 
+                this.callbacks_on = false; 
+                this.messages_on = true; 
+                this.unread_messages = 0; 
+            }, 
+            getUserCallBacks() { 
+ 
+                var vm = this; 
+ 
+                axios.get('/leads/get-user-callbacks').then(function(response) { 
+                    vm.call_backs = response.data.call_backs; 
+ 
+                    vm.attrs = [{ 
+                        key: 'today', 
+                        highlight: true, 
+                        class: 'today_date', 
+                        dates: new Date(), 
+                    }]; 
+ 
+                    vm.call_backs.forEach(function(call_back) { 
+ 
+                        vm.attrs.push({ 
+                            key: 'call_back' + call_back.id, 
+                            highlight: 'red', 
+                            class: 'call_back_date', 
+                            dates: new Date(call_back.call_date), 
+                            popover: { 
+                                label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time, 
+                            }, 
+                        }); 
+                    }); 
+ 
+                    Fire.$emit('AfterCallBackRequest', { call_backs : vm.call_backs});
                 });
-            });
+               
+            }, 
+            markCallBackDone(call_back){
+                var vm = this; 
+                console.log(call_back);
+                axios.get('/leads/mark-callback-complete/' + call_back.id).then(function(response) { 
+                  if(response.data.success){
+                    vm.call_backs = response.data.call_backs;
+                  }else{
+                    vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning'); 
+                  }
+                }).catch((error) => {
+                  vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again' + error, 'warning'); 
+                }); 
+            },
+            onChange(date, dateString) { 
+              console.log(date, dateString); 
+            }, 
+            getUserTasks() { 
+                var vm = this; 
+                axios.get('/tasks/get-user-tasks').then(function(response) { 
+                    vm.tasks = response.data.tasks; 
+                    Fire.$emit('AfterTaskkRequest', { tasks : vm.tasks});
+                }); 
+            }, 
+            addTask(){ 
+              this.new_task.title = ''; 
+              this.new_task.description = ''; 
+              this.new_task.date = moment() ;
+              this.add_task = !this.add_task; 
+            }, 
+            submitTask(){ 
+ 
+                var vm = this; 
+ 
+                vm.$Progress.start(); 
+ 
+                axios.post('/tasks/create', { 
+                  title: vm.new_task.title, 
+                  description: vm.new_task.description, 
+                  date: vm.new_task.date.format('YYYY-MM-DD') 
+                }).then(function(response) { 
+ 
+                    if (response.data.success == true) { 
+                        vm.Toast.fire({ 
+                            type: 'success', 
+                            title: response.data.message 
+                        }); 
+                        vm.getUserTasks(); 
+                        vm.add_task = !vm.add_task; 
+                        vm.$Progress.finish(); 
+                    } else { 
+                        vm.$Progress.fail(); 
+                        vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+                    } 
+                }); 
+            }, 
+            editTask(task, mode){ 
+                var vm = this; 
+                
+                vm.$Progress.start(); 
 
-            Fire.$on('ShowFilter', function() {
-                vm.show_filter = !vm.show_filter;
-            });
+                var status = ( !task.status ) ? 1 : 0
 
-            Fire.$on('CustomFilterApplied', function(data) {
-                vm.filter = data.filter;
-                vm.show_filter = true;
-            });
+                console.log(mode);
 
-            axios.get('/leads/get-select-options').then(function(response) {
-                vm.lead_owners = response.data.lead_owners;
-                vm.assignees = response.data.assignees;
-                vm.sources = response.data.sources;
-                vm.packages = response.data.packages;
-                vm.roles = response.data.roles;
-            });
+                if(mode === undefined){
 
-            vm.getPreferences();
+                  status = 0;
 
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        },
-
-        methods: {
-            showNotifications() {
-                    this.notifications_on = !this.notifications_on;
-                    this.settings_on = false;
-                    this.profile_on = false;
-                },
-                filterProperties() {
-                    this.appendBorder = !this.appendBorder
-                    this.showFilters = !this.showFilters
-                   
-                },
-                 savedFilters() {
-                      this.appendBorder = !this.appendBorder
-                      this.showSavedFilters = !this.showSavedFilters
-                 },
-                showSettings() {
-                    this.settings_on = !this.settings_on;
-                    this.notifications_on = false;
-                    this.profile_on = false;
-                },
-
-                showCallbacks() {
-                    this.callbacks_on = true;
-                    this.messages_on = false;
-                },
-
-                showMessages() {
-                    this.callbacks_on = false;
-                    this.messages_on = true;
-                    this.unread_messages = 0;
-                },
-
-                getUserCallBacks() {
-
-                    var vm = this;
-
-                    axios.get('/leads/get-user-callbacks').then(function(response) {
-                        vm.call_backs = response.data.call_backs;
-
-                        vm.attrs = [{
-                            key: 'today',
-                            highlight: true,
-                            class: 'today_date',
-                            dates: new Date(),
-                        }];
-
-                        vm.call_backs.forEach(function(call_back) {
-
-                            vm.attrs.push({
-                                key: 'call_back' + call_back.id,
-                                highlight: 'red',
-                                class: 'call_back_date',
-                                dates: new Date(call_back.call_date),
-                                popover: {
-                                    label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time,
-                                },
-                            });
-                        });
-                    });
-                },
-                applySetting(settings = null) {
-
-                    var vm = this;
-
-                    if (settings != null && settings.type == 'language') {
-                        vm.user_settings.language = settings.value;
-                    } else if (settings != null && settings.type == 'theme') {
-                        vm.user_settings.theme = settings.value;
-                    }
-
-                    vm.$Progress.start();
-
-                    axios.post('/update-preferences', {
-                        system_settings: vm.system_settings,
-                        user_settings: vm.user_settings
-                    }).then(function(response) {
-
-                        if (response.data.success == true) {
-                            vm.Toast.fire({
-                                type: 'success',
-                                title: response.data.message
-                            });
-                            vm.getPreferences();
-                            vm.$Progress.finish();
-                        } else {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
-                        }
-                    });
-                },
-                getPreferences() {
-
-                    var vm = this;
-
-                    axios.get('/get-preferences').then(function(response) {
-                        vm.preferences = response.data.preferences;
-                        vm.system_preferences.forEach(function(preference) {
-                            if (preference.setting == 'auto_dialer') {
-                                vm.system_settings.auto_dialer.value = preference.value;
-                                vm.system_settings.auto_dialer.applies_to = preference.applies_to_role;
-                            }
-                        });
-                        vm.preferences.forEach(function(preference) {
-                            vm.system_settings.id = preference.id;
-                            if (preference.setting == 'theme') {
-                                vm.user_settings.theme = preference.value;
-                            } else if (preference.setting == 'language') {
-                                vm.user_settings.language = preference.value;
-                            }
-                        });
-                    });
-                },
-
-                updateNotifications() {
-                    var vm = this;
-                    axios.post('/update-user', this.user).then(function(response) {
-
-                        if (response.data.success == true) {
-                            vm.Toast.fire({
-                                type: 'success',
-                                title: response.data.message
-                            });
-                            vm.user = response.data.user;
-                            vm.$Progress.finish();
-                        } else if (response.data.errors.email[0] != '') {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', response.data.errors.email[0], 'warning');
-                        } else {
-                            vm.$Progress.fail();
-                            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                        }
-                    });
-                },
-
-                updateUser(type) {
-                    var vm = this;
-                    vm.$Progress.start();
-                    this.$validator.validateAll().then((result) => {
-                        if (!result) {
-
-                        } else {
-
-                            if (type == 'profile') {
-                                axios.post('/update-user', this.user).then(function(response) {
-
-                                    if (response.data.success == true) {
-                                        vm.Toast.fire({
-                                            type: 'success',
-                                            title: response.data.message
-                                        });
-                                        vm.user = response.data.user;
-                                        vm.$Progress.finish();
-                                    } else if (response.data.errors.email[0] != '') {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', response.data.errors.email[0], 'warning');
-                                    } else {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                                    }
-                                });
-                            } else {
-                                axios.post('/update-account', this.user).then(function(response) {
-
-                                    if (response.data.success === true) {
-                                        vm.Toast.fire({
-                                            type: 'success',
-                                            title: response.data.message
-                                        });
-                                        vm.user = response.data.user;
-                                        vm.$Progress.finish();
-                                    } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) {
-                                        vm.$swal('Failed', 'You old password is incorrect', 'warning');
-                                    } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) {
-                                        var this_error = '';
-                                        response.data.errors.password.forEach(function(error) {
-                                            this_error = this_error + error + '\n';
-                                        });
-                                        vm.$swal('Failed', this_error, 'warning');
-                                    } else {
-                                        vm.$Progress.fail();
-                                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                                    }
-                                });
-                            }
-                        }
-                    });
-                },
-
-                showUploader() {
-                    Fire.$emit('ShowAvatarUploader');
-                },
-
-                clearFilter() {
-                    this.filter = {
-                        title: '',
-                        search: '',
-                        user_created_id: '',
-                        user_assigned: '',
-                        source: '',
-                        product_id: '',
-                        status: ''
-                    }
-                    this.show_filter_save = false;
-                },
-
-                filterData() {
-                    var vm = this;
-                    Fire.$emit('FilterData', {
-                        'filter': vm.filter
-                    });
-                },
-
-                saveFilter() {
-                    var vm = this;
-                    vm.$validator.validateAll().then((result) => {
-                        if (!result) {} else {
-                            axios.post('/filters/create', {
-                                filter: this.filter,
-                                type: this.active
-                            }).then(function(response) {
-
-                                if (response.data.success === true) {
-                                    vm.Toast.fire({
-                                        type: 'success',
-                                        title: response.data.message
-                                    });
-
-                                    Fire.$emit('SaveFilter', {
-                                        'filters': response.data.filters
-                                    });
-
-                                    vm.$Progress.finish();
-                                } else {
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-                                    vm.$Progress.fail();
-                                }
-                            });
-                        }
-                    });
-                },
-
-                fireTableEvent(event = '') {
-                    Fire.$emit(event);
-                },
-
-                fireSearchEvent() {
-                    Fire.$emit('Search', {
-                        'search_term': this.filter.search
-                    });
-                },
-
-                progress(event, progress, stepValue) {
-                    console.log(stepValue);
-                    if (stepValue > 30) {
-                        this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e");
-                    }
-                },
-                progress_end(event) {
-                    console.log("Circle progress end");
                 }
-        },
+                
+                axios.post('/tasks/update', { 
+                  id: task.id, 
+                  title: task.title, 
+                  status: status,
+                  description: task.description, 
+                  date: task.deadline 
+                }).then(function(response) { 
+ 
+                    if (response.data.success == true) { 
+                        vm.Toast.fire({ 
+                            type: 'success', 
+                            title: response.data.message 
+                        }); 
+                        vm.getUserTasks(); 
+                        vm.edit_task = false; 
+                        vm.$Progress.finish(); 
+                    } else { 
+                        vm.$Progress.fail(); 
+                        vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning'); 
+                    } 
+                }); 
+              this.edit_task = false; 
+            },
+            editTaskCollapes(id){ 
+              this.edit_task = true; 
+              this.active_task_id = id; 
+            }, 
+            applySetting(settings = null) { 
+ 
+                var vm = this; 
+ 
+                if (settings != null && settings.type == 'language') { 
+                    vm.user_settings.language = settings.value; 
+                } else if (settings != null && settings.type == 'theme') { 
+                    vm.user_settings.theme = settings.value; 
+                } 
+ 
+                vm.$Progress.start(); 
+ 
+                axios.post('/update-preferences', { 
+                    system_settings: vm.system_settings, 
+                    user_settings: vm.user_settings 
+                }).then(function(response) { 
+ 
+                    if (response.data.success == true) { 
+                        vm.Toast.fire({ 
+                            type: 'success', 
+                            title: response.data.message 
+                        }); 
+                        vm.getPreferences(); 
+                        vm.$Progress.finish(); 
+                    } else { 
+                        vm.$Progress.fail(); 
+                        vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+                    } 
+                }); 
+            }, 
+            getPreferences() { 
+ 
+                var vm = this; 
+ 
+                axios.get('/get-preferences').then(function(response) { 
+                    vm.preferences = response.data.preferences; 
+                    vm.preferences.forEach(function(preference) { 
+                        if (preference.setting == 'theme') { 
+                            vm.user_settings.theme = preference.value; 
+                        } else if (preference.setting == 'language') { 
+                            vm.user_settings.language = preference.value; 
+                        } 
+                    }); 
+                }); 
+            }, 
+            updateNotifications() { 
+                var vm = this; 
+                axios.post('/update-user', this.user).then(function(response) { 
+ 
+                    if (response.data.success == true) { 
+                        vm.Toast.fire({ 
+                            type: 'success', 
+                            title: response.data.message 
+                        }); 
+                        vm.user = response.data.user; 
+                        vm.$Progress.finish(); 
+                    } else if (response.data.errors.email[0] != '') { 
+                        vm.$Progress.fail(); 
+                        vm.$swal('Failed', response.data.errors.email[0], 'warning'); 
+                    } else { 
+                        vm.$Progress.fail(); 
+                        vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                    } 
+                }); 
+            }, 
+            updateUser(type) { 
+                var vm = this; 
+                vm.$Progress.start(); 
+                this.$validator.validateAll().then((result) => { 
+                    if (!result) { 
+ 
+                    } else { 
+ 
+                        if (type == 'profile') { 
+                            axios.post('/update-user', this.user).then(function(response) { 
+ 
+                                if (response.data.success == true) { 
+                                    vm.Toast.fire({ 
+                                        type: 'success', 
+                                        title: response.data.message 
+                                    }); 
+                                    vm.user = response.data.user; 
+                                    vm.$Progress.finish(); 
+                                } else if (response.data.errors.email[0] != '') { 
+                                    vm.$Progress.fail(); 
+                                    vm.$swal('Failed', response.data.errors.email[0], 'warning'); 
+                                } else { 
+                                    vm.$Progress.fail(); 
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                                } 
+                            }); 
+                        } else { 
+                            axios.post('/update-account', this.user).then(function(response) { 
+ 
+                                if (response.data.success === true) { 
+                                    vm.Toast.fire({ 
+                                        type: 'success', 
+                                        title: response.data.message 
+                                    }); 
+                                    vm.user = response.data.user; 
+                                    vm.$Progress.finish(); 
+                                } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) { 
+                                    vm.$swal('Failed', 'You old password is incorrect', 'warning'); 
+                                } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) { 
+                                    var this_error = ''; 
+                                    response.data.errors.password.forEach(function(error) { 
+                                        this_error = this_error + error + '\n'; 
+                                    }); 
+                                    vm.$swal('Failed', this_error, 'warning'); 
+                                } else { 
+                                    vm.$Progress.fail(); 
+                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                                } 
+                            }); 
+                        } 
+                    } 
+                }); 
+            }, 
+            showUploader() { 
+                Fire.$emit('ShowAvatarUploader'); 
+            }, 
+            saveFilter() { 
+                var vm = this; 
+                vm.$validator.validateAll().then((result) => { 
+                    if (!result) {} else { 
+                        axios.post('/filters/create', { 
+                            filter: this.filter, 
+                            type: this.active 
+                        }).then(function(response) { 
+ 
+                            if (response.data.success === true) { 
+                                vm.Toast.fire({ 
+                                    type: 'success', 
+                                    title: response.data.message 
+                                }); 
+ 
+                                Fire.$emit('SaveFilter', { 
+                                    'filters': response.data.filters 
+                                }); 
+ 
+                                vm.$Progress.finish(); 
+                            } else { 
+                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                                vm.$Progress.fail(); 
+                            } 
+                        }); 
+                    } 
+                }); 
+            }, 
+            fireTableEvent(event = '') { 
+                Fire.$emit(event); 
+            }, 
+            fireSearchEvent() { 
+                Fire.$emit('Search', { 
+                    'search_term': this.filter.search 
+                }); 
+            }, 
+            progress(event, progress, stepValue) { 
+                console.log(stepValue); 
+                if (stepValue > 30) { 
+                    this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e"); 
+                } 
+            }, 
+            progress_end(event) { 
+                console.log("Circle progress end"); 
+            } 
+        }, 
+ 
+        computed: {} 
+    } 
+</script> 
 
-        computed: {}
-    }
-</script>

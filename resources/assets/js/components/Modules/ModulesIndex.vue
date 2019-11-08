@@ -1,26 +1,4 @@
 <style scoped>
-.horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #B3B3B3 !important;
-  border-radius: 5px !important;
-}
-.horizontal-scroll::-webkit-scrollbar {
-  width: 5px !important;
-  height: 5px;
-}
-.top-section{
-  list-style: none;
-}
-.top-section li{    
-  float: left;
-  margin-right: 52px;
-  padding: 6px 83px 3px 15px;
-  border-right: 1px solid #e3e3e3;
-}
-li p.bottom{
-  margin-bottom: 0;
-  font-size: 19px;
-  font-weight: 900;
-}
 .card{
   border-radius: 27px;
   border: none;
@@ -32,37 +10,6 @@ li p.bottom{
   margin-bottom: 0.75rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #fff;
-}
-.calls{
-  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;
-  color: #fff;
-}
-.sales{
-  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;
-  color: #fff;
-}
-.sales-amount{
-  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;
-  color: #fff;
-}
-.call-backs{
-  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;
-  color: #fff;
-}
-.ave-time{
-  background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;
-  color: #fff;
-}
-.con-ratio{
-  background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;
-  color: #fff;
-}
-h5{
-  color: #fff;
-}
-h5 .icon{
-  width: 15px;
-  margin: -5px 15px 0 0;
 }
 .card-body p{
   color: #fff;
@@ -95,14 +42,6 @@ p.card-link{
 }
 .stats .card{
   border-radius: 10px;
-}
-
-.stats .card h5{
-  color: #818284;
-}
-.stats .card h5 .icon{
-  width: 25px;
-  margin: -5px 15px 0 0;
 }
 .stats .card .card-title {
   margin-bottom: 0.75rem;
@@ -170,8 +109,11 @@ span.right{
 
 #top-section{
   background: #fff;
-  padding: 0px 6.7%;
-
+  padding: 17px 6.7%;
+}
+#top-section .col-auto {
+  padding-left:1.6%;
+  padding-right:1.6%;
 }
 .green{
   color:#00a25a !important;
@@ -256,8 +198,6 @@ table.listing tr  th{
 /* assignees section */
 .grey-bg-color {
   background-color: #EBEFF3 !important;
-  padding-top: 17px;
-  padding-bottom:17px;
 }
 .grey-bg-color span{
   font-family: 'Rubik', sans-serif;
@@ -267,12 +207,12 @@ table.listing tr  th{
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
-  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-size: 10px;
   color: #989899;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: 11px 13px;
   letter-spacing: 0.05em;
   font-weight: 600;
 }
@@ -287,10 +227,8 @@ table.listing tr  th{
   color: #ffffff;
 }
 #bottom-section {
-  padding-left: 5.6%;
-  padding-right: 5.6%;
+  padding-left: 4%;
 }
-
 </style>
 <template>
   <div>
@@ -381,7 +319,7 @@ table.listing tr  th{
         </div>
       </div>
     </div> -->
-    <div v-if="!add_user" id="bottom-section">
+    <div v-if="!add_user" id="bottom-section" class="pr-0">
       <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">
           <vcl-table v-if="show_page_loader" ></vcl-table>

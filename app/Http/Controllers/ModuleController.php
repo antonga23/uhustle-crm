@@ -117,7 +117,7 @@ class ModuleController extends Controller
               'description' => $description,
             ]);
 
-            $existing = ModuleCustomFields::where(['module_id' => $id])->delete();
+            // $existing = ModuleCustomFields::where(['module_id' => $id])->delete();
 
             foreach($module_fields as $key => $value){
                 
@@ -125,7 +125,7 @@ class ModuleController extends Controller
                 $can_edit = ( !isset($value['can_edit']) || is_null($value['can_edit']) )? null : implode(',',$value['can_edit']) ;
                 $required = ( !isset($value['required']) || is_null($value['required']) )? null : $value['required'] ;
                 
-                ModuleCustomFields::create([
+                ModuleCustomFields::where(['id' => $value['id']])->update([
                     'module_id' => $id,
                     'name' => strtolower( str_replace(' ','_',$value['display_name'] ) ) ,
                     'display_name' => ucwords( str_replace('_',' ',$value['display_name'] ) ) ,
@@ -167,6 +167,7 @@ class ModuleController extends Controller
            $field_data->name = $field->name;
            $field_data->display_name = $field->display_name;
            $field_data->type = $field->type;
+           $field_data->required = $field->required;
 
            $can_edit_roles = Role::whereIn('id', explode(',',$field->can_edit))->get();
 
@@ -497,10 +498,6 @@ class ModuleController extends Controller
 
       $num_lead_owner = count($data['lead_owner']);
 
-      if($num_leads == 0){
-        return array('success' => false, 'message' => 'Please select at least one'.$num_leads);
-      }
-
       try{
           DB::beginTransaction();
 
@@ -542,11 +539,153 @@ class ModuleController extends Controller
               }
     
             }else{
+              
+              $num_leads = $num_leads - $assignee_modulus;
 
+              $num_in_batch = $num_leads / $num_user_assigned;
+    
+              $batches = $num_leads / $num_in_batch;
+    
+              $lead_id_index = 0;
+
+              for($i = 0; $i < $batches; $i++){
+
+                for($j = 0; $j < $num_in_batch; $j++){
+                  
+                  $item_id = $data['lead_ids'][$lead_id_index];
+
+                  $item = ModuleItem::find($item_id);
+                  
+                  $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                      ->where(['name' => 'assignee'])
+                                                      ->first();
+
+                  ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                                ->where(['item_id' => $item_id])
+                                ->update([
+                                  'custom_field_value' => $data['user_assigned'][$i]
+                                ]);
+
+                  $lead_id_index++;
+                }
+              }
+
+              for($k = 0; $k < $assignee_modulus; $k++ ){
+                  
+                $item_id = $data['lead_ids'][$lead_id_index];
+
+                $item = ModuleItem::find($item_id);
+                
+                $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                    ->where(['name' => 'assignee'])
+                                                    ->first();
+
+                \Log::info($item_id);
+
+                ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                              ->where(['item_id' => $item_id])
+                              ->update([
+                                'custom_field_value' => $data['user_assigned'][$i-1]
+                              ]);
+
+                $lead_id_index++;
+              }
             }
     
           }
 
+          if($num_lead_owner > 0){
+
+            $owner_modulus = $num_leads % $num_lead_owner;
+            
+            if($owner_modulus == 0){
+    
+              $num_in_batch = $num_leads / $num_lead_owner;
+    
+              $batches = $num_leads / $num_in_batch;
+    
+              $lead_id_index = 0;
+
+              for($i = 0; $i < $batches; $i++){
+
+                for($j = 0; $j < $num_in_batch; $j++){
+                  
+                  $item_id = $data['lead_ids'][$lead_id_index];
+
+                  $item = ModuleItem::find($item_id);
+                  
+                  $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                      ->where(['name' => 'assignee'])
+                                                      ->first();
+
+                  \Log::info($item_id);
+
+                  ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                                ->where(['item_id' => $item_id])
+                                ->update([
+                                  'custom_field_value' => $data['lead_owner'][$i]
+                                ]);
+
+                  $lead_id_index++;
+                }
+
+              }
+    
+            }else{
+              
+              $num_leads = $num_leads - $owner_modulus;
+
+              $num_in_batch = $num_leads / $num_user_assigned;
+    
+              $batches = $num_leads / $num_in_batch;
+    
+              $lead_id_index = 0;
+
+              for($i = 0; $i < $batches; $i++){
+
+                for($j = 0; $j < $num_in_batch; $j++){
+                  
+                  $item_id = $data['lead_ids'][$lead_id_index];
+
+                  $item = ModuleItem::find($item_id);
+                  
+                  $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                      ->where(['name' => 'owner'])
+                                                      ->first();
+
+                  ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                                ->where(['item_id' => $item_id])
+                                ->update([
+                                  'custom_field_value' => $data['lead_owner'][$i]
+                                ]);
+
+                  $lead_id_index++;
+                }
+              }
+
+              for($k = 0; $k < $owner_modulus; $k++ ){
+                  
+                $item_id = $data['lead_ids'][$lead_id_index];
+
+                $item = ModuleItem::find($item_id);
+                
+                $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
+                                                    ->where(['name' => 'owner'])
+                                                    ->first();
+
+                \Log::info($item_id);
+
+                ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
+                              ->where(['item_id' => $item_id])
+                              ->update([
+                                'custom_field_value' => $data['lead_owner'][$i-1]
+                              ]);
+
+                $lead_id_index++;
+              }
+            }
+    
+          }
           DB::commit();
 
           return array('success' => true, 'message' => 'Leads successfully assigned');

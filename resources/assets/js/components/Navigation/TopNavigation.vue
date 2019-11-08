@@ -2,7 +2,7 @@
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
-  padding: 23px 4% 0;
+  padding: 13px 4% 0.55%;
 }
 .navbar-nav li.title{
   line-height: 20px;
@@ -19,9 +19,8 @@ a.add-new {
 }
 li.title a strong{
   color: #003549;
-  font-size: 32px;
+  font-size: 1.68vw;
   letter-spacing: 0.1em;
-	font-family: 'Montserrat, Bold', sans-serif;
 }
 a.top-link{    
   border-radius: 26px;
@@ -131,7 +130,9 @@ select.month-selector {
   background-size: 170%;
   background-repeat: no-repeat;
 }
-.callIcons li button.call {
+.callIcons li button.call,
+.callIcons button.status,
+.callIcons button.end-call {
 	border-radius: 50rem;
 	box-shadow: 0 0 4px rgba(0,0,0,0.1);
 	width: 48px;
@@ -139,12 +140,13 @@ select.month-selector {
 }
 .callIcons li .end-call{
   background-image: url('/images/icons/top-nav/End_Call.svg') !important;
-  background-size: contain;
+  background-size: 25px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .callIcons li .end-call:hover{
   background-image: url('/images/icons/Call/End Call Hover.svg') !important;
-  background-size: contain;
+  background-size: 170%;
   background-repeat: no-repeat;
 }
 .callIcons li .add-call-back-btn{
@@ -156,12 +158,6 @@ select.month-selector {
   padding: 14px;
   margin-top: 5px;
   margin-left: 20px;
-}
-.callIcons button.status,
-.callIcons button.end-call {
-  padding: 31px;
-  margin-top: -11px;
-  margin-left: -7px;
 }
 .modal-content{
   background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
