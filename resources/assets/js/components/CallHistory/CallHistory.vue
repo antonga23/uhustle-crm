@@ -24,7 +24,7 @@
   .horizontal-scroll::-webkit-scrollbar-thumb:hover {
     background: #B3B3B3 !important;
   }
-  
+
   .dropdown-menu {
     border-radius: 5px;
     box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
@@ -254,6 +254,7 @@ p.card-text {
   
   .grey-bg-color {
     background-color: #EBEFF3;
+    width: 110%;
   }
   
   .card-text-small {
@@ -361,12 +362,18 @@ p.card-text {
   }
 
   .add-new-top-section .dropdown {
-    top: -10px;
+    top: 0px;
+    right: 195px;
   }
 
   .table-section {
     padding: 0 0 0 4%;;
   }
+
+  .pb-10 {
+    padding-bottom: 10px;
+  }
+
 
   /* Media Queries */
   @media screen and (max-width: 1500px) {
@@ -379,19 +386,23 @@ p.card-text {
     }
 
     .add-new-top-section .dropdown {
-      top: -10px;
-      right: 10px;
+      top: -5px;
+      right: 100px;
     }
+     .individual-cards {
+    width: 95%;
+  }
+  
   }
 
 
 </style>
 <template>
   <div class="">
-    <div id="top-section" class="row mb-0 align-items-center grey-bg-color justify-content-between mx-0">
+    <div id="top-section" class="row pb-0 mb-4 align-items-center grey-bg-color justify-content-between mx-0">
       <div class="col-11">
-        <div class="row mb-0 horizontal-scroll">
-          <div class="col-auto pl-0">
+        <div class="row mb-0 individual-cards horizontal-scroll">
+          <div class="col-auto pb-10 pl-0">
             <div class="card mb-0 calls">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -405,7 +416,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 sales">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -419,7 +430,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 sales-amount">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -433,7 +444,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 call-backs">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -447,7 +458,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 ave-time">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -461,7 +472,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 con-ratio">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
