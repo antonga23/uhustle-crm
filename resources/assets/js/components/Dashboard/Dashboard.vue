@@ -14,7 +14,6 @@
     padding-left: 5.2%;
     padding-right: 5.2%;
     background-color: #F7F7F7;
-    margin-top: 1%;
   }
   #top-section {
     padding-top:1%;
@@ -92,6 +91,10 @@
     padding-top:18px;
     padding-bottom:18px;
   }
+  .agent-graphs .nav-tabs .nav-item {
+    margin-bottom: 3px;
+}
+
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"],
@@ -172,7 +175,7 @@
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
-    max-width:24px;
+    max-width:20px;
     justify-content: flex-end;
     margin:0 auto;
   }
@@ -304,6 +307,9 @@
   .active-task {
     background-color:rgba(255,147,58,0.5);
   }
+  .mr-20 {
+    margin-right: 20%;
+  }
 </style>
 <template>
   <div id="dashboard">
@@ -392,9 +398,10 @@
                       role="tab" 
                       aria-controls="One" 
                       aria-selected="true"
-                    > 
-                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="37"/> 
-                      <span class="w-50">Calls vs Sales</span>
+                    > <div class="mr-20">
+                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="31"/> 
+                      <span class="w-50 pl-2">Calls vs Sales</span>
+                      </div>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -406,15 +413,16 @@
                       role="tab" 
                       aria-controls="Two" 
                       aria-selected="false"
-                    > 
-                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="37"/> 
-                      <span>Monthly Sales</span> 
+                    > <div class="mr-20">
+                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="31"/> 
+                      <span class="pl-2">Monthly Sales</span> 
+                      </div>
                     </a> 
                   </li> 
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="one" 
@@ -456,9 +464,10 @@
                       role="tab" 
                       aria-controls="Three" 
                       aria-selected="true"
-                    > 
-                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="37"/> 
-                      <span class="w-50">Answers vs Dialing</span>
+                    > <div class="mr-20">
+                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="31"/> 
+                      <span class="w-50 pl-2">Answers vs Dialing</span>
+                      </div>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -470,15 +479,16 @@
                       role="tab" 
                       aria-controls="Four" 
                       aria-selected="false"
-                    > 
-                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="37"/> 
-                      <span>Commissions</span> 
+                    > <div class="mr-20">
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="31"/> 
+                      <span class="pl-2">Commissions</span> 
+                      </div>
                     </a> 
                   </li> 
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="three" 
