@@ -694,7 +694,16 @@ table {
     align-items: center;
     font-size: 12px !important;
     color: rgba(0, 0, 0, 0.54);
+    position: relative !important;
+    right: -100px !important;
 }
+@media screen and (max-width: 1500px) {
+    .table-footer {
+    position: relative !important;
+    right: -500px !important;
+    }
+}
+
 
 .table-footer .datatable-length {
     display: -webkit-flex;
