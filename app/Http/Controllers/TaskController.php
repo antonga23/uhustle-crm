@@ -53,22 +53,33 @@ class TaskController extends Controller
         $data = $request->all();
         
         $title = $data['title'];
-        $description = $data['description'];
+        $description = ( isset($data['description']) )? $data['description'] : null;
         $status = 0;
         $user_created_id = Auth::user()->id;
         $deadline = $data['date'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         try{
             DB::beginTransaction();
+            if(isset($data['lead_id'])){
 
-            $task = Task::create([
-                'title' => $title,
-                'description' => $description,
-                'status' => $status,
-                'user_created_id' => $user_created_id,
-                'deadline' => $deadline
-            ]);
+              $task = Task::create([
+                  'title' => $title,
+                  'description' => $description,
+                  'status' => $data['status'],
+                  'user_created_id' => $user_created_id,
+                  'client_id' => $data['lead_id'],
+                  'deadline' => $deadline
+              ]);
+
+            }else{
+              $task = Task::create([
+                  'title' => $title,
+                  'description' => $description,
+                  'status' => $status,
+                  'user_created_id' => $user_created_id,
+                  'deadline' => $deadline
+              ]);
+            }
 
             DB::commit();
 
@@ -159,6 +170,20 @@ class TaskController extends Controller
                       ->orderBy('deadline', 'ASC')->get();
 
       return array('success' => true, 'tasks' => $tasks);
+
+    }
+
+    public function getActivities($client_id = null){
+
+      $tasks = Task::with('creator')->where( ['client_id' => $client_id ])
+                      ->where('status' ,'<>', 1)
+                      ->orderBy('deadline', 'ASC')->get();
+
+      $closed_tasks = Task::with('creator')->where( ['client_id' => $client_id ])
+                      ->where(['status' => 1])
+                      ->orderBy('deadline', 'ASC')->get();
+
+      return array('success' => true, 'open_activities' => $tasks, 'closed_activities' => $closed_tasks);
 
     }
 }

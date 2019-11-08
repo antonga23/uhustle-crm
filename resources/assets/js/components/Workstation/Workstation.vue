@@ -1331,28 +1331,24 @@ a.down-scroll:hover {
                     <button  
                       type="submit"  
                       class="btn btn-default m-0 border-0 text-capitalize"  
-                      @click  
                     >Introduce Stock</button>  
                   </div>  
                   <div class="col-auto mb-2 px-1">  
                     <button  
                       type="submit"  
                       class="btn btn-default m-0 border-0 text-capitalize"  
-                      @click  
                     >First time sell</button>  
                   </div>  
                   <div class="col-auto mb-2 px-1">  
                     <button  
                       type="submit"  
                       class="btn btn-default m-0 border-0 text-capitalize"  
-                      @click  
                     >Up sell</button>  
                   </div>  
                   <div class="col-auto mb-2 pr-0 pl-1">  
                     <button  
                       type="submit"  
                       class="btn btn-default m-0 border-0 text-capitalize"  
-                      @click  
                     >Extra Info</button>  
                   </div>  
                 </div>  
@@ -1385,7 +1381,7 @@ a.down-scroll:hover {
         </div>  
   
         <!-- Activities Starts -->  
-        <!-- Yong <div class="row mx-0 mb-0 activities">    
+        <div class="row mx-0 mb-0 activities">    
           <div class="col-lg-12 px-0">    
             <div class="card shadow-none mt-3 border-0 tab-card">    
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
@@ -1408,6 +1404,7 @@ a.down-scroll:hover {
                       />    
                       <span>Open Activities</span>    
                     </a>    
+                    <img src="/images/icons/Module_Add.svg" width="47" style="cursor:pointer;" @click="addActivityCollapse()"/>
                   </li>    
    
                   <li class="nav-item">    
@@ -1432,11 +1429,35 @@ a.down-scroll:hover {
                 </ul>    
               </div>    
    
-              <div class="tab-content" id="myTabContent">    
+              <div class="tab-content" id="myTabContent">   
                 <div    
                   class="tab-pane fade show active"    
                   id="five" role="tabpanel"    
-                  aria-labelledby="one-tab"   
+                  aria-labelledby="one-tab"  
+                  v-if="add_client_activity" 
+                >  
+                    <a-input placeholder="Subject" v-model="activity.title" style="width:100%" name="Subject" v-validate="'required'"  />
+                    <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
+
+                    <a-date-picker v-model="activity.duedate" style="width:100%" name="Due Date"  v-validate="'required'" />
+                    <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
+
+
+                    <a-radio-group v-model="activity.status" >
+                      <a-radio-button :value="0">Open</a-radio-button>
+                      <a-radio-button :value="1">Closed</a-radio-button>
+                      <a-radio-button :value="2">Finished</a-radio-button>
+                      <a-radio-button :value="3">In Progress</a-radio-button>
+                      <a-radio-button :value="4">Not Started</a-radio-button>
+                    </a-radio-group>
+
+                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="addActivity()">Add</button> 
+                </div>
+                <div    
+                  class="tab-pane fade show active"    
+                  id="five" role="tabpanel"    
+                  aria-labelledby="one-tab" 
+                   
                 >    
                   <b-table    
                     hover    
@@ -1446,7 +1467,7 @@ a.down-scroll:hover {
                     sticky-header   
                   >   
                     <template v-for="item in activityItems" v-slot:cell(statusColor)="data">   
-                      <p>hi {{ data.item.statusColor }}</p>   
+                      <p>hi {{ item.statusColor }}</p>   
                     </template>   
                   </b-table>   
    
@@ -1473,7 +1494,7 @@ a.down-scroll:hover {
               </div>    
             </div>    
           </div>     
-        </div>-->  
+        </div> 
         <!-- Activities Starts End -->  
   
         <!-- Deals Starts -->  
@@ -2256,6 +2277,8 @@ export default {
     }  
   
     vm.prepDates();  
+
+    vm.getActivities();  
   
     Fire.$on("CallStarted", function() {  
       vm.general = false;  
@@ -2335,6 +2358,7 @@ export default {
       edit_comment: false,  
       continues: false,  
       show_page_loader: false,  
+      add_client_activity: false,  
       call_status: "",  
       call_sid: "",  
       handle: "",  
@@ -2382,7 +2406,14 @@ export default {
         user_id: this.user_id,  
         lead_id: "",  
         call_sid: this.call_sid  
-      },  
+      },
+      open_activities: [],
+      closed_activities: [],
+      activity:{
+        title: '',
+        duedate:  moment(),
+        status: 0,
+      },
       date_span: "",  
       max_date: "",  
       selected_date: moment(),  
@@ -2463,151 +2494,7 @@ export default {
         }  
       ],  
       Toast: null,  
-      activityItems: [  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#f42222",  
-          status: "Not Started",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#00d58e",  
-          status: "Finished",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        },  
-        {  
-          statusColor: "#ff8c37",  
-          status: "In Progress",  
-          subject: 40,  
-          dueDate: "Dickerson",  
-          activityOwner: "Macdonald",  
-          timeModified: ""  
-        }  
+      activityItems: [   
       ],  
       dealItems: [  
         {  
@@ -2651,13 +2538,7 @@ export default {
       axios.get("/calls/list").then(function(response) {  
         vm.conferences = response.data.conferences;  
         vm.show_page_loader = false;  
-      });  
-      // setInterval(function(){  
-      //     axios.get('/calls/list').then(function (response) {  
-      //         vm.conferences = response.data.conferences;  
-      //         vm.show_page_loader = false;  
-      //     });  
-      // }, 5000);  
+      });   
     },  
     checkCBDate() {  
       var now = moment(new Date()); //todays date  
@@ -2720,7 +2601,126 @@ export default {
           }  
         });  
       }  
-    },  
+    },
+    addActivity(){ 
+      var vm = this;
+        this.$validator.validateAll().then(result => {  
+          if (!result) {  
+          } else {  
+              axios.post('/tasks/create', { 
+                title: vm.activity.title, 
+                status: vm.activity.status, 
+                date: vm.activity.duedate.format('YYYY-MM-DD') ,
+                lead_id: vm.item_id ,
+              }).then(function(response) { 
+
+                  if (response.data.success == true) { 
+                      vm.Toast.fire({ 
+                          type: 'success', 
+                          title: 'Activity added successfully'
+                      }); 
+                      vm.getActivities(); 
+                      vm.$Progress.finish(); 
+                  } else { 
+                      vm.$Progress.fail(); 
+                      vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+                  } 
+              });  
+          }  
+        });  
+      this.edit_task = false; 
+    },
+    getActivities(){
+      var vm = this; 
+      axios.get('/tasks/get-activities/' + vm.item_id).then(function(response) { 
+          vm.activities = response.data.open_activities; 
+          vm.closed_activities = response.data.closed_activities; 
+
+          vm.activities.map( (activity) => {
+
+            var color = '';
+            var status = '';
+
+            if(activity.status == 0){
+              color = '#ff8c37';
+              status = 'Open';
+            }
+            if(activity.status == 1){
+              color = '#00d58e';
+              status = 'Closed';
+            }
+            if(activity.status == 2){
+              color = '#00d58e';
+              status = 'Finished';
+            }
+            if(activity.status == 3){
+              color = '#ff8c37';
+              status = 'In Progress';
+            }
+            
+            if(activity.status == 4){
+              color = '#f42222';
+              status = 'No Started';
+            }
+
+            vm.activityItems.push({  
+              statusColor: color,  
+              status: status,  
+              subject: activity.title,  
+              dueDate: activity.duedate,  
+              activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
+              timeModified: activity.updated_at  
+            });
+
+          });
+          vm.closed_activities.map( (activity) => {
+
+            var color = '';
+            var status = '';
+
+            if(activity.status == 0){
+              color = '#ff8c37';
+              status = 'Open';
+            }
+            if(activity.status == 1){
+              color = '#00d58e';
+              status = 'Closed';
+            }
+            if(activity.status == 2){
+              color = '#00d58e';
+              status = 'Finished';
+            }
+            if(activity.status == 3){
+              color = '#ff8c37';
+              status = 'In Progress';
+            }
+            
+            if(activity.status == 4){
+              color = '#f42222';
+              status = 'No Started';
+            }
+
+            vm.closedActivityItems.push({  
+              statusColor: color,  
+              status: status,  
+              subject: activity.title,  
+              dueDate: activity.duedate,  
+              activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
+              timeModified: activity.updated_at  
+            });
+
+          });
+
+      }); 
+    },
+    addActivityCollapse(id){ 
+      this.add_client_activity = !this.add_client_activity; 
+      if(!this.add_client_activity){
+        this.activity.status = 0;
+        this.activity.duedate = moment();
+        this.activity.title = '';
+      }
+    },
     prepDates() {  
       this.date_span = 7;  
       this.dates = [{ start: new Date(), span: this.date_span }];  
