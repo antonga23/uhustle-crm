@@ -1,114 +1,122 @@
 <style scoped>
-    .form-control {
-        border-radius: 25px;
-        padding: 7px;
-        height: 28px !important;
-        font-size: 9px;
-    }
+  .form-control {
+    border-radius: 50rem;
+    padding: 11px 18px!important;
+    font-size: 0.63vw;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    color: #003449;
+    border-color: #ccc;
+    margin-bottom: 17px;
+    font-family: 'Rubik', sans-serif;
+    height:auto!important;
+  }
+  label {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.52vw;
+    color: #999999;
+    margin-bottom:7px;
+    margin-left: 17px;
+  }
+  .btn-primary {
+    border-radius: 50rem!important;
+    text-transform:uppercase;
+    font-size: 0.52vw;
+    padding: 11px 14px 10px;
+    line-height:1em;
+    margin-left: 0.9%;
+    margin-right: 0.9%;
+  }
 </style>
 <template>
-    <div class="col-lg-9">
-        <b-container fluid>
-            <b-row class="my-1">
-                <b-col sm="2">
-                <label for="input-none">Role Name</label>
-                </b-col>
-                <b-col sm="9">
-                <b-form-input id="input-none" :state="null" v-model="role.display_name"></b-form-input>
-                </b-col>
-            </b-row>
+  <div class="col-lg-6 px-0">
+    <b-container fluid class="px-0">
+      <b-row class="mx-0">
+        <b-col sm="12" class="px-0">
+          <label for="input-none">Role Name</label>
+          <b-form-input id="input-none" :state="null" v-model="role.display_name"></b-form-input>
 
-            <b-row class="my-1">
-                <b-col sm="2">
-                <label for="input-valid">Role Description</label>
-                </b-col>
-                <b-col sm="9">
-                <b-form-input id="input-valid" :state="null" v-model="role.description"></b-form-input>
-                </b-col>
-            </b-row>
+          <label for="input-valid">Role Description</label>
+          <b-form-input id="input-valid" :state="null" v-model="role.description"></b-form-input>
 
-            <b-row class="my-1">
-                <b-col sm="2">
-                    <label for="input-invalid">Role Status</label>
-                </b-col>
-                <b-col sm="9">
-                    <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
-                </b-col>
-            </b-row>
+          <label for="input-invalid">Role Status</label>
+          <a-switch v-model="status"/>
+          <label v-if="status == 1">Active</label>
+          <label v-if="status == 0">Inactive</label>
+          <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
 
-            <b-row class="my-1">
-                <b-col sm="9">
-                    <b-button variant="default" @click="addRole()">Add Role</b-button>
-                </b-col>
-            </b-row>
-        </b-container>
-    </div>
+          <div class="row mx-0 justify-content-end">
+            <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add Role</b-button>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
-    export default {
-        components: { 
-        },
-        mounted() {
-            console.log('Component mounted');
+  export default {
+    components: { 
+    },
+    mounted() {
+      console.log('Component mounted');
 
-            this.Toast = this.$swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
+      this.Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    },
+    created: function () {
+    },
+    props: [],
+    data: function(){
+      return {
+        status : null,
+        role: {
+          display_name : '',
+          description : '',
+          status : null,
+        },
+        Toast: null,
+      }
+    },
+    methods: {
+      addRole(){
+        var vm = this;  
+        vm.$Progress.start();
+        this.$validator.validateAll().then((result) => {
+          if(!result){
+            vm.display_name_state = false;
+          }else{
+              
+            vm.display_name_state = true;
+
+            var end_point = '/roles/create';
+
+            axios.post(end_point,this.role).then(function (response) {
+                    
+              if(response.data.success == true){
+
+                vm.resteRole();
+                
+                Fire.$emit('DoneAddingRole');
+                vm.$Progress.finish();
+                vm.Toast.fire({ type: 'success', title: response.data.message });
+              }else {
+                vm.$Progress.fail();
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+              }
             });
-        },
-        created: function () {
-        },
-        props: [],
-        data: function(){
-            return {
-
-                    status : null,
-                role: {
-                    display_name : '',
-                    description : '',
-                    status : null,
-                },
-                Toast: null,
-            }
-        },
-        methods: {
-            addRole(){
-				var vm = this;  
-				vm.$Progress.start();
-				this.$validator.validateAll().then((result) => {
-                        if(!result){
-                            vm.display_name_state = false;
-                        }else{
-                            
-                            vm.display_name_state = true;
-
-                            var end_point = '/roles/create';
-
-                            axios.post(end_point,this.role).then(function (response) {
-                                    
-                                if(response.data.success == true){
-
-                                    vm.resteRole();
-                                    
-                                    Fire.$emit('DoneAddingRole');
-                                    vm.$Progress.finish();
-                                    vm.Toast.fire({ type: 'success', title: response.data.message });
-                                }else {
-                                    vm.$Progress.fail();
-                                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                                }
-                            });
-						}
-				});
-            },
-            resteRole(){
-                this.role.display_name = '';
-                this.role.description = '';
-                this.role.status = '';
-            }
-        }
+          }
+        });
+      },
+      resteRole(){
+        this.role.display_name = '';
+        this.role.description = '';
+        this.role.status = '';
+      }
     }
+  }
 </script>

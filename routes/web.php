@@ -44,7 +44,7 @@ Route::get('/move-leads',  function(){
         'module_id' => $module_id
       ]);
 
-      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+      $module_fields = ModuleCustomFields::where([ 'module_id' => $module_id ])->get();
 
       foreach($module_fields as $key => $value){
         
@@ -88,9 +88,6 @@ Route::get('/move-leads',  function(){
           case 'product':
               $insert = $lead->product_id;
             break;
-          case 'product_variant':
-              $insert = $lead->product_variant;
-            break;
           case 'start_at':
               $insert = $lead->start_date;
             break;
@@ -109,7 +106,7 @@ Route::get('/move-leads',  function(){
           case 'owner':
               $insert = $lead->user_created_id;
             break;
-          case 'owner':
+          case 'status':
               $insert = $lead->user_created_id;
             break;             
 
@@ -209,10 +206,8 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-active', 'TaskController@getActive');
 	Route::post('/create', 'TaskController@store');
 	Route::post('/update', 'TaskController@update');
+	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
-    Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
-    Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
-    Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
 });
 
 // Leads Routes
@@ -229,13 +224,15 @@ Route::group(['prefix' => 'leads'], function () {
   Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
   Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
   Route::post('/setcallback', 'LeadController@setCallback');
+  Route::get('/mark-callback-complete/{id}', 'LeadController@markCallBackComplete');
   Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+  Route::get('/get-user-callbacks-today', 'LeadController@getUserCallBacksToday');
   Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
   Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
   Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
-	Route::post('mass-assign', 'LeadController@massAssign');
+	Route::post('mass-assign', 'ModuleController@massAssign');
 });
 
  // Filters Routes 
@@ -261,6 +258,7 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::get('/get-permissions', 'RoleController@getPermissions');
 	Route::put('/update-permissions', 'RoleController@applyPermissions');
 	Route::get('/get-dialer-permissions', 'RoleController@getDialerPermissions');
+	Route::get('/get-dialer-permissions/{role_id}', 'RoleController@getDialerPermissions');
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
@@ -292,8 +290,10 @@ Route::group(['prefix' => 'modules'], function () {
   Route::post('/check-exist', 'ModuleController@checkExist');
 
   // Items
+  Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
+  Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');

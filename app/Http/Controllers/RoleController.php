@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use DB;
+use Auth;
 use App\Role;
 use App\Permissions;
 use App\DialerPermissions;
@@ -130,13 +131,20 @@ class RoleController extends Controller
     }
 
     public function getPermissions(){
-        $permissions = Permissions::get();
-        return array('success' => true, 'permissions' => $permissions);
+      $permissions = Permissions::get();
+      
+      return array('success' => true, 'permissions' => $permissions);
     }
 
-    public function getDialerPermissions(){
+    public function getDialerPermissions($role_id = null){
+      
+      if(is_null($role_id)){
         $permissions = DialerPermissions::get();
-        return array('success' => true, 'permissions' => $permissions);
+      }else{
+        $permissions = DialerPermissions::where(['role_id' => Auth::user()->role_id])->first();
+      }
+
+      return array('success' => true, 'permissions' => $permissions);
     }
 
     public function applyDialerPermissions(Request $request){

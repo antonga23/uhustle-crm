@@ -1,16 +1,26 @@
+<!-- 28/10/19 -->
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
-  padding: 23px 4% 0;
+  padding: 13px 4% 0.55%;
 }
 .navbar-nav li.title{
   line-height: 20px;
 }
+
+a.add-new {
+	border-radius: 50rem !important;
+    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    font-size: 16px;
+    color: #989899;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
 li.title a strong{
   color: #003549;
-  font-size: 32px;
+  font-size: 1.68vw;
   letter-spacing: 0.1em;
-	font-family: 'Montserrat, Bold', sans-serif;
 }
 a.top-link{    
   border-radius: 26px;
@@ -44,10 +54,6 @@ select.month-selector {
   margin-left: 0!important;
   margin-right: 0!important;
 }
-.callIcons li{
-  width: 43px;
-  margin-left: 15px !important;
-}
 .callIcons li a{
   background-repeat: no-repeat;
   color: black;
@@ -55,15 +61,48 @@ select.month-selector {
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
-.callIcons li a.search{
-  background-image: url('/images/icons/Asset 60.svg') !important;
-  background-size: contain;
+.callIcons .search .col-auto {
+  padding-right:41%;
+}
+.callIcons .search a{
+  background-color: #fff;
+  background-image: url('/images/icons/top-nav/Search.svg') !important;
+  background-size: 15px!important;
+  background-repeat: no-repeat;
+  border-radius: 50rem;
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
+}
+.callIcons .search a:hover{
+  background-image: url('/images/icons/Asset 61.svg') !important;
+  background-size: 170%!important;
   background-repeat: no-repeat;
 }
-.callIcons li a.search:hover{
-  background-image: url('/images/icons/Asset 61.svg') !important;
-  background-size: contain;
-  background-repeat: no-repeat;
+.callIcons .search input {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding:14px 0 14px;
+  right: -40px;
+  position: absolute;
+  top: -24px;
+  width:0;
+  transition: width 2s;
+}
+.callIcons .search:hover input {
+  width:auto;
+  padding:14px 40px 14px 15px;
+}
+.callIcons .search input::placeholder {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
 }
 .callIcons li.idle .status{
   background-image: url('/images/icons/Asset 55.svg') !important;
@@ -81,13 +120,33 @@ select.month-selector {
   background-repeat: no-repeat;
 }
 .callIcons li .call{
-  background-image: url('/images/icons/Asset 59.svg') !important;
-  background-size: contain;
+  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;
+  background-size: 25px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .callIcons li .call:hover{
-  background-image: url('/images/icons/Asset 58.svg') !important;
-  background-size: contain;
+  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;
+  background-size: 170%;
+  background-repeat: no-repeat;
+}
+.callIcons li button.call,
+.callIcons button.status,
+.callIcons button.end-call {
+	border-radius: 50rem;
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
+}
+.callIcons li .end-call{
+  background-image: url('/images/icons/top-nav/End_Call.svg') !important;
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.callIcons li .end-call:hover{
+  background-image: url('/images/icons/Call/End Call Hover.svg') !important;
+  background-size: 170%;
   background-repeat: no-repeat;
 }
 .callIcons li .add-call-back-btn{
@@ -99,16 +158,6 @@ select.month-selector {
   padding: 14px;
   margin-top: 5px;
   margin-left: 20px;
-}
-.callIcons li a.filter{
-  background-image: url('/images/icons/fitler icon Asset 2@4x.png') !important;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.callIcons button.status, .callIcons button.call {
-  padding: 31px;
-  margin-top: -11px;
-  margin-left: -7px;
 }
 .modal-content{
   background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
@@ -153,15 +202,15 @@ select.month-selector {
 							>General</a>
 						</li>
 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3">
+						<!-- <li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3" style="display:none;">
 							<a 
 								href="#" 
 								@click="showScripts();" 
 								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : scripts_active }"
-							>Scripts</a>
-						</li>
+							>Scripts ss</a>
+						</li> -->
 
-						<li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3">
+						<li v-if="active == 'workstation' && auto_dialer_settings.disabled == 1" class="nav-item d-none d-sm-inline-block px-3">
 							<a 
 								href="#" 
 								@click="showDialer();" 
@@ -190,7 +239,7 @@ select.month-selector {
 							<a 
 								href="#" 
 								@click="addNew();" 
-								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : adding_user }" 
+								:class="{ 'nav-link top-link d-block text-center add-new' : true, 'active' : adding_user }" 
 								class="nav-link"
 							>Add New</a>
 						</li>
@@ -199,25 +248,39 @@ select.month-selector {
 
 				<div class="col-auto px-0" v-if="active == 'call-history'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block">
-							<a href="#" class="nav-link search p-0"></a>
-						</li>
-						<li class="nav-item d-sm-inline-block">
-							<a href="#" class="nav-link filter p-0"></a>
+						<li class="nav-item d-sm-inline-block search">
+							<div class="row mx-0 align-items-center">
+                <div class="col px-0">
+                  <input placeholder="Search" class="border-0 rounded-pill"/>
+                </div>
+
+                <div class="col-auto pl-0">
+                  <a href="#" class="nav-link p-0"></a>
+                </div>
+              </div>
 						</li>
 					</ul>				
 				</div>
 
 				<div class="col-auto px-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block">
-							<a href="#" class="nav-link search p-0"></a>
+						<li class="nav-item d-sm-inline-block search">
+              <div class="row mx-0 align-items-center">
+                <div class="col px-0">
+                  <input placeholder="Search" class="border-0 rounded-pill"/>
+                </div>
+
+                <div class="col-auto pl-0">
+                  <a href="#" class="nav-link p-0"></a>
+                </div>
+              </div>
 						</li>
-						<li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
+						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
-						</li>
-						<li class="nav-item d-sm-inline-block">
-		    			<button id="show-btn" class="nav-link border-0 bg-transparent call" @click="endCall()"></button>
+						</li> -->
+						<li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
+		    			<button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
+		    			<button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
 						</li>
 					</ul>				
 				</div>
@@ -240,6 +303,7 @@ select.month-selector {
         call_back_date : '',
         call_back_time : '',
         call_back_notes : '',
+        auto_dialer_settings: [],
         general_active : false,
         active_calls_active : false,
         active_calls : false,
@@ -285,13 +349,24 @@ select.month-selector {
         vm.dialer_active = false;
         vm.active_calls_active = false;
       });
+
+      Fire.$on('ShowScripts', function(){
+        vm.showScripts();
+      });
+
+      Fire.$on('ShowActiveCalls', function(){
+        vm.showActiveCalls();
+      });
     },
 
 		mounted() {
-			this.current_user = JSON.parse(this.logged_user);
+      this.current_user = JSON.parse(this.logged_user);
+      
 			var d = new Date();
 
 			this.month = d.getMonth() + 1;
+
+      this.getDialerSettings();
 
 			this.Toast = this.$swal.mixin({
 				toast: true,
@@ -304,6 +379,20 @@ select.month-selector {
 		computed: {},
     
 	  methods: {
+      getDialerSettings(){
+        var vm = this;
+        axios.get('/roles/get-dialer-permissions/' + this.current_user.role_id).then(function (response) {
+            
+            if(response.data.success == true){
+
+                vm.auto_dialer_settings = response.data.permissions;
+
+            }else{
+                vm.$Progress.fail();
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving Dialer settings, please try again','warning');
+            }
+        });
+      },
 			showFilter(){
 				this.top_nav_show_filter = !this.top_nav_show_filter;
 				Fire.$emit('ShowFilter');
@@ -311,10 +400,12 @@ select.month-selector {
       
       endCall() {
         Fire.$emit('CallEnded');
+        this.is_oncall = false;
       },
 
       startCall() {
         Fire.$emit('CallStarted');
+        this.is_oncall = true;
       },
 
       hideModal() {
@@ -371,11 +462,12 @@ select.month-selector {
       },
       
 			showActiveCalls(){
+				this.active_calls = true;
 				this.active_calls_active = true;
 				this.general_active = false;
 				this.scripts_active = false;
 				this.dialer_active = false;
-				Fire.$emit('ShowActiveCalls');
+				// Fire.$emit('ShowActiveCalls');
       },
       
 			showGeneral(){

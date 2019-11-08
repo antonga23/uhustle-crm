@@ -2,7 +2,7 @@
 /*Nav starts*/
 .main-sidebar, .main-sidebar:before {
   transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
-  width: 53px !important;
+  width: 56px !important;
 }
 .sidebar-dark-primary {
   background-color: #fff;
@@ -15,118 +15,24 @@
   border-bottom: none;
 }
 .nav-sidebar > .nav-item {
-  width: 63px;
+  width: 50px;
+  margin-left:6px;
 }
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  background-size: 90px;
-  background-position: -10px;
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img {
+  padding:8px;
 }
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  background-size: 64px;
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link:hover {
+  background-size: 50px;
+  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link {
   background-repeat: no-repeat;
-  background-position: 3px;
-  min-height: 75px;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation:hover {
-  background-image: url('/images/icons/SVG/Active work station icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.workstation {
-  background-image: url('/images/icons/SVG/Work Station Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard:hover {
-  background-image: url('/images/icons/SVG/Active Dashboard Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.dashboard {
-  background-image: url('/images/icons/SVG/Dashboard Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board:hover {
-  background-image: url('/images/icons/SVG/Active Social Board Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.social-board {
-  background-image: url('/images/icons/SVG/Social Board Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history:hover {
-  background-image: url('/images/icons/SVG/Active Call History Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.call-history {
-  background-image: url('/images/icons/SVG/Call History Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions:hover {
-  background-image: url('/images/icons/SVG/Active Transactions Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.transactions {
-  background-image: url('/images/icons/SVG/Transactions Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education:hover {
-  background-image: url('/images/icons/SVG/Active Training Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.education {
-  background-image: url('/images/icons/SVG/Training Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts:hover {
-  background-image: url('/images/icons/SVG/Active Contacts Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.contacts {
-  background-image: url('/images/icons/SVG/Contacts icon.svg') !important
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads:hover {
-  background-image: url('/images/icons/SVG/Active Leads Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.leads {
-  background-image: url('/images/icons/SVG/Leads Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users:hover {
-  background-image: url('/images/icons/SVG/Active Users Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.users {
-  background-image: url('/images/icons/SVG/Users Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences.active,
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences:hover {
-  background-image: url('/images/icons/SVG/Active System Preferences Icon.svg') !important;
-}
-.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.preferences {
-  background-image: url('/images/icons/SVG/System Preferences Icon.svg') !important;
+  min-height:56px;
+  transition: background-image .3s ease;
 }
 .main-sidebar {
-  width: 63px!important;
+  width: 56px!important;
   overflow:visible;
 }
 #sidebar, .nav.nav-pills.nav-sidebar.flex-column, .nav.nav-pills a.nav-link {
@@ -134,11 +40,11 @@
 }
 .nav-link span{
   position: relative;
-  left: -200px!important;
-  top: 26px;
+  left: -16px!important;
+  top: 2px;
   background: #fff;
   color: #000;
-  font-size: 18px;
+  font-size: 0px;
   letter-spacing:0.05em;
   color: #003549;
   border-radius: 0 50rem 50rem 0;
@@ -154,7 +60,14 @@
   width: auto; 
   overflow:visible;
   padding: 18px 35px 18px 40px;
-  left: 44px!important;
+  left: -20px!important;
+  font-size: 0.63vw;
+}
+.sidebar-collapse .nav-link span {
+  top: 2px;
+}
+.sidebar-collapse .nav-link:hover span {
+  padding: 16px 35px 16px 40px;
 }
 /*Nav Ends*/
 </style>
@@ -163,8 +76,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary">
       <!-- Brand Logo -->
-      <a href="/workstation" class="brand-link mt-3">
-        <img class="logo" src="/images/SVG_Images/Logo.svg">
+      <a href="/workstation" class="brand-link">
+        <img class="logo" src="/images/SVG_Images/Logo.svg" width="30">
       </a>
 
       <!-- Sidebar -->
@@ -180,6 +93,7 @@
                 title="Dashboard" 
                 :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Dashboard.svg" width="52"/>
                 <span>Dashboard</span>
               </a>
             </li>
@@ -191,6 +105,7 @@
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Workstation.svg" width="52"/>
                 <span>Workstation</span>
               </a>
             </li>
@@ -201,6 +116,7 @@
                 title="Contacts" 
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Contacts.svg" width="52"/>
                 <span>Contacts</span>
               </a>
             </li>
@@ -211,6 +127,7 @@
                 title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Leads</span>
               </a>
             </li>
@@ -221,7 +138,19 @@
                 title="Call History" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Call history.svg" width="52"/>
                 <span>Call History</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a 
+                href="/inventory" 
+                title="Inventory" 
+                :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
+                class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Inventory.svg" width="52"/>
+                <span>Inventory</span>
               </a>
             </li>
 
@@ -231,6 +160,7 @@
                 title="Transactions" 
                 :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Transactions.svg" width="52"/>
                 <span>Transactions</span>
               </a>
             </li>
@@ -241,6 +171,7 @@
                 title="Social Board" 
                 :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Social Board.svg" width="52"/>
                 <span>Social Board</span>
               </a>
             </li> -->
@@ -252,6 +183,7 @@
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0" 
                 disabled>
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Education</span>
               </a>
             </li>
@@ -262,6 +194,7 @@
                 title="Users" 
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/Users.svg" width="52"/>
                 <span>Users</span>
               </a>
             </li>
@@ -272,6 +205,7 @@
                 title="System Preferences" 
                 :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
+                <img src="/images/icons/left-sidebar/no-shadows/System Pref.svg" width="52"/>
                 <span>System Preferences</span>
               </a>
             </li>

@@ -1,22 +1,28 @@
 <template>
-    <div class="card no-box-shadow material-table">
+    <div class="no-box-shadow material-table">
         <table ref="table">
             <thead>
                 <tr>
                     <th v-for="(column, index) in columns" @click="sort(index)" :class="(column.sortable ? 'sorting ' : '')
                             + (sortColumn === index ? (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc') : '')
                             + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index"
-                            v-if="column.field != 'actions'"
                             >
-                        {{column.label}}
-                    </th>
-                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(column.sortable ? 'sorting ' : '')
-                            + (sortColumn === index ? (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc') : '')
-                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto', 'add-sign' : true}"
-                            :key="index"
-                            v-if="column.field == 'actions'"
-                            >
-                        Putt image style
+
+                        <span style="float:left;padding-top: 2px;">
+                          {{column.label}}
+                        </span>
+
+                        <div v-if="index == columns.length-1" class="col pl-0 dropdown">
+                            <b-button class="rounded-circle m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                            </b-button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Calls</a>
+                                <a class="dropdown-item" href="#">Sales</a>
+                                <a class="dropdown-item" href="#">Calls</a>
+                                <a class="dropdown-item" href="#">Sales</a>
+                            </div>
+                        </div>
                     </th>
                 </tr>
             </thead>
@@ -30,7 +36,7 @@
                             
                         </span>
                         <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
-                            &npsp;
+                            &nbsp;
                         </span>
                         <span v-else>{{ collect(row, column.field) }}</span>
                     </td>
@@ -489,9 +495,33 @@ export default {
 }
 </script>
 <style scoped>
-   .no-box-shadow {
-      box-shadow: none !important;
-    }
+
+thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+.btn-secondary{
+    color: #fff;
+    background-color: #f6f8f9;
+    border-color: #f6f8f9;
+    padding: 0px 6px;
+}
+.btn-secondary img{
+    width: 11px;
+}
+th .dropdown{
+  width: 25%;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+.no-box-shadow {
+  box-shadow: none !important;
+}
     
 table tr td a.Canceled{
     color: red;
@@ -580,7 +610,7 @@ table tr td a.Barge:active{
     background-image: url('/images/icons/Barge.svg');
     background-size: 31px 35px;
     background-repeat: no-repeat;
-}Barge
+}
 .control-label{
     float: left;
 }
@@ -751,13 +781,19 @@ table {
 table tr td {
     height: 35px;
     font-size: 14px;
-    color: #003449;
+    color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 25px 0px 25px 0px;
+    padding: 10px 0px 10px 0px;
     min-width: 150px;
 
 }
+ @media screen and (max-width: 1500px) {
+     table tr td {
+        font-size: 12px;
+        padding: 5px 0px 5px 0px;
+     }
+ }
 
 table tr td a i {
     font-size: 18px;
@@ -766,7 +802,7 @@ table tr td a i {
 
 table tr {
     font-size: 12px;
-    border-bottom: 1px solid #B3B3B3;
+    border-bottom: 1px solid #f2f2f2;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
@@ -845,8 +881,8 @@ table td:last-child {
     background-image: none !important;
 }
 
-table th:first-child,
+/* table th:first-child,
 table td:first-child {
     padding-left: 25px;
-}
+} */
 </style>
