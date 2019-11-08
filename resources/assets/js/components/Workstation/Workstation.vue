@@ -53,6 +53,12 @@ div.col-6:last-child, div.col-6:nth-last-child(2)  {
 .p12-25 {  
   padding: 12px 25px;  
 }  
+.mr-22 {
+  margin-right: 22%;
+}
+.mr-12 {
+  margin-right: 12%;
+}
   
 .card {  
   border-radius: 25px;  
@@ -210,6 +216,10 @@ span.right {
   color: #999;  
   font-style: italic;  
 }  
+.comment-desc:focus, textarea.form-control:focus {
+  outline: 0 !important;
+  box-shadow: none !important; 
+}
 .keys {  
   letter-spacing: 0.05em;  
   font-family: "Rubik", sans-serif;  
@@ -764,7 +774,7 @@ a.down-scroll:hover {
       <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1">  
         <div class="col-6" v-for="(custom_field, index) in item_custom_fields" :key="index">  
           <div class="2" v-for="(item, name, i) in module_item" :key="i">  
-            <div class="3" v-if="item.custom_field_id == custom_field.id">  
+            <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
                 class="row mx-1 border-top-grey"  
                 v-if="name == 'source' && item.meta_value !== null"  
@@ -913,7 +923,7 @@ a.down-scroll:hover {
                     role="tab"  
                     aria-controls="One"  
                     aria-selected="true"  
-                  >  
+                  >  <div class="mr-22">
                     <img  
                       src="/images/icons/workstation/Agent Notes.svg"  
                       alt="Icon"  
@@ -921,6 +931,7 @@ a.down-scroll:hover {
                       width="31px"  
                     />  
                     <span>Agent Notes</span>  
+                    </div>
                   </a>  
                 </li>  
   
@@ -933,14 +944,15 @@ a.down-scroll:hover {
                     role="tab"  
                     aria-controls="Two"  
                     aria-selected="false"  
-                  >  
+                  > <div class="mr-22">
                     <img  
                       src="/images/icons/workstation/Schedule Callback.svg"  
                       alt="Icon"  
                       class="icon"  
                       width="31px"  
                     />  
-                    <span>Schedule Callback</span>  
+                    <span>Schedule Callback</span> 
+                    </div> 
                   </a>  
                 </li>  
               </ul>  
@@ -1221,7 +1233,7 @@ a.down-scroll:hover {
                     role="tab"  
                     aria-controls="Three"  
                     aria-selected="true"  
-                  >  
+                  >  <div class="mr-12">
                     <img  
                       src="/images/icons/workstation/Feeback Summary.svg"  
                       alt="Icon"  
@@ -1229,6 +1241,7 @@ a.down-scroll:hover {
                       width="31px"  
                     />  
                     <span class="left w-50">Feedback Summary</span>  
+                    </div>
                   </a>  
                 </li>  
                 <li class="nav-item right w-50">  
@@ -1240,7 +1253,7 @@ a.down-scroll:hover {
                     role="tab"  
                     aria-controls="Four"  
                     aria-selected="false"  
-                  >  
+                  > <div class="mr-12"> 
                     <img  
                       src="/images/icons/workstation/Email Client.svg"  
                       alt="Icon"  
@@ -1248,6 +1261,7 @@ a.down-scroll:hover {
                       width="31px"  
                     />  
                     <span class="left">Email Client</span>  
+                    </div>
                   </a>  
                 </li>  
               </ul>  
