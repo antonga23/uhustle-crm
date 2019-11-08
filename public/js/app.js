@@ -194243,6 +194243,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -194293,6 +194314,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     }
 
     vm.prepDates();
+    vm.getActivities();
     Fire.$on("CallStarted", function () {
       vm.general = false;
       vm.idle = true;
@@ -194358,6 +194380,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       edit_comment: false,
       continues: false,
       show_page_loader: false,
+      add_client_activity: false,
       call_status: "",
       call_sid: "",
       handle: "",
@@ -194397,6 +194420,13 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         user_id: this.user_id,
         lead_id: "",
         call_sid: this.call_sid
+      },
+      open_activities: [],
+      closed_activities: [],
+      activity: {
+        title: '',
+        duedate: moment(),
+        status: 0
       },
       date_span: "",
       max_date: "",
@@ -194507,133 +194537,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         sortable: false
       }],
       Toast: null,
-      activityItems: [{
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#f42222",
-        status: "Not Started",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#00d58e",
-        status: "Finished",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }, {
-        statusColor: "#ff8c37",
-        status: "In Progress",
-        subject: 40,
-        dueDate: "Dickerson",
-        activityOwner: "Macdonald",
-        timeModified: ""
-      }],
+      activityItems: [],
       dealItems: [{
         dealName: "#f42222",
         amount: "0",
@@ -194672,12 +194576,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       axios.get("/calls/list").then(function (response) {
         vm.conferences = response.data.conferences;
         vm.show_page_loader = false;
-      }); // setInterval(function(){  
-      //     axios.get('/calls/list').then(function (response) {  
-      //         vm.conferences = response.data.conferences;  
-      //         vm.show_page_loader = false;  
-      //     });  
-      // }, 5000);  
+      });
     },
     checkCBDate: function checkCBDate() {
       var now = moment(new Date()); //todays date  
@@ -194718,6 +194617,124 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             });
           }
         });
+      }
+    },
+    addActivity: function addActivity() {
+      var vm = this;
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/tasks/create', {
+            title: vm.activity.title,
+            status: vm.activity.status,
+            date: vm.activity.duedate.format('YYYY-MM-DD'),
+            lead_id: vm.item_id
+          }).then(function (response) {
+            if (response.data.success == true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: 'Activity added successfully'
+              });
+              vm.getActivities();
+              vm.$Progress.finish();
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+            }
+          });
+        }
+      });
+      this.edit_task = false;
+    },
+    getActivities: function getActivities() {
+      var vm = this;
+      axios.get('/tasks/get-activities/' + vm.item_id).then(function (response) {
+        vm.activities = response.data.open_activities;
+        vm.closed_activities = response.data.closed_activities;
+        vm.activities.map(function (activity) {
+          var color = '';
+          var status = '';
+
+          if (activity.status == 0) {
+            color = '#ff8c37';
+            status = 'Open';
+          }
+
+          if (activity.status == 1) {
+            color = '#00d58e';
+            status = 'Closed';
+          }
+
+          if (activity.status == 2) {
+            color = '#00d58e';
+            status = 'Finished';
+          }
+
+          if (activity.status == 3) {
+            color = '#ff8c37';
+            status = 'In Progress';
+          }
+
+          if (activity.status == 4) {
+            color = '#f42222';
+            status = 'No Started';
+          }
+
+          vm.activityItems.push({
+            statusColor: color,
+            status: status,
+            subject: activity.title,
+            dueDate: activity.duedate,
+            activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
+            timeModified: activity.updated_at
+          });
+        });
+        vm.closed_activities.map(function (activity) {
+          var color = '';
+          var status = '';
+
+          if (activity.status == 0) {
+            color = '#ff8c37';
+            status = 'Open';
+          }
+
+          if (activity.status == 1) {
+            color = '#00d58e';
+            status = 'Closed';
+          }
+
+          if (activity.status == 2) {
+            color = '#00d58e';
+            status = 'Finished';
+          }
+
+          if (activity.status == 3) {
+            color = '#ff8c37';
+            status = 'In Progress';
+          }
+
+          if (activity.status == 4) {
+            color = '#f42222';
+            status = 'No Started';
+          }
+
+          vm.closedActivityItems.push({
+            statusColor: color,
+            status: status,
+            subject: activity.title,
+            dueDate: activity.duedate,
+            activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
+            timeModified: activity.updated_at
+          });
+        });
+      });
+    },
+    addActivityCollapse: function addActivityCollapse(id) {
+      this.add_client_activity = !this.add_client_activity;
+
+      if (!this.add_client_activity) {
+        this.activity.status = 0;
+        this.activity.duedate = moment();
+        this.activity.title = '';
       }
     },
     prepDates: function prepDates() {
@@ -382197,73 +382214,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "row mx-0 align-items-center" },
-                            [
-                              _vm._m(7),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "col-auto pl-0 mb-2 pr-1" },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-default m-0 border-0 text-capitalize",
-                                      attrs: { type: "submit" },
-                                      on: { click: function($event) {} }
-                                    },
-                                    [_vm._v("Introduce Stock")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-default m-0 border-0 text-capitalize",
-                                    attrs: { type: "submit" },
-                                    on: { click: function($event) {} }
-                                  },
-                                  [_vm._v("First time sell")]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-default m-0 border-0 text-capitalize",
-                                    attrs: { type: "submit" },
-                                    on: { click: function($event) {} }
-                                  },
-                                  [_vm._v("Up sell")]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "col-auto mb-2 pr-0 pl-1" },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-default m-0 border-0 text-capitalize",
-                                      attrs: { type: "submit" },
-                                      on: { click: function($event) {} }
-                                    },
-                                    [_vm._v("Extra Info")]
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c("textarea", {
                             staticClass: "form-control border-0",
@@ -382309,6 +382260,315 @@ var render = function() {
                   )
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mx-0 mb-0 activities" }, [
+              _c("div", { staticClass: "col-lg-12 px-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "card shadow-none mt-3 border-0 tab-card" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card-header tab-card-header border-bottom-0 pt-0 px-0"
+                      },
+                      [
+                        _c(
+                          "ul",
+                          {
+                            staticClass: "nav nav-tabs card-header-tabs mx-0",
+                            attrs: { id: "myTab", role: "tablist" }
+                          },
+                          [
+                            _c("li", { staticClass: "nav-item" }, [
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticStyle: { cursor: "pointer" },
+                                attrs: {
+                                  src: "/images/icons/Module_Add.svg",
+                                  width: "47"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addActivityCollapse()
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(9)
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-content",
+                        attrs: { id: "myTabContent" }
+                      },
+                      [
+                        _vm.add_client_activity
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane fade show active",
+                                attrs: {
+                                  id: "five",
+                                  role: "tabpanel",
+                                  "aria-labelledby": "one-tab"
+                                }
+                              },
+                              [
+                                _c("a-input", {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticStyle: { width: "100%" },
+                                  attrs: {
+                                    placeholder: "Subject",
+                                    name: "Subject"
+                                  },
+                                  model: {
+                                    value: _vm.activity.title,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.activity, "title", $$v)
+                                    },
+                                    expression: "activity.title"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.errors.has("Subject"),
+                                        expression: "errors.has('Subject')"
+                                      }
+                                    ],
+                                    staticClass: "help-block",
+                                    attrs: { id: "error" }
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.first("Subject")))]
+                                ),
+                                _vm._v(" "),
+                                _c("a-date-picker", {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticStyle: { width: "100%" },
+                                  attrs: { name: "Due Date" },
+                                  model: {
+                                    value: _vm.activity.duedate,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.activity, "duedate", $$v)
+                                    },
+                                    expression: "activity.duedate"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.errors.has("Due Date"),
+                                        expression: "errors.has('Due Date')"
+                                      }
+                                    ],
+                                    staticClass: "help-block",
+                                    attrs: { id: "error" }
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.first("Due Date")))]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a-radio-group",
+                                  {
+                                    model: {
+                                      value: _vm.activity.status,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.activity, "status", $$v)
+                                      },
+                                      expression: "activity.status"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "a-radio-button",
+                                      { attrs: { value: 0 } },
+                                      [_vm._v("Open")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-radio-button",
+                                      { attrs: { value: 1 } },
+                                      [_vm._v("Closed")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-radio-button",
+                                      { attrs: { value: 2 } },
+                                      [_vm._v("Finished")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-radio-button",
+                                      { attrs: { value: 3 } },
+                                      [_vm._v("In Progress")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-radio-button",
+                                      { attrs: { value: 4 } },
+                                      [_vm._v("Not Started")]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-primary update-user w-100 rounded-pill m-0",
+                                    attrs: { type: "submit" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addActivity()
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Add")]
+                                )
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "five",
+                              role: "tabpanel",
+                              "aria-labelledby": "one-tab"
+                            }
+                          },
+                          [
+                            _c("b-table", {
+                              attrs: {
+                                hover: "",
+                                items: _vm.activityItems,
+                                "per-page": _vm.perPage,
+                                "current-page": _vm.currentPage,
+                                "sticky-header": ""
+                              },
+                              scopedSlots: _vm._u(
+                                [
+                                  _vm._l(_vm.activityItems, function(item) {
+                                    return {
+                                      key: "cell(statusColor)",
+                                      fn: function(data) {
+                                        return [
+                                          _c("p", [
+                                            _vm._v(
+                                              "hi " + _vm._s(item.statusColor)
+                                            )
+                                          ])
+                                        ]
+                                      }
+                                    }
+                                  })
+                                ],
+                                null,
+                                true
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              attrs: {
+                                "total-rows": _vm.rows,
+                                "per-page": _vm.perPage,
+                                "aria-controls": "my-table"
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "six",
+                              role: "tabpanel",
+                              "aria-labelledby": "two-tab"
+                            }
+                          },
+                          [
+                            _c("b-table", {
+                              attrs: {
+                                hover: "",
+                                items: _vm.activityItems,
+                                "per-page": "5"
+                              },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "cell(statusColor)",
+                                    fn: function(data) {
+                                      return [
+                                        _c(
+                                          "p",
+                                          { style: { color: _vm.statusColor } },
+                                          [_vm._v("hi")]
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                false,
+                                1390597447
+                              )
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
           ])
         ])
@@ -382696,10 +382956,120 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto pl-0" }, [
-      _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
-        _vm._v("Templates:")
+    return _c("div", { staticClass: "row mx-0 align-items-center" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
+          _vm._v("Templates:")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto pl-0 mb-2 pr-1" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default m-0 border-0 text-capitalize",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Introduce Stock")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default m-0 border-0 text-capitalize",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("First time sell")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default m-0 border-0 text-capitalize",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Up sell")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto mb-2 pr-0 pl-1" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default m-0 border-0 text-capitalize",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Extra Info")]
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link active",
+        attrs: {
+          id: "one-tab",
+          "data-toggle": "tab",
+          href: "#five",
+          role: "tab",
+          "aria-controls": "Five",
+          "aria-selected": "true"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "icon",
+          attrs: {
+            src: "/images/icons/workstation/Open Activities.svg",
+            alt: "Icon",
+            width: "13%"
+          }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Open Activities")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link",
+          attrs: {
+            id: "two-tab",
+            "data-toggle": "tab",
+            href: "#six",
+            role: "tab",
+            "aria-controls": "Six",
+            "aria-selected": "false"
+          }
+        },
+        [
+          _c("img", {
+            staticClass: "icon",
+            attrs: {
+              src: "/images/icons/workstation/Closed Activities.svg",
+              alt: "Icon",
+              width: "13%"
+            }
+          }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Closed Activities")])
+        ]
+      )
     ])
   }
 ]

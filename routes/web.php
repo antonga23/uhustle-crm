@@ -208,6 +208,7 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::post('/update', 'TaskController@update');
 	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
+	Route::get('/get-activities/{client_id}', 'TaskController@getActivities');
 });
 
 // Leads Routes
