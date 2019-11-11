@@ -14,6 +14,7 @@
     font-family: 'Rubik', sans-serif;
     height:auto!important;
   }
+
   label {
     font-family: 'Rubik', sans-serif;
     font-size: 10px;
@@ -63,6 +64,7 @@
                   <label for="input-valid">{{ attr.display_name }}</label>
                   <b-form-checkbox
                   id="checkbox-1"
+                  class="api-checkbox"
                   v-model="attr.value"
                   name="checkbox-1"
                   value="1"

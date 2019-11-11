@@ -18,7 +18,10 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    return redirect('/login');;
+    // return redirect('/login');
+
+    
+     return view('/welcome');
 });
 
 Route::get('/home', function () {
@@ -44,7 +47,7 @@ Route::get('/move-leads',  function(){
         'module_id' => $module_id
       ]);
 
-      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+      $module_fields = ModuleCustomFields::where([ 'module_id' => $module_id ])->get();
 
       foreach($module_fields as $key => $value){
         
@@ -206,10 +209,9 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-active', 'TaskController@getActive');
 	Route::post('/create', 'TaskController@store');
 	Route::post('/update', 'TaskController@update');
+	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
-    Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
-    Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
-    Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
+	Route::get('/get-activities/{client_id}', 'TaskController@getActivities');
 });
 
 // Leads Routes
@@ -226,7 +228,9 @@ Route::group(['prefix' => 'leads'], function () {
   Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
   Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
   Route::post('/setcallback', 'LeadController@setCallback');
+  Route::get('/mark-callback-complete/{id}', 'LeadController@markCallBackComplete');
   Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+  Route::get('/get-user-callbacks-today', 'LeadController@getUserCallBacksToday');
   Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
   Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
   Route::get('/get-client-counts', 'LeadController@getClientCount');

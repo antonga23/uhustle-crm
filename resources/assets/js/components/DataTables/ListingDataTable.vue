@@ -401,7 +401,6 @@ export default {
                 this.selected = [];
                 this.show_mass_assign = false;
             }
-            console.log(this.selected);
         },
         getDaysRemaining(lead){
             if(lead.expires_at){ 

@@ -321,8 +321,8 @@
                     placeholder="Select"
                     class="border-0 w-100"
                   >
-                    <a-select-option value="1">Yes</a-select-option>
-                    <a-select-option value="0">No</a-select-option>
+                    <a-select-option :value="1">Yes</a-select-option>
+                    <a-select-option :value="0">No</a-select-option>
                   </a-select>
                   <span 
                     v-show="errors.has('Field ' + (index + 1) +'\'s Type')" 
