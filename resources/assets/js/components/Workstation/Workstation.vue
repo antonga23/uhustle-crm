@@ -770,7 +770,7 @@ a.down-scroll:hover {
           <div class="2" v-for="(item, name, i) in module_item" :key="i">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
-                class="row mx-1 border-top-grey"  
+                class="row mx-1 h-100 border-top-grey"  
                 v-if="name == 'source' && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
@@ -792,7 +792,7 @@ a.down-scroll:hover {
                 </div>  
               </div>  
               <div  
-                class="row mx-1 border-top-grey"  
+                class="row mx-1 h-100 border-top-grey"  
                 v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
@@ -803,7 +803,7 @@ a.down-scroll:hover {
                 </div>  
               </div>  
               <div  
-                class="row mx-1 border-top-grey truncate"  
+                class="row mx-1 h-100 border-top-grey truncate"  
                 v-else-if="name == 'email' && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
@@ -1765,11 +1765,11 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Open Activities.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="13%"   
+                        width="31"   
                       />    
                       <span>Open Activities</span>    
+                      <img src="/images/icons/Field_Add.svg.svg" width="47" style="cursor:pointer;" @click="addActivityCollapse()"/>
                     </a>    
-                    <img src="/images/icons/Module_Add.svg" width="47" style="cursor:pointer;" @click="addActivityCollapse()"/>
                   </li>    
    
                   <li class="nav-item">    
@@ -1786,7 +1786,7 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Closed Activities.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="13%"   
+                        width="31"   
                       />    
                       <span>Closed Activities</span>    
                     </a>    
