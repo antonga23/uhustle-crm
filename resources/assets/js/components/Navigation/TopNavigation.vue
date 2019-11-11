@@ -98,6 +98,9 @@ select.month-selector {
   width:auto;
   padding:14px 40px 14px 15px;
 }
+.callIcons .search:hover input:focus {
+  outline: 0 !important;
+}
 .callIcons .search input::placeholder {
   font-size: 12px;
   font-weight: 300;
