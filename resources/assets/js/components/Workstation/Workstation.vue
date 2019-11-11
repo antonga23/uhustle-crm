@@ -4,8 +4,7 @@
   height: 100vh; 
   overflow-y: scroll; 
 } 
-.general-section-stats .agent-stats-1 { 
-  padding-top: 69px; 
+.general-section-stats .agent-stats-1 {
   padding-left: 5%; 
   padding-right: 5%; 
 } 
