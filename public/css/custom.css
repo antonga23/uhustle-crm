@@ -492,7 +492,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .vc-bg-orange-600:nth-of-type(1) {
   border: 2px solid #FF933A;
-  padding:19px;
+  padding:14px;
 }
 
 .add-box-shadow .ant-card-head-title {
