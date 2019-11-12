@@ -177,7 +177,7 @@ table.listing tr  th{
   margin-right: 15px;
 }
 .plr-3 {
-  padding: 23px 4% 0;
+  padding: 23px 4% 0 !important;
 }
 .control-label{
   float: left;
@@ -229,6 +229,7 @@ table.listing tr  th{
 #bottom-section {
   padding-left: 4%;
 }
+
 </style>
 <template>
   <div>
@@ -342,7 +343,7 @@ table.listing tr  th{
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="plr-3" >
       <add-module-item 
         :module="module" 
         :active_users="JSON.parse(active_users)" 

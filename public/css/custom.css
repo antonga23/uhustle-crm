@@ -410,11 +410,7 @@ body {
 
 select.form-control, input.form-control {
   border-radius: 10px;
-<<<<<<< HEAD
-  padding:  5px 5px 5px 15px !important;
-=======
   padding: 5px 15px !important;
->>>>>>> be638ad8b083d26c1c31a829ba2edc7e3c3cde7f
   height: 33px !important;
 }
 
@@ -788,6 +784,10 @@ border-radius: 25px;
 #edit-module .ant-select-selection--single, 
 #add-module .ant-select-selection--single{
   border: 0;
+}
+.ant-select-selection--single {
+  border-radius: 50rem !important;
+  margin-top: 5px !important;
 }
 .ant-select-selection__rendered {
   line-height:1em!important;
