@@ -2,7 +2,7 @@
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
-  padding: 13px 4% 0.55%;
+  padding: 13px 4% 1.55%;
      position: relative;
     top: 10px;
 }
