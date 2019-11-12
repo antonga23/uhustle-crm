@@ -86,7 +86,6 @@
   .navbar-light .navbar-nav .nav-link.name { 
     font-size: 14px; 
     color: #1e2331; 
-    font-family: 'Rubik', sans-serif; 
     padding-top: 6px; 
     letter-spacing: 0.05em; 
     position: relative; 
@@ -983,6 +982,9 @@
     font-size: 0.63vw !important; 
     font-family: 'Rubik', sans-serif; 
   } 
+  .px-6 {
+    padding: 0px 6%;
+  }
     
   .filter-container { 
     overflow: auto; 
@@ -1080,7 +1082,7 @@
             </ul> 
           </nav> 
 
-          <div class="open-sidenav mt-3">
+          <div class="open-sidenav mt-3 px-6">
             <div v-if="settings_on == true" class="settings px-2"> 
               <div class="row mx-0 pt-0 border-bottom"> 
                 <div class="row mx-0 justify-content-between align-items-center w-100 p-0"> 
