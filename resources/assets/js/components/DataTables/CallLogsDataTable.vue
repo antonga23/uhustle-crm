@@ -519,6 +519,16 @@ th .dropdown{
   float: right;
 }
 
+ .dropdown-menu {
+        border-radius: 15px;
+        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border: 0;
+        font-size: 0.63vw;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 0.05em;
+        color: #1e2331;
+  }
+
 .no-box-shadow {
   box-shadow: none !important;
 }
