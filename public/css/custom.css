@@ -927,3 +927,6 @@ border-radius: 25px;
 .notes-roll .ant-btn-primary:hover, .notes-roll .ant-btn-primary:focus {
   border:0;
 }
+.e-schedule-toolbar-container, .e-schedule-table.e-outer-table  tr:first-child{
+  display:none;
+}

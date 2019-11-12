@@ -201,6 +201,7 @@
     font-size: 0.94vw;
     color: #fff;
     margin-bottom:8%;
+    font-family: Montserrat, sans-serif;
   }
   
   #dash-activities {
