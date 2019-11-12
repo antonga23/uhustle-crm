@@ -34,7 +34,7 @@
   <a-card :title="'Add to ' + active_module.display_name" class="add-box-shadow">
     <div class="divider-line"></div>
     <div class="w-100 ml-4" style="margin-top: 20px;">
-      <a-row v-for="( field, index) in active_module.module_fields" :key="index" >
+      <div v-for="( field, index) in active_module.module_fields" :key="index" >
         <a-col :span="7" class="m-2" v-show="field.name == 'title'">
           <label>Title
               <a-select defaultValue="Please Select" v-model="field.title" style="width: 100%">
@@ -83,14 +83,14 @@
               </a-select>
           </label>
         </a-col> 
-      </a-row>
-      <a-row>
+      </div>
+      <div>
             <label>
                 <button type="submit" class="btn btn-primary update-user" @click="addItem()">
                     Submit
                 </button>
             </label>
-        </a-row>
+      </div>
     </div>
   </a-card>
 </template>

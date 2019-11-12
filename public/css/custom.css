@@ -789,9 +789,9 @@ border-radius: 25px;
   border-radius: 50rem !important;
   margin-top: 5px !important;
 }
-.ant-select-selection__rendered {
+/* .ant-select-selection__rendered {
   line-height:1em!important;
-}
+} */
 #edit-module .ant-select-selection--multiple, 
 #add-module .ant-select-selection--multiple{
   border:0;
