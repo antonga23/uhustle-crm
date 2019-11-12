@@ -226,6 +226,7 @@ textarea.form-control {
 }
 .btn {
   font-size: 14px !important;
+  padding: 4px 17px 6px !important;
 }
 
 label {
