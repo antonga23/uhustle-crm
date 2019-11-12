@@ -1493,7 +1493,7 @@ a.down-scroll:hover {
         <!-- Activities Starts End -->  
   
         <!-- Deals Starts -->  
-        <!-- Yong <div class="row mx-0 mb-0 deals">    
+        <div class="row mx-0 mb-0 deals">    
           <div class="col-lg-12 px-0">    
             <div class="card shadow-none mt-3 border-0 tab-card">    
               <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
@@ -1562,14 +1562,16 @@ a.down-scroll:hover {
                       <div class="row mx-0">   
                         <div class="col-6 pl-0">   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name   
-                            <input    
+                            <input
+                              v-model="deal.agent_name"    
                               type="text"    
                               id="agent-name"     
                               name="AgentName"   
                               class="form-control border-0 rounded-pill"/>   
                           </label>   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name   
-                            <input    
+                            <input
+                              v-model="deal.deal_name"     
                               type="text"    
                               id="deal-name"     
                               name="DealName"   
@@ -1577,6 +1579,7 @@ a.down-scroll:hover {
                           </label>   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date   
                             <input    
+                              v-model="deal.closing_date" 
                               type="date"    
                               id="closing-date"     
                               name="ClosingDate"   
@@ -1585,15 +1588,15 @@ a.down-scroll:hover {
                         </div>   
                         <div class="col-6 pr-0">   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Type   
-                            <select class="custom-select rounded-pill border-0">   
-                              <option selected>-None-</option>   
+                            <select v-model="deal.type"  class="custom-select rounded-pill border-0">   
+                              <option value="-None-" selected>-None-</option>   
                               <option value="1">Existing Business</option>   
                               <option value="2">New Business</option>   
                             </select>   
                           </label>   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source   
-                            <select class="custom-select rounded-pill border-0">   
-                              <option selected>-None-</option>   
+                            <select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
+                              <option value="-None-" selected>-None-</option>   
                               <option value="1">Advertising</option>   
                               <option value="2">Cold Call</option>   
                               <option value="3">Employee Referral</option>   
@@ -1602,7 +1605,8 @@ a.down-scroll:hover {
                             </select>   
                           </label>   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount   
-                            <input    
+                            <input   
+                              v-model="deal.amount" 
                               type="number"    
                               id="amount"     
                               name="Amount"   
@@ -1612,7 +1616,8 @@ a.down-scroll:hover {
    
                         <div class="col-12 px-0">   
                           <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information   
-                            <textarea    
+                            <textarea 
+                              v-model="deal.description"   
                               id="info"     
                               name="Info"   
                               class="form-control border-0"/>   
@@ -1624,8 +1629,8 @@ a.down-scroll:hover {
    
                     <div class="col-3">   
                       <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage   
-                        <select class="custom-select rounded-pill border-0">   
-                          <option selected>-None-</option>   
+                        <select v-model="deal.stage" class="custom-select rounded-pill border-0">   
+                          <option value="-None-" selected>-None-</option>   
                           <option value="1">Qualification</option>   
                           <option value="2">Needs Analysis</option>   
                           <option value="3">Value Proposition</option>   
@@ -1634,28 +1639,32 @@ a.down-scroll:hover {
                         </select>   
                       </label>   
                       <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)   
-                        <input    
+                        <input
+                          v-model="deal.probability"    
                           type="text"    
                           id="probability"     
                           name="Probability"   
                           class="form-control border-0 rounded-pill"/>   
                       </label>   
                       <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue   
-                        <input    
+                        <input
+                          v-model="deal.expected_revenue"    
                           type="number"    
                           id="revenue"     
                           name="Revenue"   
                           class="form-control border-0 rounded-pill"/>   
                       </label>   
                       <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name   
-                        <input    
+                        <input  
+                          v-model="deal.contact_name"   
                           type="text"    
                           id="contact-name"     
                           name="ContactName"   
                           class="form-control border-0 rounded-pill"/>   
                       </label>   
                       <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number   
-                        <input    
+                        <input 
+                          v-model="deal.contact_number"    
                           type="tel"    
                           id="contact-number"     
                           name="ContactNumber"   
@@ -1669,14 +1678,14 @@ a.down-scroll:hover {
                           <button    
                             type="submit"    
                             class="btn btn-default cancel-deal w-100 m-0 border-0"    
-                            @click=""   
+                            @click="clearDeal()"   
                           >Cancel</button>   
                         </div>   
                         <div class="col-lg-6 pr-0 pl-2">   
                           <button    
                             type="submit"    
                             class="btn btn-primary save-deal w-100 rounded-pill m-0"    
-                            @click=""   
+                            @click="createDeal()"   
                           >Save</button>   
                         </div>   
                       </div>   
@@ -1686,7 +1695,7 @@ a.down-scroll:hover {
               </div>    
             </div>    
           </div>     
-        </div>-->  
+        </div>  
         <!-- Deals Ends -->  
       </div>  
     </div>  
@@ -1716,14 +1725,14 @@ a.down-scroll:hover {
     <!-- Dialer Section Ends -->  
   
     <!-- Active calls Section Starts -->  
-    <!-- Yong <div class="" v-if="active_calls == true">    
+    <div class="" v-if="active_calls == true">    
       <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%">    
         <div class="col-lg-12">    
           <vcl-table v-if="show_page_loader === true"></vcl-table>    
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>    
         </div>    
       </div>    
-    </div>-->  
+    </div> 
     <!-- Active calls Section Ends -->  
   
     <!-- Modals Section Starts -->  
@@ -2490,7 +2499,23 @@ export default {
       ],  
       Toast: null,  
       activityItems: [   
-      ],  
+      ],
+      deal: {
+        lead_id: this.item_id ,
+        agent_id:'' ,
+        agent_name:'' ,
+        deal_name:'' ,
+        closing_date:'' ,
+        type:'- None -' ,
+        lead_source:'- None -' ,
+        amount:'' ,
+        description:'' ,
+        stage:'- None -' ,
+        probability:'' ,
+        expected_revenue:'' ,
+        contact_name:'' ,
+        contact_number:'' ,
+      },
       dealItems: [  
         {  
           dealName: "#f42222",  
@@ -2526,7 +2551,45 @@ export default {
       return this.activityItems.length;  
     }  
   },  
-  methods: {  
+  methods: {
+    clearDeal(){
+      this.deal.lead_id = '';
+      this.deal.agent_id = '';
+      this.deal.agent_name = '';
+      this.deal.deal_name = '';
+      this.deal.closing_date = '';
+      this.deal.type = '- None -';
+      this.deal.lead_source = '- None -';
+      this.deal.amount = '';
+      this.deal.description = '';
+      this.deal.stage = '- None -';
+      this.deal.probability = '';
+      this.deal.expected_revenue = '';
+      this.deal.contact_name = '';
+      this.deal.contact_number = '';
+    },
+    createDeal(){
+      var vm = this;
+      axios.post("/deals/create", vm.deal).then(function(response) {  
+          if (response.data.success == true) {  
+
+            vm.Toast.fire({ 
+                type: 'success', 
+                title: response.data.message
+            }); 
+
+            vm.dealItems = response.data.deals;  
+            vm.clearDeal();
+          } else {  
+            vm.$Progress.fail();  
+            vm.$swal(  
+              "Failed",  
+              "Opps, something went wrong while retrieving lead, please try again",  
+              "warning"  
+            );  
+          }  
+        });
+    },
     getActiveCalls() {  
       var vm = this;  
       vm.show_page_loader = true;  
@@ -2572,9 +2635,7 @@ export default {
         this.$validator.validateAll().then(result => {  
           if (!result) {  
           } else {  
-            axios  
-              .post("/leads/setcallback", vm.call_back)  
-              .then(function(response) {  
+            axios.post("/leads/setcallback", vm.call_back).then(function(response) {  
                 if (response.data.success == true) {  
                   Fire.$emit("AfterCallBackSet");  
                   vm.enqueueLead(response.data.lead.id);  
