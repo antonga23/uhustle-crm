@@ -67111,19 +67111,19 @@ function moveTo(from, to, targetIndexes, insertBefore) {
 /*!***********************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/index.js ***!
   \***********************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./node_modules/@syncfusion/ej2-navigations/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["Item"]; });
 
@@ -68969,7 +68969,7 @@ var HScroll = /** @class */ (function (_super) {
 /*!**********************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/common/index.js ***!
   \**********************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71582,19 +71582,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/index.js ***!
   \***************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/index */ "./node_modules/@syncfusion/ej2-navigations/src/common/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony import */ var _toolbar_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/index */ "./node_modules/@syncfusion/ej2-navigations/src/toolbar/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _toolbar_index__WEBPACK_IMPORTED_MODULE_1__["Item"]; });
@@ -183156,6 +183156,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['module', 'active_users', 'active_roles'],
   data: function data() {
@@ -216211,7 +216227,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -245432,7 +245448,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.right[data-v-06e14cd1] {\n    float: right;\n}\n.btn[data-v-06e14cd1] {\n    padding: 4px 17px 6px !important;\n    font-size: 14px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n.m-lt[data-v-06e14cd1] {\n    margin-top: 20px;\n    margin-left: 36px;\n}\n.plr-4[data-v-06e14cd1] {\n  padding: 0px 4% !important;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -368292,7 +368308,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-100 ml-4", staticStyle: { "margin-top": "20px" } },
+        { staticClass: "w-100 m-lt" },
         [
           _vm._l(_vm.active_module.module_fields, function(field, index) {
             return _c(
@@ -368626,11 +368642,11 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("div", [
-            _c("label", [
+            _c("label", { staticClass: "plr-4" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary update-user",
+                  staticClass: "btn btn-primary update-user right",
                   attrs: { type: "submit" },
                   on: {
                     click: function($event) {
