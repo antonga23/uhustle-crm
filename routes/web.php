@@ -214,6 +214,15 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-activities/{client_id}', 'TaskController@getActivities');
 });
 
+// Deals Routes
+Route::group(['prefix' => 'deals'], function () {
+	Route::get('/get/{client_id}', 'DealController@getCleintById');
+	Route::get('/get-all', 'DealController@index');
+	Route::post('/create', 'DealController@store');
+	Route::post('/update', 'DealController@update');
+	Route::get('/delete/{client_id}', 'DealController@destroy');
+	Route::get('/transactions', 'DealController@getAllTransactions');
+});
 // Leads Routes
 Route::group(['prefix' => 'leads'], function () {
   Route::get('/enqueue', 'LeadController@enQueue');

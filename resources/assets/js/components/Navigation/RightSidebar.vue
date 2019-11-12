@@ -1765,7 +1765,7 @@
                                       v-model="task.status" 
                                       :id="'task' + i" 
                                       type="checkbox" 
-                                      @click="editsTask(task,'status')"
+                                      @click="editTask(task,'status')"
                                     > 
                                     <label class="terms-text custom-control-label" :for="'task' + i"> 
                                       <input type="text" v-model="task.title" class="border-0 list-input" @focus="editTaskCollapes(task.id)"> 
