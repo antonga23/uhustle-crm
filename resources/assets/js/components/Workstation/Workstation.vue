@@ -20,13 +20,14 @@
   min-width: 150px; 
 } 
 .top-section .bottom { 
-  font-size: 0.83vw; 
+  font-size: 12px; 
   font-weight: 700; 
   letter-spacing: 0.05em; 
-  color: #393a60; 
+  color: #1e2253; 
+  font-family: "Rubik", sans-serif;
 } 
 .top-section .top { 
-  font-size: 0.63vw; 
+  font-size: 12px; 
   color: #747577; 
   letter-spacing: 0.05em; 
   font-family: "Rubik", sans-serif; 
@@ -40,12 +41,12 @@
   border-right: 1px solid #ededee; 
 } 
  
-div.col-6:last-child, div.col-6:nth-last-child(2)  { 
+div.col-6:last-child .inner-div .row, div.col-6:nth-last-child(2) .inner-div .row { 
   border-bottom: 1px solid #ededee; 
 } 
  
-.p12-25 { 
-  padding: 12px 25px; 
+.p10-25 { 
+  padding: 10px 25px; 
 } 
 .mr-22 {
   margin-right: 22%;
@@ -150,6 +151,10 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
+  max-height: 190px; 
+  overflow-y: auto; 
+} 
+.stats-bars { 
   max-height: 290px; 
   overflow-y: auto; 
 } 
@@ -573,6 +578,16 @@ a.down-scroll:hover {
   border-top-left-radius: 25px; 
   border-top-right-radius: 25px; 
 } 
+.nav-link.active img.add-activity {
+  margin-left:20px;
+  display: inline-block!important;
+  box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  border-radius: 50rem;
+  cursor:pointer;
+}
 .activities .card-header, 
 .deals .card-header { 
   background: #fff; 
@@ -754,6 +769,62 @@ a.down-scroll:hover {
   font-family: "Rubik", sans-serif; 
   font-size: 16px; 
 } 
+.new-activity h5 {
+  font-size: 0.83vw;
+  color: #1e2253!important;
+}
+.permissions-divider {
+  margin-top:3.7%;
+  margin-bottom:3.1%;
+}
+.btn-primary {
+  border-radius: 50rem!important;
+  text-transform:uppercase;
+  font-size: 10px;
+  padding: 11px 14px 10px;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+}
+.new-activity label {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.52vw;;
+  color: #999999;
+  margin-bottom:7px;
+  margin-left: 17px;
+}
+.new-activity .activity-subject {
+  border-radius: 50rem;
+  padding: 11px 18px!important;
+  font-size: 0.63vw;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  color: #003449;
+  border-color: #ccc;
+  margin-bottom: 17px;
+  font-family: 'Rubik', sans-serif;
+  height:auto!important;
+}
+.activity-status-col label {
+  margin-bottom: 18px;
+}
+.activity-status {
+  width:12px;
+  height: 12px;
+  border-radius: 50rem;
+}
+.finished-activity {
+  background-color: #00D58E;
+  margin-right: 10px;
+}
+.in-progress-activity {
+  background-color: #FF933A;
+  margin-right: 10px;
+}
+.not-started-activity {
+  background-color: #F42222; 
+  margin-right: 10px;
+}
 </style>   
 <template> 
   <div id="workstation"> 
@@ -765,59 +836,62 @@ a.down-scroll:hover {
  
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
-      <div class="row mx-0 pb-4 justify-content-between top-section agent-stats-1"> 
+      <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1"> 
         <div class="col-6" v-for="(custom_field, index) in item_custom_fields" :key="index">  
           <div class="2" v-for="(item, name, i) in module_item" :key="i">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
-                class="row mx-1 h-100 border-top-grey"  
+                class="row mx-0 border-top-grey"  
                 v-if="name == 'source' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p12-25 top">  
+                <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p12-25 bottom truncate">  
+                <div class="col-8 p10-25 bottom truncate">  
                   <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
                 </div>  
               </div>  
+              
               <div  
-                class="row mx-1 border-top-grey"  
+                class="row mx-0 border-top-grey"  
                 v-else-if="name == 'product' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p12-25 top">  
+                <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p12-25 bottom truncate">  
+                <div class="col-8 p10-25 bottom truncate">  
                   <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
                 </div>  
-              </div>  
+              </div> 
+
               <div  
-                class="row mx-1 h-100 border-top-grey"  
+                class="row mx-0 border-top-grey"  
                 v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p12-25 top">  
+                <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p12-25 bottom truncate">  
+                <div class="col-8 p10-25 bottom truncate">  
                   <p class="bottom mb-0">{{ item.meta_value.name + ' ' + item.meta_value.surname }}</p>  
                 </div>  
               </div>  
               <div  
-                class="row mx-1 h-100 border-top-grey truncate"  
+                class="row mx-0 border-top-grey truncate"  
                 v-else-if="name == 'email' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p12-25 top">  
+                <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p12-25 bottom truncate">  
+                <div class="col-8 p10-25 bottom truncate">  
                   <p class="bottom mb-0">{{ item.meta_value }}</p>  
                 </div>  
               </div>  
-              <div class="row mx-1 border-top-grey" v-else>  
-                <div class="col-4 border-right-grey p12-25 top">  
+
+              <div class="row mx-0 border-top-grey" v-else>  
+                <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p12-25 bottom truncate">  
+                <div class="col-8 p10-25 bottom truncate">  
                   <p class="bottom mb-0">{{ item.meta_value }}</p>  
                 </div> 
               </div> 
@@ -1282,28 +1356,29 @@ a.down-scroll:hover {
                     </div> 
                   </div> 
  
-                  <div 
-                    v-for="(stat, index) in comments.comments_graph" 
-                    :key="index" 
-                    class="row mx-0 mb-1 align-items-center" 
-                  > 
-                    <div class="col-12 px-0"> 
-                      <div class="row mx-0 mb-0 align-items-center"> 
-                        <div class="col-12 align-content-end px-0"> 
-                          <p class="text-right mb-0 stat-perc">{{ stat.percentage }}%</p> 
-                        </div> 
- 
-                        <div class="col px-0"> 
-                          <p class="mb-0 summary-abr">{{ stat.type }}</p> 
-                        </div> 
- 
-                        <div class="col-11 pr-0 pl-4"> 
-                          <div class="progress-bar w-100"> 
-                            <span class="tank" :style="{width: + stat.percentage + '%'}"></span> 
+                  <div class="stats-bars">
+                    <div 
+                      v-for="(stat, index) in comments.comments_graph" 
+                      :key="index" 
+                      class="row mx-0 mb-1 align-items-center"> 
+                      <div class="col-12 px-0"> 
+                        <div class="row mx-0 mb-0 align-items-center"> 
+                          <div class="col-12 align-content-end pl-0"> 
+                            <p class="text-right mb-0 stat-perc">{{ stat.percentage }}%</p> 
+                          </div> 
+  
+                          <div class="col px-0"> 
+                            <p class="mb-0 summary-abr">{{ stat.type }}</p> 
+                          </div> 
+  
+                          <div class="col-11 pl-4"> 
+                            <div class="progress-bar w-100"> 
+                              <span class="tank" :style="{width: + stat.percentage + '%'}"></span> 
+                            </div> 
                           </div> 
                         </div> 
                       </div> 
-                    </div> 
+                    </div>
                   </div> 
                 </div> 
               </div> 
@@ -1767,8 +1842,8 @@ a.down-scroll:hover {
                         class="icon"    
                         width="31"   
                       />    
-                      <span>Open Activities</span>    
-                      <img src="/images/icons/Field_Add.svg.svg" width="47" style="cursor:pointer;" @click="addActivityCollapse()"/>
+                      <span>Open Activities</span>
+                      <img src="/images/icons/Field_Add.svg" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
                     </a>    
                   </li>    
    
@@ -1798,41 +1873,58 @@ a.down-scroll:hover {
                 <div    
                   class="tab-pane fade show active"    
                   id="five" role="tabpanel"    
-                  aria-labelledby="one-tab"  
-                  v-if="add_client_activity" 
+                  aria-labelledby="one-tab"   
                 >  
-                    <a-input placeholder="Subject" v-model="activity.title" style="width:100%" name="Subject" v-validate="'required'"  />
-                    <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
+                  <div v-if="add_client_activity" class="mb-5 new-activity">
+                    <div class="row mx-0 align-items-center permissions-divider">
+                      <div class="col-auto pl-0">
+                        <h5 class="mb-0">Create a new activity</h5>
+                      </div>
 
-                    <a-date-picker v-model="activity.duedate" style="width:100%" name="Due Date"  v-validate="'required'" />
-                    <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
+                      <div class="col px-0">
+                        <div class="divider-line"></div>
+                      </div>
+                    </div>
 
+                    <div class="row mx-0">
+                      <div class="col-6 px-0">
+                        <label>Subject</label>
+                        <a-input placeholder="Please enter an activity subject..." v-model="activity.title" class="w-100 rounded-pill activity-subject" name="Subject" v-validate="'required'"  />
+                        <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
 
-                    <a-radio-group v-model="activity.status" >
-                      <a-radio-button :value="0">Open</a-radio-button>
-                      <a-radio-button :value="1">Closed</a-radio-button>
-                      <a-radio-button :value="2">Finished</a-radio-button>
-                      <a-radio-button :value="3">In Progress</a-radio-button>
-                      <a-radio-button :value="4">Not Started</a-radio-button>
-                    </a-radio-group>
+                        <div class="row mx-0 align-items-end">
+                          <div class="col-auto pl-0">
+                            <label class="d-block">Due date</label>
+                            <a-date-picker v-model="activity.duedate" name="Due Date"  v-validate="'required'" />
+                            <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
+                          </div>
 
-                    <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0" @click="addActivity()">Add</button> 
-                </div>
-                <div    
-                  class="tab-pane fade show active"    
-                  id="five" role="tabpanel"    
-                  aria-labelledby="one-tab" 
-                   
-                >    
+                          <div class="col-auto activity-status-col">
+                            <label class="d-block ml-0">Status</label>
+                            <a-select v-model="activity.status">
+                              <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                              <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                              <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                            </a-select>
+                          </div>
+
+                          <div class="col-auto ml-auto pr-0">
+                            <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0 font-weight-bold" @click="addActivity()">Add</button> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+   
                   <b-table    
                     hover    
                     :items="activityItems"    
                     :per-page="perPage"   
                     :current-page="currentPage"   
-                    sticky-header   
+                    sticky-header="190px"   
                   >   
-                    <template v-for="item in activityItems" v-slot:cell(statusColor)="data">   
-                      <p>hi {{ item.statusColor }}</p>   
+                    <template slot="statusColor" slot-scope="data">   
+                      <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
                     </template>   
                   </b-table>   
    
@@ -1841,6 +1933,7 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table"   
+                    align="right"
                   ></b-pagination>                
                 </div>   
    
@@ -1850,11 +1943,24 @@ a.down-scroll:hover {
                   role="tabpanel"    
                   aria-labelledby="two-tab"   
                 >     
-                  <b-table hover :items="activityItems" per-page="5">   
-                    <template v-slot:cell(statusColor)="data">   
-                      <p :style="{color: statusColor}">hi</p>   
+                  <b-table 
+                    hover 
+                    :items="activityItems" 
+                    sticky-header="190px" 
+                    :per-page="perPage"
+                  >   
+                    <template slot="statusColor" slot-scope="data">   
+                      <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
                     </template>   
-                  </b-table>   
+                  </b-table>  
+
+                  <b-pagination   
+                    v-model="currentPage"   
+                    :total-rows="rows"   
+                    :per-page="perPage"   
+                    aria-controls="my-table" 
+                    align="right"  
+                  ></b-pagination> 
                 </div>    
               </div>    
             </div>    
@@ -2888,7 +2994,12 @@ export default {
         }  
       ],  
       perPage: 10,  
-      currentPage: 1  
+      currentPage: 1,
+      radioStyle: {
+        display: 'block',
+        height: '30px',
+        lineHeight: '30px',
+      },  
     };  
   },  
   computed: {  
@@ -3007,31 +3118,23 @@ export default {
             var status = '';
 
             if(activity.status == 0){
-              color = '#ff8c37';
-              status = 'Open';
-            }
-            if(activity.status == 1){
-              color = '#00d58e';
-              status = 'Closed';
-            }
-            if(activity.status == 2){
               color = '#00d58e';
               status = 'Finished';
             }
-            if(activity.status == 3){
-              color = '#ff8c37';
+            if(activity.status == 1){
+              color = '#FF933A';
               status = 'In Progress';
             }
             
-            if(activity.status == 4){
+            if(activity.status == 2){
               color = '#f42222';
-              status = 'No Started';
+              status = 'Not Started';
             }
 
             vm.activityItems.push({  
               statusColor: color,  
-              status: status,  
               subject: activity.title,  
+              status: status,  
               dueDate: activity.duedate,  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
@@ -3044,31 +3147,23 @@ export default {
             var status = '';
 
             if(activity.status == 0){
-              color = '#ff8c37';
-              status = 'Open';
-            }
-            if(activity.status == 1){
-              color = '#00d58e';
-              status = 'Closed';
-            }
-            if(activity.status == 2){
               color = '#00d58e';
               status = 'Finished';
             }
-            if(activity.status == 3){
-              color = '#ff8c37';
+            if(activity.status == 1){
+              color = '#FF933A';
               status = 'In Progress';
             }
             
-            if(activity.status == 4){
+            if(activity.status == 2){
               color = '#f42222';
-              status = 'No Started';
+              status = 'Not Started';
             }
 
             vm.closedActivityItems.push({  
               statusColor: color,  
-              status: status,  
               subject: activity.title,  
+              status: status,  
               dueDate: activity.duedate,  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
