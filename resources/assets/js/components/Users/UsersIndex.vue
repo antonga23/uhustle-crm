@@ -153,7 +153,7 @@ p.card-link {
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #bfccd2;
 }
-span.right {
+span.right, .right {
   float: right;
 }
 .truncate {
@@ -215,11 +215,18 @@ span.right {
 }
 
 select.form-control,
-input.form-control, textarea.form-control {
+input.form-control  {
   border-radius: 50rem;
   margin-top: 5px;
 }
 
+textarea.form-control {
+   border-radius: 20px;
+    margin-top: 5px
+}
+.btn {
+  font-size: 14px !important;
+}
 
 label {
   font-family: "Rubik", sans-serif;
@@ -535,7 +542,7 @@ table.listing tr th {
       </div>
       <div v-else>
         <a-card title="Add User" class="add-box-shadow">
-            <div class="divider-line small-screen-hide"></div>
+            <div class="divider-line"></div>
           <div class="w-100" style="margin-top: 20px;">
             <div class="add-user-form" :class="{'input': true, 'form-group' :true }">
               <label class="col-lg-4 control-label">
@@ -714,12 +721,12 @@ table.listing tr th {
                   class="help-block"
                 >{{ errors.first('Password Confirm') }}</span>
               </label>
-              <label class="col-lg-12 control-label">
+              <label class="col-lg-12 control-label right">
                 <button
                   type="submit"
                   class="btn btn-primary update-user ml-0"
                   @click="createUser()"
-                >Add User</button>
+                >Add</button>
               </label>
             </div>
           </div>
