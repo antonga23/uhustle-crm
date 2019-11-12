@@ -11,7 +11,7 @@
                                         (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                         : '')
                                     + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">
-                                <!-- <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>   -->
+                                <b-form-checkbox value="select_all" unchecked-value="select_none" v-if="index == 0" @change="selectAll"></b-form-checkbox>  
                                 <span style="float:left;padding-top: 2px;">
                                   {{column.label}}
                                 </span>
@@ -33,9 +33,9 @@
                     <tbody>
                         <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
                             <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
-                                <!-- <span v-if="column.field == 'all'">
+                                <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
-                                </span> -->
+                                </span>
 
                                 <span v-if="column.field == 'actions'" class="actions" style="display: block;width: 180px;">
 
@@ -202,7 +202,7 @@
             <div class="datatable-length">
                 <label>
                     <span>Rows per page:</span>
-                    <select class="browser-default" @change="onTableLength">
+                    <select class="browser-default" v-model="rowsToShow" @change="onTableLength">
                         <option value="15">15</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
@@ -281,13 +281,21 @@ export default {
         var vm = this;
         Fire.$on('Export', function(){
             vm.exportExcel();
-        });        
+        });
+
         Fire.$on('Print', function(){        
             vm.print();
         });
+
         Fire.$on('Search', function(data){
             vm.searching = true;    
             vm.searchInput = data.search_term;
+        });
+
+        Fire.$on('MassAssign', function(data){
+            vm.assignees = data.assignees,
+            vm.owners = data.owners
+            vm.assignTo();
         });
 
         this.Toast = vm.$swal.mixin({
@@ -336,6 +344,7 @@ export default {
             sortType: 'asc',
             searching: false,
             searchInput: '',
+            rowsToShow:15,
             Toast: '',
             winstaUpload: '/images/winsta-uploads/'
         }
@@ -367,22 +376,25 @@ export default {
         },
         assignTo(){
             var vm = this;
-            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.selected_assignees, 'lead_owner' : vm.selected_owners }).then(function (response) {
+            axios.post('/leads/mass-assign',{ lead_ids : vm.selected, 'user_assigned' : vm.assignees, 'lead_owner' : vm.owners }).then(function (response) {
                     
                 if(response.data.success == true){
+                    Fire.$emit('ReloadLeads');
                     vm.Toast.fire({ type: 'success', title: response.data.message });
                     vm.$Progress.finish();
-                    Fire.$emit('ReloadLeads');
                 }else{
                     vm.$Progress.fail();
-                    vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+                    vm.$swal('Failed', response.data.message,'warning');
                 }
             });
         },
         selectAll(e){
             if(e == 'select_all'){
-                this.rows.map((lead) => {
-                    this.selected.push(lead.lead.id);
+                this.rows.map((lead, index) => {
+                  if(index <= this.rowsToShow){
+                    
+                    this.selected.push(lead.id)
+                  }
                 });
                 this.show_mass_assign = true;
             }else{
@@ -451,40 +463,6 @@ export default {
                   vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
               }
           });
-        },
-        handleOk(bvModalEvt) {
-            // Prevent modal from closing
-            bvModalEvt.preventDefault()
-            // Trigger submit handler
-            this.handleSubmit()
-        },
-        handleSubmit(){
-            var vm = this;  
-            vm.$Progress.start();
-            this.$validator.validateAll().then((result) => {
-                    if(!result){
-                    }else{
-                        axios.post('/leads/update',vm.user).then(function (response) {
-                                
-                            if(response.data.success == true){
-                                vm.Toast.fire({ type: 'success', title: response.data.message });
-                                Fire.$emit('ReloadLeads');
-                                vm.$bvModal.hide('update-user-modal');
-                                vm.user = {
-                                    comments: [],
-                                    assigned: [],
-                                };
-                                vm.$Progress.finish();
-                            }else if(response.data.errors.email[0] != ''){
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', response.data.errors.email[0] ,'warning');
-                            }else{
-                                vm.$Progress.fail();
-                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
-                            }
-                        });
-                    }
-            });
         },
         deleteItem(id){
             var vm = this;  
@@ -976,7 +954,7 @@ table {
     justify-content: flex-end;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 12px !important;
+    font-size: 0.63vw !important;
     color: rgba(0, 0, 0, 0.54);
 }
 
@@ -993,7 +971,7 @@ table {
     width: 46px;
 }
 .table-footer label {
-    font-size: 12px;
+    font-size: 0.63vw;
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
@@ -1042,7 +1020,7 @@ table {
     border-bottom: none;
     height: auto;
     line-height: normal;
-    font-size: 12px;
+    font-size: 0.63vw;
     width: 40px;
     text-align: right;
 }
@@ -1064,8 +1042,8 @@ table {
 
 table tr td {
     height: 35px;
-    font-size: 14px;
-    color: #1c2331;
+    font-size: 0.73vw;
+    color: #003449;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
     padding: 10px 0px 10px 0px;
@@ -1078,12 +1056,11 @@ table tr td a i {
 }
 
 table tr {
-    font-size: 12px;
-    border-bottom: 1px solid #f2f2f2;
+    font-size: 0.63vw;
+    border-bottom: 1px solid #B3B3B3;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
-
 }
 
 table thead tr:first-child {
@@ -1091,7 +1068,7 @@ table thead tr:first-child {
 }
 
 table th {
-   font-size: 12px;
+   font-size: 0.63vw;
     font-weight: 600;
     color: #A6A6A6;
     cursor: pointer;

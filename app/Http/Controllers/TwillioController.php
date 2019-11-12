@@ -11,6 +11,8 @@ use App\Twillio;
 use App\Product;
 use App\LeadsCallbacks;
 use App\ApiIntegration;
+use App\ModuleItem;
+use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client as GuzzleClient;
@@ -472,6 +474,24 @@ class TwillioController extends Controller
         }
 
 
+        $next_call_back = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '>=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->orderBy('call_date', 'ASC')
+                                      ->orderBy('call_time', 'ASC')
+                                      ->first();  
+
+        $lead = ModuleItem::with('item_meta')->find($next_call_back['lead_id']);
+        
+        $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
+
+        $lead = $this->compactModule($lead, $custom_fields);
+        
+        $next_call_back_data = [
+          'name' => $lead['name'] . ' ' . $lead['surname'],
+          'call_back' => $next_call_back
+        ];
+
         return array(
             'success' => true, 
             'total_calls' => $total_calls,
@@ -480,7 +500,29 @@ class TwillioController extends Controller
             'sum_sales' => $sum_sales,
             'sum_call_back' => $sum_call_back,
             'avg_time' => $avg_time,
-            'call_history' => $twilios
+            'call_history' => $twilios,
+            'next_call_back_data' => $next_call_back_data,
         );
+    }
+
+    public function compactModule($module_item = null, $custom_fields = null){
+      $item = [];
+
+      $item['id'] = $module_item->id;
+
+      foreach ($module_item->item_meta as $key => $meta) {
+
+        foreach ($custom_fields as $index => $field) {
+
+          if($field->id == $meta->custom_field_id){
+
+            $item[$field->name] = $meta->custom_field_value;
+
+          }
+
+        }
+      }
+
+      return $item;
     }
 }

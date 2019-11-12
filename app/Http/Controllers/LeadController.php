@@ -18,6 +18,7 @@ use App\Product;
 use App\Twillio;
 use App\Role;
 use App\ModuleItem;
+use App\ModuleCustomFields;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -616,7 +617,10 @@ class LeadController extends Controller
 
     public function getUserCallBacks(){
 
-        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])->whereDate('call_date', '>=', Carbon::now())->get();
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '>=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->get();
 
         $data = [];
         foreach ($call_backs as $key => $value) {
@@ -625,16 +629,111 @@ class LeadController extends Controller
 
           $lead = ModuleItem::with('item_meta')->find($value->lead_id);
 
-          $temp->lead = $lead;
-          $temp->call_date = $value->call_date;
-          $temp->call_time = $value->call_time;
+          $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
+
+          $db_date = new \DateTime($value->call_date);
+
+          $db_time = new \DateTime($value->call_time);
+
+          $temp->id = $value->id;
+
+          $temp->call_date = date_format($db_date, 'd-m') ;
+
+          $temp->call_time = date_format($db_time, 'H:m') ;;
+
           $temp->notes = $value->notes;
 
-          array_push($data, $temp);
+          $temp->status = $value->status;
 
+          $temp->lead = $this->compactModule($lead, $custom_fields);
+
+          $temp->custom_fields = $custom_fields;
+
+          array_push($data, $temp);
         }
 
         return array('success' => true, 'call_backs' => $data);
+    }
+
+    public function getUserCallBacksToday(){
+
+        $call_backs = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->get();
+
+        $data = [];
+        foreach ($call_backs as $key => $value) {
+
+          $temp = new \StdClass();
+
+          $lead = ModuleItem::with('item_meta')->find($value->lead_id);
+
+          $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
+
+          $db_date = new \DateTime($value->call_date);
+
+          $db_time = new \DateTime($value->call_time);
+
+          $temp->id = $value->id;
+
+          $temp->call_date = date_format($db_date, 'Y-m-d') ;
+
+          $temp->call_time = date_format($db_time, 'H:m') ;;
+
+          $temp->notes = $value->notes;
+
+          $temp->status = $value->status;
+
+          $temp->lead = $this->compactModule($lead, $custom_fields);
+
+          $temp->custom_fields = $custom_fields;
+
+          array_push($data, $temp);
+        }
+
+        return array('success' => true, 'call_backs' => $data);
+    }
+
+    public function markCallBackComplete($id = null){
+      try{
+          DB::beginTransaction();
+
+          LeadsCallbacks::where(['id' => $id])->update([
+            'status' => 1,
+          ]);
+
+          DB::commit();
+
+          $call_backs = $this->getUserCallBacks();
+
+          return array('success' => true, 'call_backs' => $call_backs['call_backs']);
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+    }
+
+    public function compactModule($module_item = null, $custom_fields = null){
+      $item = [];
+
+      $item['id'] = $module_item->id;
+
+      foreach ($module_item->item_meta as $key => $meta) {
+
+        foreach ($custom_fields as $index => $field) {
+
+          if($field->id == $meta->custom_field_id){
+
+            $item[$field->name] = $meta->custom_field_value;
+
+          }
+
+        }
+      }
+
+      return $item;
     }
 
     public function getLeadsCount($type = null){
@@ -820,53 +919,6 @@ class LeadController extends Controller
             'sources' => LeadSource::get(), 
             'roles' => Role::get(), 
         );
-    }
-
-    public function massAssign(Request $request){
-        $data = $request->all();
-        
-        $num_leads = count($data['lead_ids']);
-
-        $num_user_assigned = count($data['user_assigned']);
-
-        $num_lead_owner = count($data['lead_owner']);
-
-        $remainder = $num_leads % $num_user_assigned;
-
-        $owner_modulus = $num_leads % $num_lead_owner;
-
-        if($remainder == 0){
-            $num_in_batch = $num_leads / $num_user_assigned;
-
-            $batches = $num_leads / $num_in_batch;
-        }else{
-            for ($z =  1; $z <= $remainder; $z++) {
-                # code...
-            }
-        }
-
-        try{
-            DB::beginTransaction();
-            for ( $i = 0; $i < 5; $i++ ) {
-                if( !is_null($data['user_assigned'])){
-                    $lead = Lead::find($value)->update([
-                        'user_assigned' => $data['user_assigned'],
-                    ]);
-                }
-                
-                if( !is_null($data['lead_owner'])){
-                    $lead = Lead::find($value)->update([
-                        'user_created_id' => $data['lead_owner'],
-                    ]);
-                }
-            }
-            DB::commit();
-            return array('success' => true, 'message' => 'Leads successfully assigned');
-
-        }catch(\QueryException $e){
-            DB::rollback();
-            return array('success' =>false, 'message' => $e->getMessage());
-        }
     }
 
 }
