@@ -803,14 +803,14 @@ table tr td {
     color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 0px;
     min-width: 150px;
 
 }
  @media screen and (max-width: 1500px) {
      table tr td {
         font-size: 12px;
-        padding: 5px 0px 5px 0px;
+        padding: 5px 10px 5px 0px;
      }
  }
 
@@ -838,7 +838,7 @@ table th {
     color: #A6A6A6;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0;
+    padding-right: 20px !important;
     /* height: 56px; */
     /* padding-left: 14px; */
     vertical-align: middle;
