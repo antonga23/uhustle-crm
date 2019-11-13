@@ -1,5 +1,5 @@
 <template>  
-    <div class="card no-box-shadow material-table">  
+    <div class="card shadow-none material-table">  
         <table ref="table">  
             <thead>  
                 <tr>  
@@ -484,10 +484,7 @@ thead th {
     top: 0;  
     background: white;  
     z-index: 10;  
-}  
-.no-box-shadow {  
-    box-shadow: none !important;  
-}  
+}   
 .ant-list-item {  
     align-items: center;  
     display: flex;  
@@ -745,8 +742,7 @@ table tr {
      border-bottom: 1px solid #f2f2f2;  
     padding-left: 0;  
     width: auto;  
-    white-space: nowrap;  
-    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */  
+    white-space: nowrap;   
 }  
   
 table thead tr:first-child {  

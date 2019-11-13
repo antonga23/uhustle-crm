@@ -5,9 +5,11 @@
   .form-control {
     border-radius: 50rem;
     padding: 11px 18px!important;
-    font-size: 0.63vw;
+    font-size: 12px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
     border-color: #ccc;
     margin-bottom: 17px;
@@ -16,7 +18,7 @@
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.52vw;
+    font-size: 10px;
     color: #999999;
     margin-bottom:7px;
     margin-left: 17px;
@@ -26,7 +28,7 @@
     color: #999999;    
     border: none!important;
     padding: 11px 14px 10px;
-    font-size: 0.52vw;
+    font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
     line-height:1em;
@@ -34,12 +36,13 @@
     margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 0.52vw;
+    font-size: 10px;
     padding: 11px 14px 10px;
     line-height:1em;
     margin-left: 0.9%;

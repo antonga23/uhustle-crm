@@ -28,6 +28,9 @@
   .dropdown-menu {
     border-radius: 5px;
     box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+    -webkit-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+    -moz-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+    -o-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
   }
   
   .is-hidden {
@@ -65,7 +68,10 @@
   .card {
     border-radius: 10px;
     border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     min-width: 150px;
   }
 
@@ -143,7 +149,6 @@ p.card-text {
   width: 100%;
   float: right;
   font-family: 'Montserrat bold', sans-serif;
-  letter-spacing: 1.2px;
 }
   
   p.card-text span {
@@ -261,7 +266,6 @@ p.card-text {
     margin-top: -7px;
     color: #3b3b3b;
     font-family: 'Rubik', sans-serif !important;
-    letter-spacing: 1.2px;
     font-size:0.73vw;
   }
     
@@ -350,6 +354,9 @@ p.card-text {
     height: 40px;
     padding: 2px 5px 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
   
@@ -358,6 +365,9 @@ p.card-text {
     height: 30px;
     padding: 0 0 3px 0;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
 

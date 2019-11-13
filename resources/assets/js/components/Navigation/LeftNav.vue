@@ -9,6 +9,7 @@
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 [class*="sidebar-dark"] .brand-link {
   color: rgba(255, 255, 255, 0.8);
@@ -45,10 +46,12 @@
   background: #fff;
   color: #000;
   font-size: 0px;
-  letter-spacing:0.05em;
   color: #003549;
   border-radius: 0 50rem 50rem 0;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);
   padding: 18px 0;
   width: 0;
   overflow:hidden;
@@ -61,7 +64,7 @@
   overflow:visible;
   padding: 18px 35px 18px 40px;
   left: -20px!important;
-  font-size: 0.63vw;
+  font-size: 12px;
 }
 .sidebar-collapse .nav-link span {
   top: 2px;

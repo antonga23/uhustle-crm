@@ -202,28 +202,29 @@ table.listing tr  th{
 .grey-bg-color span{
   font-family: 'Rubik', sans-serif;
   color: #999999;
-  font-size: 0.63vw;
+  font-size: 12px;
 }
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-size: 10px;
   color: #989899;
   text-transform: uppercase;
   padding: 11px 13px;
-  letter-spacing: 0.05em;
   font-weight: 600;
 }
 .btn-default.assign {
   border-radius: 50rem !important;
   font-size: 10px;
-  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;
   font-weight: 600;
   text-transform: uppercase;
   padding: 10px 20px;
-  letter-spacing: 0.05em;
   color: #ffffff;
 }
 #bottom-section {
