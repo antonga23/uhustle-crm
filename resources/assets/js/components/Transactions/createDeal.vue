@@ -282,9 +282,15 @@ export default {
     },
     getLeads(){
       var vm = this;
-      axios.get("/modules/get-all-items").then(function(response) {  
-        vm.leads = response.data.leads;
-      });
+      if(this.lead_id !== '-None-'){
+        axios.get("/modules/get-single-item/" + this.lead_id).then(function(response) {  
+          vm.leads = response.data.leads.display_items;
+        });
+      }else{
+        axios.get("/modules/get-all-items").then(function(response) {  
+          vm.leads = response.data.leads.display_items;
+        });
+      }
     },
   }
 }

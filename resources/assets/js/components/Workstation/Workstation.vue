@@ -2081,32 +2081,7 @@ a.down-scroll:hover {
     <!-- Active calls Section Ends -->  
   
     <!-- Modals Section Starts -->  
-    <div>  
-      <!-- Yong <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal">    
-        <div class="d-block">    
-          <div class="row">    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="PTP">Promise To Pay</b-form-radio>    
-            </div>    
-          </div>    
-        </div>    
-      </b-modal>    
-   
+    <div>
       <b-modal    
         id="modal-prevent-closing"    
         size="xl"    
@@ -2176,399 +2151,11 @@ a.down-scroll:hover {
             </div>    
           </div>    
    
-          <div class="row mx-0 mb-0 justify-content-between">    
-            <div class="col-lg-4 col-md-4 col-sm-4 pl-0">    
-              <div class="card border-0 client">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />    
-                    Client    
-                  </h5>    
-                  <p class="card-text truncate mb-2"    
-                    :title="lead_info.name + ' ' + lead_info.surname"   
-                  >{{ lead_info.name + ' ' + lead_info.surname }}</p>    
-                  <div class="truncate w-100">   
-                    <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>   
-                    <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>   
-                    <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p>    
-                  </div>   
-                </div>    
-              </div>    
-            </div>    
-               
-            <div class="col-lg-4 col-md-4 col-sm-4">    
-              <div class="card border-0 product">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />    
-                    Product    
-                  </h5>    
-                  <p    
-                    class="card-text truncate mb-2"    
-                    :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "   
-                  >{{ lead_info.product.name }}</p>    
-                  <p    
-                  class="card-link truncate w-100 mb-0"    
-                  :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "   
-                  >{{ lead_info.product.description }}</p>     
-                </div>    
-              </div>    
-            </div>    
-           
-            <div class="col-lg-4 col-md-4 col-sm-4">    
-              <div class="card border-0 time">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />    
-                    Time    
-                  </h5>    
-                  <p class="card-text mb-2">11:20</p>   
-                  <div class="truncate mb-2">    
-                    <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p>    
-                    <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>     
-                  </div>     
-                </div>    
-              </div>    
-            </div>    
-          </div>        
-   
-          <div class="row stats final-modal">    
-            <div class="col-lg-6 p-0" style="padding-right: 3%;">    
-              <div class="card shadow-none mt-3 border-0 tab-card">    
-                <div class="card-header tab-card-header">    
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">    
-                    <li class="nav-item left">    
-                      <a    
-                        class="nav-link active"    
-                        id="one-tab"    
-                        data-toggle="tab"    
-                        href="#one"    
-                        role="tab"    
-                        aria-controls="One"    
-                        aria-selected="true"   
-                      >    
-                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="13%"/>    
-                        <span>Agent Notes</span>     
-                      </a>    
-                    </li>    
-                    <li class="nav-item right">    
-                      <a    
-                        class="nav-link"    
-                        id="two-tab"    
-                        data-toggle="tab"    
-                        href="#two"    
-                        role="tab"    
-                        aria-controls="Two"    
-                        aria-selected="false"   
-                      >    
-                        <img src="/images/icons/workstation/Schedule Callback.svg" alt="Icon" class="icon" width="13%"/>    
-                        <span>Schedule Callback</span>    
-                      </a>    
-                    </li>    
-                  </ul>    
-                </div>    
-   
-                <div class="tab-content" id="myTabContent">    
-                  <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab">    
-                    <div class="notes-roll">    
-                      <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;">    
-                        <li    
-                          v-for="comment in comments.comments"    
-                          class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0"    
-                          :key="comment.id"   
-                        >    
-                          <p class="m-0">    
-                            <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>     
-                            <span class="comment-notes d-block" style="width: 54%;">    
-                              {{ comment.description }}     
-                              <a    
-                                href="#"    
-                                role="button"   
-                                @click="editComment(comment)"    
-                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }"    
-                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"   
-                              >    
-                                <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>    
-                              </a>    
-                            </span>    
-                            <span class="author d-block w-25">    
-                              {{ comment.created_at }} <br/>    
-                              <small>{{ comment.user_name }}</small>    
-                            </span>    
-                          </p>    
-                        </li>    
-                      </ul>    
-                    </div>    
-   
-                    <div class="d-flex notes-capture">    
-                      <div class="flex-shrink-1">   
-                        <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }">    
-                          <img    
-                            src="/images/workstation/Asset 28@4x.png"    
-                            alt="Icon"    
-                            class="icon w-100"   
-                          >    
-                        </b-button>   
-                      </div>   
-   
-                      <div class="flex-grow-1 mr-2">    
-                        <input    
-                          class="comment-desc d-block w-100 border-0"    
-                          type="text"    
-                          v-model="comment.comment_description"    
-                          placeholder="Write comment here"   
-                        />   
-                      </div>   
-   
-                      <div class="flex-shrink-1">    
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn "    
-                          @click="prepComment()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>   
-                      </div>    
-                    </div>                
-                  </div>    
-   
-                  <div    
-                    class="tab-pane fade"    
-                    id="two"    
-                    role="tabpanel"    
-                    aria-labelledby="two-tab"   
-                  >     
-                    <div class="row mb-0 mx-0">    
-                      <div class="col-lg-4 pr-0">    
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label p-0">Date of Callback    
-                              <a-date-picker    
-                                v-model='selected_date'    
-                                format="YYYY-MM-DD"    
-                                :allowEmpty="false"   
-                                @change="checkCBDate()"   
-                              />    
-                            </label>    
-                          </div>    
-                        </div>    
-                             
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label pl-0">Time of Callback    
-                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>    
-                            </label>    
-                          </div>      
-                        </div>        
-   
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label pl-0">   
-                              <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>   
-                            </label>    
-                          </div>      
-                        </div>    
-                      </div>    
-                         
-                      <div class="col-lg-8">    
-                        <vc-date-picker    
-                          v-model="dates"    
-                          mode="multiple"    
-                          is-inline    
-                          is-expanded     
-                          :min-date='new Date()'    
-                          :max-date="max_date"    
-                          color="orange"    
-                        />    
-                      </div>    
-                    </div>    
-    
-                    <div class="d-flex callback-capture">   
-                      <div class="flex-grow-1">   
-                        <input    
-                          class="comment-desc d-block border-0"    
-                          type="text"    
-                          v-model="call_back.note"    
-                          placeholder="Write notes here"   
-                        />   
-                      </div>   
-                      <div class="flex-shrink-1">    
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn"    
-                          @click="addCallback()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>    
-                      </div>   
-                    </div>   
-                  </div>    
-                </div>    
-              </div>    
-            </div>    
-   
-            <div class="col-lg-6 p-0" style="padding-left: 3%;">    
-              <div class="card shadow-none mt-3 border-0 tab-card">    
-                <div class="card-header tab-card-header">    
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">    
-                    <li class="nav-item left">    
-                      <a    
-                        class="nav-link active"    
-                        id="three-tab"    
-                        data-toggle="tab"    
-                        href="#three"    
-                        role="tab"    
-                        aria-controls="Three"    
-                        aria-selected="true"   
-                      >    
-                        <img    
-                          src="/images/workstation/Feeback Summary.svg"    
-                          alt="Icon"    
-                          class="icon"   
-                          width="23"   
-                        />    
-                        <span class="left">Feedback Summary</span>    
-                        <span class="right">{{ comments.total_comments }}</span>    
-                      </a>    
-                    </li>    
-                    <li class="nav-item right">    
-                      <a    
-                        class="nav-link"    
-                        id="four-tab"    
-                        data-toggle="tab"    
-                        href="#four"    
-                        role="tab"    
-                        aria-controls="Four"    
-                        aria-selected="false"   
-                      >    
-                        <img    
-                          src="/images/workstation/Email Client.svg"    
-                          alt="Icon"    
-                          class="icon"    
-                          width="23"   
-                        />    
-                        <span class="left">Email Client</span>    
-                      </a>    
-                    </li>    
-                  </ul>    
-                </div>    
-   
-                <div class="tab-content h-100" id="myTabContent">    
-                  <div    
-                    class="tab-pane fade show active"    
-                    id="three"    
-                    role="tabpanel"    
-                    aria-labelledby="three-tab"    
-                    style="height: 349px;"   
-                  >   
-                    <div class="row mx-0 justify-content-between align-items-center summary">   
-                      <div class="col-auto pl-0">   
-                        <p>220 reviews</p>   
-                      </div>   
-   
-                      <div class="col-auto px-0">   
-                        <div class="row mx-0 mb-0">   
-                          <div class="col-auto px-0">   
-                            <p>Called: 600</p>   
-                          </div>   
-                          <div class="col-auto pr-0">   
-                            <p>Answered: 50</p>   
-                          </div>   
-                        </div>   
-                      </div>   
-                    </div>   
-   
-                    <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">   
-                      <div class="col-12 px-0">   
-                        <div class="row mx-0 mb-0 align-items-center">   
-                          <div class="col-12 align-content-end px-0">   
-                            <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>   
-                          </div>   
-   
-                          <div class="col px-0">   
-                            <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>   
-                          </div>   
-   
-                          <div class="col-11 pr-0 pl-4">   
-                            <div class="progress-bar w-100">   
-                              <span class="tank" :style="{width: + stat.percent + '%'}"></span>   
-                            </div>   
-                          </div>   
-                        </div>   
-                      </div>   
-                    </div>   
-                  </div>   
-   
-                  <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">    
-                    <div class="row mb-0">   
-                      <div class="col-lg-4 pr-0">   
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label">Date of Callback   
-                              <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/>   
-                            </label>   
-                          </div>   
-                        </div>   
-                           
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label">Time of Callback   
-                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>   
-                            </label>   
-                          </div>     
-                        </div>        
-   
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>   
-                          </div>     
-                        </div>   
-                      </div>   
-   
-                      <div class="col-lg-8">   
-                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="orange" />   
-                      </div>   
-                    </div>   
-   
-                    <div class="d-flex callback-capture">   
-                      <div class="flex-grow-1">   
-                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" />   
-                      </div>   
-                      <div class="flex-shrink-1">   
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn p-0 m-0"   
-                          @click="addCallback()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>   
-                      </div>   
-                    </div>   
-                  </div>   
-                </div>   
-              </div>   
-            </div>   
-          </div>   
+          <div class="row mx-0 mb-0 justify-content-between"> 
+            
+          </div> 
         </div>   
-      </b-modal>-->  
+      </b-modal>  
     </div>  
   
     <input type="hidden" @click="startCall()" ref="callBtn" />  
@@ -3210,6 +2797,7 @@ export default {
   
           Device.on("connect", function(conn) {  
             vm.call_status = "Successfully established call";  
+            vm.call_sid = conn.parameters.CallSid;  
             vm.call_back.call_sid = conn.parameters.CallSid;  
           });  
   
@@ -3227,8 +2815,12 @@ export default {
           });  
   
           Device.on("disconnect", function(conn) {  
-            vm.call_status = "Call Disconnected";  
-            vm.$refs["final-call-step"].show();  
+            vm.call_status = "Call Disconnected";
+            vm.general = false;  
+            vm.scripts = false;  
+            vm.idle = true;  
+            vm.active_calls = false;    
+            // vm.$refs["final-call-step"].show();  
           });  
   
           vm.$Progress.finish();  
@@ -3249,35 +2841,11 @@ export default {
       Fire.$emit("InitiateCall");  
   
       var form_data = {  
-        lead_id: vm.lead_info.id,  
-        is_client: vm.lead_info.is_client,  
-        lead_owner: vm.lead_info.user_created_id,  
-        lead_assignee: vm.lead_info.user_assigned,  
+        lead_id: vm.item_id,  
         user_id: vm.user_id,  
+        call_sid: vm.call_sid,
         // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27782013556"  
-      };  
-  
-      Device.connect(form_data);  
-    },  
-    startCall() {  
-      var vm = this;  
-      this.idle = true;  
-      this.show_edication_blocks = true;  
-      this.general = false;  
-      var audioCtx = new AudioContext();  
-  
-      audioCtx.resume();  
-  
-      Fire.$emit("InitiateCall");  
-  
-      var form_data = {  
-        lead_id: vm.lead_info.id,  
-        is_client: vm.lead_info.is_client,  
-        lead_owner: vm.lead_info.user_created_id,  
-        lead_assignee: vm.lead_info.user_assigned,  
-        // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27738802485"  
+        phone_number: "+27739898490"  
       };  
   
       Device.connect(form_data);  
@@ -3287,11 +2855,16 @@ export default {
   
       Device.disconnectAll(function(conn) {});  
   
-      vm.idle = true;  
-      vm.show_edication_blocks = true;  
+      // vm.idle = true;  
+      // vm.show_edication_blocks = true;  
+      // vm.general = false;  
+      // vm.minimized = false;  
+      // this.$refs["final-call-step"].show(); 
       vm.general = false;  
-      vm.minimized = false;  
-      this.$refs["final-call-step"].show();  
+      vm.scripts = false;  
+      vm.idle = true;  
+      vm.active_calls = false;  
+      
     },  
     getStatus(call_sid) {  
       var vm = this;  

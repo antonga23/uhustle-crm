@@ -18,10 +18,8 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    // return redirect('/login');
-
-    
-     return view('/welcome');
+    return redirect('/login');
+      // return view('/welcome');
 });
 
 Route::get('/home', function () {
@@ -297,6 +295,7 @@ Route::group(['prefix' => 'comments'], function () {
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
   Route::get('/get-all-items', 'ModuleController@getAllItems');
+  Route::get('/get-single-item/{lead_id}', 'ModuleController@getSingleItem');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');

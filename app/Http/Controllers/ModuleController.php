@@ -9,6 +9,7 @@ use App\Product;
 use App\User;
 use App\LeadSource;
 use App\Module;
+use Illuminate\Support\Facades\Log;
 use App\ModuleCustomFields;
 use App\ModuleItem;
 use App\ModuleItemMeta;
@@ -257,11 +258,22 @@ class ModuleController extends Controller
 
       $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
 
-      $module_items = ModuleItem::with('item_meta')->get();
+      $module_items = ModuleItem::with('item_meta')->get()->take(50);
 
       $items = $this->compactModuleItems($module_items);
 
-      return ['leads' => $items['display_items']];
+      return ['leads' => $items];
+    }
+
+    public function getSingleItem($id){
+
+      $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
+
+      $module_items = ModuleItem::with('item_meta')->where(['id' => $id])->get();
+
+      $items = $this->compactModuleItems($module_items);
+
+      return ['leads' => $items];
     }
 
    public function compactModuleItems($module_items = null){
@@ -290,6 +302,11 @@ class ModuleController extends Controller
                                             ->select('id','name','display_name', 'can_edit', 'can_read')
                                             ->first();
 
+            if($meta_name->name == 'assignee' && $meta->custom_field_value != Auth::user()->id && $item->id == $meta->item_id){
+              Log::info('Should skip');
+              continue;
+            }
+
             if($meta_name->id == $meta->custom_field_id){
 
 
@@ -298,7 +315,7 @@ class ModuleController extends Controller
               $display_array['id'] = $item->id;
 
               if($meta_name->name == 'assignee'){ 
-                
+                  
                 $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
                 
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
@@ -310,16 +327,17 @@ class ModuleController extends Controller
                   ];
 
               }else if ($meta_name->name == 'owner'){
-
+                  
                 $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
-
+                
                 $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
                 $fields_array[$meta_name->name] = [
                     'custom_field_id' => $meta->custom_field_id,
                     'meta_id' => $meta->id,
-                    'meta_value' =>  $user
+                    'meta_value' => $user
                   ];
+
               }else if ($meta_name->name == 'product'){
 
                 $product = Product::where(['id' => $meta->custom_field_value])->first();
@@ -535,8 +553,6 @@ class ModuleController extends Controller
                   $custom_fields = ModuleCustomFields::where([ 'module_id' => $item['module_id'] ])
                                                       ->where(['name' => 'assignee'])
                                                       ->first();
-
-                  \Log::info($item_id);
 
                   ModuleItemMeta::where(['custom_field_id' => $custom_fields['id']])
                                 ->where(['item_id' => $item_id])

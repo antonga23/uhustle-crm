@@ -191515,9 +191515,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     getLeads: function getLeads() {
       var vm = this;
-      axios.get("/modules/get-all-items").then(function (response) {
-        vm.leads = response.data.leads;
-      });
+
+      if (this.lead_id !== '-None-') {
+        axios.get("/modules/get-single-item/" + this.lead_id).then(function (response) {
+          vm.leads = response.data.leads.display_items;
+        });
+      } else {
+        axios.get("/modules/get-all-items").then(function (response) {
+          vm.leads = response.data.leads.display_items;
+        });
+      }
     }
   }
 });
@@ -192733,423 +192740,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Transactions/createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -195647,7 +195237,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       return this.activityItems.length;
     }
   },
-  methods: (_methods = {
+  methods: {
     getDeals: function getDeals() {
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id).then(function (response) {
@@ -195901,6 +195491,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         });
         Device.on("connect", function (conn) {
           vm.call_status = "Successfully established call";
+          vm.call_sid = conn.parameters.CallSid;
           vm.call_back.call_sid = conn.parameters.CallSid;
         });
         Device.on("incoming", function (conn) {
@@ -195917,7 +195508,10 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         });
         Device.on("disconnect", function (conn) {
           vm.call_status = "Call Disconnected";
-          vm.$refs["final-call-step"].show();
+          vm.general = false;
+          vm.scripts = false;
+          vm.idle = true;
+          vm.active_calls = false; // vm.$refs["final-call-step"].show();  
         });
         vm.$Progress.finish();
       })["catch"](function (error) {
@@ -195933,150 +195527,142 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       audioCtx.resume();
       Fire.$emit("InitiateCall");
       var form_data = {
-        lead_id: vm.lead_info.id,
-        is_client: vm.lead_info.is_client,
-        lead_owner: vm.lead_info.user_created_id,
-        lead_assignee: vm.lead_info.user_assigned,
+        lead_id: vm.item_id,
         user_id: vm.user_id,
+        call_sid: vm.call_sid,
         // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27782013556"
+        phone_number: "+27739898490"
       };
       Device.connect(form_data);
-    }
-  }, _defineProperty(_methods, "startCall", function startCall() {
-    var vm = this;
-    this.idle = true;
-    this.show_edication_blocks = true;
-    this.general = false;
-    var audioCtx = new AudioContext();
-    audioCtx.resume();
-    Fire.$emit("InitiateCall");
-    var form_data = {
-      lead_id: vm.lead_info.id,
-      is_client: vm.lead_info.is_client,
-      lead_owner: vm.lead_info.user_created_id,
-      lead_assignee: vm.lead_info.user_assigned,
-      // phone_number : vm.lead_info.contact_number,  
-      phone_number: "+27738802485"
-    };
-    Device.connect(form_data);
-  }), _defineProperty(_methods, "endCall", function endCall() {
-    var vm = this;
-    Device.disconnectAll(function (conn) {});
-    vm.idle = true;
-    vm.show_edication_blocks = true;
-    vm.general = false;
-    vm.minimized = false;
-    this.$refs["final-call-step"].show();
-  }), _defineProperty(_methods, "getStatus", function getStatus(call_sid) {
-    var vm = this;
-    axios.post("/calls/get-call-status").then(function (response) {
-      if (response.data.success == true) {
-        vm.call_status = response.data.call_status;
-      } else {
-        vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
-      }
-    });
-  }), _defineProperty(_methods, "prepComment", function prepComment() {
-    var vm = this;
+    },
+    endCall: function endCall() {
+      var vm = this;
+      Device.disconnectAll(function (conn) {}); // vm.idle = true;  
+      // vm.show_edication_blocks = true;  
+      // vm.general = false;  
+      // vm.minimized = false;  
+      // this.$refs["final-call-step"].show(); 
 
-    if (vm.comment.comment_type === null) {
-      vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
-      vm.choose_comment_type = true;
-      return false;
-    }
-
-    var form_data = {
-      id: this.module_item.id,
-      type: "customer",
-      comment_id: this.comment.id,
-      comment_type: this.comment.comment_type["short"],
-      description: this.comment.comment_description
-    };
-    vm.review_comment = true;
-  }), _defineProperty(_methods, "addComment", function addComment() {
-    var vm = this;
-
-    if (vm.comment.comment_type === null) {
-      vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
-      vm.choose_comment_type = true;
-      vm.review_comment = false;
-      return false;
-    }
-
-    var form_data = {
-      id: this.module_item.id,
-      type: "customer",
-      comment_type: this.comment.comment_type,
-      description: this.comment.comment_description
-    };
-
-    if (vm.edit_comment == true) {
-      var endpoint = "/comments/update";
-    } else {
-      var endpoint = "/comments/add";
-    }
-
-    vm.$Progress.start();
-    axios.post(endpoint, form_data).then(function (response) {
-      if (response.data.success == true) {
-        vm.Toast.fire({
-          type: "success",
-          title: response.data.message
-        });
-        vm.edit_comment = false;
-        vm.review_comment = false;
-        vm.continues = true;
-        vm.getComments(vm.module_item.id);
-        vm.$Progress.finish();
-      } else {
-        vm.$Progress.fail();
-
-        if (response.data.message == "Please edit existing comment.") {
-          vm.edit_comment = true;
+      vm.general = false;
+      vm.scripts = false;
+      vm.idle = true;
+      vm.active_calls = false;
+    },
+    getStatus: function getStatus(call_sid) {
+      var vm = this;
+      axios.post("/calls/get-call-status").then(function (response) {
+        if (response.data.success == true) {
+          vm.call_status = response.data.call_status;
+        } else {
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
         }
+      });
+    },
+    prepComment: function prepComment() {
+      var vm = this;
 
-        vm.$swal("Failed", response.data.message, "warning");
+      if (vm.comment.comment_type === null) {
+        vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
+        vm.choose_comment_type = true;
+        return false;
       }
-    });
-  }), _defineProperty(_methods, "getComments", function getComments(item_id) {
-    var vm = this;
-    axios.get("/comments/get/customer/" + item_id).then(function (response) {
-      if (response.data.success == true) {
-        vm.comments.comments = response.data.comments;
-        vm.comments.comments_graph = response.data.comments_graph;
-        vm.comments.total_comments = response.data.total_comments;
-        vm.comments.total_calls = response.data.total_calls;
-        vm.comments.total_answered_calls = response.data.total_answered_calls;
-        vm.comment.comment_description = "";
-        vm.comment.comment_type = null;
+
+      var form_data = {
+        id: this.module_item.id,
+        type: "customer",
+        comment_id: this.comment.id,
+        comment_type: this.comment.comment_type["short"],
+        description: this.comment.comment_description
+      };
+      vm.review_comment = true;
+    },
+    addComment: function addComment() {
+      var vm = this;
+
+      if (vm.comment.comment_type === null) {
+        vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
+        vm.choose_comment_type = true;
+        vm.review_comment = false;
+        return false;
+      }
+
+      var form_data = {
+        id: this.module_item.id,
+        type: "customer",
+        comment_type: this.comment.comment_type,
+        description: this.comment.comment_description
+      };
+
+      if (vm.edit_comment == true) {
+        var endpoint = "/comments/update";
       } else {
-        vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        var endpoint = "/comments/add";
       }
-    });
-  }), _defineProperty(_methods, "minizeCallProgress", function minizeCallProgress() {
-    this.minimized = true;
-    $(".call-progress-div mb-0").toggleClass("collapsed");
-  }), _defineProperty(_methods, "getDaysAgo", function getDaysAgo(second_date) {
-    var date_string = "";
-    var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
 
-    var firstDate = new Date();
-    var secondDate = new Date(second_date);
-    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+      vm.$Progress.start();
+      axios.post(endpoint, form_data).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: "success",
+            title: response.data.message
+          });
+          vm.edit_comment = false;
+          vm.review_comment = false;
+          vm.continues = true;
+          vm.getComments(vm.module_item.id);
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
 
-    if (diffDays <= 1) {
-      date_string = "Today";
-    } else if (diffDays > 1 && diffDays <= 7) {
-      date_string = diffDays + " Days ago";
-    } else if (diffDays == 7) {
-      date_string = "1 Week ago";
-    } else if (diffDays >= 7) {
-      date_string = second_date;
+          if (response.data.message == "Please edit existing comment.") {
+            vm.edit_comment = true;
+          }
+
+          vm.$swal("Failed", response.data.message, "warning");
+        }
+      });
+    },
+    getComments: function getComments(item_id) {
+      var vm = this;
+      axios.get("/comments/get/customer/" + item_id).then(function (response) {
+        if (response.data.success == true) {
+          vm.comments.comments = response.data.comments;
+          vm.comments.comments_graph = response.data.comments_graph;
+          vm.comments.total_comments = response.data.total_comments;
+          vm.comments.total_calls = response.data.total_calls;
+          vm.comments.total_answered_calls = response.data.total_answered_calls;
+          vm.comment.comment_description = "";
+          vm.comment.comment_type = null;
+        } else {
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        }
+      });
+    },
+    minizeCallProgress: function minizeCallProgress() {
+      this.minimized = true;
+      $(".call-progress-div mb-0").toggleClass("collapsed");
+    },
+    getDaysAgo: function getDaysAgo(second_date) {
+      var date_string = "";
+      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
+
+      var firstDate = new Date();
+      var secondDate = new Date(second_date);
+      var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+
+      if (diffDays <= 1) {
+        date_string = "Today";
+      } else if (diffDays > 1 && diffDays <= 7) {
+        date_string = diffDays + " Days ago";
+      } else if (diffDays == 7) {
+        date_string = "1 Week ago";
+      } else if (diffDays >= 7) {
+        date_string = second_date;
+      }
+
+      return date_string;
     }
-
-    return date_string;
-  }), _methods)
+  }
 });
 
 /***/ }),
@@ -379710,7 +379296,10 @@ var render = function() {
                             "div",
                             [
                               _c("create-deal", {
-                                attrs: { empty_deal: _vm.deal }
+                                attrs: {
+                                  empty_deal: _vm.deal,
+                                  lead_id: "-None-"
+                                }
                               })
                             ],
                             1
@@ -383729,7 +383318,197 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div"),
+    _c(
+      "div",
+      [
+        _c(
+          "b-modal",
+          {
+            ref: "final-call-step",
+            staticStyle: { "z-index": "999999", padding: "1rem 3rem" },
+            attrs: {
+              id: "modal-prevent-closing",
+              size: "xl",
+              title: "",
+              "hide-header": "",
+              "hide-footer": ""
+            },
+            on: { mouseleave: _vm.mouseLeave, hide: _vm.preventClosing }
+          },
+          [
+            _c("div", { staticClass: "final-modal" }, [
+              _c("div", { staticClass: "row row-a w-100 ml-0" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-left": "6%" }
+                  },
+                  [
+                    _c("ul", { staticClass: "navbar-nav left" }, [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "nav-item d-none d-sm-inline-block title"
+                        },
+                        [
+                          _c("countdown", {
+                            attrs: { time: _vm.set_time },
+                            on: {
+                              progress: _vm.handleCountdownProgress,
+                              abort: _vm.handleAbort
+                            },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      _vm._s(props.minutes) +
+                                        ":" +
+                                        _vm._s(props.seconds)
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6 pr-0",
+                    staticStyle: { "padding-top": "2%" }
+                  },
+                  [
+                    _c("div", { staticClass: "w-100" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _vm.added_time
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "w-100 m-0",
+                                  class: {
+                                    btn: true,
+                                    "btn-active border-0 font-weight-bold": true
+                                  },
+                                  attrs: { type: "submit", disabled: "" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v("More Time    \n                ")
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "w-100 m-0",
+                                  class: {
+                                    btn: true,
+                                    "btn-active border-0 font-weight-bold": true
+                                  },
+                                  attrs: { type: "submit" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v("More Time    \n                ")
+                                ]
+                              )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label pr-0 text-right",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "w-100 m-0",
+                              class: {
+                                btn: true,
+                                "btn-active border-0 font-weight-bold": true
+                              },
+                              attrs: { type: "submit" },
+                              on: { click: _vm.completeCall }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src: "/images/icons/Asset 136.svg",
+                                  alt: "Icon"
+                                }
+                              }),
+                              _vm._v("Complete    \n                ")
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-3 control-label pr-0 text-right",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            staticStyle: {
+                              width: "60px",
+                              "margin-top": "-13px"
+                            },
+                            attrs: {
+                              src: "/images/icons/Asset 56.svg",
+                              alt: "Icon"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "row mx-0 mb-0 justify-content-between"
+              })
+            ])
+          ]
+        )
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("input", {
       ref: "callBtn",
