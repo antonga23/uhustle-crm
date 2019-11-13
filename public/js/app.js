@@ -194845,6 +194845,475 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -195165,7 +195634,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         edit: ""
       }],
       perPage: 10,
-      currentPage: 1
+      currentPage: 1,
+      radioStyle: {
+        display: 'block',
+        height: '30px',
+        lineHeight: '30px'
+      }
     };
   },
   computed: {
@@ -195269,34 +195743,24 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           var status = '';
 
           if (activity.status == 0) {
-            color = '#ff8c37';
-            status = 'Open';
-          }
-
-          if (activity.status == 1) {
-            color = '#00d58e';
-            status = 'Closed';
-          }
-
-          if (activity.status == 2) {
             color = '#00d58e';
             status = 'Finished';
           }
 
-          if (activity.status == 3) {
-            color = '#ff8c37';
+          if (activity.status == 1) {
+            color = '#FF933A';
             status = 'In Progress';
           }
 
-          if (activity.status == 4) {
+          if (activity.status == 2) {
             color = '#f42222';
-            status = 'No Started';
+            status = 'Not Started';
           }
 
           vm.activityItems.push({
             statusColor: color,
-            status: status,
             subject: activity.title,
+            status: status,
             dueDate: activity.duedate,
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
@@ -195307,34 +195771,24 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           var status = '';
 
           if (activity.status == 0) {
-            color = '#ff8c37';
-            status = 'Open';
-          }
-
-          if (activity.status == 1) {
-            color = '#00d58e';
-            status = 'Closed';
-          }
-
-          if (activity.status == 2) {
             color = '#00d58e';
             status = 'Finished';
           }
 
-          if (activity.status == 3) {
-            color = '#ff8c37';
+          if (activity.status == 1) {
+            color = '#FF933A';
             status = 'In Progress';
           }
 
-          if (activity.status == 4) {
+          if (activity.status == 2) {
             color = '#f42222';
-            status = 'No Started';
+            status = 'Not Started';
           }
 
           vm.closedActivityItems.push({
             statusColor: color,
-            status: status,
             subject: activity.title,
+            status: status,
             dueDate: activity.duedate,
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
@@ -246181,7 +246635,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {  \n  padding-top: 69px;  \n  padding-left: 5%;  \n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {  \n  padding-left: 5%;  \n  padding-right: 5%;  \n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {  \n  padding-left: 3%;  \n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] {  \n  padding: 0 10px;  \n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] {  \n  font-size: 0.83vw;  \n  font-weight: 700; \n  color: #393a60;\n}\n.top-section .top[data-v-f3210f20] {  \n  font-size: 12px;  \n  color: #747577;   \n  font-family: \"Rubik\", sans-serif;  \n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] {  \n  border-top: 1px solid #ededee;\n}\n.border-right-grey[data-v-f3210f20] {  \n  border-right: 1px solid #ededee;\n}\ndiv.col-6[data-v-f3210f20]:last-child, div.col-6[data-v-f3210f20]:nth-last-child(2)  {  \n  border-bottom: 1px solid #ededee;\n}\n.p12-25[data-v-f3210f20] {  \n  padding: 12px 25px;\n}\n.mr-22[data-v-f3210f20] {\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] {  \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] {  \n  margin-bottom: 0.75rem;  \n  padding-bottom: 0.5rem;  \n  border-bottom: 1px solid #fff;  \n  font-size: 14px;  \n  font-family: \"Rubik\", sans-serif;\n}\n.client[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(255, 164, 128, 1) 0%,  \n    rgba(255, 128, 134, 1) 100%  \n  );\n}\n.product[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(159, 204, 226, 1) 0%,  \n    rgba(4, 149, 240, 1) 100%  \n  );\n}\n.activity[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(221, 192, 241, 1) 0%,  \n    rgba(160, 117, 209, 1) 100%  \n  );\n}\n.time[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(101, 215, 207, 1) 0%,  \n    rgba(111, 148, 211, 1) 100%  \n  );\n}\nh5[data-v-f3210f20] {  \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] {  \n  width: 15px;  \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] {  \n  font-size: 32px;  \n  color: #fff;  \n  font-weight: bolder;  \n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] {  \n  font-size: 16px;  \n  color: #fff;\n}\n.client-details[data-v-f3210f20] {  \n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%);  \n  padding-left: 3%;  \n  padding-right: 3%;  \n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {  \n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {  \n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {  \n  background-color: #f6f8f9;  \n  padding-left: 3%;  \n  padding-right: 3%;  \n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] {  \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] {  \n  width: 25px;  \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {  \n  margin-bottom: 0.75rem;  \n  padding-bottom: 0.75rem;  \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] {  \n  float: right;\n}\n.truncate[data-v-f3210f20] {  \n  white-space: nowrap;  \n  overflow: hidden;  \n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] {  \n  max-height: 290px;  \n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] {  \n  border-color: #cdcdcf;  \n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] {  \n  font-size: 0.95vw;  \n  color: #003449;  \n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] {  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.7vw;  \n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #7f99a4;\n}\n.author[data-v-f3210f20] {  \n  font-size: 10px;  \n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20],  \n.callback-capture[data-v-f3210f20] {  \n  background: #f4f4f4;  \n  border-radius: 50rem;  \n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] {  \n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] {  \n  height: 50px;  \n  width: 50px;  \n  padding: 11px;  \n  margin: 0 10px 0 0;  \n  background: #f4f4f4;  \n  border-radius: 50rem !important;  \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] {  \n  height: 50px;  \n  padding: 11px;  \n  margin: 0;  \n  border-radius: 9px;  \n  background: #f4f4f4;  \n  cursor: pointer;  \n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder {  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\n  outline: 0 !important;\n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-ox-shadow: none !important; \n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] {    \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 8px;  \n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {  \n  color: #666;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] {  \n  margin-top: -15px;  \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] {  \n  color: #fff;  \n  background-color: #f6f8f9;  \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active,  \n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20],  \n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {  \n  color: #fff;  \n  background-color: #f6f8f9;  \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] {  \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] {  \n  margin-left: -54px;  \n  margin-right: -65px;  \n  padding: 3% 34px 0;  \n  background-image: url(/images/call/Call_Background.svg) !important;  \n  background-size: cover;  \n  background-repeat: no-repeat;  \n  max-height: 120vh;  \n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(/images/call/Call_Logo.svg) !important;  \n  background-size: 75%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 186px;\n}\n.tip[data-v-f3210f20] {  \n  margin-bottom: 40px;  \n  background-size: 20%;  \n  background-repeat: no-repeat;  \n  background-position: center 1px;  \n  margin-bottom: 40px;  \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] {  \n  border-bottom: 1px solid #fff;  \n  margin-bottom: 10px;  \n  color: #fff;  \n  margin: 0;\n}\n.tip p.tip-text[data-v-f3210f20] {  \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] {  \n  color: #fff;  \n  font-size: 1.6rem;   \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] {  \n  margin-bottom: 10px;  \n  color: #fff;  \n  margin: 0;\n}\n.tip-a[data-v-f3210f20] {  \n  background-image: url(\"/images/call/1@4x.png\") !important;  \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] {  \n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] {  \n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] {  \n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] {  \n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] {  \n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] {  \n  background-image: url(\"/images/graph_grid.png\") !important;  \n  background-repeat: repeat-x;  \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {  \n  width: 14%;  \n  float: left;  \n  margin-left: 6.5%;  \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {  \n  position: relative;  \n  height: 220px;  \n  background: rgba(255, 255, 255, 0.2);  \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {  \n  position: absolute;  \n  bottom: 0;  \n  background: #89cff0;  \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {  \n  position: absolute;  \n  font-size: 12px;  \n  bottom: 0;  \n  height: 20px;  \n  color: #003449;  \n  display: none;  \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {  \n  margin-top: 5px;  \n  text-align: center;  \n  color: #003449;  \n  font-size: 18px;  \n  font-weight: 900;  \n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] {  \n  max-height: 880.84px;  \n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {  \n  max-height: 35px;  \n  overflow: hidden;  \n  padding: 0px;  \n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] {  \n  position: relative;  \n  text-align: right;  \n  width: 100%;  \n  top: -38px;  \n  right: -62px;  \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] {  \n  position: relative;  \n  text-align: right;  \n  width: 100%;  \n  top: -1px;  \n  right: 14px;  \n  color: #fff;\n}\np.minimize a[data-v-f3210f20],  \np.maximize a[data-v-f3210f20] {  \n  color: #fff;  \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] {  \n  font-size: 17px;  \n  border-bottom: 1px solid #003449;  \n  margin-bottom: 18px;  \n  color: #003449;  \n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] {  \n  border: 0;  \n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] {  \n  flex: 1 1 auto;  \n  padding: 3.25rem;  \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {  \n  color: #fff;  \n  border-bottom: 1px solid #fff;  \n  padding-bottom: 5px;  \n  font-size: 32px;\n}\n.idle-div[data-v-f3210f20] {  \n  margin-left: -54px;  \n  margin-right: -65px;  \n  padding: 3% 6%;  \n  /* background-image: url('/images/call/Call_Background.svg') !important; */  \n  background-size: 100%;  \n  background-repeat: no-repeat;  \n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important;  \n  background-size: 100%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important;  \n  background-size: 33%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] {  \n  margin: 0 auto;  \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] {  \n  margin: 0 auto;  \n  text-align: center;  \n  font-size: 12px;  \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] {  \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover {  \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover {  \n  background: #00344a;  \n  color: #ffffff;  \n  border: none !important;  \n  padding: 6px 25px 6px 18px;  \n  font-size: 12px;  \n  font-weight: 700;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] {  \n  background: #ffffff;  \n  color: #00344a;  \n  padding: 6px 25px 6px 18px;  \n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] {  \n  border-radius: 50%;  \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite;  \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover {  \n  -webkit-animation: none;  \n          animation: none;\n}\n.pulse[data-v-f3210f20] {  \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite;  \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover {  \n  -webkit-animation: none;  \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% {  \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% {  \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n    -o-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {  \n    box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);  \n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n    -moz-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n    -o-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% {\n    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% {\n    -o-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {\n    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);  \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] {  \n  border-radius: 0;  \n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] {  \n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] {  \n  padding-top: 12px;  \n  border-bottom-left-radius: 25px;  \n  border-bottom-right-radius: 25px;  \n  background-color: #fff;  \n  box-shadow: 0 0 20px 10px #e6e6e6;  \n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;  \n  -moz-box-shadow: 0 0 20px 10px #e6e6e6;  \n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] {  \n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] {  \n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] {  \n  width: 20px;  \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] {  \n  font-size: 55px;  \n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] {  \n  border-top-left-radius: 19px;  \n  border-top-right-radius: 19px;  \n  padding: 0 11px 11px;  \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] {  \n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] {  \n  padding-top: 18px;  \n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {  \n  border: 0;  \n  color: #7f8080;   \n  text-align: center;  \n  padding-top: 0;  \n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] {  \n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  background-color: #fff;  \n  border-top-left-radius: 25px;  \n  border-top-right-radius: 25px;\n}\n.activities .card-header[data-v-f3210f20],  \n.deals .card-header[data-v-f3210f20] {  \n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20],  \n.deals .card-header-tabs[data-v-f3210f20] {  \n  box-shadow: inset 0 -10px 10px #f5f5f5;\n  -webkit-box-shadow: inset 0 -10px 10px #f5f5f5;\n  -moz-box-shadow: inset 0 -10px 10px #f5f5f5;\n  -o-box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {  \n  font-size: 10px;   \n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {  \n  font-size: 10px;  \n  color: #999999;  \n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20],  \n.deals #eight textarea[data-v-f3210f20],  \n.deals #eight select[data-v-f3210f20] {  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  color: #003449;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 12px;  \n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] {  \n  border-radius: 25px;  \n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {  \n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {  \n  border-radius: 50rem !important;  \n  font-size: 10px;  \n  text-transform: uppercase;  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  color: #999999;  \n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {  \n  font-size: 10px;  \n  text-transform: uppercase;  \n  font-weight: 700;  \n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] {  \n  font-size: 0.73vw;  \n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] {  \n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] {  \n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20],  \n#two .col-lg-4 .recommended-call[data-v-f3210f20] {  \n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] {  \n  color: rgb(129, 130, 132);  \n  font-size: 0.68vw;  \n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] {  \n  padding-left: 7.8%;\n}\n.vc-reset[data-v-f3210f20],  \n.vc-reset *[data-v-f3210f20] {  \n  border-style: none !important;  \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] {  \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20] {  \n  overflow-y: scroll;  \n  height: 70vh;  \n  padding-top: 6px;  \n  padding-right: 3%;  \n  padding-bottom: 6px;  \n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] {  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.7vw;  \n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] {  \n  letter-spacing: 0.1em;  \n  font-size: 0.85vw;  \n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {  \n  color: #333333;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] {  \n  background: #e6e6e6;  \n  border-radius: 5px;  \n  height: 12px;\n}\n.tank[data-v-f3210f20] {  \n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important;  \n  border-radius: 5px;  \n  background: rgb(114, 218, 126);  \n  height: 12px;  \n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] {  \n  color: #808080;  \n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] {  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  font-family: \"Rubik\", sans-serif;  \n  font-size: 12px;  \n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] {  \n  background-color: #f9f9f9;  \n  border-radius: 10px;  \n  height: 163px !important;  \n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder {  \n  color: #999999;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] {  \n  overflow-y: scroll;  \n  height: 70vh;  \n  /* padding-top: 6px; */  \n  padding-right: 6px;  \n  width: 100%;\n}\n.dropdown-menu[data-v-f3210f20] {  \n  width: 191px;  \n  padding: 17px;  \n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] {  \n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] {  \n  font-size: 0.73vw;  \n  color: #666666;  \n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] {  \n  border-radius: 25px;  \n  border: 0;  \n  padding: 10px 20px 15px 15px;  \n  color: #818284;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 16px;\n}  \n", ""]);
+exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\n  padding-left: 5%; \n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \n  padding-left: 5%; \n  padding-right: 5%; \n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \n  padding-left: 3%; \n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \n  padding: 0 10px; \n  /* border-left: 1px solid rgba(0,52,73,1);   \n  min-height: 71px;  \n  margin-bottom: 57px; */ \n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \n  font-size: 12px; \n  font-weight: 700; \n  letter-spacing: 0.05em; \n  color: #1e2253; \n  font-family: \"Rubik\", sans-serif;\n}\n.top-section .top[data-v-f3210f20] { \n  font-size: 12px; \n  color: #747577; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \n  border-top: 1px solid #ededee;\n}\n.border-right-grey[data-v-f3210f20] { \n  border-right: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \n  padding: 10px 25px;\n}\n.mr-22[data-v-f3210f20] {\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.5rem; \n  border-bottom: 1px solid #fff; \n  font-size: 14px; \n  font-family: \"Rubik\", sans-serif; \n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(255, 164, 128, 1) 0%, \n    rgba(255, 128, 134, 1) 100% \n  );\n}\n.product[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(159, 204, 226, 1) 0%, \n    rgba(4, 149, 240, 1) 100% \n  );\n}\n.activity[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(221, 192, 241, 1) 0%, \n    rgba(160, 117, 209, 1) 100% \n  );\n}\n.time[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(101, 215, 207, 1) 0%, \n    rgba(111, 148, 211, 1) 100% \n  );\n}\nh5[data-v-f3210f20] { \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \n  width: 15px; \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \n  font-size: 32px; \n  color: #fff; \n  font-weight: bolder; \n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \n  font-size: 16px; \n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \n  background-color: #f6f8f9; \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \n  width: 25px; \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.75rem; \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \n  float: right;\n}\n.truncate[data-v-f3210f20] { \n  white-space: nowrap; \n  overflow: hidden; \n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \n  max-height: 190px; \n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \n  max-height: 290px; \n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \n  border-color: #cdcdcf; \n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \n  font-size: 0.95vw; \n  color: #003449; \n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \n  font-size: 10px; \n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \n.callback-capture[data-v-f3210f20] { \n  background: #f4f4f4; \n  border-radius: 50rem; \n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \n  height: 50px; \n  width: 50px; \n  padding: 11px; \n  margin: 0 10px 0 0; \n  background: #f4f4f4; \n  border-radius: 50rem !important; \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \n  height: 50px; \n  padding: 11px; \n  margin: 0; \n  border-radius: 9px; \n  background: #f4f4f4; \n  cursor: pointer; \n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\n  outline: 0 !important;\n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-ox-shadow: none !important; \n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 8px; \n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \n  color: #666; \n  letter-spacing: 0.05em; \n  font-size: 12px; \n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \n  margin-top: -15px; \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 34px 0; \n  background-image: url(/images/call/Call_Background.svg) !important; \n  background-size: cover; \n  background-repeat: no-repeat; \n  max-height: 120vh; \n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(/images/call/Call_Logo.svg) !important; \n  background-size: 75%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 186px;\n}\n.tip[data-v-f3210f20] { \n  margin-bottom: 40px; \n  background-size: 20%; \n  background-repeat: no-repeat; \n  background-position: center 1px; \n  margin-bottom: 40px; \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \n  border-bottom: 1px solid #fff; \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \n  color: #fff; \n  font-size: 1.6rem; \n  letter-spacing: 6px; \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \n  background-image: url(\"/images/call/1@4x.png\") !important; \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \n  background-image: url(\"/images/graph_grid.png\") !important; \n  background-repeat: repeat-x; \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n  width: 14%; \n  float: left; \n  margin-left: 6.5%; \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0; \n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n  margin-top: 5px; \n  text-align: center; \n  color: #003449; \n  font-size: 18px; \n  font-weight: 900; \n  letter-spacing: 2.2px; \n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \n  max-height: 880.84px; \n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \n  max-height: 35px; \n  overflow: hidden; \n  padding: 0px; \n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -38px; \n  right: -62px; \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -1px; \n  right: 14px; \n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \np.maximize a[data-v-f3210f20] { \n  color: #fff; \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \n  font-size: 17px; \n  border-bottom: 1px solid #003449; \n  margin-bottom: 18px; \n  color: #003449; \n  letter-spacing: 1.42px; \n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \n  border: 0; \n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \n  flex: 1 1 auto; \n  padding: 3.25rem; \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \n  color: #fff; \n  border-bottom: 1px solid #fff; \n  padding-bottom: 5px; \n  font-size: 32px; \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 6%; \n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \n  background-size: 100%; \n  background-repeat: no-repeat; \n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 100%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 33%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center; \n  font-size: 12px; \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \n  background: #00344a; \n  color: #ffffff; \n  border: none !important; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  font-weight: 700; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \n  background: #ffffff; \n  color: #00344a; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \n  border-radius: 50%; \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n.pulse[data-v-f3210f20] { \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \n  border-radius: 0; \n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \n  padding-top: 12px; \n  border-bottom-left-radius: 25px; \n  border-bottom-right-radius: 25px; \n  background-color: #fff; \n  box-shadow: 0 0 20px 10px #e6e6e6; \n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \n  width: 20px; \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \n  font-size: 55px; \n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \n  border-top-left-radius: 19px; \n  border-top-right-radius: 19px; \n  padding: 0 11px 11px; \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \n  padding-top: 18px; \n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \n  border: 0; \n  color: #7f8080; \n  letter-spacing: 0.05em; \n  text-align: center; \n  padding-top: 0; \n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  background-color: #fff; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \n.deals .card-header[data-v-f3210f20] { \n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \n.deals .card-header-tabs[data-v-f3210f20] { \n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \n.deals #eight textarea[data-v-f3210f20], \n.deals #eight select[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  color: #003449; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 12px; \n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \n  border-radius: 25px; \n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \n  border-radius: 50rem !important; \n  font-size: 10px; \n  text-transform: uppercase; \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  letter-spacing: 0.05em; \n  color: #999999; \n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \n  font-size: 10px; \n  text-transform: uppercase; \n  letter-spacing: 0.05em; \n  font-weight: 700; \n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \n  font-size: 0.73vw; \n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \n  color: rgb(129, 130, 132); \n  font-size: 0.68vw; \n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \n  padding-left: 7.8%;\n}\n.vc-reset[data-v-f3210f20], \n.vc-reset *[data-v-f3210f20] { \n  border-style: none !important; \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20] { \n  overflow-y: scroll; \n  height: 70vh; \n  padding-top: 6px; \n  padding-right: 3%; \n  padding-bottom: 6px; \n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \n  letter-spacing: 0.1em; \n  font-size: 0.85vw; \n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #333333; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \n  background: #e6e6e6; \n  border-radius: 5px; \n  height: 12px;\n}\n.tank[data-v-f3210f20] { \n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \n  border-radius: 5px; \n  background: rgb(114, 218, 126); \n  height: 12px; \n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \n  color: #808080; \n  letter-spacing: 0.05em; \n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.63vw; \n  letter-spacing: 0.05em; \n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \n  background-color: #f9f9f9; \n  border-radius: 10px; \n  height: 163px !important; \n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \n  overflow-y: scroll; \n  height: 70vh; \n  /* padding-top: 6px; */ \n  padding-right: 6px; \n  width: 100%;\n}\n.dropdown-menu[data-v-f3210f20] { \n  width: 191px; \n  padding: 17px; \n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \n  font-size: 0.73vw; \n  letter-spacing: 0.05em; \n  color: #666666; \n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \n  border-radius: 25px; \n  border: 0; \n  padding: 10px 20px 15px 15px; \n  color: #818284; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\n  font-size: 0.83vw;\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.activity-status-col label[data-v-f3210f20] {\n  margin-bottom: 18px;\n}\n.activity-status[data-v-f3210f20] {\n  width:12px;\n  height: 12px;\n  border-radius: 50rem;\n}\n.finished-activity[data-v-f3210f20] {\n  background-color: #00D58E;\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\n  background-color: #FF933A;\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\n  background-color: #F42222; \n  margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -381371,7 +381825,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "row mx-0 pb-4 justify-content-between top-section agent-stats-1"
+                "row mx-0 pb-5 justify-content-between top-section agent-stats-1"
             },
             _vm._l(_vm.item_custom_fields, function(custom_field, index) {
               return _c(
@@ -381381,16 +381835,16 @@ var render = function() {
                   return _c("div", { key: i, staticClass: "2" }, [
                     item.custom_field_id == custom_field.id
                       ? _c("div", { staticClass: "inner-div" }, [
-                          name == "source"
+                          name == "source" && item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -381405,7 +381859,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -381415,16 +381869,16 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : name == "product"
+                            : name == "product" && item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -381439,7 +381893,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -381449,16 +381903,17 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : name == "assignee" || name == "owner"
+                            : (name == "assignee" || name == "owner") &&
+                              item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -381473,7 +381928,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -381489,19 +381944,19 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : name == "email"
+                            : name == "email" && item.meta_value !== null
                             ? _c(
                                 "div",
                                 {
                                   staticClass:
-                                    "row mx-1 border-top-grey truncate"
+                                    "row mx-0 border-top-grey truncate"
                                 },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -381516,7 +381971,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -381528,13 +381983,13 @@ var render = function() {
                               )
                             : _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -381549,7 +382004,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -381808,11 +382263,11 @@ var render = function() {
                                                 { staticClass: "mb-0 author" },
                                                 [
                                                   _vm._v(
-                                                    "  \n                        " +
+                                                    " \n                        " +
                                                       _vm._s(
                                                         comment.created_at
                                                       ) +
-                                                      "  \n                        "
+                                                      " \n                        "
                                                   ),
                                                   _c("br")
                                                 ]
@@ -381875,12 +382330,12 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "  \n                      " +
+                                                " \n                      " +
                                                   _vm._s(
                                                     _vm.comment.comment_type
                                                       .short
                                                   ) +
-                                                  "  \n                      "
+                                                  " \n                      "
                                               ),
                                               _c("span", [
                                                 _vm._v(
@@ -382179,7 +382634,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "  \n                      Date of Callbacks  \n                      "
+                                        " \n                      Date of Callbacks \n                      "
                                       ),
                                       _c("a-date-picker", {
                                         staticClass: "rounded-pill",
@@ -382224,7 +382679,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "  \n                      Time of Callback  \n                      "
+                                        " \n                      Time of Callback \n                      "
                                       ),
                                       _c("a-time-picker", {
                                         attrs: {
@@ -382379,67 +382834,61 @@ var render = function() {
                           }
                         },
                         [
-                          _c(
-                            "div",
-                            {},
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "row mx-0 justify-content-between align-items-center summary"
-                                },
-                                [
-                                  _c("div", { staticClass: "col-auto pl-0" }, [
-                                    _c("p", [
-                                      _vm._v(
-                                        _vm._s(_vm.comments.total_comments) +
-                                          " review(s)"
-                                      )
-                                    ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-auto px-0" }, [
+                          _c("div", {}, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "row mx-0 justify-content-between align-items-center summary"
+                              },
+                              [
+                                _c("div", { staticClass: "col-auto pl-0" }, [
+                                  _c("p", [
+                                    _vm._v(
+                                      _vm._s(_vm.comments.total_comments) +
+                                        " review(s)"
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-auto px-0" }, [
+                                  _c("div", { staticClass: "row mx-0 mb-0" }, [
                                     _c(
                                       "div",
-                                      { staticClass: "row mx-0 mb-0" },
+                                      { staticClass: "col-auto px-0" },
                                       [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-auto px-0" },
-                                          [
-                                            _c("p", [
-                                              _vm._v(
-                                                "Called: " +
-                                                  _vm._s(
-                                                    _vm.comments.total_calls
-                                                  )
+                                        _c("p", [
+                                          _vm._v(
+                                            "Called: " +
+                                              _vm._s(_vm.comments.total_calls)
+                                          )
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto pr-0" },
+                                      [
+                                        _c("p", [
+                                          _vm._v(
+                                            "Answered: " +
+                                              _vm._s(
+                                                _vm.comments
+                                                  .total_answered_calls
                                               )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-auto pr-0" },
-                                          [
-                                            _c("p", [
-                                              _vm._v(
-                                                "Answered: " +
-                                                  _vm._s(
-                                                    _vm.comments
-                                                      .total_answered_calls
-                                                  )
-                                              )
-                                            ])
-                                          ]
-                                        )
+                                          )
+                                        ])
                                       ]
                                     )
                                   ])
-                                ]
-                              ),
-                              _vm._v(" "),
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "stats-bars" },
                               _vm._l(_vm.comments.comments_graph, function(
                                 stat,
                                 index
@@ -382464,7 +382913,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "col-12 align-content-end px-0"
+                                                "col-12 align-content-end pl-0"
                                             },
                                             [
                                               _c(
@@ -382500,7 +382949,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c(
                                             "div",
-                                            { staticClass: "col-11 pr-0 pl-4" },
+                                            { staticClass: "col-11 pl-4" },
                                             [
                                               _c(
                                                 "div",
@@ -382525,10 +382974,10 @@ var render = function() {
                                     ])
                                   ]
                                 )
-                              })
-                            ],
-                            2
-                          )
+                              }),
+                              0
+                            )
+                          ])
                         ]
                       ),
                       _vm._v(" "),
@@ -382536,7 +382985,6 @@ var render = function() {
                         "div",
                         {
                           staticClass: "tab-pane fade",
-                          staticStyle: { display: "none" },
                           attrs: {
                             id: "four",
                             role: "tabpanel",
@@ -382557,7 +383005,73 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(7),
+                          _c(
+                            "div",
+                            { staticClass: "row mx-0 align-items-center" },
+                            [
+                              _vm._m(7),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto pl-0 mb-2 pr-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Introduce Stock")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("First time sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("Up sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto mb-2 pr-0 pl-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Extra Info")]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
                           _c("textarea", {
                             staticClass: "form-control border-0",
@@ -382626,23 +383140,49 @@ var render = function() {
                           },
                           [
                             _c("li", { staticClass: "nav-item" }, [
-                              _vm._m(8),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticStyle: { cursor: "pointer" },
-                                attrs: {
-                                  src: "/images/icons/Module_Add.svg",
-                                  width: "47"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.addActivityCollapse()
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link active",
+                                  attrs: {
+                                    id: "one-tab",
+                                    "data-toggle": "tab",
+                                    href: "#five",
+                                    role: "tab",
+                                    "aria-controls": "Five",
+                                    "aria-selected": "true"
                                   }
-                                }
-                              })
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/workstation/Open Activities.svg",
+                                      alt: "Icon",
+                                      width: "31"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("Open Activities")]),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "d-none add-activity",
+                                    attrs: {
+                                      src: "/images/icons/Field_Add.svg",
+                                      width: "16"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addActivityCollapse()
+                                      }
+                                    }
+                                  })
+                                ]
+                              )
                             ]),
                             _vm._v(" "),
-                            _vm._m(9)
+                            _vm._m(8)
                           ]
                         )
                       ]
@@ -382655,143 +383195,6 @@ var render = function() {
                         attrs: { id: "myTabContent" }
                       },
                       [
-                        _vm.add_client_activity
-                          ? _c(
-                              "div",
-                              {
-                                staticClass: "tab-pane fade show active",
-                                attrs: {
-                                  id: "five",
-                                  role: "tabpanel",
-                                  "aria-labelledby": "one-tab"
-                                }
-                              },
-                              [
-                                _c("a-input", {
-                                  staticStyle: { width: "100%" },
-                                  attrs: {
-                                    placeholder: "Subject",
-                                    name: "Subject"
-                                  },
-                                  model: {
-                                    value: _vm.activity.title,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.activity, "title", $$v)
-                                    },
-                                    expression: "activity.title"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: _vm.errors.has("Subject"),
-                                        expression: "errors.has('Subject')"
-                                      }
-                                    ],
-                                    staticClass: "help-block",
-                                    attrs: { id: "error" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.first("Subject")))]
-                                ),
-                                _vm._v(" "),
-                                _c("a-date-picker", {
-                                  staticStyle: { width: "100%" },
-                                  attrs: { name: "Due Date" },
-                                  model: {
-                                    value: _vm.activity.duedate,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.activity, "duedate", $$v)
-                                    },
-                                    expression: "activity.duedate"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: _vm.errors.has("Due Date"),
-                                        expression: "errors.has('Due Date')"
-                                      }
-                                    ],
-                                    staticClass: "help-block",
-                                    attrs: { id: "error" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.first("Due Date")))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a-radio-group",
-                                  {
-                                    model: {
-                                      value: _vm.activity.status,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.activity, "status", $$v)
-                                      },
-                                      expression: "activity.status"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 0 } },
-                                      [_vm._v("Open")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 1 } },
-                                      [_vm._v("Closed")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 2 } },
-                                      [_vm._v("Finished")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 3 } },
-                                      [_vm._v("In Progress")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 4 } },
-                                      [_vm._v("Not Started")]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-primary update-user w-100 rounded-pill m-0",
-                                    attrs: { type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.addActivity()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Add")]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
                         _c(
                           "div",
                           {
@@ -382803,33 +383206,291 @@ var render = function() {
                             }
                           },
                           [
+                            _vm.add_client_activity
+                              ? _c(
+                                  "div",
+                                  { staticClass: "mb-5 new-activity" },
+                                  [
+                                    _vm._m(9),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "row mx-0" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-6 px-0" },
+                                        [
+                                          _c("label", [_vm._v("Subject")]),
+                                          _vm._v(" "),
+                                          _c("a-input", {
+                                            directives: [
+                                              {
+                                                name: "validate",
+                                                rawName: "v-validate",
+                                                value: "required",
+                                                expression: "'required'"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "w-100 rounded-pill activity-subject",
+                                            attrs: {
+                                              placeholder:
+                                                "Please enter an activity subject...",
+                                              name: "Subject"
+                                            },
+                                            model: {
+                                              value: _vm.activity.title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.activity,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "activity.title"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value: _vm.errors.has(
+                                                    "Subject"
+                                                  ),
+                                                  expression:
+                                                    "errors.has('Subject')"
+                                                }
+                                              ],
+                                              staticClass: "help-block",
+                                              attrs: { id: "error" }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.errors.first("Subject")
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "row mx-0 align-items-end"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto pl-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    { staticClass: "d-block" },
+                                                    [_vm._v("Due date")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("a-date-picker", {
+                                                    directives: [
+                                                      {
+                                                        name: "validate",
+                                                        rawName: "v-validate",
+                                                        value: "required",
+                                                        expression: "'required'"
+                                                      }
+                                                    ],
+                                                    attrs: { name: "Due Date" },
+                                                    model: {
+                                                      value:
+                                                        _vm.activity.duedate,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.activity,
+                                                          "duedate",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "activity.duedate"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      directives: [
+                                                        {
+                                                          name: "show",
+                                                          rawName: "v-show",
+                                                          value: _vm.errors.has(
+                                                            "Due Date"
+                                                          ),
+                                                          expression:
+                                                            "errors.has('Due Date')"
+                                                        }
+                                                      ],
+                                                      staticClass: "help-block",
+                                                      attrs: { id: "error" }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.errors.first(
+                                                            "Due Date"
+                                                          )
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-auto activity-status-col"
+                                                },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "d-block ml-0"
+                                                    },
+                                                    [_vm._v("Status")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select",
+                                                    {
+                                                      model: {
+                                                        value:
+                                                          _vm.activity.status,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.activity,
+                                                            "status",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "activity.status"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 0 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status finished-activity"
+                                                          }),
+                                                          _vm._v("Finished")
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 1 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status in-progress-activity"
+                                                          }),
+                                                          _vm._v("In Progress")
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 2 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status not-started-activity"
+                                                          }),
+                                                          _vm._v("Not Started")
+                                                        ]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-auto ml-auto pr-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-primary update-user w-100 rounded-pill m-0 font-weight-bold",
+                                                      attrs: { type: "submit" },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addActivity()
+                                                        }
+                                                      }
+                                                    },
+                                                    [_vm._v("Add")]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ])
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
                             _c("b-table", {
                               attrs: {
                                 hover: "",
                                 items: _vm.activityItems,
                                 "per-page": _vm.perPage,
                                 "current-page": _vm.currentPage,
-                                "sticky-header": ""
+                                "sticky-header": "190px"
                               },
                               scopedSlots: _vm._u(
                                 [
-                                  _vm._l(_vm.activityItems, function(item) {
-                                    return {
-                                      key: "cell(statusColor)",
-                                      fn: function(data) {
-                                        return [
-                                          _c("p", [
-                                            _vm._v(
-                                              "hi " + _vm._s(item.statusColor)
-                                            )
-                                          ])
-                                        ]
-                                      }
+                                  {
+                                    key: "statusColor",
+                                    fn: function(data) {
+                                      return [
+                                        _c("div", {
+                                          staticClass: "activity-status",
+                                          style: {
+                                            backgroundColor:
+                                              data.item.statusColor
+                                          }
+                                        })
+                                      ]
                                     }
-                                  })
+                                  }
                                 ],
                                 null,
-                                true
+                                false,
+                                3231657303
                               )
                             }),
                             _vm._v(" "),
@@ -382837,7 +383498,8 @@ var render = function() {
                               attrs: {
                                 "total-rows": _vm.rows,
                                 "per-page": _vm.perPage,
-                                "aria-controls": "my-table"
+                                "aria-controls": "my-table",
+                                align: "right"
                               },
                               model: {
                                 value: _vm.currentPage,
@@ -382865,28 +383527,47 @@ var render = function() {
                             _c("b-table", {
                               attrs: {
                                 hover: "",
-                                items: _vm.closedActivityItems,
-                                "per-page": "5"
+                                items: _vm.activityItems,
+                                "sticky-header": "190px",
+                                "per-page": _vm.perPage
                               },
                               scopedSlots: _vm._u(
                                 [
                                   {
-                                    key: "cell(statusColor)",
+                                    key: "statusColor",
                                     fn: function(data) {
                                       return [
-                                        _c(
-                                          "p",
-                                          { style: { color: _vm.statusColor } },
-                                          [_vm._v("hi")]
-                                        )
+                                        _c("div", {
+                                          staticClass: "activity-status",
+                                          style: {
+                                            backgroundColor:
+                                              data.item.statusColor
+                                          }
+                                        })
                                       ]
                                     }
                                   }
                                 ],
                                 null,
                                 false,
-                                1390597447
+                                3231657303
                               )
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              attrs: {
+                                "total-rows": _vm.rows,
+                                "per-page": _vm.perPage,
+                                "aria-controls": "my-table",
+                                align: "right"
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
                             })
                           ],
                           1
@@ -383071,7 +383752,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Client  \n          ")
+      _vm._v(" \n            Client \n          ")
     ])
   },
   function() {
@@ -383083,7 +383764,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Product  \n          ")
+      _vm._v(" \n            Product \n          ")
     ])
   },
   function() {
@@ -383097,7 +383778,7 @@ var staticRenderFns = [
             staticClass: "icon",
             attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
           }),
-          _vm._v("  \n            Last Called by  \n          ")
+          _vm._v(" \n            Last Called by \n          ")
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "card-text mb-2" }, [_vm._v("John Hill")]),
@@ -383115,7 +383796,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Time  \n          ")
+      _vm._v(" \n            Time \n          ")
     ])
   },
   function() {
@@ -383148,18 +383829,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-22" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Agent Notes.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Agent Notes")])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Agent Notes.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Agent Notes")])
                 ]
               )
             ]),
@@ -383179,18 +383858,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-22" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Schedule Callback.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Schedule Callback")])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Schedule Callback.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Schedule Callback")])
                 ]
               )
             ])
@@ -383318,63 +383995,50 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-12" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Feeback Summary.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "left w-50" }, [
-                      _vm._v("Feedback Summary")
-                    ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Feeback Summary.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left w-50" }, [
+                    _vm._v("Feedback Summary")
                   ])
                 ]
               )
             ]),
             _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass: "nav-item right w-50",
-                staticStyle: { display: "none" }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
+            _c("li", { staticClass: "nav-item right w-50" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "four-tab",
+                    "data-toggle": "tab",
+                    href: "#four",
+                    role: "tab",
+                    "aria-controls": "Four",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
                     attrs: {
-                      id: "four-tab",
-                      "data-toggle": "tab",
-                      href: "#four",
-                      role: "tab",
-                      "aria-controls": "Four",
-                      "aria-selected": "false"
+                      src: "/images/icons/workstation/Email Client.svg",
+                      alt: "Icon",
+                      width: "31px"
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "mr-12" }, [
-                      _c("img", {
-                        staticClass: "icon",
-                        attrs: {
-                          src: "/images/icons/workstation/Email Client.svg",
-                          alt: "Icon",
-                          width: "31px"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "left" }, [
-                        _vm._v("Email Client")
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            )
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left" }, [_vm._v("Email Client")])
+                ]
+              )
+            ])
           ]
         )
       ]
@@ -383384,88 +384048,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0 align-items-center" }, [
-      _c("div", { staticClass: "col-auto pl-0" }, [
-        _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
-          _vm._v("Templates:")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto pl-0 mb-2 pr-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Introduce Stock")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("First time sell")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Up sell")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 pr-0 pl-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Extra Info")]
-        )
+    return _c("div", { staticClass: "col-auto pl-0" }, [
+      _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
+        _vm._v("Templates:")
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "nav-link active",
-        attrs: {
-          id: "one-tab",
-          "data-toggle": "tab",
-          href: "#five",
-          role: "tab",
-          "aria-controls": "Five",
-          "aria-selected": "true"
-        }
-      },
-      [
-        _c("img", {
-          staticClass: "icon",
-          attrs: {
-            src: "/images/icons/workstation/Open Activities.svg",
-            alt: "Icon",
-            width: "13%"
-          }
-        }),
-        _vm._v(" "),
-        _c("span", [_vm._v("Open Activities")])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -383491,7 +384078,7 @@ var staticRenderFns = [
             attrs: {
               src: "/images/icons/workstation/Closed Activities.svg",
               alt: "Icon",
-              width: "13%"
+              width: "31"
             }
           }),
           _vm._v(" "),
@@ -383499,6 +384086,24 @@ var staticRenderFns = [
         ]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row mx-0 align-items-center permissions-divider" },
+      [
+        _c("div", { staticClass: "col-auto pl-0" }, [
+          _c("h5", { staticClass: "mb-0" }, [_vm._v("Create a new activity")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col px-0" }, [
+          _c("div", { staticClass: "divider-line" })
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
