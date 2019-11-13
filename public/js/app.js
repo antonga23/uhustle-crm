@@ -188007,6 +188007,393 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('Commision Component mounted');
+    this.getCommissionStructures();
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['apis'],
+  data: function data() {
+    return {
+      structure_a: [{
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      structure_b: [{
+        min_sales: {
+          field_id: '',
+          value: 0
+        },
+        max_sales: {
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      structure_c: [{
+        min_amount: {
+          field_id: '',
+          value: 0
+        },
+        max_amount: {
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      Toast: null
+    };
+  },
+  methods: {
+    getCommissionStructures: function getCommissionStructures() {
+      var vm = this;
+      axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structure_a.length > 0) {
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_b.length > 0) {
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+
+        if (response.data.structure_c.length > 0) {
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+    },
+    updateDetails: function updateDetails() {
+      var vm = this;
+      vm.display_name_state = true;
+      var end_point = '/settings/update-commission';
+      axios.post(end_point, {
+        structure_a: vm.structure_a,
+        structure_b: vm.structure_b,
+        structure_c: vm.structure_c
+      }).then(function (response) {
+        if (response.data.success == true) {
+          Fire.$emit('AfterUpdatingCommission');
+          vm.$Progress.finish();
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    },
+    addBField: function addBField(comm_structure_id) {
+      this.structure_b.push({
+        min_sales: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        max_sales: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        status: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        }
+      });
+    },
+    removeBField: function removeBField(index) {
+      if (index > -1) {
+        this.structure_b.splice(index, 1);
+      }
+    },
+    addCField: function addCField(comm_structure_id) {
+      this.structure_c.push({
+        min_amount: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        max_amount: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        status: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        }
+      });
+    },
+    removeCField: function removeCField(index) {
+      if (index > -1) {
+        this.structure_c.splice(index, 1);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js& ***!
@@ -188695,8 +189082,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddModule__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddModule */ "./resources/assets/js/components/Preferences/AddModule.vue");
 /* harmony import */ var _EditModule__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditModule */ "./resources/assets/js/components/Preferences/EditModule.vue");
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _CommissionStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CommissionStructure */ "./resources/assets/js/components/Preferences/CommissionStructure.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_9__);
 //
 //
 //
@@ -189094,6 +189482,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -189107,14 +189500,15 @@ __webpack_require__.r(__webpack_exports__);
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclTable"],
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclTable"],
     EditRole: _EditRole__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddRole: _AddRole__WEBPACK_IMPORTED_MODULE_4__["default"],
     AddModule: _AddModule__WEBPACK_IMPORTED_MODULE_5__["default"],
     EditModule: _EditModule__WEBPACK_IMPORTED_MODULE_6__["default"],
     ApiIntegration: _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__["default"],
+    CommissionStructure: _CommissionStructure__WEBPACK_IMPORTED_MODULE_10__["default"],
     'datatable': _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
@@ -245519,6 +245913,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
 
 // exports
 
@@ -337057,6 +337470,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& ***!
@@ -363065,13 +363508,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 px-0" }, [
       _c("div", { staticClass: "row mx-0 align-items-center" }, [
-        _c("div", { staticClass: "col-auto pl-0" }, [
-          _c("select", { staticClass: "rounded-pill border-0" }, [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Filter by date")
+        _c(
+          "div",
+          { staticClass: "col-auto pl-0", staticStyle: { display: "none" } },
+          [
+            _c("select", { staticClass: "rounded-pill border-0" }, [
+              _c("option", { attrs: { selected: "" } }, [
+                _vm._v("Filter by date")
+              ])
             ])
-          ])
-        ]),
+          ]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "col pr-0" }, [
           _c("div", { staticClass: "divider-line" })
@@ -374809,6 +375256,592 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "api-integration" } },
+    [
+      _c(
+        "b-card",
+        { attrs: { "no-body": "" } },
+        [
+          _c(
+            "b-tabs",
+            { attrs: { pills: "", card: "" } },
+            [
+              _c("b-tab", { attrs: { title: "Commission Structure" } }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12 px-0" },
+                  [
+                    _c(
+                      "b-container",
+                      { staticClass: "px-0", attrs: { fluid: "" } },
+                      [
+                        _c("h3", [_vm._v("Commission Structure A")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_a, function(item, index) {
+                            return _c(
+                              "a-row",
+                              { key: index },
+                              [
+                                _c("a-col", { attrs: { span: 5 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage of Sales amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 5 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_a-0",
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: item.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.status.value"
+                                          }
+                                        },
+                                        [
+                                          item.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ])
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("h3", [_vm._v("Commission Structure B")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_b, function(range, index) {
+                            return _c(
+                              "a-row",
+                              { key: index },
+                              [
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Minimum Sales")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.min_sales.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.min_sales,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.min_sales.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Maximum Sales")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.max_sales.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.max_sales,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.max_sales.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_b-" + index,
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: range.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                range.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "range.status.value"
+                                          }
+                                        },
+                                        [
+                                          range.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "a-col",
+                                  {
+                                    staticClass: "pr-0",
+                                    staticStyle: { "padding-top": "36px" },
+                                    attrs: { span: 3, sm: "auto" }
+                                  },
+                                  [
+                                    index + 1 < _vm.structure_b.length
+                                      ? _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.removeBField(index)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Delete.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addBField(
+                                                  range.comm_structure_id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Add.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("h3", [_vm._v("Commission Structure C")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_c, function(item, i) {
+                            return _c(
+                              "a-row",
+                              { key: i },
+                              [
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Minimum Amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.min_amount.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.min_amount,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.min_amount.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Maximum Amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.max_amount.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.max_amount,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.max_amount.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_c" + i,
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: item.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.status.value"
+                                          }
+                                        },
+                                        [
+                                          item.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "a-col",
+                                  {
+                                    staticClass: "pr-0",
+                                    staticStyle: { "padding-top": "36px" },
+                                    attrs: { span: 3, sm: "auto" }
+                                  },
+                                  [
+                                    _vm.index + 1 < _vm.structure_c.length
+                                      ? _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.removeCField(
+                                                  _vm.index
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Delete.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addCField(
+                                                  item.comm_structure_id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Add.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "row justify-content-end mx-0" },
+                          [
+                            _c(
+                              "b-button",
+                              {
+                                staticClass:
+                                  "btn-primary font-weight-bold mr-0 my-0",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.updateDetails()
+                                  }
+                                }
+                              },
+                              [_vm._v("Update")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& ***!
@@ -375533,16 +376566,20 @@ var render = function() {
               "a",
               {
                 class: {
-                  active: _vm.active_module_name === "dialer" ? true : false
+                  active: _vm.active_module_name === "commission" ? true : false
                 },
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
-                    return _vm.showModulePreferences("dialer", "dialer", null)
+                    return _vm.showModulePreferences(
+                      "commission",
+                      "commission",
+                      null
+                    )
                   }
                 }
               },
-              [_vm._v("Dialer")]
+              [_vm._v("Commission")]
             )
           ]),
           _vm._v(" "),
@@ -376378,6 +377415,15 @@ var render = function() {
                 "div",
                 { staticClass: "user-roles" },
                 [_c("api-integration", { attrs: { apis: _vm.apis } })],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.show_page_loader && _vm.active_module_action == "commission"
+            ? _c(
+                "div",
+                { staticClass: "user-roles" },
+                [_c("commission-structure")],
                 1
               )
             : _vm._e(),
@@ -415109,6 +416155,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiIntegration_vue_vue_type_template_id_390d5e68_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&");
+/* harmony import */ var _CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "21fdf7aa",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/CommissionStructure.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

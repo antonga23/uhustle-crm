@@ -401,19 +401,19 @@ class LeadController extends Controller
             DB::beginTransaction();
 
             $lead = Lead::where(['id' => $id])->update([
-				'title' => $title,
-				'name' => $name,
-				'surname' => $surname,
-				'phone_number' => $phone_number,
-				'email' => $email,
-				'city' => $city,
-				'country' => $country,
-				'account' => $account,
-				'status' => $status,
-				'user_assigned' => $user_assigned,
-				'user_created_id' => $user_created_id,
-				'product_id' => $product_id,
-                'source' => $source['id']
+              'title' => $title,
+              'name' => $name,
+              'surname' => $surname,
+              'phone_number' => $phone_number,
+              'email' => $email,
+              'city' => $city,
+              'country' => $country,
+              'account' => $account,
+              'status' => $status,
+              'user_assigned' => $user_assigned,
+              'user_created_id' => $user_created_id,
+              'product_id' => $product_id,
+              'source' => $source['id']
             ]);
 
             $lead = Lead::find($id);

@@ -314,7 +314,7 @@
       <div id="top-section" class="row mx-0">
         <div class="col-12 px-0">
           <div class="row mx-0 align-items-center">
-            <div class="col-auto pl-0">
+            <div class="col-auto pl-0" style="display:none">
               <select class="rounded-pill border-0"> 
                 <option selected>Filter by date</option> 
               </select>

@@ -321,3 +321,13 @@ Route::group(['prefix' => 'apis'], function () {
     Route::post('/update', 'ApiIntegrationController@update');
 });
 
+// API Integration Routes
+Route::group(['prefix' => 'settings'], function () {
+    Route::post('/update-commission', 'CommissionController@update');
+    Route::get('/get-comm-structures', 'CommissionController@getCommStructures');
+    Route::post('/create', 'SystemSettingsController@create');
+    Route::post('/update', 'SystemSettingsController@update');
+});
+
+
+

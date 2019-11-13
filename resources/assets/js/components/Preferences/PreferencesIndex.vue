@@ -177,9 +177,9 @@
         <li class="item" style="display_none">
           <a 
             href="#" 
-            @click="showModulePreferences('dialer', 'dialer', null);" 
-            :class="{ 'active' : ( active_module_name ===  'dialer')? true : false }"
-          >Dialer</a>
+            @click="showModulePreferences('commission', 'commission', null);" 
+            :class="{ 'active' : ( active_module_name ===  'commission')? true : false }"
+          >Commission</a>
         </li>
 
         <li class="item">
@@ -383,6 +383,10 @@
           <api-integration :apis="apis"/>
         </div>
 
+        <div class="user-roles" v-if="!show_page_loader && active_module_action == 'commission'">
+          <commission-structure/>
+        </div>
+
         <div class="user-roles" v-if="!show_page_loader && active_module_action == 'add_module'">
           <add-module/>
         </div>
@@ -404,6 +408,7 @@
   import AddModule from './AddModule';
   import EditModule from './EditModule';
   import ApiIntegration from './ApiIntegration';
+  import CommissionStructure from './CommissionStructure';
   import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
   export default {
     extends: Bar,
@@ -417,6 +422,7 @@
       AddModule,
       EditModule,
       ApiIntegration,
+      CommissionStructure,
       'datatable' : DataTable
     },
     mounted() {
