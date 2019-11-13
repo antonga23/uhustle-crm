@@ -163,6 +163,20 @@ ul.items li a:hover{
   padding-right: 6px;
   width: 100%;
 }
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar {
+  width: 3px;
+}
+
 table.listing{
   width: 100%;
 }
@@ -215,8 +229,9 @@ table.listing tr  th{
   font-size: 10px;
   color: #989899;
   text-transform: uppercase;
-  padding: 11px 13px;
+  letter-spacing: 0.05em;
   font-weight: 600;
+  padding: 6px 12px;
 }
 .btn-default.assign {
   border-radius: 50rem !important;
@@ -224,8 +239,9 @@ table.listing tr  th{
   background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 10px 20px;
+  letter-spacing: 0.05em;
   color: #ffffff;
+  padding: 6px 12px;
 }
 #bottom-section {
   padding-left: 4%;
@@ -234,18 +250,18 @@ table.listing tr  th{
 </style>
 <template>
   <div>
-    <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-12 px-0">
+    <div id="top-section" class="row pb-4 mb-4 grey-bg-color align-items-center justify-content-between mx-0">
+      <div class="col-7 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
           <div class="col-12">
             <div class="row mx-0">
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Assignees:</span>
                 <a-select 
                   mode="multiple"
                   v-model="assignees" 
                   placeholder="Select"
-                  class="border-0 w-100"
+                  class="border-0 w-100 mass-assign"
                 >
                   <a-select-option 
                     :value="user.id" 
@@ -255,14 +271,14 @@ table.listing tr  th{
                 </a-select>
               </div>
 
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Owners: </span>
 
                 <a-select 
                   mode="multiple"
                   v-model="owners" 
                   placeholder="Select"
-                  class="border-0 w-100"
+                  class="border-0 w-100 mass-assign"
                 >
                   <a-select-option 
                     :value="user.id" 
@@ -272,9 +288,9 @@ table.listing tr  th{
                 </a-select>
               </div>
 
-              <div class="col-auto">
-                <div class="row mt-3">
-                  <div class="col-auto">
+              <div class="col-4">
+                <div class="row mt-4">
+                  <div class="col-auto mr-4">
                     <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
                   </div>
                   <div class="col-auto">
