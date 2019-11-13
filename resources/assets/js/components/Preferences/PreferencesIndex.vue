@@ -271,7 +271,7 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="py-0 pr-0 expand-toggle"
+                        class="w-100 mx-0 py-0 pr-0 expand-toggle"
                       >
                         Dialer
                         <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -323,7 +323,7 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="py-0 pr-0 expand-toggle"
+                          class="w-100 mx-0 py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <!-- <img src="images/icons/up.svg" width="11"> -->

@@ -8,15 +8,16 @@
     font-size: 0.63vw;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
     border-color: #ccc;
-    margin-bottom: 17px;
     font-family: 'Rubik', sans-serif;
     height:auto!important;
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.52vw;
+    font-size: 10px;
     color: #999999;
     margin-bottom:7px;
     margin-left: 17px;
@@ -26,7 +27,7 @@
     color: #999999;    
     border: none!important;
     padding: 11px 14px 10px;
-    font-size: 0.52vw;
+    font-size: 10px;
     text-transform:uppercase;
     border-radius: 50rem!important;
     line-height:1em;
@@ -34,16 +35,37 @@
     margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 0.52vw;
+    font-size: 10px;
     padding: 11px 14px 10px;
     line-height:1em;
     margin-left: 0.9%;
     margin-right: 0.9%;
+  }
+  .permissions-divider {
+    margin-top:3.7%;
+    margin-bottom:3.1%;
+  }
+  h5 {
+    font-size: 0.83vw;
+  }
+  p {
+    color: #999999;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+  }
+  .btn-secondary {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
   }
 </style>
 <template>
@@ -53,149 +75,180 @@
         <b-tab title="Commission Structure">
           <div class="col-lg-12 px-0">
             <b-container fluid class="px-0">
-              <h3>Commission Structure A</h3>
-              <div>
-                <a-row v-for="(item, index) in structure_a" :key="index" >
-                  <a-col :span="5">
-                    <div>
-                      <label for="input-none">Percentage of Sales amount</label>
-                      <b-form-input id="input-none" :state="null" v-model="item.percentage.value"></b-form-input>
-                    </div>
-                  </a-col>
+              <div class="row mx-0 align-items-center permissions-divider">
+                <div class="col-auto pl-0">
+                  <h5 class="mb-0">Commission Structure A</h5>
+                </div>
 
-                  <a-col :span="5">
-                    <div>
-                      <label for="input-none">Status</label>
-                      <b-form-checkbox
-                      id="structure_a-0"
-                      v-model="item.status.value"
-                      name="checkbox-1"
-                      value="1"
-                      unchecked-value="0"
-                      >
-                      <p v-if="item.status.value == 1">Active</p>
-                      <p v-else>Disabled</p>
-                      </b-form-checkbox>
-                    </div>
-                  </a-col>
-                </a-row>
+                <div class="col px-0">
+                  <div class="divider-line"></div>
+                </div>
+              </div>
+              
+              <a-row v-for="(item, index) in structure_a" :key="index" >
+                <a-col :span="5" class="mr-4">
+                  <div>
+                    <label for="input-none">Percentage of Sales amount</label>
+                    <b-form-input id="input-none" :state="null" v-model="item.percentage.value"></b-form-input>
+                  </div>
+                </a-col>
+
+                <a-col :span="5">
+                  <div>
+                    <label for="input-none">Status</label>
+                    <b-form-checkbox
+                    id="structure_a-0"
+                    v-model="item.status.value"
+                    name="checkbox-1"
+                    value="1"
+                    unchecked-value="0"
+                    >
+                    <p v-if="item.status.value == 1">Active</p>
+                    <p v-else>Disabled</p>
+                    </b-form-checkbox>
+                    <a-switch :id="'structure_a-0'" v-model="item.status.value"/>
+                    <label v-if="item.status.value == 1">Active</label>
+                    <label v-if="item.status.value == 0">Inactive</label>
+                  </div>
+                </a-col>
+              </a-row>
+
+              <div class="row mx-0 align-items-center permissions-divider">
+                <div class="col-auto pl-0">
+                  <h5 class="mb-0">Commission Structure B</h5>
+                </div>
+
+                <div class="col px-0">
+                  <div class="divider-line"></div>
+                </div>
               </div>
 
-              <h3>Commission Structure B</h3>
-              <div>
-                <a-row v-for="(range, index) in structure_b" :key="index">
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Minimum Sales</label>
-                      <b-form-input id="input-none" :state="null" v-model="range.min_sales.value"></b-form-input>
-                    </div>
-                  </a-col>
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Maximum Sales</label>
-                      <b-form-input id="input-none" :state="null" v-model="range.max_sales.value"></b-form-input>
-                    </div>
-                  </a-col>
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Percentage</label>
-                      <b-form-input id="input-none" :state="null" v-model="range.percentage.value"></b-form-input>
-                    </div>
-                  </a-col>
+              <a-row v-for="(range, index) in structure_b" :key="index">
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Minimum Sales</label>
+                    <b-form-input id="input-none" :state="null" v-model="range.min_sales.value"></b-form-input>
+                  </div>
+                </a-col>
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Maximum Sales</label>
+                    <b-form-input id="input-none" :state="null" v-model="range.max_sales.value"></b-form-input>
+                  </div>
+                </a-col>
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Percentage</label>
+                    <b-form-input id="input-none" :state="null" v-model="range.percentage.value"></b-form-input>
+                  </div>
+                </a-col>
 
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Status</label>
-                      <b-form-checkbox
-                      :id="'structure_b-' + index"
-                      v-model="range.status.value"
-                      name="checkbox-1"
-                      value="1"
-                      unchecked-value="0"
-                      >
-                      <p v-if="range.status.value == 1">Active</p>
-                      <p v-else>Disabled</p>
-                      </b-form-checkbox>
-                    </div>
-                  </a-col>
-
-                  <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
-                    <b-button
-                      v-if="(index + 1) < structure_b.length" 
-                      @click="removeBField(index)"
-                      class="icon m-0 p-0"
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Status</label>
+                    <b-form-checkbox
+                    :id="'structure_b-' + index"
+                    v-model="range.status.value"
+                    name="checkbox-1"
+                    value="1"
+                    unchecked-value="0"
                     >
-                      <img src="images/icons/Field_Delete.svg" width="19"/>
-                    </b-button>
+                    <p v-if="range.status.value == 1">Active</p>
+                    <p v-else>Disabled</p>
+                    </b-form-checkbox>
+                    <a-switch :id="'structure_b-' + index" v-model="range.status.value"/>
+                    <label v-if="range.status.value == 1">Active</label>
+                    <label v-if="range.status.value == 0">Inactive</label>
+                  </div>
+                </a-col>
 
-                    <b-button 
-                      v-else 
-                      @click="addBField(range.comm_structure_id)" 
-                      class="icon m-0 p-0"
-                    >
-                      <img src="images/icons/Field_Add.svg" width="19"/>
-                    </b-button>
-                  </a-col>
-                </a-row>
+                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
+                  <b-button
+                    v-if="(index + 1) < structure_b.length" 
+                    @click="removeBField(index)"
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                  </b-button>
+
+                  <b-button 
+                    v-else 
+                    @click="addBField(range.comm_structure_id)" 
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Add.svg" width="19"/>
+                  </b-button>
+                </a-col>
+              </a-row>
+
+              <div class="row mx-0 align-items-center permissions-divider">
+                <div class="col-auto pl-0">
+                  <h5 class="mb-0">Commission Structure C</h5>
+                </div>
+
+                <div class="col px-0">
+                  <div class="divider-line"></div>
+                </div>
               </div>
-              <h3>Commission Structure C</h3>
-              <div>
-                <a-row v-for="(item, i) in structure_c" :key="i">
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Minimum Amount</label>
-                      <b-form-input id="input-none" :state="null" v-model="item.min_amount.value"></b-form-input>
-                    </div>
-                  </a-col>
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Maximum Amount</label>
-                      <b-form-input id="input-none" :state="null" v-model="item.max_amount.value"></b-form-input>
-                    </div>
-                  </a-col>
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Percentage</label>
-                      <b-form-input id="input-none" :state="null" v-model="item.percentage.value"></b-form-input>
-                    </div>
-                  </a-col>
 
-                  <a-col :span="3">
-                    <div>
-                      <label for="input-none">Status</label>
-                      <b-form-checkbox
+              <a-row v-for="(item, i) in structure_c" :key="i">
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Minimum Amount</label>
+                    <b-form-input id="input-none" :state="null" v-model="item.min_amount.value"></b-form-input>
+                  </div>
+                </a-col>
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Maximum Amount</label>
+                    <b-form-input id="input-none" :state="null" v-model="item.max_amount.value"></b-form-input>
+                  </div>
+                </a-col>
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Percentage</label>
+                    <b-form-input id="input-none" :state="null" v-model="item.percentage.value"></b-form-input>
+                  </div>
+                </a-col>
+
+                <a-col :span="3" class="mr-4">
+                  <div>
+                    <label for="input-none">Status</label>
+                    <b-form-checkbox
                       :id="'structure_c' + i"
                       v-model="item.status.value"
                       name="checkbox-1"
                       value="1"
                       unchecked-value="0"
-                      >
+                    >
                       <p v-if="item.status.value == 1">Active</p>
                       <p v-else>Disabled</p>
-                      </b-form-checkbox>
-                    </div>
-                  </a-col>
+                    </b-form-checkbox>
+                    <a-switch :id="'structure_c' + i" v-model="item.status.value"/>
+                    <label v-if="item.status.value == 1">Active</label>
+                    <label v-if="item.status.value == 0">Inactive</label>
+                  </div>
+                </a-col>
 
-                  <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
-                    <b-button
-                      v-if="(index + 1) < structure_c.length" 
-                      @click="removeCField(index)"
-                      class="icon m-0 p-0"
-                    >
-                      <img src="images/icons/Field_Delete.svg" width="19"/>
-                    </b-button>
+                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
+                  <b-button
+                    v-if="(index + 1) < structure_c.length" 
+                    @click="removeCField(index)"
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                  </b-button>
 
-                    <b-button 
-                      v-else 
-                      @click="addCField(item.comm_structure_id)" 
-                      class="icon m-0 p-0"
-                    >
-                      <img src="images/icons/Field_Add.svg" width="19"/>
-                    </b-button>
-                  </a-col>
+                  <b-button 
+                    v-else 
+                    @click="addCField(item.comm_structure_id)" 
+                    class="icon m-0 p-0"
+                  >
+                    <img src="images/icons/Field_Add.svg" width="19"/>
+                  </b-button>
+                </a-col>
+              </a-row>
 
-                </a-row>
-              </div>
               <div class="row justify-content-end mx-0">
                 <b-button class="btn-primary font-weight-bold mr-0 my-0" @click="updateDetails()">Update</b-button>
               </div>

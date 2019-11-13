@@ -303,7 +303,7 @@
                   <a-select 
                     v-model="field.type" 
                     placeholder="Select"
-                    class="border-0"
+                    class="border-0 min-width-cell"
                   >
                     <a-select-option 
                       :value="type.value" 
