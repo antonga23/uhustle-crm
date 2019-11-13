@@ -3,7 +3,7 @@
     <div class="card no-box-shadow material-table" style="width: fit-content;">
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
-                <table ref="table">
+                <table ref="table" class="leads-table">
                     <thead>
                         <tr>
                             <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
@@ -1046,7 +1046,7 @@ table {
 table tr td {
     height: 35px;
     font-size: 0.73vw;
-    color: #003449;
+    color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
     padding: 10px 20px 10px 0px;
@@ -1060,7 +1060,7 @@ table tr td a i {
 
 table tr {
     font-size: 0.63vw;
-    border-bottom: 1px solid #B3B3B3;
+    border-bottom: 1px solid #f2f2f2;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
