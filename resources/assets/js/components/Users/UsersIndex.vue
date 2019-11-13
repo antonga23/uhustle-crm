@@ -367,7 +367,7 @@ ul.items li a:hover {
   text-decoration: none;
 }
 .scroll-hidden {
-  overflow-y: scroll;
+  overflow: auto;
   height: 70vh;
   padding-top: 6px;
   padding-right: 6px;
@@ -387,7 +387,7 @@ table.listing tr th {
   cursor: pointer;
 }
 .plr-3 {
-  padding: 23px 4% 0;
+  padding: 23px 0 0 4%;
 }
 .control-label {
   float: left;
