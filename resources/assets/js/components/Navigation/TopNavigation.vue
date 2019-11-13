@@ -11,10 +11,12 @@
 a.add-new {
 	border-radius: 50rem !important;
     box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
     background: #ffffff;
     font-size: 16px;
     color: #989899;
-    letter-spacing: 0.05em;
     font-weight: 600;
 }
 li.title a strong{
@@ -47,6 +49,9 @@ select{
   color: #003549 !important;
   padding: 0 16px 0 !important;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);
   letter-spacing: 1px;
   font-size: 14px;
 }
@@ -137,7 +142,10 @@ select.month-selector {
 .callIcons button.status,
 .callIcons button.end-call {
 	border-radius: 50rem;
-	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
 	width: 48px;
 	height: 48px;
 }
@@ -163,7 +171,7 @@ select.month-selector {
   margin-left: 20px;
 }
 .modal-content{
-  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);
+  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);
 }
 /*is error being used?*/
 .error{

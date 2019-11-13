@@ -704,6 +704,9 @@ thead th {
 }
 .no-box-shadow {
     box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -o-box-shadow: none !important;
 }
 .btn-orange {
 	background: #FF9039;
@@ -712,7 +715,8 @@ thead th {
 	padding: 9px 12px 9px 10px;
     font-size: 13px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 .dropdown-menu.show {
@@ -726,7 +730,8 @@ thead th {
 	padding: 9px 12px 9px 10px;
     font-size: 13px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 table.tg{
@@ -839,6 +844,9 @@ table tr td a.Delete:active{
     height: 46px;
     margin: 0;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
     background-image: url('/images/DataTables/New/Delete Icon.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -851,6 +859,9 @@ table tr td a.Delete:active{
     height: 46px;
     margin: 0;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
     background-image: url('/images/DataTables/New/Delete Icon Hover.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -954,7 +965,7 @@ table {
     justify-content: flex-end;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 0.63vw !important;
+    font-size: 12px !important;
     color: rgba(0, 0, 0, 0.54);
 }
 
@@ -971,7 +982,7 @@ table {
     width: 46px;
 }
 .table-footer label {
-    font-size: 0.63vw;
+    font-size: 12px;
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
@@ -1020,7 +1031,7 @@ table {
     border-bottom: none;
     height: auto;
     line-height: normal;
-    font-size: 0.63vw;
+    font-size: 12px;
     width: 40px;
     text-align: right;
 }
@@ -1056,7 +1067,7 @@ table tr td a i {
 }
 
 table tr {
-    font-size: 0.63vw;
+    font-size: 12px;
     border-bottom: 1px solid #B3B3B3;
     padding-left: 0;
     width: auto;
@@ -1068,7 +1079,7 @@ table thead tr:first-child {
 }
 
 table th {
-   font-size: 0.63vw;
+   font-size: 12px;
     font-weight: 600;
     color: #A6A6A6;
     cursor: pointer;

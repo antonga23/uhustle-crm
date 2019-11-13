@@ -52,7 +52,7 @@
   padding:14px 40px 14px 15px;
 }
 .callIcons .search input::placeholder {
-  font-size: 0.63vw;
+  font-size: 12px;
   font-weight: 300;
   font-family: 'Rubik', sans-serif;
   font-style: italic;

@@ -15,21 +15,16 @@
 }  
 .top-section .col {  
   padding: 0 10px;  
-  /* border-left: 1px solid rgba(0,52,73,1);    
-  min-height: 71px;   
-  margin-bottom: 57px; */  
   min-width: 150px;  
 }  
 .top-section .bottom {  
   font-size: 0.83vw;  
-  font-weight: 700;  
-  letter-spacing: 0.05em;  
+  font-weight: 700; 
   color: #393a60;  
 }  
 .top-section .top {  
-  font-size: 0.63vw;  
-  color: #747577;  
-  letter-spacing: 0.05em;  
+  font-size: 12px;  
+  color: #747577;   
   font-family: "Rubik", sans-serif;  
   margin-bottom: 0;  
 }  
@@ -63,8 +58,7 @@ div.col-6:last-child, div.col-6:nth-last-child(2)  {
   padding-bottom: 0.5rem;  
   border-bottom: 1px solid #fff;  
   font-size: 14px;  
-  font-family: "Rubik", sans-serif;  
-  letter-spacing: 0.05em;  
+  font-family: "Rubik", sans-serif; 
 }  
 .client {  
   background: linear-gradient(  
@@ -119,7 +113,9 @@ p.card-link {
 }  
 .client-details .card {  
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
 }  
 .client-details .card-body {  
   padding: 1.25rem;  
@@ -169,7 +165,7 @@ span.right {
   color: #999999;  
 }  
 .comment-notes {  
-  font-size: 0.63vw;  
+  font-size: 12px;  
   font-family: "Rubik", sans-serif;  
   color: #7f99a4;  
 }  
@@ -206,7 +202,7 @@ span.right {
   float: left;  
 }  
 .comment-desc::placeholder {  
-  font-size: 0.63vw;  
+  font-size: 12px;  
   font-family: "Rubik", sans-serif;  
   color: #999;  
   font-style: italic;  
@@ -214,16 +210,17 @@ span.right {
 .comment-desc:focus, textarea.form-control:focus {
   outline: 0 !important;
   box-shadow: none !important; 
+  -webkit-box-shadow: none !important; 
+  -moz-ox-shadow: none !important; 
+  -o-box-shadow: none !important; 
 }
-.keys {  
-  letter-spacing: 0.05em;  
+.keys {    
   font-family: "Rubik", sans-serif;  
   font-size: 8px;  
   color: #808080;  
 }  
 .callback-label {  
   color: #666;  
-  letter-spacing: 0.05em;  
   font-size: 12px;  
   font-family: "Rubik", sans-serif;  
 }  
@@ -277,22 +274,19 @@ span.right {
   margin-bottom: 10px;  
   color: #fff;  
   margin: 0;  
-  letter-spacing: 3px;  
 }  
 .tip p.tip-text {  
   margin-bottom: 20px;  
 }  
 .tip h1 {  
   color: #fff;  
-  font-size: 1.6rem;  
-  letter-spacing: 6px;  
+  font-size: 1.6rem;   
   margin-top: 19px;  
 }  
 .tip p.tip-text {  
   margin-bottom: 10px;  
   color: #fff;  
   margin: 0;  
-  letter-spacing: 3px;  
 }  
 .tip-a {  
   background-image: url("/images/call/1@4x.png") !important;  
@@ -352,7 +346,6 @@ span.right {
   color: #003449;  
   font-size: 18px;  
   font-weight: 900;  
-  letter-spacing: 2.2px;  
   font-family: "Montserrat", sans-serif;  
 }  
 div.scripts-div {  
@@ -391,12 +384,14 @@ p.maximize a {
   border-bottom: 1px solid #003449;  
   margin-bottom: 18px;  
   color: #003449;  
-  letter-spacing: 1.42px;  
   padding-bottom: 9px;  
 }  
 .scripts .card {  
   border: 0;  
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }  
 .scripts .card-body {  
   flex: 1 1 auto;  
@@ -407,8 +402,7 @@ p.maximize a {
   color: #fff;  
   border-bottom: 1px solid #fff;  
   padding-bottom: 5px;  
-  font-size: 32px;  
-  letter-spacing: 4.42px;  
+  font-size: 32px;   
 }  
   
 .idle-div {  
@@ -460,7 +454,8 @@ a.down-scroll:hover {
   font-size: 12px;  
   font-weight: 700;  
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
 }  
 .btn-active {  
@@ -469,7 +464,8 @@ a.down-scroll:hover {
   padding: 6px 25px 6px 18px;  
   font-size: 12px;  
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);  
 }  
   
@@ -490,26 +486,41 @@ a.down-scroll:hover {
   
 @-webkit-keyframes pulse {  
   0% {  
-    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);  
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);  
   }  
   70% {  
-    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  
+    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    -o-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  
   }  
   100% {  
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);  
+    box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);  
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);
+    -moz-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);
+    -o-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);
   }  
 }  
 @keyframes pulse {  
   0% {  
-    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);  
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);  
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
     box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);  
   }  
   70% {  
-    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  
+    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    -o-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  
     box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);  
   }  
   100% {  
-    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);  
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    -o-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);  
     box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);  
   }  
 }  
@@ -559,8 +570,7 @@ a.down-scroll:hover {
 }  
 .nav.nav-tabs.card-header-tabs li a {  
   border: 0;  
-  color: #7f8080;  
-  letter-spacing: 0.05em;  
+  color: #7f8080;   
   text-align: center;  
   padding-top: 0;  
   padding-bottom: 0;  
@@ -580,16 +590,17 @@ a.down-scroll:hover {
 }  
 .activities .card-header-tabs,  
 .deals .card-header-tabs {  
-  box-shadow: inset 0 -10px 10px #f5f5f5;  
+  box-shadow: inset 0 -10px 10px #f5f5f5;
+  -webkit-box-shadow: inset 0 -10px 10px #f5f5f5;
+  -moz-box-shadow: inset 0 -10px 10px #f5f5f5;
+  -o-box-shadow: inset 0 -10px 10px #f5f5f5;  
 }  
 .deals #eight p {  
-  font-size: 10px;  
-  letter-spacing: 0.05em;  
+  font-size: 10px;   
   color: 808080;  
 }  
 .deals #eight label {  
   font-size: 10px;  
-  letter-spacing: 0.05em;  
   color: #999999;  
   font-family: "Rubik", sans-serif;  
 }  
@@ -597,9 +608,10 @@ a.down-scroll:hover {
 .deals #eight textarea,  
 .deals #eight select {  
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  
   color: #003449;  
-  letter-spacing: 0.05em;  
   font-family: "Rubik", sans-serif;  
   font-size: 12px;  
   padding: 10px 20px !important;  
@@ -616,15 +628,15 @@ a.down-scroll:hover {
   font-size: 10px;  
   text-transform: uppercase;  
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);  
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);  
-  letter-spacing: 0.05em;  
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); 
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); 
   color: #999999;  
   padding: 9px;  
 }  
 .deals #eight .save-deal {  
   font-size: 10px;  
   text-transform: uppercase;  
-  letter-spacing: 0.05em;  
   font-weight: 700;  
   padding: 9px;  
 }  
@@ -677,7 +689,6 @@ a.down-scroll:hover {
   color: #808080;  
 }  
 .summary-abr {  
-  letter-spacing: 0.05em;  
   color: #333333;  
   font-family: "Rubik", sans-serif;  
   font-size: 0.95vw;  
@@ -695,22 +706,21 @@ a.down-scroll:hover {
   transition: all 0.5s ease 0s;  
 }  
 .email-desc {  
-  letter-spacing: 0.05em;  
   color: #999999;  
-  font-size: 0.63vw;  
+  font-size: 12px;  
   font-family: "Rubik", sans-serif;  
 }  
 #four .text-uppercase.font-weight-bold {  
   color: #808080;  
-  letter-spacing: 0.05em;  
   font-size: 0.73vw;  
 }  
 #four .btn-default {  
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   font-family: "Rubik", sans-serif;  
-  font-size: 0.63vw;  
-  letter-spacing: 0.05em;  
+  font-size: 12px;  
   border-radius: 50rem !important;  
 }  
 #four textarea {  
@@ -721,7 +731,7 @@ a.down-scroll:hover {
 }  
 #four textarea::placeholder {  
   color: #999999;  
-  font-size: 0.63vw;  
+  font-size: 12px;  
   font-family: "Rubik", sans-serif;  
   font-style: italic;  
 }  
@@ -743,7 +753,6 @@ a.down-scroll:hover {
 }  
 .calendar-heading {  
   font-size: 0.73vw;  
-  letter-spacing: 0.05em;  
   color: #666666;  
   border-color: #ccc;  
 }  

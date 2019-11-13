@@ -45,6 +45,9 @@ li p.bottom {
   border-radius: 10px;
   border: none;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   min-width: 150px;
 }
 .card-body {
@@ -126,7 +129,6 @@ p.card-text {
   width: 100%;
   float: right;
   font-family: "Montserrat bold", sans-serif;
-  letter-spacing: 1.2px;
 }
 p.card-text span {
   font-size: 19px;
@@ -223,7 +225,7 @@ input.form-control, textarea.form-control {
 
 label {
   font-family: "Rubik", sans-serif;
-  font-size: 0.52vw;
+  font-size: 10px;
   color: #999999;
   margin-bottom: 20px;
 }
@@ -231,6 +233,8 @@ label {
 .add-box-shadow {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   border: 0;
@@ -247,7 +251,7 @@ label {
 .add-box-shadow .add-user-form input,
 select,
 textarea {
-  font-size: 0.63vw;
+  font-size: 12px;
   color: #003449;
   font-family: "Rubik", sans-serif;
 }
@@ -256,14 +260,6 @@ textarea {
   margin-bottom: 7px;
   margin-left: 17px;
 }
-
-/* #top-section{ 
-    background: #fff;     
-    margin-left: -53px; 
-    margin-right: -66px; 
-    padding: 0px 37px; 
- 
-} */
 .green {
   color: #00a25a !important;
 }
@@ -280,7 +276,6 @@ textarea {
   margin-top: -7px;
   color: #3b3b3b;
   font-family: "Rubik", sans-serif !important;
-  letter-spacing: 1.2px;
 }
 .badge {
   width: 12%;
