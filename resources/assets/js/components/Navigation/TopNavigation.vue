@@ -10,6 +10,10 @@
   line-height: 20px;
 }
 
+.nav-link.top-link.d-block.text-center {
+    box-shadow: 0 0 7px rgba(0,0,0,0.1);
+}
+
 .nav-link.top-link.d-block.text-center:hover {
     box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
     background: #ffffff;
@@ -251,7 +255,7 @@ select.month-selector {
 								@click="addNew();" 
 								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : adding_user }" 
 								class="nav-link"
-							>Add New</a>
+							>Add New +</a>
 						</li>
 					</ul>
 				</div>
