@@ -616,6 +616,7 @@ p.card-text {
           sum_call_back: '',
           avg_time: '',
         },
+        show_page_loader: false, 
         columns:[
           {
             label: 'CALLER',  // Column name
@@ -700,7 +701,6 @@ p.card-text {
         axios.get('/calls/list').then(function (response) { 
             vm.conferences = response.data.conferences;
             vm.show_page_loader = false;
-            console.log(vm.conferences);
         });
         // setInterval(function(){ 
         //     axios.get('/calls/list').then(function (response) { 

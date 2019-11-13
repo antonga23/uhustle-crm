@@ -178988,6 +178988,7 @@ __webpack_require__.r(__webpack_exports__);
         sum_call_back: '',
         avg_time: ''
       },
+      show_page_loader: false,
       columns: [{
         label: 'CALLER',
         // Column name
@@ -179100,7 +179101,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/calls/list').then(function (response) {
         vm.conferences = response.data.conferences;
         vm.show_page_loader = false;
-        console.log(vm.conferences);
       }); // setInterval(function(){ 
       //     axios.get('/calls/list').then(function (response) { 
       //         vm.conferences = response.data.conferences;
