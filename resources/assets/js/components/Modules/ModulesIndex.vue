@@ -167,10 +167,14 @@ ul.items li a:hover{
     background: #B3B3B3 !important;
     border-radius: 5px !important;
   }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
   ::-webkit-scrollbar {
   width: 3px;
-  height:3px;
-  right: 5px;
 }
 
 table.listing{
