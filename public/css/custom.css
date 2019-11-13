@@ -138,7 +138,7 @@
 }
 .content-wrapper .container-fluid {
   max-height: 92.95vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .close {
@@ -187,7 +187,9 @@
   color: rgba(0, 0, 0, 0.65) !important;
   letter-spacing: 0 !important;
 }
-
+::selection {
+  background: #ff931e !important;
+} 
 .v-dropdown-container, .v-select-toggle:focus {
   border-radius: 14px !important;
   width: 200px !important;

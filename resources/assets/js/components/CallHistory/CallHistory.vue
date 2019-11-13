@@ -26,12 +26,16 @@
   }
 
   .dropdown-menu {
-    border-radius: 5px;
-    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
-    -webkit-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
-    -moz-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
-    -o-box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border-radius: 15px;
+        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border: 0;
+        font-size: 0.63vw;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 0.05em;
+        color: #1e2331;
+        top: 10px !important;
   }
+
   
   .is-hidden {
     display: none;
@@ -372,8 +376,8 @@ p.card-text {
   }
 
   .add-new-top-section .dropdown {
-    top: 0px;
-    right: 195px;
+    top: -5px;
+    right: 170px;
   }
 
   .table-section {

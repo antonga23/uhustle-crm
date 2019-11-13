@@ -519,6 +519,16 @@ th .dropdown{
   float: right;
 }
 
+ .dropdown-menu {
+        border-radius: 15px;
+        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border: 0;
+        font-size: 0.63vw;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 0.05em;
+        color: #1e2331;
+  }
+
 .no-box-shadow {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -796,14 +806,14 @@ table tr td {
     color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 0px;
     min-width: 150px;
 
 }
  @media screen and (max-width: 1500px) {
      table tr td {
         font-size: 12px;
-        padding: 5px 0px 5px 0px;
+        padding: 5px 10px 5px 0px;
      }
  }
 
@@ -831,7 +841,7 @@ table th {
     color: #A6A6A6;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0;
+    padding-right: 20px !important;
     /* height: 56px; */
     /* padding-left: 14px; */
     vertical-align: middle;
