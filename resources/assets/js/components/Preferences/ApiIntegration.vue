@@ -5,9 +5,11 @@
   .form-control {
     border-radius: 50rem;
     padding: 11px 18px!important;
-    font-size: 0.63vw;
+    font-size: 12px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     color: #003449;
     border-color: #ccc;
     margin-bottom: 17px;
@@ -35,6 +37,7 @@
     margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
   .btn-primary {

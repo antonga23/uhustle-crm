@@ -1,17 +1,57 @@
 <style scoped>
   label, label input, label a-select{
-    width: 100%
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.52vw;
+    color: #999999;
   }
+  input.ant-input {
+    border-radius: 50rem;
+    margin-top: 5px;
+  }
+
   .help-block{
     color: red;
     font-size: 12px;
   }
+  .right {
+    float: right;
+  }
+ 
+ .btn {
+    padding: 4px 17px 6px !important;
+    font-size: 14px;
+ }
+
+.add-box-shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0;
+    padding: 4.4% 5.6% 6.8%;
+}
+.m-lt {
+    margin-top: 20px;
+    margin-left: 36px;
+}
+
+.plr-4 {
+  padding: 0px 4% !important;
+}
+
+@media screen and (max-width: 1400px) {
+.add-box-shadow .small-screen-hide {
+  display: none;
+}
+}
 </style>
 <template>
-  <a-card :title="'Add to ' + active_module.display_name" style="overflow-y: scroll;height: 680px;">
-    <div class="w-100" style="margin-top: 20px;">
-      <a-row v-for="( field, index) in active_module.module_fields" :key="index" >
-        <a-col :span="6" v-show="field.name == 'title'">
+  <a-card :title="'Add to ' + active_module.display_name" class="add-box-shadow">
+    <div class="divider-line"></div>
+    <div class="w-100 m-lt">
+      <div v-for="( field, index) in active_module.module_fields" :key="index" >
+        <a-col :span="7" class="m-2" v-show="field.name == 'title'">
           <label>Title
               <a-select defaultValue="Please Select" v-model="field.title" style="width: 100%">
                   <a-select-option value="Mr">Mr</a-select-option>
@@ -21,7 +61,7 @@
               </a-select>
           </label>
         </a-col> 
-        <a-col :span="6" 
+        <a-col :span="7" class="m-2"
           v-show="field.name !== 'owner' 
           && field.name !== 'assignee' 
           && field.name !== 'status'
@@ -35,21 +75,21 @@
               <span v-show="errors.has(field.display_name)" class="help-block">{{ errors.first(field.display_name) }}</span>
           </label>
         </a-col>
-        <a-col :span="6" v-show="field.name == 'owner'">    
+        <a-col :span="7" class="m-2" v-show="field.name == 'owner'">    
           <label>Owner
               <a-select defaultValue="Please Select" v-model="field.value" style="width: 100%">
                 <a-select-option :value="item.id" v-for="(item,i) in users" :key="i">{{ item.name + ' ' + item.lastname }}</a-select-option>
               </a-select>
           </label>
         </a-col>
-        <a-col :span="6" v-show="field.name == 'assignee'">
+        <a-col :span="7" class="m-2" v-show="field.name == 'assignee'">
           <label>Assign To
               <a-select defaultValue="Please Select" v-model="field.valye" style="width: 100%">
                 <a-select-option :value="item.id" v-for="(item,i) in users" :key="i">{{ item.name + ' ' + item.lastname }}</a-select-option>
               </a-select>
           </label>
         </a-col>
-        <a-col :span="6" v-show="field.name == 'status'">
+        <a-col :span="7" class="m-2" v-show="field.name == 'status'">
           <label>Status
               <a-select defaultValue="Please Select" v-model="field.value" style="width: 100%">
                   <a-select-option value="1">Active</a-select-option>
@@ -59,14 +99,14 @@
               </a-select>
           </label>
         </a-col> 
-      </a-row>
-      <a-row>
-            <label>
-                <button type="submit" class="btn btn-primary update-user" @click="addItem()">
+      </div>
+      <div>
+            <label class="plr-4">
+                <button type="submit" class="btn btn-primary update-user right" @click="addItem()">
                     Submit
                 </button>
             </label>
-        </a-row>
+      </div>
     </div>
   </a-card>
 </template>

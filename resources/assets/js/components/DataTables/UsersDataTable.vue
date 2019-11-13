@@ -1,5 +1,5 @@
 <template>  
-    <div class="card no-box-shadow material-table">  
+    <div class="card shadow-none material-table">  
         <table ref="table">  
             <thead>  
                 <tr>  
@@ -484,10 +484,7 @@ thead th {
     top: 0;  
     background: white;  
     z-index: 10;  
-}  
-.no-box-shadow {  
-    box-shadow: none !important;  
-}  
+}   
 .ant-list-item {  
     align-items: center;  
     display: flex;  
@@ -722,7 +719,7 @@ table tr td {
     color: #1c2331;  
     display: table-cell;  
     font-family: 'Rubik', sans-serif !important;  
-    padding: 10px 0px 10px 0px;  
+    padding: 10px 20px 10px 0px;  
     min-width: 150px;  
   
 }  
@@ -730,7 +727,7 @@ table tr td {
   @media screen and (max-width: 1500px) {  
         table tr td {  
             font-size: 12px !important;  
-            padding: 5px 0px 5px 0px !important;  
+            padding: 5px 10px 5px 0px !important;  
         }  
   }  
   
@@ -745,8 +742,7 @@ table tr {
      border-bottom: 1px solid #f2f2f2;  
     padding-left: 0;  
     width: auto;  
-    white-space: nowrap;  
-    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */  
+    white-space: nowrap;   
 }  
   
 table thead tr:first-child {  
@@ -759,7 +755,7 @@ table th {
     color: #A6A6A6;  
     cursor: pointer;  
     white-space: nowrap;  
-    padding: 0;  
+    padding-right: 20px;  
     /* height: 56px; */  
     /* padding-left: 14px; */  
     vertical-align: middle;  

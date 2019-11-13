@@ -74,7 +74,7 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                              ->read(array(),5);
+                              ->read(array(),17);
                               // ->read(array("status" => "in-progress"),500);
         
         $conferences_arr = [];
@@ -444,6 +444,7 @@ class TwillioController extends Controller
         $avg_time = 0;
         $total_time = 0;
         $con_ratio = 0;
+
         foreach ($twilios as $key => $value) {
 
             if($value->sale){

@@ -8,7 +8,7 @@
   }
   .help-block{
     color: #dc3545;
-    font-size: 0.63vw;
+    font-size: 12px;
   }
   .b-container{
     margin-bottom: 25px
@@ -39,8 +39,10 @@
     border-radius: 50rem;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     padding: 11px 18px!important;
-    font-size: 0.63vw;
+    font-size: 12px;
     color: #003449;
     border-color: #ccc;
     margin-bottom: 17px;
@@ -48,7 +50,7 @@
     height:auto!important;
   }
   .scrollable input{
-    font-size: 0.63vw;
+    font-size: 12px;
     color: #003449;
     font-family: 'Rubik', sans-serif;
     height:auto!important;
@@ -82,6 +84,7 @@
     margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
   .btn-primary {

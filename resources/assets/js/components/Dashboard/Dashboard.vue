@@ -18,6 +18,8 @@
   select.rounded-pill{
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
     padding:9px 17px 7px;
@@ -35,6 +37,8 @@
     padding: 1.3%;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-left: 0.9%;
     margin-right: 0.9%;
   }
@@ -95,7 +99,10 @@
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"],
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
-    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
+    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
     border-top-left-radius: 25px; 
     border-top-right-radius: 25px; 
   } 
@@ -127,6 +134,8 @@
     border-radius: 15px!important;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .agent-details .card .heading {
     font-size: 0.94vw;
@@ -211,6 +220,8 @@
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding:2.9% 3.7%;
   }
   #dash-activities .col {
@@ -237,7 +248,7 @@
   .calendar .card-title {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
-    font-size: 0.63vw;
+    font-size: 12px;
   }
   .calendar p {
     font-family: 'Rubik', sans-serif;
@@ -260,6 +271,8 @@
   .reminders ul li {
     box-shadow: 0 0 7px rgba(0,0,0,0.05);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);
     padding:10px 15px;
   }
   .reminders ul li label {
@@ -314,7 +327,7 @@
       <div id="top-section" class="row mx-0">
         <div class="col-12 px-0">
           <div class="row mx-0 align-items-center">
-            <div class="col-auto pl-0">
+            <div class="col-auto pl-0" style="display:none">
               <select class="rounded-pill border-0"> 
                 <option selected>Filter by date</option> 
               </select>
