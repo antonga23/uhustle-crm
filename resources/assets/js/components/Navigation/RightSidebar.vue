@@ -705,13 +705,14 @@
     background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important; 
   } 
      
-  .reminders { 
+  /* .reminders { 
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); 
     border-radius: 25px; 
-  } 
+  }  */
+  
   .reminders .nav-link[aria-posinset="2"] {
     text-align: right;
     display: flex;
@@ -1071,7 +1072,7 @@
             </ul> 
           </nav> 
 
-          <div class="open-sidenav mt-3 px-6">
+          <div class="open-sidenav mt-3">
             <div v-if="settings_on == true" class="settings px-2"> 
               <div class="row mx-0 pt-0 border-bottom"> 
                 <div class="row mx-0 justify-content-between align-items-center w-100 p-0"> 
@@ -1627,7 +1628,7 @@
             </div> 
 
             <div v-if="notifications_on == false && settings_on == false"> 
-              <div class="row mx-0 py-0 px-2 stats-section"> 
+              <div class="row mx-0 py-0 px-6 stats-section"> 
                 <div class="col-lg-12 px-0"> 
                   <div class="row mx-0 p-0"> 
                     <div class="col-lg-12 px-0"> 
@@ -1682,7 +1683,7 @@
                 </div> 
               </div> 
 
-              <div class="row mx-0 px-2 callback-cal"> 
+              <div class="row mx-0 px-6 callback-cal"> 
                 <div class="col-lg-12 border-0 px-0"> 
                   <p class="border-bottom">Calendar</p>
                   <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />  

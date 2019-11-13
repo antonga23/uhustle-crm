@@ -38,7 +38,7 @@ li.title a strong{
 a.top-link{    
   border-radius: 26px;
   height: 30px !important;
-  padding: 2px 17px 6px !important;
+  padding: 6px 17px 6px !important;
   font-family: 'Rubik', sans-serif;
   letter-spacing: 1px;
 }
