@@ -183156,6 +183156,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['module', 'active_users', 'active_roles'],
   data: function data() {
@@ -245339,7 +245355,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.right[data-v-06e14cd1] {\n    float: right;\n}\n.btn[data-v-06e14cd1] {\n    padding: 4px 17px 6px !important;\n    font-size: 14px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n.m-lt[data-v-06e14cd1] {\n    margin-top: 20px;\n    margin-left: 36px;\n}\n.plr-4[data-v-06e14cd1] {\n  padding: 0px 4% !important;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -368199,7 +368215,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-100 ml-4", staticStyle: { "margin-top": "20px" } },
+        { staticClass: "w-100 m-lt" },
         [
           _vm._l(_vm.active_module.module_fields, function(field, index) {
             return _c(
@@ -368533,11 +368549,11 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("div", [
-            _c("label", [
+            _c("label", { staticClass: "plr-4" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary update-user",
+                  staticClass: "btn btn-primary update-user right",
                   attrs: { type: "submit" },
                   on: {
                     click: function($event) {

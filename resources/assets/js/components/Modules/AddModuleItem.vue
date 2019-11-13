@@ -14,7 +14,15 @@
     color: red;
     font-size: 12px;
   }
+  .right {
+    float: right;
+  }
  
+ .btn {
+    padding: 4px 17px 6px !important;
+    font-size: 14px;
+ }
+
 .add-box-shadow {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -22,6 +30,14 @@
     border-bottom-right-radius: 25px;
     border: 0;
     padding: 4.4% 5.6% 6.8%;
+}
+.m-lt {
+    margin-top: 20px;
+    margin-left: 36px;
+}
+
+.plr-4 {
+  padding: 0px 4% !important;
 }
 
 @media screen and (max-width: 1400px) {
@@ -33,7 +49,7 @@
 <template>
   <a-card :title="'Add to ' + active_module.display_name" class="add-box-shadow">
     <div class="divider-line"></div>
-    <div class="w-100 ml-4" style="margin-top: 20px;">
+    <div class="w-100 m-lt">
       <div v-for="( field, index) in active_module.module_fields" :key="index" >
         <a-col :span="7" class="m-2" v-show="field.name == 'title'">
           <label>Title
@@ -85,8 +101,8 @@
         </a-col> 
       </div>
       <div>
-            <label>
-                <button type="submit" class="btn btn-primary update-user" @click="addItem()">
+            <label class="plr-4">
+                <button type="submit" class="btn btn-primary update-user right" @click="addItem()">
                     Submit
                 </button>
             </label>
