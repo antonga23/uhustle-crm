@@ -674,15 +674,20 @@ label:not(.form-check-label):not(.custom-file-label) {
 box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
 border-radius: 25px;
 }
+
 .add-task {
-  width: 25px;
+  width: 16px;
   position: absolute;
-  top: 19px;
-  right: 5%;
+  top: 22px;
+  right: 40%;
+}
+
+.nav-item a#__BVID__93___BV_tab_button__ {
+text-align: right;
 }
 
 .reminders .nav-link {
-  font-size: 14px;
+  font-size: 12px;
   padding: 20px 15px;
   text-transform: uppercase;
   font-family: 'Rubik', sans-serif !important;
