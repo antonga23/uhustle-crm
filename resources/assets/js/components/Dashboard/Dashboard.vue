@@ -82,14 +82,24 @@
   .nav.nav-tabs.card-header-tabs .nav-link {
     color: #808080;
     font-size: 0.73vw;
+    border: none;
+  }
+  .nav-link:hover { 
+    border: none; 
   }
   .nav.nav-tabs.card-header-tabs .nav-link .icon {
     padding-top:18px;
     padding-bottom:18px;
+    margin-right: 5%;
+  }
+  @media screen and (max-width: 1643px) {
+    .nav.nav-tabs.card-header-tabs .nav-link .icon {
+      width: 27px;
+    }
   }
   .agent-graphs .nav-tabs .nav-item {
     margin-bottom: 3px;
-}
+  }
 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
@@ -343,9 +353,6 @@
   .active-task {
     background-color:rgba(255,147,58,0.5);
   }
-  .mr-20 {
-    margin-right: 20%;
-  }
 
   /* Custom checkbox */
   .main label.custom-control-label { 
@@ -483,10 +490,9 @@
                       role="tab" 
                       aria-controls="One" 
                       aria-selected="true"
-                    > <div class="mr-20">
+                    > 
                       <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="31"/> 
-                      <span class="w-50 pl-2">Calls vs Sales</span>
-                      </div>
+                      <span>Calls vs Sales</span>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -498,10 +504,9 @@
                       role="tab" 
                       aria-controls="Two" 
                       aria-selected="false"
-                    > <div class="mr-20">
+                    > 
                       <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="31"/> 
-                      <span class="pl-2">Monthly Sales</span> 
-                      </div>
+                      <span>Monthly Sales</span> 
                     </a> 
                   </li> 
                 </ul> 
@@ -549,10 +554,9 @@
                       role="tab" 
                       aria-controls="Three" 
                       aria-selected="true"
-                    > <div class="mr-20">
+                    > 
                       <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="31"/> 
-                      <span class="w-50 pl-2">Answers vs Dialing</span>
-                      </div>
+                      <span>Answers vs Dialing</span>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -564,10 +568,9 @@
                       role="tab" 
                       aria-controls="Four" 
                       aria-selected="false"
-                    > <div class="mr-20">
+                    > 
                       <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="31"/> 
-                      <span class="pl-2">Commissions</span> 
-                      </div>
+                      <span>Commissions</span> 
                     </a> 
                   </li> 
                 </ul> 
