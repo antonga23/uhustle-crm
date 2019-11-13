@@ -20,6 +20,7 @@ class Deal extends Model
       'probability',
       'expected_revenue',
       'contact_name',
-      'contact_number'
+      'contact_number',
+      'status',
     ];
 }

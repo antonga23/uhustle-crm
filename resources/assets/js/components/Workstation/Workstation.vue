@@ -1556,141 +1556,7 @@ a.down-scroll:hover {
                   role="tabpanel"    
                   aria-labelledby="two-tab"   
                 >     
-                  <p>Deal information</p>   
-                  <div class="row mx-0">   
-                    <div class="col-7 pl-0">   
-                      <div class="row mx-0">   
-                        <div class="col-6 pl-0">   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name   
-                            <input
-                              v-model="deal.agent_name"    
-                              type="text"    
-                              id="agent-name"     
-                              name="AgentName"   
-                              class="form-control border-0 rounded-pill"/>   
-                          </label>   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name   
-                            <input
-                              v-model="deal.deal_name"     
-                              type="text"    
-                              id="deal-name"     
-                              name="DealName"   
-                              class="form-control border-0 rounded-pill"/>   
-                          </label>   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date   
-                            <input    
-                              v-model="deal.closing_date" 
-                              type="date"    
-                              id="closing-date"     
-                              name="ClosingDate"   
-                              class="form-control border-0 rounded-pill"/>   
-                          </label>   
-                        </div>   
-                        <div class="col-6 pr-0">   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type   
-                            <select v-model="deal.type"  class="custom-select rounded-pill border-0">   
-                              <option value="-None-" selected>-None-</option>   
-                              <option value="1">Existing Business</option>   
-                              <option value="2">New Business</option>   
-                            </select>   
-                          </label>   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source   
-                            <select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
-                              <option value="-None-" selected>-None-</option>   
-                              <option value="1">Advertising</option>   
-                              <option value="2">Cold Call</option>   
-                              <option value="3">Employee Referral</option>   
-                              <option value="4">External Referral</option>   
-                              <option value="5">Online Store</option>   
-                            </select>   
-                          </label>   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount   
-                            <input   
-                              v-model="deal.amount" 
-                              type="number"    
-                              id="amount"     
-                              name="Amount"   
-                              class="form-control border-0 rounded-pill"/>   
-                          </label>   
-                        </div>   
-   
-                        <div class="col-12 px-0">   
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information   
-                            <textarea 
-                              v-model="deal.description"   
-                              id="info"     
-                              name="Info"   
-                              class="form-control border-0"/>   
-                          </label>   
-                        </div>   
-                      </div>   
-   
-                    </div>   
-   
-                    <div class="col-3">   
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage   
-                        <select v-model="deal.stage" class="custom-select rounded-pill border-0">   
-                          <option value="-None-" selected>-None-</option>   
-                          <option value="1">Qualification</option>   
-                          <option value="2">Needs Analysis</option>   
-                          <option value="3">Value Proposition</option>   
-                          <option value="4">Proposal</option>   
-                          <option value="5">Negotiation</option>   
-                        </select>   
-                      </label>   
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)   
-                        <input
-                          v-model="deal.probability"    
-                          type="text"    
-                          id="probability"     
-                          name="Probability"   
-                          class="form-control border-0 rounded-pill"/>   
-                      </label>   
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue   
-                        <input
-                          v-model="deal.expected_revenue"    
-                          type="number"    
-                          id="revenue"     
-                          name="Revenue"   
-                          class="form-control border-0 rounded-pill"/>   
-                      </label>   
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name   
-                        <input  
-                          v-model="deal.contact_name"   
-                          type="text"    
-                          id="contact-name"     
-                          name="ContactName"   
-                          class="form-control border-0 rounded-pill"/>   
-                      </label>   
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number   
-                        <input 
-                          v-model="deal.contact_number"    
-                          type="tel"    
-                          id="contact-number"     
-                          name="ContactNumber"   
-                          class="form-control border-0 rounded-pill"/>   
-                      </label>   
-                    </div>   
-   
-                    <div class="col-2 align-self-end pr-0">   
-                      <div class="row mx-0">   
-                        <div class="col-lg-6 pl-0 pr-2">   
-                          <button    
-                            type="submit"    
-                            class="btn btn-default cancel-deal w-100 m-0 border-0"    
-                            @click="clearDeal()"   
-                          >Cancel</button>   
-                        </div>   
-                        <div class="col-lg-6 pr-0 pl-2">   
-                          <button    
-                            type="submit"    
-                            class="btn btn-primary save-deal w-100 rounded-pill m-0"    
-                            @click="createDeal()"   
-                          >Save</button>   
-                        </div>   
-                      </div>   
-                    </div>   
-                  </div>   
+                 <create-deal :empty_deal="deal" :lead_id="item_id" /> 
                 </div>    
               </div>    
             </div>    
@@ -2240,6 +2106,7 @@ import Education from "./Education.vue";
 import FlipCountdown from "vue2-flip-countdown";  
 import DataTable from "../DataTables/CallLogsDataTable";  
 import { VclFacebook, VclInstagram, VclTable } from "vue-content-loading";  
+import CreateDeal from '../Transactions/createDeal';
 const Device = require("twilio-client").Device;  
 export default {  
   extends: Bar,  
@@ -2251,6 +2118,7 @@ export default {
     VclTable,  
     Scripts,  
     Education,  
+    CreateDeal,  
     datatable: DataTable  
   },  
   mounted() {  
@@ -2283,6 +2151,8 @@ export default {
     vm.prepDates();  
 
     vm.getActivities();  
+
+    vm.getDeals();  
   
     Fire.$on("CallStarted", function() {  
       vm.general = false;  
@@ -2322,6 +2192,10 @@ export default {
       vm.scripts = false;  
       vm.idle = true;  
       vm.active_calls = false;  
+    });  
+  
+    Fire.$on("AfterDealAdd", function() { 
+      vm.getDeals();  
     });  
   
     this.Toast = this.$swal.mixin({  
@@ -2503,7 +2377,7 @@ export default {
       deal: {
         lead_id: this.item_id ,
         agent_id:'' ,
-        agent_name:'' ,
+        agent_name:this.user_name ,
         deal_name:'' ,
         closing_date:'' ,
         type:'- None -' ,
@@ -2552,43 +2426,11 @@ export default {
     }  
   },  
   methods: {
-    clearDeal(){
-      this.deal.lead_id = '';
-      this.deal.agent_id = '';
-      this.deal.agent_name = '';
-      this.deal.deal_name = '';
-      this.deal.closing_date = '';
-      this.deal.type = '- None -';
-      this.deal.lead_source = '- None -';
-      this.deal.amount = '';
-      this.deal.description = '';
-      this.deal.stage = '- None -';
-      this.deal.probability = '';
-      this.deal.expected_revenue = '';
-      this.deal.contact_name = '';
-      this.deal.contact_number = '';
-    },
-    createDeal(){
+    getDeals(){
       var vm = this;
-      axios.post("/deals/create", vm.deal).then(function(response) {  
-          if (response.data.success == true) {  
-
-            vm.Toast.fire({ 
-                type: 'success', 
-                title: response.data.message
-            }); 
-
-            vm.dealItems = response.data.deals;  
-            vm.clearDeal();
-          } else {  
-            vm.$Progress.fail();  
-            vm.$swal(  
-              "Failed",  
-              "Opps, something went wrong while retrieving lead, please try again",  
-              "warning"  
-            );  
-          }  
-        });
+      axios.get("/deals/get-all/" + this.item_id ).then(function(response) {  
+        vm.dealItems = response.data.deals;
+      });
     },
     getActiveCalls() {  
       var vm = this;  
