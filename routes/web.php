@@ -217,7 +217,8 @@ Route::group(['prefix' => 'tasks'], function () {
 // Deals Routes
 Route::group(['prefix' => 'deals'], function () {
 	Route::get('/get/{client_id}', 'DealController@getCleintById');
-	Route::get('/get-all', 'DealController@index');
+	Route::get('/get-all/{lead_id}', 'DealController@index');
+	Route::get('/get-all-status', 'DealController@getAllStatus');
 	Route::post('/create', 'DealController@store');
 	Route::post('/update', 'DealController@update');
 	Route::get('/delete/{client_id}', 'DealController@destroy');
@@ -295,6 +296,7 @@ Route::group(['prefix' => 'comments'], function () {
 // Modules Routes
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
+  Route::get('/get-all-items', 'ModuleController@getAllItems');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');

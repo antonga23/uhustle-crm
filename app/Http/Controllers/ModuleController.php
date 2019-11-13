@@ -253,6 +253,17 @@ class ModuleController extends Controller
       return $items;
     }
 
+    public function getAllItems(){
+
+      $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
+
+      $module_items = ModuleItem::with('item_meta')->get();
+
+      $items = $this->compactModuleItems($module_items);
+
+      return ['leads' => $items['display_items']];
+    }
+
    public function compactModuleItems($module_items = null){
       
       $data = [];

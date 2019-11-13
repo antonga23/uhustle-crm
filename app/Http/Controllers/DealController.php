@@ -14,9 +14,10 @@ class DealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($lead_id = null)
     {
-      $deals = Deal::get();
+      $deals = Deal::where( ['lead_id' => $lead_id ])->get();
+
       return array('success' => true, 'deals' => $deals);
     }
 
@@ -52,9 +53,20 @@ class DealController extends Controller
      * @param  \App\Deal  $deal
      * @return \Illuminate\Http\Response
      */
-    public function show(Deal $deal)
+    public function getAllStatus()
     {
-        //
+      $paidItems = Deal::where(['status' => 1])->where( ['agent_id' => Auth::user()->id ])->get();
+      $pendingItems = Deal::where(['status' => 2])->where( ['agent_id' => Auth::user()->id ])->get();
+      $dueItems = Deal::where(['status' => 3])->where( ['agent_id' => Auth::user()->id ])->get();
+      $rejectedItems = Deal::where(['status' => 4])->where( ['agent_id' => Auth::user()->id ])->get();
+
+      return array(
+        'paidItems' => $paidItems,
+        'pendingItems' => $pendingItems,
+        'dueItems' => $dueItems,
+        'rejectedItems' => $rejectedItems,
+      );
+
     }
 
     /**
