@@ -2030,6 +2030,10 @@
 
       this.user = JSON.parse(this.auth_user); 
 
+      if(this.active == 'dashboard'){
+        this.showNotifications();
+      }
+
       vm.getUserCallBacks(); 
 
       vm.getUserTasks(); 

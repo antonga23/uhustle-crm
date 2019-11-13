@@ -186180,6 +186180,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var vm = this;
     this.user = JSON.parse(this.auth_user);
+
+    if (this.active == 'dashboard') {
+      this.showNotifications();
+    }
+
     vm.getUserCallBacks();
     vm.getUserTasks();
     Fire.$on('AfterCallBackSet', function () {
@@ -194366,6 +194371,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -194646,6 +194652,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       }],
       Toast: null,
       activityItems: [],
+      closedActivityItems: [],
       deal: {
         lead_id: this.item_id,
         agent_id: '',
@@ -194731,14 +194738,16 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         vm.call_back.date = vm.selected_date.format("YYYY-MM-DD");
         vm.call_back.time = vm.selected_time.format("hh:mm");
         vm.call_back.user_id = vm.user_id;
-        vm.call_back.lead_id = vm.lead_info.id;
+        vm.call_back.lead_id = vm.item_id;
         this.$validator.validateAll().then(function (result) {
           if (!result) {} else {
             axios.post("/leads/setcallback", vm.call_back).then(function (response) {
               if (response.data.success == true) {
                 Fire.$emit("AfterCallBackSet");
-                vm.enqueueLead(response.data.lead.id);
-                vm.$swal("Success", "Callback captured successfully", "success");
+                vm.Toast.fire({
+                  type: 'success',
+                  title: "Callback captured successfully"
+                });
                 vm.continues = true;
               } else {
                 vm.$Progress.fail();
@@ -194780,6 +194789,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       axios.get('/tasks/get-activities/' + vm.item_id).then(function (response) {
         vm.activities = response.data.open_activities;
         vm.closed_activities = response.data.closed_activities;
+        vm.activityItems = [];
+        vm.closedActivityItems = [];
         vm.activities.map(function (activity) {
           var color = '';
           var status = '';
@@ -380256,7 +380267,7 @@ var render = function() {
                   return _c("div", { key: i, staticClass: "2" }, [
                     item.custom_field_id == custom_field.id
                       ? _c("div", { staticClass: "inner-div" }, [
-                          name == "source" && item.meta_value !== null
+                          name == "source"
                             ? _c(
                                 "div",
                                 { staticClass: "row mx-1 border-top-grey" },
@@ -380290,7 +380301,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : name == "product" && item.meta_value !== null
+                            : name == "product"
                             ? _c(
                                 "div",
                                 { staticClass: "row mx-1 border-top-grey" },
@@ -380324,8 +380335,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : (name == "assignee" || name == "owner") &&
-                              item.meta_value !== null
+                            : name == "assignee" || name == "owner"
                             ? _c(
                                 "div",
                                 { staticClass: "row mx-1 border-top-grey" },
@@ -380365,7 +380375,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : name == "email" && item.meta_value !== null
+                            : name == "email"
                             ? _c(
                                 "div",
                                 {
@@ -381412,6 +381422,7 @@ var render = function() {
                         "div",
                         {
                           staticClass: "tab-pane fade",
+                          staticStyle: { display: "none" },
                           attrs: {
                             id: "four",
                             role: "tabpanel",
@@ -381543,14 +381554,6 @@ var render = function() {
                               },
                               [
                                 _c("a-input", {
-                                  directives: [
-                                    {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: "'required'"
-                                    }
-                                  ],
                                   staticStyle: { width: "100%" },
                                   attrs: {
                                     placeholder: "Subject",
@@ -381583,14 +381586,6 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("a-date-picker", {
-                                  directives: [
-                                    {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: "'required'"
-                                    }
-                                  ],
                                   staticStyle: { width: "100%" },
                                   attrs: { name: "Due Date" },
                                   model: {
@@ -381756,7 +381751,7 @@ var render = function() {
                             _c("b-table", {
                               attrs: {
                                 hover: "",
-                                items: _vm.activityItems,
+                                items: _vm.closedActivityItems,
                                 "per-page": "5"
                               },
                               scopedSlots: _vm._u(
@@ -382227,38 +382222,45 @@ var staticRenderFns = [
               )
             ]),
             _vm._v(" "),
-            _c("li", { staticClass: "nav-item right w-50" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  attrs: {
-                    id: "four-tab",
-                    "data-toggle": "tab",
-                    href: "#four",
-                    role: "tab",
-                    "aria-controls": "Four",
-                    "aria-selected": "false"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "mr-12" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Email Client.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "left" }, [
-                      _vm._v("Email Client")
+            _c(
+              "li",
+              {
+                staticClass: "nav-item right w-50",
+                staticStyle: { display: "none" }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      id: "four-tab",
+                      "data-toggle": "tab",
+                      href: "#four",
+                      role: "tab",
+                      "aria-controls": "Four",
+                      "aria-selected": "false"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "mr-12" }, [
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/workstation/Email Client.svg",
+                          alt: "Icon",
+                          width: "31px"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "left" }, [
+                        _vm._v("Email Client")
+                      ])
                     ])
-                  ])
-                ]
-              )
-            ])
+                  ]
+                )
+              ]
+            )
           ]
         )
       ]

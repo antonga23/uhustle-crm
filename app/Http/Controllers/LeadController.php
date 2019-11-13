@@ -541,8 +541,6 @@ class LeadController extends Controller
         $call_sid = $request->call_sid;
         $status = 0;
         
-        $lead = Lead::findOrFail($lead_id);
-        
         $call_back_count = LeadsCallbacks::where(['lead_id' => $lead_id])->count();
 
         try{
@@ -559,8 +557,6 @@ class LeadController extends Controller
                     'call_sid' => $call_sid
                 ]);
 
-                event(new \App\Events\LeadAction($lead, $request_user,'updated_callback'));
-
             }else{
 
                 $lead_callback = LeadsCallbacks::create([
@@ -572,13 +568,11 @@ class LeadController extends Controller
                             'status' => $status,
                             'call_sid' => $call_sid
                         ]);
-                
-                event(new \App\Events\LeadAction($lead, $request_user,'created_callback'));
             }
 
             $comment_check = Comment::where([
                 'comment_type' => 'CB',
-                'source_type' => 'App\Lead' , 
+                'source_type' => 'customer' , 
                 'source_id' => $lead_id , 
                 'user_id' => $request_user['user_id'],
             ])->count();
@@ -586,7 +580,7 @@ class LeadController extends Controller
             if($comment_check > 0){
                 Comment::where([
                     'comment_type' => 'CB',
-                    'source_type' => 'App\Lead' , 
+                    'source_type' => 'customer' , 
                     'source_id' => $lead_id , 
                     'user_id' => $request_user['user_id'],
                 ])->update([
@@ -597,7 +591,7 @@ class LeadController extends Controller
                 $comment = Comment::create([
                     'description' => $notes,
                     'comment_type' => 'CB',
-                    'source_type' => 'App\Lead' , 
+                    'source_type' => 'customer' , 
                     'source_id' => $lead_id , 
                     'user_id' => $request_user['user_id'],
                     'user_name' => $request_user['name'] 
@@ -606,7 +600,7 @@ class LeadController extends Controller
 
             DB::commit();
 
-            return array('success' => true, 'lead' => $lead);
+            return array('success' => true);
 
         }catch(\QueryException $e){
             DB::rollback();

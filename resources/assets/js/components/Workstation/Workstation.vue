@@ -772,7 +772,7 @@ a.down-scroll:hover {
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
                 class="row mx-1 border-top-grey"  
-                v-if="name == 'source' && item.meta_value !== null"  
+                v-if="name == 'source'"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
@@ -783,7 +783,7 @@ a.down-scroll:hover {
               </div>  
               <div  
                 class="row mx-1 border-top-grey"  
-                v-else-if="name == 'product' && item.meta_value !== null"  
+                v-else-if="name == 'product'"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
@@ -794,7 +794,7 @@ a.down-scroll:hover {
               </div>  
               <div  
                 class="row mx-1 border-top-grey"  
-                v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
+                v-else-if="(name == 'assignee' || name == 'owner')"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
@@ -805,7 +805,7 @@ a.down-scroll:hover {
               </div>  
               <div  
                 class="row mx-1 border-top-grey truncate"  
-                v-else-if="name == 'email' && item.meta_value !== null"  
+                v-else-if="name == 'email'"  
               >  
                 <div class="col-4 border-right-grey p12-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
@@ -1239,7 +1239,7 @@ a.down-scroll:hover {
                     </div>
                   </a>  
                 </li>  
-                <li class="nav-item right w-50">  
+                <li class="nav-item right w-50" style="display:none;">  
                   <a  
                     class="nav-link"  
                     id="four-tab"  
@@ -1313,7 +1313,7 @@ a.down-scroll:hover {
                 </div>  
               </div>  
   
-              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab">  
+              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab" style="display:none;">  
                 <p  
                   class="email-desc font-weight-light font-italic"  
                 >Choose a template or write your own email to Client</p>  
@@ -1431,10 +1431,10 @@ a.down-scroll:hover {
                   aria-labelledby="one-tab"  
                   v-if="add_client_activity" 
                 >  
-                    <a-input placeholder="Subject" v-model="activity.title" style="width:100%" name="Subject" v-validate="'required'"  />
+                    <a-input placeholder="Subject" v-model="activity.title" style="width:100%" name="Subject" />
                     <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
 
-                    <a-date-picker v-model="activity.duedate" style="width:100%" name="Due Date"  v-validate="'required'" />
+                    <a-date-picker v-model="activity.duedate" style="width:100%" name="Due Date" />
                     <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
 
 
@@ -1450,7 +1450,8 @@ a.down-scroll:hover {
                 </div>
                 <div    
                   class="tab-pane fade show active"    
-                  id="five" role="tabpanel"    
+                  id="five" 
+                  role="tabpanel"    
                   aria-labelledby="one-tab" 
                    
                 >    
@@ -1480,7 +1481,7 @@ a.down-scroll:hover {
                   role="tabpanel"    
                   aria-labelledby="two-tab"   
                 >     
-                  <b-table hover :items="activityItems" per-page="5">   
+                  <b-table hover :items="closedActivityItems" per-page="5">   
                     <template v-slot:cell(statusColor)="data">   
                       <p :style="{color: statusColor}">hi</p>   
                     </template>   
@@ -2372,8 +2373,8 @@ export default {
         }  
       ],  
       Toast: null,  
-      activityItems: [   
-      ],
+      activityItems: [],
+      closedActivityItems: [],
       deal: {
         lead_id: this.item_id ,
         agent_id:'' ,
@@ -2472,21 +2473,24 @@ export default {
         vm.call_back.date = vm.selected_date.format("YYYY-MM-DD");  
         vm.call_back.time = vm.selected_time.format("hh:mm");  
         vm.call_back.user_id = vm.user_id;  
-        vm.call_back.lead_id = vm.lead_info.id;  
+        vm.call_back.lead_id = vm.item_id;  
   
         this.$validator.validateAll().then(result => {  
           if (!result) {  
           } else {  
-            axios.post("/leads/setcallback", vm.call_back).then(function(response) {  
-                if (response.data.success == true) {  
+            axios.post("/leads/setcallback", vm.call_back).then(function(response) { 
+
+                if (response.data.success == true) {
+
                   Fire.$emit("AfterCallBackSet");  
-                  vm.enqueueLead(response.data.lead.id);  
-                  vm.$swal(  
-                    "Success",  
-                    "Callback captured successfully",  
-                    "success"  
-                  );  
+
+                  vm.Toast.fire({ 
+                      type: 'success', 
+                      title: "Callback captured successfully"
+                  }); 
+
                   vm.continues = true;  
+
                 } else {  
                   vm.$Progress.fail();  
                   vm.$swal(  
@@ -2533,7 +2537,8 @@ export default {
       axios.get('/tasks/get-activities/' + vm.item_id).then(function(response) { 
           vm.activities = response.data.open_activities; 
           vm.closed_activities = response.data.closed_activities; 
-
+          vm.activityItems = [];
+          vm.closedActivityItems = [];
           vm.activities.map( (activity) => {
 
             var color = '';
