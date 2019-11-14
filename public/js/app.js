@@ -181000,6 +181000,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
@@ -181052,6 +181056,21 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -181082,6 +181101,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         comments: [],
         assigned: []
       },
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       summaryModal: false,
       showModal: false,
       loading: false,
@@ -181097,6 +181119,18 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     showEditModal: function showEditModal(user) {
       var vm = this;
       this.user = user;
@@ -181626,6 +181660,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -181689,6 +181729,21 @@ __webpack_require__.r(__webpack_exports__);
       vm.assignees = data.assignees, vm.owners = data.owners;
       vm.assignTo();
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -181699,7 +181754,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selected: [],
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       leads_select_all: null,
+      show_column_select: false,
       show_mass_assign: false,
       user_assigned: '',
       lead_owner: '',
@@ -181741,6 +181800,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     getText: function getText(col, field) {
       var field_value = "";
 
@@ -182794,6 +182865,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -182843,6 +182932,21 @@ __webpack_require__.r(__webpack_exports__);
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -182860,6 +182964,9 @@ __webpack_require__.r(__webpack_exports__);
         leads: [],
         clients: []
       },
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       summaryModal: false,
       showModal: false,
       loading: false,
@@ -182877,6 +182984,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     showEditModal: function showEditModal(user, leads, clients) {
       var vm = this;
       this.user = user;
@@ -364233,31 +364352,24 @@ var render = function() {
                 }
               },
               [
-                _c(
-                  "span",
-                  { staticStyle: { float: "left", "padding-top": "2px" } },
-                  [
-                    _vm._v(
-                      "\n                      " +
-                        _vm._s(column.label) +
-                        "\n                    "
-                    )
-                  ]
+                _vm._v(
+                  "\n\n                    " +
+                    _vm._s(column.label) +
+                    " \n                    \n                    "
                 ),
-                _vm._v(" "),
-                index == _vm.columns.length - 1
+                index == _vm.modified_columns.length - 1
                   ? _c(
                       "div",
-                      { staticClass: "col pl-0 dropdown" },
+                      { staticClass: "col pl-0" },
                       [
                         _c(
                           "b-button",
                           {
                             staticClass: "rounded-circle m-0",
-                            attrs: {
-                              "data-toggle": "dropdown",
-                              "aria-haspopup": "true",
-                              "aria-expanded": "false"
+                            on: {
+                              click: function($event) {
+                                _vm.show_column_select = !_vm.show_column_select
+                              }
                             }
                           },
                           [
@@ -364272,7 +364384,33 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(0, true)
+                        _vm.show_column_select
+                          ? _c(
+                              "div",
+                              [
+                                _c("b-form-select", {
+                                  attrs: {
+                                    options: _vm.colum_select_options,
+                                    multiple: "",
+                                    "select-size": 4
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.handleChange()
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.selected_columns,
+                                    callback: function($$v) {
+                                      _vm.selected_columns = $$v
+                                    },
+                                    expression: "selected_columns"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
                       ],
                       1
                     )
@@ -364444,30 +364582,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown-menu" }, [
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Calls")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Sales")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Calls")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Sales")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -364516,7 +364631,7 @@ var render = function() {
                 _c("thead", [
                   _c(
                     "tr",
-                    _vm._l(_vm.columns, function(column, index) {
+                    _vm._l(_vm.modified_columns, function(column, index) {
                       return _c(
                         "th",
                         {
@@ -364566,19 +364681,19 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          index == _vm.columns.length - 1
+                          index == _vm.modified_columns.length - 1
                             ? _c(
                                 "div",
-                                { staticClass: "col pl-0 dropdown" },
+                                { staticClass: "col pl-0" },
                                 [
                                   _c(
                                     "b-button",
                                     {
                                       staticClass: "rounded-circle m-0",
-                                      attrs: {
-                                        "data-toggle": "dropdown",
-                                        "aria-haspopup": "true",
-                                        "aria-expanded": "false"
+                                      on: {
+                                        click: function($event) {
+                                          _vm.show_column_select = !_vm.show_column_select
+                                        }
                                       }
                                     },
                                     [
@@ -364594,43 +364709,33 @@ var render = function() {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "dropdown-menu" }, [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Calls")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Sales")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Calls")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Sales")]
-                                    )
-                                  ])
+                                  _vm.show_column_select
+                                    ? _c(
+                                        "div",
+                                        [
+                                          _c("b-form-select", {
+                                            attrs: {
+                                              options: _vm.colum_select_options,
+                                              multiple: "",
+                                              "select-size": 4
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.handleChange()
+                                              }
+                                            },
+                                            model: {
+                                              value: _vm.selected_columns,
+                                              callback: function($$v) {
+                                                _vm.selected_columns = $$v
+                                              },
+                                              expression: "selected_columns"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -364657,7 +364762,7 @@ var render = function() {
                           }
                         }
                       },
-                      _vm._l(_vm.columns, function(column, i) {
+                      _vm._l(_vm.modified_columns, function(column, i) {
                         return _c(
                           "td",
                           {
@@ -366895,7 +367000,7 @@ var render = function() {
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.columns, function(column, index) {
+          _vm._l(_vm.modified_columns, function(column, index) {
             return _c(
               "th",
               {
@@ -366919,8 +367024,66 @@ var render = function() {
                 _vm._v(
                   "  \n                    " +
                     _vm._s(column.label) +
-                    "  \n                "
-                )
+                    " \n                    \n                    "
+                ),
+                index == _vm.modified_columns.length - 1
+                  ? _c(
+                      "div",
+                      { staticClass: "col pl-0" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            staticClass: "rounded-circle m-0",
+                            on: {
+                              click: function($event) {
+                                _vm.show_column_select = !_vm.show_column_select
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              staticStyle: { width: "10px" },
+                              attrs: {
+                                src: "/images/workstation/Asset 28@4x.png",
+                                alt: "Icon"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.show_column_select
+                          ? _c(
+                              "div",
+                              [
+                                _c("b-form-select", {
+                                  attrs: {
+                                    options: _vm.colum_select_options,
+                                    multiple: "",
+                                    "select-size": 4
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.handleChange()
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.selected_columns,
+                                    callback: function($$v) {
+                                      _vm.selected_columns = $$v
+                                    },
+                                    expression: "selected_columns"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ],
+                      1
+                    )
+                  : _vm._e()
               ]
             )
           }),
@@ -366942,7 +367105,7 @@ var render = function() {
                 }
               }
             },
-            _vm._l(_vm.columns, function(column, i) {
+            _vm._l(_vm.modified_columns, function(column, i) {
               return _c(
                 "td",
                 { key: i, class: column.numeric ? "numeric" : "" },
