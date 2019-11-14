@@ -1688,10 +1688,64 @@ a.down-scroll:hover {
                     sticky-header="190px"
                     responsive
                   >
+                    <template slot="agent_name" slot-scope="data">   
+                      <input
+                        v-model="deal.deal_name"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="deal_name" slot-scope="data">   
+                      <input
+                        v-model="deal.agent_name"    
+                        type="text"    
+                        id="agent-name"     
+                        name="AgentName"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="closing_date" slot-scope="data">   
+                      <a-date-picker    
+                        v-model="deal.closing_date"    
+                        id="closing-date"     
+                        name="ClosingDate"   
+                        class="form-control rounded-pill p-0 border-0"/> 
+                    </template>
+
                     <template slot="type" slot-scope="data">   
-                      <div v-if='type === "1"'>Existing Business</div>
-                      <div v-else-if='type === "2"'>New Business</div>
+                      <div v-if="type === '1'">Existing Business</div>
+                      <div v-else-if="type === '2'">New Business</div>
                       <div v-else>None</div> 
+                    </template>
+
+                    <template slot="lead_source" slot-scope="data">   
+                      <a-select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Advertising</a-select-option>   
+                        <a-select-option value="2">Cold Call</a-select-option>   
+                        <a-select-option value="3">Employee Referral</a-select-option>   
+                        <a-select-option value="4">External Referral</a-select-option>   
+                        <a-select-option value="5">Online Store</a-select-option>    
+                      </a-select>    
+                    </template>
+
+                    <template slot="amount" slot-scope="data">   
+                      <input   
+                        v-model="deal.amount" 
+                        type="number"    
+                        id="amount"     
+                        name="Amount"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="description" slot-scope="data">   
+                      <textarea 
+                        v-model="deal.description"   
+                        id="info"     
+                        name="Info"   
+                        class="form-control"/> 
                     </template>
 
                     <template slot="stage" slot-scope="data">   
@@ -1703,11 +1757,47 @@ a.down-scroll:hover {
                       <div v-else>None</div> 
                     </template>
 
-                     <template slot="statsu" slot-scope="data">   
-                      <div v-if="stage == '1'">Paid</div>
-                      <div v-else-if="stage == '2'">Pending</div>
-                      <div v-else-if="stage == '3'">Due</div>
-                      <div v-else-if="stage == '4'">Rejected</div>
+                    <template slot="probability" slot-scope="data">   
+                      <input
+                        v-model="deal.probability"    
+                        type="text"    
+                        id="probability"     
+                        name="Probability"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="expected_revenue" slot-scope="data">   
+                      <input
+                        v-model="deal.expected_revenue"    
+                        type="number"    
+                        id="revenue"     
+                        name="Revenue"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="contact_name" slot-scope="data">   
+                      <input  
+                        v-model="deal.contact_name"   
+                        type="text"    
+                        id="contact-name"     
+                        name="ContactName"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                    <template slot="contact_number" slot-scope="data">   
+                      <input 
+                        v-model="deal.contact_number"    
+                        type="tel"    
+                        id="contact-number"     
+                        name="ContactNumber"   
+                        class="form-control rounded-pill"/> 
+                    </template>
+
+                     <template slot="status" slot-scope="data">   
+                      <div v-if="stage == 1">Paid</div>
+                      <div v-else-if="stage == 2">Pending</div>
+                      <div v-else-if="stage == 3">Due</div>
+                      <div v-else-if="stage == 4">Rejected</div>
                       <div v-else>None</div> 
                     </template>
                   </b-table>           
