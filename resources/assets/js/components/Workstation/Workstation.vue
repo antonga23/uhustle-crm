@@ -25,6 +25,7 @@
   letter-spacing: 0.05em; 
   color: #1e2253; 
   font-family: "Rubik", sans-serif;
+  padding: 10px 15px;
 } 
 .top-section .top { 
   font-size: 12px; 
@@ -37,8 +38,8 @@
 .border-top-grey { 
   border-top: 1px solid #ededee; 
 } 
-.border-right-grey { 
-  border-right: 1px solid #ededee; 
+.border-left-grey { 
+  border-left: 1px solid #ededee; 
 } 
  
 div.col-6:last-child .inner-div .row, div.col-6:nth-last-child(2) .inner-div .row { 
@@ -844,58 +845,83 @@ a.down-scroll:hover {
           <div class="2" v-for="(item, name, i) in module_item" :key="i">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-if="name == 'source' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value.name"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div>  
               
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-else-if="name == 'product' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
+                <div class="col-8 border-left-grey bottom truncate">  
+                  <input
+                    v-model="item.meta_value.name"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div> 
 
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name + ' ' + item.meta_value.surname }}</p>  
+                <div class="col-8 border-left-grey bottom truncate">  
+                  <input
+                    v-model="item.meta_value.name + ' ' + item.meta_value.surname"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div>  
               <div  
-                class="row mx-0 border-top-grey truncate"  
+                class="row mx-0 border-top-grey truncate align-items-center"  
                 v-else-if="name == 'email' && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  /> 
                 </div>  
               </div>  
 
-              <div class="row mx-0 border-top-grey" v-else>  
+              <div class="row mx-0 border-top-grey align-items-center" v-else>  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />  
                 </div> 
               </div> 
             </div> 
@@ -1450,378 +1476,7 @@ a.down-scroll:hover {
               </div> 
             </div> 
           </div> 
-        </div> 
- 
-        <!-- Activities Starts --> 
-        <!-- Yong <div class="row mx-0 mb-0 activities">   
-          <div class="col-lg-12 px-0">   
-            <div class="card shadow-none mt-3 border-0 tab-card">   
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">   
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">   
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link active"   
-                      id="one-tab"   
-                      data-toggle="tab"   
-                      href="#five"   
-                      role="tab"   
-                      aria-controls="Five"   
-                      aria-selected="true"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Open Activities.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Open Activities</span>   
-                    </a>   
-                  </li>   
-  
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link"   
-                      id="two-tab"   
-                      data-toggle="tab"   
-                      href="#six"   
-                      role="tab"   
-                      aria-controls="Six"   
-                      aria-selected="false"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Closed Activities.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Closed Activities</span>   
-                    </a>   
-                  </li>   
-                </ul>   
-              </div>   
-  
-              <div class="tab-content" id="myTabContent">   
-                <div   
-                  class="tab-pane fade show active"   
-                  id="five" role="tabpanel"   
-                  aria-labelledby="one-tab"  
-                >   
-                  <b-table   
-                    hover   
-                    :items="activityItems"   
-                    :per-page="perPage"  
-                    :current-page="currentPage"  
-                    sticky-header  
-                  >  
-                    <template v-for="item in activityItems" v-slot:cell(statusColor)="data">  
-                      <p>hi {{ data.item.statusColor }}</p>  
-                    </template>  
-                  </b-table>  
-  
-                  <b-pagination  
-                    v-model="currentPage"  
-                    :total-rows="rows"  
-                    :per-page="perPage"  
-                    aria-controls="my-table"  
-                  ></b-pagination>               
-                </div>  
-  
-                <div   
-                  class="tab-pane fade"   
-                  id="six"   
-                  role="tabpanel"   
-                  aria-labelledby="two-tab"  
-                >    
-                  <b-table hover :items="activityItems" per-page="5">  
-                    <template v-slot:cell(statusColor)="data">  
-                      <p :style="{color: statusColor}">hi</p>  
-                    </template>  
-                  </b-table>  
-                </div>   
-              </div>   
-            </div>   
-          </div>    
-        </div>--> 
-        <!-- Activities Starts End --> 
- 
-        <!-- Deals Starts --> 
-        <!-- Yong <div class="row mx-0 mb-0 deals">   
-          <div class="col-lg-12 px-0">   
-            <div class="card shadow-none mt-3 border-0 tab-card">   
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">   
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">   
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link active"   
-                      id="one-tab"   
-                      data-toggle="tab"   
-                      href="#seven"   
-                      role="tab"   
-                      aria-controls="Seven"   
-                      aria-selected="true"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Deals.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Deals</span>   
-                    </a>   
-                  </li>   
-  
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link"   
-                      id="two-tab"   
-                      data-toggle="tab"   
-                      href="#eight"   
-                      role="tab"   
-                      aria-controls="Eight"   
-                      aria-selected="false"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Create_a_deal.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="36"  
-                        style="margin-top:11px; margin-bottom:11px;"  
-                      />   
-                      <span>Create a Deal</span>   
-                    </a>   
-                  </li>   
-                </ul>   
-              </div>   
-  
-              <div class="tab-content" id="myTabContent">   
-                <div   
-                  class="tab-pane fade show active"   
-                  id="seven" role="tabpanel"   
-                  aria-labelledby="one-tab"  
-                >   
-                  <b-table hover :items="dealItems"></b-table>          
-                </div>  
-  
-                <div   
-                  class="tab-pane fade"   
-                  id="eight"   
-                  role="tabpanel"   
-                  aria-labelledby="two-tab"  
-                >    
-                  <p>Deal information</p>  
-                  <div class="row mx-0">  
-                    <div class="col-7 pl-0">  
-                      <div class="row mx-0">  
-                        <div class="col-6 pl-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name  
-                            <input   
-                              type="text"   
-                              id="agent-name"    
-                              name="AgentName"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name  
-                            <input   
-                              type="text"   
-                              id="deal-name"    
-                              name="DealName"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date  
-                            <input   
-                              type="date"   
-                              id="closing-date"    
-                              name="ClosingDate"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                        </div>  
-                        <div class="col-6 pr-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type  
-                            <select class="custom-select rounded-pill border-0">  
-                              <option selected>-None-</option>  
-                              <option value="1">Existing Business</option>  
-                              <option value="2">New Business</option>  
-                            </select>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source  
-                            <select class="custom-select rounded-pill border-0">  
-                              <option selected>-None-</option>  
-                              <option value="1">Advertising</option>  
-                              <option value="2">Cold Call</option>  
-                              <option value="3">Employee Referral</option>  
-                              <option value="4">External Referral</option>  
-                              <option value="5">Online Store</option>  
-                            </select>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount  
-                            <input   
-                              type="number"   
-                              id="amount"    
-                              name="Amount"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                        </div>  
-  
-                        <div class="col-12 px-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information  
-                            <textarea   
-                              id="info"    
-                              name="Info"  
-                              class="form-control border-0"/>  
-                          </label>  
-                        </div>  
-                      </div>  
-  
-                    </div>  
-  
-                    <div class="col-3">  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage  
-                        <select class="custom-select rounded-pill border-0">  
-                          <option selected>-None-</option>  
-                          <option value="1">Qualification</option>  
-                          <option value="2">Needs Analysis</option>  
-                          <option value="3">Value Proposition</option>  
-                          <option value="4">Proposal</option>  
-                          <option value="5">Negotiation</option>  
-                        </select>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)  
-                        <input   
-                          type="text"   
-                          id="probability"    
-                          name="Probability"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue  
-                        <input   
-                          type="number"   
-                          id="revenue"    
-                          name="Revenue"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name  
-                        <input   
-                          type="text"   
-                          id="contact-name"    
-                          name="ContactName"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number  
-                        <input   
-                          type="tel"   
-                          id="contact-number"    
-                          name="ContactNumber"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                    </div>  
-  
-                    <div class="col-2 align-self-end pr-0">  
-                      <div class="row mx-0">  
-                        <div class="col-lg-6 pl-0 pr-2">  
-                          <button   
-                            type="submit"   
-                            class="btn btn-default cancel-deal w-100 m-0 border-0"   
-                            @click=""  
-                          >Cancel</button>  
-                        </div>  
-                        <div class="col-lg-6 pr-0 pl-2">  
-                          <button   
-                            type="submit"   
-                            class="btn btn-primary save-deal w-100 rounded-pill m-0"   
-                            @click=""  
-                          >Save</button>  
-                        </div>  
-                      </div>  
-                    </div>  
-                  </div>  
-  
-                  <div  
-                    v-for="(stat, index) in comments.comments_graph"  
-                    :key="index"  
-                    class="row mx-0 mb-1 align-items-center"  
-                  >  
-                    <div class="col-12 px-0">  
-                      <div class="row mx-0 mb-0 align-items-center">  
-                        <div class="col-12 align-content-end px-0">  
-                          <p class="text-right mb-0 stat-perc">{{ stat.percentage }}%</p>  
-                        </div>  
-  
-                        <div class="col px-0">  
-                          <p class="mb-0 summary-abr">{{ stat.type }}</p>  
-                        </div>  
-  
-                        <div class="col-11 pr-0 pl-4">  
-                          <div class="progress-bar w-100">  
-                            <span class="tank" :style="{width: + stat.percentage + '%'}"></span>  
-                          </div>  
-                        </div>  
-                      </div>  
-                    </div>  
-                  </div>  
-                </div>  
-              </div>  
-  
-              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab" style="display:none;">  
-                <p  
-                  class="email-desc font-weight-light font-italic"  
-                >Choose a template or write your own email to Client</p>  
-  
-                <div class="row mx-0 align-items-center">  
-                  <div class="col-auto pl-0">  
-                    <p class="text-uppercase font-weight-bold mb-2">Templates:</p>  
-                  </div>  
-                  <div class="col-auto pl-0 mb-2 pr-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Introduce Stock</button>  
-                  </div>  
-                  <div class="col-auto mb-2 px-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >First time sell</button>  
-                  </div>  
-                  <div class="col-auto mb-2 px-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Up sell</button>  
-                  </div>  
-                  <div class="col-auto mb-2 pr-0 pl-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Extra Info</button>  
-                  </div>  
-                </div>  
-  
-                <textarea  
-                  id="message-body"  
-                  name="message"  
-                  class="form-control border-0"  
-                  placeholder="Write comment here..."  
-                />  
-  
-                <div class="flex-shrink-1 text-right">  
-                  <button  
-                    id="submit-btn"  
-                    type="submit"  
-                    class="btn p-0 mb-0 mx-0"  
-                    @click="sendEmail()"  
-                  >  
-                    <img  
-                      src="/images/icons/workstation/Submit.svg"  
-                      alt="Icon"  
-                      class="icon"  
-                      width="76"  
-                    />  
-                  </button>  
-                </div>  
-              </div>  
-            </div>  
-          </div>  
-        </div>  
+        </div>   
   
         <!-- Activities Starts -->  
         <div class="row mx-0 mb-0 activities">    
@@ -1925,10 +1580,10 @@ a.down-scroll:hover {
                     :per-page="perPage"   
                     :current-page="currentPage"   
                     sticky-header="190px"   
-                  >   
+                  >
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>   
+                    </template>
                   </b-table>   
    
                   <b-pagination   
@@ -1991,7 +1646,7 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Deals.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="13%"   
+                        width="31"   
                       />    
                       <span>Deals</span>    
                     </a>    
@@ -2011,8 +1666,7 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Create_a_deal.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="36"   
-                        style="margin-top:11px; margin-bottom:11px;"   
+                        width="31"  
                       />    
                       <span>Create a Deal</span>    
                     </a>    
@@ -2026,7 +1680,37 @@ a.down-scroll:hover {
                   id="seven" role="tabpanel"    
                   aria-labelledby="one-tab"   
                 >    
-                  <b-table hover :items="dealItems"></b-table>           
+                  <b-table 
+                    hover 
+                    :items="dealItems" 
+                    :per-page="perPage"   
+                    :current-page="currentPage"   
+                    sticky-header="190px"
+                    responsive
+                  >
+                    <template slot="type" slot-scope="data">   
+                      <div v-if='type === "1"'>Existing Business</div>
+                      <div v-else-if='type === "2"'>New Business</div>
+                      <div v-else>None</div> 
+                    </template>
+
+                    <template slot="stage" slot-scope="data">   
+                      <div v-if="stage == '1'">Qualification</div>
+                      <div v-else-if="stage == '2'">Needs Analysis</div>
+                      <div v-else-if="stage == '3'">Value Proposition</div>
+                      <div v-else-if="stage == '4'">Proposal</div>
+                      <div v-else-if="stage == '5'">Negotiation</div>
+                      <div v-else>None</div> 
+                    </template>
+
+                     <template slot="statsu" slot-scope="data">   
+                      <div v-if="stage == '1'">Paid</div>
+                      <div v-else-if="stage == '2'">Pending</div>
+                      <div v-else-if="stage == '3'">Due</div>
+                      <div v-else-if="stage == '4'">Rejected</div>
+                      <div v-else>None</div> 
+                    </template>
+                  </b-table>           
                 </div>   
    
                 <div    
@@ -2455,33 +2139,7 @@ export default {
         expected_revenue:'' ,
         contact_name:'' ,
         contact_number:'' ,
-      },
-      dealItems: [  
-        {  
-          dealName: "#f42222",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        },  
-        {  
-          dealName: "#00d58e",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        },  
-        {  
-          dealName: "#ff8c37",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        }  
-      ],  
+      },  
       perPage: 10,  
       currentPage: 1,
       radioStyle: {
@@ -2499,7 +2157,7 @@ export default {
   methods: {
     getDeals(){
       var vm = this;
-      axios.get("/deals/get-all/" + this.item_id ).then(function(response) {  
+      axios.get("/deals/get-all/" + this.item_id ).then(function(response) {
         vm.dealItems = response.data.deals;
       });
     },

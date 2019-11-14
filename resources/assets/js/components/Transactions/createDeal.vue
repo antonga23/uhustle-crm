@@ -1,20 +1,19 @@
 <style scoped>
 input, textarea, select {
-  border-radius: 50rem;
-  padding: 11px 18px!important;
-  font-size: 12px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding: 11px 18px!important;
+  font-size: 12px;
   color: #003449;
   border-color: #ccc;
-  margin-bottom: 7px;
+  margin-bottom: 17px;
   font-family: 'Rubik', sans-serif;
   height: auto!important;
 }
 textarea {
-  border-radius: 25px;
+  border-radius: 10px;
   height: 124px!important;
 }
 .custom-select {
@@ -26,6 +25,9 @@ label{
   color: #999999;
   margin-bottom: 7px;
   margin-left: 17px;
+}
+.col-2.align-self-end {
+  margin-bottom:17px;
 }
 .cancel-deal {
   border-radius: 50rem!important;
@@ -49,134 +51,129 @@ label{
 <template>
   <div class="createDeal">   
     <p>Deal information</p>   
-    <div class="row mx-0">   
+    <div class="row mx-0 align-items-end">   
       <div class="col-7 pl-0">   
         <div class="row mx-0">   
           <div class="col-6 pl-0">   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name   
-              <input
-                v-model="deal.agent_name"    
-                type="text"    
-                id="agent-name"     
-                name="AgentName"   
-                class="form-control border-0 rounded-pill"/>   
-            </label>   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Name 
-              <select v-model="deal.lead_id" class="custom-select rounded-pill border-0">   
-                <option value="-None-" selected>-None-</option>   
-                <option :value="lead.id" v-for="(lead, index) in leads" :key="index">{{ lead.name + " " + lead.surname  }}</option>  
-              </select>   
-            </label>   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name   
-              <input
-                v-model="deal.deal_name"     
-                type="text"    
-                id="deal-name"     
-                name="DealName"   
-                class="form-control border-0 rounded-pill"/>   
-            </label>   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date   
-              <input    
-                v-model="deal.closing_date" 
-                type="date"    
-                id="closing-date"     
-                name="ClosingDate"   
-                class="form-control border-0 rounded-pill"/>   
-            </label>   
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name</label>   
+            <input
+              v-model="deal.agent_name"    
+              type="text"    
+              id="agent-name"     
+              name="AgentName"   
+              class="form-control rounded-pill"/>   
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Name</label>   
+            <a-select v-model="deal.lead_id" class="custom-select rounded-pill border-0">   
+              <a-select-option value="-None-" selected>-None-</a-select-option>   
+              <a-select-option :value="lead.id" v-for="(lead, index) in leads" :key="index">{{ lead.name + " " + lead.surname  }}</a-select-option>  
+            </a-select>  
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name</label>   
+            <input
+              v-model="deal.deal_name"     
+              type="text"    
+              id="deal-name"     
+              name="DealName"   
+              class="form-control rounded-pill"/> 
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date</label>   
+            <a-date-picker    
+              v-model="deal.closing_date"    
+              id="closing-date"     
+              name="ClosingDate"   
+              class="form-control rounded-pill p-0 border-0"/>   
           </div>   
+
           <div class="col-6 pr-0">   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Type   
-              <select v-model="deal.type"  class="custom-select rounded-pill border-0">   
-                <option value="-None-" selected>-None-</option>   
-                <option value="1">Existing Business</option>   
-                <option value="2">New Business</option>   
-              </select>   
-            </label>   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source   
-              <select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
-                <option value="-None-" selected>-None-</option>   
-                <option value="1">Advertising</option>   
-                <option value="2">Cold Call</option>   
-                <option value="3">Employee Referral</option>   
-                <option value="4">External Referral</option>   
-                <option value="5">Online Store</option>   
-              </select>   
-            </label>   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount   
-              <input   
-                v-model="deal.amount" 
-                type="number"    
-                id="amount"     
-                name="Amount"   
-                class="form-control border-0 rounded-pill"/>   
-            </label>   
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
+            <a-select v-model="deal.type" class="custom-select rounded-pill border-0">   
+              <a-select-option value="-None-" selected>-None-</a-select-option>   
+              <a-select-option value="1">Existing Business</a-select-option>   
+              <a-select-option value="2">New Business</a-select-option>   
+            </a-select>   
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source</label>   
+            <a-select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
+              <a-select-option value="-None-" selected>-None-</a-select-option>   
+              <a-select-option value="1">Advertising</a-select-option>   
+              <a-select-option value="2">Cold Call</a-select-option>   
+              <a-select-option value="3">Employee Referral</a-select-option>   
+              <a-select-option value="4">External Referral</a-select-option>   
+              <a-select-option value="5">Online Store</a-select-option>    
+            </a-select>   
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount</label>  
+            <input   
+              v-model="deal.amount" 
+              type="number"    
+              id="amount"     
+              name="Amount"   
+              class="form-control rounded-pill"/>   
+
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage</label> 
+            <a-select v-model="deal.stage" class="custom-select rounded-pill border-0">   
+              <a-select-option value="-None-" selected>-None-</a-select-option>   
+              <a-select-option value="1">Qualification</a-select-option>   
+              <a-select-option value="2">Needs Analysis</a-select-option>   
+              <a-select-option value="3">Value Proposition</a-select-option>   
+              <a-select-option value="4">Proposal</a-select-option>   
+              <a-select-option value="5">Negotiation</a-select-option>   
+            </a-select>   
           </div>   
 
           <div class="col-12 px-0">   
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information   
-              <textarea 
-                v-model="deal.description"   
-                id="info"     
-                name="Info"   
-                class="form-control border-0"/>   
-            </label>   
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information   </label>   
+            <textarea 
+              v-model="deal.description"   
+              id="info"     
+              name="Info"   
+              class="form-control "/>   
           </div>   
         </div>   
-
       </div>   
 
-      <div class="col-3">   
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage   
-          <select v-model="deal.stage" class="custom-select rounded-pill border-0">   
-            <option value="-None-" selected>-None-</option>   
-            <option value="1">Qualification</option>   
-            <option value="2">Needs Analysis</option>   
-            <option value="3">Value Proposition</option>   
-            <option value="4">Proposal</option>   
-            <option value="5">Negotiation</option>   
-          </select>   
-        </label>   
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)   
-          <input
-            v-model="deal.probability"    
-            type="text"    
-            id="probability"     
-            name="Probability"   
-            class="form-control border-0 rounded-pill"/>   
-        </label>   
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue   
-          <input
-            v-model="deal.expected_revenue"    
-            type="number"    
-            id="revenue"     
-            name="Revenue"   
-            class="form-control border-0 rounded-pill"/>   
-        </label>   
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name   
-          <input  
-            v-model="deal.contact_name"   
-            type="text"    
-            id="contact-name"     
-            name="ContactName"   
-            class="form-control border-0 rounded-pill"/>   
-        </label>   
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number   
-          <input 
-            v-model="deal.contact_number"    
-            type="tel"    
-            id="contact-number"     
-            name="ContactNumber"   
-            class="form-control border-0 rounded-pill"/>   
-        </label> 
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Status     
-          <select v-model="deal.status" class="custom-select rounded-pill border-0">   
-            <option value="-None-" selected>-None-</option>   
-            <option value="1">Paid</option>   
-            <option value="2">Pending</option>   
-            <option value="3">Due</option>   
-            <option value="4">Rejected</option>     
-          </select>  
-        </label> 
+      <div class="col-3">      
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)</label>   
+        <input
+          v-model="deal.probability"    
+          type="text"    
+          id="probability"     
+          name="Probability"   
+          class="form-control rounded-pill"/>   
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue</label>   
+        <input
+          v-model="deal.expected_revenue"    
+          type="number"    
+          id="revenue"     
+          name="Revenue"   
+          class="form-control rounded-pill"/> 
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
+        <input  
+          v-model="deal.contact_name"   
+          type="text"    
+          id="contact-name"     
+          name="ContactName"   
+          class="form-control rounded-pill"/>  
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number</label> 
+        <input 
+          v-model="deal.contact_number"    
+          type="tel"    
+          id="contact-number"     
+          name="ContactNumber"   
+          class="form-control rounded-pill"/>   
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Status</label> 
+        <a-select v-model="deal.status" class="custom-select rounded-pill border-0">   
+          <a-select-option value="-None-" selected>-None-</a-select-option>   
+          <a-select-option value="1">Paid</a-select-option>   
+          <a-select-option value="2">Pending</a-select-option>   
+          <a-select-option value="3">Due</a-select-option>   
+          <a-select-option value="4">Rejected</a-select-option>     
+        </a-select>  
       </div>   
 
       <div class="col-2 align-self-end pr-0">   
@@ -184,7 +181,7 @@ label{
           <div class="col-lg-6 pl-0 pr-2">   
             <button    
               type="submit"    
-              class="btn btn-default cancel-deal w-100 m-0 border-0"    
+              class="btn btn-default cancel-deal w-100 m-0"    
               @click="clearDeal()"   
             >Cancel</button>   
           </div>   
