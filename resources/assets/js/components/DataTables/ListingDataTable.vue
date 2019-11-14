@@ -3,7 +3,7 @@
     <div class="card no-box-shadow material-table" style="width: fit-content;">
         <b-form-group>
             <b-form-checkbox-group id="checkbox-group-1" v-model="selected" name="flavour-1">
-                <table ref="table">
+                <table ref="table" class="leads-table">
                     <thead>
                         <tr>
                             <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
@@ -71,7 +71,7 @@
                                                   {{ item.item[column.field].meta_value.name  }}
                                                 </span>
                                               </span>
-                                              <select v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value"  class="form-control">
+                                              <select v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Source"  name="Source" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                                   <option :value="null">- Please Choose Source</option>
                                                   <option :value="{ id : item.id, name : item.name }" v-for="(item,index) in sources" :key="index">{{ item.name}}</option>
                                               </select>
@@ -86,7 +86,7 @@
                                                   {{ item.item[column.field].meta_value.name  }}
                                                 </span>
                                               </span>
-                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control">
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="package"  name="Package" v-model="item.item[column.field].meta_value"   class="form-control editable">
                                                   <option :value="null">- Please Choose Package</option>
                                                   <option :value="item" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
                                               </select>
@@ -101,7 +101,7 @@
                                                   {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
                                                 </span>
                                               </span>
-                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control">
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="role"  name="Owner" v-model="item.item[column.field].meta_value" class="form-control editable">
                                                   <option :value="null">- Please Choose Lead Owner </option>
                                                   <option :value="{id: item.id, name : item.name, surname : item.lastname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                               </select>
@@ -116,7 +116,7 @@
                                                   {{ item.item[column.field].meta_value.name + ' ' + item.item[column.field].meta_value.surname  }}
                                                 </span>
                                               </span>
-                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control">
+                                              <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Assignee"  name="Assignee" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                                   <option :value="null">- Please Choose Assignee</option>
                                                   <option :value="{id: item.id, name : item.name, surname : item.lastname }" v-for="(item,index) in active_users" :key="index">{{ item.name + ' ' + item.lastname }}</option>
                                               </select>
@@ -131,7 +131,7 @@
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
-                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                                     <option :value="null">- Please Choose Status </option>
                                                     <option value="1">Active</option>
                                                     <option value="2">Inactive</option>
@@ -149,7 +149,7 @@
                                                     {{ item.item[column.field].meta_value  }}
                                                   </span>
                                                 </span>
-                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                                     <option :value="null">- Please Choose Status </option>
                                                     <option value="Dr">Dr</option>
                                                     <option value="Mr">Mr</option>
@@ -168,7 +168,7 @@
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
-                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                <select  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="status"  name="Status" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                                     <option value="">- Please Choose Status </option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -184,7 +184,7 @@
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
-                                                <input  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control">
+                                                <input  v-if="editing_row === true && item.item.id == row.id && row_id === row.id" type="text" id="Name"  name="Name" v-model="item.item[column.field].meta_value"  class="form-control editable">
                                             </span>
 
                                           </span>
@@ -869,12 +869,15 @@ table tr td a.Edit:active{
  @media screen and (max-width: 1500px) {
      table tr td {
         font-size: 12px !important;
-        padding: 5px 0px 5px 0px !important;
+        padding: 5px 10px 5px 0px !important;
      }
  }
 
 .control-label{
     float: left;
+}
+.editable {
+    border-radius: 20px;
 }
 div.material-table {
     padding: 0;
@@ -1043,10 +1046,10 @@ table {
 table tr td {
     height: 35px;
     font-size: 0.73vw;
-    color: #003449;
+    color: #1c2331;
     display: table-cell;
     font-family: 'Rubik', sans-serif !important;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 0px;
     min-width: 150px;
 }
 
@@ -1057,7 +1060,7 @@ table tr td a i {
 
 table tr {
     font-size: 0.63vw;
-    border-bottom: 1px solid #B3B3B3;
+    border-bottom: 1px solid #f2f2f2;
     padding-left: 0;
     width: auto;
     white-space: nowrap; 
@@ -1073,7 +1076,7 @@ table th {
     color: #A6A6A6;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0;
+    padding-right: 20px;
     /* height: 56px; */
     /* padding-left: 14px; */
     vertical-align: middle;
