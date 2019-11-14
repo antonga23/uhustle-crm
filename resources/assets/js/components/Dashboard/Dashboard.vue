@@ -329,7 +329,7 @@
         <div class="col-12 px-0 agent-stats">
           <div class="card-deck w-100 mx-0 px-0">
             <div class="card border-0 mb-0 ml-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">11</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_calls }}</p>
               <p class="card-desc text-center mb-0">Calls made</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -339,7 +339,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">5</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_sales }}</p>
               <p class="card-desc text-center mb-0">Sales Quantity</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -349,7 +349,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">$365</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.sum_sales }}</p>
               <p class="card-desc text-center mb-0">Sales amount</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -359,7 +359,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center m-0">45%</p>
+              <p class="card-numeral font-weight-bold text-center m-0">{{ call_log.con_ratio }}%</p>
               <p class="card-desc text-center mb-0">Conversion Ratio</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -369,7 +369,7 @@
             </div>
 
             <div class="card border-0 mr-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">$3000</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.commission }}</p>
               <p class="card-desc text-center mb-0">Commission</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -832,6 +832,7 @@
     data: function(){
       return {
         call_log : {
+          commission: '',
           total_calls: '',
           total_sales: '',
           con_ratio: '',
@@ -895,6 +896,7 @@
         axios.get(endpoint).then(function (response) {
             
           if(response.data.success == true){
+            vm.call_log.commission = response.data.commission;
             vm.call_log.total_calls = response.data.total_calls;
             vm.call_log.total_sales = response.data.total_sales;
             vm.call_log.con_ratio = response.data.con_ratio;

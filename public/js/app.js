@@ -180749,6 +180749,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       call_log: {
+        commission: '',
         total_calls: '',
         total_sales: '',
         con_ratio: '',
@@ -180828,6 +180829,7 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
+          vm.call_log.commission = response.data.commission;
           vm.call_log.total_calls = response.data.total_calls;
           vm.call_log.total_sales = response.data.total_sales;
           vm.call_log.con_ratio = response.data.con_ratio;
@@ -180890,6 +180892,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuse.js */ "./node_modules/fuse.js/src/fuse.js");
 /* harmony import */ var fuse_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuse_js__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -362369,17 +362372,99 @@ var render = function() {
       _c("div", { staticClass: "row mx-0", attrs: { id: "top-section" } }, [
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "col-12 px-0 agent-stats" }, [
+          _c("div", { staticClass: "card-deck w-100 mx-0 px-0" }, [
+            _c("div", { staticClass: "card border-0 mb-0 ml-0" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-numeral font-weight-bold text-center mb-0"
+                },
+                [_vm._v(_vm._s(_vm.call_log.total_calls))]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-desc text-center mb-0" }, [
+                _vm._v("Calls made")
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mb-0" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-numeral font-weight-bold text-center mb-0"
+                },
+                [_vm._v(_vm._s(_vm.call_log.total_sales))]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-desc text-center mb-0" }, [
+                _vm._v("Sales Quantity")
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mb-0" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-numeral font-weight-bold text-center mb-0"
+                },
+                [_vm._v(_vm._s(_vm.call_log.sum_sales))]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-desc text-center mb-0" }, [
+                _vm._v("Sales amount")
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mb-0" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-numeral font-weight-bold text-center m-0"
+                },
+                [_vm._v(_vm._s(_vm.call_log.con_ratio) + "%")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-desc text-center mb-0" }, [
+                _vm._v("Conversion Ratio")
+              ]),
+              _vm._v(" "),
+              _vm._m(4)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mr-0 mb-0" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "card-numeral font-weight-bold text-center mb-0"
+                },
+                [_vm._v(_vm._s(_vm.call_log.commission))]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-desc text-center mb-0" }, [
+                _vm._v("Commission")
+              ]),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 px-0 agent-graphs" }, [
           _c("div", { staticClass: "card-deck mx-0" }, [
-            _vm._m(2),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "div",
               { staticClass: "card my-0 mr-0 border-0 shadow-none tab-card" },
               [
-                _vm._m(3),
+                _vm._m(7),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -362399,7 +362484,7 @@ var render = function() {
                         }
                       },
                       [
-                        _vm._m(4),
+                        _vm._m(8),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -362464,7 +362549,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(5)
+                    _vm._m(9)
                   ]
                 )
               ]
@@ -362472,7 +362557,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(6)
+        _vm._m(10)
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "divider-line w-100" }),
@@ -362745,7 +362830,7 @@ var render = function() {
                     "row mx-0 justify-content-between align-items-center"
                 },
                 [
-                  _vm._m(7),
+                  _vm._m(11),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -363205,113 +363290,65 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 px-0 agent-stats" }, [
-      _c("div", { staticClass: "card-deck w-100 mx-0 px-0" }, [
-        _c("div", { staticClass: "card border-0 mb-0 ml-0" }, [
-          _c(
-            "p",
-            { staticClass: "card-numeral font-weight-bold text-center mb-0" },
-            [_vm._v("11")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-desc text-center mb-0" }, [
-            _vm._v("Calls made")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-stat text-center mb-0" }, [
-            _c("img", {
-              staticClass: "d-inline-block",
-              attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
-            }),
-            _vm._v(" "),
-            _vm._v("\n              14%\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card border-0 mb-0" }, [
-          _c(
-            "p",
-            { staticClass: "card-numeral font-weight-bold text-center mb-0" },
-            [_vm._v("5")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-desc text-center mb-0" }, [
-            _vm._v("Sales Quantity")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-stat text-center mb-0" }, [
-            _c("img", {
-              staticClass: "d-inline-block",
-              attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
-            }),
-            _vm._v(" "),
-            _vm._v("\n              3%\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card border-0 mb-0" }, [
-          _c(
-            "p",
-            { staticClass: "card-numeral font-weight-bold text-center mb-0" },
-            [_vm._v("$365")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-desc text-center mb-0" }, [
-            _vm._v("Sales amount")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-stat text-center mb-0" }, [
-            _c("img", {
-              staticClass: "d-inline-block",
-              attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
-            }),
-            _vm._v(" "),
-            _vm._v("\n              11%\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card border-0 mb-0" }, [
-          _c(
-            "p",
-            { staticClass: "card-numeral font-weight-bold text-center m-0" },
-            [_vm._v("45%")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-desc text-center mb-0" }, [
-            _vm._v("Conversion Ratio")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-stat text-center mb-0" }, [
-            _c("img", {
-              staticClass: "d-inline-block",
-              attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
-            }),
-            _vm._v(" "),
-            _vm._v("\n              33%\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card border-0 mr-0 mb-0" }, [
-          _c(
-            "p",
-            { staticClass: "card-numeral font-weight-bold text-center mb-0" },
-            [_vm._v("$3000")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-desc text-center mb-0" }, [
-            _vm._v("Commission")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-stat text-center mb-0" }, [
-            _c("img", {
-              staticClass: "d-inline-block",
-              attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
-            }),
-            _vm._v(" "),
-            _vm._v("\n              33%\n            ")
-          ])
-        ])
-      ])
+    return _c("p", { staticClass: "card-stat text-center mb-0" }, [
+      _c("img", {
+        staticClass: "d-inline-block",
+        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+      }),
+      _vm._v(" "),
+      _vm._v("\n              14%\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-stat text-center mb-0" }, [
+      _c("img", {
+        staticClass: "d-inline-block",
+        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+      }),
+      _vm._v(" "),
+      _vm._v("\n              3%\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-stat text-center mb-0" }, [
+      _c("img", {
+        staticClass: "d-inline-block",
+        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+      }),
+      _vm._v(" "),
+      _vm._v("\n              11%\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-stat text-center mb-0" }, [
+      _c("img", {
+        staticClass: "d-inline-block",
+        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+      }),
+      _vm._v(" "),
+      _vm._v("\n              33%\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-stat text-center mb-0" }, [
+      _c("img", {
+        staticClass: "d-inline-block",
+        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+      }),
+      _vm._v(" "),
+      _vm._v("\n              33%\n            ")
     ])
   },
   function() {

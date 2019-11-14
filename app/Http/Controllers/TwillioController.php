@@ -432,8 +432,7 @@ class TwillioController extends Controller
 
         $client = new Client($this->account_sid, $this->auth_token);
 
-        $twilios = Twillio::with('lead')
-                    ->where(['agent_id' => $request_user['user_id']])
+        $twilios = Twillio::where(['agent_id' => $request_user['user_id']])
                     ->whereYear('created_at', '=' ,$now->year)
                     ->whereMonth('created_at', '=' ,$month)
                     ->orderBy('created_at', 'DESC')
@@ -492,8 +491,12 @@ class TwillioController extends Controller
           'call_back' => $next_call_back
         ];
 
+        // TODO: Get commission from preferences
+        $commission = $sum_sales * (16/100);
+
         return array(
             'success' => true, 
+            'commission' => $commission,
             'total_calls' => $total_calls,
             'total_sales' => $total_sales,
             'con_ratio' => $con_ratio,
