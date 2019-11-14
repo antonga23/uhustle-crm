@@ -95,20 +95,11 @@
 
                 <a-col :span="5">
                   <div>
-                    <label for="input-none">Status</label>
-                    <b-form-checkbox
-                    id="structure_a-0"
-                    v-model="item.status.value"
-                    name="checkbox-1"
-                    value="1"
-                    unchecked-value="0"
-                    >
-                    <p v-if="item.status.value == 1">Active</p>
-                    <p v-else>Disabled</p>
-                    </b-form-checkbox>
-                    <a-switch :id="'structure_a-0'" v-model="item.status.value"/>
-                    <label v-if="item.status.value == 1">Active</label>
+                    <label for="input-none" class="mb-4 ml-0">Status</label>
+                    <br/>
+                    <a-switch v-model="item.status.value" :id="'structure_a-0'"/>
                     <label v-if="item.status.value == 0">Inactive</label>
+                    <label v-if="item.status.value == 1">Active</label>
                   </div>
                 </a-col>
               </a-row>
@@ -145,24 +136,15 @@
 
                 <a-col :span="3" class="mr-4">
                   <div>
-                    <label for="input-none">Status</label>
-                    <b-form-checkbox
-                    :id="'structure_b-' + index"
-                    v-model="range.status.value"
-                    name="checkbox-1"
-                    value="1"
-                    unchecked-value="0"
-                    >
-                    <p v-if="range.status.value == 1">Active</p>
-                    <p v-else>Disabled</p>
-                    </b-form-checkbox>
-                    <a-switch :id="'structure_b-' + index" v-model="range.status.value"/>
-                    <label v-if="range.status.value == 1">Active</label>
+                    <label for="input-none" class="mb-4 ml-0">Status</label>
+                    <br/>
+                    <a-switch v-model="range.status.value" :id="'structure_b-' + index"/>
                     <label v-if="range.status.value == 0">Inactive</label>
+                    <label v-if="range.status.value == 1">Active</label>
                   </div>
                 </a-col>
 
-                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
+                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 45px;">
                   <b-button
                     v-if="(index + 1) < structure_b.length" 
                     @click="removeBField(index)"
@@ -213,24 +195,15 @@
 
                 <a-col :span="3" class="mr-4">
                   <div>
-                    <label for="input-none">Status</label>
-                    <b-form-checkbox
-                      :id="'structure_c' + i"
-                      v-model="item.status.value"
-                      name="checkbox-1"
-                      value="1"
-                      unchecked-value="0"
-                    >
-                      <p v-if="item.status.value == 1">Active</p>
-                      <p v-else>Disabled</p>
-                    </b-form-checkbox>
-                    <a-switch :id="'structure_c' + i" v-model="item.status.value"/>
-                    <label v-if="item.status.value == 1">Active</label>
+                    <label for="input-none" class="mb-4 ml-0">Status</label>
+                    <br/>
+                    <a-switch v-model="item.status.value" :id="'structure_c' + i"/>
                     <label v-if="item.status.value == 0">Inactive</label>
+                    <label v-if="item.status.value == 1">Active</label>
                   </div>
                 </a-col>
 
-                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 36px;">
+                <a-col :span="3" sm="auto" class="pr-0" style="padding-top: 45px;">
                   <b-button
                     v-if="(index + 1) < structure_c.length" 
                     @click="removeCField(index)"
