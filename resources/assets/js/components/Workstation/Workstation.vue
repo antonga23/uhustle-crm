@@ -25,7 +25,7 @@
   letter-spacing: 0.05em; 
   color: #1e2253; 
   font-family: "Rubik", sans-serif;
-  padding: 10px 15px;
+  padding: 5px 15px;
 } 
 .top-section .top { 
   font-size: 12px; 
@@ -822,9 +822,6 @@ a.down-scroll:hover {
   margin-bottom: 17px;
   font-family: 'Rubik', sans-serif;
   height:auto!important;
-}
-.activity-status-col label {
-  margin-bottom: 18px;
 }
 .activity-status {
   width:12px;
