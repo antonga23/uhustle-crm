@@ -878,7 +878,8 @@ text-align: right;
 }
 
 /* workstation schedule callback */
-.ant-calendar-picker-input.ant-input, .ant-time-picker-input {
+.ant-calendar-picker-input.ant-input, 
+.ant-time-picker-input {
   border-radius: 50rem!important;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
@@ -888,6 +889,12 @@ text-align: right;
   font-family: 'Rubik', sans-serif !important;
   max-width:128px;
   color: #353C49;
+}
+@media screen and (max-width: 1643px) {
+  .calendar .ant-calendar-picker-input.ant-input,
+  .calendar .ant-time-picker-input {
+    max-width: 105px;
+  }
 }
 .notes-roll .ant-card-head {
   padding-left: 0;

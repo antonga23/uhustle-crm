@@ -261,6 +261,11 @@
     font-weight: 600;
     font-size: 12px;
   }
+  .calendar .col-6,
+  .reminders .col-6 {
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+  }
   .calendar p {
     font-family: 'Rubik', sans-serif;
     font-size: 10px;
