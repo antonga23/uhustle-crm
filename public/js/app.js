@@ -186460,6 +186460,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -186484,6 +186537,8 @@ __webpack_require__.r(__webpack_exports__);
       account_on: false,
       callbacks_on: true,
       messages_on: false,
+      generalStats_on: false,
+      filters_on: false,
       call_backs: [],
       tasks: [],
       messages: [],
@@ -186595,6 +186650,8 @@ __webpack_require__.r(__webpack_exports__);
       this.notifications_on = !this.notifications_on;
       this.settings_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
     },
     filterProperties: function filterProperties() {
       this.appendBorder = !this.appendBorder;
@@ -186608,6 +186665,22 @@ __webpack_require__.r(__webpack_exports__);
       this.settings_on = !this.settings_on;
       this.notifications_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
+    },
+    showGeneralStats: function showGeneralStats() {
+      this.generalStats_on = !this.generalStats_on;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.settings_on = false;
+      this.filters_on = false;
+    },
+    showFiltersTab: function showFiltersTab() {
+      this.filters_on = !this.filters_on;
+      this.settings_on = false;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.generalStats_on = false;
     },
     showCallbacks: function showCallbacks() {
       this.callbacks_on = true;
@@ -246686,7 +246759,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0 !important;\r\n  left: auto;\r\n  overflow: visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\r\n.main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\r\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\r\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0 !important;\r\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\r\n  .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0 !important;\r\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\r\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow: visible;\n}\np[data-v-48ad9a74] {\r\n  color: #9fb3bb;\r\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\r\n  color: #1a1c43;\r\n  font-size: 0.83vw;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\r\n  float: right;\r\n  cursor: pointer;\r\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\r\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  color: #1e2331;\r\n  padding-top: 6px;\r\n  position: relative;\r\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\r\n  color: red;\n}\n.status[data-v-48ad9a74] {\r\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover {\r\n  color: #3b3b3b;\r\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\r\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\r\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\r\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\r\n  background: #f7f6fb;\r\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(161, 237, 128, 1) 0%,\r\n    rgba(98, 211, 126, 1) 100%\r\n  ) !important;\r\n  border-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\r\n  font-weight: 900;\r\n  font-size: 0.83vw;\r\n  color: #1a1c43;\r\n  margin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\r\n  font-size: 12px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #1e2331;\r\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg);\r\n  /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\r\n  transform: rotate(0deg);\r\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\r\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\r\n.general-system-prefs[data-v-48ad9a74],\r\n.notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius: 50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\r\n  height: 24px !important;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\r\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  border-radius: 21px;\r\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\r\n  font-size: 9px;\r\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\r\n.themes label[data-v-48ad9a74]:nth-child(2),\r\n.language label[data-v-48ad9a74],\r\n.notifications label[data-v-48ad9a74],\r\n.action-btns label[data-v-48ad9a74]:first-child,\r\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\r\n  margin-right: 8px;\r\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\r\n  color: #989899;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-size: 12px;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 0.6vw;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\r\n.language .btn-default[data-v-48ad9a74],\r\n.language .btn-active[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\r\n.btn-orange-active[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\r\n  background: #fff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  top: 5px;\r\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\r\n  width: 13px;\r\n  height: 100%;\r\n  z-index: 1;\r\n  position: absolute;\r\n  left: 66px;\r\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\r\n  background-size: 69% 34%;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\r\n  color: #ffffff;\r\n  font-size: 10px;\r\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Dot.png\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\r\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 12px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\r\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\r\n.caller-name[data-v-48ad9a74] {\r\n  color: #333333;\r\n  font-size: 0.7vw;\r\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\r\n  float: right;\r\n  font-size: 0.6vw;\r\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\r\n  color: #808080;\r\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\r\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\r\n  color: #7f8080;\r\n  padding-bottom: 16px;\r\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\r\n  width: 30px;\r\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\r\n.update-filter[data-v-48ad9a74],\r\n.save-filter[data-v-48ad9a74] {\r\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\r\n  font-size: 55px;\r\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\r\n  color: rgba(28, 35, 49, 0.5);\r\n  border-bottom: 0.5px solid #f4f4f5 !important;\r\n  background-color: #fff !important;\r\n  font-size: 10px;\r\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\r\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\r\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\r\n  font-size: 0.73vw;\r\n  color: #666666;\r\n  border-color: #ccc;\r\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\r\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] {\r\n  font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 12px !important;\r\n  font-size: 12px;\r\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  color: #193246;\r\n  font-weight: 600;\r\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\r\n  height: 100px !important;\r\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\r\n.stats-section .calls[data-v-48ad9a74],\r\n.search-input[data-v-48ad9a74],\r\n.filter-search[data-v-48ad9a74],\r\n.filter-by[data-v-48ad9a74] {\r\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\r\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\r\np.badges[data-v-48ad9a74] {\r\n  border-bottom: 0.5px solid #f4f4f5;\r\n  margin-bottom: 5px;\r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\r\n.export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top: 17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\r\n    background-repeat: no-repeat;\r\n    height: 43px;\r\n    width: 43px;\r\n    top: 2px;\r\n    position: relative;\r\n    left: -11px;\n}\n.menu-toggle[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/right-sidebar/General.svg\") !important;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\r\n\r\n/* .reminders { \r\n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \r\n    border-radius: 25px; \r\n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\r\n  text-align: right;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  align-items: center;\r\n  line-height: 1em;\r\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\r\n.filter-content .tabs[data-v-48ad9a74] {\r\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\r\n  padding-left: 6%;\r\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\r\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50% !important;\r\n  border: 1px solid #ededed;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\r\n.reminders .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 19px;\r\n  left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #808080;\r\n  padding-left: 37px !important;\r\n  width: 100%;\r\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\r\n.nav-link[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important;\r\n  -webkit-box-shadow: none !important;\r\n  -moz-box-shadow: none !important;\r\n  -o-box-shadow: none !important;\r\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\r\n  padding: 11px 14px 10px;\r\n  line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\r\n    border-left: 0;\r\n    border-top: 0;\r\n    border-right: 0;\r\n    border-bottom: 1px solid #f7f7f7;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:focus {\r\n   outline: 0 !important;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  border-radius: 50% !important;\r\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  border-radius: 50% !important;\r\n  background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\r\n  background: #b3b3b3 !important;\r\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\r\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\r\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #808080;\r\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\r\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 10px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\r\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\r\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  font-weight: 600;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\r\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\r\n  padding: 11px;\r\n  border-radius: 50rem;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  transition: box-shadow 0.5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover {\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  color: #171717 !important;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\r\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\r\n  margin-left: -27px;\r\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\r\n.saved-results[data-v-48ad9a74] {\r\n  border-radius: 14px;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  padding-left: 28px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\r\n  .filter-results\r\n  .custom-control.custom-checkbox\r\n  .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 12px;\r\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\r\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  border-radius: 14px;\r\n  padding: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\r\n.save-text[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-weight: 300;\r\n  font-style: italic;\r\n  border-radius: 15px;\r\n  padding: 10px;\n}\n.row.filter-content\r\n  .search-text::-webkit-input-placeholder\r\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 10px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #b3b3b3 !important;\r\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\r\n  max-height: 200px;\r\n  overflow: auto;\r\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\r\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74] {\r\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\r\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\r\ninput.save-text[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0 !important;\r\n  left: auto;\r\n  overflow: visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\r\n.main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\r\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\r\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0 !important;\r\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\r\n  .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0 !important;\r\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\r\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow: visible;\n}\np[data-v-48ad9a74] {\r\n  color: #9fb3bb;\r\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\r\n  color: #1a1c43;\r\n  font-size: 0.83vw;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\r\n  float: right;\r\n  cursor: pointer;\r\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\r\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  color: #1e2331;\r\n  padding-top: 6px;\r\n  position: relative;\r\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\r\n  color: red;\n}\n.status[data-v-48ad9a74] {\r\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover {\r\n  color: #3b3b3b;\r\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\r\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\r\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\r\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\r\n  background: #f7f6fb;\r\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(161, 237, 128, 1) 0%,\r\n    rgba(98, 211, 126, 1) 100%\r\n  ) !important;\r\n  border-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\r\n  font-weight: 900;\r\n  font-size: 0.83vw;\r\n  color: #1a1c43;\r\n  margin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\r\n  font-size: 12px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #1e2331;\r\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg);\r\n  /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\r\n  transform: rotate(0deg);\r\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\r\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\r\n.general-system-prefs[data-v-48ad9a74],\r\n.notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius: 50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\r\n  height: 24px !important;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\r\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  border-radius: 21px;\r\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\r\n  font-size: 9px;\r\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\r\n.themes label[data-v-48ad9a74]:nth-child(2),\r\n.language label[data-v-48ad9a74],\r\n.notifications label[data-v-48ad9a74],\r\n.action-btns label[data-v-48ad9a74]:first-child,\r\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\r\n  margin-right: 8px;\r\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\r\n  color: #989899;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-size: 12px;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 0.6vw;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\r\n.language .btn-default[data-v-48ad9a74],\r\n.language .btn-active[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\r\n.btn-orange-active[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\r\n  background: #fff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  top: 5px;\r\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\r\n  width: 13px;\r\n  height: 100%;\r\n  z-index: 1;\r\n  position: absolute;\r\n  left: 66px;\r\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\r\n  background-size: 69% 34%;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\r\n  color: #ffffff;\r\n  font-size: 10px;\r\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Dot.png\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\r\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 12px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\r\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\r\n.caller-name[data-v-48ad9a74] {\r\n  color: #333333;\r\n  font-size: 0.7vw;\r\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\r\n  float: right;\r\n  font-size: 0.6vw;\r\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\r\n  color: #808080;\r\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\r\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\r\n  color: #7f8080;\r\n  padding-bottom: 16px;\r\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\r\n  width: 30px;\r\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\r\n.update-filter[data-v-48ad9a74],\r\n.save-filter[data-v-48ad9a74] {\r\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\r\n  font-size: 55px;\r\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\r\n  color: rgba(28, 35, 49, 0.5);\r\n  border-bottom: 0.5px solid #f4f4f5 !important;\r\n  background-color: #fff !important;\r\n  font-size: 10px;\r\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\r\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\r\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\r\n  font-size: 0.73vw;\r\n  color: #666666;\r\n  border-color: #ccc;\r\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\r\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] {\r\n  font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 12px !important;\r\n  font-size: 12px;\r\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  color: #193246;\r\n  font-weight: 600;\r\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\r\n  height: 100px !important;\r\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\r\n.stats-section .calls[data-v-48ad9a74],\r\n.search-input[data-v-48ad9a74],\r\n.filter-search[data-v-48ad9a74],\r\n.filter-by[data-v-48ad9a74] {\r\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\r\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\r\np.badges[data-v-48ad9a74] {\r\n  border-bottom: 0.5px solid #f4f4f5;\r\n  margin-bottom: 5px;\r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\r\n.export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top: 17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/Notifications_Active.svg\") !important;\n}\n.nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/Settings_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/New_Not_Red_Active.svg\") !important;\n}\r\n\r\n/* .menu-toggle {\r\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\r\n    background-repeat: no-repeat;\r\n    height: 43px;\r\n    width: 43px;\r\n    top: 2px;\r\n    position: relative;\r\n    left: -11px;\r\n}\r\n.menu-toggle:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\r\n}\r\n\r\n.sidebar-collapse .menu-toggle {\r\n  background-image: url(\"/images/icons/right-sidebar/General.svg\") !important;\r\n}\r\n.sidebar-collapse .menu-toggle:hover {\r\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\r\n}\r\n\r\n.reminders { \r\n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \r\n    border-radius: 25px; \r\n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\r\n  text-align: right;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  align-items: center;\r\n  line-height: 1em;\r\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\r\n.filter-content .tabs[data-v-48ad9a74] {\r\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\r\n  padding-left: 6%;\r\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\r\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50% !important;\r\n  border: 1px solid #ededed;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\r\n.reminders .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 19px;\r\n  left: 0.2rem;\r\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #808080;\r\n  padding-left: 37px !important;\r\n  width: 100%;\r\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\r\n.nav-link[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important;\r\n  -webkit-box-shadow: none !important;\r\n  -moz-box-shadow: none !important;\r\n  -o-box-shadow: none !important;\r\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\r\n  padding: 11px 14px 10px;\r\n  line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\r\n    border-left: 0;\r\n    border-top: 0;\r\n    border-right: 0;\r\n    border-bottom: 1px solid #f7f7f7;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:focus {\r\n   outline: 0 !important;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  border-radius: 50% !important;\r\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  border-radius: 50% !important;\r\n  background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\r\n  background: #b3b3b3 !important;\r\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\r\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\r\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #808080;\r\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\r\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 10px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\r\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\r\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  font-weight: 600;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\r\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\r\n  padding: 6px;\r\n  border-radius: 50rem;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  transition: box-shadow 0.5s ease;\n}\r\n\r\n/* .inactive-icon:hover {\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n} */\n.filter-heading[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  color: #171717 !important;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\r\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\r\n  margin-left: -27px;\r\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\r\n.saved-results[data-v-48ad9a74] {\r\n  border-radius: 14px;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  padding-left: 28px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\r\n  .filter-results\r\n  .custom-control.custom-checkbox\r\n  .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 12px;\r\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\r\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  border-radius: 14px;\r\n  padding: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\r\n.save-text[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-weight: 300;\r\n  font-style: italic;\r\n  border-radius: 15px;\r\n  padding: 10px;\n}\n.row.filter-content\r\n  .search-text::-webkit-input-placeholder\r\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 10px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #b3b3b3 !important;\r\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\r\n  max-height: 200px;\r\n  overflow: auto;\r\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\r\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74] {\r\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\r\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\r\ninput.save-text[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -370455,143 +370528,220 @@ var render = function() {
             attrs: { "data-widget": "tree" }
           },
           [
-            _c(
-              "nav",
-              {
-                staticClass:
-                  "navbar navbar-expand-md navbar-light bg-white px-6 w-100 row mx-0 justify-content-between align-items-center border-bottom"
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav col-auto" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon p-0 mr-2",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showNotifications()
+            _c("div", { staticClass: "px-6-hide" }, [
+              _c(
+                "nav",
+                {
+                  staticClass:
+                    "navbar navbar-expand-md navbar-light bg-white p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav col-auto" }, [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 generalIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showGeneralStats()
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm.notifications_on == true
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notifications_Active.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : _vm.notifications_on == false &&
-                            _vm.unread_messages == 0 &&
-                            _vm.call_backs.length == 0
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notification.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : (_vm.notifications_on == false &&
-                              _vm.unread_messages >= 1) ||
-                            _vm.call_backs.length > 0
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notifications_red.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : _vm._e()
-                      ]
-                    )
+                        },
+                        [
+                          _vm.generalStats_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/General.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/General_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 filterIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showFiltersTab()
+                            }
+                          }
+                        },
+                        [
+                          _vm.filters_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src: "/images/icons/right-sidebar/Filter.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Filter_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 notificationsIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showNotifications()
+                            }
+                          }
+                        },
+                        [
+                          _vm.notifications_on == true
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications_Active.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : _vm.notifications_on == false &&
+                              _vm.unread_messages == 0 &&
+                              _vm.call_backs.length == 0
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Notification.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : (_vm.notifications_on == false &&
+                                _vm.unread_messages >= 1) ||
+                              _vm.call_backs.length > 0
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/New_Not_Red.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 settingsIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showSettings()
+                            }
+                          }
+                        },
+                        [
+                          _vm.settings_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Setting.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Settings_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon p-0",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showSettings()
-                          }
-                        }
-                      },
-                      [
-                        _vm.settings_on == false
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src: "/images/icons/right-sidebar/Setting.svg",
-                                alt: "Settings Cog",
-                                width: "43"
-                              }
-                            })
-                          : _c("img", {
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Settings_Active.svg",
-                                alt: "Settings Cog",
-                                width: "43"
-                              }
-                            })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "navbar-nav col-auto text-right pr-0" },
-                  [
-                    _c("div", { staticClass: "row mx-0 justify-content-end" }, [
-                      _c("li", { staticClass: "nav-item col-auto pr-0" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link icon pt-0 px-0 small-avatar",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.showSettings()
-                              }
-                            }
-                          },
-                          [
-                            _vm.user.avatar != "" && _vm.user.avatar != null
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      _vm.avatarUrl +
-                                      _vm.user.id +
-                                      "/" +
-                                      _vm.user.avatar
+                  _c(
+                    "ul",
+                    { staticClass: "navbar-nav col-auto text-right pr-0" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "row mx-0 justify-content-end" },
+                        [
+                          _c("li", { staticClass: "nav-item col-auto pr-0" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "nav-link icon pt-0 px-0 mr-2 small-avatar",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showSettings()
                                   }
-                                })
-                              : _c("img", { attrs: { src: _vm.noImageUrl } })
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            ),
+                                }
+                              },
+                              [
+                                _vm.user.avatar != "" && _vm.user.avatar != null
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          _vm.avatarUrl +
+                                          _vm.user.id +
+                                          "/" +
+                                          _vm.user.avatar
+                                      }
+                                    })
+                                  : _c("img", {
+                                      attrs: { src: _vm.noImageUrl }
+                                    })
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "open-sidenav mt-3" }, [
               _vm.settings_on == true
-                ? _c("div", { staticClass: "settings px-2" }, [
+                ? _c("div", { staticClass: "settings px-6-hide ml-2" }, [
                     _c(
                       "div",
                       { staticClass: "row mx-0 pt-0 border-bottom" },
@@ -370603,7 +370753,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 p-0"
                           },
                           [
-                            _vm._m(1),
+                            _vm._m(0),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.profile_on == false
@@ -371499,7 +371649,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(2),
+                            _vm._m(1),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.account_on == false
@@ -371979,7 +372129,7 @@ var render = function() {
                                   "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                               },
                               [
-                                _vm._m(3),
+                                _vm._m(2),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-auto" }, [
                                   _vm.system_settings_on == false
@@ -372332,7 +372482,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -372724,7 +372874,7 @@ var render = function() {
                               "row mx-0 justify-content-between align-items-center w-100 mx-0 p-0"
                           },
                           [
-                            _vm._m(5),
+                            _vm._m(4),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-auto" }, [
                               _vm.system_settings_on == false
@@ -372986,21 +373136,21 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _vm.notifications_on == true
-                ? _c("div", { staticClass: "notifications p-2" }, [
+                ? _c("div", { staticClass: "notifications px-6-hide ml-2" }, [
                     _c("div", { staticClass: "row mx-0" }, [
-                      _vm._m(6),
+                      _vm._m(5),
                       _vm._v(" "),
                       _c("div", { staticClass: "w-100 mt-0" }, [
                         _c(
                           "label",
                           {
-                            staticClass: "col-lg-3 mt-0 control-label w-100 p-0"
+                            staticClass: "col-auto mt-0 control-label w-100 p-0"
                           },
                           [
                             _c(
                               "button",
                               {
-                                staticClass: "w-100 m-0 btn-white",
+                                staticClass: "m-0 btn-white",
                                 class: {
                                   btn: true,
                                   "btn-orange-active": _vm.callbacks_on,
@@ -373123,21 +373273,23 @@ var render = function() {
                                 }),
                                 0
                               )
-                            : _c("div", [_vm._m(7)])
+                            : _c("div", [_vm._m(6)])
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.callbacks_on == false && _vm.messages_on == true
                       ? _c("div", { staticClass: "row mx-0" }, [
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
-                          _vm._m(9)
+                          _vm._m(8)
                         ])
                       : _vm._e()
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.notifications_on == false && _vm.settings_on == false
+              _vm.notifications_on == false &&
+              _vm.settings_on == false &&
+              _vm.filters_on == false
                 ? _c("div", [
                     _c(
                       "div",
@@ -373146,7 +373298,7 @@ var render = function() {
                         _c("div", { staticClass: "col-lg-12 px-0" }, [
                           _c("div", { staticClass: "row mx-0 p-0" }, [
                             _c("div", { staticClass: "col-lg-12 px-0" }, [
-                              _vm._m(10),
+                              _vm._m(9),
                               _vm._v(" "),
                               _c("div", { staticClass: "progress-bar w-100" }, [
                                 _c("span", {
@@ -373157,11 +373309,11 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
+                          _vm._m(10),
+                          _vm._v(" "),
                           _vm._m(11),
                           _vm._v(" "),
-                          _vm._m(12),
-                          _vm._v(" "),
-                          _vm._m(13)
+                          _vm._m(12)
                         ])
                       ]
                     ),
@@ -374161,262 +374313,208 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "closed-sidenav d-none" }, [
-              _c("p", { staticClass: "filter-heading mt-2 mx-2 mb-3" }, [
-                _vm._v("Filter")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row mx-0 filter-content" },
-                [
+            _vm.filters_on == true
+              ? _c("div", [
+                  _c("h3", { staticClass: "px-6-hide mt-2 mx-2" }, [
+                    _vm._v("Filter")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "b-tabs",
-                    { attrs: { "content-class": "mt-3 px-2" } },
+                    "div",
+                    { staticClass: "row mx-0 px-6-hide filter-content" },
                     [
-                      _c("b-tab", { attrs: { title: "New" } }, [
-                        _c(
-                          "div",
-                          { staticClass: "px-2 filter-container grey-scroll" },
-                          [
-                            _c("div", { staticClass: "filter-group" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "p-2 custom-control custom-checkbox",
-                                  class: { filterborder: _vm.appendBorder },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.filterProperties()
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass: "custom-control-input mx-0",
-                                    attrs: {
-                                      disabled: _vm.filterValue === "",
-                                      type: "checkbox",
-                                      id: "newFilter1"
-                                    },
-                                    domProps: { checked: _vm.filterValue != "" }
-                                  }),
-                                  _vm._v(" "),
+                      _c(
+                        "b-tabs",
+                        { attrs: { "content-class": "mt-3 px-2" } },
+                        [
+                          _c("b-tab", { attrs: { title: "New" } }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "px-2 filter-container grey-scroll"
+                              },
+                              [
+                                _c("div", { staticClass: "filter-group" }, [
                                   _c(
-                                    "label",
+                                    "div",
                                     {
                                       staticClass:
-                                        "custom-control-label mx-0 pt-0",
-                                      attrs: { for: "newFilter1" }
-                                    },
-                                    [_vm._v("Name")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "mr-4 pt-2 pb-2 pl-34",
-                                  class: { show: _vm.showFilters },
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c(
-                                    "select",
-                                    {
-                                      staticClass: "search-criteria w-100 mb-2"
+                                        "p-2 custom-control custom-checkbox",
+                                      class: { filterborder: _vm.appendBorder },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.filterProperties()
+                                        }
+                                      }
                                     },
                                     [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          disabled: _vm.filterValue === "",
+                                          type: "checkbox",
+                                          id: "newFilter1"
+                                        },
+                                        domProps: {
+                                          checked: _vm.filterValue != ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "option",
-                                        { attrs: { selected: "" } },
-                                        [_vm._v("is equal to")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "1" } }, [
-                                        _vm._v("contains")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "2" } }, [
-                                        _vm._v("does not contain")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("begins with")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("ends with")
-                                      ])
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "newFilter1" }
+                                        },
+                                        [_vm._v("Name")]
+                                      )
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.filterValue,
-                                        expression: "filterValue"
-                                      }
-                                    ],
-                                    staticClass: "search-text w-100 mt-2",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Text Here",
-                                      value: ""
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "mr-4 pt-2 pb-2 pl-34",
+                                      class: { show: _vm.showFilters },
+                                      staticStyle: { display: "none" }
                                     },
-                                    domProps: { value: _vm.filterValue },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
+                                    [
+                                      _c(
+                                        "select",
+                                        {
+                                          staticClass:
+                                            "search-criteria w-100 mb-2"
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { selected: "" } },
+                                            [_vm._v("is equal to")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("contains")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("does not contain")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("begins with")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("ends with")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.filterValue,
+                                            expression: "filterValue"
+                                          }
+                                        ],
+                                        staticClass: "search-text w-100 mt-2",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Text Here",
+                                          value: ""
+                                        },
+                                        domProps: { value: _vm.filterValue },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.filterValue =
+                                              $event.target.value
+                                          }
                                         }
-                                        _vm.filterValue = $event.target.value
-                                      }
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "filter-results grey-scroll mr-4 pl-34",
-                                class: { show: _vm.filterValue != "" },
-                                staticStyle: { display: "none" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result1" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result1" }
-                                      },
-                                      [_vm._v("John Davies")]
-                                    )
-                                  ]
-                                ),
+                                      })
+                                    ]
+                                  )
+                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "div",
                                   {
                                     staticClass:
-                                      "custom-control custom-checkbox"
+                                      "filter-results grey-scroll mr-4 pl-34",
+                                    class: { show: _vm.filterValue != "" },
+                                    staticStyle: { display: "none" }
                                   },
                                   [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result2" }
-                                    }),
-                                    _vm._v(" "),
                                     _c(
-                                      "label",
+                                      "div",
                                       {
                                         staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result2" }
+                                          "custom-control custom-checkbox"
                                       },
-                                      [_vm._v("John Davies")]
+                                      [
+                                        _c("input", {
+                                          staticClass:
+                                            "custom-control-input mx-0",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: "result1"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "custom-control-label mx-0 pt-0",
+                                            attrs: { for: "result1" }
+                                          },
+                                          [_vm._v("John Davies")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
+                                      },
+                                      [
+                                        _c("input", {
+                                          staticClass:
+                                            "custom-control-input mx-0",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: "result2"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "custom-control-label mx-0 pt-0",
+                                            attrs: { for: "result2" }
+                                          },
+                                          [_vm._v("John Davies")]
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
-                          },
-                          [
-                            _c("div", { staticClass: "col pl-0 pr-2" }, [
-                              _c("input", {
-                                staticClass: "save-text w-100",
-                                attrs: {
-                                  type: "text",
-                                  placeholder: "Custom Filter Name",
-                                  value: ""
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-auto pr-0 pl-2" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-primary save-filter mt-2 rounded-pill m-0",
-                                  attrs: { type: "submit" }
-                                },
-                                [_vm._v("Save")]
-                              )
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("b-tab", { attrs: { title: "Saved", active: "" } }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-2 saved-group filter-container grey-scroll"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "p-2 custom-control custom-checkbox",
-                                class: { filterborder: _vm.appendBorder },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.savedFilters()
-                                  }
-                                }
-                              },
-                              [
-                                _c("input", {
-                                  staticClass: "custom-control-input mx-0",
-                                  attrs: {
-                                    type: "checkbox",
-                                    disabled: _vm.appendBorder === false,
-                                    id: "savedFilter1"
-                                  },
-                                  domProps: {
-                                    checked: _vm.appendBorder !== false
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "custom-control-label mx-0 pt-0",
-                                    attrs: { for: "savedFilter1" }
-                                  },
-                                  [_vm._v("Saved")]
                                 )
                               ]
                             ),
@@ -374424,52 +374522,142 @@ var render = function() {
                             _c(
                               "div",
                               {
-                                staticClass: "pl-34",
-                                class: { show: _vm.showSavedFilters },
-                                staticStyle: { display: "none" }
+                                staticClass:
+                                  "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
                               },
                               [
-                                _c(
-                                  "div",
-                                  { staticClass: "saved-results p-2" },
-                                  [
-                                    _c("span", { staticClass: "orange pr-2" }, [
-                                      _vm._v("⬤")
-                                    ]),
-                                    _vm._v("Name\n                    ")
-                                  ]
-                                ),
+                                _c("div", { staticClass: "col pl-0 pr-2" }, [
+                                  _c("input", {
+                                    staticClass: "save-text w-100",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Custom Filter Name",
+                                      value: ""
+                                    }
+                                  })
+                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  {
-                                    staticClass:
-                                      "col-auto pr-0 pl-2 float-right"
-                                  },
+                                  { staticClass: "col-auto pr-0 pl-2" },
                                   [
                                     _c(
                                       "button",
                                       {
                                         staticClass:
-                                          "btn btn-primary update-filter mt-2 rounded-pill mr-4",
+                                          "btn btn-primary save-filter mt-2 rounded-pill m-0",
                                         attrs: { type: "submit" }
                                       },
-                                      [_vm._v("Edit")]
+                                      [_vm._v("Save")]
                                     )
                                   ]
                                 )
                               ]
                             )
-                          ]
-                        )
-                      ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "b-tab",
+                            { attrs: { title: "Saved", active: "" } },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "px-2 saved-group filter-container grey-scroll"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "p-2 custom-control custom-checkbox",
+                                      class: { filterborder: _vm.appendBorder },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.savedFilters()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          type: "checkbox",
+                                          disabled: _vm.appendBorder === false,
+                                          id: "savedFilter1"
+                                        },
+                                        domProps: {
+                                          checked: _vm.appendBorder !== false
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "savedFilter1" }
+                                        },
+                                        [_vm._v("Saved")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "pl-34",
+                                      class: { show: _vm.showSavedFilters },
+                                      staticStyle: { display: "none" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "saved-results p-2" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "orange pr-2" },
+                                            [_vm._v("⬤")]
+                                          ),
+                                          _vm._v("Name\n                    ")
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-auto pr-0 pl-2 float-right"
+                                        },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary update-filter mt-2 rounded-pill mr-4",
+                                              attrs: { type: "submit" }
+                                            },
+                                            [_vm._v("Edit")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
-                ],
-                1
-              )
-            ])
+                ])
+              : _vm._e()
           ]
         )
       ])
@@ -374477,17 +374665,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", {
-        staticClass: "d-block menu-toggle",
-        attrs: { href: "#", "data-toggle": "push-menu" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -374532,7 +374709,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "w-100 mb-2" }, [
+    return _c("h3", { staticClass: "w-100 mb-2 mt-0" }, [
       _vm._v("\n                Notifications\n                "),
       _c("span", { staticClass: "notifications-close" }, [
         _c("img", {

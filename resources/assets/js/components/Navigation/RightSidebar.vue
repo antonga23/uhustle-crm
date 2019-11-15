@@ -720,7 +720,27 @@ p.badges {
   color: #003449;
 }
 
-.menu-toggle {
+.nav-item .nav-link.generalIcon:hover {
+  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
+}
+
+.nav-item .nav-link.filterIcon:hover {
+  background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
+}
+
+.nav-item .nav-link.notificationsIcon:hover {
+  background-image: url("/images/icons/right-sidebar/Notifications_Active.svg") !important;
+}
+
+.nav-item .nav-link.settingsIcon:hover {
+  background-image: url("/images/icons/right-sidebar/Settings_Active.svg") !important;
+}
+
+.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
+  background-image: url("/images/icons/right-sidebar/New_Not_Red_Active.svg") !important;
+}
+
+/* .menu-toggle {
   background-image: url("/images/icons/right-sidebar/Filter.svg") !important;
     background-repeat: no-repeat;
     height: 43px;
@@ -740,7 +760,7 @@ p.badges {
   background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
 }
 
-/* .reminders { 
+.reminders { 
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
@@ -784,6 +804,7 @@ p.badges {
   height: 20px;
   top: 19px;
   left: 0.2rem;
+  cursor: pointer;
 }
 
 .reminders input.list-input {
@@ -902,7 +923,7 @@ border-top: 1px solid #f7f7f7;
   float: right;
 }
 .inactive-icon {
-  padding: 11px;
+  padding: 6px;
   border-radius: 50rem;
   box-shadow: none;
   -webkit-box-shadow: none;
@@ -911,12 +932,12 @@ border-top: 1px solid #f7f7f7;
   transition: box-shadow 0.5s ease;
 }
 
-.inactive-icon:hover {
+/* .inactive-icon:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .filter-heading {
   font-size: 0.83vw;
@@ -1066,16 +1087,48 @@ input.save-text:focus {
       <!-- Control sidebar content goes here -->
       <section class="sidebar px-0">
         <div class="sidebar-menu grey-scroll" data-widget="tree">
+          <div class="px-6-hide">
           <nav
-            class="navbar navbar-expand-md navbar-light bg-white px-6 w-100 row mx-0 justify-content-between align-items-center border-bottom"
+            class="navbar navbar-expand-md navbar-light bg-white p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
           >
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav col-auto">
-                <li class="nav-item">
-                 <a href="#" data-toggle="push-menu" class="d-block menu-toggle"></a>
+               <li class="nav-item">
+                <a class="nav-link icon p-0 generalIcon" href="#" @click="showGeneralStats()">
+                  <img
+                    v-if="generalStats_on == false"
+                    src="/images/icons/right-sidebar/General.svg"
+                    alt="Settings Cog"
+                    width="43"
+                    class="inactive-icon"
+                  />
+                  <img
+                    v-else
+                    src="/images/icons/right-sidebar/General_Active.svg"
+                    alt="Settings Cog"
+                    width="43"
+                  />
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link icon p-0 filterIcon" href="#" @click="showFiltersTab()">
+                  <img
+                    v-if="filters_on == false"
+                    src="/images/icons/right-sidebar/Filter.svg"
+                    alt="Settings Cog"
+                    width="43"
+                    class="inactive-icon"
+                  />
+                  <img
+                    v-else
+                    src="/images/icons/right-sidebar/Filter_Active.svg"
+                    alt="Settings Cog"
+                    width="43"
+                  />
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link icon p-0 mr-2" href="#" @click="showNotifications()">
+                <a class="nav-link icon p-0 notificationsIcon" href="#" @click="showNotifications()">
                   <img
                     v-if="notifications_on == true"
                     src="/images/icons/right-sidebar/Notifications_Active.svg"
@@ -1091,7 +1144,7 @@ input.save-text:focus {
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0"
-                    src="/images/icons/right-sidebar/Notifications_red.svg"
+                    src="/images/icons/right-sidebar/New_Not_Red.svg"
                     alt="Notification Bell"
                     width="43"
                     class="inactive-icon"
@@ -1099,7 +1152,7 @@ input.save-text:focus {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link icon p-0" href="#" @click="showSettings()">
+                <a class="nav-link icon p-0 settingsIcon" href="#" @click="showSettings()">
                   <img
                     v-if="settings_on == false"
                     src="/images/icons/right-sidebar/Setting.svg"
@@ -1116,7 +1169,6 @@ input.save-text:focus {
                 </a>
               </li>
             </ul>
-
             <ul class="navbar-nav col-auto text-right pr-0">
               <div class="row mx-0 justify-content-end">
                 <!-- <li
@@ -1129,9 +1181,8 @@ input.save-text:focus {
                 <li class="nav-item name-li col-auto px-0" v-else>
                   <a class="nav-link name" href="#" @click="showSettings()">{{ user.name }}</a>
                 </li> -->
-
                 <li class="nav-item col-auto pr-0">
-                  <a class="nav-link icon pt-0 px-0 small-avatar" href="#" @click="showSettings()">
+                  <a class="nav-link icon pt-0 px-0 mr-2 small-avatar" href="#" @click="showSettings()">
                     <img
                       v-if="user.avatar != '' && user.avatar != null"
                       :src="avatarUrl + user.id + '/' + user.avatar"
@@ -1142,9 +1193,10 @@ input.save-text:focus {
               </div>
             </ul>
           </nav>
+          </div>
 
           <div class="open-sidenav mt-3">
-            <div v-if="settings_on == true" class="settings px-2">
+            <div v-if="settings_on == true" class="settings px-6-hide ml-2">
               <div class="row mx-0 pt-0 border-bottom">
                 <div class="row mx-0 justify-content-between align-items-center w-100 p-0">
                   <div class>
@@ -1758,9 +1810,9 @@ input.save-text:focus {
               </div>
             </div>
 
-            <div v-if="notifications_on == true" class="notifications p-2">
+            <div v-if="notifications_on == true" class="notifications px-6-hide ml-2">
               <div class="row mx-0">
-                <h3 class="w-100 mb-2">
+                <h3 class="w-100 mb-2 mt-0">
                   Notifications
                   <span class="notifications-close">
                     <img src="/images/icons/close-icon.svg" style="display:none;" />
@@ -1768,14 +1820,13 @@ input.save-text:focus {
                 </h3>
 
                 <div class="w-100 mt-0">
-                  <label class="col-lg-3 mt-0 control-label w-100 p-0">
+                  <label class="col-auto mt-0 control-label w-100 p-0">
                     <button
                       @click="showCallbacks"
                       type="submit"
                       :class="{'btn' : true, 'btn-orange-active' : callbacks_on, 'btn-default border-0' : !callbacks_on, 'btn-has-new' : call_backs.length > 0 }"
-                      class="w-100 m-0 btn-white"
+                      class="m-0 btn-white"
                     >Callbacks</button>
-
                     <div class="btn-has-new-dot"></div>
                   </label>
 
@@ -1874,7 +1925,8 @@ input.save-text:focus {
               </div>
             </div>
 
-            <div v-if="notifications_on == false && settings_on == false">
+            <div v-if="notifications_on == false && settings_on == false && filters_on == false">
+              <!-- <div v-if="generalStats_on == true"> -->
               <div class="row mx-0 py-0 px-6 stats-section">
                 <div class="col-lg-12 px-0">
                   <div class="row mx-0 p-0">
@@ -2148,9 +2200,10 @@ input.save-text:focus {
             </div>
           </div>
 
-          <div class="closed-sidenav d-none">
-            <p class="filter-heading mt-2 mx-2 mb-3">Filter</p>
-            <div class="row mx-0 filter-content">
+          <!-- <div class="closed-sidenav d-none"> -->
+            <div v-if="filters_on == true">
+            <h3 class="px-6-hide mt-2 mx-2">Filter</h3>
+            <div class="row mx-0 px-6-hide filter-content">
               <b-tabs content-class="mt-3 px-2">
                 <b-tab title="New">
                   <div class="px-2 filter-container grey-scroll">
@@ -2292,6 +2345,8 @@ export default {
       account_on: false,
       callbacks_on: true,
       messages_on: false,
+      generalStats_on: false,
+      filters_on: false,
       call_backs: [],
       tasks: [],
       messages: [],
@@ -2418,6 +2473,8 @@ export default {
       this.notifications_on = !this.notifications_on;
       this.settings_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
     },
     filterProperties() {
       this.appendBorder = !this.appendBorder;
@@ -2431,8 +2488,23 @@ export default {
       this.settings_on = !this.settings_on;
       this.notifications_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
     },
-
+      showGeneralStats() {
+      this.generalStats_on = !this.generalStats_on;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.settings_on = false;
+      this.filters_on = false;
+    },
+    showFiltersTab() {
+      this.filters_on = !this.filters_on;
+      this.settings_on = false;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.generalStats_on = false;
+    },
     showCallbacks() {
       this.callbacks_on = true;
       this.messages_on = false;
