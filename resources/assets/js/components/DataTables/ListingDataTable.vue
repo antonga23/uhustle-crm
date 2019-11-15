@@ -37,8 +37,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                            <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
+                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" :key="index">
+                            <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i" >
                                 <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
@@ -183,10 +183,10 @@
 
                                             <span v-else>
                                               <span v-if="item.item[column.field].meta_value !== null">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value }}
                                                 </span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
@@ -787,9 +787,6 @@ thead th {
 table.tg{
     width: 98%;
     margin: 0 auto;
-}
-table tbody tr { 
-  cursor: pointer;
 }
 table.tg td p{
     margin-top: 1em;
