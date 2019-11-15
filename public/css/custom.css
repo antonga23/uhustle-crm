@@ -513,6 +513,13 @@ label:not(.form-check-label):not(.custom-file-label) {
 .ant-calendar {
   border-radius: 25px;
 }
+.ant-calendar-selected-day .ant-calendar-date {
+  background: #fff!important;
+}
+.ant-calendar-date:hover {
+  border-radius: 50rem;
+  background: #ccc!important;
+}
 .ant-calendar-selected-date .ant-calendar-date, .ant-calendar-date:active {
   background: #ff931e!important;
   color:#fff!important;
@@ -964,10 +971,6 @@ text-align: right;
   margin-right: 0;
   min-width:118px;
 }
-.new-activity .ant-select-arrow {
-  top: 5px;
-  right: 0;
-}
 .activities th:first-child {
   color: transparent;
   max-width:30px;
@@ -981,17 +984,53 @@ text-align: right;
   border-bottom: 1px solid #cdcdcf!important;
   white-space: nowrap;
 }
-.activities td, .deals td {
+.activities td, 
+.deals td {
   font-family: 'Rubik', sans-serif;
   font-size: 12px;
   color: #999999;
   border-bottom: 1px solid #cdcdcf!important;
   white-space: nowrap;
+  vertical-align:middle!important;
+}
+.activities td,
+.deals td {
+  padding: 0.75rem 0.75rem 0.75rem 0.25rem!important;
+}
+.activities td:last-child,
+.activities td:nth-last-child(2),
+.deals td:last-child,
+.deals td:nth-last-child(2) {
+  padding: 0.75rem!important;
 }
 .activities tr td:first-child {
-  vertical-align: middle;
   max-width: 30px;
   padding: 0 0 0 10px;
+}
+.activities .ant-calendar-picker-input.ant-input, 
+.activities .ant-time-picker-input,
+.deals .ant-calendar-picker-input.ant-input, 
+.deals .ant-time-picker-input {
+  box-shadow: none!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  -o-box-shadow: none!important;
+  max-width: none;
+  min-width: 110px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+}
+.activities .ant-select-selection__rendered,
+.deals .ant-select-selection__rendered {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+}
+.activities .ant-select-selection.ant-select-selection--single,
+.deals .ant-select-selection.ant-select-selection--single {
+  border: 0;
+  margin-top: 0!important;
 }
 
 /* create a deal */
@@ -1004,7 +1043,7 @@ text-align: right;
   padding: 5px 18px!important;
   font-size: 12px;
   color: #003449;
-  border-color: #ccc;
+  border: 1px solid #ccc!important;
   margin-bottom: 17px;
   font-family: 'Rubik', sans-serif;
   height: auto!important;
@@ -1021,4 +1060,8 @@ text-align: right;
 }
 .createDeal .ant-calendar-picker-clear {
   top:35%;
+}
+.page-item.active .page-link {
+  background-color: #ccc;
+  border-color: #ccc;
 }

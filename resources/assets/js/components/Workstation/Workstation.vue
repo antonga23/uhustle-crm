@@ -600,6 +600,20 @@ a.down-scroll:hover {
 .deals .card-header-tabs { 
   box-shadow: inset 0 -10px 10px #f5f5f5; 
 } 
+.activities input {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+}
+.deals #seven input,
+.deals #seven textarea {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+  white-space: nowrap;
+  padding: 5px 10px !important;
+  max-height: 33px;
+}
 .deals #eight p { 
   font-size: 10px; 
   letter-spacing: 0.05em; 
@@ -828,6 +842,21 @@ a.down-scroll:hover {
 .not-started-activity {
   background-color: #F42222; 
   margin-right: 10px;
+}
+.activity-status-input {
+  min-width:134px;
+}
+.type-input {
+  min-width: 127px;
+}
+.stage-input {
+  min-width: 135px;
+}
+.lead-source-input {
+  min-width:146px;
+}
+.status-input {
+  min-width:69px;
 }
 </style>   
 <template> 
@@ -1553,13 +1582,13 @@ a.down-scroll:hover {
                         <div class="row mx-0 align-items-end">
                           <div class="col-auto pl-0">
                             <label class="d-block">Due date</label>
-                            <a-date-picker v-model="activity.duedate" name="Due Date"  v-validate="'required'" />
+                            <a-date-picker v-model="activity.duedate" name="Due Date" v-validate="'required'" class="ml-2"/>
                             <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
                           </div>
 
                           <div class="col-auto activity-status-col">
                             <label class="d-block ml-0">Status</label>
-                            <a-select v-model="activity.status">
+                            <a-select v-model="activity.status" class="activity-status-input">
                               <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                               <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                               <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1579,10 +1608,32 @@ a.down-scroll:hover {
                     :items="activityItems"    
                     :per-page="perPage"   
                     :current-page="currentPage"   
-                    sticky-header="190px"   
+                    sticky-header="190px"  
+                    responsive 
                   >
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
+                    </template>
+
+                    <template slot="subject" slot-scope="data">   
+                      <input
+                        v-model="data.item.subject"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template> 
+
+                    <template slot="status" slot-scope="data">   
+                      <a-select v-model="data.item.status" class="activity-status-input">
+                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                      </a-select> 
+                    </template> 
+
+                    <template slot="dueDate" slot-scope="data">   
+                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
                     </template>
                   </b-table>   
    
@@ -1606,10 +1657,32 @@ a.down-scroll:hover {
                     :items="activityItems" 
                     sticky-header="190px" 
                     :per-page="perPage"
+                    responsive
                   >   
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>   
+                    </template>
+
+                    <template slot="subject" slot-scope="data">   
+                      <input
+                        v-model="data.item.subject"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template> 
+
+                    <template slot="status" slot-scope="data">   
+                      <a-select v-model="data.item.status" class="activity-status-input">
+                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                      </a-select> 
+                    </template> 
+
+                    <template slot="dueDate" slot-scope="data">   
+                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
+                    </template> 
                   </b-table>  
 
                   <b-pagination   
@@ -1690,38 +1763,40 @@ a.down-scroll:hover {
                   >
                     <template slot="agent_name" slot-scope="data">   
                       <input
-                        v-model="deal.deal_name"     
+                        v-model="data.item.agent_name"     
                         type="text"    
                         id="deal-name"     
                         name="DealName"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control border-0 rounded-pill"/> 
                     </template>
 
                     <template slot="deal_name" slot-scope="data">   
                       <input
-                        v-model="deal.agent_name"    
+                        v-model="data.item.deal_name"    
                         type="text"    
                         id="agent-name"     
                         name="AgentName"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control border-0 rounded-pill"/> 
                     </template>
 
                     <template slot="closing_date" slot-scope="data">   
                       <a-date-picker    
-                        v-model="deal.closing_date"    
+                        v-model="data.item.closing_date"    
                         id="closing-date"     
                         name="ClosingDate"   
-                        class="form-control rounded-pill p-0 border-0"/> 
+                        class="form-control border-0 rounded-pill p-0"/> 
                     </template>
 
                     <template slot="type" slot-scope="data">   
-                      <div v-if="type === '1'">Existing Business</div>
-                      <div v-else-if="type === '2'">New Business</div>
-                      <div v-else>None</div> 
+                      <a-select v-model="data.item.type" class="custom-select rounded-pill border-0 type-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Existing Business</a-select-option>   
+                        <a-select-option value="2">New Business</a-select-option>   
+                      </a-select> 
                     </template>
 
                     <template slot="lead_source" slot-scope="data">   
-                      <a-select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
+                      <a-select v-model="data.item.lead_source" class="custom-select rounded-pill border-0 lead-source-input">   
                         <a-select-option value="-None-" selected>-None-</a-select-option>   
                         <a-select-option value="1">Advertising</a-select-option>   
                         <a-select-option value="2">Cold Call</a-select-option>   
@@ -1733,74 +1808,86 @@ a.down-scroll:hover {
 
                     <template slot="amount" slot-scope="data">   
                       <input   
-                        v-model="deal.amount" 
+                        v-model="data.item.amount" 
                         type="number"    
                         id="amount"     
                         name="Amount"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                     <template slot="description" slot-scope="data">   
                       <textarea 
-                        v-model="deal.description"   
+                        v-model="data.item.description"   
                         id="info"     
                         name="Info"   
-                        class="form-control"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                     <template slot="stage" slot-scope="data">   
-                      <div v-if="stage == '1'">Qualification</div>
-                      <div v-else-if="stage == '2'">Needs Analysis</div>
-                      <div v-else-if="stage == '3'">Value Proposition</div>
-                      <div v-else-if="stage == '4'">Proposal</div>
-                      <div v-else-if="stage == '5'">Negotiation</div>
-                      <div v-else>None</div> 
+                      <a-select v-model="data.item.stage" class="custom-select rounded-pill border-0 stage-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Qualification</a-select-option>   
+                        <a-select-option value="2">Needs Analysis</a-select-option>   
+                        <a-select-option value="3">Value Proposition</a-select-option>   
+                        <a-select-option value="4">Proposal</a-select-option>   
+                        <a-select-option value="5">Negotiation</a-select-option>   
+                      </a-select> 
                     </template>
 
                     <template slot="probability" slot-scope="data">   
                       <input
-                        v-model="deal.probability"    
+                        v-model="data.item.probability"    
                         type="text"    
                         id="probability"     
                         name="Probability"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                     <template slot="expected_revenue" slot-scope="data">   
                       <input
-                        v-model="deal.expected_revenue"    
+                        v-model="data.item.expected_revenue"    
                         type="number"    
                         id="revenue"     
                         name="Revenue"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                     <template slot="contact_name" slot-scope="data">   
                       <input  
-                        v-model="deal.contact_name"   
+                        v-model="data.item.contact_name"   
                         type="text"    
                         id="contact-name"     
                         name="ContactName"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                     <template slot="contact_number" slot-scope="data">   
                       <input 
-                        v-model="deal.contact_number"    
+                        v-model="data.item.contact_number"    
                         type="tel"    
                         id="contact-number"     
                         name="ContactNumber"   
-                        class="form-control rounded-pill"/> 
+                        class="form-control rounded-pill border-0"/> 
                     </template>
 
                      <template slot="status" slot-scope="data">   
-                      <div v-if="stage == 1">Paid</div>
-                      <div v-else-if="stage == 2">Pending</div>
-                      <div v-else-if="stage == 3">Due</div>
-                      <div v-else-if="stage == 4">Rejected</div>
-                      <div v-else>None</div> 
+                      <a-select v-model="data.item.status" class="custom-select rounded-pill border-0 status-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Paid</a-select-option>   
+                        <a-select-option value="2">Pending</a-select-option>   
+                        <a-select-option value="3">Due</a-select-option>   
+                        <a-select-option value="4">Rejected</a-select-option>     
+                      </a-select> 
                     </template>
-                  </b-table>           
+                  </b-table>   
+
+                  <b-pagination   
+                    v-model="currentPage"   
+                    :total-rows="rows"   
+                    :per-page="perPage"   
+                    aria-controls="my-table" 
+                    align="right"  
+                  ></b-pagination>        
                 </div>   
    
                 <div    
