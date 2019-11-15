@@ -188118,6 +188118,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -188185,6 +188187,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -246006,7 +246034,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.permissions-divider[data-v-21fdf7aa] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\nh5[data-v-21fdf7aa] {\n  font-size: 0.83vw;\n}\np[data-v-21fdf7aa] {\n  color: #999999;\n  font-family: 'Rubik', sans-serif;\n  font-size: 14px;\n}\n.btn-secondary[data-v-21fdf7aa] {\n  background: transparent;\n  border: 0;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -246044,7 +246072,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.ant-switch.ant-switch-checked[data-v-81b88ba4] {\n  margin-left: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.ant-switch[data-v-81b88ba4] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -375286,6 +375314,7 @@ var render = function() {
                                       ),
                                       _vm._v(" "),
                                       _c("b-form-checkbox", {
+                                        staticClass: "api-checkbox",
                                         attrs: {
                                           id: "checkbox-1",
                                           name: "checkbox-1",
@@ -375400,16 +375429,34 @@ var render = function() {
                       "b-container",
                       { staticClass: "px-0", attrs: { fluid: "" } },
                       [
-                        _c("h3", [_vm._v("Commission Structure A")]),
-                        _vm._v(" "),
                         _c(
                           "div",
-                          _vm._l(_vm.structure_a, function(item, index) {
-                            return _c(
-                              "a-row",
-                              { key: index },
-                              [
-                                _c("a-col", { attrs: { span: 5 } }, [
+                          {
+                            staticClass:
+                              "row mx-0 align-items-center permissions-divider"
+                          },
+                          [
+                            _c("div", { staticClass: "col-auto pl-0" }, [
+                              _c("h5", { staticClass: "mb-0" }, [
+                                _vm._v("Commission Structure A")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col px-0" }, [
+                              _c("div", { staticClass: "divider-line" })
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.structure_a, function(item, index) {
+                          return _c(
+                            "a-row",
+                            { key: index },
+                            [
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 5 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375439,66 +375486,79 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 5 } }, [
-                                  _c(
-                                    "div",
-                                    [
-                                      _c(
-                                        "label",
-                                        { attrs: { for: "input-none" } },
-                                        [_vm._v("Status")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-form-checkbox",
-                                        {
-                                          attrs: {
-                                            id: "structure_a-0",
-                                            name: "checkbox-1",
-                                            value: "1",
-                                            "unchecked-value": "0"
-                                          },
-                                          model: {
-                                            value: item.status.value,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                item.status,
-                                                "value",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "item.status.value"
-                                          }
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("a-col", { attrs: { span: 5 } }, [
+                                _c(
+                                  "div",
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "mb-4 ml-0",
+                                        attrs: { for: "input-none" }
+                                      },
+                                      [_vm._v("Status")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c("a-switch", {
+                                      attrs: { id: "structure_a-0" },
+                                      model: {
+                                        value: item.status.value,
+                                        callback: function($$v) {
+                                          _vm.$set(item.status, "value", $$v)
                                         },
-                                        [
-                                          item.status.value == 1
-                                            ? _c("p", [_vm._v("Active")])
-                                            : _c("p", [_vm._v("Disabled")])
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ])
-                              ],
-                              1
-                            )
-                          }),
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("h3", [_vm._v("Commission Structure B")]),
+                                        expression: "item.status.value"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    item.status.value == 0
+                                      ? _c("label", [_vm._v("Inactive")])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    item.status.value == 1
+                                      ? _c("label", [_vm._v("Active")])
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        }),
                         _vm._v(" "),
                         _c(
                           "div",
-                          _vm._l(_vm.structure_b, function(range, index) {
-                            return _c(
-                              "a-row",
-                              { key: index },
-                              [
-                                _c("a-col", { attrs: { span: 3 } }, [
+                          {
+                            staticClass:
+                              "row mx-0 align-items-center permissions-divider"
+                          },
+                          [
+                            _c("div", { staticClass: "col-auto pl-0" }, [
+                              _c("h5", { staticClass: "mb-0" }, [
+                                _vm._v("Commission Structure B")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col px-0" }, [
+                              _c("div", { staticClass: "divider-line" })
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.structure_b, function(range, index) {
+                          return _c(
+                            "a-row",
+                            { key: index },
+                            [
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375528,9 +375588,13 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375560,9 +375624,13 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375592,121 +375660,137 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
                                       _c(
                                         "label",
-                                        { attrs: { for: "input-none" } },
+                                        {
+                                          staticClass: "mb-4 ml-0",
+                                          attrs: { for: "input-none" }
+                                        },
                                         [_vm._v("Status")]
                                       ),
                                       _vm._v(" "),
-                                      _c(
-                                        "b-form-checkbox",
-                                        {
-                                          attrs: {
-                                            id: "structure_b-" + index,
-                                            name: "checkbox-1",
-                                            value: "1",
-                                            "unchecked-value": "0"
+                                      _c("br"),
+                                      _vm._v(" "),
+                                      _c("a-switch", {
+                                        attrs: { id: "structure_b-" + index },
+                                        model: {
+                                          value: range.status.value,
+                                          callback: function($$v) {
+                                            _vm.$set(range.status, "value", $$v)
                                           },
-                                          model: {
-                                            value: range.status.value,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                range.status,
-                                                "value",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "range.status.value"
-                                          }
-                                        },
-                                        [
-                                          range.status.value == 1
-                                            ? _c("p", [_vm._v("Active")])
-                                            : _c("p", [_vm._v("Disabled")])
-                                        ]
-                                      )
+                                          expression: "range.status.value"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      range.status.value == 0
+                                        ? _c("label", [_vm._v("Inactive")])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      range.status.value == 1
+                                        ? _c("label", [_vm._v("Active")])
+                                        : _vm._e()
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a-col",
-                                  {
-                                    staticClass: "pr-0",
-                                    staticStyle: { "padding-top": "36px" },
-                                    attrs: { span: 3, sm: "auto" }
-                                  },
-                                  [
-                                    index + 1 < _vm.structure_b.length
-                                      ? _c(
-                                          "b-button",
-                                          {
-                                            staticClass: "icon m-0 p-0",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.removeBField(index)
-                                              }
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                {
+                                  staticClass: "pr-0",
+                                  staticStyle: { "padding-top": "45px" },
+                                  attrs: { span: 3, sm: "auto" }
+                                },
+                                [
+                                  index + 1 < _vm.structure_b.length
+                                    ? _c(
+                                        "b-button",
+                                        {
+                                          staticClass: "icon m-0 p-0",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.removeBField(index)
                                             }
-                                          },
-                                          [
-                                            _c("img", {
-                                              attrs: {
-                                                src:
-                                                  "images/icons/Field_Delete.svg",
-                                                width: "19"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      : _c(
-                                          "b-button",
-                                          {
-                                            staticClass: "icon m-0 p-0",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.addBField(
-                                                  range.comm_structure_id
-                                                )
-                                              }
+                                          }
+                                        },
+                                        [
+                                          _c("img", {
+                                            attrs: {
+                                              src:
+                                                "images/icons/Field_Delete.svg",
+                                              width: "19"
                                             }
-                                          },
-                                          [
-                                            _c("img", {
-                                              attrs: {
-                                                src:
-                                                  "images/icons/Field_Add.svg",
-                                                width: "19"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          }),
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("h3", [_vm._v("Commission Structure C")]),
+                                          })
+                                        ]
+                                      )
+                                    : _c(
+                                        "b-button",
+                                        {
+                                          staticClass: "icon m-0 p-0",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.addBField(
+                                                range.comm_structure_id
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("img", {
+                                            attrs: {
+                                              src: "images/icons/Field_Add.svg",
+                                              width: "19"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        }),
                         _vm._v(" "),
                         _c(
                           "div",
-                          _vm._l(_vm.structure_c, function(item, i) {
-                            return _c(
-                              "a-row",
-                              { key: i },
-                              [
-                                _c("a-col", { attrs: { span: 3 } }, [
+                          {
+                            staticClass:
+                              "row mx-0 align-items-center permissions-divider"
+                          },
+                          [
+                            _c("div", { staticClass: "col-auto pl-0" }, [
+                              _c("h5", { staticClass: "mb-0" }, [
+                                _vm._v("Commission Structure C")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col px-0" }, [
+                              _c("div", { staticClass: "divider-line" })
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.structure_c, function(item, i) {
+                          return _c(
+                            "a-row",
+                            { key: i },
+                            [
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375736,9 +375820,13 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375768,9 +375856,13 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
@@ -375800,112 +375892,108 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("a-col", { attrs: { span: 3 } }, [
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                { staticClass: "mr-4", attrs: { span: 3 } },
+                                [
                                   _c(
                                     "div",
                                     [
                                       _c(
                                         "label",
-                                        { attrs: { for: "input-none" } },
+                                        {
+                                          staticClass: "mb-4 ml-0",
+                                          attrs: { for: "input-none" }
+                                        },
                                         [_vm._v("Status")]
                                       ),
                                       _vm._v(" "),
-                                      _c(
-                                        "b-form-checkbox",
-                                        {
-                                          attrs: {
-                                            id: "structure_c" + i,
-                                            name: "checkbox-1",
-                                            value: "1",
-                                            "unchecked-value": "0"
+                                      _c("br"),
+                                      _vm._v(" "),
+                                      _c("a-switch", {
+                                        attrs: { id: "structure_c" + i },
+                                        model: {
+                                          value: item.status.value,
+                                          callback: function($$v) {
+                                            _vm.$set(item.status, "value", $$v)
                                           },
-                                          model: {
-                                            value: item.status.value,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                item.status,
-                                                "value",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "item.status.value"
-                                          }
-                                        },
-                                        [
-                                          item.status.value == 1
-                                            ? _c("p", [_vm._v("Active")])
-                                            : _c("p", [_vm._v("Disabled")])
-                                        ]
-                                      )
+                                          expression: "item.status.value"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      item.status.value == 0
+                                        ? _c("label", [_vm._v("Inactive")])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      item.status.value == 1
+                                        ? _c("label", [_vm._v("Active")])
+                                        : _vm._e()
                                     ],
                                     1
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a-col",
-                                  {
-                                    staticClass: "pr-0",
-                                    staticStyle: { "padding-top": "36px" },
-                                    attrs: { span: 3, sm: "auto" }
-                                  },
-                                  [
-                                    _vm.index + 1 < _vm.structure_c.length
-                                      ? _c(
-                                          "b-button",
-                                          {
-                                            staticClass: "icon m-0 p-0",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.removeCField(
-                                                  _vm.index
-                                                )
-                                              }
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a-col",
+                                {
+                                  staticClass: "pr-0",
+                                  staticStyle: { "padding-top": "45px" },
+                                  attrs: { span: 3, sm: "auto" }
+                                },
+                                [
+                                  _vm.index + 1 < _vm.structure_c.length
+                                    ? _c(
+                                        "b-button",
+                                        {
+                                          staticClass: "icon m-0 p-0",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.removeCField(_vm.index)
                                             }
-                                          },
-                                          [
-                                            _c("img", {
-                                              attrs: {
-                                                src:
-                                                  "images/icons/Field_Delete.svg",
-                                                width: "19"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      : _c(
-                                          "b-button",
-                                          {
-                                            staticClass: "icon m-0 p-0",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.addCField(
-                                                  item.comm_structure_id
-                                                )
-                                              }
+                                          }
+                                        },
+                                        [
+                                          _c("img", {
+                                            attrs: {
+                                              src:
+                                                "images/icons/Field_Delete.svg",
+                                              width: "19"
                                             }
-                                          },
-                                          [
-                                            _c("img", {
-                                              attrs: {
-                                                src:
-                                                  "images/icons/Field_Add.svg",
-                                                width: "19"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          }),
-                          1
-                        ),
+                                          })
+                                        ]
+                                      )
+                                    : _c(
+                                        "b-button",
+                                        {
+                                          staticClass: "icon m-0 p-0",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.addCField(
+                                                item.comm_structure_id
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("img", {
+                                            attrs: {
+                                              src: "images/icons/Field_Add.svg",
+                                              width: "19"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        }),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -375927,7 +376015,8 @@ var render = function() {
                           ],
                           1
                         )
-                      ]
+                      ],
+                      2
                     )
                   ],
                   1
@@ -376212,7 +376301,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "border-0",
+                                  staticClass: "border-0 min-width-cell",
                                   attrs: { placeholder: "Select" },
                                   model: {
                                     value: field.type,
@@ -376960,7 +377049,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "py-0 pr-0 expand-toggle",
+                                                  "w-100 mx-0 py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -377011,7 +377100,7 @@ var render = function() {
                                                                     "b-form-group",
                                                                     {
                                                                       staticClass:
-                                                                        "mx-2 permissions"
+                                                                        "mx-2 mb-0 permissions"
                                                                     },
                                                                     [
                                                                       _c(
@@ -377224,7 +377313,7 @@ var render = function() {
                                                         }
                                                       ],
                                                       staticClass:
-                                                        "py-0 pr-0 expand-toggle",
+                                                        "w-100 mx-0 py-0 pr-0 expand-toggle",
                                                       attrs: {
                                                         block: "",
                                                         href: "#",

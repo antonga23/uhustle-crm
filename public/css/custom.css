@@ -437,7 +437,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   border-radius: 0px !important;
 }
 
-.ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+.ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, .api-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
   background-color: #F28821 !important;
 }
 /*end Register Stepper*/
@@ -803,7 +803,7 @@ text-align: right;
 }
 
 .mass-assign .ant-select-selection.ant-select-selection--multiple {
-  border-radius: 20px;
+  border-radius: 10px;
   padding-left: 10px;
   border: 0;
   box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
@@ -867,7 +867,7 @@ text-align: right;
   margin-top: 0;
 }
 .ant-select-dropdown{
-  border-radius: 25px!important;
+  border-radius: 5px!important;
 }
 .ant-select-dropdown-menu {
   padding: 6.8% 6.5%!important;
@@ -1007,71 +1007,13 @@ text-align: right;
   max-width: 30px;
   padding: 0 0 0 10px;
 }
-.activities .ant-calendar-picker-input.ant-input, 
-.activities .ant-time-picker-input,
-.deals .ant-calendar-picker-input.ant-input, 
-.deals .ant-time-picker-input {
-  box-shadow: none!important;
-  -webkit-box-shadow: none!important;
-  -moz-box-shadow: none!important;
-  -o-box-shadow: none!important;
-  max-width: none;
-  min-width: 110px;
-  font-family: 'Rubik', sans-serif;
-  font-size: 12px;
-  color: #999999;
-}
-.activities .ant-select-selection__rendered,
-.deals .ant-select-selection__rendered {
-  font-family: 'Rubik', sans-serif;
-  font-size: 12px;
-  color: #999999;
-}
-.activities .ant-select-selection.ant-select-selection--single,
-.deals .ant-select-selection.ant-select-selection--single {
-  border: 0;
-  margin-top: 0!important;
-}
 
-/* create a deal */
-.createDeal .ant-select-selection--single, .createDeal .ant-calendar-picker-input.ant-input{
-  border-radius: 50rem;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  padding: 5px 18px!important;
-  font-size: 12px;
-  color: #003449;
-  border: 1px solid #ccc!important;
-  margin-bottom: 17px;
+/* preferences */
+.ant-col-8 .custom-control-label {
+  color: #999999;
   font-family: 'Rubik', sans-serif;
-  height: auto!important;
-  margin-top: 0!important;
+  font-size:14px;
 }
-.createDeal .ant-calendar-picker-input.ant-input {
-  min-width: 100%;
-  padding: 12px 18px!important;
-  border: 1px solid #ccc!important;
-}
-.createDeal .ant-select-selection__rendered {
-  margin-left:0;
-  margin-right: 0;
-}
-.createDeal .ant-calendar-picker-clear {
-  top:35%;
-}
-.page-link {
-  border: 0!important;
-  padding: 2px 7px 1px!important;
-  color: #AAAAAA!important;
-  font-family: 'Rubik', sans-serif!important;
-  font-size: 10px!important;
-  line-height:1em;
-}
-.page-item.active .page-link {
-  background-color: #fff!important;
-  border: 1px solid #444444!important;
-  border-radius: 50rem;
-  color: #444444!important;
+.min-width-cell .ant-select-selection-selected-value {
+  min-width:80px;
 }
