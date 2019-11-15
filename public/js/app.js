@@ -180741,6 +180741,141 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -245749,7 +245884,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders .row[data-v-2c246ed2] {\n    padding:20px;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n      background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n      background-size: 20px;\n      background-repeat: no-repeat;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\n    max-height: 414px;\n    overflow-y: auto;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n.mr-20[data-v-2c246ed2] {\n    margin-right: 20%;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav-link[data-v-2c246ed2]:hover { \n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    padding-top:20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text textarea[data-v-2c246ed2] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n} \n", ""]);
 
 // exports
 
@@ -362984,157 +363119,155 @@ var render = function() {
                             "row mx-0 justify-content-between align-items-center"
                         },
                         [
-                          _c(
-                            "div",
-                            {
-                              class: {
-                                input: true,
-                                "form-group": true,
-                                "has-error": _vm.errors.has("Name")
-                              }
-                            },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "control-label p-0 callback-label"
-                                },
-                                [
-                                  _vm._v(
-                                    "Date of Callback\n                      "
-                                  ),
-                                  _c("a-date-picker", {
-                                    staticClass: "rounded-pill",
-                                    attrs: {
-                                      format: "DD-MM",
-                                      allowEmpty: false
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        return _vm.checkCBDate(
-                                          _vm.call_back_date
-                                        )
-                                      },
-                                      defaultValue: function($event) {
-                                        _vm
-                                          .moment(_vm.call_back_date)
-                                          .format("DD MMM")
-                                      }
-                                    },
-                                    model: {
-                                      value: _vm.call_back_date,
-                                      callback: function($$v) {
-                                        _vm.call_back_date = $$v
-                                      },
-                                      expression: "call_back_date"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              class: {
-                                input: true,
-                                "form-group": true,
-                                "has-error": _vm.errors.has("Name")
-                              }
-                            },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "control-label pl-0 callback-label"
-                                },
-                                [
-                                  _vm._v(
-                                    "Time of Callback \n                      "
-                                  ),
-                                  _c("a-time-picker", {
-                                    attrs: {
-                                      allowEmpty: false,
-                                      use24Hours: "",
-                                      format: "hh:mm"
-                                    },
-                                    model: {
-                                      value: _vm.call_back_time,
-                                      callback: function($$v) {
-                                        _vm.call_back_time = $$v
-                                      },
-                                      expression: "call_back_time"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "d-flex callback-capture" },
-                            [
-                              _c("div", { staticClass: "flex-grow-1" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.call_back_note,
-                                      expression: "call_back_note"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "comment-desc d-block w-100 border-0 rounded-pill",
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Write notes here"
+                          _c("div", { staticClass: "col-6 pl-0" }, [
+                            _c(
+                              "div",
+                              {
+                                class: {
+                                  input: true,
+                                  "form-group": true,
+                                  "has-error": _vm.errors.has("Name")
+                                }
+                              },
+                              [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "control-label p-0 callback-label"
                                   },
-                                  domProps: { value: _vm.call_back_note },
+                                  [_vm._v("Date of Callback")]
+                                ),
+                                _vm._v(" "),
+                                _c("a-date-picker", {
+                                  staticClass: "rounded-pill",
+                                  attrs: { format: "DD-MM", allowEmpty: false },
                                   on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.call_back_note = $event.target.value
+                                    change: function($event) {
+                                      return _vm.checkCBDate(_vm.call_back_date)
+                                    },
+                                    defaultValue: function($event) {
+                                      _vm
+                                        .moment(_vm.call_back_date)
+                                        .format("DD MMM")
                                     }
+                                  },
+                                  model: {
+                                    value: _vm.call_back_date,
+                                    callback: function($$v) {
+                                      _vm.call_back_date = $$v
+                                    },
+                                    expression: "call_back_date"
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "flex-shrink-1" }, [
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-6 pr-0" }, [
+                            _c(
+                              "div",
+                              {
+                                class: {
+                                  input: true,
+                                  "form-group": true,
+                                  "has-error": _vm.errors.has("Name")
+                                }
+                              },
+                              [
                                 _c(
-                                  "button",
+                                  "label",
                                   {
-                                    staticClass: "btn p-0 m-0",
-                                    attrs: { id: "submit-btn", type: "submit" },
+                                    staticClass:
+                                      "control-label pl-0 callback-label"
+                                  },
+                                  [_vm._v("Time of Callback")]
+                                ),
+                                _vm._v(" "),
+                                _c("a-time-picker", {
+                                  attrs: {
+                                    allowEmpty: false,
+                                    use24Hours: "",
+                                    format: "hh:mm"
+                                  },
+                                  model: {
+                                    value: _vm.call_back_time,
+                                    callback: function($$v) {
+                                      _vm.call_back_time = $$v
+                                    },
+                                    expression: "call_back_time"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 px-0" }, [
+                            _c(
+                              "div",
+                              { staticClass: "d-flex callback-capture" },
+                              [
+                                _c("div", { staticClass: "flex-grow-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.call_back_note,
+                                        expression: "call_back_note"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "comment-desc d-block w-100 border-0 rounded-pill",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Write notes here"
+                                    },
+                                    domProps: { value: _vm.call_back_note },
                                     on: {
-                                      click: function($event) {
-                                        return _vm.saveCallback()
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.call_back_note = $event.target.value
                                       }
                                     }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass: "icon",
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "flex-shrink-1" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn p-0 m-0",
                                       attrs: {
-                                        src:
-                                          "/images/icons/workstation/Submit.svg",
-                                        alt: "Icon",
-                                        width: "76"
+                                        id: "submit-btn",
+                                        type: "submit"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.saveCallback()
+                                        }
                                       }
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "icon",
+                                        attrs: {
+                                          src:
+                                            "/images/icons/workstation/Submit.svg",
+                                          alt: "Icon",
+                                          width: "76"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
                         ]
                       )
                 ])
@@ -363214,244 +363347,249 @@ var render = function() {
                         {
                           key: i,
                           staticClass:
-                            "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control custom-checkbox"
+                            "row m-2 p-0 align-items-center custom-control custom-checkbox"
                         },
                         [
                           _c("transition", { attrs: { name: "bounce" } }, [
-                            _c("div", { staticClass: "col-12" }, [
-                              _c("div", { staticClass: "row" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-8 pl-0 custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: task.status,
-                                          expression: "task.status"
-                                        }
-                                      ],
-                                      staticClass: "custom-control-input",
-                                      attrs: {
-                                        id: "task" + i,
-                                        type: "checkbox"
-                                      },
-                                      domProps: {
-                                        checked: Array.isArray(task.status)
-                                          ? _vm._i(task.status, null) > -1
-                                          : task.status
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.editTask(task, "status")
+                            _c("div", { staticClass: "col-12 p-2" }, [
+                              _c(
+                                "div",
+                                { staticClass: "row mx-0 align-items-center" },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col pl-0 custom-control custom-checkbox"
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: task.status,
+                                            expression: "task.status"
+                                          }
+                                        ],
+                                        staticClass: "custom-control-input",
+                                        attrs: {
+                                          id: "task" + i,
+                                          type: "checkbox"
                                         },
-                                        change: function($event) {
-                                          var $$a = task.status,
-                                            $$el = $event.target,
-                                            $$c = $$el.checked ? true : false
-                                          if (Array.isArray($$a)) {
-                                            var $$v = null,
-                                              $$i = _vm._i($$a, $$v)
-                                            if ($$el.checked) {
-                                              $$i < 0 &&
-                                                _vm.$set(
-                                                  task,
-                                                  "status",
-                                                  $$a.concat([$$v])
-                                                )
+                                        domProps: {
+                                          checked: Array.isArray(task.status)
+                                            ? _vm._i(task.status, null) > -1
+                                            : task.status
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.editTask(task, "status")
+                                          },
+                                          change: function($event) {
+                                            var $$a = task.status,
+                                              $$el = $event.target,
+                                              $$c = $$el.checked ? true : false
+                                            if (Array.isArray($$a)) {
+                                              var $$v = null,
+                                                $$i = _vm._i($$a, $$v)
+                                              if ($$el.checked) {
+                                                $$i < 0 &&
+                                                  _vm.$set(
+                                                    task,
+                                                    "status",
+                                                    $$a.concat([$$v])
+                                                  )
+                                              } else {
+                                                $$i > -1 &&
+                                                  _vm.$set(
+                                                    task,
+                                                    "status",
+                                                    $$a
+                                                      .slice(0, $$i)
+                                                      .concat(
+                                                        $$a.slice($$i + 1)
+                                                      )
+                                                  )
+                                              }
                                             } else {
-                                              $$i > -1 &&
-                                                _vm.$set(
-                                                  task,
-                                                  "status",
-                                                  $$a
-                                                    .slice(0, $$i)
-                                                    .concat($$a.slice($$i + 1))
-                                                )
+                                              _vm.$set(task, "status", $$c)
                                             }
-                                          } else {
-                                            _vm.$set(task, "status", $$c)
                                           }
                                         }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "terms-text custom-control-label",
-                                        attrs: { for: "task" + i }
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: task.title,
-                                              expression: "task.title"
-                                            }
-                                          ],
-                                          staticClass: "border-0 list-input",
-                                          attrs: { type: "text" },
-                                          domProps: { value: task.title },
-                                          on: {
-                                            focus: function($event) {
-                                              return _vm.editTaskCollapes(
-                                                task.id
-                                              )
-                                            },
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "terms-text custom-control-label",
+                                          attrs: { for: "task" + i }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: task.title,
+                                                expression: "task.title"
                                               }
-                                              _vm.$set(
-                                                task,
-                                                "title",
-                                                $event.target.value
-                                              )
+                                            ],
+                                            staticClass: "border-0 list-input",
+                                            attrs: { type: "text" },
+                                            domProps: { value: task.title },
+                                            on: {
+                                              focus: function($event) {
+                                                return _vm.editTaskCollapes(
+                                                  task.id
+                                                )
+                                              },
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  task,
+                                                  "title",
+                                                  $event.target.value
+                                                )
+                                              }
                                             }
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-4 task-date-div inner-box-shadow"
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      { staticClass: "tasks-circle orange" },
-                                      [_vm._v("⬤")]
-                                    ),
-                                    _vm._v(" "),
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-auto pr-0" }, [
                                     _c("span", { staticClass: "tasks-date" }, [
                                       _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            _vm
-                                              .moment(task.deadline)
-                                              .format("DD MMM")
-                                          ) +
-                                          "\n                                "
+                                        _vm._s(
+                                          _vm
+                                            .moment(task.deadline)
+                                            .format("DD MMM")
+                                        )
                                       )
                                     ])
-                                  ]
-                                )
-                              ]),
+                                  ])
+                                ]
+                              ),
                               _vm._v(" "),
                               _vm.edit_task && _vm.active_task_id == task.id
-                                ? _c("div", { staticClass: "row" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-12 pl-0 custom-control custom-checkbox"
-                                      },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "terms-text",
-                                            staticStyle: { width: "100%" },
-                                            attrs: { for: "task" + i }
-                                          },
-                                          [
-                                            _c("a-textarea", {
-                                              attrs: {
-                                                placeholder: "Description",
-                                                autosize: ""
-                                              },
-                                              model: {
-                                                value: task.description,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    task,
-                                                    "description",
-                                                    $$v
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 justify-content-between"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-12 px-0 custom-control custom-checkbox"
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "terms-text w-100",
+                                              attrs: { for: "task" + i }
+                                            },
+                                            [
+                                              _c("a-textarea", {
+                                                staticClass: "rounded-pill",
+                                                attrs: {
+                                                  placeholder: "Description",
+                                                  autosize: ""
+                                                },
+                                                model: {
+                                                  value: task.description,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      task,
+                                                      "description",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "task.description"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 pl-0 custom-control"
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "terms-text w-100",
+                                              attrs: { for: "task" + i }
+                                            },
+                                            [
+                                              _c("a-date-picker", {
+                                                staticClass: "w-100",
+                                                attrs: {
+                                                  defaultValue: _vm.moment(
+                                                    task.deadline,
+                                                    "YYYY-MM-DD"
                                                   )
                                                 },
-                                                expression: "task.description"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "terms-text",
-                                            staticStyle: { width: "100%" },
-                                            attrs: { for: "task" + i }
-                                          },
-                                          [
-                                            _c("a-date-picker", {
-                                              staticStyle: { width: "100%" },
-                                              attrs: {
-                                                defaultValue: _vm.moment(
-                                                  task.deadline,
-                                                  "YYYY-MM-DD"
-                                                )
-                                              },
-                                              model: {
-                                                value: task.deadline,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    task,
-                                                    "deadline",
-                                                    $$v
-                                                  )
+                                                model: {
+                                                  value: task.deadline,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      task,
+                                                      "deadline",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "task.deadline"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm.edit_task &&
+                                      _vm.active_task_id == task.id
+                                        ? _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-6 pr-0 custom-control"
+                                            },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-primary update-user w-100 rounded-pill m-0",
+                                                  attrs: { type: "submit" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.editTask(task)
+                                                    }
+                                                  }
                                                 },
-                                                expression: "task.deadline"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.edit_task && _vm.active_task_id == task.id
-                                ? _c("div", { staticClass: "row" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-12 pl-0 custom-control"
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "btn btn-primary update-user w-100 rounded-pill m-0",
-                                            attrs: { type: "submit" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.editTask(task)
-                                              }
-                                            }
-                                          },
-                                          [_vm._v("Update")]
-                                        )
-                                      ]
-                                    )
-                                  ])
+                                                [_vm._v("Update")]
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ]
+                                  )
                                 : _vm._e()
                             ])
                           ])
@@ -363469,21 +363607,20 @@ var render = function() {
                       "li",
                       {
                         staticClass:
-                          "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control"
+                          "row m-2 p-0 align-items-center custom-control custom-checkbox"
                       },
                       [
                         _c("transition", { attrs: { name: "bounce" } }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12 p-2" }, [
+                            _c("div", { staticClass: "row mx-0" }, [
                               _c(
                                 "div",
-                                { staticClass: "col-12 pl-0 custom-control" },
+                                { staticClass: "col-12 px-0 custom-control" },
                                 [
                                   _c(
                                     "label",
                                     {
-                                      staticClass: "terms-text",
-                                      staticStyle: { width: "100%" },
+                                      staticClass: "terms-text w-100",
                                       attrs: { for: "task1" }
                                     },
                                     [
@@ -363521,12 +363658,12 @@ var render = function() {
                                   _c(
                                     "label",
                                     {
-                                      staticClass: "terms-text",
-                                      staticStyle: { width: "100%" },
+                                      staticClass: "terms-text w-100",
                                       attrs: { for: "task1" }
                                     },
                                     [
                                       _c("a-textarea", {
+                                        staticClass: "rounded-pill",
                                         attrs: {
                                           placeholder: "Description",
                                           autosize: ""
@@ -363545,51 +363682,66 @@ var render = function() {
                                       })
                                     ],
                                     1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "terms-text",
-                                      staticStyle: { width: "100%" },
-                                      attrs: { for: "task1" }
-                                    },
-                                    [
-                                      _c("a-date-picker", {
-                                        staticStyle: { width: "100%" },
-                                        model: {
-                                          value: _vm.new_task.date,
-                                          callback: function($$v) {
-                                            _vm.$set(_vm.new_task, "date", $$v)
-                                          },
-                                          expression: "new_task.date"
-                                        }
-                                      })
-                                    ],
-                                    1
                                   )
                                 ]
                               )
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-12 pl-0 custom-control" },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-primary update-user w-100 rounded-pill m-0",
-                                      attrs: { type: "submit" },
-                                      on: { click: _vm.submitTask }
-                                    },
-                                    [_vm._v("Add")]
-                                  )
-                                ]
-                              )
-                            ])
+                            _c(
+                              "div",
+                              {
+                                staticClass: "row mx-0 justify-content-between"
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col-6 pl-0 custom-control" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "terms-text w-100",
+                                        attrs: { for: "task1" }
+                                      },
+                                      [
+                                        _c("a-date-picker", {
+                                          staticClass: "w-100",
+                                          model: {
+                                            value: _vm.new_task.date,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.new_task,
+                                                "date",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "new_task.date"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-6 pr-0 custom-control" },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-primary update-user w-100 rounded-pill m-0",
+                                        attrs: { type: "submit" },
+                                        on: { click: _vm.submitTask }
+                                      },
+                                      [_vm._v("Add")]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
                           ])
                         ])
                       ],
@@ -363776,20 +363928,16 @@ var staticRenderFns = [
                       }
                     },
                     [
-                      _c("div", { staticClass: "mr-20" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/icons/dashboard/Calls vs Sales.svg",
-                            alt: "Icon",
-                            width: "31"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "w-50 pl-2" }, [
-                          _vm._v("Calls vs Sales")
-                        ])
-                      ])
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Calls vs Sales.svg",
+                          alt: "Icon",
+                          width: "31"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Calls vs Sales")])
                     ]
                   )
                 ]),
@@ -363809,20 +363957,16 @@ var staticRenderFns = [
                       }
                     },
                     [
-                      _c("div", { staticClass: "mr-20" }, [
-                        _c("img", {
-                          staticClass: "icon",
-                          attrs: {
-                            src: "/images/icons/dashboard/Monthly Sales.svg",
-                            alt: "Icon",
-                            width: "31"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "pl-2" }, [
-                          _vm._v("Monthly Sales")
-                        ])
-                      ])
+                      _c("img", {
+                        staticClass: "icon",
+                        attrs: {
+                          src: "/images/icons/dashboard/Monthly Sales.svg",
+                          alt: "Icon",
+                          width: "31"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Monthly Sales")])
                     ]
                   )
                 ])
@@ -363928,20 +364072,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-20" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/dashboard/Answers vs Dialing.svg",
-                        alt: "Icon",
-                        width: "31"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "w-50 pl-2" }, [
-                      _vm._v("Answers vs Dialing")
-                    ])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/dashboard/Answers vs Dialing.svg",
+                      alt: "Icon",
+                      width: "31"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Answers vs Dialing")])
                 ]
               )
             ]),
@@ -363961,18 +364101,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-20" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/dashboard/Commissions.svg",
-                        alt: "Icon",
-                        width: "31"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "pl-2" }, [_vm._v("Commissions")])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/dashboard/Commissions.svg",
+                      alt: "Icon",
+                      width: "31"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Commissions")])
                 ]
               )
             ])
