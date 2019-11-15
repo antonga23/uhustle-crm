@@ -1839,190 +1839,147 @@ input.save-text:focus {
                       type="submit"
                       :class="{'btn' : true, 'btn-orange-active' : messages_on, 'btn-default border-0' : !messages_on, 'btn-has-new' : unread_messages >= 1  }"
                       class="w-100 m-0 btn-white"
-                    >Messages</button>
+                    >Messages</button> 
 
-                    <div class="btn-has-new-dot"></div>
-                  </label>
-                </div>
-              </div>
-              <hr />
-              <!-- Continue here -->
-              <div v-if="callbacks_on == true && messages_on == false" class="row mx-0">
-                <div v-if="call_backs.length > 0">
-                  <div
-                    class="card w-100 notification-popup"
-                    v-for="(call_back, i) in call_backs"
-                    :key="i"
-                  >
-                    <div class="card-body-notifications">
-                      <h3 class="d-block d-block w-100">
-                        <a
-                          :href="'/workstation/' + call_back.lead.id"
-                          class="d-block w-100"
-                        >{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a>
-                      </h3>
+                    <div class="btn-has-new-dot"></div> 
+                  </label> 
+                </div> 
+              </div> 
+              <hr> 
+                <!-- Continue here --> 
+              <div v-if="callbacks_on == true && messages_on == false" class="row mx-0"> 
+                <div v-if="call_backs.length > 0"> 
+                  <div class="card w-100 notification-popup" v-for="(call_back, i) in call_backs" :key="i"> 
+                    <div class="card-body-notifications"> 
+                      <h3 class="d-block d-block w-100"> 
+                        <a :href="'/workstation/' + call_back.lead.id" class="d-block w-100">{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a> 
+                      </h3> 
 
-                      <p
-                        class="call_back_time d-block w-100"
-                        title="Personal Information"
-                      >{{ call_back.call_date }} @ {{ call_back.call_time }}</p>
-                    </div>
-                  </div>
-                </div>
+                      <p class="call_back_time d-block w-100" title="Personal Information">{{ call_back.call_date }} @ {{ call_back.call_time }}</p> 
+                    </div> 
+                  </div> 
+                </div> 
 
-                <div v-else>
-                  <div class="notification-popup">
-                    <div class="card-body-notifications">
-                      <p
-                        class="call_back_time d-block mt-0 w-100"
-                        title="Personal Information"
-                      >0 Callbacks at present</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <div v-else> 
+                  <div class="notification-popup"> 
+                    <div class="card-body-notifications"> 
+                      <p class="call_back_time d-block mt-0 w-100" title="Personal Information">0 Callbacks at present</p> 
+                    </div> 
+                  </div> 
+                </div> 
+              </div> 
 
-              <div v-if="callbacks_on == false && messages_on == true" class="row mx-0">
-                <div class="col-12 notification-popup w-100">
-                  <div class="row mx-0 card-body-notifications">
-                    <div class="col-auto pl-1 btn-has-new-messages"></div>
+              <div v-if="callbacks_on == false && messages_on == true" class="row mx-0"> 
+                <div class="col-12 notification-popup w-100"> 
+                  <div class="row mx-0 card-body-notifications"> 
+                    <div class="col-auto pl-1 btn-has-new-messages">   
+                    </div> 
 
-                    <div class="col-auto p-0">
-                      <img src="/images/icons/user_icon@4x.png" width="50" />
-                    </div>
-                    <div class="col-auto p-0">
-                      <p class="d-block mb-1">
-                        <span class="caller-name">Agnes Dean</span>
-                        <span class="caller-time">15:46</span>
-                      </p>
-                      <p
-                        title="Personal Information"
-                        class="call_back_time d-block w-100 mt-0"
-                      >Lorem Ipsum dolor sit amet, c...</p>
-                    </div>
-                  </div>
-                </div>
+                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                    <div class="col-auto p-0"> 
+                      <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p> 
+                      <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
+                    </div> 
+                  </div> 
+                </div> 
 
-                <div class="col-12 notification-popup w-100">
-                  <div class="row mx-0 card-body-notifications">
-                    <div class="col-auto pl-1 btn-has-new-messages"></div>
+                <div class="col-12 notification-popup w-100"> 
+                  <div class="row mx-0 card-body-notifications"> 
+                    <div class="col-auto pl-1 btn-has-new-messages"> 
+                    </div> 
 
-                    <div class="col-auto p-0">
-                      <img src="/images/icons/user_icon@4x.png" width="50" />
-                    </div>
-                    <div class="col-auto p-0">
-                      <p class="d-block mb-1">
-                        <span class="caller-name">Justin Hill</span>
-                        <span class="caller-time">12:37</span>
-                      </p>
-                      <p
-                        title="Personal Information"
-                        class="call_back_time d-block w-100 mt-0"
-                      >Lorem Ipsum dolor sit amet, c...</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                    <div class="col-auto p-0"> 
+                      <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p> 
+                      <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
+                    </div> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
 
-            <div v-if="notifications_on == false && settings_on == false && filters_on == false">
-              <!-- <div v-if="generalStats_on == true"> -->
-              <div class="row mx-0 py-0 px-6 stats-section">
-                <div class="col-lg-12 px-0">
-                  <div class="row mx-0 p-0">
-                    <div class="col-lg-12 px-0">
-                      <p class="monthly-target description">
-                        Monthly Target
-                        <span class="value float-right">65%</span>
-                      </p>
-                      <div class="progress-bar w-100">
-                        <span class="tank" :style="{width: + 65 + '%'}"></span>
-                      </div>
-                    </div>
-                  </div>
+            <div v-if="notifications_on == false && settings_on == false"> 
+              <div class="row mx-0 py-0 px-2 stats-section"> 
+                <div class="col-lg-12 px-0"> 
+                  <div class="row mx-0 p-0"> 
+                    <div class="col-lg-12 px-0"> 
+                      <p class="monthly-target description">Monthly Target <span class="value float-right">65%</span></p> 
+                      <div class="progress-bar w-100"> 
+                        <span class="tank" :style="{width: + 65 + '%'}"></span> 
+                      </div> 
+                    </div> 
+                  </div> 
 
-                  <div class="row mx-0 commission">
-                    <div class="col-lg-6 pl-0">
-                      <p class="description">Commission</p>
-                      <p>
-                        <span class="value">$1523</span>
-                      </p>
-                    </div>
+                  <div class="row mx-0 commission"> 
+                    <div class="col-lg-6 pl-0"> 
+                      <p class="description">Commission</p> 
+                      <p><span class="value">{{ call_log.commission }}</span></p> 
+                    </div> 
 
-                    <div class="col-lg-6 text-right pr-0">
-                      <p class="description">Con. Ratio</p>
-                      <p>
-                        <span class="value">40%</span>
-                      </p>
-                    </div>
-                  </div>
+                    <div class="col-lg-6 text-right pr-0"> 
+                      <p class="description">Con. Ratio</p> 
+                      <p><span class="value">{{ call_log.con_ratio }}%</span></p> 
+                    </div> 
+                  </div> 
 
-                  <div class="row mx-0 calls">
-                    <div class="col-lg-12 px-0">
-                      <p class="description">Calls</p>
-                    </div>
+                  <div class="row mx-0 calls"> 
+                    <div class="col-lg-12 px-0"> 
+                      <p class="description">Calls</p> 
+                    </div> 
 
-                    <div class="col-lg-6 pl-0">
-                      <p class="description">Leads</p>
-                      <p>
-                        <span class="value">125</span>
-                      </p>
-                    </div>
+                    <div class="col-lg-6 pl-0"> 
+                      <p class="description">Leads</p> 
+                      <p><span class="value">125</span></p> 
+                    </div> 
 
-                    <div class="col-lg-6 text-right pr-0">
-                      <p class="description">Called</p>
-                      <p>
-                        <span class="value">25</span>
-                      </p>
-                    </div>
-                  </div>
+                    <div class="col-lg-6 text-right pr-0"> 
+                      <p class="description">Called</p> 
+                      <p><span class="value">25</span></p> 
+                    </div> 
+                  </div> 
 
-                  <div class="row mx-0 sales">
-                    <div class="col-lg-12 px-0">
-                      <p class="description">Sales</p>
-                    </div>
-                    <div class="col-lg-6 pl-0">
-                      <p class="description">Quantity</p>
-                      <p>
-                        <span class="value">54</span>
-                      </p>
-                    </div>
-                    <div class="col-lg-6 text-right pr-0">
-                      <p class="description">Value</p>
-                      <p>
-                        <span class="value">$2725</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  <div class="row mx-0 sales"> 
+                    <div class="col-lg-12 px-0"> 
+                      <p class="description">Sales</p> 
+                    </div> 
+                    <div class="col-lg-6 pl-0"> 
+                      <p class="description">Quantity</p> 
+                      <p><span class="value">{{ call_log.total_sales }}</span></p> 
+                    </div> 
+                    <div class="col-lg-6 text-right pr-0"> 
+                      <p class="description">Value</p> 
+                      <p><span class="value">{{ call_log.sum_sales }}</span></p> 
+                    </div> 
+                  </div> 
+                </div> 
+              </div> 
 
-              <div class="row mx-0 px-6-hide callback-cal">
-                <div class="col-lg-12 border-0 px-0">
-                  <p class="border-bottom small-margin">Calendar</p>
-                  <vc-calendar class="border-0" :attributes="attrs" is-expanded :popover="true" />
-                </div>
-              </div>
+              <div class="row mx-0 px-2 callback-cal"> 
+                <div class="col-lg-12 border-0 px-0"> 
+                  <p class="border-bottom">Calendar</p>
+                  <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />  
+                </div> 
+              </div> 
 
-              <div class="row mx-0">
-                <div class="col-lg-12 final-modal border-0">
-                  <div class="row mx-0 mb-4 reminders">
-                    <b-tabs class="outer-box-shadow" >
-                      <b-tab title="Callbacks" active class="p-2 border-0">
-                        <ul class="pl-0" v-if="call_backs.length > 0">
-                          <li
-                            v-for="(call_back, i) in call_backs"
-                            :key="i"
-                            class="row m-2 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"
-                          >
-                            <div class="col-12 p-2">
-                              <div class="row mx-0 align-items-center">
-                                <div class="col8 pl-0 custom-control custom-checkbox">
-                                  <input
-                                    class="custom-control-input"
-                                    :id="'callback' + i"
-                                    type="checkbox"
-                                    v-model="call_back.status"
+              <div class="row mx-0 px-2"> 
+                <div class="col-lg-12 final-modal border-0"> 
+                  <div class="row mx-0 mb-4 reminders"> 
+                    <b-tabs class="outer-box-shadow"> 
+                      <b-tab title="Callbacks" active class="p-2"> 
+                        <ul class="pl-0" v-if="call_backs.length > 0"> 
+                          <li 
+                            v-for="(call_back, i) in call_backs" 
+                            :key="i" 
+                            class="row m-2 pl-0 align-items-center middle-box-shadow custom-control custom-checkbox"
+                          > 
+                            <div class="col-12 p-2"> 
+                              <div class="row mx-0 align-items-center"> 
+                                <div class="col8 pl-0 custom-control custom-checkbox"> 
+                                  <input 
+                                    class="custom-control-input" 
+                                    :id="'callback' + i" 
+                                    type="checkbox" 
+                                    v-model="call_back.status" 
                                     @click="markCallBackDone(call_back)"
                                   />
                                   <label
@@ -2185,114 +2142,296 @@ input.save-text:focus {
                                 </div>
                               </div>
                             </transition>
-                          </li>
-                        </ul>
-                        <div class="row m-2 pl-0 align-items-center custom-control custom-checkbox">
-                          <a href="#" @click="addTask">
-                            <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task" />
-                          </a>
-                        </div>
-                      </b-tab>
-                    </b-tabs>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                          </li> 
+                        </ul> 
+                      </b-tab>  
+                    </b-tabs> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
 
-          <!-- <div class="closed-sidenav d-none"> -->
-            <div v-if="filters_on == true">
-            <h3 class="px-6-hide mt-2 mx-2">Filter</h3>
-            <div class="row mx-0 px-6-hide filter-content">
-              <b-tabs content-class="mt-3 px-2">
-                <b-tab title="New">
+          <div class="closed-sidenav d-none" style="max-width:100%"> 
+            <p class="filter-heading mt-2 mx-2 mb-3">Filter</p> 
+            <div class="row mx-0 filter-content"> 
+              <b-tabs content-class="mt-3 px-2"> 
+                <b-tab title="New"> 
                   <div class="px-2 filter-container grey-scroll">
-                    <div class="filter-group">
-                      <div
-                        @click="filterProperties()"
-                        :class="{ filterborder:appendBorder }"
-                        class="p-2 custom-control custom-checkbox"
-                      >
-                        <input
-                          :disabled="filterValue === ''"
-                          :checked="filterValue != ''"
-                          type="checkbox"
-                          class="custom-control-input mx-0"
-                          id="newFilter1"
-                        />
-                        <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label>
+                    <div v-for="(field, name, index) in filter" :key="index">
+
+                      <div v-if="field.field_name == 'source'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name" v-for="(item, i) in sources" :key="item.name"
+                              >{{ item.name }}</a-select-option
+                            >
+                          </a-select> 
+                        </div> 
                       </div>
 
-                      <div
-                        class="mr-4 pt-2 pb-2 pl-34"
-                        style="display:none;"
-                        :class="{ show:showFilters }"
-                      >
-                        <select class="search-criteria w-100 mb-2">
-                          <option selected>is equal to</option>
-                          <option value="1">contains</option>
-                          <option value="2">does not contain</option>
-                          <option value="3">begins with</option>
-                          <option value="3">ends with</option>
-                        </select>
-                        <input
-                          class="search-text w-100 mt-2"
-                          type="text"
-                          placeholder="Text Here"
-                          v-model="filterValue"
-                          value
-                        />
-                      </div>
+                      <div v-else-if="field.field_name == 'product'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option  :value="item.name" v-for="(item, i) in packages" :key="item.name"
+                              >{{ item.name }}</a-select-option
+                            >
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'assignee'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name + ' ' + item.lastname" v-for="(item, i) in active_users" :key="item.name"
+                              >{{ item.name + ' ' + item.lastname }}</a-select-option
+                            >
+                          </a-select>
+
+                        </div> 
+                      </div>   
+
+                      <div v-else-if="field.field_name == 'owner'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name + ' ' + item.lastname" v-for="(item, i) in active_users" :key="item.name"
+                              >{{ item.name + ' ' + item.lastname }}</a-select-option
+                            >
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'gender'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Male'" :key="'Male'">Male</a-select-option>
+                            <a-select-option :value="'Female'" :key="'Female'">Femail</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'title'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Mr'" :key="'Mr'">Mr</a-select-option>
+                            <a-select-option :value="'Mrs'" :key="'Mrs'">Mrs</a-select-option>
+                            <a-select-option :value="'Ms'" :key="'Ms'">Ms</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'status'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Active'" :key="'Active'">Active</a-select-option>
+                            <a-select-option :value="'Inactive'" :key="'Inactive'">Inactive</a-select-option>
+                            <a-select-option :value="'Canceled'" :key="'Canceled'">Canceled</a-select-option>
+                            <a-select-option :value="'Disabled'" :key="'Disabled'">Disabled</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <select class="search-criteria w-100 mb-2"  v-model="field.constraint" style="display:none"> 
+                            <option selected>is equal to</option> 
+                            <option value="1">contains</option> 
+                            <option value="2">does not contain</option> 
+                            <option value="3">begins with</option> 
+                            <option value="3">ends with</option> 
+                          </select> 
+                          <input v-on:keyup="fireSearchEvent(field.filter_value)" class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="field.filter_value" value=""> 
+                        </div> 
+                      </div> 
                     </div>
+                    <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:false }" style="display:none;"> 
+                      <div class="custom-control custom-checkbox"> 
+                        <input type="checkbox" class="custom-control-input mx-0" id="result1"> 
+                        <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label> 
+                      </div> 
 
-                    <div
-                      class="filter-results grey-scroll mr-4 pl-34"
-                      :class="{show:filterValue != '' }"
-                      style="display:none;"
-                    >
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input mx-0" id="result1" />
-                        <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label>
-                      </div>
+                      <div class="custom-control custom-checkbox"> 
+                        <input type="checkbox" class="custom-control-input mx-0" id="result2"> 
+                        <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label> 
+                      </div> 
+                    </div> 
+                  </div> 
 
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input mx-0" id="result2" />
-                        <label class="custom-control-label mx-0 pt-0" for="result2">John Davies</label>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="row mx-2 mt-3 border-top pt-3 custom-filter-name-save"> 
+                    <div class="col pl-0 pr-2"> 
+                      <input class="save-text w-100" type="text" placeholder="Custom Filter Name" value=""> 
+                    </div> 
 
-                  <div class="row mx-2 mt-3 border-top pt-3 custom-filter-name-save">
-                    <div class="col pl-0 pr-2">
-                      <input
-                        class="save-text w-100"
-                        type="text"
-                        placeholder="Custom Filter Name"
-                        value
-                      />
-                    </div>
+                    <div class="col-auto pr-0 pl-2"> 
+                      <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0" @click="saveFilter" >Save</button> 
+                    </div> 
+                  </div> 
+                </b-tab> 
 
-                    <div class="col-auto pr-0 pl-2">
-                      <button
-                        type="submit"
-                        class="btn btn-primary save-filter mt-2 rounded-pill m-0"
-                      >Save</button>
-                    </div>
-                  </div>
-                </b-tab>
-
-                <b-tab title="Saved" active>
-                  <div class="px-2 saved-group filter-container grey-scroll">
-                    <div
-                      @click="savedFilters()"
-                      :class="{ filterborder:appendBorder }"
-                      class="p-2 custom-control custom-checkbox"
-                    >
-                      <input
-                        type="checkbox"
-                        :disabled="appendBorder === false"
-                        :checked="appendBorder !== false"
-                        class="custom-control-input mx-0"
+                <b-tab title="Saved" active> 
+                  <div class="px-2 saved-group filter-container grey-scroll"> 
+                    <div @click="savedFilters()" :class="{ filterborder:appendBorder }" class="p-2 custom-control custom-checkbox"> 
+                      <input 
+                        type="checkbox" 
+                        :disabled="appendBorder === false" 
+                        :checked="appendBorder !== false" 
+                        class="custom-control-input mx-0" 
                         id="savedFilter1"
                       />
                       <label class="custom-control-label mx-0 pt-0" for="savedFilter1">Saved</label>
@@ -2320,236 +2459,273 @@ input.save-text:focus {
   </div>
 </template> 
  
-<script>
-import { setupCalendar, Calendar } from "v-calendar";
-import TransitionHeight from "../Plugins/TransitionExpand.vue";
-import VueCircle from "vue2-circle-progress";
-import moment from "moment";
-export default {
-  props: ["auth_user", "active"],
-  components: {
-    "transition-expand": TransitionHeight,
-    VueCircle
-  },
-  data: function() {
-    return {
-      user: {
-        notifications: 1
+<script> 
+  import { 
+    setupCalendar, Calendar 
+  } 
+  from 'v-calendar' 
+  import TransitionHeight from '../Plugins/TransitionExpand.vue'; 
+  import VueCircle from 'vue2-circle-progress' 
+  import moment from 'moment' 
+  export default { 
+    props: ['auth_user', 'active'], 
+    components: { 
+      'transition-expand': TransitionHeight, 
+      VueCircle 
+    }, 
+    data: function() { 
+      return { 
+        user: { 
+          notifications: 1, 
+        }, 
+        status: 'active', 
+        notifications_on: false, 
+        settings_on: false, 
+        language_settings_on: false, 
+        system_settings_on: false, 
+        profile_on: false, 
+        account_on: false, 
+        callbacks_on: true, 
+        messages_on: false, 
+        call_backs: [], 
+        tasks: [], 
+        messages: [], 
+        unread_messages: 1, 
+        expanded: false, 
+        show_filter: false, 
+        show_filter_save: false, 
+        show: false, 
+        lead_owners: [], 
+        assignees: [], 
+        sources: [], 
+        packages: [], 
+        filters: [], 
+        preferences: [], 
+        roles: [], 
+        attrs: [{ 
+          key: 'today', 
+          highlight: true, 
+          class: 'today_date', 
+          dates: new Date(), 
+        }],
+        call_log : {
+          commission: '',
+          total_calls: '',
+          total_sales: '',
+          con_ratio: '',
+          sum_sales: '',
+          call_history: '',
+          sum_call_back: '',
+          avg_time: '',
+        }, 
+        filter: [], 
+        user_settings: { 
+          id: '', 
+          theme: 'orange', 
+          language: 'english', 
+          max_table_rows: 50 
+        }, 
+        custom_fields: [],
+        active_task_id: null, 
+        edit_task: false, 
+        add_task: false, 
+        new_task: { 
+          title: '', 
+          description: '', 
+          date: moment() 
+        }, 
+        avatarUrl: '/images/avatars/', 
+        noImageUrl: '/images/icons/user_icon@4x.png', 
+        fill: { 
+          gradient: ["#a1ed1c", "#62d37e"] 
+        }, 
+        p: 65,
+        appendBorder: false, 
+        showSavedFilters: false, 
+        showFilters: false, 
+        filterValue: '',
+        active_users : null,
+        active_roles : null,
+        sources : null,
+      } 
+    }, 
+
+    mounted() { 
+      var vm = this; 
+
+      this.user = JSON.parse(this.auth_user); 
+
+      vm.getUserCallBacks(); 
+
+      vm.getUserTasks(); 
+
+      vm.getDashboard(); 
+
+      vm.getCustomFields(); 
+
+      Fire.$on('AfterCallBackSet', function() { 
+        vm.getUserCallBacks(); 
+      }); 
+
+      Fire.$on('AvatarUploadComplete', function() { 
+        axios.get('/get-current-user').then(function(response) { 
+          vm.user = response.data.user; 
+        }); 
+      }); 
+
+      Fire.$on('ShowFilter', function() { 
+        vm.show_filter = !vm.show_filter; 
+      }); 
+
+      Fire.$on('CustomFilterApplied', function(data) { 
+        vm.filter = data.filter; 
+        vm.show_filter = true; 
+      }); 
+
+      Fire.$on('OnEditTask', function(data) { 
+        vm.task = data.task;
+        vm.editTask(vm.task, data.mode);
+      }); 
+
+      Fire.$on('OnAddTask', function(data) { 
+        vm.new_task = data.new_task;
+        vm.submitTask();
+        vm.add_task = false;
+      }); 
+
+      axios.get('/leads/get-select-options').then(function(response) { 
+        vm.lead_owners = response.data.lead_owners; 
+        vm.assignees = response.data.assignees; 
+        vm.sources = response.data.sources; 
+        vm.packages = response.data.packages; 
+        vm.roles = response.data.roles; 
+      }); 
+
+      vm.getPreferences(); 
+
+      this.Toast = this.$swal.mixin({ 
+        toast: true, 
+        position: 'top-end', 
+        showConfirmButton: false, 
+        timer: 3000 
+      }); 
+    }, 
+
+    methods: { 
+      moment, 
+      showNotifications() { 
+        this.notifications_on = !this.notifications_on; 
+        this.settings_on = false; 
+        this.profile_on = false; 
+      }, 
+      filterProperties(field) { 
+        field.append_border = !field.append_border 
+        field.show = !field.show ;
+      }, 
+      savedFilters() { 
+        this.appendBorder = !this.appendBorder 
+        this.showSavedFilters = !this.showSavedFilters 
+      }, 
+      showSettings() { 
+        this.settings_on = !this.settings_on; 
+        this.notifications_on = false; 
+        this.profile_on = false; 
+      }, 
+
+      showCallbacks() { 
+        this.callbacks_on = true; 
+        this.messages_on = false; 
+      }, 
+
+      showMessages() { 
+        this.callbacks_on = false; 
+        this.messages_on = true; 
+        this.unread_messages = 0; 
       },
-      status: "active",
-      notifications_on: false,
-      settings_on: false,
-      language_settings_on: false,
-      system_settings_on: false,
-      profile_on: false,
-      account_on: false,
-      callbacks_on: true,
-      messages_on: false,
-      generalStats_on: false,
-      filters_on: false,
-      call_backs: [],
-      tasks: [],
-      messages: [],
-      unread_messages: 1,
-      expanded: false,
-      show_filter: false,
-      show_filter_save: false,
-      show: false,
-      lead_owners: [],
-      assignees: [],
-      sources: [],
-      packages: [],
-      filters: [],
-      preferences: [],
-      roles: [],
-      attrs: [
-        {
-          key: "today",
-          highlight: true,
-          class: "today_date",
-          dates: new Date()
-        }
-      ],
-      filter: {
-        title: "",
-        search: "",
-        user_created_id: "",
-        user_assigned: "",
-        source: "",
-        product_id: "",
-        status: ""
-      },
-      user_settings: {
-        id: "",
-        theme: "orange",
-        language: "english",
-        max_table_rows: 50
-      },
-      active_task_id: null,
-      edit_task: false,
-      add_task: false,
-      new_task: {
-        title: "",
-        description: "",
-        date: moment()
-      },
-      avatarUrl: "/images/avatars/",
-      noImageUrl: "/images/icons/user_icon@4x.png",
-      fill: {
-        gradient: ["#a1ed1c", "#62d37e"]
-      },
-      p: 65,
-      appendBorder: false,
-      showSavedFilters: false,
-      showFilters: false,
-      filterValue: ""
-    };
-  },
+      getCustomFields(){
 
-  mounted() {
-    var vm = this;
+        var vm = this;
 
-    this.user = JSON.parse(this.auth_user);
+        var endpoint = '/modules/fields/' + vm.active;
 
-    if (this.active == "dashboard") {
-      this.showNotifications();
-    }
+        axios.get(endpoint).then(function (response) {
 
-    vm.getUserCallBacks();
+          vm.custom_fields = response.data.fields;
+          vm.sources = response.data.sources;
+          vm.products = response.data.products;
+          vm.active_users = response.data.active_users;
 
-    vm.getUserTasks();
-
-    Fire.$on("AfterCallBackSet", function() {
-      vm.getUserCallBacks();
-    });
-
-    Fire.$on("AvatarUploadComplete", function() {
-      axios.get("/get-current-user").then(function(response) {
-        vm.user = response.data.user;
-      });
-    });
-
-    Fire.$on("ShowFilter", function() {
-      vm.show_filter = !vm.show_filter;
-    });
-
-    Fire.$on("CustomFilterApplied", function(data) {
-      vm.filter = data.filter;
-      vm.show_filter = true;
-    });
-
-    Fire.$on("OnEditTask", function(data) {
-      vm.task = data.task;
-      vm.editTask(vm.task, data.mode);
-    });
-
-    Fire.$on("OnAddTask", function(data) {
-      vm.new_task = data.new_task;
-      vm.submitTask();
-      vm.add_task = false;
-    });
-
-    axios.get("/leads/get-select-options").then(function(response) {
-      vm.lead_owners = response.data.lead_owners;
-      vm.assignees = response.data.assignees;
-      vm.sources = response.data.sources;
-      vm.packages = response.data.packages;
-      vm.roles = response.data.roles;
-    });
-
-    vm.getPreferences();
-
-    this.Toast = this.$swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000
-    });
-  },
-
-  methods: {
-    moment,
-    showNotifications() {
-      this.notifications_on = !this.notifications_on;
-      this.settings_on = false;
-      this.profile_on = false;
-      this.generalStats_on = false;
-      this.filters_on = false;
-    },
-    filterProperties() {
-      this.appendBorder = !this.appendBorder;
-      this.showFilters = !this.showFilters;
-    },
-    savedFilters() {
-      this.appendBorder = !this.appendBorder;
-      this.showSavedFilters = !this.showSavedFilters;
-    },
-    showSettings() {
-      this.settings_on = !this.settings_on;
-      this.notifications_on = false;
-      this.profile_on = false;
-      this.generalStats_on = false;
-      this.filters_on = false;
-    },
-      showGeneralStats() {
-      this.generalStats_on = !this.generalStats_on;
-      this.notifications_on = false;
-      this.profile_on = false;
-      this.settings_on = false;
-      this.filters_on = false;
-    },
-    showFiltersTab() {
-      this.filters_on = !this.filters_on;
-      this.settings_on = false;
-      this.notifications_on = false;
-      this.profile_on = false;
-      this.generalStats_on = false;
-    },
-    showCallbacks() {
-      this.callbacks_on = true;
-      this.messages_on = false;
-    },
-
-    showMessages() {
-      this.callbacks_on = false;
-      this.messages_on = true;
-      this.unread_messages = 0;
-    },
-    getUserCallBacks() {
-      var vm = this;
-
-      axios.get("/leads/get-user-callbacks").then(function(response) {
-        vm.call_backs = response.data.call_backs;
-
-        vm.attrs = [
-          {
-            key: "today",
-            highlight: true,
-            class: "today_date",
-            dates: new Date()
-          }
-        ];
-
-        vm.call_backs.forEach(function(call_back) {
-          vm.attrs.push({
-            key: "call_back" + call_back.id,
-            highlight: "red",
-            class: "call_back_date",
-            dates: new Date(call_back.call_date),
-            popover: {
-              label:
-                "Call " +
-                call_back.lead.name +
-                " " +
-                call_back.lead.surname +
-                " @" +
-                call_back.call_time
-            }
+          vm.custom_fields.map( (field, index ) => {
+            vm.filter.push({
+              module_id: field.module_id,
+              field_id: field.id,
+              field_name: field.name,
+              field_display_name: field.display_name,
+              // filter_value: '',
+              append_border: false,
+              show: false,
+            });
           });
         });
+      },
+      getDashboard(month = ''){
+        var vm = this;
 
-        Fire.$emit("AfterCallBackRequest", { call_backs: vm.call_backs });
-      });
+        if(month == ''){
+          var endpoint = '/calls/get-dashboard';
+        }else{
+          var endpoint = '/calls/get-dashboard/' + month;
+        }
+
+        vm.$Progress.start();
+
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.call_log.commission = response.data.commission;
+            vm.call_log.total_calls = response.data.total_calls;
+            vm.call_log.total_sales = response.data.total_sales;
+            vm.call_log.con_ratio = response.data.con_ratio;
+            vm.call_log.sum_sales = response.data.sum_sales;
+            vm.call_log.call_history = response.data.call_history;
+            vm.call_log.sum_call_back = response.data.sum_call_back;
+            vm.call_log.avg_time = response.data.avg_time;
+            
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
+      }, 
+      getUserCallBacks() { 
+        var vm = this; 
+
+        axios.get('/leads/get-user-callbacks').then(function(response) { 
+          vm.call_backs = response.data.call_backs; 
+
+          vm.attrs = [{ 
+            key: 'today', 
+            highlight: true, 
+            class: 'today_date', 
+            dates: new Date(), 
+          }]; 
+
+          vm.call_backs.forEach(function(call_back) { 
+
+            vm.attrs.push({ 
+              key: 'call_back' + call_back.id, 
+              highlight: 'red', 
+              class: 'call_back_date', 
+              dates: new Date(call_back.call_date), 
+              popover: { 
+                label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time, 
+              }, 
+            }); 
+          }); 
+
+          Fire.$emit('AfterCallBackRequest', { call_backs : vm.call_backs});
+        });
     },
     markCallBackDone(call_back) {
       var vm = this;
@@ -2640,224 +2816,208 @@ export default {
           id: task.id,
           title: task.title,
           status: status,
-          description: task.description,
-          date: task.deadline
-        })
-        .then(function(response) {
-          if (response.data.success == true) {
-            vm.Toast.fire({
-              type: "success",
-              title: response.data.message
-            });
-            vm.getUserTasks();
-            vm.edit_task = false;
-            vm.$Progress.finish();
-          } else {
-            vm.$Progress.fail();
-            vm.$swal(
-              "Failed",
-              "Opps, something went wrong while updating data, please try again",
-              "warning"
-            );
-          }
-        });
-      this.edit_task = false;
-    },
-    editTaskCollapes(id) {
-      this.edit_task = true;
-      this.active_task_id = id;
-    },
-    applySetting(settings = null) {
-      var vm = this;
+          description: task.description, 
+          date: task.deadline 
+        }).then(function(response) { 
 
-      if (settings != null && settings.type == "language") {
-        vm.user_settings.language = settings.value;
-      } else if (settings != null && settings.type == "theme") {
-        vm.user_settings.theme = settings.value;
-      }
+          if (response.data.success == true) { 
+            vm.Toast.fire({ 
+                type: 'success', 
+                title: response.data.message 
+            }); 
+            vm.getUserTasks(); 
+            vm.edit_task = false; 
+            vm.$Progress.finish(); 
+          } else { 
+            vm.$Progress.fail(); 
+            vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning'); 
+          } 
+        }); 
+        this.edit_task = false; 
+      },
+      editTaskCollapes(id){ 
+        this.edit_task = true; 
+        this.active_task_id = id; 
+      }, 
+      applySetting(settings = null) { 
+        var vm = this; 
 
-      vm.$Progress.start();
+        if (settings != null && settings.type == 'language') { 
+          vm.user_settings.language = settings.value; 
+        } else if (settings != null && settings.type == 'theme') { 
+          vm.user_settings.theme = settings.value; 
+        } 
 
-      axios
-        .post("/update-preferences", {
-          system_settings: vm.system_settings,
-          user_settings: vm.user_settings
-        })
-        .then(function(response) {
-          if (response.data.success == true) {
-            vm.Toast.fire({
-              type: "success",
-              title: response.data.message
-            });
-            vm.getPreferences();
-            vm.$Progress.finish();
-          } else {
-            vm.$Progress.fail();
-            vm.$swal(
-              "Failed",
-              "Opps, something went wrong while update, please try again",
-              "warning"
-            );
-          }
-        });
-    },
-    getPreferences() {
-      var vm = this;
+        vm.$Progress.start(); 
 
-      axios.get("/get-preferences").then(function(response) {
-        vm.preferences = response.data.preferences;
-        vm.preferences.forEach(function(preference) {
-          if (preference.setting == "theme") {
-            vm.user_settings.theme = preference.value;
-          } else if (preference.setting == "language") {
-            vm.user_settings.language = preference.value;
-          }
-        });
-      });
-    },
-    updateNotifications() {
-      var vm = this;
-      axios.post("/update-user", this.user).then(function(response) {
-        if (response.data.success == true) {
-          vm.Toast.fire({
-            type: "success",
-            title: response.data.message
+        axios.post('/update-preferences', { 
+          system_settings: vm.system_settings, 
+          user_settings: vm.user_settings 
+        }).then(function(response) { 
+
+          if (response.data.success == true) { 
+            vm.Toast.fire({ 
+              type: 'success', 
+              title: response.data.message 
+            }); 
+            vm.getPreferences(); 
+            vm.$Progress.finish(); 
+          } else { 
+            vm.$Progress.fail(); 
+            vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+          } 
+        }); 
+      }, 
+      getPreferences() { 
+        var vm = this; 
+
+        axios.get('/get-preferences').then(function(response) { 
+          vm.preferences = response.data.preferences; 
+          vm.preferences.forEach(function(preference) { 
+            if (preference.setting == 'theme') { 
+              vm.user_settings.theme = preference.value; 
+            } else if (preference.setting == 'language') { 
+              vm.user_settings.language = preference.value; 
+            } 
+          }); 
+        }); 
+      }, 
+      updateNotifications() { 
+        var vm = this; 
+        axios.post('/update-user', this.user).then(function(response) { 
+
+          if (response.data.success == true) { 
+            vm.Toast.fire({ 
+                type: 'success', 
+                title: response.data.message 
+            }); 
+            vm.user = response.data.user; 
+            vm.$Progress.finish(); 
+          } else if (response.data.errors.email[0] != '') { 
+            vm.$Progress.fail(); 
+            vm.$swal('Failed', response.data.errors.email[0], 'warning'); 
+          } else { 
+            vm.$Progress.fail(); 
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+          } 
+        }); 
+      }, 
+      updateUser(type) { 
+        var vm = this; 
+        vm.$Progress.start(); 
+        this.$validator.validateAll().then((result) => { 
+          if (!result) { 
+
+          } else { 
+
+            if (type == 'profile') { 
+              axios.post('/update-user', this.user).then(function(response) { 
+
+                if (response.data.success == true) { 
+                  vm.Toast.fire({ 
+                    type: 'success', 
+                    title: response.data.message 
+                  }); 
+                  vm.user = response.data.user; 
+                  vm.$Progress.finish(); 
+                } else if (response.data.errors.email[0] != '') { 
+                  vm.$Progress.fail(); 
+                  vm.$swal('Failed', response.data.errors.email[0], 'warning'); 
+                } else { 
+                  vm.$Progress.fail(); 
+                  vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                } 
+              }); 
+            } else { 
+              axios.post('/update-account', this.user).then(function(response) { 
+
+                if (response.data.success === true) { 
+                  vm.Toast.fire({ 
+                    type: 'success', 
+                    title: response.data.message 
+                  }); 
+                  vm.user = response.data.user; 
+                  vm.$Progress.finish(); 
+                } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) { 
+                  vm.$swal('Failed', 'You old password is incorrect', 'warning'); 
+                } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) { 
+                  var this_error = ''; 
+                  response.data.errors.password.forEach(function(error) { 
+                    this_error = this_error + error + '\n'; 
+                  }); 
+                  vm.$swal('Failed', this_error, 'warning'); 
+                } else { 
+                  vm.$Progress.fail(); 
+                  vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                } 
+              }); 
+            } 
+          } 
+        }); 
+      }, 
+      showUploader() { 
+        Fire.$emit('ShowAvatarUploader'); 
+      }, 
+      saveFilter() { 
+        var vm = this; 
+        vm.$validator.validateAll().then((result) => { 
+          if (!result) {} else { 
+            axios.post('/filters/create', { 
+              filter: this.filter, 
+              type: this.active 
+            }).then(function(response) { 
+
+              if (response.data.success === true) { 
+                vm.Toast.fire({ 
+                  type: 'success', 
+                  title: response.data.message 
+                }); 
+
+                Fire.$emit('SaveFilter', { 
+                  'filters': response.data.filters 
+                }); 
+
+                vm.$Progress.finish(); 
+              } else { 
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                vm.$Progress.fail(); 
+              } 
+            }); 
+          } 
+        }); 
+      }, 
+      fireTableEvent(event = '') { 
+        Fire.$emit(event); 
+      }, 
+      fireSearchEvent(term) { 
+        
+        if( term instanceof Array){
+          var concat_term = '';
+          term.forEach(function(value){
+             concat_term += ',' + value;
           });
-          vm.user = response.data.user;
-          vm.$Progress.finish();
-        } else if (response.data.errors.email[0] != "") {
-          vm.$Progress.fail();
-          vm.$swal("Failed", response.data.errors.email[0], "warning");
-        } else {
-          vm.$Progress.fail();
-          vm.$swal(
-            "Failed",
-            "Opps, something went wrong while retrieving lead, please try again",
-            "warning"
-          );
+          console.log(concat_term);
+          Fire.$emit('Search', { 
+            'search_term': concat_term
+          });
+        }else{
+          Fire.$emit('Search', { 
+            'search_term': term
+          }); 
         }
-      });
-    },
-    updateUser(type) {
-      var vm = this;
-      vm.$Progress.start();
-      this.$validator.validateAll().then(result => {
-        if (!result) {
-        } else {
-          if (type == "profile") {
-            axios.post("/update-user", this.user).then(function(response) {
-              if (response.data.success == true) {
-                vm.Toast.fire({
-                  type: "success",
-                  title: response.data.message
-                });
-                vm.user = response.data.user;
-                vm.$Progress.finish();
-              } else if (response.data.errors.email[0] != "") {
-                vm.$Progress.fail();
-                vm.$swal("Failed", response.data.errors.email[0], "warning");
-              } else {
-                vm.$Progress.fail();
-                vm.$swal(
-                  "Failed",
-                  "Opps, something went wrong while retrieving lead, please try again",
-                  "warning"
-                );
-              }
-            });
-          } else {
-            axios.post("/update-account", this.user).then(function(response) {
-              if (response.data.success === true) {
-                vm.Toast.fire({
-                  type: "success",
-                  title: response.data.message
-                });
-                vm.user = response.data.user;
-                vm.$Progress.finish();
-              } else if (
-                typeof response.data.errors["old_password"] !== "undefined" &&
-                response.data.errors.old_password.length > 0
-              ) {
-                vm.$swal("Failed", "You old password is incorrect", "warning");
-              } else if (
-                typeof response.data.errors["password"] !== "undefined" &&
-                response.data.errors.password.length > 0
-              ) {
-                var this_error = "";
-                response.data.errors.password.forEach(function(error) {
-                  this_error = this_error + error + "\n";
-                });
-                vm.$swal("Failed", this_error, "warning");
-              } else {
-                vm.$Progress.fail();
-                vm.$swal(
-                  "Failed",
-                  "Opps, something went wrong while retrieving lead, please try again",
-                  "warning"
-                );
-              }
-            });
-          }
-        }
-      });
-    },
-    showUploader() {
-      Fire.$emit("ShowAvatarUploader");
-    },
-    saveFilter() {
-      var vm = this;
-      vm.$validator.validateAll().then(result => {
-        if (!result) {
-        } else {
-          axios
-            .post("/filters/create", {
-              filter: this.filter,
-              type: this.active
-            })
-            .then(function(response) {
-              if (response.data.success === true) {
-                vm.Toast.fire({
-                  type: "success",
-                  title: response.data.message
-                });
+      }, 
+      progress(event, progress, stepValue) { 
+        console.log(stepValue); 
+        if (stepValue > 30) { 
+          this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e"); 
+        } 
+      }, 
+      progress_end(event) { 
+        console.log("Circle progress end"); 
+      } 
+    }, 
 
-                Fire.$emit("SaveFilter", {
-                  filters: response.data.filters
-                });
-
-                vm.$Progress.finish();
-              } else {
-                vm.$swal(
-                  "Failed",
-                  "Opps, something went wrong while retrieving lead, please try again",
-                  "warning"
-                );
-                vm.$Progress.fail();
-              }
-            });
-        }
-      });
-    },
-    fireTableEvent(event = "") {
-      Fire.$emit(event);
-    },
-    fireSearchEvent() {
-      Fire.$emit("Search", {
-        search_term: this.filter.search
-      });
-    },
-    progress(event, progress, stepValue) {
-      console.log(stepValue);
-      if (stepValue > 30) {
-        this.$refs.myprogress.updateFill("#a1ed1c", "#62d37e");
-      }
-    },
-    progress_end(event) {
-      console.log("Circle progress end");
-    }
-  },
-
-  computed: {}
-};
+    computed: {} 
+  } 
 </script> 
 

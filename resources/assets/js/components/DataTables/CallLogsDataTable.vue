@@ -24,6 +24,7 @@
                                   @change="handleChange()"
                                   >
                                   </b-form-select>
+                                  
                                 <!-- <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0">Apply</button> -->
                             </div>
                         </div> 

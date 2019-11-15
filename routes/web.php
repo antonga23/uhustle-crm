@@ -108,7 +108,7 @@ Route::get('/move-leads',  function(){
               $insert = $lead->user_created_id;
             break;
           case 'status':
-              $insert = $lead->user_created_id;
+              $insert = $lead->status;
             break;             
 
           default:
@@ -302,12 +302,14 @@ Route::group(['prefix' => 'modules'], function () {
   Route::get('/destroy/{id}', 'ModuleController@destroy');
   Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
   Route::post('/check-exist', 'ModuleController@checkExist');
+  Route::get('/fields/{module}', 'ModuleController@getFields');
 
   // Items
   Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
   Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
+  Route::get('/get-assigned/{module}', 'ModuleController@getAssigned');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');

@@ -37,8 +37,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                            <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
+                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" :key="index">
+                            <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i" >
                                 <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
@@ -183,10 +183,10 @@
 
                                             <span v-else>
                                               <span v-if="item.item[column.field].meta_value !== null">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value }}
                                                 </span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
@@ -244,9 +244,6 @@ export default {
         role: '',
         title: {},
         users: null,
-        active_users : null,
-        active_roles : null,
-        sources : null,
         packages : null,
         custom_fields :{
             required: true
@@ -606,8 +603,11 @@ export default {
         },
 
         click(row, index) {
+          
             if (this.onClick)
                 this.onClick(row, index);
+
+            window.location.href = '/workstation/' + row.id;
         },
 
         exportExcel() {
@@ -687,7 +687,6 @@ export default {
             }
         },
     },
-
     computed: {
         processedRows: function() {
             
@@ -728,7 +727,11 @@ export default {
                 paginatedRows = paginatedRows.slice((this.currentPage - 1) * this.currentPerPage, this.currentPerPage === -1 ? paginatedRows.length + 1 : this.currentPage * this.currentPerPage);
             return paginatedRows;
         }
+    },
+    created() {
+
     }
+
 }
 </script>
 <style scoped>
