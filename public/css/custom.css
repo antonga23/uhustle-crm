@@ -321,7 +321,7 @@
   background-repeat: no-repeat;
   background-position: 50%;
   position: relative;
-  left: 30%;
+  left: 31%;
   height: 84px;
 }
  .btn:focus {
@@ -436,6 +436,9 @@ label:not(.form-check-label):not(.custom-file-label) {
   background-color: white !important;
   border-radius: 0px !important;
 }
+.vc-arrows-container.title-center {
+  width: 90% !important;
+}
 
 .ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, .api-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
   background-color: #F28821 !important;
@@ -451,6 +454,9 @@ label:not(.form-check-label):not(.custom-file-label) {
   font-family: 'Rubik', sans-serif;
   font-size: 0.68vw;
   color: rgba(28, 35, 49, 0.5);
+  position: relative;
+    top: 4px;
+    right: 10px;
 }
 .vc-grid-container {
   padding: 0!important;
@@ -584,7 +590,6 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
   transition: display 0.3s ease-in-out;
-  max-width: 180px;
   display: block!important;
 }
 .sidebar-collapse .main-sidebar .sidebar .sidebar-menu .open-sidenav {
@@ -620,16 +625,8 @@ label:not(.form-check-label):not(.custom-file-label) {
   text-align: center;
 }
 
-.reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="1"] {
-  box-shadow: 20px -10px 34px -25px rgba(131,131,131,1);
-  -webkit-box-shadow: 20px -10px 34px -25px rgba(131,131,131,1);
-  -moz-box-shadow: 20px -10px 34px -25px rgba(131,131,131,1);
-  -o-box-shadow: 20px -10px 34px -25px rgba(131,131,131,1);
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.closed-sidenav .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"], 
-.reminders .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"]{
+
+.closed-sidenav .nav-tabs .nav-link[aria-selected="false"][aria-posinset="1"]{
   box-shadow: inset 1px -10px 10px #f5f5f5;
   -webkit-box-shadow: inset 1px -10px 10px #f5f5f5;
   -moz-box-shadow: inset 1px -10px 10px #f5f5f5;
@@ -646,22 +643,15 @@ label:not(.form-check-label):not(.custom-file-label) {
   -o-box-shadow: -6px -20px 17px 0px #f5f5f5;
 }
 
- .reminders .nav-tabs .nav-link[aria-selected="true"][aria-posinset="2"]{
-  box-shadow: -20px -10px 34px -25px rgba(131,131,131,1);
-  -webkit-box-shadow: -20px -10px 34px -25px rgba(131,131,131,1);
-  -moz-box-shadow: -20px -10px 34px -25px rgba(131,131,131,1);
-  -o-box-shadow: -20px -10px 34px -25px rgba(131,131,131,1);
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.closed-sidenav .nav-tabs .nav-link[aria-selected="false"][aria-posinset="2"], 
-.reminders .nav-tabs .nav-link[aria-selected="false"][aria-posinset="2"]{
+
+.closed-sidenav .nav-tabs .nav-link[aria-selected="false"][aria-posinset="2"] {
   box-shadow: inset 7px -10px 10px #f5f5f5;
   -webkit-box-shadow: inset 7px -10px 10px #f5f5f5;
   -moz-box-shadow: inset 7px -10px 10px #f5f5f5;
   -o-box-shadow: inset 7px -10px 10px #f5f5f5;
   border-bottom-left-radius: 25px;
 }
+
 .nav-pills .nav-link.active, 
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
   background-color: #fff!important;
@@ -671,35 +661,40 @@ label:not(.form-check-label):not(.custom-file-label) {
   width:50%;
 }
 
-.reminders .nav-tabs .filter-content .tabs {
-  text-align:center;
-}
 .outer-box-shadow {
--webkit-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
--moz-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
--o-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
-box-shadow: 0px 0px 32px -10px rgba(227,223,227,1);
-border-radius: 25px;
+box-shadow: 0 0 7px rgba(0,0,0,0.1);
+max-height: 350px;
+  overflow: auto
 }
 
 .add-task {
   width: 16px;
   position: absolute;
-  top: 22px;
-  right: 40%;
+  top: 4px;
+  right: 42%;
 }
 
-.nav-item a#__BVID__93___BV_tab_button__ {
-text-align: right;
-}
-
-.reminders .nav-link {
+.reminders .nav-link, .filter-content .nav-link {
   font-size: 12px;
-  padding: 20px 15px;
+  padding: 20px 20% 0px;
   text-transform: uppercase;
   font-family: 'Rubik', sans-serif !important;
-  color: #1a1a1a !important;
+  color: #808080 !important;
+  border: 0 !important;
 }
+
+.reminders .nav-link.active, .filter-content .nav-link.active {
+  color: #1f2353 !important;
+}
+
+.reminders .nav-link:hover, .filter-content .nav-link:hover {
+  border: 0 !important;
+}
+
+.filter-content .nav.nav-tabs {
+  border-bottom: 0 !important;
+}
+
 .filter-content .custom-control-label::before, 
 .filter-content .tab-content .custom-checkbox .custom-control-label::before{
   border-radius:50rem!important;
@@ -896,6 +891,7 @@ text-align: right;
   font-family: 'Rubik', sans-serif !important;
   max-width:128px;
   color: #353C49;
+  font-size: 0.73vw !important;
 }
 @media screen and (max-width: 1643px) {
   .calendar .ant-calendar-picker-input.ant-input,

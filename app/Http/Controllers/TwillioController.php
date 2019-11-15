@@ -74,7 +74,7 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                              ->read(array(),17);
+                              ->read(array(),10);
                               // ->read(array("status" => "in-progress"),500);
         
         $conferences_arr = [];
@@ -94,7 +94,7 @@ class TwillioController extends Controller
             $caller = $lead_info['caller'];
 
             $data->lead = $lead;
-            $data->lead_type = $lead_info['lead_type'];
+            $data->lead_type = 'Lead';
             $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
             $data->lead_mobile = $lead->phone_number;
             $data->lead_country = $lead->country;
@@ -138,8 +138,8 @@ class TwillioController extends Controller
     public function getConferenceLeadInfo($conference_name){
         $name_parts = explode('-', $conference_name);
 
-        $lead_id = (isset($name_parts[0])) ? $name_parts[0] : 830;
-        $caller_id = (isset($name_parts[1])) ? $name_parts[1] : 1;
+        $lead_id = (isset($name_parts[1])) ? $name_parts[1] : 830;
+        $caller_id = (isset($name_parts[2])) ? $name_parts[2] : 1;
 
         $lead = Lead::with('user')->with('creator')->with('product')->findOrFail($lead_id);
         $caller = User::where(['id' => $caller_id])->select('name','lastname')->first();
@@ -147,7 +147,6 @@ class TwillioController extends Controller
         return [
             'caller' => $caller,
             'lead' => $lead,
-            'lead_type' => $lead_type,
         ];
     }
 

@@ -38,7 +38,7 @@ li.title a strong{
 a.top-link{    
   border-radius: 26px;
   height: 30px !important;
-  padding: 2px 17px 6px !important;
+  padding: 6px 17px 6px !important;
   font-family: 'Rubik', sans-serif;
   letter-spacing: 1px;
 }
@@ -78,7 +78,7 @@ select.month-selector {
   background-position: center center !important;
 }
 .callIcons .search .col-auto {
-  padding-right:46%;
+  padding-right:46% !important;
 }
 .callIcons .search a{
   background-color: #fff;

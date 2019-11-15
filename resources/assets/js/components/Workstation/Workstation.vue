@@ -2059,6 +2059,8 @@ export default {
   
     if (vm.item_id != "") {  
       vm.enqueueLead(vm.item_id);  
+      vm.getActivities();  
+      vm.getDeals();  
       vm.general = true;  
       vm.active_calls = false;  
       Fire.$emit("ShowGeneral");  
@@ -2077,10 +2079,6 @@ export default {
     }  
   
     vm.prepDates();  
-
-    vm.getActivities();  
-
-    vm.getDeals();  
   
     Fire.$on("CallStarted", function() {  
       vm.general = false;  
@@ -2134,7 +2132,8 @@ export default {
     });  
   },  
   created: function() {  
-    this.getComments(this.item_id);  
+    if(this.item_id)
+      this.getComments(this.item_id);  
   },  
   props: [  
     "user_name",  

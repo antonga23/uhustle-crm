@@ -186378,14 +186378,403 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['auth_user', 'active'],
+  props: ["auth_user", "active"],
   components: {
-    'transition-expand': _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "transition-expand": _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     VueCircle: vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   data: function data() {
@@ -186393,7 +186782,7 @@ __webpack_require__.r(__webpack_exports__);
       user: {
         notifications: 1
       },
-      status: 'active',
+      status: "active",
       notifications_on: false,
       settings_on: false,
       language_settings_on: false,
@@ -186402,6 +186791,8 @@ __webpack_require__.r(__webpack_exports__);
       account_on: false,
       callbacks_on: true,
       messages_on: false,
+      generalStats_on: false,
+      filters_on: false,
       call_backs: [],
       tasks: [],
       messages: [],
@@ -186418,36 +186809,36 @@ __webpack_require__.r(__webpack_exports__);
       preferences: [],
       roles: [],
       attrs: [{
-        key: 'today',
+        key: "today",
         highlight: true,
-        "class": 'today_date',
+        "class": "today_date",
         dates: new Date()
       }],
       filter: {
-        title: '',
-        search: '',
-        user_created_id: '',
-        user_assigned: '',
-        source: '',
-        product_id: '',
-        status: ''
+        title: "",
+        search: "",
+        user_created_id: "",
+        user_assigned: "",
+        source: "",
+        product_id: "",
+        status: ""
       },
       user_settings: {
-        id: '',
-        theme: 'orange',
-        language: 'english',
+        id: "",
+        theme: "orange",
+        language: "english",
         max_table_rows: 50
       },
       active_task_id: null,
       edit_task: false,
       add_task: false,
       new_task: {
-        title: '',
-        description: '',
+        title: "",
+        description: "",
         date: moment__WEBPACK_IMPORTED_MODULE_3___default()()
       },
-      avatarUrl: '/images/avatars/',
-      noImageUrl: '/images/icons/user_icon@4x.png',
+      avatarUrl: "/images/avatars/",
+      noImageUrl: "/images/icons/user_icon@4x.png",
       fill: {
         gradient: ["#a1ed1c", "#62d37e"]
       },
@@ -186455,44 +186846,44 @@ __webpack_require__.r(__webpack_exports__);
       appendBorder: false,
       showSavedFilters: false,
       showFilters: false,
-      filterValue: ''
+      filterValue: ""
     };
   },
   mounted: function mounted() {
     var vm = this;
     this.user = JSON.parse(this.auth_user);
 
-    if (this.active == 'dashboard') {
+    if (this.active == "dashboard") {
       this.showNotifications();
     }
 
     vm.getUserCallBacks();
     vm.getUserTasks();
-    Fire.$on('AfterCallBackSet', function () {
+    Fire.$on("AfterCallBackSet", function () {
       vm.getUserCallBacks();
     });
-    Fire.$on('AvatarUploadComplete', function () {
-      axios.get('/get-current-user').then(function (response) {
+    Fire.$on("AvatarUploadComplete", function () {
+      axios.get("/get-current-user").then(function (response) {
         vm.user = response.data.user;
       });
     });
-    Fire.$on('ShowFilter', function () {
+    Fire.$on("ShowFilter", function () {
       vm.show_filter = !vm.show_filter;
     });
-    Fire.$on('CustomFilterApplied', function (data) {
+    Fire.$on("CustomFilterApplied", function (data) {
       vm.filter = data.filter;
       vm.show_filter = true;
     });
-    Fire.$on('OnEditTask', function (data) {
+    Fire.$on("OnEditTask", function (data) {
       vm.task = data.task;
       vm.editTask(vm.task, data.mode);
     });
-    Fire.$on('OnAddTask', function (data) {
+    Fire.$on("OnAddTask", function (data) {
       vm.new_task = data.new_task;
       vm.submitTask();
       vm.add_task = false;
     });
-    axios.get('/leads/get-select-options').then(function (response) {
+    axios.get("/leads/get-select-options").then(function (response) {
       vm.lead_owners = response.data.lead_owners;
       vm.assignees = response.data.assignees;
       vm.sources = response.data.sources;
@@ -186502,7 +186893,7 @@ __webpack_require__.r(__webpack_exports__);
     vm.getPreferences();
     this.Toast = this.$swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000
     });
@@ -186513,6 +186904,8 @@ __webpack_require__.r(__webpack_exports__);
       this.notifications_on = !this.notifications_on;
       this.settings_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
     },
     filterProperties: function filterProperties() {
       this.appendBorder = !this.appendBorder;
@@ -186526,6 +186919,22 @@ __webpack_require__.r(__webpack_exports__);
       this.settings_on = !this.settings_on;
       this.notifications_on = false;
       this.profile_on = false;
+      this.generalStats_on = false;
+      this.filters_on = false;
+    },
+    showGeneralStats: function showGeneralStats() {
+      this.generalStats_on = !this.generalStats_on;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.settings_on = false;
+      this.filters_on = false;
+    },
+    showFiltersTab: function showFiltersTab() {
+      this.filters_on = !this.filters_on;
+      this.settings_on = false;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.generalStats_on = false;
     },
     showCallbacks: function showCallbacks() {
       this.callbacks_on = true;
@@ -186538,26 +186947,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     getUserCallBacks: function getUserCallBacks() {
       var vm = this;
-      axios.get('/leads/get-user-callbacks').then(function (response) {
+      axios.get("/leads/get-user-callbacks").then(function (response) {
         vm.call_backs = response.data.call_backs;
         vm.attrs = [{
-          key: 'today',
+          key: "today",
           highlight: true,
-          "class": 'today_date',
+          "class": "today_date",
           dates: new Date()
         }];
         vm.call_backs.forEach(function (call_back) {
           vm.attrs.push({
-            key: 'call_back' + call_back.id,
-            highlight: 'red',
-            "class": 'call_back_date',
+            key: "call_back" + call_back.id,
+            highlight: "red",
+            "class": "call_back_date",
             dates: new Date(call_back.call_date),
             popover: {
-              label: 'Call ' + call_back.lead.name + ' ' + call_back.lead.surname + ' @' + call_back.call_time
+              label: "Call " + call_back.lead.name + " " + call_back.lead.surname + " @" + call_back.call_time
             }
           });
         });
-        Fire.$emit('AfterCallBackRequest', {
+        Fire.$emit("AfterCallBackRequest", {
           call_backs: vm.call_backs
         });
       });
@@ -186565,14 +186974,14 @@ __webpack_require__.r(__webpack_exports__);
     markCallBackDone: function markCallBackDone(call_back) {
       var vm = this;
       console.log(call_back);
-      axios.get('/leads/mark-callback-complete/' + call_back.id).then(function (response) {
+      axios.get("/leads/mark-callback-complete/" + call_back.id).then(function (response) {
         if (response.data.success) {
           vm.call_backs = response.data.call_backs;
         } else {
-          vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while updating data, please try again", "warning");
         }
       })["catch"](function (error) {
-        vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again' + error, 'warning');
+        vm.$swal("Failed", "Opps, something went wrong while updating data, please try again" + error, "warning");
       });
     },
     onChange: function onChange(date, dateString) {
@@ -186580,30 +186989,30 @@ __webpack_require__.r(__webpack_exports__);
     },
     getUserTasks: function getUserTasks() {
       var vm = this;
-      axios.get('/tasks/get-user-tasks').then(function (response) {
+      axios.get("/tasks/get-user-tasks").then(function (response) {
         vm.tasks = response.data.tasks;
-        Fire.$emit('AfterTaskkRequest', {
+        Fire.$emit("AfterTaskkRequest", {
           tasks: vm.tasks
         });
       });
     },
     addTask: function addTask() {
-      this.new_task.title = '';
-      this.new_task.description = '';
+      this.new_task.title = "";
+      this.new_task.description = "";
       this.new_task.date = moment__WEBPACK_IMPORTED_MODULE_3___default()();
       this.add_task = !this.add_task;
     },
     submitTask: function submitTask() {
       var vm = this;
       vm.$Progress.start();
-      axios.post('/tasks/create', {
+      axios.post("/tasks/create", {
         title: vm.new_task.title,
         description: vm.new_task.description,
-        date: vm.new_task.date.format('YYYY-MM-DD')
+        date: vm.new_task.date.format("YYYY-MM-DD")
       }).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
-            type: 'success',
+            type: "success",
             title: response.data.message
           });
           vm.getUserTasks();
@@ -186611,7 +187020,7 @@ __webpack_require__.r(__webpack_exports__);
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while update, please try again", "warning");
         }
       });
     },
@@ -186625,7 +187034,7 @@ __webpack_require__.r(__webpack_exports__);
         status = 0;
       }
 
-      axios.post('/tasks/update', {
+      axios.post("/tasks/update", {
         id: task.id,
         title: task.title,
         status: status,
@@ -186634,7 +187043,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
-            type: 'success',
+            type: "success",
             title: response.data.message
           });
           vm.getUserTasks();
@@ -186642,7 +187051,7 @@ __webpack_require__.r(__webpack_exports__);
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while updating data, please try again", "warning");
         }
       });
       this.edit_task = false;
@@ -186655,38 +187064,38 @@ __webpack_require__.r(__webpack_exports__);
       var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var vm = this;
 
-      if (settings != null && settings.type == 'language') {
+      if (settings != null && settings.type == "language") {
         vm.user_settings.language = settings.value;
-      } else if (settings != null && settings.type == 'theme') {
+      } else if (settings != null && settings.type == "theme") {
         vm.user_settings.theme = settings.value;
       }
 
       vm.$Progress.start();
-      axios.post('/update-preferences', {
+      axios.post("/update-preferences", {
         system_settings: vm.system_settings,
         user_settings: vm.user_settings
       }).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
-            type: 'success',
+            type: "success",
             title: response.data.message
           });
           vm.getPreferences();
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while update, please try again", "warning");
         }
       });
     },
     getPreferences: function getPreferences() {
       var vm = this;
-      axios.get('/get-preferences').then(function (response) {
+      axios.get("/get-preferences").then(function (response) {
         vm.preferences = response.data.preferences;
         vm.preferences.forEach(function (preference) {
-          if (preference.setting == 'theme') {
+          if (preference.setting == "theme") {
             vm.user_settings.theme = preference.value;
-          } else if (preference.setting == 'language') {
+          } else if (preference.setting == "language") {
             vm.user_settings.language = preference.value;
           }
         });
@@ -186694,20 +187103,20 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateNotifications: function updateNotifications() {
       var vm = this;
-      axios.post('/update-user', this.user).then(function (response) {
+      axios.post("/update-user", this.user).then(function (response) {
         if (response.data.success == true) {
           vm.Toast.fire({
-            type: 'success',
+            type: "success",
             title: response.data.message
           });
           vm.user = response.data.user;
           vm.$Progress.finish();
-        } else if (response.data.errors.email[0] != '') {
+        } else if (response.data.errors.email[0] != "") {
           vm.$Progress.fail();
-          vm.$swal('Failed', response.data.errors.email[0], 'warning');
+          vm.$swal("Failed", response.data.errors.email[0], "warning");
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
         }
       });
     },
@@ -186718,43 +187127,43 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       this.$validator.validateAll().then(function (result) {
         if (!result) {} else {
-          if (type == 'profile') {
-            axios.post('/update-user', _this.user).then(function (response) {
+          if (type == "profile") {
+            axios.post("/update-user", _this.user).then(function (response) {
               if (response.data.success == true) {
                 vm.Toast.fire({
-                  type: 'success',
+                  type: "success",
                   title: response.data.message
                 });
                 vm.user = response.data.user;
                 vm.$Progress.finish();
-              } else if (response.data.errors.email[0] != '') {
+              } else if (response.data.errors.email[0] != "") {
                 vm.$Progress.fail();
-                vm.$swal('Failed', response.data.errors.email[0], 'warning');
+                vm.$swal("Failed", response.data.errors.email[0], "warning");
               } else {
                 vm.$Progress.fail();
-                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+                vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
               }
             });
           } else {
-            axios.post('/update-account', _this.user).then(function (response) {
+            axios.post("/update-account", _this.user).then(function (response) {
               if (response.data.success === true) {
                 vm.Toast.fire({
-                  type: 'success',
+                  type: "success",
                   title: response.data.message
                 });
                 vm.user = response.data.user;
                 vm.$Progress.finish();
-              } else if (typeof response.data.errors['old_password'] !== 'undefined' && response.data.errors.old_password.length > 0) {
-                vm.$swal('Failed', 'You old password is incorrect', 'warning');
-              } else if (typeof response.data.errors['password'] !== 'undefined' && response.data.errors.password.length > 0) {
-                var this_error = '';
+              } else if (typeof response.data.errors["old_password"] !== "undefined" && response.data.errors.old_password.length > 0) {
+                vm.$swal("Failed", "You old password is incorrect", "warning");
+              } else if (typeof response.data.errors["password"] !== "undefined" && response.data.errors.password.length > 0) {
+                var this_error = "";
                 response.data.errors.password.forEach(function (error) {
-                  this_error = this_error + error + '\n';
+                  this_error = this_error + error + "\n";
                 });
-                vm.$swal('Failed', this_error, 'warning');
+                vm.$swal("Failed", this_error, "warning");
               } else {
                 vm.$Progress.fail();
-                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+                vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
               }
             });
           }
@@ -186762,7 +187171,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     showUploader: function showUploader() {
-      Fire.$emit('ShowAvatarUploader');
+      Fire.$emit("ShowAvatarUploader");
     },
     saveFilter: function saveFilter() {
       var _this2 = this;
@@ -186770,21 +187179,21 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       vm.$validator.validateAll().then(function (result) {
         if (!result) {} else {
-          axios.post('/filters/create', {
+          axios.post("/filters/create", {
             filter: _this2.filter,
             type: _this2.active
           }).then(function (response) {
             if (response.data.success === true) {
               vm.Toast.fire({
-                type: 'success',
+                type: "success",
                 title: response.data.message
               });
-              Fire.$emit('SaveFilter', {
-                'filters': response.data.filters
+              Fire.$emit("SaveFilter", {
+                filters: response.data.filters
               });
               vm.$Progress.finish();
             } else {
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
               vm.$Progress.fail();
             }
           });
@@ -186792,12 +187201,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     fireTableEvent: function fireTableEvent() {
-      var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
       Fire.$emit(event);
     },
     fireSearchEvent: function fireSearchEvent() {
-      Fire.$emit('Search', {
-        'search_term': this.filter.search
+      Fire.$emit("Search", {
+        search_term: this.filter.search
       });
     },
     progress: function progress(event, _progress, stepValue) {
@@ -195079,6 +195488,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
 
     if (vm.item_id != "") {
       vm.enqueueLead(vm.item_id);
+      vm.getActivities();
+      vm.getDeals();
       vm.general = true;
       vm.active_calls = false;
       Fire.$emit("ShowGeneral");
@@ -195097,8 +195508,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     }
 
     vm.prepDates();
-    vm.getActivities();
-    vm.getDeals();
     Fire.$on("CallStarted", function () {
       vm.general = false;
       vm.idle = true;
@@ -195144,7 +195553,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     });
   },
   created: function created() {
-    this.getComments(this.item_id);
+    if (this.item_id) this.getComments(this.item_id);
   },
   props: ["user_name", "user_id", "role_id", "item_id", "auto_dialer_settings", "custom_fields"],
   data: function data() {
@@ -246055,7 +246464,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] { \n    right: 0!important; \n    left: auto; \n    overflow: visible; \n    position: absolute; \n    top: 0; \n    right: 0 !important; \n    bottom: 0; \n    z-index: 830; \n    transition: right 0.3s ease-in-out; \n    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], \n  .main-sidebar[data-v-48ad9a74]:before { \n    transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;  \n    width: 16.718%!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], \n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before { \n    margin-left: 0!important; \n    /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], \n    .main-sidebar[data-v-48ad9a74]:before { \n      margin-left: -0!important; \n      margin-left: -10.833%!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], \n    .sidebar-open .main-sidebar[data-v-48ad9a74]:before { \n      margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] { \n    overflow: visible;\n}\np[data-v-48ad9a74] { \n    color: #9fb3bb; \n    margin: 0;\n}\nh2[data-v-48ad9a74] { \n    color: #003449; \n    font-size: 29px; \n    letter-spacing: 4.2px; \n    font-weight: 600;\n}\nh3[data-v-48ad9a74] { \n    color: #1a1c43; \n    font-size: 0.83vw; \n    font-weight: 700;\n}\nh3 img[data-v-48ad9a74] { \n    float: right; \n    cursor: pointer; \n    margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] { \n    border-color: #CDCDCF; \n    margin-top:6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] { \n    color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] { \n    font-size: 14px; \n    color: #1e2331; \n    padding-top: 6px; \n    position: relative; \n    top: -4%;\n}\n.help-block[data-v-48ad9a74] { \n    color: red;\n}\n.status[data-v-48ad9a74] { \n    display: none;\n}\n.status.active[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: #00d68f; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 12px; \n    float: left; \n    margin: 0;\n}\n.status.offline[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: orange; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 12px; \n    float: left; \n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover, \n  .status.offline[data-v-48ad9a74]:hover { \n    color: #3b3b3b; \n    cursor: pointer;\n}\n.status.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.collapse[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] { \n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] { \n    padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] { \n    margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] { \n    background: #f7f6fb; \n    border-radius: 5px;\n}\n.tank[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important; \n    border-radius: 5px; \n    background: rgb(114, 218, 126); \n    height: 8px; \n    transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] { \n    font-weight: 900; \n    font-size: 0.83vw; \n    color: #1a1c43; \n    margin-top: -8px; \n    letter-spacing: 0.1em; \n    font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] { \n    font-size: 12px; \n    font-family: 'Rubik', sans-serif; \n    color: #1e2331; \n    padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] { \n    display: block; \n    position: relative; \n    background: #ff8234; \n    color: #fff; \n    height: 62px; \n    text-align: center; \n    font-size: 17px; \n    padding: 18px 9px; \n    width: 62px; \n    transform: rotate(45deg); \n    /* Standard syntax */ \n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] { \n    transform: rotate(0deg); \n    /* Standard syntax */\n}\np.heading[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce; \n    margin-bottom: 10px; \n    font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] { \n    margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], \n  .general-system-prefs[data-v-48ad9a74], \n  .notifications .w-100[data-v-48ad9a74] { \n    margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] { \n    border-radius: 50%; \n    width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] { \n    margin: 5px 0 15px 0; \n    font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] { \n    height: 24px !important; \n    background: #F98B39 !important; \n    border-color: #F98B39 !important; \n    color: #fff !important; \n    padding: 4px 17px 6px !important; \n    border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74], \n  .notifications .row.border-bottom[data-v-48ad9a74] { \n    border-color: #cdccce; \n    padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] { \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important; \n    border-radius: 21px; \n    width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] { \n    font-size: 9px; \n    display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, \n  .themes label[data-v-48ad9a74]:nth-child(2), \n  .language label[data-v-48ad9a74], \n  .notifications label[data-v-48ad9a74], \n  .action-btns label[data-v-48ad9a74]:first-child, \n  .action-btns label[data-v-48ad9a74]:nth-child(2) { \n    margin-right: 8px; \n    float: left;\n}\n.control-label[data-v-48ad9a74] { \n    color: #989899; \n    font-family: 'Rubik', sans-serif; \n    font-size: 12px; \n    text-align: left;\n}\n.btn-default[data-v-48ad9a74] { \n    padding: 6px 12px 6px 10px; \n    font-size: 10px; \n    border: transparent !important; \n    border-radius: 5px !important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 10px;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 0.6vw;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74], \n  .language .btn-default[data-v-48ad9a74], \n  .language .btn-active[data-v-48ad9a74] { \n    border-radius: 50rem!important; \n    padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74], .btn-orange-active[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] { \n    background: #fff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] { \n    width: 20px; \n    top: 5px; \n    position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] { \n    background-image: url('/images/icons/Red-Notification-Dot.svg') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top; \n    width: 13px; \n    height: 100%; \n    z-index: 1; \n    position: absolute; \n    left: 66px; \n    top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] { \n    background-image: url('/images/icons/blue dot.svg') !important; \n    background-size: 69% 34%; \n    background-repeat: no-repeat; \n    background-position: left top; \n    color: #ffffff; \n    font-size: 10px; \n    text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Dot.png') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] { \n    margin-top: 14%;\n}\n#logout[data-v-48ad9a74] { \n    background-image: url('/images/icons/Asset 67.svg') !important; \n    background-size: contain; \n    background-repeat: no-repeat; \n    height: 100px; \n    background-position: center; \n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] { \n    padding: 6px 25px 6px 18px; \n    font-size: 12px; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] { \n    list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74], \n  .notifications .card-body-notifications h3 a[data-v-48ad9a74], .caller-name[data-v-48ad9a74] { \n    color: #333333; \n    font-size: 0.7vw; \n    font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] { \n    float: right; \n    font-size: 0.6vw; \n    color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] { \n    color: #808080; \n    font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], \n  .account-info .row.mx-0.border-left[data-v-48ad9a74] { \n    border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] { \n    color: #7f8080; \n    padding-bottom: 16px; \n    font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] { \n    width: 30px; \n    border-radius: 50%;\n}\n.update-user[data-v-48ad9a74], .update-filter[data-v-48ad9a74], .save-filter[data-v-48ad9a74] { \n    margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] { \n    padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] { \n    width: 100%; \n    border-bottom: 1px solid #cdccce; \n    margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] { \n    width: 20px; \n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] { \n    font-size: 55px; \n    color: #FF933A;\n}\n.card-header[data-v-48ad9a74] { \n    color: rgba(28, 35, 49, 0.5); \n    border-bottom: 0.5px solid #f4f4f5 !important; \n    background-color: #fff !important; \n    font-size: 10px; \n    font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] { \n    padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] { \n    padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n    font-size: 0.73vw;\n    color: #666666;\n    border-color: #ccc;\n    margin-top:25px;\n}\n.final-modal .card-header[data-v-48ad9a74] { \n    padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] { \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover { \n    border: none; \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] { \n    font-size: 9px;\n}\n.form-control[data-v-48ad9a74] { \n    padding: 10px 12px!important; \n    font-size: 12px; \n    box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important; \n    color: #193246; \n    font-weight: 600; \n    margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] { \n    height: 100px !important; \n    border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] { \n    margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] { \n    padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], \n  .stats-section .calls[data-v-48ad9a74], \n  .search-input[data-v-48ad9a74], \n  .filter-search[data-v-48ad9a74], \n  .filter-by[data-v-48ad9a74] { \n    padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], \n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74], \n  p.badges[data-v-48ad9a74] { \n    border-bottom: 0.5px solid #f4f4f5; \n    margin-bottom: 5px; \n    padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], \n  .export-btn[data-v-48ad9a74] { \n    width: 90%;\n}\n.action-btns[data-v-48ad9a74] { \n    margin-top: 17px;\n} \n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] { \n    position: relative; \n    top: -7px; \n    right: 15px; \n    font-size: 9px; \n    color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] { \n    position: absolute;  \n    right: 100%;  \n    overflow: visible;  \n    background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;  \n    background-size: 120px; \n    background-repeat: no-repeat; \n    background-position: -15px; \n    height: 100px; \n    width: 66px; \n    top: -13px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] { \n    background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px;\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n    text-align: right;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    line-height: 1em;\n    justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74], \n  .filter-content .tabs[data-v-48ad9a74] { \n    width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n    padding-left: 6%;\n    padding-right: 6%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before, \n  .reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after, \n  .reminders .custom-control-label[data-v-48ad9a74]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    font-family: 'Rubik', sans-serif; \n    color: #808080; \n    padding-left: 37px!important; \n    width: 100%; \n    text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus, \n  .nav-link[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    box-shadow: none !important;\n    -webkit-box-shadow: none !important; \n    -moz-box-shadow: none !important;\n    -o-box-shadow: none !important;\n    border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n    padding: 11px 14px 10px;\n    line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before { \n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    border-radius: 50%!important; \n    background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after { \n    border-radius: 50%!important; \n    background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus { \n    border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb { \n    background: #B3B3B3 !important; \n    border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] { \n    color: #ff933a;\n}\n.blue[data-v-48ad9a74] { \n    color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] { \n    font-size: 10px; \n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.middle-box-shadow[data-v-48ad9a74] { \n    box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -webkit-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -moz-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -o-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1); \n    border-radius: 15px;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] { \n    width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] { \n    border-radius: 50rem !important; \n    font-size: 10px; \n    color: #989899; \n    text-transform: uppercase; \n    padding: 10px 20px;\n    font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74], .btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    font-size: 10px; \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    font-weight: 600; \n    text-transform: uppercase; \n    padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] { \n    float: right;\n}\n.inactive-icon[data-v-48ad9a74] { \n    padding: 11px; \n    border-radius: 50rem; \n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none; \n    transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover { \n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    color: #171717 !important; \n    font-family: 'Rubik', sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] { \n    border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] { \n    margin-left: -27px; \n    margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74], .saved-results[data-v-48ad9a74] { \n    border-radius: 14px; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 14px; \n    padding-left: 28px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 12px; \n    padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] { \n    padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05); \n    font-size: 12px; \n    border-radius: 14px; \n    padding: 10px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74], \n  .save-text[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    font-size: 12px; \n    font-family: 'Rubik', sans-serif; \n    font-weight: 300; \n    font-style: italic; \n    border-radius: 15px; \n    padding: 10px;\n}\n.row.filter-content .search-text::-webkit-input-placeholder .save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 12px !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 10px !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: #B3B3B3 !important;\n    font-style: italic;\n}\n.filter-results[data-v-48ad9a74] { \n    max-height: 200px; \n    overflow: auto; \n    margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] { \n    font-size: 12px !important; \n    font-family: 'Rubik', sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n    padding: 0px 6%;\n}\n.filter-container[data-v-48ad9a74] { \n    overflow: auto;\n}\n@media screen and (max-width:1368px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 450px;\n}\n}\n@media screen and (min-width:1400px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus, \n  input.save-text[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n    border-color: #CDCDCF;\n}\n  /*End Right Component*/ \n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n  margin-left: 0 !important;\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 0.73vw;\n  color: #666666;\n  border-color: #ccc;\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] {\n  font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5px;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Notifications_Active.svg\") !important;\n}\n.nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Settings_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/New_Not_Red_Active.svg\") !important;\n}\n\n/* .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\n    background-repeat: no-repeat;\n    height: 43px;\n    width: 43px;\n    top: 2px;\n    position: relative;\n    left: -11px;\n}\n.menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n\n.sidebar-collapse .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/General.svg\") !important;\n}\n.sidebar-collapse .menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n\n.reminders { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px; \n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 19px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  padding-left: 37px !important;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n    border-bottom: 1px solid #f7f7f7;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:focus {\n   outline: 0 !important;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n  background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  padding: 6px;\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -246074,7 +246483,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n     position: relative;\n    top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n    font-size: 16px;\n    color: #989899;\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 2px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:46%;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n     position: relative;\n    top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n    font-size: 16px;\n    color: #989899;\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:46% !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -369863,12 +370272,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("aside", { staticClass: "main-sidebar sidebar-light-primary" }, [
-      _c("a", {
-        staticClass: "d-block menu-toggle",
-        attrs: { href: "#", "data-toggle": "push-menu" }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "sidebar" }, [
+      _c("section", { staticClass: "sidebar px-0" }, [
         _c(
           "div",
           {
@@ -369876,181 +370280,220 @@ var render = function() {
             attrs: { "data-widget": "tree" }
           },
           [
-            _c(
-              "nav",
-              {
-                staticClass:
-                  "navbar navbar-expand-md navbar-light bg-white mx-0 mb-0 p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav col-auto" }, [
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon p-0 mr-2",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showNotifications()
+            _c("div", { staticClass: "px-6-hide" }, [
+              _c(
+                "nav",
+                {
+                  staticClass:
+                    "navbar navbar-expand-md navbar-light bg-white p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav col-auto" }, [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 generalIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showGeneralStats()
+                            }
                           }
-                        }
-                      },
-                      [
-                        _vm.notifications_on == true
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notifications_Active.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : _vm.notifications_on == false &&
-                            _vm.unread_messages == 0 &&
-                            _vm.call_backs.length == 0
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notification.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : (_vm.notifications_on == false &&
-                              _vm.unread_messages >= 1) ||
-                            _vm.call_backs.length > 0
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Notifications_red.svg",
-                                alt: "Notification Bell",
-                                width: "43"
-                              }
-                            })
-                          : _vm._e()
-                      ]
-                    )
+                        },
+                        [
+                          _vm.generalStats_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/General.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/General_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 filterIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showFiltersTab()
+                            }
+                          }
+                        },
+                        [
+                          _vm.filters_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src: "/images/icons/right-sidebar/Filter.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Filter_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 notificationsIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showNotifications()
+                            }
+                          }
+                        },
+                        [
+                          _vm.notifications_on == true
+                            ? _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications_Active.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : _vm.notifications_on == false &&
+                              _vm.unread_messages == 0 &&
+                              _vm.call_backs.length == 0
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Notification.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : (_vm.notifications_on == false &&
+                                _vm.unread_messages >= 1) ||
+                              _vm.call_backs.length > 0
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Notifications_1.svg",
+                                  alt: "Notification Bell",
+                                  width: "43"
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link icon p-0 settingsIcon",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.showSettings()
+                            }
+                          }
+                        },
+                        [
+                          _vm.settings_on == false
+                            ? _c("img", {
+                                staticClass: "inactive-icon",
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Setting.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                            : _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/icons/right-sidebar/Settings_Active.svg",
+                                  alt: "Settings Cog",
+                                  width: "43"
+                                }
+                              })
+                        ]
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link icon p-0",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.showSettings()
-                          }
-                        }
-                      },
-                      [
-                        _vm.settings_on == false
-                          ? _c("img", {
-                              staticClass: "inactive-icon",
-                              attrs: {
-                                src: "/images/icons/right-sidebar/Setting.svg",
-                                alt: "Settings Cog",
-                                width: "43"
-                              }
-                            })
-                          : _c("img", {
-                              attrs: {
-                                src:
-                                  "/images/icons/right-sidebar/Settings_Active.svg",
-                                alt: "Settings Cog",
-                                width: "43"
-                              }
-                            })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "navbar-nav col-auto text-right pr-0" },
-                  [
-                    _c("div", { staticClass: "row mx-0 justify-content-end" }, [
-                      _vm.user.nickname != null && _vm.user.nickname != ""
-                        ? _c(
-                            "li",
-                            { staticClass: "nav-item name-li col-auto px-0" },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link name",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.showSettings()
-                                    }
+                  _c(
+                    "ul",
+                    { staticClass: "navbar-nav col-auto text-right pr-0" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "row mx-0 justify-content-end" },
+                        [
+                          _c("li", { staticClass: "nav-item col-auto pr-0" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "nav-link icon pt-0 px-0 mr-2 small-avatar",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showSettings()
                                   }
-                                },
-                                [_vm._v(_vm._s(_vm.user.nickname))]
-                              )
-                            ]
-                          )
-                        : _c(
-                            "li",
-                            { staticClass: "nav-item name-li col-auto px-0" },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link name",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.showSettings()
-                                    }
-                                  }
-                                },
-                                [_vm._v(_vm._s(_vm.user.name))]
-                              )
-                            ]
-                          ),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item col-auto pr-0" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link icon pt-0 px-0 small-avatar",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.showSettings()
-                              }
-                            }
-                          },
-                          [
-                            _vm.user.avatar != "" && _vm.user.avatar != null
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      _vm.avatarUrl +
-                                      _vm.user.id +
-                                      "/" +
-                                      _vm.user.avatar
-                                  }
-                                })
-                              : _c("img", { attrs: { src: _vm.noImageUrl } })
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            ),
+                                }
+                              },
+                              [
+                                _vm.user.avatar != "" && _vm.user.avatar != null
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          _vm.avatarUrl +
+                                          _vm.user.id +
+                                          "/" +
+                                          _vm.user.avatar
+                                      }
+                                    })
+                                  : _c("img", {
+                                      attrs: { src: _vm.noImageUrl }
+                                    })
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "open-sidenav mt-3 px-6" }, [
+            _c("div", { staticClass: "open-sidenav mt-3" }, [
               _vm.settings_on == true
-                ? _c("div", { staticClass: "settings px-2" }, [
+                ? _c("div", { staticClass: "settings px-6-hide ml-2" }, [
                     _c(
                       "div",
                       { staticClass: "row mx-0 pt-0 border-bottom" },
@@ -371523,7 +371966,7 @@ var render = function() {
                                                           },
                                                           [
                                                             _vm._v(
-                                                              " \n                            Max number of rows for tables \n                            "
+                                                              "\n                            Max number of rows for tables\n                            "
                                                             ),
                                                             _c(
                                                               "select",
@@ -372445,7 +372888,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _vm.notifications_on == true
-                ? _c("div", { staticClass: "notifications p-2" }, [
+                ? _c("div", { staticClass: "notifications px-6-hide ml-2" }, [
                     _c("div", { staticClass: "row mx-0" }, [
                       _vm._m(5),
                       _vm._v(" "),
@@ -372453,13 +372896,13 @@ var render = function() {
                         _c(
                           "label",
                           {
-                            staticClass: "col-lg-3 mt-0 control-label w-100 p-0"
+                            staticClass: "col-auto mt-0 control-label w-100 p-0"
                           },
                           [
                             _c(
                               "button",
                               {
-                                staticClass: "w-100 m-0 btn-white",
+                                staticClass: "m-0 btn-white",
                                 class: {
                                   btn: true,
                                   "btn-orange-active": _vm.callbacks_on,
@@ -372596,11 +373039,13 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.notifications_on == false && _vm.settings_on == false
+              _vm.notifications_on == false &&
+              _vm.settings_on == false &&
+              _vm.filters_on == false
                 ? _c("div", [
                     _c(
                       "div",
-                      { staticClass: "row mx-0 py-0 px-2 stats-section" },
+                      { staticClass: "row mx-0 py-0 px-6 stats-section" },
                       [
                         _c("div", { staticClass: "col-lg-12 px-0" }, [
                           _c("div", { staticClass: "row mx-0 p-0" }, [
@@ -372625,29 +373070,35 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "row mx-0 px-2 callback-cal" }, [
-                      _c(
-                        "div",
-                        { staticClass: "col-lg-12 border-0 px-0" },
-                        [
-                          _c("p", { staticClass: "border-bottom" }, [
-                            _vm._v("Calendar")
-                          ]),
-                          _vm._v(" "),
-                          _c("vc-calendar", {
-                            staticClass: "border-0",
-                            attrs: {
-                              attributes: _vm.attrs,
-                              "is-expanded": "",
-                              popover: true
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "row mx-0 px-6-hide callback-cal" },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "col-lg-12 border-0 px-0" },
+                          [
+                            _c(
+                              "p",
+                              { staticClass: "border-bottom small-margin" },
+                              [_vm._v("Calendar")]
+                            ),
+                            _vm._v(" "),
+                            _c("vc-calendar", {
+                              staticClass: "border-0",
+                              attrs: {
+                                attributes: _vm.attrs,
+                                "is-expanded": "",
+                                popover: true
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "row mx-0 px-2" }, [
+                    _c("div", { staticClass: "row mx-0" }, [
                       _c(
                         "div",
                         { staticClass: "col-lg-12 final-modal border-0" },
@@ -372663,7 +373114,7 @@ var render = function() {
                                   _c(
                                     "b-tab",
                                     {
-                                      staticClass: "p-2",
+                                      staticClass: "p-2 border-0",
                                       attrs: { title: "Callbacks", active: "" }
                                     },
                                     [
@@ -372680,7 +373131,7 @@ var render = function() {
                                                 {
                                                   key: i,
                                                   staticClass:
-                                                    "row m-2 pl-0 align-items-center middle-box-shadow custom-control custom-checkbox"
+                                                    "row m-2 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"
                                                 },
                                                 [
                                                   _c(
@@ -372820,30 +373271,20 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    " \n                                  " +
-                                                                      _vm._s(
+                                                                    _vm._s(
+                                                                      call_back
+                                                                        .lead
+                                                                        .name +
+                                                                        " " +
                                                                         call_back
                                                                           .lead
-                                                                          .name +
-                                                                          " " +
-                                                                          call_back
-                                                                            .lead
-                                                                            .surname
-                                                                      ) +
-                                                                      " \n                                "
+                                                                          .surname
+                                                                    )
                                                                   )
                                                                 ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "col-auto pr-0"
-                                                            },
-                                                            [
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c("br"),
                                                               _c(
                                                                 "span",
                                                                 {
@@ -372874,40 +373315,33 @@ var render = function() {
                                             0
                                           )
                                         : _c("div", [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "notification-popup"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "card-body-notifications"
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "p",
-                                                      {
-                                                        staticClass:
-                                                          "call_back_time d-block mt-0 w-100",
-                                                        attrs: {
-                                                          title:
-                                                            "Personal Information"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "0 Callbacks at present"
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
+                                            _c("div", {}, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "card-body-notifications"
+                                                },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "call_back_time d-block mt-0 w-100",
+                                                      attrs: {
+                                                        title:
+                                                          "Personal Information"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "0 Callbacks at present"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ])
                                           ])
                                     ]
                                   ),
@@ -372923,26 +373357,10 @@ var render = function() {
                                               return [
                                                 _c(
                                                   "span",
-                                                  { staticClass: "mr-1" },
-                                                  [_vm._v("Reminders")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a",
                                                   {
-                                                    attrs: { href: "#" },
-                                                    on: { click: _vm.addTask }
+                                                    staticClass: "mr-1 border-0"
                                                   },
-                                                  [
-                                                    _c("img", {
-                                                      staticClass: "add-task",
-                                                      attrs: {
-                                                        src:
-                                                          "/images/icons/right-sidebar/Add_Task.svg",
-                                                        width: "20"
-                                                      }
-                                                    })
-                                                  ]
+                                                  [_vm._v("Reminders")]
                                                 )
                                               ]
                                             },
@@ -372951,7 +373369,7 @@ var render = function() {
                                         ],
                                         null,
                                         false,
-                                        536013384
+                                        2110705359
                                       )
                                     },
                                     [
@@ -372969,7 +373387,7 @@ var render = function() {
                                                 {
                                                   key: i,
                                                   staticClass:
-                                                    "row m-2 pl-0 align-items-center middle-box-shadow custom-control custom-checkbox"
+                                                    "row m-2 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"
                                                 },
                                                 [
                                                   _c(
@@ -373171,17 +373589,10 @@ var render = function() {
                                                                         }
                                                                       )
                                                                     ]
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "col-auto pr-0"
-                                                                },
-                                                                [
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c("br"),
+                                                                  _vm._v(" "),
                                                                   _c(
                                                                     "span",
                                                                     {
@@ -373190,17 +373601,15 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._v(
-                                                                        "\n                                    " +
-                                                                          _vm._s(
-                                                                            _vm
-                                                                              .moment(
-                                                                                task.deadline
-                                                                              )
-                                                                              .format(
-                                                                                "DD MMM"
-                                                                              )
-                                                                          ) +
-                                                                          "\n                                  "
+                                                                        _vm._s(
+                                                                          _vm
+                                                                            .moment(
+                                                                              task.deadline
+                                                                            )
+                                                                            .format(
+                                                                              "DD MMM"
+                                                                            )
+                                                                        )
                                                                       )
                                                                     ]
                                                                   )
@@ -373241,8 +373650,6 @@ var render = function() {
                                                                           _c(
                                                                             "a-textarea",
                                                                             {
-                                                                              staticClass:
-                                                                                "rounded-pill",
                                                                               attrs: {
                                                                                 placeholder:
                                                                                   "Description",
@@ -373380,7 +373787,7 @@ var render = function() {
                                               "li",
                                               {
                                                 staticClass:
-                                                  "my-2 mx-3 p-2 align-items-center middle-box-shadow custom-control"
+                                                  "my-2 mx-3 p-2 align-items-center reminders-border-bottom custom-control"
                                               },
                                               [
                                                 _c(
@@ -373489,8 +373896,6 @@ var render = function() {
                                                                     _c(
                                                                       "a-textarea",
                                                                       {
-                                                                        staticClass:
-                                                                          "rounded-pill",
                                                                         attrs: {
                                                                           placeholder:
                                                                             "Description",
@@ -373618,7 +374023,33 @@ var render = function() {
                                               1
                                             )
                                           ])
-                                        : _vm._e()
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "row m-2 pl-0 align-items-center custom-control custom-checkbox"
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              attrs: { href: "#" },
+                                              on: { click: _vm.addTask }
+                                            },
+                                            [
+                                              _c("img", {
+                                                staticClass: "add-task",
+                                                attrs: {
+                                                  src:
+                                                    "/images/icons/right-sidebar/Add_Task.svg"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
                                     ]
                                   )
                                 ],
@@ -373634,262 +374065,208 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "closed-sidenav d-none" }, [
-              _c("p", { staticClass: "filter-heading mt-2 mx-2 mb-3" }, [
-                _vm._v("Filter")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row mx-0 filter-content" },
-                [
+            _vm.filters_on == true
+              ? _c("div", [
+                  _c("h3", { staticClass: "px-6-hide mt-2 mx-2" }, [
+                    _vm._v("Filter")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "b-tabs",
-                    { attrs: { "content-class": "mt-3 px-2" } },
+                    "div",
+                    { staticClass: "row mx-0 px-6-hide filter-content" },
                     [
-                      _c("b-tab", { attrs: { title: "New" } }, [
-                        _c(
-                          "div",
-                          { staticClass: "px-2 filter-container grey-scroll" },
-                          [
-                            _c("div", { staticClass: "filter-group" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "p-2 custom-control custom-checkbox",
-                                  class: { filterborder: _vm.appendBorder },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.filterProperties()
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass: "custom-control-input mx-0",
-                                    attrs: {
-                                      disabled: _vm.filterValue === "",
-                                      type: "checkbox",
-                                      id: "newFilter1"
-                                    },
-                                    domProps: { checked: _vm.filterValue != "" }
-                                  }),
-                                  _vm._v(" "),
+                      _c(
+                        "b-tabs",
+                        { attrs: { "content-class": "mt-3 px-2" } },
+                        [
+                          _c("b-tab", { attrs: { title: "New" } }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "px-2 filter-container grey-scroll"
+                              },
+                              [
+                                _c("div", { staticClass: "filter-group" }, [
                                   _c(
-                                    "label",
+                                    "div",
                                     {
                                       staticClass:
-                                        "custom-control-label mx-0 pt-0",
-                                      attrs: { for: "newFilter1" }
-                                    },
-                                    [_vm._v("Name")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "mr-4 pt-2 pb-2 pl-34",
-                                  class: { show: _vm.showFilters },
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c(
-                                    "select",
-                                    {
-                                      staticClass: "search-criteria w-100 mb-2"
+                                        "p-2 custom-control custom-checkbox",
+                                      class: { filterborder: _vm.appendBorder },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.filterProperties()
+                                        }
+                                      }
                                     },
                                     [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          disabled: _vm.filterValue === "",
+                                          type: "checkbox",
+                                          id: "newFilter1"
+                                        },
+                                        domProps: {
+                                          checked: _vm.filterValue != ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "option",
-                                        { attrs: { selected: "" } },
-                                        [_vm._v("is equal to")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "1" } }, [
-                                        _vm._v("contains")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "2" } }, [
-                                        _vm._v("does not contain")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("begins with")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("ends with")
-                                      ])
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "newFilter1" }
+                                        },
+                                        [_vm._v("Name")]
+                                      )
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.filterValue,
-                                        expression: "filterValue"
-                                      }
-                                    ],
-                                    staticClass: "search-text w-100 mt-2",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Text Here",
-                                      value: ""
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "mr-4 pt-2 pb-2 pl-34",
+                                      class: { show: _vm.showFilters },
+                                      staticStyle: { display: "none" }
                                     },
-                                    domProps: { value: _vm.filterValue },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
+                                    [
+                                      _c(
+                                        "select",
+                                        {
+                                          staticClass:
+                                            "search-criteria w-100 mb-2"
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { selected: "" } },
+                                            [_vm._v("is equal to")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("contains")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("does not contain")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("begins with")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("ends with")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.filterValue,
+                                            expression: "filterValue"
+                                          }
+                                        ],
+                                        staticClass: "search-text w-100 mt-2",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Text Here",
+                                          value: ""
+                                        },
+                                        domProps: { value: _vm.filterValue },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.filterValue =
+                                              $event.target.value
+                                          }
                                         }
-                                        _vm.filterValue = $event.target.value
-                                      }
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "filter-results grey-scroll mr-4 pl-34",
-                                class: { show: _vm.filterValue != "" },
-                                staticStyle: { display: "none" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result1" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result1" }
-                                      },
-                                      [_vm._v("John Davies")]
-                                    )
-                                  ]
-                                ),
+                                      })
+                                    ]
+                                  )
+                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "div",
                                   {
                                     staticClass:
-                                      "custom-control custom-checkbox"
+                                      "filter-results grey-scroll mr-4 pl-34",
+                                    class: { show: _vm.filterValue != "" },
+                                    staticStyle: { display: "none" }
                                   },
                                   [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result2" }
-                                    }),
-                                    _vm._v(" "),
                                     _c(
-                                      "label",
+                                      "div",
                                       {
                                         staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result2" }
+                                          "custom-control custom-checkbox"
                                       },
-                                      [_vm._v("John Davies")]
+                                      [
+                                        _c("input", {
+                                          staticClass:
+                                            "custom-control-input mx-0",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: "result1"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "custom-control-label mx-0 pt-0",
+                                            attrs: { for: "result1" }
+                                          },
+                                          [_vm._v("John Davies")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-checkbox"
+                                      },
+                                      [
+                                        _c("input", {
+                                          staticClass:
+                                            "custom-control-input mx-0",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: "result2"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "custom-control-label mx-0 pt-0",
+                                            attrs: { for: "result2" }
+                                          },
+                                          [_vm._v("John Davies")]
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
-                          },
-                          [
-                            _c("div", { staticClass: "col pl-0 pr-2" }, [
-                              _c("input", {
-                                staticClass: "save-text w-100",
-                                attrs: {
-                                  type: "text",
-                                  placeholder: "Custom Filter Name",
-                                  value: ""
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-auto pr-0 pl-2" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-primary save-filter mt-2 rounded-pill m-0",
-                                  attrs: { type: "submit" }
-                                },
-                                [_vm._v("Save")]
-                              )
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("b-tab", { attrs: { title: "Saved", active: "" } }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-2 saved-group filter-container grey-scroll"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "p-2 custom-control custom-checkbox",
-                                class: { filterborder: _vm.appendBorder },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.savedFilters()
-                                  }
-                                }
-                              },
-                              [
-                                _c("input", {
-                                  staticClass: "custom-control-input mx-0",
-                                  attrs: {
-                                    type: "checkbox",
-                                    disabled: _vm.appendBorder === false,
-                                    id: "savedFilter1"
-                                  },
-                                  domProps: {
-                                    checked: _vm.appendBorder !== false
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "custom-control-label mx-0 pt-0",
-                                    attrs: { for: "savedFilter1" }
-                                  },
-                                  [_vm._v("Saved")]
                                 )
                               ]
                             ),
@@ -373897,52 +374274,142 @@ var render = function() {
                             _c(
                               "div",
                               {
-                                staticClass: "pl-34",
-                                class: { show: _vm.showSavedFilters },
-                                staticStyle: { display: "none" }
+                                staticClass:
+                                  "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
                               },
                               [
-                                _c(
-                                  "div",
-                                  { staticClass: "saved-results p-2" },
-                                  [
-                                    _c("span", { staticClass: "orange pr-2" }, [
-                                      _vm._v("⬤")
-                                    ]),
-                                    _vm._v("Name")
-                                  ]
-                                ),
+                                _c("div", { staticClass: "col pl-0 pr-2" }, [
+                                  _c("input", {
+                                    staticClass: "save-text w-100",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Custom Filter Name",
+                                      value: ""
+                                    }
+                                  })
+                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  {
-                                    staticClass:
-                                      "col-auto pr-0 pl-2 float-right"
-                                  },
+                                  { staticClass: "col-auto pr-0 pl-2" },
                                   [
                                     _c(
                                       "button",
                                       {
                                         staticClass:
-                                          "btn btn-primary update-filter mt-2 rounded-pill mr-4",
+                                          "btn btn-primary save-filter mt-2 rounded-pill m-0",
                                         attrs: { type: "submit" }
                                       },
-                                      [_vm._v("Edit")]
+                                      [_vm._v("Save")]
                                     )
                                   ]
                                 )
                               ]
                             )
-                          ]
-                        )
-                      ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "b-tab",
+                            { attrs: { title: "Saved", active: "" } },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "px-2 saved-group filter-container grey-scroll"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "p-2 custom-control custom-checkbox",
+                                      class: { filterborder: _vm.appendBorder },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.savedFilters()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          type: "checkbox",
+                                          disabled: _vm.appendBorder === false,
+                                          id: "savedFilter1"
+                                        },
+                                        domProps: {
+                                          checked: _vm.appendBorder !== false
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "savedFilter1" }
+                                        },
+                                        [_vm._v("Saved")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "pl-34",
+                                      class: { show: _vm.showSavedFilters },
+                                      staticStyle: { display: "none" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "saved-results p-2" },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "orange pr-2" },
+                                            [_vm._v("⬤")]
+                                          ),
+                                          _vm._v("Name\n                    ")
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-auto pr-0 pl-2 float-right"
+                                        },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary update-filter mt-2 rounded-pill mr-4",
+                                              attrs: { type: "submit" }
+                                            },
+                                            [_vm._v("Edit")]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
-                ],
-                1
-              )
-            ])
+                ])
+              : _vm._e()
           ]
         )
       ])
@@ -373955,7 +374422,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", {}, [
-      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Profile ")])
+      _c("h3", { staticClass: "d-block mb-0" }, [_vm._v("Profile")])
     ])
   },
   function() {
@@ -373994,8 +374461,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "w-100 mb-2" }, [
-      _vm._v("\n                Notifications \n                "),
+    return _c("h3", { staticClass: "w-100 mb-2 mt-0" }, [
+      _vm._v("\n                Notifications\n                "),
       _c("span", { staticClass: "notifications-close" }, [
         _c("img", {
           staticStyle: { display: "none" },
@@ -374038,6 +374505,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto p-0" }, [
           _c("p", { staticClass: "d-block mb-1" }, [
             _c("span", { staticClass: "caller-name" }, [_vm._v("Agnes Dean")]),
+            _vm._v(" "),
             _c("span", { staticClass: "caller-time" }, [_vm._v("15:46")])
           ]),
           _vm._v(" "),
@@ -374070,6 +374538,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto p-0" }, [
           _c("p", { staticClass: "d-block mb-1" }, [
             _c("span", { staticClass: "caller-name" }, [_vm._v("Justin Hill")]),
+            _vm._v(" "),
             _c("span", { staticClass: "caller-time" }, [_vm._v("12:37")])
           ]),
           _vm._v(" "),
@@ -374090,7 +374559,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "monthly-target description" }, [
-      _vm._v("Monthly Target "),
+      _vm._v("\n                      Monthly Target\n                      "),
       _c("span", { staticClass: "value float-right" }, [_vm._v("65%")])
     ])
   },
