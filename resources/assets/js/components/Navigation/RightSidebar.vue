@@ -1144,7 +1144,7 @@ input.save-text:focus {
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0"
-                    src="/images/icons/right-sidebar/New_Not_Red.svg"
+                    src="/images/icons/right-sidebar/Notifications_1.svg"
                     alt="Notification Bell"
                     width="43"
                     class="inactive-icon"
