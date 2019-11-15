@@ -58,7 +58,6 @@
   h3 { 
     color: #1a1c43; 
     font-size: 0.83vw; 
-    letter-spacing: 0.05em; 
     font-weight: 700; 
   } 
     
@@ -86,9 +85,7 @@
   .navbar-light .navbar-nav .nav-link.name { 
     font-size: 14px; 
     color: #1e2331; 
-    font-family: 'Rubik', sans-serif; 
     padding-top: 6px; 
-    letter-spacing: 0.05em; 
     position: relative; 
     top: -4%; 
   } 
@@ -111,7 +108,7 @@
     line-height: 20px; 
     color: #fff; 
     text-transform: uppercase; 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     float: left; 
     margin: 0; 
   } 
@@ -126,7 +123,7 @@
     line-height: 20px; 
     color: #fff; 
     text-transform: uppercase; 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     float: left; 
     margin: 0; 
   } 
@@ -180,9 +177,8 @@
   } 
     
   .description { 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     font-family: 'Rubik', sans-serif; 
-    letter-spacing: 0.05em; 
     color: #1e2331; 
     padding-bottom: 10px; 
   } 
@@ -277,8 +273,7 @@
   .control-label { 
     color: #989899; 
     font-family: 'Rubik', sans-serif; 
-    font-size: 0.63vw; 
-    letter-spacing: 0.05em; 
+    font-size: 12px; 
     text-align: left; 
   } 
      
@@ -289,6 +284,7 @@
     border-radius: 5px !important; 
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
+    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
   } 
     
@@ -324,7 +320,7 @@
   } 
      
   .btn-orange, .btn-orange-active { 
-    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; 
+    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; 
     color: #ffffff; 
     border: transparent !important; 
     font-size: 10px; 
@@ -332,8 +328,7 @@
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   } 
 
   .btn-white { 
@@ -345,20 +340,19 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
     
   .orange-btn:hover { 
-    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; 
+    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; 
     color: #ffffff; 
     border: transparent !important; 
     padding: 8px 15px; 
     font-size: 10px; 
     border-radius: 50rem!important; 
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
      
   .btn-blue { 
@@ -372,7 +366,6 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
     
   .blue-btn:hover { 
@@ -383,9 +376,9 @@
     font-size: 10px; 
     border-radius: 50rem!important; 
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
     
   .btn-dark { 
@@ -399,7 +392,6 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
      
   .dark-btn:hover { 
@@ -413,7 +405,6 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
-    letter-spacing: 0.05em; 
   } 
   .notifications-close img { 
     width: 20px; 
@@ -470,7 +461,7 @@
     
   .notifications .btn-default { 
     padding: 6px 25px 6px 18px; 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
     -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -485,7 +476,6 @@
   .notifications .card-body-notifications h3 a, .caller-name { 
     color: #333333; 
     font-size: 0.7vw; 
-    /* letter-spacing: 2.2px; */ 
     font-weight: 600; 
   } 
   .caller-time { 
@@ -497,7 +487,6 @@
   .notifications .card-body-notifications p.call_back_time { 
     color: #808080; 
     font-size: 0.7vw; 
-    /* letter-spacing: 2.2px; */ 
   } 
     
   .personal-info .row.mx-0.border-left, 
@@ -508,8 +497,7 @@
   .settings .title { 
     color: #7f8080; 
     padding-bottom: 16px; 
-    font-size: 0.63vw; 
-    letter-spacing: 0.05em; 
+    font-size: 12px; 
   } 
     
   .small-avatar img { 
@@ -557,7 +545,6 @@
   } 
   .callback-cal p {
     font-size: 0.73vw;
-    letter-spacing: 0.05em;
     color: #666666;
     border-color: #ccc;
     margin-top:25px;
@@ -644,7 +631,7 @@
     
   .form-control { 
     padding: 10px 12px!important; 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
     -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
     -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;
@@ -855,18 +842,16 @@
     font-size: 10px; 
     color: #989899; 
     text-transform: uppercase; 
-    padding: 10px 20px; 
-    letter-spacing: 0.05em; 
+    padding: 10px 20px;
     font-weight: 600; 
   } 
     
   .btn-primary.update-user, .btn-primary.update-filter, .btn-primary.save-filter { 
     font-size: 10px; 
-    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; 
+    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; 
     font-weight: 600; 
     text-transform: uppercase; 
     padding: 10px 20px; 
-    letter-spacing: 0.05em; 
   } 
     
 .btn-primary.update-filter, .btn-primary.save-filter { 
@@ -928,7 +913,7 @@
   } 
     
   .row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label { 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     padding-left: 20px; 
   } 
     
@@ -938,8 +923,11 @@
      
   .row.filter-content .search-criteria { 
     border: 0; 
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05); 
-    font-size: 0.63vw; 
+    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05); 
+    font-size: 12px; 
     border-radius: 14px; 
     padding: 10px; 
     font-family: 'Rubik', sans-serif !important; 
@@ -952,7 +940,7 @@
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); 
-    font-size: 0.63vw; 
+    font-size: 12px; 
     font-family: 'Rubik', sans-serif; 
     font-weight: 300; 
     font-style: italic; 
@@ -961,7 +949,7 @@
   } 
     
   .row.filter-content .search-text::-webkit-input-placeholder .save-text::-webkit-input-placeholder { 
-    font-size: 0.63vw !important; 
+    font-size: 12px !important; 
     font-family: 'Rubik', sans-serif !important; 
     color: rgba(0, 0, 0, 0.65) !important;
   } 
@@ -980,9 +968,12 @@
   } 
  
   .saved-results { 
-    font-size: 0.63vw !important; 
+    font-size: 12px !important; 
     font-family: 'Rubik', sans-serif; 
   } 
+  .px-6 {
+    padding: 0px 6%;
+  }
     
   .filter-container { 
     overflow: auto; 
@@ -1080,7 +1071,7 @@
             </ul> 
           </nav> 
 
-          <div class="open-sidenav mt-3">
+          <div class="open-sidenav mt-3 px-6">
             <div v-if="settings_on == true" class="settings px-2"> 
               <div class="row mx-0 pt-0 border-bottom"> 
                 <div class="row mx-0 justify-content-between align-items-center w-100 p-0"> 
@@ -1765,7 +1756,7 @@
                                       v-model="task.status" 
                                       :id="'task' + i" 
                                       type="checkbox" 
-                                      @click="editsTask(task,'status')"
+                                      @click="editTask(task,'status')"
                                     > 
                                     <label class="terms-text custom-control-label" :for="'task' + i"> 
                                       <input type="text" v-model="task.title" class="border-0 list-input" @focus="editTaskCollapes(task.id)"> 
@@ -2029,6 +2020,10 @@
       var vm = this; 
 
       this.user = JSON.parse(this.auth_user); 
+
+      if(this.active == 'dashboard'){
+        this.showNotifications();
+      }
 
       vm.getUserCallBacks(); 
 

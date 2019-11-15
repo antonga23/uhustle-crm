@@ -26,9 +26,16 @@
   }
 
   .dropdown-menu {
-    border-radius: 5px;
-    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border-radius: 15px;
+        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border: 0;
+        font-size: 0.63vw;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 0.05em;
+        color: #1e2331;
+        top: 10px !important;
   }
+
   
   .is-hidden {
     display: none;
@@ -65,7 +72,10 @@
   .card {
     border-radius: 10px;
     border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     min-width: 150px;
   }
 
@@ -143,7 +153,6 @@ p.card-text {
   width: 100%;
   float: right;
   font-family: 'Montserrat bold', sans-serif;
-  letter-spacing: 1.2px;
 }
   
   p.card-text span {
@@ -261,7 +270,6 @@ p.card-text {
     margin-top: -7px;
     color: #3b3b3b;
     font-family: 'Rubik', sans-serif !important;
-    letter-spacing: 1.2px;
     font-size:0.73vw;
   }
     
@@ -350,6 +358,9 @@ p.card-text {
     height: 40px;
     padding: 2px 5px 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
   
@@ -358,12 +369,15 @@ p.card-text {
     height: 30px;
     padding: 0 0 3px 0;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
 
   .add-new-top-section .dropdown {
-    top: 0px;
-    right: 195px;
+    top: -5px;
+    right: 170px;
   }
 
   .table-section {
@@ -602,6 +616,7 @@ p.card-text {
           sum_call_back: '',
           avg_time: '',
         },
+        show_page_loader: false, 
         columns:[
           {
             label: 'CALLER',  // Column name
@@ -686,7 +701,6 @@ p.card-text {
         axios.get('/calls/list').then(function (response) { 
             vm.conferences = response.data.conferences;
             vm.show_page_loader = false;
-            console.log(vm.conferences);
         });
         // setInterval(function(){ 
         //     axios.get('/calls/list').then(function (response) { 

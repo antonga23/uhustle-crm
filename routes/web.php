@@ -18,10 +18,8 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    // return redirect('/login');
-
-    
-     return view('/welcome');
+    return redirect('/login');
+      // return view('/welcome');
 });
 
 Route::get('/home', function () {
@@ -214,6 +212,16 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-activities/{client_id}', 'TaskController@getActivities');
 });
 
+// Deals Routes
+Route::group(['prefix' => 'deals'], function () {
+	Route::get('/get/{client_id}', 'DealController@getCleintById');
+	Route::get('/get-all/{lead_id}', 'DealController@index');
+	Route::get('/get-all-status', 'DealController@getAllStatus');
+	Route::post('/create', 'DealController@store');
+	Route::post('/update', 'DealController@update');
+	Route::get('/delete/{client_id}', 'DealController@destroy');
+	Route::get('/transactions', 'DealController@getAllTransactions');
+});
 // Leads Routes
 Route::group(['prefix' => 'leads'], function () {
   Route::get('/enqueue', 'LeadController@enQueue');
@@ -286,6 +294,8 @@ Route::group(['prefix' => 'comments'], function () {
 // Modules Routes
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
+  Route::get('/get-all-items', 'ModuleController@getAllItems');
+  Route::get('/get-single-item/{lead_id}', 'ModuleController@getSingleItem');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');
@@ -309,4 +319,14 @@ Route::group(['prefix' => 'apis'], function () {
     Route::get('/get-all', 'ApiIntegrationController@index');
     Route::post('/update', 'ApiIntegrationController@update');
 });
+
+// API Integration Routes
+Route::group(['prefix' => 'settings'], function () {
+    Route::post('/update-commission', 'CommissionController@update');
+    Route::get('/get-comm-structures', 'CommissionController@getCommStructures');
+    Route::post('/create', 'SystemSettingsController@create');
+    Route::post('/update', 'SystemSettingsController@update');
+});
+
+
 

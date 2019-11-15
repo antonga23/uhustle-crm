@@ -42,7 +42,7 @@
     font-size:0.73vw;
   }
   ul.top-menu li.item a.active{
-    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
+    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
     color: #fff !important;
     text-decoration: none;
     font-weight: 500;
@@ -68,6 +68,7 @@
     margin-right: 0.9%;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
   }
   .btn-primary {
@@ -94,6 +95,9 @@
   }
   .add-module-btn {
     box-shadow:none!important;
+    -webkit-box-shadow:none!important;
+    -moz-box-shadow:none!important;
+    -o-box-shadow:none!important;
   }
   .tab-pane.card-body {
     padding:4.4% 5.6% 6.8%;
@@ -104,6 +108,9 @@
   .expand-toggle {
     background: #fff;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
     text-align: left;
     border-radius: 0!important;
     border-top: 0;
@@ -177,9 +184,9 @@
         <li class="item" style="display_none">
           <a 
             href="#" 
-            @click="showModulePreferences('dialer', 'dialer', null);" 
-            :class="{ 'active' : ( active_module_name ===  'dialer')? true : false }"
-          >Dialer</a>
+            @click="showModulePreferences('commission', 'commission', null);" 
+            :class="{ 'active' : ( active_module_name ===  'commission')? true : false }"
+          >Commission</a>
         </li>
 
         <li class="item">
@@ -383,6 +390,10 @@
           <api-integration :apis="apis"/>
         </div>
 
+        <div class="user-roles" v-if="!show_page_loader && active_module_action == 'commission'">
+          <commission-structure/>
+        </div>
+
         <div class="user-roles" v-if="!show_page_loader && active_module_action == 'add_module'">
           <add-module/>
         </div>
@@ -404,6 +415,7 @@
   import AddModule from './AddModule';
   import EditModule from './EditModule';
   import ApiIntegration from './ApiIntegration';
+  import CommissionStructure from './CommissionStructure';
   import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
   export default {
     extends: Bar,
@@ -417,6 +429,7 @@
       AddModule,
       EditModule,
       ApiIntegration,
+      CommissionStructure,
       'datatable' : DataTable
     },
     mounted() {

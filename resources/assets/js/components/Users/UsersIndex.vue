@@ -45,6 +45,9 @@ li p.bottom {
   border-radius: 10px;
   border: none;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   min-width: 150px;
 }
 .card-body {
@@ -126,7 +129,6 @@ p.card-text {
   width: 100%;
   float: right;
   font-family: "Montserrat bold", sans-serif;
-  letter-spacing: 1.2px;
 }
 p.card-text span {
   font-size: 19px;
@@ -153,7 +155,7 @@ p.card-link {
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #bfccd2;
 }
-span.right {
+span.right, .right {
   float: right;
 }
 .truncate {
@@ -215,15 +217,23 @@ span.right {
 }
 
 select.form-control,
-input.form-control, textarea.form-control {
+input.form-control  {
   border-radius: 50rem;
   margin-top: 5px;
 }
 
+textarea.form-control {
+   border-radius: 20px;
+    margin-top: 5px
+}
+.btn {
+  font-size: 14px !important;
+  padding: 4px 17px 6px !important;
+}
 
 label {
   font-family: "Rubik", sans-serif;
-  font-size: 0.52vw;
+  font-size: 10px;
   color: #999999;
   margin-bottom: 20px;
 }
@@ -231,6 +241,8 @@ label {
 .add-box-shadow {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   border: 0;
@@ -247,7 +259,7 @@ label {
 .add-box-shadow .add-user-form input,
 select,
 textarea {
-  font-size: 0.63vw;
+  font-size: 12px;
   color: #003449;
   font-family: "Rubik", sans-serif;
 }
@@ -256,14 +268,6 @@ textarea {
   margin-bottom: 7px;
   margin-left: 17px;
 }
-
-/* #top-section{ 
-    background: #fff;     
-    margin-left: -53px; 
-    margin-right: -66px; 
-    padding: 0px 37px; 
- 
-} */
 .green {
   color: #00a25a !important;
 }
@@ -280,7 +284,6 @@ textarea {
   margin-top: -7px;
   color: #3b3b3b;
   font-family: "Rubik", sans-serif !important;
-  letter-spacing: 1.2px;
 }
 .badge {
   width: 12%;
@@ -359,7 +362,7 @@ ul.items li a:hover {
   text-decoration: none;
 }
 .scroll-hidden {
-  overflow-y: scroll;
+  overflow: auto;
   height: 70vh;
   padding-top: 6px;
   padding-right: 6px;
@@ -379,7 +382,7 @@ table.listing tr th {
   cursor: pointer;
 }
 .plr-3 {
-  padding: 23px 4% 0;
+  padding: 23px 0 0 4%;
 }
 .control-label {
   float: left;
@@ -535,7 +538,7 @@ table.listing tr th {
       </div>
       <div v-else>
         <a-card title="Add User" class="add-box-shadow">
-            <div class="divider-line small-screen-hide"></div>
+            <div class="divider-line"></div>
           <div class="w-100" style="margin-top: 20px;">
             <div class="add-user-form" :class="{'input': true, 'form-group' :true }">
               <label class="col-lg-4 control-label">
@@ -714,12 +717,12 @@ table.listing tr th {
                   class="help-block"
                 >{{ errors.first('Password Confirm') }}</span>
               </label>
-              <label class="col-lg-12 control-label">
+              <label class="col-lg-12 control-label right">
                 <button
                   type="submit"
                   class="btn btn-primary update-user ml-0"
                   @click="createUser()"
-                >Add User</button>
+                >Add</button>
               </label>
             </div>
           </div>

@@ -163,6 +163,20 @@ ul.items li a:hover{
   padding-right: 6px;
   width: 100%;
 }
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar {
+  width: 3px;
+}
+
 table.listing{
   width: 100%;
 }
@@ -177,7 +191,7 @@ table.listing tr  th{
   margin-right: 15px;
 }
 .plr-3 {
-  padding: 23px 4% 0;
+  padding: 23px 4% 0 !important;
 }
 .control-label{
   float: left;
@@ -202,48 +216,52 @@ table.listing tr  th{
 .grey-bg-color span{
   font-family: 'Rubik', sans-serif;
   color: #999999;
-  font-size: 0.63vw;
+  font-size: 12px;
 }
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-size: 10px;
   color: #989899;
   text-transform: uppercase;
-  padding: 11px 13px;
   letter-spacing: 0.05em;
   font-weight: 600;
+  padding: 6px 12px;
 }
 .btn-default.assign {
   border-radius: 50rem !important;
   font-size: 10px;
-  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 10px 20px;
   letter-spacing: 0.05em;
   color: #ffffff;
+  padding: 6px 12px;
 }
 #bottom-section {
   padding-left: 4%;
 }
+
 </style>
 <template>
   <div>
-    <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-12 px-0">
+    <div id="top-section" class="row pb-4 mb-4 grey-bg-color align-items-center justify-content-between mx-0">
+      <div class="col-7 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
           <div class="col-12">
             <div class="row mx-0">
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Assignees:</span>
                 <a-select 
                   mode="multiple"
                   v-model="assignees" 
                   placeholder="Select"
-                  class="border-0 w-100"
+                  class="border-0 w-100 mass-assign"
                 >
                   <a-select-option 
                     :value="user.id" 
@@ -253,14 +271,14 @@ table.listing tr  th{
                 </a-select>
               </div>
 
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Owners: </span>
 
                 <a-select 
                   mode="multiple"
                   v-model="owners" 
                   placeholder="Select"
-                  class="border-0 w-100"
+                  class="border-0 w-100 mass-assign"
                 >
                   <a-select-option 
                     :value="user.id" 
@@ -270,9 +288,9 @@ table.listing tr  th{
                 </a-select>
               </div>
 
-              <div class="col-auto">
-                <div class="row mt-3">
-                  <div class="col-auto">
+              <div class="col-4">
+                <div class="row mt-4">
+                  <div class="col-auto mr-4">
                     <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
                   </div>
                   <div class="col-auto">
@@ -342,7 +360,7 @@ table.listing tr  th{
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="plr-3" >
       <add-module-item 
         :module="module" 
         :active_users="JSON.parse(active_users)" 

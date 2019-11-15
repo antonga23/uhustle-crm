@@ -23,7 +23,12 @@ class Module extends Model implements Auditable
     {
         return $this->hasMany(ModuleCustomFields::class, 'module_id','id');
     }
-   
+      
+    public function deals()
+    {
+        return $this->hasMany(Deal::class, 'lead_id','id');
+    }
+
     public function winsta_uploads()
     {
         return $this->hasMany(WinstaImages::class, 'module_id', 'id');

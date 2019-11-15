@@ -1,20 +1,38 @@
 <template>  
-    <div class="card no-box-shadow material-table">  
+    <div class="card shadow-none material-table">  
         <table ref="table">  
             <thead>  
                 <tr>  
-                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')  
+                    <th v-for="(column, index) in modified_columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')  
                             + (sortColumn === index ?  
                                 (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')  
                                 : '')  
                             + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">  
-                        {{column.label}}  
+                        {{column.label}} 
+                        
+                        <div v-if="index == modified_columns.length-1" class="col pl-0">
+                            <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                            </b-button>
+                            <div v-if="show_column_select">
+
+                                <b-form-select 
+                                  v-model="selected_columns" 
+                                  :options="colum_select_options" 
+                                  multiple 
+                                  :select-size="4"
+                                  @change="handleChange()"
+                                  >
+                                  </b-form-select>
+                                <!-- <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0">Apply</button> -->
+                            </div>
+                        </div> 
                     </th>  
                 </tr>  
             </thead>  
             <tbody>  
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">  
-                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
+                    <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
                         <span v-if="column.field == 'full_name'">  
                             <a  @click="showEditModal(row, row.leads,row.clients)"  class="small-avatar">  
                                 <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar">  
@@ -220,8 +238,31 @@ export default {
         Fire.$on('Search', function(data){  
             vm.searching = true;      
             vm.searchInput = data.search_term;  
-        });  
-  
+        });          
+        
+        
+        this.columns.map( (column, index) => {
+
+          vm.modified_columns.push(column)
+
+          vm.selected_columns.push({
+            index: index,
+            column:column
+          });
+
+          vm.colum_select_options.push({
+
+            value: {
+              index: index,
+              column:column
+            },
+            text: column.label,
+            disabled: ( index == 0 || index == vm.columns.length - 1 )? true : false,
+
+          });
+
+        });
+
         this.Toast = vm.$swal.mixin({  
             toast: true,  
             position: 'top-end',  
@@ -238,7 +279,10 @@ export default {
             user: {  
                 leads: [],  
                 clients: [],  
-            },  
+            },
+            selected_columns: [],
+            modified_columns: [],
+            colum_select_options: [],  
             summaryModal: false,  
             showModal: false,  
             loading: false,  
@@ -255,7 +299,27 @@ export default {
             noImageUrl: '/images/icons/user_icon@4x.png',  
         }  
     },  
-    methods: {  
+    methods: { 
+        handleChange() {
+
+          var vm = this;
+          vm.modified_columns = [];
+          this.columns.map( ( col, index ) => {
+
+            vm.selected_columns.map( (selected, i) => {
+              
+              if(selected.index == index){
+
+
+                  vm.modified_columns.push(selected.column);
+              }
+
+            });
+
+          });
+          console.log(vm.modified_columns);
+          
+        }, 
         showEditModal(user, leads, clients){  
             var vm = this;  
             this.user = user;  
@@ -484,10 +548,7 @@ thead th {
     top: 0;  
     background: white;  
     z-index: 10;  
-}  
-.no-box-shadow {  
-    box-shadow: none !important;  
-}  
+}   
 .ant-list-item {  
     align-items: center;  
     display: flex;  
@@ -722,7 +783,7 @@ table tr td {
     color: #1c2331;  
     display: table-cell;  
     font-family: 'Rubik', sans-serif !important;  
-    padding: 10px 0px 10px 0px;  
+    padding: 10px 20px 10px 0px;  
     min-width: 150px;  
   
 }  
@@ -730,7 +791,7 @@ table tr td {
   @media screen and (max-width: 1500px) {  
         table tr td {  
             font-size: 12px !important;  
-            padding: 5px 0px 5px 0px !important;  
+            padding: 5px 10px 5px 0px !important;  
         }  
   }  
   
@@ -745,8 +806,7 @@ table tr {
      border-bottom: 1px solid #f2f2f2;  
     padding-left: 0;  
     width: auto;  
-    white-space: nowrap;  
-    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */  
+    white-space: nowrap;   
 }  
   
 table thead tr:first-child {  
@@ -759,7 +819,7 @@ table th {
     color: #A6A6A6;  
     cursor: pointer;  
     white-space: nowrap;  
-    padding: 0;  
+    padding-right: 20px;  
     /* height: 56px; */  
     /* padding-left: 14px; */  
     vertical-align: middle;  

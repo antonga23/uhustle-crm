@@ -52,7 +52,7 @@
   padding:14px 40px 14px 15px;
 }
 .callIcons .search input::placeholder {
-  font-size: 0.63vw;
+  font-size: 12px;
   font-weight: 300;
   font-family: 'Rubik', sans-serif;
   font-style: italic;
@@ -110,7 +110,7 @@
                 </template>
 
                 <transition name="fade">
-                  <p>this is content</p>
+                  <b-table hover :items="paidItems"></b-table>
                 </transition>
               </b-tab>
 
@@ -121,7 +121,7 @@
                 </template>
 
                 <transition name="fade">
-                  <p>this is content</p>
+                  <b-table hover :items="pendingItems"></b-table>
                 </transition>
               </b-tab>
 
@@ -132,7 +132,7 @@
                 </template>
 
                 <transition name="fade">
-                  <p>this is content</p>
+                  <b-table hover :items="dueItems"></b-table>
                 </transition>
               </b-tab>
 
@@ -143,7 +143,7 @@
                 </template>
 
                 <transition name="fade">
-                  <p>this is content</p>
+                  <b-table hover :items="rejectedItems"></b-table>
                 </transition>
               </b-tab>
 
@@ -155,15 +155,12 @@
 
                 <transition name="fade">
                   <div>
-                    <h5 class="deal-name">Peter Andrews</h5>
-                    <create-deal/>
+                    <create-deal :empty_deal="deal"  :lead_id="'-None-'" />
                   </div>
                 </transition>
               </b-tab>
             </b-tabs>
           </b-card>
-          <!-- <vcl-table v-if="show_page_loader" ></vcl-table>
-          <datatable v-if="!show_page_loader" id="datatable" :rows="transactions" :columns="columns" :role="current_user.role_id" title=""></datatable> -->
         </div>
       </div>
     </div>
@@ -190,11 +187,15 @@
       console.log('Component mounted');
       this.current_user = JSON.parse(this.logged_user);
       this.getTransactions();
-
+      this.getDeals();
       var vm = this;
 
       Fire.$on('FilterData', function(data){
         vm.applyFilter(data);
+      });
+
+      Fire.$on('AfterDealAdd', function(data){
+        vm.getDeals();
       });
 
       this.Toast = this.$swal.mixin({
@@ -229,103 +230,39 @@
         noImageUrl: '/images/icons/user_icon@4x.png',
         bulk_actions: "",
         Toast: null,
-        columns:[
-          {
-            label: 'FULL NAME',  // Column name
-            field: 'full_name',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'EMAIL',  // Column name
-            field: 'email',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'OWNER',  // Column name
-            field: 'creator',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'ASSIGNEE',  // Column name
-            field: 'assignee',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'MOBILE #',  // Column name
-            field: 'phone_number',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'PACKAGE',  // Column name
-            field: 'product',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true,
-            exportable: true
-          },
-          {
-            label: 'TRIAL STARTS',  // Column name
-            field: 'start_date',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'TRIAL ENDS',  // Column name
-            field: 'expires_at',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'DAYS REMAINING',  // Column name
-            field: 'days_remaining',  // Field name from row
-            numeric: true, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'TRANSACTION NUMBER',  // Column name
-            field: 'transaction_mumber',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'AMOUNT',  // Column name
-            field: 'amount',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'STATUS',  // Column name
-            field: 'status',  // Field name from row
-            numeric: true, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          },
-          {
-            label: 'ACTIONS',  // Column name
-            field: 'actions',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true
-          }
-        ]
+        deal: {
+          lead_id: '-Please Select-' ,
+          agent_id:'' ,
+          agent_name:'' ,
+          deal_name:'' ,
+          closing_date:'' ,
+          type:'- None -' ,
+          lead_source:'- None -' ,
+          amount:'' ,
+          description:'' ,
+          stage:'- None -' ,
+          probability:'' ,
+          expected_revenue:'' ,
+          contact_name:'' ,
+          contact_number:'' ,
+          status:'' ,
+        },
+        paidItems: [],
+        pendingItems: [],
+        dueItems: [],
+        rejectedItems: [],
       }
     },
     methods: {
+      getDeals(){
+        var vm = this;
+        axios.get("/deals/get-all-status").then(function(response) {  
+          vm.paidItems = response.data.paidItems;
+          vm.pendingItems = response.data.pendingItems;
+          vm.dueItems = response.data.dueItems;
+          vm.rejectedItems = response.data.rejectedItems;
+        });
+      },
       secondsToMinues(time){
         var minutes = Math.floor(time / 60);
         var seconds = time - minutes * 60;

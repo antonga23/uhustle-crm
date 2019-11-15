@@ -178936,6 +178936,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -178974,6 +178988,7 @@ __webpack_require__.r(__webpack_exports__);
         sum_call_back: '',
         avg_time: ''
       },
+      show_page_loader: false,
       columns: [{
         label: 'CALLER',
         // Column name
@@ -179086,7 +179101,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/calls/list').then(function (response) {
         vm.conferences = response.data.conferences;
         vm.show_page_loader = false;
-        console.log(vm.conferences);
       }); // setInterval(function(){ 
       //     axios.get('/calls/list').then(function (response) { 
       //         vm.conferences = response.data.conferences;
@@ -180714,6 +180728,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -180973,6 +181000,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
@@ -181025,6 +181056,21 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -181055,6 +181101,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         comments: [],
         assigned: []
       },
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       summaryModal: false,
       showModal: false,
       loading: false,
@@ -181070,6 +181119,18 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     showEditModal: function showEditModal(user) {
       var vm = this;
       this.user = user;
@@ -181599,6 +181660,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -181662,6 +181729,21 @@ __webpack_require__.r(__webpack_exports__);
       vm.assignees = data.assignees, vm.owners = data.owners;
       vm.assignTo();
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -181672,7 +181754,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selected: [],
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       leads_select_all: null,
+      show_column_select: false,
       show_mass_assign: false,
       user_assigned: '',
       lead_owner: '',
@@ -181714,6 +181800,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     getText: function getText(col, field) {
       var field_value = "";
 
@@ -182767,6 +182865,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -182816,6 +182932,21 @@ __webpack_require__.r(__webpack_exports__);
       vm.searching = true;
       vm.searchInput = data.search_term;
     });
+    this.columns.map(function (column, index) {
+      vm.modified_columns.push(column);
+      vm.selected_columns.push({
+        index: index,
+        column: column
+      });
+      vm.colum_select_options.push({
+        value: {
+          index: index,
+          column: column
+        },
+        text: column.label,
+        disabled: index == 0 || index == vm.columns.length - 1 ? true : false
+      });
+    });
     this.Toast = vm.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -182833,6 +182964,9 @@ __webpack_require__.r(__webpack_exports__);
         leads: [],
         clients: []
       },
+      selected_columns: [],
+      modified_columns: [],
+      colum_select_options: [],
       summaryModal: false,
       showModal: false,
       loading: false,
@@ -182850,6 +182984,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    handleChange: function handleChange() {
+      var vm = this;
+      vm.modified_columns = [];
+      this.columns.map(function (col, index) {
+        vm.selected_columns.map(function (selected, i) {
+          if (selected.index == index) {
+            vm.modified_columns.push(selected.column);
+          }
+        });
+      });
+      console.log(vm.modified_columns);
+    },
     showEditModal: function showEditModal(user, leads, clients) {
       var vm = this;
       this.user = user;
@@ -183132,6 +183278,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['module', 'active_users', 'active_roles'],
   data: function data() {
@@ -183206,6 +183392,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @alfsnd/vue-bootstrap-select */ "./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -183856,14 +184060,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -186047,15 +186243,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -186139,6 +186326,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var vm = this;
     this.user = JSON.parse(this.auth_user);
+
+    if (this.active == 'dashboard') {
+      this.showNotifications();
+    }
+
     vm.getUserCallBacks();
     vm.getUserTasks();
     Fire.$on('AfterCallBackSet', function () {
@@ -186500,6 +186692,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -187555,6 +187763,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -187690,6 +187900,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -187903,6 +188115,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -187961,6 +188176,393 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    console.log('Commision Component mounted');
+    this.getCommissionStructures();
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['apis'],
+  data: function data() {
+    return {
+      structure_a: [{
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      structure_b: [{
+        min_sales: {
+          field_id: '',
+          value: 0
+        },
+        max_sales: {
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      structure_c: [{
+        min_amount: {
+          field_id: '',
+          value: 0
+        },
+        max_amount: {
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          field_id: '',
+          value: 0
+        },
+        status: {
+          field_id: '',
+          value: 0
+        }
+      }],
+      Toast: null
+    };
+  },
+  methods: {
+    getCommissionStructures: function getCommissionStructures() {
+      var vm = this;
+      axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structure_a.length > 0) {
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_b.length > 0) {
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+
+        if (response.data.structure_c.length > 0) {
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+    },
+    updateDetails: function updateDetails() {
+      var vm = this;
+      vm.display_name_state = true;
+      var end_point = '/settings/update-commission';
+      axios.post(end_point, {
+        structure_a: vm.structure_a,
+        structure_b: vm.structure_b,
+        structure_c: vm.structure_c
+      }).then(function (response) {
+        if (response.data.success == true) {
+          Fire.$emit('AfterUpdatingCommission');
+          vm.$Progress.finish();
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+        }
+      });
+    },
+    addBField: function addBField(comm_structure_id) {
+      this.structure_b.push({
+        min_sales: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        max_sales: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        status: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        }
+      });
+    },
+    removeBField: function removeBField(index) {
+      if (index > -1) {
+        this.structure_b.splice(index, 1);
+      }
+    },
+    addCField: function addCField(comm_structure_id) {
+      this.structure_c.push({
+        min_amount: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        max_amount: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        percentage: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        },
+        status: {
+          comm_structure_id: comm_structure_id,
+          field_id: '',
+          value: 0
+        }
+      });
+    },
+    removeCField: function removeCField(index) {
+      if (index > -1) {
+        this.structure_c.splice(index, 1);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=script&lang=js& ***!
@@ -187970,6 +188572,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -188569,6 +189174,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -188649,8 +189256,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddModule__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddModule */ "./resources/assets/js/components/Preferences/AddModule.vue");
 /* harmony import */ var _EditModule__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditModule */ "./resources/assets/js/components/Preferences/EditModule.vue");
 /* harmony import */ var _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApiIntegration */ "./resources/assets/js/components/Preferences/ApiIntegration.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _CommissionStructure__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CommissionStructure */ "./resources/assets/js/components/Preferences/CommissionStructure.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_9__);
 //
 //
 //
@@ -189048,6 +189656,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -189061,14 +189681,15 @@ __webpack_require__.r(__webpack_exports__);
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclTable"],
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_9__["VclTable"],
     EditRole: _EditRole__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddRole: _AddRole__WEBPACK_IMPORTED_MODULE_4__["default"],
     AddModule: _AddModule__WEBPACK_IMPORTED_MODULE_5__["default"],
     EditModule: _EditModule__WEBPACK_IMPORTED_MODULE_6__["default"],
     ApiIntegration: _ApiIntegration__WEBPACK_IMPORTED_MODULE_7__["default"],
+    CommissionStructure: _CommissionStructure__WEBPACK_IMPORTED_MODULE_8__["default"],
     'datatable': _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
@@ -190608,9 +191229,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -190630,9 +191248,13 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted');
     this.current_user = JSON.parse(this.logged_user);
     this.getTransactions();
+    this.getDeals();
     var vm = this;
     Fire.$on('FilterData', function (data) {
       vm.applyFilter(data);
+    });
+    Fire.$on('AfterDealAdd', function (data) {
+      vm.getDeals();
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -190665,141 +191287,39 @@ __webpack_require__.r(__webpack_exports__);
       noImageUrl: '/images/icons/user_icon@4x.png',
       bulk_actions: "",
       Toast: null,
-      columns: [{
-        label: 'FULL NAME',
-        // Column name
-        field: 'full_name',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'EMAIL',
-        // Column name
-        field: 'email',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'OWNER',
-        // Column name
-        field: 'creator',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'ASSIGNEE',
-        // Column name
-        field: 'assignee',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'MOBILE #',
-        // Column name
-        field: 'phone_number',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'PACKAGE',
-        // Column name
-        field: 'product',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true,
-        exportable: true
-      }, {
-        label: 'TRIAL STARTS',
-        // Column name
-        field: 'start_date',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'TRIAL ENDS',
-        // Column name
-        field: 'expires_at',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'DAYS REMAINING',
-        // Column name
-        field: 'days_remaining',
-        // Field name from row
-        numeric: true,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'TRANSACTION NUMBER',
-        // Column name
-        field: 'transaction_mumber',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'AMOUNT',
-        // Column name
-        field: 'amount',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'STATUS',
-        // Column name
-        field: 'status',
-        // Field name from row
-        numeric: true,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }, {
-        label: 'ACTIONS',
-        // Column name
-        field: 'actions',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true
-      }]
+      deal: {
+        lead_id: '-Please Select-',
+        agent_id: '',
+        agent_name: '',
+        deal_name: '',
+        closing_date: '',
+        type: '- None -',
+        lead_source: '- None -',
+        amount: '',
+        description: '',
+        stage: '- None -',
+        probability: '',
+        expected_revenue: '',
+        contact_name: '',
+        contact_number: '',
+        status: ''
+      },
+      paidItems: [],
+      pendingItems: [],
+      dueItems: [],
+      rejectedItems: []
     };
   },
   methods: {
+    getDeals: function getDeals() {
+      var vm = this;
+      axios.get("/deals/get-all-status").then(function (response) {
+        vm.paidItems = response.data.paidItems;
+        vm.pendingItems = response.data.pendingItems;
+        vm.dueItems = response.data.dueItems;
+        vm.rejectedItems = response.data.rejectedItems;
+      });
+    },
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -190835,9 +191355,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Transactions/createDeal.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -191014,6 +191536,117 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    this.getLeads();
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['empty_deal', 'lead_id'],
+  data: function data() {
+    return {
+      deal: {
+        lead_id: this.lead_id,
+        agent_id: '',
+        agent_name: '',
+        deal_name: '',
+        closing_date: '',
+        type: '-None-',
+        lead_source: '-None-',
+        amount: '',
+        description: '',
+        stage: '-None-',
+        probability: '',
+        expected_revenue: '',
+        contact_name: '',
+        contact_number: '',
+        status: ''
+      },
+      leads: [],
+      Toast: null
+    };
+  },
+  methods: {
+    clearDeal: function clearDeal() {
+      this.deal.lead_id = this.lead_id;
+      this.deal.agent_id = '';
+      this.deal.agent_name = '';
+      this.deal.deal_name = '';
+      this.deal.closing_date = '';
+      this.deal.type = '-None-';
+      this.deal.lead_source = '-None-';
+      this.deal.amount = '';
+      this.deal.description = '';
+      this.deal.stage = '-None-';
+      this.deal.probability = '';
+      this.deal.expected_revenue = '';
+      this.deal.contact_name = '';
+      this.deal.contact_number = '';
+    },
+    createDeal: function createDeal() {
+      var vm = this;
+      axios.post("/deals/create", vm.deal).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          Fire.$emit('AfterDealAdd');
+          vm.clearDeal();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        }
+      });
+    },
+    getLeads: function getLeads() {
+      var vm = this;
+
+      if (this.lead_id !== '-None-') {
+        axios.get("/modules/get-single-item/" + this.lead_id).then(function (response) {
+          vm.leads = response.data.leads.display_items;
+        });
+      } else {
+        axios.get("/modules/get-all-items").then(function (response) {
+          vm.leads = response.data.leads.display_items;
+        });
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -191032,6 +191665,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
 //
 //
 //
@@ -192117,6 +192753,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
   mounted: function mounted() {
@@ -192219,2233 +192858,2172 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../DataTables/CallLogsDataTable */ "./resources/assets/js/components/DataTables/CallLogsDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
-var _methods;
+/* harmony import */ var _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Transactions/createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -194468,6 +195046,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclTable"],
     Scripts: _Scripts_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     Education: _Education_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    CreateDeal: _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__["default"],
     datatable: _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   mounted: function mounted() {
@@ -194497,6 +195076,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
 
     vm.prepDates();
     vm.getActivities();
+    vm.getDeals();
     Fire.$on("CallStarted", function () {
       vm.general = false;
       vm.idle = true;
@@ -194530,6 +195110,9 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       vm.scripts = false;
       vm.idle = true;
       vm.active_calls = false;
+    });
+    Fire.$on("AfterDealAdd", function () {
+      vm.getDeals();
     });
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -194720,6 +195303,23 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       }],
       Toast: null,
       activityItems: [],
+      closedActivityItems: [],
+      deal: {
+        lead_id: this.item_id,
+        agent_id: '',
+        agent_name: this.user_name,
+        deal_name: '',
+        closing_date: '',
+        type: '- None -',
+        lead_source: '- None -',
+        amount: '',
+        description: '',
+        stage: '- None -',
+        probability: '',
+        expected_revenue: '',
+        contact_name: '',
+        contact_number: ''
+      },
       dealItems: [{
         dealName: "#f42222",
         amount: "0",
@@ -194743,7 +195343,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         edit: ""
       }],
       perPage: 10,
-      currentPage: 1
+      currentPage: 1,
+      radioStyle: {
+        display: 'block',
+        height: '30px',
+        lineHeight: '30px'
+      }
     };
   },
   computed: {
@@ -194751,7 +195356,13 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       return this.activityItems.length;
     }
   },
-  methods: (_methods = {
+  methods: {
+    getDeals: function getDeals() {
+      var vm = this;
+      axios.get("/deals/get-all/" + this.item_id).then(function (response) {
+        vm.dealItems = response.data.deals;
+      });
+    },
     getActiveCalls: function getActiveCalls() {
       var vm = this;
       vm.show_page_loader = true;
@@ -194783,14 +195394,16 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         vm.call_back.date = vm.selected_date.format("YYYY-MM-DD");
         vm.call_back.time = vm.selected_time.format("hh:mm");
         vm.call_back.user_id = vm.user_id;
-        vm.call_back.lead_id = vm.lead_info.id;
+        vm.call_back.lead_id = vm.item_id;
         this.$validator.validateAll().then(function (result) {
           if (!result) {} else {
             axios.post("/leads/setcallback", vm.call_back).then(function (response) {
               if (response.data.success == true) {
                 Fire.$emit("AfterCallBackSet");
-                vm.enqueueLead(response.data.lead.id);
-                vm.$swal("Success", "Callback captured successfully", "success");
+                vm.Toast.fire({
+                  type: 'success',
+                  title: "Callback captured successfully"
+                });
                 vm.continues = true;
               } else {
                 vm.$Progress.fail();
@@ -194832,39 +195445,31 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       axios.get('/tasks/get-activities/' + vm.item_id).then(function (response) {
         vm.activities = response.data.open_activities;
         vm.closed_activities = response.data.closed_activities;
+        vm.activityItems = [];
+        vm.closedActivityItems = [];
         vm.activities.map(function (activity) {
           var color = '';
           var status = '';
 
           if (activity.status == 0) {
-            color = '#ff8c37';
-            status = 'Open';
-          }
-
-          if (activity.status == 1) {
-            color = '#00d58e';
-            status = 'Closed';
-          }
-
-          if (activity.status == 2) {
             color = '#00d58e';
             status = 'Finished';
           }
 
-          if (activity.status == 3) {
-            color = '#ff8c37';
+          if (activity.status == 1) {
+            color = '#FF933A';
             status = 'In Progress';
           }
 
-          if (activity.status == 4) {
+          if (activity.status == 2) {
             color = '#f42222';
-            status = 'No Started';
+            status = 'Not Started';
           }
 
           vm.activityItems.push({
             statusColor: color,
-            status: status,
             subject: activity.title,
+            status: status,
             dueDate: activity.duedate,
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
@@ -194875,34 +195480,24 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           var status = '';
 
           if (activity.status == 0) {
-            color = '#ff8c37';
-            status = 'Open';
-          }
-
-          if (activity.status == 1) {
-            color = '#00d58e';
-            status = 'Closed';
-          }
-
-          if (activity.status == 2) {
             color = '#00d58e';
             status = 'Finished';
           }
 
-          if (activity.status == 3) {
-            color = '#ff8c37';
+          if (activity.status == 1) {
+            color = '#FF933A';
             status = 'In Progress';
           }
 
-          if (activity.status == 4) {
+          if (activity.status == 2) {
             color = '#f42222';
-            status = 'No Started';
+            status = 'Not Started';
           }
 
           vm.closedActivityItems.push({
             statusColor: color,
-            status: status,
             subject: activity.title,
+            status: status,
             dueDate: activity.duedate,
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
@@ -195015,6 +195610,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         });
         Device.on("connect", function (conn) {
           vm.call_status = "Successfully established call";
+          vm.call_sid = conn.parameters.CallSid;
           vm.call_back.call_sid = conn.parameters.CallSid;
         });
         Device.on("incoming", function (conn) {
@@ -195031,7 +195627,10 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         });
         Device.on("disconnect", function (conn) {
           vm.call_status = "Call Disconnected";
-          vm.$refs["final-call-step"].show();
+          vm.general = false;
+          vm.scripts = false;
+          vm.idle = true;
+          vm.active_calls = false; // vm.$refs["final-call-step"].show();  
         });
         vm.$Progress.finish();
       })["catch"](function (error) {
@@ -195047,150 +195646,142 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       audioCtx.resume();
       Fire.$emit("InitiateCall");
       var form_data = {
-        lead_id: vm.lead_info.id,
-        is_client: vm.lead_info.is_client,
-        lead_owner: vm.lead_info.user_created_id,
-        lead_assignee: vm.lead_info.user_assigned,
+        lead_id: vm.item_id,
         user_id: vm.user_id,
+        call_sid: vm.call_sid,
         // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27782013556"
+        phone_number: "+27739898490"
       };
       Device.connect(form_data);
-    }
-  }, _defineProperty(_methods, "startCall", function startCall() {
-    var vm = this;
-    this.idle = true;
-    this.show_edication_blocks = true;
-    this.general = false;
-    var audioCtx = new AudioContext();
-    audioCtx.resume();
-    Fire.$emit("InitiateCall");
-    var form_data = {
-      lead_id: vm.lead_info.id,
-      is_client: vm.lead_info.is_client,
-      lead_owner: vm.lead_info.user_created_id,
-      lead_assignee: vm.lead_info.user_assigned,
-      // phone_number : vm.lead_info.contact_number,  
-      phone_number: "+27738802485"
-    };
-    Device.connect(form_data);
-  }), _defineProperty(_methods, "endCall", function endCall() {
-    var vm = this;
-    Device.disconnectAll(function (conn) {});
-    vm.idle = true;
-    vm.show_edication_blocks = true;
-    vm.general = false;
-    vm.minimized = false;
-    this.$refs["final-call-step"].show();
-  }), _defineProperty(_methods, "getStatus", function getStatus(call_sid) {
-    var vm = this;
-    axios.post("/calls/get-call-status").then(function (response) {
-      if (response.data.success == true) {
-        vm.call_status = response.data.call_status;
-      } else {
-        vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
-      }
-    });
-  }), _defineProperty(_methods, "prepComment", function prepComment() {
-    var vm = this;
+    },
+    endCall: function endCall() {
+      var vm = this;
+      Device.disconnectAll(function (conn) {}); // vm.idle = true;  
+      // vm.show_edication_blocks = true;  
+      // vm.general = false;  
+      // vm.minimized = false;  
+      // this.$refs["final-call-step"].show(); 
 
-    if (vm.comment.comment_type === null) {
-      vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
-      vm.choose_comment_type = true;
-      return false;
-    }
-
-    var form_data = {
-      id: this.module_item.id,
-      type: "customer",
-      comment_id: this.comment.id,
-      comment_type: this.comment.comment_type["short"],
-      description: this.comment.comment_description
-    };
-    vm.review_comment = true;
-  }), _defineProperty(_methods, "addComment", function addComment() {
-    var vm = this;
-
-    if (vm.comment.comment_type === null) {
-      vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
-      vm.choose_comment_type = true;
-      vm.review_comment = false;
-      return false;
-    }
-
-    var form_data = {
-      id: this.module_item.id,
-      type: "customer",
-      comment_type: this.comment.comment_type,
-      description: this.comment.comment_description
-    };
-
-    if (vm.edit_comment == true) {
-      var endpoint = "/comments/update";
-    } else {
-      var endpoint = "/comments/add";
-    }
-
-    vm.$Progress.start();
-    axios.post(endpoint, form_data).then(function (response) {
-      if (response.data.success == true) {
-        vm.Toast.fire({
-          type: "success",
-          title: response.data.message
-        });
-        vm.edit_comment = false;
-        vm.review_comment = false;
-        vm.continues = true;
-        vm.getComments(vm.module_item.id);
-        vm.$Progress.finish();
-      } else {
-        vm.$Progress.fail();
-
-        if (response.data.message == "Please edit existing comment.") {
-          vm.edit_comment = true;
+      vm.general = false;
+      vm.scripts = false;
+      vm.idle = true;
+      vm.active_calls = false;
+    },
+    getStatus: function getStatus(call_sid) {
+      var vm = this;
+      axios.post("/calls/get-call-status").then(function (response) {
+        if (response.data.success == true) {
+          vm.call_status = response.data.call_status;
+        } else {
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
         }
+      });
+    },
+    prepComment: function prepComment() {
+      var vm = this;
 
-        vm.$swal("Failed", response.data.message, "warning");
+      if (vm.comment.comment_type === null) {
+        vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
+        vm.choose_comment_type = true;
+        return false;
       }
-    });
-  }), _defineProperty(_methods, "getComments", function getComments(item_id) {
-    var vm = this;
-    axios.get("/comments/get/customer/" + item_id).then(function (response) {
-      if (response.data.success == true) {
-        vm.comments.comments = response.data.comments;
-        vm.comments.comments_graph = response.data.comments_graph;
-        vm.comments.total_comments = response.data.total_comments;
-        vm.comments.total_calls = response.data.total_calls;
-        vm.comments.total_answered_calls = response.data.total_answered_calls;
-        vm.comment.comment_description = "";
-        vm.comment.comment_type = null;
+
+      var form_data = {
+        id: this.module_item.id,
+        type: "customer",
+        comment_id: this.comment.id,
+        comment_type: this.comment.comment_type["short"],
+        description: this.comment.comment_description
+      };
+      vm.review_comment = true;
+    },
+    addComment: function addComment() {
+      var vm = this;
+
+      if (vm.comment.comment_type === null) {
+        vm.$swal("Please note", "Please choose a lead status to proceed [+]", "warning");
+        vm.choose_comment_type = true;
+        vm.review_comment = false;
+        return false;
+      }
+
+      var form_data = {
+        id: this.module_item.id,
+        type: "customer",
+        comment_type: this.comment.comment_type,
+        description: this.comment.comment_description
+      };
+
+      if (vm.edit_comment == true) {
+        var endpoint = "/comments/update";
       } else {
-        vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        var endpoint = "/comments/add";
       }
-    });
-  }), _defineProperty(_methods, "minizeCallProgress", function minizeCallProgress() {
-    this.minimized = true;
-    $(".call-progress-div mb-0").toggleClass("collapsed");
-  }), _defineProperty(_methods, "getDaysAgo", function getDaysAgo(second_date) {
-    var date_string = "";
-    var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
 
-    var firstDate = new Date();
-    var secondDate = new Date(second_date);
-    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+      vm.$Progress.start();
+      axios.post(endpoint, form_data).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: "success",
+            title: response.data.message
+          });
+          vm.edit_comment = false;
+          vm.review_comment = false;
+          vm.continues = true;
+          vm.getComments(vm.module_item.id);
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
 
-    if (diffDays <= 1) {
-      date_string = "Today";
-    } else if (diffDays > 1 && diffDays <= 7) {
-      date_string = diffDays + " Days ago";
-    } else if (diffDays == 7) {
-      date_string = "1 Week ago";
-    } else if (diffDays >= 7) {
-      date_string = second_date;
+          if (response.data.message == "Please edit existing comment.") {
+            vm.edit_comment = true;
+          }
+
+          vm.$swal("Failed", response.data.message, "warning");
+        }
+      });
+    },
+    getComments: function getComments(item_id) {
+      var vm = this;
+      axios.get("/comments/get/customer/" + item_id).then(function (response) {
+        if (response.data.success == true) {
+          vm.comments.comments = response.data.comments;
+          vm.comments.comments_graph = response.data.comments_graph;
+          vm.comments.total_comments = response.data.total_comments;
+          vm.comments.total_calls = response.data.total_calls;
+          vm.comments.total_answered_calls = response.data.total_answered_calls;
+          vm.comment.comment_description = "";
+          vm.comment.comment_type = null;
+        } else {
+          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        }
+      });
+    },
+    minizeCallProgress: function minizeCallProgress() {
+      this.minimized = true;
+      $(".call-progress-div mb-0").toggleClass("collapsed");
+    },
+    getDaysAgo: function getDaysAgo(second_date) {
+      var date_string = "";
+      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
+
+      var firstDate = new Date();
+      var secondDate = new Date(second_date);
+      var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+
+      if (diffDays <= 1) {
+        date_string = "Today";
+      } else if (diffDays > 1 && diffDays <= 7) {
+        date_string = diffDays + " Days ago";
+      } else if (diffDays == 7) {
+        date_string = "1 Week ago";
+      } else if (diffDays >= 7) {
+        date_string = second_date;
+      }
+
+      return date_string;
     }
-
-    return date_string;
-  }), _methods)
+  }
 });
 
 /***/ }),
@@ -245255,7 +245846,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n    border-radius: 5px;\n    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 10px 3%;\n}\n    \n  /* .row {\n    margin-bottom: 3%;\n  } */\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;\n    min-width: 150px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n      background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n      color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n    line-height: 14px;\n}\np.card-text[data-v-507c5f96] {\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: 'Montserrat bold', sans-serif;\n  letter-spacing: 1.2px;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n  .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n  .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n    width: 110%;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    letter-spacing: 1.2px;\n    font-size:0.73vw;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 1.65vw;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n    top: 0px;\n    right: 195px;\n}\n.table-section[data-v-507c5f96] {\n    padding: 0 0 0 4%;\n}\n.pb-10[data-v-507c5f96] {\n    padding-bottom: 10px;\n}\n\n\n  /* Media Queries */\n@media screen and (max-width: 1500px) {\n.card[data-v-507c5f96] {\n      min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n      width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n      top: -5px;\n      right: 100px;\n}\n.individual-cards[data-v-507c5f96] {\n    width: 95%;\n}\n}\n\n\n", ""]);
+exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n        border-radius: 15px;\n        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n        border: 0;\n        font-size: 0.63vw;\n        font-family: 'Rubik', sans-serif;\n        letter-spacing: 0.05em;\n        color: #1e2331;\n        top: 10px !important;\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 10px 3%;\n}\n    \n  /* .row {\n    margin-bottom: 3%;\n  } */\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    min-width: 150px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n      background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n      color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n    line-height: 14px;\n}\np.card-text[data-v-507c5f96] {\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: 'Montserrat bold', sans-serif;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n  .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n  .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n    width: 110%;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    font-size:0.73vw;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 1.65vw;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n    top: -5px;\n    right: 170px;\n}\n.table-section[data-v-507c5f96] {\n    padding: 0 0 0 4%;\n}\n.pb-10[data-v-507c5f96] {\n    padding-bottom: 10px;\n}\n\n\n  /* Media Queries */\n@media screen and (max-width: 1500px) {\n.card[data-v-507c5f96] {\n      min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n      width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n      top: -5px;\n      right: 100px;\n}\n.individual-cards[data-v-507c5f96] {\n    width: 95%;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -245293,7 +245884,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 0.63vw;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders .row[data-v-2c246ed2] {\n    padding:20px;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n      background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n      background-size: 20px;\n      background-repeat: no-repeat;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\n    max-height: 414px;\n    overflow-y: auto;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n.mr-20[data-v-2c246ed2] {\n    margin-right: 20%;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders .row[data-v-2c246ed2] {\n    padding:20px;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n      background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n      background-size: 20px;\n      background-repeat: no-repeat;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\n    max-height: 414px;\n    overflow-y: auto;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n.mr-20[data-v-2c246ed2] {\n    margin-right: 20%;\n}\n", ""]);
 
 // exports
 
@@ -245312,7 +245903,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-ccb78764] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\n.no-box-shadow[data-v-ccb78764] {\n  box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n    position: relative !important;\n    right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] {\n    position: relative !important;\n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #1c2331;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 0px 10px 0px;\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] {\n        font-size: 12px;\n        padding: 5px 0px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #f2f2f2;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-ccb78764]{\n    width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\n.dropdown-menu[data-v-ccb78764] {\n        border-radius: 15px;\n        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n        border: 0;\n        font-size: 0.63vw;\n        font-family: 'Rubik', sans-serif;\n        letter-spacing: 0.05em;\n        color: #1e2331;\n}\n.no-box-shadow[data-v-ccb78764] {\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n    color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n    color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n    color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n    background-image: url('/images/icons/Talking.svg');\n    background-size: 75%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n    background-image: url('/images/icons/No Talking.svg');\n    background-size: 90%;\n    background-repeat: no-repeat;\n    display: block;\n    width: 100%;\n    height: 38px;\n    background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Whisper.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 30px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n    background-image: url('/images/icons/Barge.svg');\n    background-size: 31px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\n    float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n    padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n    height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n    cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n    position: relative !important;\n    right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] {\n    position: relative !important;\n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n    outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n    width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-ccb78764] {\n    height: 35px;\n    font-size: 14px;\n    color: #1c2331;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 20px 10px 0px;\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] {\n        font-size: 12px;\n        padding: 5px 10px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n    font-size: 12px;\n    border-bottom: 1px solid #f2f2f2;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n    border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n    font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding-right: 20px !important;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n    padding-right: 14px;\n    padding-left: 11px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
 
 // exports
 
@@ -245331,7 +245922,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\n        font-size: 12px !important;\n        padding: 5px 0px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 0.63vw !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 0.63vw;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 0.63vw;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 0.73vw;\n    color: #003449;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 0px 10px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 0.63vw;\n    border-bottom: 1px solid #B3B3B3;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 0.63vw;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n    -webkit-box-shadow: none !important;\n    -moz-box-shadow: none !important;\n    -o-box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\n        font-size: 12px !important;\n        padding: 5px 10px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\n.editable[data-v-6263b939] {\n    border-radius: 20px;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 0.73vw;\n    color: #1c2331;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 20px 10px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 0.63vw;\n    border-bottom: 1px solid #f2f2f2;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 12px;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding-right: 20px;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
 
 // exports
 
@@ -245369,7 +245960,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\ntable tr td a.View[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\ntable tr td a.Delete[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\ntable tr td a.Edit[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\n.table-footer .datatable-length[data-v-25cd21a6] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\ntable th.sorting-asc[data-v-25cd21a6]:after,\ntable th.sorting-desc[data-v-25cd21a6]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\ntable td[data-v-25cd21a6]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\ntable td[data-v-25cd21a6]:first-child {\n    padding-left: 25px;\n}\n", ""]);
+exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\ntable tr td a.View[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\ntable tr td a.Delete[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\ntable tr td a.Edit[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\n.table-footer .datatable-length[data-v-25cd21a6] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -moz-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -o-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\ntable th.sorting-asc[data-v-25cd21a6]:after,\ntable th.sorting-desc[data-v-25cd21a6]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\ntable td[data-v-25cd21a6]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\ntable td[data-v-25cd21a6]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -245388,7 +245979,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-3f7b2f16] {  \n    position: sticky;  \n    position: -webkit-sticky;  \n    top: 0;  \n    background: white;  \n    z-index: 10;\n}\n.no-box-shadow[data-v-3f7b2f16] {  \n    box-shadow: none !important;\n}\n.ant-list-item[data-v-3f7b2f16] {  \n    align-items: center;  \n    display: flex;  \n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{  \n    width: 28px;  \n    margin-top: 0px;  \n    border-radius: 50%;  \n    margin-right: 10px;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{  \n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{  \n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{  \n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{  \n    padding: 0px 7px;  \n    width: 29px;  \n    display: block;  \n    height: 29px;  \n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{  \n    background-image: url('/images/DataTables/View_Icon_Active.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,  \ntable tr td a.View[data-v-3f7b2f16]:active{  \n    background-image: url('/images/DataTables/View_Icon.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/Bin_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,  \ntable tr td a.Delete[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/Bin_hover.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/No_Shadow.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,  \ntable tr td a.Edit[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/_Hover_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{  \n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {  \n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{  \n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{  \n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {  \n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {  \n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {  \n    margin: 0;  \n    border: transparent 0 !important;  \n    height: 48px;  \n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {  \n    padding: 0 14px 0 24px;  \n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {  \n    /* table-layout: fixed; */  \n    /* border-collapse: separate; */  \n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {  \n    height: 64px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    align-items: center;  \n    display: flex;  \n    -webkit-display: flex;  \n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {  \n    display: -webkit-flex;  \n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {  \n    min-width: 36px;  \n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {  \n    margin: 0;  \n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {  \n    height: 56px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    display: flex;  \n    flex-direction: row;  \n    justify-content: flex-end;  \n    align-items: center;  \n    font-size: 12px !important;  \n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {  \n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {  \n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    color: rgba(0, 0, 0, 0.54);  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;  \n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],  \n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {  \n    display: flex;  \n    -webkit-display: flex;  \n    margin: 0;  \n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    padding: 0 8px;  \n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {  \n    margin: 0;  \n    border-bottom: none;  \n    height: auto;  \n    line-height: normal;  \n    font-size: 12px;  \n    width: 40px;  \n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {  \n    background-color: transparent;  \n    width: auto;  \n    padding: 0;  \n    border: 0;  \n    border-radius: 0;  \n    height: auto;  \n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {  \n    font-size: 20px;  \n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {  \n     height: 35px;  \n    font-size: 14px;  \n    color: #1c2331;  \n    display: table-cell;  \n    font-family: 'Rubik', sans-serif !important;  \n    padding: 10px 0px 10px 0px;  \n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] {  \n            font-size: 12px !important;  \n            padding: 5px 0px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] {  \n    font-size: 18px;  \n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {  \n    font-size: 12px;  \n     border-bottom: 1px solid #f2f2f2;  \n    padding-left: 0;  \n    width: auto;  \n    white-space: nowrap;  \n    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2); */\n}\ntable thead tr[data-v-3f7b2f16]:first-child {  \n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    font-weight: 600;  \n    color: #A6A6A6;  \n    cursor: pointer;  \n    white-space: nowrap;  \n    padding: 0;  \n    /* height: 56px; */  \n    /* padding-left: 14px; */  \n    vertical-align: middle;  \n    outline: none !important;  \n    overflow: hidden;  \n    text-overflow: ellipsis;  \n    background-size: 11px 12px;  \n    background-repeat: no-repeat;  \n    background-position: left center;  \n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {  \n    overflow: visible;  \n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],  \ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_1.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_2.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{  \n    color: #1890ff !important;  \n    background-color: transparent;  \n    text-decoration: none;  \n    outline: none;  \n    cursor: pointer;  \n    transition: color 0.3s;  \n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,  \ntable th.sorting-asc[data-v-3f7b2f16]:after,  \ntable th.sorting-desc[data-v-3f7b2f16]:after {  \n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {  \n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,  \ntable td[data-v-3f7b2f16]:last-child {  \n    padding-right: 14px;  \n    background-image: none !important;\n}  \n  \n/* table th:first-child,  \ntable td:first-child {  \n    padding-left: 25px;  \n} */  \n", ""]);
+exports.push([module.i, "\nthead th[data-v-3f7b2f16] {  \n    position: sticky;  \n    position: -webkit-sticky;  \n    top: 0;  \n    background: white;  \n    z-index: 10;\n}\n.ant-list-item[data-v-3f7b2f16] {  \n    align-items: center;  \n    display: flex;  \n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{  \n    width: 28px;  \n    margin-top: 0px;  \n    border-radius: 50%;  \n    margin-right: 10px;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{  \n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{  \n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{  \n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{  \n    padding: 0px 7px;  \n    width: 29px;  \n    display: block;  \n    height: 29px;  \n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{  \n    background-image: url('/images/DataTables/View_Icon_Active.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,  \ntable tr td a.View[data-v-3f7b2f16]:active{  \n    background-image: url('/images/DataTables/View_Icon.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/Bin_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,  \ntable tr td a.Delete[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/Bin_hover.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/No_Shadow.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,  \ntable tr td a.Edit[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/_Hover_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{  \n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {  \n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{  \n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{  \n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {  \n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {  \n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {  \n    margin: 0;  \n    border: transparent 0 !important;  \n    height: 48px;  \n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {  \n    padding: 0 14px 0 24px;  \n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {  \n    /* table-layout: fixed; */  \n    /* border-collapse: separate; */  \n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {  \n    height: 64px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    align-items: center;  \n    display: flex;  \n    -webkit-display: flex;  \n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {  \n    display: -webkit-flex;  \n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {  \n    min-width: 36px;  \n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {  \n    margin: 0;  \n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {  \n    height: 56px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    display: flex;  \n    flex-direction: row;  \n    justify-content: flex-end;  \n    align-items: center;  \n    font-size: 12px !important;  \n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {  \n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {  \n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    color: rgba(0, 0, 0, 0.54);  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;  \n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],  \n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {  \n    display: flex;  \n    -webkit-display: flex;  \n    margin: 0;  \n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    padding: 0 8px;  \n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {  \n    margin: 0;  \n    border-bottom: none;  \n    height: auto;  \n    line-height: normal;  \n    font-size: 12px;  \n    width: 40px;  \n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {  \n    background-color: transparent;  \n    width: auto;  \n    padding: 0;  \n    border: 0;  \n    border-radius: 0;  \n    height: auto;  \n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {  \n    font-size: 20px;  \n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {  \n     height: 35px;  \n    font-size: 14px;  \n    color: #1c2331;  \n    display: table-cell;  \n    font-family: 'Rubik', sans-serif !important;  \n    padding: 10px 20px 10px 0px;  \n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] {  \n            font-size: 12px !important;  \n            padding: 5px 10px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] {  \n    font-size: 18px;  \n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {  \n    font-size: 12px;  \n     border-bottom: 1px solid #f2f2f2;  \n    padding-left: 0;  \n    width: auto;  \n    white-space: nowrap;\n}\ntable thead tr[data-v-3f7b2f16]:first-child {  \n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    font-weight: 600;  \n    color: #A6A6A6;  \n    cursor: pointer;  \n    white-space: nowrap;  \n    padding-right: 20px;  \n    /* height: 56px; */  \n    /* padding-left: 14px; */  \n    vertical-align: middle;  \n    outline: none !important;  \n    overflow: hidden;  \n    text-overflow: ellipsis;  \n    background-size: 11px 12px;  \n    background-repeat: no-repeat;  \n    background-position: left center;  \n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {  \n    overflow: visible;  \n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],  \ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_1.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_2.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{  \n    color: #1890ff !important;  \n    background-color: transparent;  \n    text-decoration: none;  \n    outline: none;  \n    cursor: pointer;  \n    transition: color 0.3s;  \n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,  \ntable th.sorting-asc[data-v-3f7b2f16]:after,  \ntable th.sorting-desc[data-v-3f7b2f16]:after {  \n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {  \n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,  \ntable td[data-v-3f7b2f16]:last-child {  \n    padding-right: 14px;  \n    background-image: none !important;\n}  \n  \n/* table th:first-child,  \ntable td:first-child {  \n    padding-left: 25px;  \n} */  \n", ""]);
 
 // exports
 
@@ -245407,7 +245998,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n  width: 100%\n}\n.help-block[data-v-06e14cd1]{\n  color: red;\n  font-size: 12px;\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.right[data-v-06e14cd1] {\n    float: right;\n}\n.btn[data-v-06e14cd1] {\n    padding: 4px 17px 6px !important;\n    font-size: 14px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n.m-lt[data-v-06e14cd1] {\n    margin-top: 20px;\n    margin-left: 36px;\n}\n.plr-4[data-v-06e14cd1] {\n  padding: 0px 4% !important;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -245426,7 +246017,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.card[data-v-78f6706a]{\n  border-radius: 27px;\n  border: none;\n}\n.card-body[data-v-78f6706a]{\n  color: #fff;\n}\n.card-title[data-v-78f6706a] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.card-body p[data-v-78f6706a]{\n  color: #fff;\n  width: 100%;\n  margin-right: 0;\n  text-align: left;\n  float: left;\n  margin-bottom: 0;\n  margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\n  float: right;\n}\np.card-text[data-v-78f6706a]{\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n}\np.card-text span[data-v-78f6706a]{\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\n  font-size: 22px;\n  color: #333333;\n}\n.stats .card[data-v-78f6706a]{\n  border-radius: 10px;\n}\n.stats .card .card-title[data-v-78f6706a] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\n  float: right;\n}\n.truncate[data-v-78f6706a] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\n  margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-78f6706a]{\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\n  height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\n  background: #fff;\n  padding: 17px 6.7%;\n}\n#top-section .col-auto[data-v-78f6706a] {\n  padding-left:1.6%;\n  padding-right:1.6%;\n}\n.green[data-v-78f6706a]{\n  color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\n  color:red !important;\n}.card-text-small[data-v-78f6706a]{\n  margin-top: -7px;\n  color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\n  width: 12%;\n}\n.badge img[data-v-78f6706a]{\n  width: 100%;\n}\nul.headings[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 11%;\n  text-align: left;\n}\nul.items[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\n  float:left;\n  font-weight: 700;\n  color:#003449;    \n  width: 11%;\n  text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\n  text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\n  overflow-y: scroll;\n  height: 70vh;\n  /* padding-top: 6px; */\n  padding-right: 6px;\n  width: 100%;\n}\ntable.listing[data-v-78f6706a]{\n  width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\n  cursor: pointer;\n  margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\n  padding: 23px 4% 0;\n}\n.control-label[data-v-78f6706a]{\n  float: left;\n  height: 77px;\n}\n.help-block[data-v-78f6706a]{\n  color:red;\n  font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\n  background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\n  transition: padding 0.3s;\n  overflow-y: scroll;\n  height: 380px;\n}\n/* assignees section */\n.grey-bg-color[data-v-78f6706a] {\n  background-color: #EBEFF3 !important;\n}\n.grey-bg-color span[data-v-78f6706a]{\n  font-family: 'Rubik', sans-serif;\n  color: #999999;\n  font-size: 0.63vw;\n}\n.btn-default.cancel-assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 11px 13px;\n  letter-spacing: 0.05em;\n  font-weight: 600;\n}\n.btn-default.assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  letter-spacing: 0.05em;\n  color: #ffffff;\n}\n#bottom-section[data-v-78f6706a] {\n  padding-left: 4%;\n}\n", ""]);
+exports.push([module.i, "\n.card[data-v-78f6706a]{\n  border-radius: 27px;\n  border: none;\n}\n.card-body[data-v-78f6706a]{\n  color: #fff;\n}\n.card-title[data-v-78f6706a] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.card-body p[data-v-78f6706a]{\n  color: #fff;\n  width: 100%;\n  margin-right: 0;\n  text-align: left;\n  float: left;\n  margin-bottom: 0;\n  margin-top: 0;\n}\n.card-body p strong[data-v-78f6706a]{\n  float: right;\n}\np.card-text[data-v-78f6706a]{\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n}\np.card-text span[data-v-78f6706a]{\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-78f6706a]{\n  font-size: 22px;\n  color: #333333;\n}\n.stats .card[data-v-78f6706a]{\n  border-radius: 10px;\n}\n.stats .card .card-title[data-v-78f6706a] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-78f6706a]{\n  float: right;\n}\n.truncate[data-v-78f6706a] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-78f6706a]{\n  margin: 0;\n}\n.list-group-item p strong[data-v-78f6706a]{\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-78f6706a]{\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-78f6706a]{\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-78f6706a]{\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\n  height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\n  background: #fff;\n  padding: 17px 6.7%;\n}\n#top-section .col-auto[data-v-78f6706a] {\n  padding-left:1.6%;\n  padding-right:1.6%;\n}\n.green[data-v-78f6706a]{\n  color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\n  color:red !important;\n}.card-text-small[data-v-78f6706a]{\n  margin-top: -7px;\n  color: #3b3b3b;\n}\n.badge[data-v-78f6706a]{\n  width: 12%;\n}\n.badge img[data-v-78f6706a]{\n  width: 100%;\n}\nul.headings[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 11%;\n  text-align: left;\n}\nul.items[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\n  float:left;\n  font-weight: 700;\n  color:#003449;    \n  width: 11%;\n  text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\n  text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\n  overflow-y: scroll;\n  height: 70vh;\n  /* padding-top: 6px; */\n  padding-right: 6px;\n  width: 100%;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar {\n  width: 3px;\n}\ntable.listing[data-v-78f6706a]{\n  width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\n  cursor: pointer;\n  margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\n  padding: 23px 4% 0 !important;\n}\n.control-label[data-v-78f6706a]{\n  float: left;\n  height: 77px;\n}\n.help-block[data-v-78f6706a]{\n  color:red;\n  font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\n  background: orange !important;\n}\n.card-head[data-v-78f6706a], .ant-card-padding-transition .ant-card-body[data-v-78f6706a] {\n  transition: padding 0.3s;\n  overflow-y: scroll;\n  height: 380px;\n}\n/* assignees section */\n.grey-bg-color[data-v-78f6706a] {\n  background-color: #EBEFF3 !important;\n}\n.grey-bg-color span[data-v-78f6706a]{\n  font-family: 'Rubik', sans-serif;\n  color: #999999;\n  font-size: 12px;\n}\n.btn-default.cancel-assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  font-weight: 600;\n  padding: 6px 12px;\n}\n.btn-default.assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: #ffffff;\n  padding: 6px 12px;\n}\n#bottom-section[data-v-78f6706a] {\n  padding-left: 4%;\n}\n\n", ""]);
 
 // exports
 
@@ -245445,7 +246036,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  letter-spacing:0.05em;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 0.63vw;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\n  padding: 16px 35px 16px 40px;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 12px;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\n  padding: 16px 35px 16px 40px;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -245464,7 +246055,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] { \n    right: 0!important; \n    left: auto; \n    overflow: visible; \n    position: absolute; \n    top: 0; \n    right: 0 !important; \n    bottom: 0; \n    z-index: 830; \n    transition: right 0.3s ease-in-out; \n    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], \n  .main-sidebar[data-v-48ad9a74]:before { \n    transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;  \n    width: 16.718%!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], \n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before { \n    margin-left: 0!important; \n    /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], \n    .main-sidebar[data-v-48ad9a74]:before { \n      margin-left: -0!important; \n      margin-left: -10.833%!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], \n    .sidebar-open .main-sidebar[data-v-48ad9a74]:before { \n      margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] { \n    overflow: visible;\n}\np[data-v-48ad9a74] { \n    color: #9fb3bb; \n    margin: 0;\n}\nh2[data-v-48ad9a74] { \n    color: #003449; \n    font-size: 29px; \n    letter-spacing: 4.2px; \n    font-weight: 600;\n}\nh3[data-v-48ad9a74] { \n    color: #1a1c43; \n    font-size: 0.83vw; \n    letter-spacing: 0.05em; \n    font-weight: 700;\n}\nh3 img[data-v-48ad9a74] { \n    float: right; \n    cursor: pointer; \n    margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] { \n    border-color: #CDCDCF; \n    margin-top:6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] { \n    color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] { \n    font-size: 14px; \n    color: #1e2331; \n    font-family: 'Rubik', sans-serif; \n    padding-top: 6px; \n    letter-spacing: 0.05em; \n    position: relative; \n    top: -4%;\n}\n.help-block[data-v-48ad9a74] { \n    color: red;\n}\n.status[data-v-48ad9a74] { \n    display: none;\n}\n.status.active[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: #00d68f; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 0.63vw; \n    float: left; \n    margin: 0;\n}\n.status.offline[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: orange; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 0.63vw; \n    float: left; \n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover, \n  .status.offline[data-v-48ad9a74]:hover { \n    color: #3b3b3b; \n    cursor: pointer;\n}\n.status.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.collapse[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] { \n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] { \n    padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] { \n    margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] { \n    background: #f7f6fb; \n    border-radius: 5px;\n}\n.tank[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important; \n    border-radius: 5px; \n    background: rgb(114, 218, 126); \n    height: 8px; \n    transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] { \n    font-weight: 900; \n    font-size: 0.83vw; \n    color: #1a1c43; \n    margin-top: -8px; \n    letter-spacing: 0.1em; \n    font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] { \n    font-size: 0.63vw; \n    font-family: 'Rubik', sans-serif; \n    letter-spacing: 0.05em; \n    color: #1e2331; \n    padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] { \n    display: block; \n    position: relative; \n    background: #ff8234; \n    color: #fff; \n    height: 62px; \n    text-align: center; \n    font-size: 17px; \n    padding: 18px 9px; \n    width: 62px; \n    transform: rotate(45deg); \n    /* Standard syntax */ \n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] { \n    transform: rotate(0deg); \n    /* Standard syntax */\n}\np.heading[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce; \n    margin-bottom: 10px; \n    font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] { \n    margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], \n  .general-system-prefs[data-v-48ad9a74], \n  .notifications .w-100[data-v-48ad9a74] { \n    margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] { \n    border-radius: 50%; \n    width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] { \n    margin: 5px 0 15px 0; \n    font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] { \n    height: 24px !important; \n    background: #F98B39 !important; \n    border-color: #F98B39 !important; \n    color: #fff !important; \n    padding: 4px 17px 6px !important; \n    border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74], \n  .notifications .row.border-bottom[data-v-48ad9a74] { \n    border-color: #cdccce; \n    padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] { \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important; \n    border-radius: 21px; \n    width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] { \n    font-size: 9px; \n    display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, \n  .themes label[data-v-48ad9a74]:nth-child(2), \n  .language label[data-v-48ad9a74], \n  .notifications label[data-v-48ad9a74], \n  .action-btns label[data-v-48ad9a74]:first-child, \n  .action-btns label[data-v-48ad9a74]:nth-child(2) { \n    margin-right: 8px; \n    float: left;\n}\n.control-label[data-v-48ad9a74] { \n    color: #989899; \n    font-family: 'Rubik', sans-serif; \n    font-size: 0.63vw; \n    letter-spacing: 0.05em; \n    text-align: left;\n}\n.btn-default[data-v-48ad9a74] { \n    padding: 6px 12px 6px 10px; \n    font-size: 10px; \n    border: transparent !important; \n    border-radius: 5px !important; \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 10px;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 0.6vw;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74], \n  .language .btn-default[data-v-48ad9a74], \n  .language .btn-active[data-v-48ad9a74] { \n    border-radius: 50rem!important; \n    padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74], .btn-orange-active[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.btn-white[data-v-48ad9a74] { \n    background: #fff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.orange-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.btn-blue[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.blue-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.btn-dark[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.dark-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    letter-spacing: 0.05em;\n}\n.notifications-close img[data-v-48ad9a74] { \n    width: 20px; \n    top: 5px; \n    position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] { \n    background-image: url('/images/icons/Red-Notification-Dot.svg') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top; \n    width: 13px; \n    height: 100%; \n    z-index: 1; \n    position: absolute; \n    left: 66px; \n    top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] { \n    background-image: url('/images/icons/blue dot.svg') !important; \n    background-size: 69% 34%; \n    background-repeat: no-repeat; \n    background-position: left top; \n    color: #ffffff; \n    font-size: 10px; \n    text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Dot.png') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] { \n    margin-top: 14%;\n}\n#logout[data-v-48ad9a74] { \n    background-image: url('/images/icons/Asset 67.svg') !important; \n    background-size: contain; \n    background-repeat: no-repeat; \n    height: 100px; \n    background-position: center; \n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] { \n    padding: 6px 25px 6px 18px; \n    font-size: 0.63vw; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] { \n    list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74], \n  .notifications .card-body-notifications h3 a[data-v-48ad9a74], .caller-name[data-v-48ad9a74] { \n    color: #333333; \n    font-size: 0.7vw; \n    /* letter-spacing: 2.2px; */ \n    font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] { \n    float: right; \n    font-size: 0.6vw; \n    color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] { \n    color: #808080; \n    font-size: 0.7vw; \n    /* letter-spacing: 2.2px; */\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], \n  .account-info .row.mx-0.border-left[data-v-48ad9a74] { \n    border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] { \n    color: #7f8080; \n    padding-bottom: 16px; \n    font-size: 0.63vw; \n    letter-spacing: 0.05em;\n}\n.small-avatar img[data-v-48ad9a74] { \n    width: 30px; \n    border-radius: 50%;\n}\n.update-user[data-v-48ad9a74], .update-filter[data-v-48ad9a74], .save-filter[data-v-48ad9a74] { \n    margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] { \n    padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] { \n    width: 100%; \n    border-bottom: 1px solid #cdccce; \n    margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] { \n    width: 20px; \n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] { \n    font-size: 55px; \n    color: #FF933A;\n}\n.card-header[data-v-48ad9a74] { \n    color: rgba(28, 35, 49, 0.5); \n    border-bottom: 0.5px solid #f4f4f5 !important; \n    background-color: #fff !important; \n    font-size: 10px; \n    font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] { \n    padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] { \n    padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n    font-size: 0.73vw;\n    letter-spacing: 0.05em;\n    color: #666666;\n    border-color: #ccc;\n    margin-top:25px;\n}\n.final-modal .card-header[data-v-48ad9a74] { \n    padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] { \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover { \n    border: none; \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] { \n    font-size: 9px;\n}\n.form-control[data-v-48ad9a74] { \n    padding: 10px 12px!important; \n    font-size: 0.63vw; \n    box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important; \n    color: #193246; \n    font-weight: 600; \n    margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] { \n    height: 100px !important; \n    border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] { \n    margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] { \n    padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], \n  .stats-section .calls[data-v-48ad9a74], \n  .search-input[data-v-48ad9a74], \n  .filter-search[data-v-48ad9a74], \n  .filter-by[data-v-48ad9a74] { \n    padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], \n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74], \n  p.badges[data-v-48ad9a74] { \n    border-bottom: 0.5px solid #f4f4f5; \n    margin-bottom: 5px; \n    padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], \n  .export-btn[data-v-48ad9a74] { \n    width: 90%;\n}\n.action-btns[data-v-48ad9a74] { \n    margin-top: 17px;\n} \n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] { \n    position: relative; \n    top: -7px; \n    right: 15px; \n    font-size: 9px; \n    color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] { \n    position: absolute;  \n    right: 100%;  \n    overflow: visible;  \n    background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;  \n    background-size: 120px; \n    background-repeat: no-repeat; \n    background-position: -15px; \n    height: 100px; \n    width: 66px; \n    top: -13px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] { \n    background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px;\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n    text-align: right;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    line-height: 1em;\n    justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74], \n  .filter-content .tabs[data-v-48ad9a74] { \n    width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n    padding-left: 6%;\n    padding-right: 6%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before, \n  .reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after, \n  .reminders .custom-control-label[data-v-48ad9a74]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    font-family: 'Rubik', sans-serif; \n    color: #808080; \n    padding-left: 37px!important; \n    width: 100%; \n    text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus, \n  .nav-link[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    box-shadow: none !important;\n    -webkit-box-shadow: none !important; \n    -moz-box-shadow: none !important;\n    -o-box-shadow: none !important;\n    border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n    padding: 11px 14px 10px;\n    line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before { \n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    border-radius: 50%!important; \n    background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after { \n    border-radius: 50%!important; \n    background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus { \n    border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb { \n    background: #B3B3B3 !important; \n    border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] { \n    color: #ff933a;\n}\n.blue[data-v-48ad9a74] { \n    color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] { \n    font-size: 10px; \n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.middle-box-shadow[data-v-48ad9a74] { \n    box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -webkit-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -moz-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -o-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1); \n    border-radius: 15px;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] { \n    width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] { \n    border-radius: 50rem !important; \n    font-size: 10px; \n    color: #989899; \n    text-transform: uppercase; \n    padding: 10px 20px; \n    letter-spacing: 0.05em; \n    font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74], .btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    font-size: 10px; \n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important; \n    font-weight: 600; \n    text-transform: uppercase; \n    padding: 10px 20px; \n    letter-spacing: 0.05em;\n}\n.btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] { \n    float: right;\n}\n.inactive-icon[data-v-48ad9a74] { \n    padding: 11px; \n    border-radius: 50rem; \n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none; \n    transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover { \n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    color: #171717 !important; \n    font-family: 'Rubik', sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] { \n    border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] { \n    margin-left: -27px; \n    margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74], .saved-results[data-v-48ad9a74] { \n    border-radius: 14px; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 14px; \n    padding-left: 28px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 0.63vw; \n    padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] { \n    padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05); \n    font-size: 0.63vw; \n    border-radius: 14px; \n    padding: 10px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74], \n  .save-text[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    font-size: 0.63vw; \n    font-family: 'Rubik', sans-serif; \n    font-weight: 300; \n    font-style: italic; \n    border-radius: 15px; \n    padding: 10px;\n}\n.row.filter-content .search-text::-webkit-input-placeholder .save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 0.63vw !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 10px !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: #B3B3B3 !important;\n    font-style: italic;\n}\n.filter-results[data-v-48ad9a74] { \n    max-height: 200px; \n    overflow: auto; \n    margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] { \n    font-size: 0.63vw !important; \n    font-family: 'Rubik', sans-serif;\n}\n.filter-container[data-v-48ad9a74] { \n    overflow: auto;\n}\n@media screen and (max-width:1368px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 450px;\n}\n}\n@media screen and (min-width:1400px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus, \n  input.save-text[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n    border-color: #CDCDCF;\n}\n  /*End Right Component*/ \n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] { \n    right: 0!important; \n    left: auto; \n    overflow: visible; \n    position: absolute; \n    top: 0; \n    right: 0 !important; \n    bottom: 0; \n    z-index: 830; \n    transition: right 0.3s ease-in-out; \n    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); \n    -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74], \n  .main-sidebar[data-v-48ad9a74]:before { \n    transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out!important;  \n    width: 16.718%!important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74], \n  .sidebar-collapse .main-sidebar[data-v-48ad9a74]:before { \n    margin-left: 0!important; \n    /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74], \n    .main-sidebar[data-v-48ad9a74]:before { \n      margin-left: -0!important; \n      margin-left: -10.833%!important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74], \n    .sidebar-open .main-sidebar[data-v-48ad9a74]:before { \n      margin-right: 0!important;\n}\n}\n.sidebar[data-v-48ad9a74] { \n    overflow: visible;\n}\np[data-v-48ad9a74] { \n    color: #9fb3bb; \n    margin: 0;\n}\nh2[data-v-48ad9a74] { \n    color: #003449; \n    font-size: 29px; \n    letter-spacing: 4.2px; \n    font-weight: 600;\n}\nh3[data-v-48ad9a74] { \n    color: #1a1c43; \n    font-size: 0.83vw; \n    font-weight: 700;\n}\nh3 img[data-v-48ad9a74] { \n    float: right; \n    cursor: pointer; \n    margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] { \n    border-color: #CDCDCF; \n    margin-top:6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] { \n    color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] { \n    font-size: 14px; \n    color: #1e2331; \n    padding-top: 6px; \n    position: relative; \n    top: -4%;\n}\n.help-block[data-v-48ad9a74] { \n    color: red;\n}\n.status[data-v-48ad9a74] { \n    display: none;\n}\n.status.active[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: #00d68f; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 12px; \n    float: left; \n    margin: 0;\n}\n.status.offline[data-v-48ad9a74] { \n    width: 76px; \n    text-align: center; \n    border-radius: 8px; \n    display: block; \n    background: orange; \n    padding: 4px 3px; \n    line-height: 20px; \n    color: #fff; \n    text-transform: uppercase; \n    font-size: 12px; \n    float: left; \n    margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover, \n  .status.offline[data-v-48ad9a74]:hover { \n    color: #3b3b3b; \n    cursor: pointer;\n}\n.status.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.collapse[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] { \n    padding: 0.8rem 2.0rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] { \n    padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] { \n    margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] { \n    background: #f7f6fb; \n    border-radius: 5px;\n}\n.tank[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgba(161, 237, 128, 1) 0%, rgba(98, 211, 126, 1) 100%) !important; \n    border-radius: 5px; \n    background: rgb(114, 218, 126); \n    height: 8px; \n    transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] { \n    font-weight: 900; \n    font-size: 0.83vw; \n    color: #1a1c43; \n    margin-top: -8px; \n    letter-spacing: 0.1em; \n    font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] { \n    font-size: 12px; \n    font-family: 'Rubik', sans-serif; \n    color: #1e2331; \n    padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] { \n    display: block; \n    position: relative; \n    background: #ff8234; \n    color: #fff; \n    height: 62px; \n    text-align: center; \n    font-size: 17px; \n    padding: 18px 9px; \n    width: 62px; \n    transform: rotate(45deg); \n    /* Standard syntax */ \n    margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] { \n    transform: rotate(0deg); \n    /* Standard syntax */\n}\np.heading[data-v-48ad9a74] { \n    border-bottom: 1px solid #cdccce; \n    margin-bottom: 10px; \n    font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] { \n    margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74], \n  .general-system-prefs[data-v-48ad9a74], \n  .notifications .w-100[data-v-48ad9a74] { \n    margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] { \n    border-radius: 50%; \n    width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] { \n    margin: 5px 0 15px 0; \n    font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] { \n    height: 24px !important; \n    background: #F98B39 !important; \n    border-color: #F98B39 !important; \n    color: #fff !important; \n    padding: 4px 17px 6px !important; \n    border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74], \n  .notifications .row.border-bottom[data-v-48ad9a74] { \n    border-color: #cdccce; \n    padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] { \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important; \n    border-radius: 21px; \n    width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] { \n    font-size: 9px; \n    display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child, \n  .themes label[data-v-48ad9a74]:nth-child(2), \n  .language label[data-v-48ad9a74], \n  .notifications label[data-v-48ad9a74], \n  .action-btns label[data-v-48ad9a74]:first-child, \n  .action-btns label[data-v-48ad9a74]:nth-child(2) { \n    margin-right: 8px; \n    float: left;\n}\n.control-label[data-v-48ad9a74] { \n    color: #989899; \n    font-family: 'Rubik', sans-serif; \n    font-size: 12px; \n    text-align: left;\n}\n.btn-default[data-v-48ad9a74] { \n    padding: 6px 12px 6px 10px; \n    font-size: 10px; \n    border: transparent !important; \n    border-radius: 5px !important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 10px;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] { \n    background: #00344a; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 6px 12px 6px 10px; \n    font-size: 0.6vw;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74], \n  .language .btn-default[data-v-48ad9a74], \n  .language .btn-active[data-v-48ad9a74] { \n    border-radius: 50rem!important; \n    padding: 8px 15px!important;\n}\n.btn-orange[data-v-48ad9a74], .btn-orange-active[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] { \n    background: #fff; \n    border: transparent !important; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(60, 144, 206, 1) 0%, rgba(65, 197, 231, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important;\n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover { \n    background: linear-gradient(to right, rgb(25, 25, 26, 1) 0%, rgba(23, 23, 66, 1) 100%) !important; \n    color: #ffffff; \n    border: transparent !important; \n    padding: 8px 15px; \n    font-size: 10px; \n    border-radius: 50rem!important; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); \n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] { \n    width: 20px; \n    top: 5px; \n    position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] { \n    background-image: url('/images/icons/Red-Notification-Dot.svg') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top; \n    width: 13px; \n    height: 100%; \n    z-index: 1; \n    position: absolute; \n    left: 66px; \n    top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] { \n    background-image: url('/images/icons/blue dot.svg') !important; \n    background-size: 69% 34%; \n    background-repeat: no-repeat; \n    background-position: left top; \n    color: #ffffff; \n    font-size: 10px; \n    text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Dot.png') !important; \n    background-size: 12px 12px; \n    background-repeat: no-repeat; \n    background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] { \n    margin-top: 14%;\n}\n#logout[data-v-48ad9a74] { \n    background-image: url('/images/icons/Asset 67.svg') !important; \n    background-size: contain; \n    background-repeat: no-repeat; \n    height: 100px; \n    background-position: center; \n    margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover { \n    background-image: url('/images/icons/Asset 66.svg') !important;\n}\n.notifications .btn-default[data-v-48ad9a74] { \n    padding: 6px 25px 6px 18px; \n    font-size: 12px; \n    -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] { \n    list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74], \n  .notifications .card-body-notifications h3 a[data-v-48ad9a74], .caller-name[data-v-48ad9a74] { \n    color: #333333; \n    font-size: 0.7vw; \n    font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] { \n    float: right; \n    font-size: 0.6vw; \n    color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] { \n    color: #808080; \n    font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74], \n  .account-info .row.mx-0.border-left[data-v-48ad9a74] { \n    border-color: #cdccce\n}\n.settings .title[data-v-48ad9a74] { \n    color: #7f8080; \n    padding-bottom: 16px; \n    font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] { \n    width: 30px; \n    border-radius: 50%;\n}\n.update-user[data-v-48ad9a74], .update-filter[data-v-48ad9a74], .save-filter[data-v-48ad9a74] { \n    margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] { \n    padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] { \n    width: 100%; \n    border-bottom: 1px solid #cdccce; \n    margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] { \n    width: 20px; \n    margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] { \n    font-size: 55px; \n    color: #FF933A;\n}\n.card-header[data-v-48ad9a74] { \n    color: rgba(28, 35, 49, 0.5); \n    border-bottom: 0.5px solid #f4f4f5 !important; \n    background-color: #fff !important; \n    font-size: 10px; \n    font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] { \n    padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] { \n    padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n    font-size: 0.73vw;\n    color: #666666;\n    border-color: #ccc;\n    margin-top:25px;\n}\n.final-modal .card-header[data-v-48ad9a74] { \n    padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75); \n    -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n    -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] { \n    border-bottom: none; \n    background: #fff; \n    padding: 6px 12px; \n    box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset; \n    -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n    -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] { \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover { \n    border: none; \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw; \n    color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover { \n    background: #fff; \n    padding: 6px 12px; \n    font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] { \n    font-size: 9px;\n}\n.form-control[data-v-48ad9a74] { \n    padding: 10px 12px!important; \n    font-size: 12px; \n    box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1)!important; \n    color: #193246; \n    font-weight: 600; \n    margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] { \n    height: 100px !important; \n    border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] { \n    margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] { \n    padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74], \n  .stats-section .calls[data-v-48ad9a74], \n  .search-input[data-v-48ad9a74], \n  .filter-search[data-v-48ad9a74], \n  .filter-by[data-v-48ad9a74] { \n    padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74], \n  .stats-section .sales .col-lg-12 p[data-v-48ad9a74], \n  p.badges[data-v-48ad9a74] { \n    border-bottom: 0.5px solid #f4f4f5; \n    margin-bottom: 5px; \n    padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74], \n  .export-btn[data-v-48ad9a74] { \n    width: 90%;\n}\n.action-btns[data-v-48ad9a74] { \n    margin-top: 17px;\n} \n  /* is the notification count being used? */\n.notification-count[data-v-48ad9a74] { \n    position: relative; \n    top: -7px; \n    right: 15px; \n    font-size: 9px; \n    color: #003449;\n}\n.menu-toggle[data-v-48ad9a74] { \n    position: absolute;  \n    right: 100%;  \n    overflow: visible;  \n    background-image: url('/images/icons/right-sidebar/Filter_Icon_b.svg') !important;  \n    background-size: 120px; \n    background-repeat: no-repeat; \n    background-position: -15px; \n    height: 100px; \n    width: 66px; \n    top: -13px;\n}\n.sidebar-collapse .menu-toggle[data-v-48ad9a74] { \n    background-image: url('/images/icons/right-sidebar/General_Icon_B.svg') !important;\n}\n.reminders[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px;\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n    text-align: right;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    line-height: 1em;\n    justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74], \n  .filter-content .tabs[data-v-48ad9a74] { \n    width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n    padding-left: 6%;\n    padding-right: 6%;\n}\n.reminders li.custom-control.custom-checkbox[data-v-48ad9a74] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before, \n  .reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after, \n  .reminders .custom-control-label[data-v-48ad9a74]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.reminders input.list-input[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    font-family: 'Rubik', sans-serif; \n    color: #808080; \n    padding-left: 37px!important; \n    width: 100%; \n    text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus, \n  .nav-link[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    box-shadow: none !important;\n    -webkit-box-shadow: none !important; \n    -moz-box-shadow: none !important;\n    -o-box-shadow: none !important;\n    border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n    padding: 11px 14px 10px;\n    line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder{\n    font-style: italic;\n    font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before { \n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    border-radius: 50%!important; \n    background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after { \n    border-radius: 50%!important; \n    background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus { \n    border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb { \n    background: #B3B3B3 !important; \n    border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] { \n    color: #ff933a;\n}\n.blue[data-v-48ad9a74] { \n    color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] { \n    font-size: 10px; \n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.middle-box-shadow[data-v-48ad9a74] { \n    box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -webkit-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -moz-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1);\n    -o-box-shadow: 0px 0px 14px 2px rgba(235, 235, 235, 1); \n    border-radius: 15px;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] { \n    width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] { \n    border-radius: 50rem !important; \n    font-size: 10px; \n    color: #989899; \n    text-transform: uppercase; \n    padding: 10px 20px;\n    font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74], .btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    font-size: 10px; \n    background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important; \n    font-weight: 600; \n    text-transform: uppercase; \n    padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74], .btn-primary.save-filter[data-v-48ad9a74] { \n    padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] { \n    float: right;\n}\n.inactive-icon[data-v-48ad9a74] { \n    padding: 11px; \n    border-radius: 50rem; \n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none; \n    transition: box-shadow .5s ease;\n}\n.inactive-icon[data-v-48ad9a74]:hover { \n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.filter-heading[data-v-48ad9a74] { \n    font-size: 0.83vw; \n    color: #171717 !important; \n    font-family: 'Rubik', sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] { \n    border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] { \n    display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] { \n    margin-left: -27px; \n    margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74], .saved-results[data-v-48ad9a74] { \n    border-radius: 14px; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 14px; \n    padding-left: 28px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] { \n    font-size: 12px; \n    padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] { \n    padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05); \n    font-size: 12px; \n    border-radius: 14px; \n    padding: 10px; \n    font-family: 'Rubik', sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74], \n  .save-text[data-v-48ad9a74] { \n    border: 0; \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    font-size: 12px; \n    font-family: 'Rubik', sans-serif; \n    font-weight: 300; \n    font-style: italic; \n    border-radius: 15px; \n    padding: 10px;\n}\n.row.filter-content .search-text::-webkit-input-placeholder .save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 12px !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder { \n    font-size: 10px !important; \n    font-family: 'Rubik', sans-serif !important; \n    color: #B3B3B3 !important;\n    font-style: italic;\n}\n.filter-results[data-v-48ad9a74] { \n    max-height: 200px; \n    overflow: auto; \n    margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] { \n    font-size: 12px !important; \n    font-family: 'Rubik', sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n    padding: 0px 6%;\n}\n.filter-container[data-v-48ad9a74] { \n    overflow: auto;\n}\n@media screen and (max-width:1368px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 450px;\n}\n}\n@media screen and (min-width:1400px ) {\n.filter-container[data-v-48ad9a74] { \n      max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus, \n  input.save-text[data-v-48ad9a74]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n    border-color: #CDCDCF;\n}\n  /*End Right Component*/ \n", ""]);
 
 // exports
 
@@ -245483,7 +246074,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 0.55%;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n    font-size: 16px;\n    color: #989899;\n    letter-spacing: 0.05em;\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 2px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:41%;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n\tborder-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n     position: relative;\n    top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n    font-size: 16px;\n    color: #989899;\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 2px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:46%;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -245521,7 +246112,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 0.63vw;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\ntable[data-v-e8b89162] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-e8b89162] {\n  vertical-align:baseline;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n.add-fields[data-v-e8b89162] {\n  border-color: #ccc;\n}\n.add-fields[data-v-e8b89162]:last-child {\n  border: 0!important;\n}\n.col-sm-6 input[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\n.col input[data-v-e8b89162], .col-sm-1[data-v-e8b89162], .col-sm-2[data-v-e8b89162], .col-sm-3 input[data-v-e8b89162] {\n  font-size: 0.63vw;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\nh5[data-v-e8b89162] {\n  font-size: 0.83vw;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\ntable[data-v-e8b89162] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-e8b89162] {\n  vertical-align:baseline;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n.add-fields[data-v-e8b89162] {\n  border-color: #ccc;\n}\n.add-fields[data-v-e8b89162]:last-child {\n  border: 0!important;\n}\n.col-sm-6 input[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\n.col input[data-v-e8b89162], .col-sm-1[data-v-e8b89162], .col-sm-2[data-v-e8b89162], .col-sm-3 input[data-v-e8b89162] {\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\nh5[data-v-e8b89162] {\n  font-size: 0.83vw;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
 
 // exports
 
@@ -245540,7 +246131,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
 
 // exports
 
@@ -245559,7 +246150,26 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
 
 // exports
 
@@ -245578,7 +246188,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\n  height:100vh;\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 0.63vw;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.2%;\n  padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n  padding-top:1%;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 500px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\n.col-sm-6 input[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.scrollable input[data-v-37c5ed24]{\n  font-size: 0.63vw;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n  margin-left:8px;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left:17px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 0.52vw;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\n  margin-left:20px;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\ntr[data-v-37c5ed24] {\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-37c5ed24]:last-child {\n  border-bottom: 0;\n}\n.truncate[data-v-37c5ed24] {\n  max-width: 200px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n", ""]);
+exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\n  height:100vh;\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.2%;\n  padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n  padding-top:1%;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 500px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\n.col-sm-6 input[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.scrollable input[data-v-37c5ed24]{\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n  margin-left:8px;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left:17px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\n  margin-left:20px;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\ntr[data-v-37c5ed24] {\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-37c5ed24]:last-child {\n  border-bottom: 0;\n}\n.truncate[data-v-37c5ed24] {\n  max-width: 200px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n", ""]);
 
 // exports
 
@@ -245597,7 +246207,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.ant-switch.ant-switch-checked[data-v-81b88ba4] {\n  margin-left: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-81b88ba4] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-81b88ba4] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.ant-switch.ant-switch-checked[data-v-81b88ba4] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -245616,7 +246226,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
 
 // exports
 
@@ -245654,7 +246264,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-header.navbar.navbar-expand[data-v-32a11c9a] {\n  padding: 0 4%;\n}\n.navbar .title h1[data-v-32a11c9a]{\n  color: #003549;\n  font-size: 1.67vw;\n  letter-spacing: 0.1em;\n}\n.callIcons li a[data-v-32a11c9a]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-32a11c9a] {\n  padding-right:41%;\n}\n.callIcons .search a[data-v-32a11c9a]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons .search a[data-v-32a11c9a]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-32a11c9a] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-32a11c9a] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search input[data-v-32a11c9a]::-webkit-input-placeholder {\n  font-size: 0.63vw;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-moz-placeholder {\n  font-size: 0.63vw;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]:-ms-input-placeholder {\n  font-size: 0.63vw;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-ms-input-placeholder {\n  font-size: 0.63vw;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::placeholder {\n  font-size: 0.63vw;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.trans-tabs[data-v-32a11c9a] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-32a11c9a] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.deal-name[data-v-32a11c9a] {\n  font-size: 0.83vw;\n  margin-bottom:3.9%;\n}\n", ""]);
+exports.push([module.i, "\n.main-header.navbar.navbar-expand[data-v-32a11c9a] {\n  padding: 0 4%;\n}\n.navbar .title h1[data-v-32a11c9a]{\n  color: #003549;\n  font-size: 1.67vw;\n  letter-spacing: 0.1em;\n}\n.callIcons li a[data-v-32a11c9a]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-32a11c9a] {\n  padding-right:41%;\n}\n.callIcons .search a[data-v-32a11c9a]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons .search a[data-v-32a11c9a]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-32a11c9a] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-32a11c9a] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search input[data-v-32a11c9a]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.trans-tabs[data-v-32a11c9a] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-32a11c9a] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.deal-name[data-v-32a11c9a] {\n  font-size: 0.83vw;\n  margin-bottom:3.9%;\n}\n", ""]);
 
 // exports
 
@@ -245673,7 +246283,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 7px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\n  border-radius: 25px;\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\n  border-radius: 50rem!important;\n  font-size: 0.52vw;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  letter-spacing: 0.05em;\n  color: #999999;\n  padding: 9px;\n}\n.save-deal[data-v-8da0a4ca] {\n  font-size: 0.52vw;\n  text-transform:uppercase;\n  letter-spacing: 0.05em;\n  font-weight: 700;\n  padding: 9px;\n}\np[data-v-8da0a4ca] {\n}\n", ""]);
+exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 7px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\n  border-radius: 25px;\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  color: #999999;\n  padding: 9px;\n}\n.save-deal[data-v-8da0a4ca] {\n  font-size: 10px;\n  text-transform:uppercase;\n  font-weight: 700;\n  padding: 9px;\n}\n", ""]);
 
 // exports
 
@@ -245692,7 +246302,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb,\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830] {\n  overflow: auto;\n  flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] {\n  background-color: #ebeff3 !important;\n  height: 99px;\n}\n.row[data-v-d5c2b830] {\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] {\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] {\n  float: left;\n  margin-right: 52px;\n  padding: 6px 83px 3px 15px;\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] {\n  margin-bottom: 0;\n  font-size: 19px;\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] {\n  border: none;\n  border-radius: 10px;\n  border: none;\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] {\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] {\n  color: #fff;\n  width: 100%;\n  margin-right: 0;\n  text-align: right;\n  float: left;\n  margin-bottom: -6px;\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(255, 164, 128, 1) 0%,\n    rgba(255, 128, 134, 1) 100%\n  );\n  color: #fff;\n}\n.sales[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(159, 204, 226, 1) 0%,\n    rgba(4, 149, 240, 1) 100%\n  );\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(221, 192, 241, 1) 0%,\n    rgba(160, 117, 209, 1) 100%\n  );\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(101, 215, 207, 1) 0%,\n    rgba(111, 148, 211, 1) 100%\n  );\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(226, 111, 145, 1) 0%,\n    rgba(239, 84, 128, 1) 100%\n  );\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(97, 167, 221, 1) 0%,\n    rgba(99, 101, 202, 1) 100%\n  );\n  color: #fff;\n}\nh5[data-v-d5c2b830] {\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] {\n  width: 15px;\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] {\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: \"Montserrat bold\", sans-serif;\n  letter-spacing: 1.2px;\n}\np.card-text span[data-v-d5c2b830] {\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] {\n  font-size: 22px;\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] {\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] {\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] {\n  width: 25px;\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830] {\n  float: right;\n}\n.truncate[data-v-d5c2b830] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] {\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] {\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] {\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] {\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-d5c2b830] {\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830],\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] {\n  height: 318px !important;\n}\nselect.form-control[data-v-d5c2b830],\ninput.form-control[data-v-d5c2b830], textarea.form-control[data-v-d5c2b830] {\n  border-radius: 50rem;\n  margin-top: 5px;\n}\nlabel[data-v-d5c2b830] {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 0.52vw;\n  color: #999999;\n  margin-bottom: 20px;\n}\n.add-box-shadow[data-v-d5c2b830] {\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  border-bottom-left-radius: 25px;\n  border-bottom-right-radius: 25px;\n  border: 0;\n  padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-d5c2b830] {\n  display: none;\n}\n}\n.add-box-shadow .add-user-form input[data-v-d5c2b830],\nselect[data-v-d5c2b830],\ntextarea[data-v-d5c2b830] {\n  font-size: 0.63vw;\n  color: #003449;\n  font-family: \"Rubik\", sans-serif;\n}\n.label-text[data-v-d5c2b830] {\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n\n/* #top-section{ \n    background: #fff;     \n    margin-left: -53px; \n    margin-right: -66px; \n    padding: 0px 37px; \n \n} */\n.green[data-v-d5c2b830] {\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] {\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] {\n  font-size: 32px;\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] {\n  margin-top: -7px;\n  color: #3b3b3b;\n  font-family: \"Rubik\", sans-serif !important;\n  letter-spacing: 1.2px;\n}\n.badge[data-v-d5c2b830] {\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] {\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] {\n  list-style: none;\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] {\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 90px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 15%;\n  text-align: left;\n}\nul.items[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 1px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #003449;\n  width: 14%;\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] {\n  padding-left: 22px;\n  width: 10%;\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] {\n  padding-left: 16px;\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] {\n  width: 20%;\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] {\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] {\n  padding-left: 17px;\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] {\n  width: 1%;\n  margin-right: 10px;\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] {\n  padding-left: 11px;\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover {\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] {\n  overflow-y: scroll;\n  height: 70vh;\n  padding-top: 6px;\n  padding-right: 6px;\n  width: 100%;\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] {\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] {\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\n  padding: 23px 4% 0;\n}\n.control-label[data-v-d5c2b830] {\n  float: left;\n}\n.help-block[data-v-d5c2b830] {\n  color: red;\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n  top: -20px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] {\n    width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n    top: -10px;\n    right: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb,\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830] {\n  overflow: auto;\n  flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] {\n  background-color: #ebeff3 !important;\n  height: 99px;\n}\n.row[data-v-d5c2b830] {\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] {\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] {\n  float: left;\n  margin-right: 52px;\n  padding: 6px 83px 3px 15px;\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] {\n  margin-bottom: 0;\n  font-size: 19px;\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] {\n  border: none;\n  border-radius: 10px;\n  border: none;\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] {\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] {\n  color: #fff;\n  width: 100%;\n  margin-right: 0;\n  text-align: right;\n  float: left;\n  margin-bottom: -6px;\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(255, 164, 128, 1) 0%,\n    rgba(255, 128, 134, 1) 100%\n  );\n  color: #fff;\n}\n.sales[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(159, 204, 226, 1) 0%,\n    rgba(4, 149, 240, 1) 100%\n  );\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(221, 192, 241, 1) 0%,\n    rgba(160, 117, 209, 1) 100%\n  );\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(101, 215, 207, 1) 0%,\n    rgba(111, 148, 211, 1) 100%\n  );\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(226, 111, 145, 1) 0%,\n    rgba(239, 84, 128, 1) 100%\n  );\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(97, 167, 221, 1) 0%,\n    rgba(99, 101, 202, 1) 100%\n  );\n  color: #fff;\n}\nh5[data-v-d5c2b830] {\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] {\n  width: 15px;\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] {\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: \"Montserrat bold\", sans-serif;\n}\np.card-text span[data-v-d5c2b830] {\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] {\n  font-size: 22px;\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] {\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] {\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] {\n  width: 25px;\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830], .right[data-v-d5c2b830] {\n  float: right;\n}\n.truncate[data-v-d5c2b830] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] {\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] {\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] {\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] {\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-d5c2b830] {\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830],\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] {\n  height: 318px !important;\n}\nselect.form-control[data-v-d5c2b830],\ninput.form-control[data-v-d5c2b830]  {\n  border-radius: 50rem;\n  margin-top: 5px;\n}\ntextarea.form-control[data-v-d5c2b830] {\n   border-radius: 20px;\n    margin-top: 5px\n}\n.btn[data-v-d5c2b830] {\n  font-size: 14px !important;\n  padding: 4px 17px 6px !important;\n}\nlabel[data-v-d5c2b830] {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 20px;\n}\n.add-box-shadow[data-v-d5c2b830] {\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  border-bottom-left-radius: 25px;\n  border-bottom-right-radius: 25px;\n  border: 0;\n  padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-d5c2b830] {\n  display: none;\n}\n}\n.add-box-shadow .add-user-form input[data-v-d5c2b830],\nselect[data-v-d5c2b830],\ntextarea[data-v-d5c2b830] {\n  font-size: 12px;\n  color: #003449;\n  font-family: \"Rubik\", sans-serif;\n}\n.label-text[data-v-d5c2b830] {\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.green[data-v-d5c2b830] {\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] {\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] {\n  font-size: 32px;\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] {\n  margin-top: -7px;\n  color: #3b3b3b;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.badge[data-v-d5c2b830] {\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] {\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] {\n  list-style: none;\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] {\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 90px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 15%;\n  text-align: left;\n}\nul.items[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 1px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #003449;\n  width: 14%;\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] {\n  padding-left: 22px;\n  width: 10%;\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] {\n  padding-left: 16px;\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] {\n  width: 20%;\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] {\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] {\n  padding-left: 17px;\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] {\n  width: 1%;\n  margin-right: 10px;\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] {\n  padding-left: 11px;\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover {\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] {\n  overflow: auto;\n  height: 70vh;\n  padding-top: 6px;\n  padding-right: 6px;\n  width: 100%;\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] {\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] {\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\n  padding: 23px 0 0 4%;\n}\n.control-label[data-v-d5c2b830] {\n  float: left;\n}\n.help-block[data-v-d5c2b830] {\n  color: red;\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n  top: -20px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] {\n    width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n    top: -10px;\n    right: 10px;\n}\n}\n", ""]);
 
 // exports
 
@@ -245711,7 +246321,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \n  float: left; \n  display: block; \n  border-radius: 25px; \n  box-shadow: 0px 1px 6px 0px #4a4a4a; \n  margin: 0 10px 19px 10px; \n  max-width: 30.333333%; \n  padding: 25px;\n} \n", ""]);
+exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \n  float: left; \n  display: block; \n  border-radius: 25px; \n  box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -webkit-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -moz-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -o-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  margin: 0 10px 19px 10px; \n  max-width: 30.333333%; \n  padding: 25px;\n} \n", ""]);
 
 // exports
 
@@ -245730,7 +246340,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {  \n  padding-top: 69px;  \n  padding-left: 5%;  \n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] {  \n  padding-left: 5%;  \n  padding-right: 5%;  \n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] {  \n  padding-left: 3%;  \n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] {  \n  padding: 0 10px;  \n  /* border-left: 1px solid rgba(0,52,73,1);    \n  min-height: 71px;   \n  margin-bottom: 57px; */  \n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] {  \n  font-size: 0.83vw;  \n  font-weight: 700;  \n  letter-spacing: 0.05em;  \n  color: #393a60;\n}\n.top-section .top[data-v-f3210f20] {  \n  font-size: 0.63vw;  \n  color: #747577;  \n  letter-spacing: 0.05em;  \n  font-family: \"Rubik\", sans-serif;  \n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] {  \n  border-top: 1px solid #ededee;\n}\n.border-right-grey[data-v-f3210f20] {  \n  border-right: 1px solid #ededee;\n}\ndiv.col-6[data-v-f3210f20]:last-child, div.col-6[data-v-f3210f20]:nth-last-child(2)  {  \n  border-bottom: 1px solid #ededee;\n}\n.p12-25[data-v-f3210f20] {  \n  padding: 12px 25px;\n}\n.mr-22[data-v-f3210f20] {\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] {  \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] {  \n  margin-bottom: 0.75rem;  \n  padding-bottom: 0.5rem;  \n  border-bottom: 1px solid #fff;  \n  font-size: 14px;  \n  font-family: \"Rubik\", sans-serif;  \n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(255, 164, 128, 1) 0%,  \n    rgba(255, 128, 134, 1) 100%  \n  );\n}\n.product[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(159, 204, 226, 1) 0%,  \n    rgba(4, 149, 240, 1) 100%  \n  );\n}\n.activity[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(221, 192, 241, 1) 0%,  \n    rgba(160, 117, 209, 1) 100%  \n  );\n}\n.time[data-v-f3210f20] {  \n  background: linear-gradient(  \n    to right,  \n    rgba(101, 215, 207, 1) 0%,  \n    rgba(111, 148, 211, 1) 100%  \n  );\n}\nh5[data-v-f3210f20] {  \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] {  \n  width: 15px;  \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] {  \n  font-size: 32px;  \n  color: #fff;  \n  font-weight: bolder;  \n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] {  \n  font-size: 16px;  \n  color: #fff;\n}\n.client-details[data-v-f3210f20] {  \n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%);  \n  padding-left: 3%;  \n  padding-right: 3%;  \n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] {  \n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] {  \n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] {  \n  background-color: #f6f8f9;  \n  padding-left: 3%;  \n  padding-right: 3%;  \n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] {  \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] {  \n  width: 25px;  \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] {  \n  margin-bottom: 0.75rem;  \n  padding-bottom: 0.75rem;  \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] {  \n  float: right;\n}\n.truncate[data-v-f3210f20] {  \n  white-space: nowrap;  \n  overflow: hidden;  \n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] {  \n  max-height: 290px;  \n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] {  \n  border-color: #cdcdcf;  \n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] {  \n  font-size: 0.95vw;  \n  color: #003449;  \n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] {  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.7vw;  \n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #7f99a4;\n}\n.author[data-v-f3210f20] {  \n  font-size: 10px;  \n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20],  \n.callback-capture[data-v-f3210f20] {  \n  background: #f4f4f4;  \n  border-radius: 50rem;  \n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] {  \n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] {  \n  height: 50px;  \n  width: 50px;  \n  padding: 11px;  \n  margin: 0 10px 0 0;  \n  background: #f4f4f4;  \n  border-radius: 50rem !important;  \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] {  \n  height: 50px;  \n  padding: 11px;  \n  margin: 0;  \n  border-radius: 9px;  \n  background: #f4f4f4;  \n  cursor: pointer;  \n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder {  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  color: #999;  \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n}\n.keys[data-v-f3210f20] {  \n  letter-spacing: 0.05em;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 8px;  \n  color: #808080;\n}\n.callback-label[data-v-f3210f20] {  \n  color: #666;  \n  letter-spacing: 0.05em;  \n  font-size: 12px;  \n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] {  \n  margin-top: -15px;  \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] {  \n  color: #fff;  \n  background-color: #f6f8f9;  \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active,  \n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20],  \n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] {  \n  color: #fff;  \n  background-color: #f6f8f9;  \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] {  \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] {  \n  margin-left: -54px;  \n  margin-right: -65px;  \n  padding: 3% 34px 0;  \n  background-image: url(/images/call/Call_Background.svg) !important;  \n  background-size: cover;  \n  background-repeat: no-repeat;  \n  max-height: 120vh;  \n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(/images/call/Call_Logo.svg) !important;  \n  background-size: 75%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 186px;\n}\n.tip[data-v-f3210f20] {  \n  margin-bottom: 40px;  \n  background-size: 20%;  \n  background-repeat: no-repeat;  \n  background-position: center 1px;  \n  margin-bottom: 40px;  \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] {  \n  border-bottom: 1px solid #fff;  \n  margin-bottom: 10px;  \n  color: #fff;  \n  margin: 0;  \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] {  \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] {  \n  color: #fff;  \n  font-size: 1.6rem;  \n  letter-spacing: 6px;  \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] {  \n  margin-bottom: 10px;  \n  color: #fff;  \n  margin: 0;  \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] {  \n  background-image: url(\"/images/call/1@4x.png\") !important;  \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] {  \n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] {  \n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] {  \n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] {  \n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] {  \n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] {  \n  background-image: url(\"/images/graph_grid.png\") !important;  \n  background-repeat: repeat-x;  \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] {  \n  width: 14%;  \n  float: left;  \n  margin-left: 6.5%;  \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] {  \n  position: relative;  \n  height: 220px;  \n  background: rgba(255, 255, 255, 0.2);  \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] {  \n  position: absolute;  \n  bottom: 0;  \n  background: #89cff0;  \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] {  \n  position: absolute;  \n  font-size: 12px;  \n  bottom: 0;  \n  height: 20px;  \n  color: #003449;  \n  display: none;  \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] {  \n  margin-top: 5px;  \n  text-align: center;  \n  color: #003449;  \n  font-size: 18px;  \n  font-weight: 900;  \n  letter-spacing: 2.2px;  \n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] {  \n  max-height: 880.84px;  \n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] {  \n  max-height: 35px;  \n  overflow: hidden;  \n  padding: 0px;  \n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] {  \n  position: relative;  \n  text-align: right;  \n  width: 100%;  \n  top: -38px;  \n  right: -62px;  \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] {  \n  position: relative;  \n  text-align: right;  \n  width: 100%;  \n  top: -1px;  \n  right: 14px;  \n  color: #fff;\n}\np.minimize a[data-v-f3210f20],  \np.maximize a[data-v-f3210f20] {  \n  color: #fff;  \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] {  \n  font-size: 17px;  \n  border-bottom: 1px solid #003449;  \n  margin-bottom: 18px;  \n  color: #003449;  \n  letter-spacing: 1.42px;  \n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] {  \n  border: 0;  \n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] {  \n  flex: 1 1 auto;  \n  padding: 3.25rem;  \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] {  \n  color: #fff;  \n  border-bottom: 1px solid #fff;  \n  padding-bottom: 5px;  \n  font-size: 32px;  \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] {  \n  margin-left: -54px;  \n  margin-right: -65px;  \n  padding: 3% 6%;  \n  /* background-image: url('/images/call/Call_Background.svg') !important; */  \n  background-size: 100%;  \n  background-repeat: no-repeat;  \n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important;  \n  background-size: 100%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] {  \n  padding: 7px;  \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important;  \n  background-size: 33%;  \n  background-position: center;  \n  background-repeat: no-repeat;  \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] {  \n  margin: 0 auto;  \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] {  \n  margin: 0 auto;  \n  text-align: center;  \n  font-size: 12px;  \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] {  \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover {  \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover {  \n  background: #00344a;  \n  color: #ffffff;  \n  border: none !important;  \n  padding: 6px 25px 6px 18px;  \n  font-size: 12px;  \n  font-weight: 700;  \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] {  \n  background: #ffffff;  \n  color: #00344a;  \n  padding: 6px 25px 6px 18px;  \n  font-size: 12px;  \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] {  \n  border-radius: 50%;  \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite;  \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover {  \n  -webkit-animation: none;  \n          animation: none;\n}\n.pulse[data-v-f3210f20] {  \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite;  \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover {  \n  -webkit-animation: none;  \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% {  \n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% {  \n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {  \n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% {  \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% {  \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {  \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] {  \n  border-radius: 0;  \n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] {  \n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] {  \n  padding-top: 12px;  \n  border-bottom-left-radius: 25px;  \n  border-bottom-right-radius: 25px;  \n  background-color: #fff;  \n  box-shadow: 0 0 20px 10px #e6e6e6;  \n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;  \n  -moz-box-shadow: 0 0 20px 10px #e6e6e6;  \n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] {  \n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] {  \n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] {  \n  width: 20px;  \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] {  \n  font-size: 55px;  \n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] {  \n  border-top-left-radius: 19px;  \n  border-top-right-radius: 19px;  \n  padding: 0 11px 11px;  \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] {  \n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] {  \n  padding-top: 18px;  \n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] {  \n  border: 0;  \n  color: #7f8080;  \n  letter-spacing: 0.05em;  \n  text-align: center;  \n  padding-top: 0;  \n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] {  \n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;  \n  background-color: #fff;  \n  border-top-left-radius: 25px;  \n  border-top-right-radius: 25px;\n}\n.activities .card-header[data-v-f3210f20],  \n.deals .card-header[data-v-f3210f20] {  \n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20],  \n.deals .card-header-tabs[data-v-f3210f20] {  \n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] {  \n  font-size: 10px;  \n  letter-spacing: 0.05em;  \n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] {  \n  font-size: 10px;  \n  letter-spacing: 0.05em;  \n  color: #999999;  \n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20],  \n.deals #eight textarea[data-v-f3210f20],  \n.deals #eight select[data-v-f3210f20] {  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  color: #003449;  \n  letter-spacing: 0.05em;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 12px;  \n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] {  \n  border-radius: 25px;  \n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] {  \n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] {  \n  border-radius: 50rem !important;  \n  font-size: 10px;  \n  text-transform: uppercase;  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);  \n  letter-spacing: 0.05em;  \n  color: #999999;  \n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] {  \n  font-size: 10px;  \n  text-transform: uppercase;  \n  letter-spacing: 0.05em;  \n  font-weight: 700;  \n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] {  \n  font-size: 0.73vw;  \n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] {  \n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] {  \n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20],  \n#two .col-lg-4 .recommended-call[data-v-f3210f20] {  \n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] {  \n  color: rgb(129, 130, 132);  \n  font-size: 0.68vw;  \n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] {  \n  padding-left: 7.8%;\n}\n.vc-reset[data-v-f3210f20],  \n.vc-reset *[data-v-f3210f20] {  \n  border-style: none !important;  \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] {  \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20] {  \n  overflow-y: scroll;  \n  height: 70vh;  \n  padding-top: 6px;  \n  padding-right: 3%;  \n  padding-bottom: 6px;  \n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] {  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.7vw;  \n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] {  \n  letter-spacing: 0.1em;  \n  font-size: 0.85vw;  \n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] {  \n  letter-spacing: 0.05em;  \n  color: #333333;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] {  \n  background: #e6e6e6;  \n  border-radius: 5px;  \n  height: 12px;\n}\n.tank[data-v-f3210f20] {  \n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important;  \n  border-radius: 5px;  \n  background: rgb(114, 218, 126);  \n  height: 12px;  \n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] {  \n  letter-spacing: 0.05em;  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] {  \n  color: #808080;  \n  letter-spacing: 0.05em;  \n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] {  \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 0.63vw;  \n  letter-spacing: 0.05em;  \n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] {  \n  background-color: #f9f9f9;  \n  border-radius: 10px;  \n  height: 163px !important;  \n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder {  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder {  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder {  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder {  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder {  \n  color: #999999;  \n  font-size: 0.63vw;  \n  font-family: \"Rubik\", sans-serif;  \n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] {  \n  overflow-y: scroll;  \n  height: 70vh;  \n  /* padding-top: 6px; */  \n  padding-right: 6px;  \n  width: 100%;\n}\n.dropdown-menu[data-v-f3210f20] {  \n  width: 191px;  \n  padding: 17px;  \n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] {  \n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] {  \n  font-size: 0.73vw;  \n  letter-spacing: 0.05em;  \n  color: #666666;  \n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] {  \n  border-radius: 25px;  \n  border: 0;  \n  padding: 10px 20px 15px 15px;  \n  color: #818284;  \n  font-family: \"Rubik\", sans-serif;  \n  font-size: 16px;\n}  \n", ""]);
+exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\n  padding-left: 5%; \n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \n  padding-left: 5%; \n  padding-right: 5%; \n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \n  padding-left: 3%; \n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \n  padding: 0 10px; \n  /* border-left: 1px solid rgba(0,52,73,1);   \n  min-height: 71px;  \n  margin-bottom: 57px; */ \n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \n  font-size: 12px; \n  font-weight: 700; \n  letter-spacing: 0.05em; \n  color: #1e2253; \n  font-family: \"Rubik\", sans-serif;\n}\n.top-section .top[data-v-f3210f20] { \n  font-size: 12px; \n  color: #747577; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \n  border-top: 1px solid #ededee;\n}\n.border-right-grey[data-v-f3210f20] { \n  border-right: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \n  padding: 10px 25px;\n}\n.mr-22[data-v-f3210f20] {\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.5rem; \n  border-bottom: 1px solid #fff; \n  font-size: 14px; \n  font-family: \"Rubik\", sans-serif; \n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(255, 164, 128, 1) 0%, \n    rgba(255, 128, 134, 1) 100% \n  );\n}\n.product[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(159, 204, 226, 1) 0%, \n    rgba(4, 149, 240, 1) 100% \n  );\n}\n.activity[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(221, 192, 241, 1) 0%, \n    rgba(160, 117, 209, 1) 100% \n  );\n}\n.time[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(101, 215, 207, 1) 0%, \n    rgba(111, 148, 211, 1) 100% \n  );\n}\nh5[data-v-f3210f20] { \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \n  width: 15px; \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \n  font-size: 32px; \n  color: #fff; \n  font-weight: bolder; \n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \n  font-size: 16px; \n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \n  background-color: #f6f8f9; \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \n  width: 25px; \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.75rem; \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \n  float: right;\n}\n.truncate[data-v-f3210f20] { \n  white-space: nowrap; \n  overflow: hidden; \n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \n  max-height: 190px; \n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \n  max-height: 290px; \n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \n  border-color: #cdcdcf; \n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \n  font-size: 0.95vw; \n  color: #003449; \n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \n  font-size: 10px; \n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \n.callback-capture[data-v-f3210f20] { \n  background: #f4f4f4; \n  border-radius: 50rem; \n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \n  height: 50px; \n  width: 50px; \n  padding: 11px; \n  margin: 0 10px 0 0; \n  background: #f4f4f4; \n  border-radius: 50rem !important; \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \n  height: 50px; \n  padding: 11px; \n  margin: 0; \n  border-radius: 9px; \n  background: #f4f4f4; \n  cursor: pointer; \n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\n  outline: 0 !important;\n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-ox-shadow: none !important; \n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 8px; \n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \n  color: #666; \n  letter-spacing: 0.05em; \n  font-size: 12px; \n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \n  margin-top: -15px; \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 34px 0; \n  background-image: url(/images/call/Call_Background.svg) !important; \n  background-size: cover; \n  background-repeat: no-repeat; \n  max-height: 120vh; \n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(/images/call/Call_Logo.svg) !important; \n  background-size: 75%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 186px;\n}\n.tip[data-v-f3210f20] { \n  margin-bottom: 40px; \n  background-size: 20%; \n  background-repeat: no-repeat; \n  background-position: center 1px; \n  margin-bottom: 40px; \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \n  border-bottom: 1px solid #fff; \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \n  color: #fff; \n  font-size: 1.6rem; \n  letter-spacing: 6px; \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \n  background-image: url(\"/images/call/1@4x.png\") !important; \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \n  background-image: url(\"/images/graph_grid.png\") !important; \n  background-repeat: repeat-x; \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n  width: 14%; \n  float: left; \n  margin-left: 6.5%; \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0; \n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n  margin-top: 5px; \n  text-align: center; \n  color: #003449; \n  font-size: 18px; \n  font-weight: 900; \n  letter-spacing: 2.2px; \n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \n  max-height: 880.84px; \n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \n  max-height: 35px; \n  overflow: hidden; \n  padding: 0px; \n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -38px; \n  right: -62px; \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -1px; \n  right: 14px; \n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \np.maximize a[data-v-f3210f20] { \n  color: #fff; \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \n  font-size: 17px; \n  border-bottom: 1px solid #003449; \n  margin-bottom: 18px; \n  color: #003449; \n  letter-spacing: 1.42px; \n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \n  border: 0; \n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \n  flex: 1 1 auto; \n  padding: 3.25rem; \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \n  color: #fff; \n  border-bottom: 1px solid #fff; \n  padding-bottom: 5px; \n  font-size: 32px; \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 6%; \n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \n  background-size: 100%; \n  background-repeat: no-repeat; \n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 100%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 33%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center; \n  font-size: 12px; \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \n  background: #00344a; \n  color: #ffffff; \n  border: none !important; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  font-weight: 700; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \n  background: #ffffff; \n  color: #00344a; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \n  border-radius: 50%; \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n.pulse[data-v-f3210f20] { \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \n  border-radius: 0; \n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \n  padding-top: 12px; \n  border-bottom-left-radius: 25px; \n  border-bottom-right-radius: 25px; \n  background-color: #fff; \n  box-shadow: 0 0 20px 10px #e6e6e6; \n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \n  width: 20px; \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \n  font-size: 55px; \n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \n  border-top-left-radius: 19px; \n  border-top-right-radius: 19px; \n  padding: 0 11px 11px; \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \n  padding-top: 18px; \n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \n  border: 0; \n  color: #7f8080; \n  letter-spacing: 0.05em; \n  text-align: center; \n  padding-top: 0; \n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n  background-color: #fff; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \n.deals .card-header[data-v-f3210f20] { \n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \n.deals .card-header-tabs[data-v-f3210f20] { \n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.deals #eight p[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \n.deals #eight textarea[data-v-f3210f20], \n.deals #eight select[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  color: #003449; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 12px; \n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \n  border-radius: 25px; \n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \n  border-radius: 50rem !important; \n  font-size: 10px; \n  text-transform: uppercase; \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  letter-spacing: 0.05em; \n  color: #999999; \n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \n  font-size: 10px; \n  text-transform: uppercase; \n  letter-spacing: 0.05em; \n  font-weight: 700; \n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \n  font-size: 0.73vw; \n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \n  color: rgb(129, 130, 132); \n  font-size: 0.68vw; \n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \n  padding-left: 7.8%;\n}\n.vc-reset[data-v-f3210f20], \n.vc-reset *[data-v-f3210f20] { \n  border-style: none !important; \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20] { \n  overflow-y: scroll; \n  height: 70vh; \n  padding-top: 6px; \n  padding-right: 3%; \n  padding-bottom: 6px; \n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \n  letter-spacing: 0.1em; \n  font-size: 0.85vw; \n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #333333; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \n  background: #e6e6e6; \n  border-radius: 5px; \n  height: 12px;\n}\n.tank[data-v-f3210f20] { \n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \n  border-radius: 5px; \n  background: rgb(114, 218, 126); \n  height: 12px; \n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \n  color: #808080; \n  letter-spacing: 0.05em; \n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.63vw; \n  letter-spacing: 0.05em; \n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \n  background-color: #f9f9f9; \n  border-radius: 10px; \n  height: 163px !important; \n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \n  overflow-y: scroll; \n  height: 70vh; \n  /* padding-top: 6px; */ \n  padding-right: 6px; \n  width: 100%;\n}\n.dropdown-menu[data-v-f3210f20] { \n  width: 191px; \n  padding: 17px; \n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \n  font-size: 0.73vw; \n  letter-spacing: 0.05em; \n  color: #666666; \n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \n  border-radius: 25px; \n  border: 0; \n  padding: 10px 20px 15px 15px; \n  color: #818284; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\n  font-size: 0.83vw;\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.activity-status-col label[data-v-f3210f20] {\n  margin-bottom: 18px;\n}\n.activity-status[data-v-f3210f20] {\n  width:12px;\n  height: 12px;\n  border-radius: 50rem;\n}\n.finished-activity[data-v-f3210f20] {\n  background-color: #00D58E;\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\n  background-color: #FF933A;\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\n  background-color: #F42222; \n  margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -337098,6 +337708,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=style&index=0&id=37c5ed24&scoped=true&lang=css& ***!
@@ -363106,13 +363746,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 px-0" }, [
       _c("div", { staticClass: "row mx-0 align-items-center" }, [
-        _c("div", { staticClass: "col-auto pl-0" }, [
-          _c("select", { staticClass: "rounded-pill border-0" }, [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Filter by date")
+        _c(
+          "div",
+          { staticClass: "col-auto pl-0", staticStyle: { display: "none" } },
+          [
+            _c("select", { staticClass: "rounded-pill border-0" }, [
+              _c("option", { attrs: { selected: "" } }, [
+                _vm._v("Filter by date")
+              ])
             ])
-          ])
-        ]),
+          ]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "col pr-0" }, [
           _c("div", { staticClass: "divider-line" })
@@ -363708,31 +364352,24 @@ var render = function() {
                 }
               },
               [
-                _c(
-                  "span",
-                  { staticStyle: { float: "left", "padding-top": "2px" } },
-                  [
-                    _vm._v(
-                      "\n                      " +
-                        _vm._s(column.label) +
-                        "\n                    "
-                    )
-                  ]
+                _vm._v(
+                  "\n\n                    " +
+                    _vm._s(column.label) +
+                    " \n                    \n                    "
                 ),
-                _vm._v(" "),
-                index == _vm.columns.length - 1
+                index == _vm.modified_columns.length - 1
                   ? _c(
                       "div",
-                      { staticClass: "col pl-0 dropdown" },
+                      { staticClass: "col pl-0" },
                       [
                         _c(
                           "b-button",
                           {
                             staticClass: "rounded-circle m-0",
-                            attrs: {
-                              "data-toggle": "dropdown",
-                              "aria-haspopup": "true",
-                              "aria-expanded": "false"
+                            on: {
+                              click: function($event) {
+                                _vm.show_column_select = !_vm.show_column_select
+                              }
                             }
                           },
                           [
@@ -363747,7 +364384,33 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(0, true)
+                        _vm.show_column_select
+                          ? _c(
+                              "div",
+                              [
+                                _c("b-form-select", {
+                                  attrs: {
+                                    options: _vm.colum_select_options,
+                                    multiple: "",
+                                    "select-size": 4
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.handleChange()
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.selected_columns,
+                                    callback: function($$v) {
+                                      _vm.selected_columns = $$v
+                                    },
+                                    expression: "selected_columns"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
                       ],
                       1
                     )
@@ -363919,30 +364582,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown-menu" }, [
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Calls")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Sales")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Calls")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-        _vm._v("Sales")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -363987,11 +364627,11 @@ var render = function() {
               }
             },
             [
-              _c("table", { ref: "table" }, [
+              _c("table", { ref: "table", staticClass: "leads-table" }, [
                 _c("thead", [
                   _c(
                     "tr",
-                    _vm._l(_vm.columns, function(column, index) {
+                    _vm._l(_vm.modified_columns, function(column, index) {
                       return _c(
                         "th",
                         {
@@ -364041,19 +364681,19 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          index == _vm.columns.length - 1
+                          index == _vm.modified_columns.length - 1
                             ? _c(
                                 "div",
-                                { staticClass: "col pl-0 dropdown" },
+                                { staticClass: "col pl-0" },
                                 [
                                   _c(
                                     "b-button",
                                     {
                                       staticClass: "rounded-circle m-0",
-                                      attrs: {
-                                        "data-toggle": "dropdown",
-                                        "aria-haspopup": "true",
-                                        "aria-expanded": "false"
+                                      on: {
+                                        click: function($event) {
+                                          _vm.show_column_select = !_vm.show_column_select
+                                        }
                                       }
                                     },
                                     [
@@ -364069,43 +364709,33 @@ var render = function() {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "dropdown-menu" }, [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Calls")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Sales")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Calls")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "#" }
-                                      },
-                                      [_vm._v("Sales")]
-                                    )
-                                  ])
+                                  _vm.show_column_select
+                                    ? _c(
+                                        "div",
+                                        [
+                                          _c("b-form-select", {
+                                            attrs: {
+                                              options: _vm.colum_select_options,
+                                              multiple: "",
+                                              "select-size": 4
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.handleChange()
+                                              }
+                                            },
+                                            model: {
+                                              value: _vm.selected_columns,
+                                              callback: function($$v) {
+                                                _vm.selected_columns = $$v
+                                              },
+                                              expression: "selected_columns"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -364132,7 +364762,7 @@ var render = function() {
                           }
                         }
                       },
-                      _vm._l(_vm.columns, function(column, i) {
+                      _vm._l(_vm.modified_columns, function(column, i) {
                         return _c(
                           "td",
                           {
@@ -364338,7 +364968,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -364530,7 +365160,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -364733,7 +365363,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -364945,7 +365575,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -365139,7 +365769,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -365358,7 +365988,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -365592,7 +366222,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "form-control",
+                                                                      "form-control editable",
                                                                     attrs: {
                                                                       type:
                                                                         "text",
@@ -365778,7 +366408,7 @@ var render = function() {
                                                                     }
                                                                   ],
                                                                   staticClass:
-                                                                    "form-control",
+                                                                    "form-control editable",
                                                                   attrs: {
                                                                     type:
                                                                       "text",
@@ -366365,12 +366995,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card no-box-shadow material-table" }, [
+  return _c("div", { staticClass: "card shadow-none material-table" }, [
     _c("table", { ref: "table" }, [
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.columns, function(column, index) {
+          _vm._l(_vm.modified_columns, function(column, index) {
             return _c(
               "th",
               {
@@ -366394,8 +367024,66 @@ var render = function() {
                 _vm._v(
                   "  \n                    " +
                     _vm._s(column.label) +
-                    "  \n                "
-                )
+                    " \n                    \n                    "
+                ),
+                index == _vm.modified_columns.length - 1
+                  ? _c(
+                      "div",
+                      { staticClass: "col pl-0" },
+                      [
+                        _c(
+                          "b-button",
+                          {
+                            staticClass: "rounded-circle m-0",
+                            on: {
+                              click: function($event) {
+                                _vm.show_column_select = !_vm.show_column_select
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "icon",
+                              staticStyle: { width: "10px" },
+                              attrs: {
+                                src: "/images/workstation/Asset 28@4x.png",
+                                alt: "Icon"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.show_column_select
+                          ? _c(
+                              "div",
+                              [
+                                _c("b-form-select", {
+                                  attrs: {
+                                    options: _vm.colum_select_options,
+                                    multiple: "",
+                                    "select-size": 4
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      return _vm.handleChange()
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.selected_columns,
+                                    callback: function($$v) {
+                                      _vm.selected_columns = $$v
+                                    },
+                                    expression: "selected_columns"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ],
+                      1
+                    )
+                  : _vm._e()
               ]
             )
           }),
@@ -366417,7 +367105,7 @@ var render = function() {
                 }
               }
             },
-            _vm._l(_vm.columns, function(column, i) {
+            _vm._l(_vm.modified_columns, function(column, i) {
               return _c(
                 "td",
                 { key: i, class: column.numeric ? "numeric" : "" },
@@ -368259,17 +368947,19 @@ var render = function() {
   return _c(
     "a-card",
     {
-      staticStyle: { "overflow-y": "scroll", height: "680px" },
+      staticClass: "add-box-shadow",
       attrs: { title: "Add to " + _vm.active_module.display_name }
     },
     [
+      _c("div", { staticClass: "divider-line" }),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-100", staticStyle: { "margin-top": "20px" } },
+        { staticClass: "w-100 m-lt" },
         [
           _vm._l(_vm.active_module.module_fields, function(field, index) {
             return _c(
-              "a-row",
+              "div",
               { key: index },
               [
                 _c(
@@ -368283,7 +368973,8 @@ var render = function() {
                         expression: "field.name == 'title'"
                       }
                     ],
-                    attrs: { span: 6 }
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
                   },
                   [
                     _c(
@@ -368348,7 +369039,8 @@ var render = function() {
                           "field.name !== 'owner' \n        && field.name !== 'assignee' \n        && field.name !== 'status'\n        && field.name !== 'title'"
                       }
                     ],
-                    attrs: { span: 6 }
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
                   },
                   [
                     _c(
@@ -368452,7 +369144,8 @@ var render = function() {
                         expression: "field.name == 'owner'"
                       }
                     ],
-                    attrs: { span: 6 }
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
                   },
                   [
                     _c(
@@ -368498,7 +369191,8 @@ var render = function() {
                         expression: "field.name == 'assignee'"
                       }
                     ],
-                    attrs: { span: 6 }
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
                   },
                   [
                     _c(
@@ -368544,7 +369238,8 @@ var render = function() {
                         expression: "field.name == 'status'"
                       }
                     ],
-                    attrs: { span: 6 }
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
                   },
                   [
                     _c(
@@ -368593,12 +369288,12 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("a-row", [
-            _c("label", [
+          _c("div", [
+            _c("label", { staticClass: "plr-4" }, [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary update-user",
+                  staticClass: "btn btn-primary update-user right",
                   attrs: { type: "submit" },
                   on: {
                     click: function($event) {
@@ -368643,24 +369338,24 @@ var render = function() {
       "div",
       {
         staticClass:
-          "row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0",
+          "row pb-4 mb-4 grey-bg-color align-items-center justify-content-between mx-0",
         attrs: { id: "top-section" }
       },
       [
-        _c("div", { staticClass: "col-12 px-0" }, [
+        _c("div", { staticClass: "col-7 px-0" }, [
           _c("div", { staticClass: "row mx-0 mb-0 horizontal-scroll" }, [
             _c("div", { staticClass: "col-12" }, [
               _c("div", { staticClass: "row mx-0" }, [
                 _c(
                   "div",
-                  { staticClass: "col-auto" },
+                  { staticClass: "col-4" },
                   [
                     _c("span", { staticClass: "ml-3" }, [_vm._v("Assignees:")]),
                     _vm._v(" "),
                     _c(
                       "a-select",
                       {
-                        staticClass: "border-0 w-100",
+                        staticClass: "border-0 w-100 mass-assign",
                         attrs: { mode: "multiple", placeholder: "Select" },
                         model: {
                           value: _vm.assignees,
@@ -368685,14 +369380,14 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-auto" },
+                  { staticClass: "col-4" },
                   [
                     _c("span", { staticClass: "ml-3" }, [_vm._v("Owners: ")]),
                     _vm._v(" "),
                     _c(
                       "a-select",
                       {
-                        staticClass: "border-0 w-100",
+                        staticClass: "border-0 w-100 mass-assign",
                         attrs: { mode: "multiple", placeholder: "Select" },
                         model: {
                           value: _vm.owners,
@@ -368715,8 +369410,8 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("div", { staticClass: "row mt-3" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("div", { staticClass: "row mt-4" }, [
                     _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-auto" }, [
@@ -368780,6 +369475,7 @@ var render = function() {
         ])
       : _c(
           "div",
+          { staticClass: "plr-3" },
           [
             _c("add-module-item", {
               attrs: {
@@ -368800,7 +369496,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
+    return _c("div", { staticClass: "col-auto mr-4" }, [
       _c(
         "button",
         {
@@ -368860,7 +369556,7 @@ var render = function() {
                       "active shadow-none":
                         _vm.active == "dashboard" ? true : false
                     },
-                    attrs: { href: "/dashboard", title: "Dashboard" }
+                    attrs: { href: "/dashboard" }
                   },
                   [
                     _c("img", {
@@ -368886,11 +369582,7 @@ var render = function() {
                       "active shadow-none":
                         _vm.active == "workstation" ? true : false
                     },
-                    attrs: {
-                      href: "/workstation",
-                      title: "Workstation",
-                      id: "workstation"
-                    }
+                    attrs: { href: "/workstation", id: "workstation" }
                   },
                   [
                     _c("img", {
@@ -368916,7 +369608,7 @@ var render = function() {
                       "active shadow-none":
                         _vm.active == "contacts" ? true : false
                     },
-                    attrs: { href: "/modules/contacts", title: "Contacts" }
+                    attrs: { href: "/modules/contacts" }
                   },
                   [
                     _c("img", {
@@ -368941,7 +369633,7 @@ var render = function() {
                       "nav-link leads": true,
                       "active shadow-none": _vm.active == "leads" ? true : false
                     },
-                    attrs: { href: "/modules/leads", title: "Leads" }
+                    attrs: { href: "/modules/leads" }
                   },
                   [
                     _c("img", {
@@ -368966,7 +369658,7 @@ var render = function() {
                       "active shadow-none":
                         _vm.active == "call-history" ? true : false
                     },
-                    attrs: { href: "/call-history", title: "Call History" }
+                    attrs: { href: "/call-history" }
                   },
                   [
                     _c("img", {
@@ -368992,7 +369684,7 @@ var render = function() {
                       "active shadow-none":
                         _vm.active == "inventory" ? true : false
                     },
-                    attrs: { href: "/inventory", title: "Inventory" }
+                    attrs: { href: "/inventory" }
                   },
                   [
                     _c("img", {
@@ -369019,7 +369711,7 @@ var render = function() {
                           "active shadow-none":
                             _vm.active == "transactions" ? true : false
                         },
-                        attrs: { href: "/transactions", title: "Transactions" }
+                        attrs: { href: "/transactions" }
                       },
                       [
                         _c("img", {
@@ -369049,11 +369741,7 @@ var render = function() {
                         "active shadow-none":
                           _vm.active == "education" ? true : false
                       },
-                      attrs: {
-                        href: "/education",
-                        title: "Education",
-                        disabled: ""
-                      }
+                      attrs: { href: "/education", disabled: "" }
                     },
                     [
                       _c("img", {
@@ -369081,7 +369769,7 @@ var render = function() {
                           "active shadow-none":
                             _vm.active == "users" ? true : false
                         },
-                        attrs: { href: "/users", title: "Users" }
+                        attrs: { href: "/users" }
                       },
                       [
                         _c("img", {
@@ -369109,10 +369797,7 @@ var render = function() {
                           "active shadow-none":
                             _vm.active == "preferences" ? true : false
                         },
-                        attrs: {
-                          href: "/preferences",
-                          title: "System Preferences"
-                        }
+                        attrs: { href: "/preferences" }
                       },
                       [
                         _c("img", {
@@ -369360,7 +370045,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "open-sidenav mt-3" }, [
+            _c("div", { staticClass: "open-sidenav mt-3 px-6" }, [
               _vm.settings_on == true
                 ? _c("div", { staticClass: "settings px-2" }, [
                     _c(
@@ -372347,7 +373032,7 @@ var render = function() {
                                                                       click: function(
                                                                         $event
                                                                       ) {
-                                                                        return _vm.editsTask(
+                                                                        return _vm.editTask(
                                                                           task,
                                                                           "status"
                                                                         )
@@ -373773,7 +374458,7 @@ var render = function() {
                           {
                             staticClass: "nav-link",
                             class: {
-                              "nav-link top-link d-block text-center add-new": true,
+                              "nav-link top-link d-block text-center": true,
                               active: _vm.adding_user
                             },
                             attrs: { href: "#" },
@@ -373783,7 +374468,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v("Add New")]
+                          [_vm._v("Add New +")]
                         )
                       ]
                     )
@@ -374842,6 +375527,592 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "api-integration" } },
+    [
+      _c(
+        "b-card",
+        { attrs: { "no-body": "" } },
+        [
+          _c(
+            "b-tabs",
+            { attrs: { pills: "", card: "" } },
+            [
+              _c("b-tab", { attrs: { title: "Commission Structure" } }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12 px-0" },
+                  [
+                    _c(
+                      "b-container",
+                      { staticClass: "px-0", attrs: { fluid: "" } },
+                      [
+                        _c("h3", [_vm._v("Commission Structure A")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_a, function(item, index) {
+                            return _c(
+                              "a-row",
+                              { key: index },
+                              [
+                                _c("a-col", { attrs: { span: 5 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage of Sales amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 5 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_a-0",
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: item.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.status.value"
+                                          }
+                                        },
+                                        [
+                                          item.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ])
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("h3", [_vm._v("Commission Structure B")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_b, function(range, index) {
+                            return _c(
+                              "a-row",
+                              { key: index },
+                              [
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Minimum Sales")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.min_sales.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.min_sales,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.min_sales.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Maximum Sales")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.max_sales.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.max_sales,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.max_sales.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: range.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              range.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "range.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_b-" + index,
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: range.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                range.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "range.status.value"
+                                          }
+                                        },
+                                        [
+                                          range.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "a-col",
+                                  {
+                                    staticClass: "pr-0",
+                                    staticStyle: { "padding-top": "36px" },
+                                    attrs: { span: 3, sm: "auto" }
+                                  },
+                                  [
+                                    index + 1 < _vm.structure_b.length
+                                      ? _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.removeBField(index)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Delete.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addBField(
+                                                  range.comm_structure_id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Add.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("h3", [_vm._v("Commission Structure C")]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          _vm._l(_vm.structure_c, function(item, i) {
+                            return _c(
+                              "a-row",
+                              { key: i },
+                              [
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Minimum Amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.min_amount.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.min_amount,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.min_amount.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Maximum Amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.max_amount.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.max_amount,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.max_amount.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Percentage")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("b-form-input", {
+                                        attrs: {
+                                          id: "input-none",
+                                          state: null
+                                        },
+                                        model: {
+                                          value: item.percentage.value,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              item.percentage,
+                                              "value",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "item.percentage.value"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a-col", { attrs: { span: 3 } }, [
+                                  _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "input-none" } },
+                                        [_vm._v("Status")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            id: "structure_c" + i,
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: item.status.value,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item.status,
+                                                "value",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.status.value"
+                                          }
+                                        },
+                                        [
+                                          item.status.value == 1
+                                            ? _c("p", [_vm._v("Active")])
+                                            : _c("p", [_vm._v("Disabled")])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "a-col",
+                                  {
+                                    staticClass: "pr-0",
+                                    staticStyle: { "padding-top": "36px" },
+                                    attrs: { span: 3, sm: "auto" }
+                                  },
+                                  [
+                                    _vm.index + 1 < _vm.structure_c.length
+                                      ? _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.removeCField(
+                                                  _vm.index
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Delete.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "b-button",
+                                          {
+                                            staticClass: "icon m-0 p-0",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addCField(
+                                                  item.comm_structure_id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("img", {
+                                              attrs: {
+                                                src:
+                                                  "images/icons/Field_Add.svg",
+                                                width: "19"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "row justify-content-end mx-0" },
+                          [
+                            _c(
+                              "b-button",
+                              {
+                                staticClass:
+                                  "btn-primary font-weight-bold mr-0 my-0",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.updateDetails()
+                                  }
+                                }
+                              },
+                              [_vm._v("Update")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Preferences/EditModule.vue?vue&type=template&id=37c5ed24&scoped=true& ***!
@@ -375566,16 +376837,20 @@ var render = function() {
               "a",
               {
                 class: {
-                  active: _vm.active_module_name === "dialer" ? true : false
+                  active: _vm.active_module_name === "commission" ? true : false
                 },
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
-                    return _vm.showModulePreferences("dialer", "dialer", null)
+                    return _vm.showModulePreferences(
+                      "commission",
+                      "commission",
+                      null
+                    )
                   }
                 }
               },
-              [_vm._v("Dialer")]
+              [_vm._v("Commission")]
             )
           ]),
           _vm._v(" "),
@@ -376411,6 +377686,15 @@ var render = function() {
                 "div",
                 { staticClass: "user-roles" },
                 [_c("api-integration", { attrs: { apis: _vm.apis } })],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.show_page_loader && _vm.active_module_action == "commission"
+            ? _c(
+                "div",
+                { staticClass: "user-roles" },
+                [_c("commission-structure")],
                 1
               )
             : _vm._e(),
@@ -378004,9 +379288,16 @@ var render = function() {
                       },
                       [
                         _vm._v(" "),
-                        _c("transition", { attrs: { name: "fade" } }, [
-                          _c("p", [_vm._v("this is content")])
-                        ])
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade" } },
+                          [
+                            _c("b-table", {
+                              attrs: { hover: "", items: _vm.paidItems }
+                            })
+                          ],
+                          1
+                        )
                       ],
                       1
                     ),
@@ -378039,9 +379330,16 @@ var render = function() {
                       },
                       [
                         _vm._v(" "),
-                        _c("transition", { attrs: { name: "fade" } }, [
-                          _c("p", [_vm._v("this is content")])
-                        ])
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade" } },
+                          [
+                            _c("b-table", {
+                              attrs: { hover: "", items: _vm.pendingItems }
+                            })
+                          ],
+                          1
+                        )
                       ],
                       1
                     ),
@@ -378074,9 +379372,16 @@ var render = function() {
                       },
                       [
                         _vm._v(" "),
-                        _c("transition", { attrs: { name: "fade" } }, [
-                          _c("p", [_vm._v("this is content")])
-                        ])
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade" } },
+                          [
+                            _c("b-table", {
+                              attrs: { hover: "", items: _vm.dueItems }
+                            })
+                          ],
+                          1
+                        )
                       ],
                       1
                     ),
@@ -378109,9 +379414,16 @@ var render = function() {
                       },
                       [
                         _vm._v(" "),
-                        _c("transition", { attrs: { name: "fade" } }, [
-                          _c("p", [_vm._v("this is content")])
-                        ])
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade" } },
+                          [
+                            _c("b-table", {
+                              attrs: { hover: "", items: _vm.rejectedItems }
+                            })
+                          ],
+                          1
+                        )
                       ],
                       1
                     ),
@@ -378146,11 +379458,12 @@ var render = function() {
                           _c(
                             "div",
                             [
-                              _c("h5", { staticClass: "deal-name" }, [
-                                _vm._v("Peter Andrews")
-                              ]),
-                              _vm._v(" "),
-                              _c("create-deal")
+                              _c("create-deal", {
+                                attrs: {
+                                  empty_deal: _vm.deal,
+                                  lead_id: "-None-"
+                                }
+                              })
                             ],
                             1
                           )
@@ -378240,9 +379553,545 @@ var render = function() {
     _c("p", [_vm._v("Deal information")]),
     _vm._v(" "),
     _c("div", { staticClass: "row mx-0" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "col-7 pl-0" }, [
+        _c("div", { staticClass: "row mx-0" }, [
+          _c("div", { staticClass: "col-6 pl-0" }, [
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Agent Name   \n            "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deal.agent_name,
+                      expression: "deal.agent_name"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: { type: "text", id: "agent-name", name: "AgentName" },
+                  domProps: { value: _vm.deal.agent_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.deal, "agent_name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Lead Name \n            "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.deal.lead_id,
+                        expression: "deal.lead_id"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.deal,
+                          "lead_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "-None-", selected: "" } }, [
+                      _vm._v("-None-")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.leads, function(lead, index) {
+                      return _c(
+                        "option",
+                        { key: index, domProps: { value: lead.id } },
+                        [_vm._v(_vm._s(lead.name + " " + lead.surname))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Deal Name   \n            "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deal.deal_name,
+                      expression: "deal.deal_name"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: { type: "text", id: "deal-name", name: "DealName" },
+                  domProps: { value: _vm.deal.deal_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.deal, "deal_name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Closing Date   \n            "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deal.closing_date,
+                      expression: "deal.closing_date"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: {
+                    type: "date",
+                    id: "closing-date",
+                    name: "ClosingDate"
+                  },
+                  domProps: { value: _vm.deal.closing_date },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.deal, "closing_date", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 pr-0" }, [
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Type   \n            "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.deal.type,
+                        expression: "deal.type"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.deal,
+                          "type",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "-None-", selected: "" } }, [
+                      _vm._v("-None-")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Existing Business")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("New Business")
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Lead Source   \n            "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.deal.lead_source,
+                        expression: "deal.lead_source"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.deal,
+                          "lead_source",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "-None-", selected: "" } }, [
+                      _vm._v("-None-")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Advertising")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Cold Call")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Employee Referral")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("External Referral")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("Online Store")
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Amount   \n            "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deal.amount,
+                      expression: "deal.amount"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: { type: "number", id: "amount", name: "Amount" },
+                  domProps: { value: _vm.deal.amount },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.deal, "amount", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 px-0" }, [
+            _c(
+              "label",
+              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+              [
+                _vm._v("Description Information   \n            "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deal.description,
+                      expression: "deal.description"
+                    }
+                  ],
+                  staticClass: "form-control border-0",
+                  attrs: { id: "info", name: "Info" },
+                  domProps: { value: _vm.deal.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.deal, "description", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "col-3" }, [
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Stage   \n        "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.deal.stage,
+                  expression: "deal.stage"
+                }
+              ],
+              staticClass: "custom-select rounded-pill border-0",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.deal,
+                    "stage",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "-None-", selected: "" } }, [
+                _vm._v("-None-")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "1" } }, [
+                _vm._v("Qualification")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [
+                _vm._v("Needs Analysis")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [
+                _vm._v("Value Proposition")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "4" } }, [_vm._v("Proposal")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "5" } }, [_vm._v("Negotiation")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Probability (%)   \n        "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.deal.probability,
+                expression: "deal.probability"
+              }
+            ],
+            staticClass: "form-control border-0 rounded-pill",
+            attrs: { type: "text", id: "probability", name: "Probability" },
+            domProps: { value: _vm.deal.probability },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.deal, "probability", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Expected Revenue   \n        "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.deal.expected_revenue,
+                expression: "deal.expected_revenue"
+              }
+            ],
+            staticClass: "form-control border-0 rounded-pill",
+            attrs: { type: "number", id: "revenue", name: "Revenue" },
+            domProps: { value: _vm.deal.expected_revenue },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.deal, "expected_revenue", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Contact Name   \n        "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.deal.contact_name,
+                expression: "deal.contact_name"
+              }
+            ],
+            staticClass: "form-control border-0 rounded-pill",
+            attrs: { type: "text", id: "contact-name", name: "ContactName" },
+            domProps: { value: _vm.deal.contact_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.deal, "contact_name", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Contact Number   \n        "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.deal.contact_number,
+                expression: "deal.contact_number"
+              }
+            ],
+            staticClass: "form-control border-0 rounded-pill",
+            attrs: { type: "tel", id: "contact-number", name: "ContactNumber" },
+            domProps: { value: _vm.deal.contact_number },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.deal, "contact_number", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" }, [
+          _vm._v("Status     \n        "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.deal.status,
+                  expression: "deal.status"
+                }
+              ],
+              staticClass: "custom-select rounded-pill border-0",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.deal,
+                    "status",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "-None-", selected: "" } }, [
+                _vm._v("-None-")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "1" } }, [_vm._v("Paid")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("Pending")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [_vm._v("Due")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "4" } }, [_vm._v("Rejected")])
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-2 align-self-end pr-0" }, [
         _c("div", { staticClass: "row mx-0" }, [
@@ -378252,7 +380101,11 @@ var render = function() {
               {
                 staticClass: "btn btn-default cancel-deal w-100 m-0 border-0",
                 attrs: { type: "submit" },
-                on: { click: function($event) {} }
+                on: {
+                  click: function($event) {
+                    return _vm.clearDeal()
+                  }
+                }
               },
               [_vm._v("Cancel")]
             )
@@ -378264,7 +380117,11 @@ var render = function() {
               {
                 staticClass: "btn btn-primary save-deal w-100 rounded-pill m-0",
                 attrs: { type: "submit" },
-                on: { click: function($event) {} }
+                on: {
+                  click: function($event) {
+                    return _vm.createDeal()
+                  }
+                }
               },
               [_vm._v("Save")]
             )
@@ -378274,145 +380131,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-7 pl-0" }, [
-      _c("div", { staticClass: "row mx-0" }, [
-        _c("div", { staticClass: "col-6 pl-0" }, [
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Agent Name")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control rounded-pill",
-            attrs: { type: "text", id: "agent-name", name: "AgentName" }
-          }),
-          _vm._v(" "),
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Deal Name")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control rounded-pill",
-            attrs: { type: "text", id: "deal-name", name: "DealName" }
-          }),
-          _vm._v(" "),
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Closing Date")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control rounded-pill",
-            attrs: { type: "date", id: "closing-date", name: "ClosingDate" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 pr-0" }, [
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Type")
-          ]),
-          _vm._v(" "),
-          _c("select", { staticClass: "custom-select rounded-pill" }, [
-            _c("option", { attrs: { selected: "" } }, [_vm._v("-None-")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Existing Business")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("New Business")])
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Lead Source")
-          ]),
-          _vm._v(" "),
-          _c("select", { staticClass: "custom-select rounded-pill" }, [
-            _c("option", { attrs: { selected: "" } }, [_vm._v("-None-")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Advertising")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Cold Call")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [
-              _vm._v("Employee Referral")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "4" } }, [
-              _vm._v("External Referral")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "5" } }, [_vm._v("Online Store")])
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Amount")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control rounded-pill",
-            attrs: { type: "number", id: "amount", name: "Amount" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 px-0" }, [
-          _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-            _vm._v("Description Information")
-          ]),
-          _vm._v(" "),
-          _c("textarea", {
-            staticClass: "form-control",
-            attrs: { id: "info", name: "Info" }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3 align-self-end" }, [
-      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-        _vm._v("Probability (%)")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control rounded-pill",
-        attrs: { type: "text", id: "probability", name: "Probability" }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-        _vm._v("Expected Revenue")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control rounded-pill",
-        attrs: { type: "number", id: "revenue", name: "Revenue" }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-        _vm._v("Contact Name")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control rounded-pill",
-        attrs: { type: "text", id: "contact-name", name: "ContactName" }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-lg-12 control-label w-100 p-0" }, [
-        _vm._v("Contact Number")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control rounded-pill",
-        attrs: { type: "tel", id: "contact-number", name: "ContactNumber" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -378655,7 +380374,7 @@ var render = function() {
                 "a-card",
                 { staticClass: "add-box-shadow", attrs: { title: "Add User" } },
                 [
-                  _c("div", { staticClass: "divider-line small-screen-hide" }),
+                  _c("div", { staticClass: "divider-line" }),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -379366,7 +381085,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "label",
-                            { staticClass: "col-lg-12 control-label" },
+                            { staticClass: "col-lg-12 control-label right" },
                             [
                               _c(
                                 "button",
@@ -379380,7 +381099,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_vm._v("Add User")]
+                                [_vm._v("Add")]
                               )
                             ]
                           )
@@ -379858,7 +381577,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "row mx-0 pb-4 justify-content-between top-section agent-stats-1"
+                "row mx-0 pb-5 justify-content-between top-section agent-stats-1"
             },
             _vm._l(_vm.item_custom_fields, function(custom_field, index) {
               return _c(
@@ -379871,13 +381590,13 @@ var render = function() {
                           name == "source" && item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -379892,7 +381611,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -379905,13 +381624,13 @@ var render = function() {
                             : name == "product" && item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -379926,7 +381645,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -379940,13 +381659,13 @@ var render = function() {
                               item.meta_value !== null
                             ? _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -379961,7 +381680,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -379982,14 +381701,14 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "row mx-1 border-top-grey truncate"
+                                    "row mx-0 border-top-grey truncate"
                                 },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -380004,7 +381723,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -380016,13 +381735,13 @@ var render = function() {
                               )
                             : _c(
                                 "div",
-                                { staticClass: "row mx-1 border-top-grey" },
+                                { staticClass: "row mx-0 border-top-grey" },
                                 [
                                   _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-4 border-right-grey p12-25 top"
+                                        "col-4 border-right-grey p10-25 top"
                                     },
                                     [
                                       _c("p", { staticClass: "top" }, [
@@ -380037,7 +381756,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 p12-25 bottom truncate"
+                                        "col-8 p10-25 bottom truncate"
                                     },
                                     [
                                       _c("p", { staticClass: "bottom mb-0" }, [
@@ -380296,11 +382015,11 @@ var render = function() {
                                                 { staticClass: "mb-0 author" },
                                                 [
                                                   _vm._v(
-                                                    "  \n                        " +
+                                                    " \n                        " +
                                                       _vm._s(
                                                         comment.created_at
                                                       ) +
-                                                      "  \n                        "
+                                                      " \n                        "
                                                   ),
                                                   _c("br")
                                                 ]
@@ -380363,12 +382082,12 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "  \n                      " +
+                                                " \n                      " +
                                                   _vm._s(
                                                     _vm.comment.comment_type
                                                       .short
                                                   ) +
-                                                  "  \n                      "
+                                                  " \n                      "
                                               ),
                                               _c("span", [
                                                 _vm._v(
@@ -380667,7 +382386,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "  \n                      Date of Callbacks  \n                      "
+                                        " \n                      Date of Callbacks \n                      "
                                       ),
                                       _c("a-date-picker", {
                                         staticClass: "rounded-pill",
@@ -380712,7 +382431,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "  \n                      Time of Callback  \n                      "
+                                        " \n                      Time of Callback \n                      "
                                       ),
                                       _c("a-time-picker", {
                                         attrs: {
@@ -380867,67 +382586,61 @@ var render = function() {
                           }
                         },
                         [
-                          _c(
-                            "div",
-                            {},
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "row mx-0 justify-content-between align-items-center summary"
-                                },
-                                [
-                                  _c("div", { staticClass: "col-auto pl-0" }, [
-                                    _c("p", [
-                                      _vm._v(
-                                        _vm._s(_vm.comments.total_comments) +
-                                          " review(s)"
-                                      )
-                                    ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-auto px-0" }, [
+                          _c("div", {}, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "row mx-0 justify-content-between align-items-center summary"
+                              },
+                              [
+                                _c("div", { staticClass: "col-auto pl-0" }, [
+                                  _c("p", [
+                                    _vm._v(
+                                      _vm._s(_vm.comments.total_comments) +
+                                        " review(s)"
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-auto px-0" }, [
+                                  _c("div", { staticClass: "row mx-0 mb-0" }, [
                                     _c(
                                       "div",
-                                      { staticClass: "row mx-0 mb-0" },
+                                      { staticClass: "col-auto px-0" },
                                       [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-auto px-0" },
-                                          [
-                                            _c("p", [
-                                              _vm._v(
-                                                "Called: " +
-                                                  _vm._s(
-                                                    _vm.comments.total_calls
-                                                  )
+                                        _c("p", [
+                                          _vm._v(
+                                            "Called: " +
+                                              _vm._s(_vm.comments.total_calls)
+                                          )
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-auto pr-0" },
+                                      [
+                                        _c("p", [
+                                          _vm._v(
+                                            "Answered: " +
+                                              _vm._s(
+                                                _vm.comments
+                                                  .total_answered_calls
                                               )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-auto pr-0" },
-                                          [
-                                            _c("p", [
-                                              _vm._v(
-                                                "Answered: " +
-                                                  _vm._s(
-                                                    _vm.comments
-                                                      .total_answered_calls
-                                                  )
-                                              )
-                                            ])
-                                          ]
-                                        )
+                                          )
+                                        ])
                                       ]
                                     )
                                   ])
-                                ]
-                              ),
-                              _vm._v(" "),
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "stats-bars" },
                               _vm._l(_vm.comments.comments_graph, function(
                                 stat,
                                 index
@@ -380952,7 +382665,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "col-12 align-content-end px-0"
+                                                "col-12 align-content-end pl-0"
                                             },
                                             [
                                               _c(
@@ -380988,7 +382701,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c(
                                             "div",
-                                            { staticClass: "col-11 pr-0 pl-4" },
+                                            { staticClass: "col-11 pl-4" },
                                             [
                                               _c(
                                                 "div",
@@ -381013,10 +382726,10 @@ var render = function() {
                                     ])
                                   ]
                                 )
-                              })
-                            ],
-                            2
-                          )
+                              }),
+                              0
+                            )
+                          ])
                         ]
                       ),
                       _vm._v(" "),
@@ -381044,7 +382757,73 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(7),
+                          _c(
+                            "div",
+                            { staticClass: "row mx-0 align-items-center" },
+                            [
+                              _vm._m(7),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto pl-0 mb-2 pr-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Introduce Stock")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("First time sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto mb-2 px-1" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-default m-0 border-0 text-capitalize",
+                                    attrs: { type: "submit" },
+                                    on: { click: function($event) {} }
+                                  },
+                                  [_vm._v("Up sell")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-auto mb-2 pr-0 pl-1" },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default m-0 border-0 text-capitalize",
+                                      attrs: { type: "submit" },
+                                      on: { click: function($event) {} }
+                                    },
+                                    [_vm._v("Extra Info")]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
                           _c("textarea", {
                             staticClass: "form-control border-0",
@@ -381113,23 +382892,49 @@ var render = function() {
                           },
                           [
                             _c("li", { staticClass: "nav-item" }, [
-                              _vm._m(8),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticStyle: { cursor: "pointer" },
-                                attrs: {
-                                  src: "/images/icons/Module_Add.svg",
-                                  width: "47"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.addActivityCollapse()
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link active",
+                                  attrs: {
+                                    id: "one-tab",
+                                    "data-toggle": "tab",
+                                    href: "#five",
+                                    role: "tab",
+                                    "aria-controls": "Five",
+                                    "aria-selected": "true"
                                   }
-                                }
-                              })
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/workstation/Open Activities.svg",
+                                      alt: "Icon",
+                                      width: "31"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("Open Activities")]),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "d-none add-activity",
+                                    attrs: {
+                                      src: "/images/icons/Field_Add.svg",
+                                      width: "16"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addActivityCollapse()
+                                      }
+                                    }
+                                  })
+                                ]
+                              )
                             ]),
                             _vm._v(" "),
-                            _vm._m(9)
+                            _vm._m(8)
                           ]
                         )
                       ]
@@ -381142,159 +382947,6 @@ var render = function() {
                         attrs: { id: "myTabContent" }
                       },
                       [
-                        _vm.add_client_activity
-                          ? _c(
-                              "div",
-                              {
-                                staticClass: "tab-pane fade show active",
-                                attrs: {
-                                  id: "five",
-                                  role: "tabpanel",
-                                  "aria-labelledby": "one-tab"
-                                }
-                              },
-                              [
-                                _c("a-input", {
-                                  directives: [
-                                    {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: "'required'"
-                                    }
-                                  ],
-                                  staticStyle: { width: "100%" },
-                                  attrs: {
-                                    placeholder: "Subject",
-                                    name: "Subject"
-                                  },
-                                  model: {
-                                    value: _vm.activity.title,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.activity, "title", $$v)
-                                    },
-                                    expression: "activity.title"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: _vm.errors.has("Subject"),
-                                        expression: "errors.has('Subject')"
-                                      }
-                                    ],
-                                    staticClass: "help-block",
-                                    attrs: { id: "error" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.first("Subject")))]
-                                ),
-                                _vm._v(" "),
-                                _c("a-date-picker", {
-                                  directives: [
-                                    {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: "'required'"
-                                    }
-                                  ],
-                                  staticStyle: { width: "100%" },
-                                  attrs: { name: "Due Date" },
-                                  model: {
-                                    value: _vm.activity.duedate,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.activity, "duedate", $$v)
-                                    },
-                                    expression: "activity.duedate"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: _vm.errors.has("Due Date"),
-                                        expression: "errors.has('Due Date')"
-                                      }
-                                    ],
-                                    staticClass: "help-block",
-                                    attrs: { id: "error" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.first("Due Date")))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a-radio-group",
-                                  {
-                                    model: {
-                                      value: _vm.activity.status,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.activity, "status", $$v)
-                                      },
-                                      expression: "activity.status"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 0 } },
-                                      [_vm._v("Open")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 1 } },
-                                      [_vm._v("Closed")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 2 } },
-                                      [_vm._v("Finished")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 3 } },
-                                      [_vm._v("In Progress")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a-radio-button",
-                                      { attrs: { value: 4 } },
-                                      [_vm._v("Not Started")]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-primary update-user w-100 rounded-pill m-0",
-                                    attrs: { type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.addActivity()
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Add")]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
                         _c(
                           "div",
                           {
@@ -381306,33 +382958,291 @@ var render = function() {
                             }
                           },
                           [
+                            _vm.add_client_activity
+                              ? _c(
+                                  "div",
+                                  { staticClass: "mb-5 new-activity" },
+                                  [
+                                    _vm._m(9),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "row mx-0" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-6 px-0" },
+                                        [
+                                          _c("label", [_vm._v("Subject")]),
+                                          _vm._v(" "),
+                                          _c("a-input", {
+                                            directives: [
+                                              {
+                                                name: "validate",
+                                                rawName: "v-validate",
+                                                value: "required",
+                                                expression: "'required'"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "w-100 rounded-pill activity-subject",
+                                            attrs: {
+                                              placeholder:
+                                                "Please enter an activity subject...",
+                                              name: "Subject"
+                                            },
+                                            model: {
+                                              value: _vm.activity.title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.activity,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "activity.title"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value: _vm.errors.has(
+                                                    "Subject"
+                                                  ),
+                                                  expression:
+                                                    "errors.has('Subject')"
+                                                }
+                                              ],
+                                              staticClass: "help-block",
+                                              attrs: { id: "error" }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.errors.first("Subject")
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "row mx-0 align-items-end"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto pl-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    { staticClass: "d-block" },
+                                                    [_vm._v("Due date")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("a-date-picker", {
+                                                    directives: [
+                                                      {
+                                                        name: "validate",
+                                                        rawName: "v-validate",
+                                                        value: "required",
+                                                        expression: "'required'"
+                                                      }
+                                                    ],
+                                                    attrs: { name: "Due Date" },
+                                                    model: {
+                                                      value:
+                                                        _vm.activity.duedate,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.activity,
+                                                          "duedate",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "activity.duedate"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      directives: [
+                                                        {
+                                                          name: "show",
+                                                          rawName: "v-show",
+                                                          value: _vm.errors.has(
+                                                            "Due Date"
+                                                          ),
+                                                          expression:
+                                                            "errors.has('Due Date')"
+                                                        }
+                                                      ],
+                                                      staticClass: "help-block",
+                                                      attrs: { id: "error" }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.errors.first(
+                                                            "Due Date"
+                                                          )
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-auto activity-status-col"
+                                                },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "d-block ml-0"
+                                                    },
+                                                    [_vm._v("Status")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select",
+                                                    {
+                                                      model: {
+                                                        value:
+                                                          _vm.activity.status,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.activity,
+                                                            "status",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "activity.status"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 0 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status finished-activity"
+                                                          }),
+                                                          _vm._v("Finished")
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 1 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status in-progress-activity"
+                                                          }),
+                                                          _vm._v("In Progress")
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "a-select-option",
+                                                        { attrs: { value: 2 } },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "d-inline-block activity-status not-started-activity"
+                                                          }),
+                                                          _vm._v("Not Started")
+                                                        ]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-auto ml-auto pr-0"
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-primary update-user w-100 rounded-pill m-0 font-weight-bold",
+                                                      attrs: { type: "submit" },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addActivity()
+                                                        }
+                                                      }
+                                                    },
+                                                    [_vm._v("Add")]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ])
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
                             _c("b-table", {
                               attrs: {
                                 hover: "",
                                 items: _vm.activityItems,
                                 "per-page": _vm.perPage,
                                 "current-page": _vm.currentPage,
-                                "sticky-header": ""
+                                "sticky-header": "190px"
                               },
                               scopedSlots: _vm._u(
                                 [
-                                  _vm._l(_vm.activityItems, function(item) {
-                                    return {
-                                      key: "cell(statusColor)",
-                                      fn: function(data) {
-                                        return [
-                                          _c("p", [
-                                            _vm._v(
-                                              "hi " + _vm._s(item.statusColor)
-                                            )
-                                          ])
-                                        ]
-                                      }
+                                  {
+                                    key: "statusColor",
+                                    fn: function(data) {
+                                      return [
+                                        _c("div", {
+                                          staticClass: "activity-status",
+                                          style: {
+                                            backgroundColor:
+                                              data.item.statusColor
+                                          }
+                                        })
+                                      ]
                                     }
-                                  })
+                                  }
                                 ],
                                 null,
-                                true
+                                false,
+                                3231657303
                               )
                             }),
                             _vm._v(" "),
@@ -381340,7 +383250,8 @@ var render = function() {
                               attrs: {
                                 "total-rows": _vm.rows,
                                 "per-page": _vm.perPage,
-                                "aria-controls": "my-table"
+                                "aria-controls": "my-table",
+                                align: "right"
                               },
                               model: {
                                 value: _vm.currentPage,
@@ -381369,27 +383280,106 @@ var render = function() {
                               attrs: {
                                 hover: "",
                                 items: _vm.activityItems,
-                                "per-page": "5"
+                                "sticky-header": "190px",
+                                "per-page": _vm.perPage
                               },
                               scopedSlots: _vm._u(
                                 [
                                   {
-                                    key: "cell(statusColor)",
+                                    key: "statusColor",
                                     fn: function(data) {
                                       return [
-                                        _c(
-                                          "p",
-                                          { style: { color: _vm.statusColor } },
-                                          [_vm._v("hi")]
-                                        )
+                                        _c("div", {
+                                          staticClass: "activity-status",
+                                          style: {
+                                            backgroundColor:
+                                              data.item.statusColor
+                                          }
+                                        })
                                       ]
                                     }
                                   }
                                 ],
                                 null,
                                 false,
-                                1390597447
+                                3231657303
                               )
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              attrs: {
+                                "total-rows": _vm.rows,
+                                "per-page": _vm.perPage,
+                                "aria-controls": "my-table",
+                                align: "right"
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mx-0 mb-0 deals" }, [
+              _c("div", { staticClass: "col-lg-12 px-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "card shadow-none mt-3 border-0 tab-card" },
+                  [
+                    _vm._m(10),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-content",
+                        attrs: { id: "myTabContent" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "seven",
+                              role: "tabpanel",
+                              "aria-labelledby": "one-tab"
+                            }
+                          },
+                          [
+                            _c("b-table", {
+                              attrs: { hover: "", items: _vm.dealItems }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "eight",
+                              role: "tabpanel",
+                              "aria-labelledby": "two-tab"
+                            }
+                          },
+                          [
+                            _c("create-deal", {
+                              attrs: {
+                                empty_deal: _vm.deal,
+                                lead_id: _vm.item_id
+                              }
                             })
                           ],
                           1
@@ -381457,7 +383447,231 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div"),
+    _vm.active_calls == true
+      ? _c("div", {}, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "row stats scroll-hidden horizontal-scroll w-100 mx-0",
+              staticStyle: { "margin-top": "6%" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "col-lg-12" },
+                [
+                  _vm.show_page_loader === true ? _c("vcl-table") : _vm._e(),
+                  _vm._v(" "),
+                  _vm.show_page_loader === false
+                    ? _c("datatable", {
+                        attrs: {
+                          id: "datatable",
+                          rows: _vm.conferences,
+                          columns: _vm.columns,
+                          role: _vm.role_id
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            ]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c(
+          "b-modal",
+          {
+            ref: "final-call-step",
+            staticStyle: { "z-index": "999999", padding: "1rem 3rem" },
+            attrs: {
+              id: "modal-prevent-closing",
+              size: "xl",
+              title: "",
+              "hide-header": "",
+              "hide-footer": ""
+            },
+            on: { mouseleave: _vm.mouseLeave, hide: _vm.preventClosing }
+          },
+          [
+            _c("div", { staticClass: "final-modal" }, [
+              _c("div", { staticClass: "row row-a w-100 ml-0" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6",
+                    staticStyle: { "padding-left": "6%" }
+                  },
+                  [
+                    _c("ul", { staticClass: "navbar-nav left" }, [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "nav-item d-none d-sm-inline-block title"
+                        },
+                        [
+                          _c("countdown", {
+                            attrs: { time: _vm.set_time },
+                            on: {
+                              progress: _vm.handleCountdownProgress,
+                              abort: _vm.handleAbort
+                            },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      _vm._s(props.minutes) +
+                                        ":" +
+                                        _vm._s(props.seconds)
+                                    )
+                                  ]
+                                }
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-lg-6 pr-0",
+                    staticStyle: { "padding-top": "2%" }
+                  },
+                  [
+                    _c("div", { staticClass: "w-100" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _vm.added_time
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "w-100 m-0",
+                                  class: {
+                                    btn: true,
+                                    "btn-active border-0 font-weight-bold": true
+                                  },
+                                  attrs: { type: "submit", disabled: "" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v("More Time    \n                ")
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "w-100 m-0",
+                                  class: {
+                                    btn: true,
+                                    "btn-active border-0 font-weight-bold": true
+                                  },
+                                  attrs: { type: "submit" },
+                                  on: { click: _vm.addTime }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "icon",
+                                    attrs: {
+                                      src: "/images/icons/Asset 135.svg",
+                                      alt: "Icon"
+                                    }
+                                  }),
+                                  _vm._v("More Time    \n                ")
+                                ]
+                              )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-4 control-label pr-0 text-right",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "w-100 m-0",
+                              class: {
+                                btn: true,
+                                "btn-active border-0 font-weight-bold": true
+                              },
+                              attrs: { type: "submit" },
+                              on: { click: _vm.completeCall }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "icon",
+                                attrs: {
+                                  src: "/images/icons/Asset 136.svg",
+                                  alt: "Icon"
+                                }
+                              }),
+                              _vm._v("Complete    \n                ")
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-3 control-label pr-0 text-right",
+                          staticStyle: { "margin-right": "8px", float: "left" }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            staticStyle: {
+                              width: "60px",
+                              "margin-top": "-13px"
+                            },
+                            attrs: {
+                              src: "/images/icons/Asset 56.svg",
+                              alt: "Icon"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "row mx-0 mb-0 justify-content-between"
+              })
+            ])
+          ]
+        )
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("input", {
       ref: "callBtn",
@@ -381480,7 +383694,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Client  \n          ")
+      _vm._v(" \n            Client \n          ")
     ])
   },
   function() {
@@ -381492,7 +383706,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Product  \n          ")
+      _vm._v(" \n            Product \n          ")
     ])
   },
   function() {
@@ -381506,7 +383720,7 @@ var staticRenderFns = [
             staticClass: "icon",
             attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
           }),
-          _vm._v("  \n            Last Called by  \n          ")
+          _vm._v(" \n            Last Called by \n          ")
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "card-text mb-2" }, [_vm._v("John Hill")]),
@@ -381524,7 +383738,7 @@ var staticRenderFns = [
         staticClass: "icon",
         attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
       }),
-      _vm._v("  \n            Time  \n          ")
+      _vm._v(" \n            Time \n          ")
     ])
   },
   function() {
@@ -381557,18 +383771,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-22" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Agent Notes.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Agent Notes")])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Agent Notes.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Agent Notes")])
                 ]
               )
             ]),
@@ -381588,18 +383800,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-22" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Schedule Callback.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Schedule Callback")])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Schedule Callback.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Schedule Callback")])
                 ]
               )
             ])
@@ -381727,19 +383937,17 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-12" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Feeback Summary.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "left w-50" }, [
-                      _vm._v("Feedback Summary")
-                    ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Feeback Summary.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left w-50" }, [
+                    _vm._v("Feedback Summary")
                   ])
                 ]
               )
@@ -381760,20 +383968,16 @@ var staticRenderFns = [
                   }
                 },
                 [
-                  _c("div", { staticClass: "mr-12" }, [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/images/icons/workstation/Email Client.svg",
-                        alt: "Icon",
-                        width: "31px"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "left" }, [
-                      _vm._v("Email Client")
-                    ])
-                  ])
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Email Client.svg",
+                      alt: "Icon",
+                      width: "31px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "left" }, [_vm._v("Email Client")])
                 ]
               )
             ])
@@ -381786,88 +383990,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0 align-items-center" }, [
-      _c("div", { staticClass: "col-auto pl-0" }, [
-        _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
-          _vm._v("Templates:")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto pl-0 mb-2 pr-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Introduce Stock")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("First time sell")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 px-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Up sell")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-auto mb-2 pr-0 pl-1" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default m-0 border-0 text-capitalize",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Extra Info")]
-        )
+    return _c("div", { staticClass: "col-auto pl-0" }, [
+      _c("p", { staticClass: "text-uppercase font-weight-bold mb-2" }, [
+        _vm._v("Templates:")
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "nav-link active",
-        attrs: {
-          id: "one-tab",
-          "data-toggle": "tab",
-          href: "#five",
-          role: "tab",
-          "aria-controls": "Five",
-          "aria-selected": "true"
-        }
-      },
-      [
-        _c("img", {
-          staticClass: "icon",
-          attrs: {
-            src: "/images/icons/workstation/Open Activities.svg",
-            alt: "Icon",
-            width: "13%"
-          }
-        }),
-        _vm._v(" "),
-        _c("span", [_vm._v("Open Activities")])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -381893,7 +384020,7 @@ var staticRenderFns = [
             attrs: {
               src: "/images/icons/workstation/Closed Activities.svg",
               alt: "Icon",
-              width: "13%"
+              width: "31"
             }
           }),
           _vm._v(" "),
@@ -381901,6 +384028,105 @@ var staticRenderFns = [
         ]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row mx-0 align-items-center permissions-divider" },
+      [
+        _c("div", { staticClass: "col-auto pl-0" }, [
+          _c("h5", { staticClass: "mb-0" }, [_vm._v("Create a new activity")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col px-0" }, [
+          _c("div", { staticClass: "divider-line" })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header tab-card-header border-bottom-0 pt-0 px-0" },
+      [
+        _c(
+          "ul",
+          {
+            staticClass: "nav nav-tabs card-header-tabs mx-0",
+            attrs: { id: "myTab", role: "tablist" }
+          },
+          [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link active",
+                  attrs: {
+                    id: "one-tab",
+                    "data-toggle": "tab",
+                    href: "#seven",
+                    role: "tab",
+                    "aria-controls": "Seven",
+                    "aria-selected": "true"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    attrs: {
+                      src: "/images/icons/workstation/Deals.svg",
+                      alt: "Icon",
+                      width: "13%"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Deals")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "two-tab",
+                    "data-toggle": "tab",
+                    href: "#eight",
+                    role: "tab",
+                    "aria-controls": "Eight",
+                    "aria-selected": "false"
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "icon",
+                    staticStyle: {
+                      "margin-top": "11px",
+                      "margin-bottom": "11px"
+                    },
+                    attrs: {
+                      src: "/images/icons/workstation/Create_a_deal.svg",
+                      alt: "Icon",
+                      width: "36"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Create a Deal")])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -414549,6 +416775,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&");
+/* harmony import */ var _CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "21fdf7aa",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Preferences/CommissionStructure.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=style&index=0&id=21fdf7aa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_style_index_0_id_21fdf7aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Preferences/CommissionStructure.vue?vue&type=template&id=21fdf7aa&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommissionStructure_vue_vue_type_template_id_21fdf7aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/Preferences/EditModule.vue":
 /*!*******************************************************************!*\
   !*** ./resources/assets/js/components/Preferences/EditModule.vue ***!
@@ -414988,15 +417301,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************!*\
   !*** ./resources/assets/js/components/Transactions/createDeal.vue ***!
   \********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createDeal_vue_vue_type_template_id_8da0a4ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createDeal.vue?vue&type=template&id=8da0a4ca&scoped=true& */ "./resources/assets/js/components/Transactions/createDeal.vue?vue&type=template&id=8da0a4ca&scoped=true&");
 /* harmony import */ var _createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createDeal.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Transactions/createDeal.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _createDeal_vue_vue_type_style_index_0_id_8da0a4ca_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createDeal.vue?vue&type=style&index=0&id=8da0a4ca&scoped=true&lang=css& */ "./resources/assets/js/components/Transactions/createDeal.vue?vue&type=style&index=0&id=8da0a4ca&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _createDeal_vue_vue_type_style_index_0_id_8da0a4ca_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createDeal.vue?vue&type=style&index=0&id=8da0a4ca&scoped=true&lang=css& */ "./resources/assets/js/components/Transactions/createDeal.vue?vue&type=style&index=0&id=8da0a4ca&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -415028,15 +417340,13 @@ component.options.__file = "resources/assets/js/components/Transactions/createDe
 /*!*********************************************************************************************!*\
   !*** ./resources/assets/js/components/Transactions/createDeal.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createDeal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Transactions/createDeal.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createDeal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
