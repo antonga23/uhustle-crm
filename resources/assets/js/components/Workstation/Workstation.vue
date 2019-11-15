@@ -1642,7 +1642,8 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table"   
-                    align="right"
+                    align="center"
+                    size="sm"
                   ></b-pagination>                
                 </div>   
    
@@ -1690,7 +1691,8 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table" 
-                    align="right"  
+                    align="center"
+                    size="sm"  
                   ></b-pagination> 
                 </div>    
               </div>    
@@ -1886,7 +1888,9 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table" 
-                    align="right"  
+                    align="center"
+                    size="sm"  
+                    class="mt-4"
                   ></b-pagination>        
                 </div>   
    

@@ -1061,7 +1061,17 @@ text-align: right;
 .createDeal .ant-calendar-picker-clear {
   top:35%;
 }
+.page-link {
+  border: 0!important;
+  padding: 2px 7px 1px!important;
+  color: #AAAAAA!important;
+  font-family: 'Rubik', sans-serif!important;
+  font-size: 10px!important;
+  line-height:1em;
+}
 .page-item.active .page-link {
-  background-color: #ccc;
-  border-color: #ccc;
+  background-color: #fff!important;
+  border: 1px solid #444444!important;
+  border-radius: 50rem;
+  color: #444444!important;
 }
